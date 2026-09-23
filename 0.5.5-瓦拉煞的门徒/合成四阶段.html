@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>瓦拉煞的门徒 · 合成四阶段</title>
-<meta name="description" content="流亡黯道 2 · 0.5.5 · 魔巫「瓦拉煞的门徒」灵神召唤：把 Definitiv 与 ds_lily 两份攻略合成 50 级 / 65 级 / 最底线终局 / 终局四个阶段，逐步标出演进。">
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 魔巫「瓦拉煞的门徒」灵神召唤：把 Definitiv 与 ds_lily 两份攻略合成 50 级 / 65 级 / 最底线终局 / 终局四个阶段，逐步标出演进，单页自洽。">
 <style>
 :root{
   --ground:#F1F4F3; --surface:#FFFFFF; --surface-2:#E6ECEA; --ink:#152032; --ink-2:#36435A; --muted:#5B687A; --line:#D0D9DA;
@@ -47,8 +47,7 @@ a:hover{text-decoration-thickness:2px}
 
 /* hero */
 .hero{grid-column:1/-1;padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:16px}
-.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
-.crumbs a{color:var(--muted)}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
 .title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .coin{width:52px;height:52px;flex:none}
@@ -60,7 +59,7 @@ h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;let
 .theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
 
 /* stage strip */
-.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:none}
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .stages li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative;display:grid;gap:4px;align-content:start}
 .stages li + li::before{content:"→";position:absolute;left:-12px;top:50%;transform:translate(-50%,-50%);color:var(--brass);font-size:15px;background:var(--ground);line-height:1;padding:2px 0}
 .stages .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
@@ -110,7 +109,7 @@ kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-
 .chip.add{background:var(--ok-soft);color:var(--ok)}
 .chip.del{background:var(--ember-soft);color:var(--ember)}
 .chip.chg{background:var(--brass-soft);color:var(--brass)}
-.chip.kind{background:var(--surface-2);color:var(--ink-2);font-weight:600}
+.chip.kind{background:var(--surface-2);color:var(--ink-2)}
 .src{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;line-height:1.45;min-width:1.55em;text-align:center;padding:0 4px;border-radius:4px;vertical-align:1px;margin-left:3px}
 .src.d{background:var(--accent-soft);color:var(--accent)}
 .src.l{background:var(--plum-soft);color:var(--plum)}
@@ -128,7 +127,7 @@ kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-
 .callout.note .lab{color:var(--brass)}
 
 /* evolution */
-.evo{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:16px 0;overflow:hidden}
+.evo{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:16px 0;overflow:hidden;scroll-margin-top:12px}
 .evo-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
 .evo-head h3{margin:0;font-family:var(--serif);font-size:1.12rem}
 .evo-head span{font-size:12.5px;color:var(--muted)}
@@ -149,17 +148,32 @@ kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-
 .scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
 th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
-tr:last-child td{border-bottom:0}
+tr:last-child td,tr:last-child th{border-bottom:0}
 thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
-tbody th{font-weight:600;background:var(--surface-2);font-size:13px;white-space:nowrap}
+tbody th{font-weight:600;background:var(--surface-2);font-size:13px}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-td .en{display:block}
+td .en,th .en{display:block}
 .tight td{padding-block:6px}
 .stage-tbl td{min-width:170px}
 .stage-tbl td.dim{color:var(--muted)}
 .tick{font-family:var(--mono);color:var(--ok);font-weight:700}
 .x{font-family:var(--mono);color:var(--ember);font-weight:700}
 .w-min{white-space:nowrap}
+
+/* slot cards */
+.slots{display:grid;gap:14px;margin:14px 0}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.slot-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.slot-head h4{margin:0;font-size:1rem}
+.slot-head .req{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.slot-body{padding:4px 16px 12px}
+.slot-body table{font-size:13px}
+.slot-body th,.slot-body td{padding-inline:8px 10px}
+.slot-body .scroll{margin:8px 0 10px}
+.slot-notes{font-size:13.5px}
+.slot-notes p{margin-bottom:6px}
+.slot-notes ol{margin-bottom:6px}
+.tier{font-size:12px;color:var(--muted)}
 
 /* regex */
 .rx{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0;background:var(--surface)}
@@ -186,13 +200,11 @@ footer p{max-width:none}
 <div class="page">
 
 <header class="hero">
-  <div class="crumbs">
-    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span>
-    <a href="index.html">0.5.5 瓦拉煞的门徒</a><span aria-hidden="true">/</span>
-    <span>合成四阶段</span>
+  <div class="topbar">
+    <span>流亡黯道 2 · 0.5.5 · 瓦拉煞的门徒 · 合成四阶段</span>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
   </div>
-  <div class="eyebrow">PoE2 0.5.5 · 魔巫 Sorceress · 两份攻略合成</div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 魔巫 Sorceress · 两份攻略合成</div>
   <div class="title-row">
     <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
       <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
@@ -202,12 +214,12 @@ footer p{max-width:none}
     </svg>
     <h1>瓦拉煞的门徒 · 合成四阶段<span class="en">Definitiv “The Perfect Allrounder” × ds_lily “Djinn Sorceress End Game” — Level 50 → Endgame</span></h1>
   </div>
-  <p class="lede">两份攻略打的是同一套引擎：命令技能叠傀儡大师、触发亡灵执政官、按住凯拉里之诡计秒首领。分歧在路线上——Definitiv 从 1 级写到高预算，低预算还走生命 + 能量护盾；ds_lily 只写进图之后，约 6000 ES 就转异灵之体，终局靠「主宰」涂膏把执政官变成常驻、几乎只按一个键。本页把两者按 50 级 → 65 级 → 最底线终局 → 终局合成一条路线，每一步都标了改什么、出自哪份攻略。</p>
+  <p class="lede">两份攻略打的是同一套引擎：命令技能叠傀儡大师、触发亡灵执政官、按住凯拉里之诡计秒首领。分歧在路线上——Definitiv 从 1 级写到高预算，低预算还走生命 + 能量护盾；ds_lily 只写进图之后，约 6000 ES 就转异灵之体，终局靠「主宰」涂膏把执政官变成常驻、几乎只按一个键。本页把两者合成 50 级 → 65 级 → 最底线终局 → 终局一条路线，每一步都标了改什么、出自哪份攻略。配置、逐件词缀、搜索正则与数据核验都在本页，不需要另开页面。</p>
   <ol class="stages" aria-label="四个阶段">
     <li><span class="n">① 阶段</span><b>50 级</b><span class="lv">约 46–56 级 · 第 4 幕 → 间章</span><span class="gate">第 2 次升华；灵神 3 个辅助孔；零预算</span><a href="#st1" aria-label="跳到 50 级演进"></a></li>
     <li><span class="n">② 阶段</span><b>65 级</b><span class="lv">约 60–74 级 · 进图</span><span class="gate">第 3 次升华 · 第四教义；4 个辅助孔；邪恶束衣</span><a href="#st2" aria-label="跳到 65 级演进"></a></li>
     <li><span class="n">③ 阶段</span><b>最底线终局</b><span class="lv">75–90 级 · T15 起</span><span class="gate">75 级穿齐 · 80 级第 4 次升华 · 90 级第 5 孔；几个崇高石～几个神圣石</span><a href="#st3" aria-label="跳到最底线终局演进"></a></li>
-    <li><span class="n">④ 阶段</span><b>终局</b><span class="lv">90 级后</span><span class="gate">约 6000 ES 转异灵之体 · 主宰涂膏常驻执政官；30 神圣石起</span><a href="#st4" aria-label="跳到终局演进"></a></li>
+    <li><span class="n">④ 阶段</span><b>终局</b><span class="lv">90 级后</span><span class="gate">约 6000 ES 转异灵之体 · 主宰涂膏常驻执政官</span><a href="#st4" aria-label="跳到终局演进"></a></li>
   </ol>
   <div class="legend">
     <span>来源标记：</span>
@@ -217,8 +229,8 @@ footer p{max-width:none}
     <span><b class="src db">库</b> poe2db 数据</span>
   </div>
   <div class="meta">
-    <span>原站 D：<a href="https://mobalytics.gg/poe-2/builds/definitiv-guide-to-varashta-sorceress-the-perfect-allrounder" target="_blank" rel="noopener">Definitiv Guide to Varashta Sorceress</a>（第 11 版，2026-09-16）· 中文页 <a href="低预算.html">低预算</a></span>
-    <span>原站 L：<a href="https://mobalytics.gg/poe-2/builds/djinn-sorceress-end-game" target="_blank" rel="noopener">[0.5.5] Djinn Sorceress End Game Guide</a>（第 170 版，2026-09-04）· 中文页 <a href="../0.5.5-瓦拉煞的门徒-凯拉里之诡计/65级.html">约 65 级</a> · <a href="../0.5.5-瓦拉煞的门徒-凯拉里之诡计/80级.html">约 80 级</a></span>
+    <span>原站 D：<a href="https://mobalytics.gg/poe-2/builds/definitiv-guide-to-varashta-sorceress-the-perfect-allrounder" target="_blank" rel="noopener">Definitiv Guide to Varashta Sorceress — The Perfect Allrounder</a>（第 11 版，2026-09-16 更新）· PoB <a href="https://pobb.in/f6eoOVfZMPOD" target="_blank" rel="noopener">pobb.in/f6eoOVfZMPOD</a></span>
+    <span>原站 L：<a href="https://mobalytics.gg/poe-2/builds/djinn-sorceress-end-game" target="_blank" rel="noopener">[0.5.5] Djinn Sorceress End Game Guide</a>（第 170 版，2026-09-04 更新）</span>
     <span>本页合成：<b>2026-09-23</b></span>
   </div>
 </header>
@@ -260,31 +272,33 @@ footer p{max-width:none}
     <li class="arr" aria-hidden="true">→</li>
     <li class="step hot"><b>按住凯拉里之诡计</b>3 次充能；连续使用每次总增 50%，最多 300%（0.5.5 已封顶<b class="src l">L</b>）</li>
     <li class="arr" aria-hidden="true">→</li>
-    <li class="step"><b>终局：主宰</b>执政官失去后无回复期 → 常驻，只剩诡计 + 残暴两个键<b class="src l">L</b></li>
+    <li class="step"><b>终局：主宰</b>执政官失去后没有回复期，可以立刻重新触发 → 基本常驻，只剩诡计 + 残暴两个键<b class="src l">L</b></li>
   </ol>
   <ul>
-    <li><b>海纳百川</b>：每召唤一种不同的可复活召唤生物，被辅助召唤生物伤害总增 7%——所以每种魔侍只召一只，两位作者都这么写<b class="src d">D</b><b class="src l">L</b>。</li>
-    <li><b>防御分两段</b>：①–③ 阶段走生命 + 能量护盾双池（Definitiv 低预算的写法）；④ 终局按 ds_lily 的门槛，约 6000 ES 时点异灵之体，生命变成 1、免疫混沌与流血<b class="src d">D</b><b class="src l">L</b>。第四教义（ES 充能延迟 −1 秒）贯穿 ②–④，ds_lily 说正因为它，0.5 的 ES 削弱对这个升华影响很小<b class="src l">L</b>。</li>
+    <li><b>海纳百川</b>：每召唤一种不同的可复活召唤生物，被辅助召唤生物伤害总增 7%。所以每种魔侍只召一只，种类越多越好，两位作者都这么写<b class="src d">D</b><b class="src l">L</b>。各阶段的魔侍阵容见第 4 节。</li>
+    <li><b>悉听遵命</b>：在场每有一种不同的永久性召唤生物，召唤生物用命令技能造成的伤害提高 10%——同样按种类算。</li>
+    <li><b>冷却回复三件套</b>：奉命 III（命令技能冷却回复速度 +80%）、成群结队（召唤生物冷却回复率 +20%）、亡灵执政官（+200%）。Definitiv 说最强的三个伤害来源就是亡灵执政官、傀儡大师、召唤生物冷却缩减<b class="src d">D</b>。</li>
+    <li><b>防御分两段</b>：①–③ 走生命 + 能量护盾双池（Definitiv 低预算的写法）；④ 按 ds_lily 的门槛，约 6000 ES 时点异灵之体，生命变成 1、免疫混沌与流血<b class="src d">D</b><b class="src l">L</b>。第四教义（ES 充能延迟 −1 秒）贯穿 ②–④，ds_lily 说正因为它，0.5 的 ES 削弱对这个升华影响很小<b class="src l">L</b>。</li>
   </ul>
-  <div class="callout key"><span class="lab">一句话</span><p>50–90 级：命令 → 叠层 → 执政官 → 诡计连按，装备只认“召唤生物技能等级、生命、三抗、ES”。90 级后：攒到 6000 ES 转异灵之体，涂主宰让执政官常驻。</p></div>
+  <div class="callout key"><span class="lab">一句话</span><p>50–90 级：命令 → 叠层 → 执政官 → 诡计连按，装备只认“召唤生物技能等级、生命、三抗、ES”。90 级后：攒到约 6000 ES 转异灵之体，涂主宰让执政官常驻。</p></div>
 </section>
 
 <!-- ============ 2 ============ -->
 <section id="s2">
   <h2><span class="no">2</span>阶段与演进步骤</h2>
-  <p>阶段边界由硬门槛决定，不按等级平均切。升华试炼的等级取自 poe2db：第 2 次 38 级、第 3 次 60 级、第 4 次 80 级；间章首领「埃尔扎拉，眼镜蛇领主」必掉一枚可用于第 3 次试炼的硬币<b class="src db">库</b>。</p>
+  <p>阶段边界由硬门槛决定，不按等级平均切。升华试炼：第 1 次在第 2 幕丝克玛试炼（区域 22），第 2 次 38 级、第 3 次 60 级、第 4 次 80 级；间章首领「埃尔扎拉，眼镜蛇领主」必掉一枚可用于第 3 次试炼的硬币<b class="src db">库</b>。</p>
   <div class="scroll"><table>
     <thead><tr><th>阶段</th><th>等级</th><th>进入条件（硬门槛）</th><th>这一阶段的主线</th><th>预算</th></tr></thead>
     <tbody>
-      <tr><td><b>① 50 级</b></td><td class="num">约 46–56<br><span class="small">第 4 幕 46–53、间章 54–56</span></td><td>第 2 次升华（38 级）→ 4 个升华点；灵神第 3 孔（D 说 36 级、L 说 40 级）</td><td>推战役：两灵神各 3 辅助，6 种魔侍各一只；装备只看 +召唤生物等级、三抗、生命 / ES</td><td>0</td></tr>
-      <tr><td><b>② 65 级</b></td><td class="num">约 60–74</td><td>第 3 次升华（60 级）→ 第四教义；灵神第 4 孔（D 55 / L 65）；邪恶束衣（65 级）</td><td>进图：换智慧 ES 底材、抓 Powered Zealot 灵体、上永恒紧缩之戒与埃曼纳姆的凝视</td><td>少量</td></tr>
-      <tr><td><b>③ 最底线终局</b></td><td class="num">75–90</td><td>75 级底材穿齐；78 级 18 级宝石；80 级第 4 次升华 → 神圣仪式；90 级第 5 孔与 20 级宝石</td><td>Definitiv 低预算的精确词缀 + 智慧冠冕头盔（避开 91 力量）；仍是生命 + ES</td><td>几个崇高石 → 几个神圣石 · 0 传奇</td></tr>
-      <tr><td><b>④ 终局</b></td><td class="num">90+</td><td>约 6000 ES → 异灵之体；「主宰」涂膏（轻蔑 + 痛苦 + 孤独）</td><td>常驻执政官：三灵神（L 主配置）；或纳薇拉之裂清图（D 中 / 高预算）</td><td>30–50 神圣石起（D 中预算）</td></tr>
+      <tr><td><b>① 50 级</b></td><td class="num">约 46–56<br><span class="small">第 4 幕 46–53、间章 54–56</span></td><td>第 2 次升华（38 级）→ 4 个升华点；灵神第 3 孔（D 说 36 级、L 说 40 级）</td><td>推战役：两灵神各 3 辅助，5 种魔侍 + 1 只灵体各一只；装备只看 +召唤生物等级、三抗、生命 / ES</td><td>0</td></tr>
+      <tr><td><b>② 65 级</b></td><td class="num">约 60–74</td><td>第 3 次升华（60 级）→ 第四教义；灵神第 4 孔（D 55 / L 65）；邪恶束衣（65 级）</td><td>进图：智慧 ES 底材、强能狂热者灵体、魔侍补到 7 种、永恒紧缩之戒、埃曼纳姆的凝视</td><td>少量</td></tr>
+      <tr><td><b>③ 最底线终局</b></td><td class="num">75–90</td><td>75 级底材穿齐；78 级 18 级宝石；80 级第 4 次升华 → 神圣仪式；90 级第 5 孔与 20 级宝石</td><td>Definitiv 低预算的精确词缀 + 智慧冠冕头盔；仍是生命 + ES</td><td>几个崇高石 → 几个神圣石 · 唯一的传奇是永恒紧缩之戒</td></tr>
+      <tr><td><b>④ 终局</b></td><td class="num">90+</td><td>约 6000 ES → 异灵之体；「主宰」涂膏（轻蔑 + 痛苦 + 孤独）</td><td>常驻执政官：三灵神（L 主配置，本页主推）；或纳薇拉之裂清图（D 中 / 高预算）</td><td>D 中预算约 30–50 神圣石；L 未给</td></tr>
     </tbody>
   </table></div>
 
   <h3>宝石等级随角色等级的上限</h3>
-  <p class="small">poe2db 魔侍宝石等级表（风暴法师、焚焰使、冰霜法师、神射手、蛮兵、掠夺者、祭司同一条曲线；束缚灵体、苦痛奉献的智慧需求同样到 157）。装备上的 +召唤生物等级另算。</p>
+  <p class="small">poe2db 魔侍宝石等级表（风暴法师、焚焰使、冰霜法师、神射手、蛮兵、掠夺者、祭司同一条曲线；束缚灵体、苦痛奉献 20 级同样要 157 智）。装备上的 +召唤生物等级另算。</p>
   <div class="scroll"><table class="tight">
     <thead><tr><th>角色等级 ≥</th><td class="n">46</td><td class="n">52</td><td class="n">58</td><td class="n">64</td><td class="n">66</td><td class="n">72</td><td class="n">78</td><td class="n">84</td><td class="n">90</td></tr></thead>
     <tbody>
@@ -294,13 +308,14 @@ footer p{max-width:none}
   </table></div>
 
   <div class="evo" id="st1">
-    <div class="evo-head"><h3>起步 → ① 50 级</h3><span>1–46 级：Definitiv 写到这里；ds_lily 的升级内容在另一份攻略里，不在本仓库</span></div>
+    <div class="evo-head"><h3>起步 → ① 50 级</h3><span>1–46 级只有 Definitiv 写了；ds_lily 的升级内容在她另一份攻略里，本页未收录</span></div>
     <ol>
       <li><span class="chip kind">升华</span>20/21 级打第 2 幕丝克玛试炼（区域 22），拿凯拉里硬币 + 凯拉里之诡计；之前用法术开荒（电球 → 精华吸取 / 尖刺风暴）<b class="src d">D</b></li>
-      <li><span class="chip kind">洗点</span>升华后洗成召唤树，作者提醒备约 7K 金币、1 个 T1 辅助 + 1 个 T2 辅助，最好有 +1 召唤生物权杖<b class="src d">D</b></li>
-      <li><span class="chip kind">升华</span>38 级第 2 次试炼：鲁詹硬币 + 鲁詹之陷阱（两位作者升华顺序一致：诡计 → 陷阱 → 第四教义 → 神圣仪式）<b class="src d">D</b><b class="src l">L</b></li>
-      <li><span class="chip kind">宝石</span>灵神第 3 孔：凯拉里 奉命 I + 闪电协调 + 海纳百川；鲁詹 海纳百川 + 奉命 I + 范围扩大 I<b class="src d">D</b></li>
-      <li><span class="chip kind">宝石</span>魔侍焚焰使、神射手、冰霜法师、祭司、掠夺者各一只，都只挂亡命之息；束缚灵体先抓第 3 幕 Utzal 的 Vaal Guard<b class="src d">D</b></li>
+      <li><span class="chip kind">洗点</span>升华后洗成召唤树：备约 7K 金币、1 个 T1 辅助 + 1 个 T2 辅助，最好有 +1 召唤生物权杖<b class="src d">D</b></li>
+      <li><span class="chip kind">升华</span>38 级第 2 次试炼：鲁詹硬币 + 鲁詹之陷阱。两位作者的升华顺序一致：诡计 → 陷阱 → 第四教义 → 神圣仪式（效果见第 3 节）<b class="src d">D</b><b class="src l">L</b></li>
+      <li><span class="chip kind">宝石</span>灵神第 3 孔：凯拉里 奉命 I · 闪电协调 · 海纳百川；鲁詹 海纳百川 · 奉命 I · 范围扩大 I<b class="src d">D</b></li>
+      <li><span class="chip kind">宝石</span>魔侍焚焰使、神射手、冰霜法师、祭司、掠夺者各一只，都挂亡命之息；束缚灵体先抓第 3 幕乌扎尔（区域 43）的瓦尔军卫<b class="src d">D</b></li>
+      <li><span class="chip kind">装备</span>圣地权杖 +2 召唤生物（统御之在权杖上物品等级 25 就能出）；其余只要三抗、生命 / ES、移速鞋<b class="src d">D</b></li>
       <li><span class="chip kind">任务</span>第 3 幕蛇毒地窟的永久增益选“晕眩阈值 +25%”（按名称应是「岩石之蛇毒饮剂」<b class="src s">合</b>）；第 4 幕纹身选抗性；鲨鱼鳍选 30% ES 那一项<b class="src l">L</b></li>
       <li><span class="chip kind">天赋</span>右侧路径接通后<b>退掉起点左侧的属性点</b><b class="src d">D</b></li>
     </ol>
@@ -313,13 +328,15 @@ footer p{max-width:none}
       <li><span class="chip kind">宝石</span><span class="chip add">增</span>灵神第 4 孔：两个灵神都加魁梧仆从（辅助灵神不额外占精魂）<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">宝石</span><span class="chip chg">改</span>奉命 I → 奉命 III（冷却回复速度 +80%；Definitiv：装备冷却回复不够前 III 优于 II）<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">宝石</span><span class="chip chg">改</span>鲁詹：范围扩大 I → 加长引线 II（符文不会被踩爆，清图伤害更高）<b class="src l">L</b></li>
-      <li><span class="chip kind">宝石</span><span class="chip add">增</span>间章 Etched Ravine（区域 56）捕获施放电球的 Powered Zealot 作束缚灵体，约 55 精魂；挂海纳百川、狂野碎片 II、穿透 III、狂噬 II、投射物加速 III<b class="src d">D</b><b class="src l">L</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>束缚灵体：间章刻蚀峡谷（区域 56）捕获施放电球的强能狂热者，约 55 精魂；挂海纳百川 · 狂野碎片 II · 穿透 III · 狂噬 II · 投射物加速 III<b class="src d">D</b><b class="src l">L</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>魔侍风暴法师（感电 · 过载 · 海纳百川，给 30% 感电）与魔侍蛮兵各一只，魔侍凑到 7 种；焚焰使加效能 II 与奉命 III<b class="src d">D</b><b class="src l">L</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>权杖光环火焰净化挂升流 II · 清晰 II · 活力 II（圣地权杖挂这类辅助不额外占精魂）<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">装备</span><span class="chip chg">改</span>身体换邪恶束衣（65 级，121 智）+ 2 颗高级钢铁符文——两份攻略在这件上完全一致<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">装备</span><span class="chip chg">改</span>头盔换智慧 ES 冠冕：术士冠冕（65）→ 法术冠冕（70），要 ES + 所有召唤生物技能等级 +2；插埃曼纳姆的凝视（需求 60：使用命令技能时移除一个伤害性异常状态）<b class="src l">L</b><b class="src s">合</b></li>
-      <li><span class="chip kind">装备</span><span class="chip chg">改</span>副手：德鲁伊法器（65）→ 荒凉原野法器（70）。纹章盾要 50 力量，这套配置的力量一直只有 45 左右<b class="src s">合</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>副手：德鲁伊法器（65）→ 荒凉原野法器（70）。65 级的纹章盾要 50 力量，这套配置的力量只有 17<b class="src s">合</b></li>
       <li><span class="chip kind">装备</span><span class="chip add">增</span>永恒紧缩之戒（需求 32；在场友军获得相当于伤害 15–25% 的额外混沌伤害）——ds_lily：便宜的大额伤害<b class="src l">L</b></li>
       <li><span class="chip kind">装备</span><span class="chip chg">改</span>权杖：+3 召唤生物（监督之，物品等级 55）；插声望符文（施法武器：执政官回复期消减加快 30%；羁绊：执政官持续 +30%）<b class="src l">L</b></li>
-      <li><span class="chip kind">涂膏</span><span class="chip add">增</span>项链先涂「督军领袖」（恐惧 + 恐惧 + 偏执：在场友军伤害 +40%、在场范围 +40%）；想要范围选「长距离关系」，想要防御选「顽强精神」<b class="src l">L</b></li>
+      <li><span class="chip kind">涂膏</span><span class="chip add">增</span>项链换日曜项链（基底 +10–15 精魂）+2 召唤生物，先涂「督军领袖」（恐惧 + 恐惧 + 偏执：在场友军伤害 +40%、在场范围 +40%）；想要范围选「长距离关系」（内疚 + 嫉妒 + 偏执），想要防御选「顽强精神」（愤怒 + 憎恶 + 贪婪）<b class="src l">L</b></li>
       <li><span class="chip kind">天赋</span><span class="chip add">增</span>ES 大点（洞察万物、坚忍屏障、奇思妙想）与执政官大点（欢欣执政官、充能执政官、持久执政官、复兴执政官），加无宁之众<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">任务</span>间章七柱：欧巴拉之柱（移速 +3%）或阿克莱之柱（全局护甲、闪避与 ES +15%）<b class="src l">L</b></li>
     </ol>
@@ -328,28 +345,30 @@ footer p{max-width:none}
   <div class="evo" id="st3">
     <div class="evo-head"><h3>② 65 级 → ③ 最底线终局</h3><span>门槛：75 级穿齐；78 / 90 级宝石；80 级第 4 次升华；90 级第 5 孔</span></div>
     <ol>
-      <li><span class="chip kind">装备</span><span class="chip chg">改</span>75 级：卡马萨冠冕（ES + +2 召唤生物）、瓦尔手套（生命 + 冰电抗）、沙誓鞋履（30% 移速 + 生命 + 电抗）；手套鞋子的词缀照 Definitiv 低预算<b class="src d">D</b><b class="src s">合</b></li>
-      <li><span class="chip kind">天赋</span><span class="chip del">删</span>不点「符文战盔」：Definitiv 低预算为它用 91 力量的守护者巨盔，而这套配置只有 45 力量；改走冠冕就不需要它<b class="src s">合</b></li>
-      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>78 级魔侍宝石到 18 级（137 智）<b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>75 级：卡马萨冠冕（ES + +2 召唤生物）、瓦尔手套（生命 + 冰电抗）、沙誓鞋履（30% 移速 + 生命 + 电抗）；法器、手套、鞋子的词缀照 Definitiv 低预算。逐件词缀与交易链接见第 7 节<b class="src d">D</b><b class="src s">合</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>腰带做生命 + 抗性。Definitiv 原配是 +125 生命 + 28 力量；本页不用力量头盔，力量没有用处<b class="src s">合</b></li>
+      <li><span class="chip kind">天赋</span><span class="chip del">删</span>不点「符文战盔」（头盔每 8 点护甲给 1 点 ES）：Definitiv 低预算为它用 91 力量的守护者巨盔，冠冕没有护甲，点了没用<b class="src s">合</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>78 级魔侍宝石到 18 级（137 智）<b class="src db">库</b>；精魂不够时先撤掉魔侍祭司——Definitiv 低预算阵容就没有它<b class="src d">D</b></li>
       <li><span class="chip kind">升华</span><span class="chip add">增</span>80 级第 4 次试炼：神圣仪式（当前 ES 的 60% 计入护甲算物理减伤）+ 能量护盾小点，共 8 点——两份攻略这一档升华完全相同<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">宝石</span><span class="chip add">增</span>90 级灵神第 5 孔：凯拉里 + 古加尔的缰绳（血统，需求 25；没有就用处决 II；要施放凯拉里之残暴才吃得到它的增益）；鲁詹 + 重新武装 II<b class="src d">D</b><b class="src l">L</b></li>
-      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>90 级：魔侍蛮兵、掠夺者、苦痛奉献到 20 级（157 智）<b class="src d">D</b><b class="src db">库</b></li>
-      <li><span class="chip kind">珠宝</span><span class="chip add">增</span>3 颗蓝玉：ES% + 召唤生物暴击伤害加成，其中一颗带 2% 击杀回魔<b class="src d">D</b></li>
-      <li><span class="chip kind">防御</span>保留终极生命药剂（25% 立即回复）；目标约 1.5K 生命、2–3K ES<b class="src d">D</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>90 级：魔侍蛮兵、掠夺者、苦痛奉献到 20 级（157 智）；风暴法师补亡命之息<b class="src d">D</b><b class="src db">库</b></li>
+      <li><span class="chip kind">珠宝</span><span class="chip add">增</span>3 颗蓝玉：ES% + 召唤生物暴击伤害加成，其中一颗带击杀回魔（第 9 节）<b class="src d">D</b></li>
+      <li><span class="chip kind">防御</span>保留终极生命药剂（25% 立即回复）；目标约 1.5K 生命、2–3K ES<b class="src d">D</b>。永恒紧缩之戒会让在场敌人也多造成混沌伤害，这一档还没有异灵之体，紫晶咒符别省<b class="src s">合</b></li>
     </ol>
   </div>
 
   <div class="evo" id="st4">
     <div class="evo-head"><h3>③ 最底线终局 → ④ 终局</h3><span>门槛：约 6000 ES；主宰涂膏</span></div>
     <ol>
-      <li><span class="chip kind">关键石</span><span class="chip add">增</span>约 6000 ES 时点异灵之体<b class="src l">L</b>；同一时间：<span class="chip del">删</span>生命药剂，装备上的生命词缀换成 ES / 精魂；如果点过或涂过「高效缓冲」（受到伤害的 5% 穿透 ES）必须去掉<b class="src l">L</b>——生命为 1 时穿透伤害直接致命<b class="src s">合</b></li>
+      <li><span class="chip kind">关键石</span><span class="chip add">增</span>约 6000 ES 时点异灵之体<b class="src l">L</b>；同一时间 <span class="chip del">删</span>生命药剂，装备上的生命词缀换成 ES / 精魂；如果点过或涂过「高效缓冲」（受到伤害的 5% 穿透 ES）必须去掉<b class="src l">L</b>——生命为 1 时穿透伤害直接致命<b class="src s">合</b></li>
       <li><span class="chip kind">涂膏</span><span class="chip chg">改</span>项链涂「主宰」：轻蔑 + 痛苦 + 孤独，远古情感不行<b class="src l">L</b>（Definitiv 的项链步骤也写涂主宰<b class="src d">D</b>）。效果：你身上的执政官增益效果降低 50%，失去后没有回复期</li>
       <li><span class="chip kind">装备</span><span class="chip chg">改</span>权杖的声望符文 → 狂猿雕像（权杖：在场友军伤害 +40%）<b class="src l">L</b>——主宰后执政官没有回复期，声望符文的“回复期加快”就作废了<b class="src s">合</b></li>
-      <li><span class="chip kind">天赋</span><span class="chip del">删</span>复兴执政官（同理作废）、康复、无宁之众、持久执政官<b class="src d">D</b>；<span class="chip add">增</span>异灵之体、亡魂舞步、冻结 / 炼狱 / 电震上限（为失落的蓝玉提供大点）<b class="src d">D</b><b class="src l">L</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>火焰净化的活力 II（每秒再生 2% 生命）→ 冷静头脑：异灵之体下生命再生没有意义<b class="src s">合</b>；冷静头脑在 ds_lily 列出的纯净权杖辅助里<b class="src l">L</b></li>
+      <li><span class="chip kind">天赋</span><span class="chip del">删</span>复兴执政官（同理作废）、充能执政官、持久执政官、康复、无宁之众<b class="src d">D</b><b class="src l">L</b>；<span class="chip add">增</span>异灵之体、亡魂舞步、冻结 / 炼狱 / 电震上限（为失落的蓝玉提供大点）<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">升华</span><span class="chip chg">改</span>神圣仪式 → 硬币地脉（配失落的蓝玉）<b class="src d">D</b><b class="src l">L</b>；鲁詹之陷阱 → 纳薇拉硬币（三灵神）<b class="src l">L</b>，或两个鲁詹点 → 纳薇拉硬币 + 纳薇拉之裂<b class="src d">D</b></li>
-      <li><span class="chip kind">装备</span><span class="chip chg">改</span>80 级终局底材：先祖冠冕、塔萨里奥法器（渎灵 +2 召唤生物）、丝克玛便鞋、日曜项链 +3 / +4；身体选敬奉之绸（两位都说是预算选择）或高 ES 邪恶束衣 + 精魂<b class="src d">D</b><b class="src l">L</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>80 级终局底材：先祖冠冕、塔萨里奥法器（渎灵 +2 召唤生物）、丝克玛便鞋、日曜项链 +3 / +4；身体选敬奉之绸（ds_lily 称“好的预算选择”，Definitiv 中预算就用它）或高 ES 邪恶束衣 + 精魂<b class="src d">D</b><b class="src l">L</b></li>
       <li><span class="chip kind">装备</span><span class="chip chg">改</span>戒指：赌神芬多 ×2<b class="src l">L</b> 或永恒紧缩之戒 + 赌神芬多<b class="src d">D</b>；腰带：命令伤害稀有腰带<b class="src l">L</b>、夜临配雕像<b class="src d">D</b>，或法师之血<b class="src d">D</b><b class="src l">L</b></li>
-      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>凯拉里第 4 孔闪电协调 → 范围扩大 II（刷图）/ 范围集中（首领）<b class="src l">L</b><b class="src d">D</b>；加入纳薇拉；鲁詹只留效能 II，用鲁詹之印记叠执政官与傀儡大师<b class="src l">L</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>凯拉里第 4 孔闪电协调 → 范围扩大 II（刷图）/ 范围集中（首领）<b class="src l">L</b><b class="src d">D</b>；加入纳薇拉；鲁詹只留效能 II，放鲁詹之印记叠执政官与傀儡大师；魔侍改挂护甲破损 III · 护甲破坏者 II 等（第 4 节）<b class="src l">L</b></li>
       <li><span class="chip kind">珠宝</span><span class="chip chg">改</span>失落的蓝玉放中间插槽，用远古强效的液化悲哀升“特大范围”；加无根之源<b class="src l">L</b><b class="src d">D</b></li>
     </ol>
   </div>
@@ -360,8 +379,8 @@ footer p{max-width:none}
       <ul>
         <li>权杖：+召唤生物等级 &gt; 精魂 &gt; 友军伤害<b class="src l">L</b></li>
         <li>+2 召唤生物的头盔、项链<b class="src d">D</b></li>
-        <li>邪恶束衣——一直用到终局<b class="src l">L</b></li>
-        <li>永恒紧缩之戒、日曜项链（+10–15 精魂基底）<b class="src l">L</b></li>
+        <li>邪恶束衣——ds_lily 一直用到终局<b class="src l">L</b></li>
+        <li>永恒紧缩之戒、日曜项链<b class="src l">L</b></li>
       </ul>
     </div>
     <div>
@@ -379,59 +398,100 @@ footer p{max-width:none}
 <!-- ============ 3 ============ -->
 <section id="s3">
   <h2><span class="no">3</span>升华节点</h2>
-  <p>两份攻略到 ③ 为止的升华完全相同，只在终局分叉。每档点数包含通路上的「能量护盾」小点（各「能量护盾上限提高 20%」）。</p>
+  <p>两份攻略到 ③ 为止的升华取点完全相同，只在终局分叉。每档点数包含通路上的「能量护盾」小点（各「能量护盾上限提高 20%」）。</p>
   <div class="scroll"><table>
-    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th><th class="n">④ 三灵神 L</th><th class="n">④ 纳薇拉之裂 D</th></tr></thead>
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th><th class="n">④ 三灵神</th><th class="n">④ 纳薇拉之裂</th></tr></thead>
     <tbody>
       <tr><td><b>凯拉里硬币</b><span class="en">Barya of Kelari</span></td><td>获得技能：凯拉里，污秽沙暴</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
       <tr><td><b>凯拉里之诡计</b><span class="en">Kelari's Deception</span></td><td>获得技能：凯拉里之诡计</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
-      <tr><td><b>鲁詹硬币</b><span class="en">Barya of Ruzhan</span></td><td>获得技能：鲁詹，炽焰之剑</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">—</td></tr>
-      <tr><td><b>鲁詹之陷阱</b><span class="en">Ruzhan's Trap</span></td><td>获得技能：鲁詹之陷阱</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">—</td><td class="n x">—</td></tr>
+      <tr><td><b>鲁詹硬币</b><span class="en">Barya of Ruzhan</span></td><td>获得技能：鲁詹，炽焰之剑</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td></tr>
+      <tr><td><b>鲁詹之陷阱</b><span class="en">Ruzhan's Trap</span></td><td>获得技能：鲁詹之陷阱</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td><td class="n x">✗</td></tr>
       <tr><td><b>第四教义</b><span class="en">The Fourth Teaching</span></td><td>基础能量护盾充能延迟 −1 秒；处于低能量护盾状态时，能量护盾充能率总增 40%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
-      <tr><td><b>神圣仪式</b><span class="en">Sacred Rituals</span></td><td>你当前能量护盾的 60% 会计入你的护甲，用于计算护甲提供的物理伤害减免</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n x">—</td><td class="n x">—</td></tr>
+      <tr><td><b>神圣仪式</b><span class="en">Sacred Rituals</span></td><td>你当前能量护盾的 60% 会计入你的护甲，用于计算护甲提供的物理伤害减免</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n x">✗</td><td class="n x">✗</td></tr>
       <tr><td><b>纳薇拉硬币</b><span class="en">Barya of Navira</span></td><td>获得技能：纳薇拉，终末幻影</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
-      <tr><td><b>纳薇拉之裂</b><span class="en">Navira's Fracturing</span></td><td>获得技能：纳薇拉之裂</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n x">—</td><td class="n tick">✓</td></tr>
+      <tr><td><b>纳薇拉之裂</b><span class="en">Navira's Fracturing</span></td><td>获得技能：纳薇拉之裂</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td></tr>
       <tr><td><b>硬币地脉</b><span class="en">Baryanic Leylines</span></td><td>非传奇失落珠宝范围提高 40%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
       <tr><td>点数（含小点）</td><td>—</td><td class="n">4</td><td class="n">6</td><td class="n">8</td><td class="n">8</td><td class="n">8</td></tr>
     </tbody>
   </table></div>
   <ul>
-    <li>ds_lily 的文字写“用纳薇拉之井回复”，但纳薇拉之井是单独的升华大点（命令纳薇拉让 ES 立即开始充能，6 秒内充能率 +10–109%，冷却 12 秒），她所有变体的升华里都没点它——本页不采用<b class="src l">L</b><b class="src s">合</b>。</li>
-    <li>ds_lily 的 65 级变体填了 8 个升华点，但第 4 次试炼要 80 级，65 级最多 6 点（另一中文页已指出）<b class="src db">库</b>。</li>
+    <li><b>第 1、2 个灵神的评语</b>（Definitiv）：凯拉里之诡计“强得离谱，削 30% 也还是顶级”；鲁詹是“最佳第二升华”，只在你自己施放法术或攻击时现身斩击并施加曝露，命令技能不触发；鲁詹之陷阱每次 8 个符文、上限 21，比默认的鲁詹之印记好<b class="src d">D</b>。</li>
+    <li><b>纳薇拉之井</b>不在任何一档里：它是单独的升华大点（命令纳薇拉让 ES 立即开始充能，6 秒内充能率 +10–109%，冷却 12 秒）。ds_lily 的文字写“用纳薇拉之井回复”，但她所有变体的升华都没点它<b class="src l">L</b><b class="src s">合</b>。</li>
+    <li>ds_lily 的 65 级变体已经点了神圣仪式，但第 4 次试炼要 80 级，65 级最多 6 点<b class="src db">库</b>——本页把神圣仪式放在 ③。</li>
   </ul>
 </section>
 
 <!-- ============ 4 ============ -->
 <section id="s4">
   <h2><span class="no">4</span>技能宝石配置</h2>
-  <p>灵神辅助孔数量：① 3 个、② 4 个、③④ 5 个。第 3、4 孔的开放等级两位作者说法不同（Definitiv 36 / 55；ds_lily 40 / 65），第 5 孔都说 90 级；poe2db 只显示灵神技能等级 1–20 对应需求等级 1–90，没有列孔数。本页阶段边界按较晚的说法取，不会出现“到了阶段却没孔”。</p>
+  <p>灵神辅助孔：① 3 个、② 4 个、③④ 5 个。第 3、4 孔的开放等级两位作者说法不同（Definitiv 36 / 55；ds_lily 40 / 65），第 5 孔都说 90 级；poe2db 只显示灵神技能等级 1–20 对应需求等级 1–90，没有列孔数。本页阶段边界按较晚的说法切，到了阶段一定有孔。下表每一格都是该阶段的完整辅助清单。</p>
   <div class="scroll"><table class="stage-tbl">
-    <thead><tr><th>技能</th><th>① 50 级</th><th>② 65 级</th><th>③ 最底线终局</th><th>④ 终局</th></tr></thead>
+    <thead><tr><th>技能</th><th>① 50 级</th><th>② 65 级</th><th>③ 最底线终局</th><th>④ 终局（三灵神）</th></tr></thead>
     <tbody>
-      <tr><th>凯拉里，污秽沙暴<span class="en">Kelari</span></th><td>奉命 I · 闪电协调 · 海纳百川<b class="src d">D</b></td><td><span class="chip chg">改</span>奉命 III · 海纳百川 · 魁梧仆从 · 闪电协调<b class="src s">合</b></td><td><span class="chip add">增</span>+ 古加尔的缰绳（90 级第 5 孔）<b class="src d">D</b><b class="src l">L</b></td><td>奉命 III · 海纳百川 · 魁梧仆从 · <span class="chip chg">改</span>范围扩大 II（刷图）/ 范围集中（首领） · 古加尔的缰绳<b class="src l">L</b></td></tr>
-      <tr><th>鲁詹，炽焰之剑<span class="en">Ruzhan</span></th><td>海纳百川 · 奉命 I · 范围扩大 I<b class="src d">D</b></td><td><span class="chip chg">改</span>奉命 III · 海纳百川 · 魁梧仆从 · 加长引线 II<b class="src l">L</b></td><td><span class="chip add">增</span>+ 重新武装 II（第 5 孔）<b class="src d">D</b></td><td>三灵神：<span class="chip chg">改</span>只留效能 II，放鲁詹之印记叠执政官<b class="src l">L</b>；纳薇拉之裂路线：<span class="chip del">删</span>整个鲁詹<b class="src d">D</b></td></tr>
-      <tr><th>纳薇拉，终末幻影<span class="en">Navira</span></th><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td><span class="chip add">增</span>三灵神：持续时间延长 II · 快速施法 II · 奉命 III（纳薇拉之拥：吸收气泡外敌人伤害）<b class="src l">L</b>；纳薇拉之裂：海纳百川 · 奉命 II · 封冻枢纽 · 侵蚀地面 · 魁梧仆从<b class="src d">D</b></td></tr>
-      <tr><th>束缚灵体<span class="en">Bind Spectre</span></th><td>第 3 幕 Utzal 的 Vaal Guard：亡命之息 · 狂野碎片 I · 穿透 II<b class="src d">D</b></td><td><span class="chip chg">改</span>Powered Zealot（间章 Etched Ravine，约 55 精魂）：海纳百川 · 狂野碎片 II · 穿透 III · 狂噬 II · 投射物加速 III<b class="src l">L</b></td><td>同 ②；精魂够再加第 2 只<b class="src l">L</b></td><td>海纳百川 · 狂野碎片 II · 穿透 III · 过载 · 特克罗的复仇（血统，需求 65）<b class="src l">L</b></td></tr>
-      <tr><th>苦痛奉献<span class="en">Pain Offering</span></th><td>持续时间延长 I · 范围扩大 II<b class="src d">D</b></td><td><span class="chip chg">改</span>持续时间延长 II · 牺牲供奉 · 死亡之舞<b class="src d">D</b></td><td>同 ②（20 级）<b class="src d">D</b></td><td>+ 布鲁特斯之脑（尖刺不会被打掉）<b class="src d">D</b>；ds_lily 认为可删<b class="src l">L</b></td></tr>
-      <tr><th>权杖光环<span class="en">Purity from Shrine Sceptre</span></th><td>火焰净化（有圣地权杖时）<b class="src d">D</b></td><td>火焰净化 · 升流 II · 清晰 II · 活力 II（圣地权杖挂精魂辅助不占精魂）<b class="src d">D</b><b class="src l">L</b></td><td>同 ②</td><td>灵秘 II · 清晰 II · 冷静头脑<b class="src d">D</b></td></tr>
-      <tr><th>魔侍风暴法师<span class="en">Skeletal Storm Mage</span></th><td class="dim">—</td><td><span class="chip add">增</span>感电 · 过载 · 海纳百川（30% 感电）<b class="src d">D</b><b class="src l">L</b></td><td>+ 亡命之息<b class="src d">D</b></td><td>同 ③</td></tr>
-      <tr><th>魔侍焚焰使<span class="en">Skeletal Arsonist</span></th><td>亡命之息<b class="src d">D</b></td><td>亡命之息 · 奉命 III（用它的引爆命令触发执政官）<b class="src d">D</b></td><td>同 ②</td><td>近战魔侍改挂护甲破损 III · 护甲破坏者 II · 亡命之息<b class="src l">L</b></td></tr>
-      <tr><th>其余魔侍<span class="en">Frost Mage · Sniper · Brute · Reaver · Cleric</span></th><td>冰霜法师、神射手、祭司、掠夺者各一只：亡命之息<b class="src d">D</b></td><td>+ 魔侍蛮兵；各挂亡命之息<b class="src d">D</b>（ds_lily 每只挂 3 个，精魂富余时照抄<b class="src l">L</b>）</td><td>蛮兵、掠夺者到 20 级<b class="src db">库</b></td><td>近战类挂护甲破损 III · 护甲破坏者 II<b class="src l">L</b></td></tr>
-      <tr><th>可选</th><td>巨狼猛扑 + 死亡印记（<b>需要魔符</b>，第二武器组）<b class="src d">D</b><b class="src db">库</b></td><td><span class="chip del">删</span>巨狼猛扑：尽早换成永久召唤物<b class="src d">D</b>；缺回复时拿一只魔侍换康复<b class="src l">L</b></td><td>—</td><td>纳薇拉之裂路线：召唤生物死亡时施放（维金供能 · 冰霜新星 · 无边能量 II · 范围扩大 II · 侵蚀地面）、狼群<b class="src d">D</b></td></tr>
+      <tr><th>凯拉里，污秽沙暴<span class="en">Kelari</span></th><td>奉命 I · 闪电协调 · 海纳百川<b class="src d">D</b></td><td>奉命 III · 海纳百川 · 魁梧仆从 · 闪电协调<b class="src s">合</b></td><td>奉命 III · 海纳百川 · 魁梧仆从 · 闪电协调 · 古加尔的缰绳<b class="src d">D</b></td><td>奉命 III · 海纳百川 · 魁梧仆从 · 范围扩大 II（首领换范围集中）· 古加尔的缰绳<b class="src l">L</b></td></tr>
+      <tr><th>鲁詹，炽焰之剑<span class="en">Ruzhan</span></th><td>海纳百川 · 奉命 I · 范围扩大 I<b class="src d">D</b></td><td>奉命 III · 海纳百川 · 魁梧仆从 · 加长引线 II<b class="src l">L</b></td><td>奉命 III · 海纳百川 · 魁梧仆从 · 加长引线 II · 重新武装 II<b class="src d">D</b></td><td>效能 II（只用鲁詹之印记叠执政官）<b class="src l">L</b></td></tr>
+      <tr><th>纳薇拉，终末幻影<span class="en">Navira</span></th><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>持续时间延长 II · 快速施法 II · 奉命 III（纳薇拉之拥：吸收气泡外敌人的伤害）<b class="src l">L</b></td></tr>
+      <tr><th>束缚灵体<span class="en">Bind Spectre</span></th><td>瓦尔军卫（第 3 幕乌扎尔）：亡命之息 · 狂野碎片 I · 穿透 II<b class="src d">D</b></td><td>强能狂热者（间章刻蚀峡谷，约 55 精魂）：海纳百川 · 狂野碎片 II · 穿透 III · 狂噬 II · 投射物加速 III<b class="src l">L</b></td><td>强能狂热者：海纳百川 · 狂野碎片 II · 穿透 III · 狂噬 II · 投射物加速 III；精魂够再加第 2 只<b class="src l">L</b></td><td>强能狂热者：海纳百川 · 狂野碎片 II · 穿透 III · 过载 · 特克罗的复仇（血统，需求 65）<b class="src l">L</b></td></tr>
+      <tr><th>苦痛奉献<span class="en">Pain Offering</span></th><td>持续时间延长 I · 范围扩大 II<b class="src d">D</b></td><td>持续时间延长 II · 牺牲供奉 · 死亡之舞<b class="src d">D</b></td><td>持续时间延长 II · 牺牲供奉 · 死亡之舞（20 级）<b class="src d">D</b></td><td>持续时间延长 II · 牺牲供奉 · 死亡之舞 · 布鲁特斯之脑（尖刺不会被打掉）<b class="src d">D</b></td></tr>
+      <tr><th>火焰净化（圣地权杖）<span class="en">Purity of Fire</span></th><td>不挂辅助</td><td>升流 II · 清晰 II · 活力 II<b class="src d">D</b></td><td>升流 II · 清晰 II · 活力 II<b class="src d">D</b></td><td>升流 II · 清晰 II · 冷静头脑<b class="src l">L</b><b class="src s">合</b></td></tr>
+      <tr><th>魔侍风暴法师<span class="en">Skeletal Storm Mage</span></th><td class="dim">—</td><td>感电 · 过载 · 海纳百川<b class="src l">L</b></td><td>亡命之息 · 过载 · 感电 · 海纳百川<b class="src d">D</b></td><td>感电 · 过载 · 海纳百川<b class="src l">L</b></td></tr>
+      <tr><th>魔侍焚焰使<span class="en">Skeletal Arsonist</span></th><td>亡命之息<b class="src d">D</b></td><td>亡命之息 · 效能 II · 奉命 III<b class="src d">D</b></td><td>亡命之息 · 效能 II · 奉命 III<b class="src d">D</b></td><td>护甲破损 III · 护甲破坏者 II · 亡命之息<b class="src l">L</b></td></tr>
+      <tr><th>魔侍冰霜法师<span class="en">Skeletal Frost Mage</span></th><td>亡命之息<b class="src d">D</b></td><td>亡命之息<b class="src d">D</b></td><td>亡命之息<b class="src d">D</b></td><td>亡命之息 · 狂噬 II · 海纳百川<b class="src l">L</b></td></tr>
+      <tr><th>魔侍神射手 · 掠夺者<span class="en">Skeletal Sniper · Reaver</span></th><td>各挂亡命之息<b class="src d">D</b></td><td>各挂亡命之息<b class="src d">D</b></td><td>各挂亡命之息（掠夺者 20 级）<b class="src d">D</b></td><td>各挂护甲破损 III · 护甲破坏者 II · 亡命之息<b class="src l">L</b></td></tr>
+      <tr><th>魔侍蛮兵<span class="en">Skeletal Brute</span></th><td class="dim">—</td><td>亡命之息<b class="src d">D</b></td><td>亡命之息（20 级）<b class="src d">D</b></td><td>护甲破损 III · 护甲破坏者 II · 亡命之息<b class="src l">L</b></td></tr>
+      <tr><th>魔侍祭司<span class="en">Skeletal Cleric</span></th><td>亡命之息<b class="src d">D</b></td><td>亡命之息<b class="src d">D</b></td><td class="dim">精魂不够先撤<b class="src d">D</b></td><td>快速施法 II · 亡命之息 · 肉盾 II<b class="src l">L</b></td></tr>
+      <tr><th>魔侍阵容</th><td>5 种：焚焰使、神射手、冰霜法师、祭司、掠夺者</td><td>7 种：+ 风暴法师、蛮兵</td><td>6 种（Definitiv 低预算阵容，撤祭司）；精魂够就保留 7 种</td><td>7 种（ds_lily 主配置另有魔侍武士，来自罪孽权杖，用圣地权杖时没有）</td></tr>
+      <tr><th>可选</th><td>巨狼猛扑 + 死亡印记（<b>需要魔符</b>，第二武器组）<b class="src d">D</b><b class="src db">库</b>；雷霆风暴 + 活体闪电补感电<b class="src d">D</b></td><td>巨狼猛扑尽早换成永久召唤物<b class="src d">D</b>；缺回复时拿一只魔侍换康复<b class="src l">L</b></td><td>—</td><td>反制：ds_lily 主配置有，但它消耗符文结界，本配置没有结界来源，不采用<b class="src s">合</b></td></tr>
     </tbody>
   </table></div>
 
-  <h3>两位作者有分歧的辅助，本页怎么选</h3>
+  <h3>④ 的另一条路：纳薇拉之裂清图（Definitiv 中预算原配）</h3>
+  <p class="small">升华换成纳薇拉硬币 + 纳薇拉之裂（去掉两个鲁詹点）；Definitiv 这一档没有束缚灵体和魔侍祭司，还要额外 180 精魂。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>技能</th><th>辅助</th></tr></thead>
+    <tbody>
+      <tr><td>凯拉里</td><td>古加尔的缰绳 · 闪电协调 · 海纳百川 · 魁梧仆从 · 奉命 III<b class="src d">D</b></td></tr>
+      <tr><td>纳薇拉（纳薇拉之裂）</td><td>海纳百川 · 奉命 II · 封冻枢纽 · 侵蚀地面 · 魁梧仆从<b class="src d">D</b></td></tr>
+      <tr><td>召唤生物死亡时施放</td><td>维金供能 · 冰霜新星 · 无边能量 II · 范围扩大 II · 侵蚀地面<b class="src d">D</b></td></tr>
+      <tr><td>狼群</td><td>罗米拉的报复 · 复仇之灵 · 炎军 I · 狂噬 I · 收割精华<b class="src d">D</b></td></tr>
+      <tr><td>火焰净化</td><td>灵秘 II · 清晰 II · 冷静头脑<b class="src d">D</b></td></tr>
+      <tr><td>苦痛奉献</td><td>持续时间延长 II · 牺牲供奉 · 死亡之舞 · 布鲁特斯之脑<b class="src d">D</b></td></tr>
+      <tr><td>魔侍风暴法师</td><td>亡命之息 · 过载 · 感电 · 海纳百川 · 神主之握（血统）<b class="src d">D</b></td></tr>
+      <tr><td>魔侍焚焰使</td><td>亡命之息 · 效能 II · 奉命 III · 肉盾 I<b class="src d">D</b></td></tr>
+      <tr><td>魔侍冰霜法师</td><td>亡命之息 · 海纳百川 · 多重射击 II<b class="src d">D</b></td></tr>
+      <tr><td>魔侍神射手</td><td>亡命之息 · 厄罗克的熔炼术 · 穿刺<b class="src d">D</b></td></tr>
+      <tr><td>魔侍蛮兵 · 掠夺者</td><td>各挂亡命之息 · 护甲破损 III · 穿刺<b class="src d">D</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>两位作者有分歧的地方，本页怎么选</h3>
   <div class="scroll"><table>
     <thead><tr><th>位置</th><th>Definitiv</th><th>ds_lily</th><th>本页</th><th>理由</th></tr></thead>
     <tbody>
-      <tr><td>凯拉里第 4 孔</td><td>闪电协调</td><td>势大力沉</td><td>闪电协调<b class="src s">合</b></td><td>poe2db：闪电协调“获得相当于伤害 25% 的额外闪电伤害”（且带感电）；势大力沉“物理击中伤害上限总增 30%”，按凯拉里之诡计 16–23 的伤害区间，平均伤害约 +18%。两者都可用，前者略高</td></tr>
-      <tr><td>鲁詹第 4 孔</td><td>重新武装 II（第 5 孔才放加长引线 II）</td><td>加长引线 II</td><td>65 级先加长引线 II，90 级补重新武装 II<b class="src s">合</b></td><td>Definitiv 自己说加长引线 II 清图伤害更高、重新武装 II 打首领和固定机制更舒服；进图阶段以清图为主</td></tr>
+      <tr><td>凯拉里第 4 孔</td><td>闪电协调</td><td>势大力沉</td><td>闪电协调<b class="src s">合</b></td><td>poe2db：闪电协调“获得相当于伤害 25% 的额外闪电伤害”，还带感电；势大力沉“物理击中伤害上限总增 30%”，按凯拉里之诡计 16–23 的伤害区间，平均伤害约 +18%</td></tr>
+      <tr><td>鲁詹第 4 孔</td><td>重新武装 II（第 5 孔才放加长引线 II）</td><td>加长引线 II</td><td>65 级先加长引线 II，90 级补重新武装 II<b class="src s">合</b></td><td>Definitiv 自己说加长引线 II 让符文不会被踩爆、等于白拿伤害，重新武装 II 在首领和固定机制上更好；进图阶段以清图为主</td></tr>
       <tr><td>奉命等级</td><td>80 级变体用 II，低预算起用 III</td><td>65 级就用 III</td><td>65 级起 III</td><td>Definitiv 也说 III 在冷却回复不够时更好</td></tr>
-      <tr><td>魔侍辅助</td><td>基本只挂亡命之息</td><td>每只 3 个</td><td>先 Definitiv，富余再照 ds_lily</td><td>魔侍只为海纳百川凑种类数，Definitiv 说辅助属于锦上添花</td></tr>
-      <tr><td>苦痛奉献</td><td>首领必放</td><td>可选，可能删掉</td><td>保留</td><td>它是 Definitiv 首领循环里“不做会崩”的第一步</td></tr>
+      <tr><td>魔侍辅助</td><td>低预算基本只挂亡命之息</td><td>每只 3 个</td><td>①–③ 照 Definitiv，④ 照 ds_lily</td><td>魔侍只为海纳百川凑种类数，Definitiv 说辅助属于锦上添花；④ 的破甲辅助配合异灵之体后的输出</td></tr>
+      <tr><td>苦痛奉献</td><td>首领必放</td><td>可选，主配置已删</td><td>四个阶段都保留</td><td>它是 Definitiv 首领循环里“不做会崩”的第一步</td></tr>
+      <tr><td>效能 II</td><td>挂在魔侍焚焰使上</td><td>挂在鲁詹上</td><td>照挂，插不进就空着</td><td>poe2db 的效能说明写“不能辅助保留精魂的技能”，而这两个技能都保留精魂；两位作者都这么用，以游戏内能否插入为准</td></tr>
+      <tr><td>火焰净化第 3 孔</td><td>低预算活力 II，中预算冷静头脑</td><td>纯净权杖可免精魂挂升流 II / 清晰 II / 冷静头脑 / 强健心灵 / 温热血脉</td><td>①–③ 活力 II，④ 冷静头脑</td><td>异灵之体后生命再生没有意义</td></tr>
     </tbody>
   </table></div>
+
+  <h3>精魂参考（poe2db）</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>技能</th><th class="n">宝石等级</th><th class="n">保留精魂</th></tr></thead>
+    <tbody>
+      <tr><td>魔侍风暴法师 / 焚焰使 / 冰霜法师</td><td class="n">18</td><td class="n">各 39</td></tr>
+      <tr><td>魔侍神射手</td><td class="n">18</td><td class="n">30</td></tr>
+      <tr><td>魔侍蛮兵</td><td class="n">20</td><td class="n">48</td></tr>
+      <tr><td>魔侍掠夺者</td><td class="n">20</td><td class="n">30</td></tr>
+      <tr><td>魔侍祭司</td><td class="n">1 → 20</td><td class="n">60 → 20</td></tr>
+      <tr><td>束缚灵体 · 强能狂热者</td><td class="n">—</td><td class="n">约 55<b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td>升流 II / 清晰 II / 活力 II / 冷静头脑（辅助的额外保留）</td><td class="n">—</td><td class="n">+30 / +20 / +40 / +15</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">③ 的 6 种魔侍基础合计 225 精魂（未计辅助倍率）。挂在圣地权杖的火焰净化上时，两位作者都说这些辅助不占精魂；魁梧仆从辅助灵神不占，挂在魔侍上会多占。两份原站都没给精魂总量；Definitiv 说纳薇拉之裂那条路还要额外 180 精魂。装备上的 +召唤生物等级会让魔侍保留略降（等级表 20 级后逐级 −1）。</p>
 </section>
 
 <!-- ============ 5 ============ -->
@@ -440,21 +500,21 @@ footer p{max-width:none}
   <h3>①–③：还没主宰</h3>
   <ol>
     <li>刷图：凯拉里之残暴与凯拉里之诡计交替（Definitiv 写作 <kbd>1</kbd> <kbd>1</kbd> <kbd>2</kbd> <kbd>2</kbd> 循环）；固定联盟机制和地图首领丢鲁詹之陷阱<b class="src d">D</b>。</li>
-    <li>首领：<b>预放苦痛奉献</b> <span class="chip must">不做会崩</span></li>
-    <li>用其他命令技能叠傀儡大师、触发亡灵执政官：鲁詹之陷阱、凯拉里之残暴、魔侍焚焰使的引爆（别对着自己的召唤物放）<b class="src d">D</b><b class="src l">L</b> <span class="chip must">不做会崩</span></li>
-    <li>按住凯拉里之诡计直到首领倒下；没倒就切回残暴，等诡计回满 3 次再按住<b class="src d">D</b>。</li>
+    <li>首领：<b>预放苦痛奉献</b> <span class="chip must">不做会崩</span> 只在首领和高难遭遇才需要，断了再补<b class="src d">D</b>。</li>
+    <li>用其他命令技能叠傀儡大师、触发亡灵执政官：鲁詹之陷阱、凯拉里之残暴、魔侍焚焰使的引爆（别对着自己的召唤物放）<b class="src d">D</b><b class="src l">L</b> <span class="chip must">不做会崩</span> 没有执政官的冷却加速，凯拉里之诡计的 3 次充能转不过来。</li>
+    <li>按住凯拉里之诡计直到首领倒下；伤害靠“连续使用”叠加，中途别插别的技能。没倒就切回残暴，等诡计回满 3 次再按住<b class="src d">D</b>。</li>
     <li>出场动画长的首领：鲁詹之陷阱可预放最多 3 次（上限 21 个符文）<b class="src d">D</b>。</li>
   </ol>
-  <h3>④ 三灵神 + 主宰（ds_lily 主配置）</h3>
+  <h3>④ 三灵神 + 主宰</h3>
   <ol>
-    <li>执政官常驻后，基本只按凯拉里之诡计；穿插凯拉里之残暴维持暴击弱点<b class="src l">L</b>。</li>
+    <li>执政官基本常驻后，主要按凯拉里之诡计，穿插凯拉里之残暴维持暴击弱点<b class="src l">L</b>。</li>
     <li>古加尔的缰绳的不洁之力要靠施放凯拉里之残暴获得<b class="src l">L</b>。</li>
-    <li>执政官掉了、冷却转不动时：连按鲁詹之印记重新带起来<b class="src l">L</b>（读者更正，见第 11 节）。</li>
-    <li>凯拉里第 4 孔：刷图挂范围扩大 II，首领换范围集中<b class="src l">L</b>。</li>
+    <li>执政官掉了、冷却转不动：连按鲁詹之印记把它重新带起来（原因见第 11 节评论区的更正）<b class="src l">L</b>。</li>
+    <li>凯拉里第 4 孔：刷图范围扩大 II，首领换范围集中<b class="src l">L</b>。首领前仍预放苦痛奉献<b class="src d">D</b>。</li>
   </ol>
-  <h3>④ 纳薇拉之裂分支（Definitiv 中 / 高预算）</h3>
+  <h3>④ 纳薇拉之裂分支</h3>
   <ol>
-    <li>先用凯拉里之诡计，等地面有冰缓地面再按住纳薇拉之裂；纳薇拉之裂只对站在冰缓地面上的敌人生效，条件不满足也会消耗次数<b class="src d">D</b>。</li>
+    <li>先用凯拉里之诡计，等地面有冰缓地面再按住纳薇拉之裂；它只对站在冰缓地面上的敌人生效，条件不满足也会消耗次数<b class="src d">D</b>。</li>
     <li>固定机制：用纳薇拉之拥或召唤生物死亡时施放的冰霜新星铺冰缓地面，封冻枢纽 + 侵蚀地面让它铺开并维持<b class="src d">D</b>。</li>
   </ol>
   <p class="small">缺蓝：按魔力药剂，或别按住鼠标改成点按——按住的耗蓝比实际施放次数还多<b class="src l">L</b>。</p>
@@ -467,51 +527,281 @@ footer p{max-width:none}
     <thead><tr><th>项目</th><th>① 50 级</th><th>② 65 级</th><th>③ 最底线终局</th><th>④ 终局</th></tr></thead>
     <tbody>
       <tr><th>生命</th><td>装备上的生命词缀</td><td>同左</td><td>约 1,500<b class="src d">D</b></td><td>1（异灵之体）</td></tr>
-      <tr><th>能量护盾</th><td>—</td><td>开始堆 ES 大点</td><td>2,000–3,000<b class="src d">D</b></td><td>≥ 约 6,000 再转异灵之体<b class="src l">L</b></td></tr>
+      <tr><th>能量护盾</th><td>—</td><td>开始堆 ES 大点</td><td>2,000–3,000<b class="src d">D</b></td><td>约 6,000 以上再转异灵之体<b class="src l">L</b></td></tr>
       <tr><th>元素抗性</th><td>当幕首领：第 1 幕冰、第 2 幕电；第 3、4 幕未核实，三抗一起补</td><td>三抗封顶（游戏默认 75%）</td><td>封顶</td><td>封顶</td></tr>
-      <tr><th>混沌抗性</th><td colspan="3">原站都没给；紫晶咒符临时补<b class="src d">D</b></td><td>不需要（异灵之体免疫混沌）</td></tr>
-      <tr><th>智慧</th><td>宝石等级 12 需 82</td><td>邪恶束衣 121；15 级宝石 113</td><td>78 级 137 → 90 级 157<b class="src db">库</b></td><td>157 以上；敬奉之绸 121、先祖冠冕 / 塔萨里奥法器 115</td></tr>
-      <tr><th>力量</th><td colspan="3">权杖 17 就够；本页路线不用力量头盔和纹章盾，免掉 Definitiv 低预算的 91 力量缺口<b class="src s">合</b></td><td>—</td></tr>
-      <tr><th>精魂</th><td>—</td><td>Powered Zealot 约 55<b class="src d">D</b><b class="src l">L</b></td><td>原站未给总量</td><td>Definitiv：中预算还需额外 180 精魂</td></tr>
-      <tr><th>原站宝石需求（力 / 敏 / 智）</th><td class="num">D 战役结束 10 / 10 / 70</td><td class="num">D 80 级 15 / 20 / 80；L 65 级 30 / 40 / 95</td><td class="num">D 低预算 20 / 20 / 95；L 80 级 30 / 40 / 95</td><td class="num">D 中预算 45 / 40 / 145；L 主配置 70 / 25 / 110</td></tr>
+      <tr><th>混沌抗性</th><td colspan="2">原站没给</td><td>原站没给；永恒紧缩之戒让在场敌人多造成混沌伤害，用紫晶咒符补</td><td>不需要（免疫混沌）</td></tr>
+      <tr><th>智慧（底材 · 宝石等级）</th><td>12 级宝石 82</td><td>邪恶束衣 121 · 15 级宝石 113</td><td>卡马萨冠冕 107 · 18 级 137 → 20 级 157</td><td>20 级 157；敬奉之绸 121、先祖冠冕 / 塔萨里奥法器 115</td></tr>
+      <tr><th>力量（底材）</th><td colspan="4">圣地权杖 17。本页路线不用力量头盔和纹章盾</td></tr>
+      <tr><th>辅助宝石需求合计（原站口径，见下）</th><td class="num">智 65 · 力 5 · 敏 10</td><td class="num">智 105 · 力 20 · 敏 25</td><td class="num">智 110 · 力 20 · 敏 30</td><td class="num">三灵神：智 120 · 力 70 · 敏 20<br>纳薇拉之裂（Definitiv 中预算原站数字）：智 145 · 力 45 · 敏 40</td></tr>
+      <tr><th>精魂</th><td>—</td><td>强能狂热者约 55</td><td>原站没给总量</td><td>纳薇拉之裂路线还需额外 180<b class="src d">D</b></td></tr>
     </tbody>
   </table></div>
-  <p class="small">最后一行是 Mobalytics 的 <code>gemRequirements</code>，口径不明，低于 poe2db 宝石等级表的实际智慧需求；实际以游戏内宝石是否变红为准。</p>
+  <div class="callout note"><span class="lab">“辅助宝石需求合计”怎么来的</span>
+    <p>poe2db 上每个辅助宝石都标有“辅助宝石需求 +5 力量 / 敏捷 / 智慧”。两份原站显示的“宝石需求”恰好等于把全部辅助的 +5 加在一起：Definitiv 低预算 27 个辅助 = 19 智 + 4 力 + 4 敏，对应 95 / 20 / 20；ds_lily 65 级 33 个辅助，合计 165；她的主配置 41 个辅助，合计 205，都吻合。上表这一行用同一口径、按上面第 4 节的宝石清单算出本页每个阶段的数字，方便和原站对照。</p>
+    <p>这个口径是不是游戏规则没有核实：Definitiv 的 PoB 导出面板写的需求只有 力 17 / 敏 10 / 智 157，远低于它<b class="src d">D</b>。按 Definitiv 的天赋可核实的属性：力 = 初始 7 + 属性点 10 = 17；敏 = 初始 7 + 属性点 5 = 12；智 = (初始 15 + 属性点 100 + 纯粹能量 10 + 小点 8 + 奇思妙想 25) × 1.06（洞察万物）≈ 167<b class="src s">合</b>。实际以游戏内宝石是否变红为准；真要按原站口径，就得把几个智慧属性点改成力量、敏捷。</p>
+  </div>
 </section>
 
 <!-- ============ 7 ============ -->
 <section id="s7">
   <h2><span class="no">7</span>装备与词缀</h2>
-  <p>ds_lily 原站的装备数值比较粗（护甲件的 ES 用了项链的全局词缀池，另一中文页已逐条指出），所以<b>具体词缀以 Definitiv 为准</b>，ds_lily 提供部位优先级与底材路线。③ 的逐条词缀、档次名与交易链接见 <a href="低预算.html#s7">低预算页第 7 节</a>。</p>
+  <p>ds_lily 原站的装备数值比较粗：护甲件上的 ES 写的是项链那类全局词缀“能量护盾上限提高”，交易查询也用了全局 ES 的统计 ID，在护甲上搜不到本地词缀。所以<b>具体词缀以 Definitiv 为准</b>，ds_lily 提供部位优先级与底材路线。Definitiv：低预算阶段 <b>T2 生命</b>是所有部位都想要的属性，全部部位都可以买魔法底子用精华做，或买稀有底子最后用渎灵收尾<b class="src d">D</b>。</p>
   <div class="scroll"><table class="stage-tbl">
     <thead><tr><th>部位</th><th>① 50 级</th><th>② 65 级</th><th>③ 最底线终局</th><th>④ 终局</th></tr></thead>
     <tbody>
-      <tr><th>主手</th><td>圣地权杖（26 级）：所有召唤生物技能等级 +2（统御之，物品等级 25）<b class="src d">D</b></td><td>+3（监督之，55）+ 声望符文<b class="src l">L</b></td><td>+3 · 在场的友军造成的伤害提高 65–74%（信服的，46）· 声望符文<b class="src d">D</b><b class="src l">L</b></td><td>+4（奴监之，78）· 精魂 % · 狂猿雕像<b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><th>副手</th><td>任意 ES 副手</td><td>德鲁伊法器（65）→ 荒凉原野法器（70）<b class="src s">合</b></td><td>荒凉原野法器：+69 ES · ES 提高 81% · 火冰抗 +34%<b class="src d">D</b></td><td>塔萨里奥法器（80）：ES + 渎灵后缀「阿曼娜姆之」所有召唤生物技能等级 +(1–2)<b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><th>头盔</th><td>+1 / +2 召唤生物（头盔上 +2 要物品等级 41）<b class="src d">D</b></td><td>术士冠冕（65）/ 法术冠冕（70）：ES + +2 · 埃曼纳姆的凝视<b class="src l">L</b><b class="src s">合</b></td><td>卡马萨冠冕（75）：同 ②<b class="src s">合</b></td><td>先祖冠冕（80）：ES + 召唤生物等级；飓风合金加“执政官增益状态持续时间提高 35–42%”<b class="src l">L</b><b class="src d">D</b></td></tr>
-      <tr><th>身体</th><td>生命 / ES 稀有</td><td>邪恶束衣（65）+ 2 高级钢铁符文<b class="src d">D</b><b class="src l">L</b></td><td>+77 ES · ES 提高 95% · 2 高级钢铁符文<b class="src d">D</b></td><td>敬奉之绸（ES 提高 150–200%、+30–50 精魂、当前 ES 提供元素减伤）或邪恶束衣 + 精魂 + 2 完美钢铁符文<b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><th>手套</th><td>生命 / 抗性</td><td>ES / 抗性</td><td>瓦尔手套（75）：+96 生命 · 冰电抗 +34%<b class="src d">D</b></td><td>海妖之鳞手套（80）/ 符文海妖之鳞手套：ES + 抗性<b class="src l">L</b><b class="src d">D</b></td></tr>
-      <tr><th>鞋子</th><td>25% 移速（瞪羚的，46）</td><td>30% 移速（猎豹的，65）</td><td>沙誓鞋履（75）：30% 移速 · +100 生命 · 电抗 +35%<b class="src d">D</b></td><td>丝克玛便鞋（80）：30% 移速 + ES + 抗性<b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><th>项链</th><td>+2 召唤生物（物品等级 41）</td><td>日曜项链（+10–15 精魂基底）+2 · 督军领袖涂膏<b class="src l">L</b></td><td>+2 召唤生物<b class="src d">D</b></td><td>日曜项链 +3 / +4 · 渎灵「古加尔之」召唤生物的冷却回复率提高 12–20% · 主宰涂膏<b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><th>主手</th><td>圣地权杖（26 级）：所有召唤生物技能等级 +2（统御之，物品等级 25）<b class="src d">D</b></td><td>+3（监督之，55）+ 声望符文<b class="src l">L</b></td><td>+3 · 在场友军伤害 65–74%（信服的，46）· 声望符文<b class="src d">D</b><b class="src l">L</b></td><td>+4（奴监之，78）· 精魂 % · 狂猿雕像<b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><th>副手</th><td>任意 ES 副手</td><td>德鲁伊法器（65）→ 荒凉原野法器（70）<b class="src s">合</b></td><td>荒凉原野法器：ES + 火冰抗<b class="src d">D</b></td><td>塔萨里奥法器（80）：ES + 渎灵「阿曼娜姆之」+(1–2) 召唤生物<b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><th>头盔</th><td>+1 / +2 召唤生物（头盔上 +2 要物品等级 41）<b class="src d">D</b></td><td>术士冠冕（65）/ 法术冠冕（70）：ES + +2 · 埃曼纳姆的凝视<b class="src l">L</b><b class="src s">合</b></td><td>卡马萨冠冕（75）：ES + +2 · 埃曼纳姆的凝视<b class="src s">合</b></td><td>先祖冠冕（80）：ES + 召唤生物等级；飓风合金加执政官持续时间<b class="src l">L</b><b class="src d">D</b></td></tr>
+      <tr><th>身体</th><td>生命 / ES 稀有</td><td>邪恶束衣（65）+ 2 高级钢铁符文<b class="src d">D</b><b class="src l">L</b></td><td>邪恶束衣：+77 ES · ES 95% · 2 高级钢铁符文<b class="src d">D</b></td><td>敬奉之绸 或 邪恶束衣 + 精魂 + 2 完美钢铁符文<b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><th>手套</th><td>生命 / 抗性</td><td>ES / 抗性</td><td>瓦尔手套（75）：生命 + 冰电抗<b class="src d">D</b></td><td>海妖之鳞手套（80）/ 符文海妖之鳞手套：ES + 抗性<b class="src l">L</b><b class="src d">D</b></td></tr>
+      <tr><th>鞋子</th><td>25% 移速（瞪羚的，46）</td><td>30% 移速（猎豹的，65）</td><td>沙誓鞋履（75）：30% 移速 + 生命 + 电抗<b class="src d">D</b></td><td>丝克玛便鞋（80）：30% 移速 + ES + 抗性<b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><th>项链</th><td>+2 召唤生物（物品等级 41）</td><td>日曜项链 +2 · 督军领袖涂膏<b class="src l">L</b></td><td>日曜项链 +2 · 督军领袖涂膏<b class="src l">L</b><b class="src d">D</b></td><td>日曜项链 +3 / +4 · 渎灵「古加尔之」召唤生物冷却回复 · 主宰涂膏<b class="src d">D</b><b class="src l">L</b></td></tr>
       <tr><th>戒指</th><td>抗性 / 生命</td><td>永恒紧缩之戒 + 抗性戒<b class="src l">L</b></td><td>永恒紧缩之戒<b class="src l">L</b> + 生命抗性稀有戒<b class="src d">D</b></td><td>赌神芬多 ×2<b class="src l">L</b> / 永恒紧缩之戒 + 赌神芬多<b class="src d">D</b></td></tr>
-      <tr><th>腰带</th><td>生命 / 抗性</td><td>生命 / 抗性；有“召唤生物命令伤害”更好<b class="src l">L</b></td><td>重革腰带：+125 生命 · 抗性（不再需要力量）<b class="src d">D</b><b class="src s">合</b></td><td>命令伤害稀有<b class="src l">L</b> / 夜临 + 拉克斯、埃什塔之雕像<b class="src d">D</b> / 法师之血</td></tr>
-      <tr><th>药剂</th><td>生命 + 魔力</td><td>同左</td><td>终极生命（立即回复25% 回复量）+ 终极魔力（回复效果在低魔下使用时总增 88%）<b class="src d">D</b></td><td><span class="chip del">删</span>生命药剂；魔力药剂或拉维安加之灵<b class="src d">D</b></td></tr>
-      <tr><th>咒符</th><td>—</td><td>融冰 / 浸润 / 紫晶<b class="src d">D</b>；或真银（不受减速影响）<b class="src l">L</b></td><td>同 ②</td><td>新生希望 · 磐石 · 英雄血液<b class="src d">D</b></td></tr>
+      <tr><th>腰带</th><td>生命 / 抗性</td><td>生命 / 抗性；有“召唤生物命令伤害”更好<b class="src l">L</b></td><td>重革腰带：生命 + 抗性<b class="src s">合</b></td><td>命令伤害稀有<b class="src l">L</b> / 夜临 + 雕像<b class="src d">D</b> / 法师之血</td></tr>
+      <tr><th>药剂</th><td>生命 + 魔力</td><td>同左</td><td>终极生命 + 终极魔力<b class="src d">D</b></td><td>删生命药剂；终极魔力或拉维安加之灵<b class="src d">D</b></td></tr>
+      <tr><th>咒符</th><td>—</td><td>融冰 / 浸润 / 紫晶<b class="src d">D</b>，或真银（不受减速影响）<b class="src l">L</b></td><td>融冰 / 浸润 / 紫晶<b class="src d">D</b></td><td>新生希望 · 磐石 · 英雄血液<b class="src d">D</b></td></tr>
     </tbody>
   </table></div>
 
-  <h3>关键词缀原文（poe2db 简中）</h3>
+  <h3>③ 最底线终局逐件</h3>
+  <p class="small">词缀中文取 poe2db 对应部位的简中词缀页；档次名后括号为物品等级门槛。交易链接是国际服官方交易站（Forbidden Rites 赛季，需要登录），国服需在国服交易站按中文词缀自行筛。标 <b class="src s">合</b> 的查询是本页按目标重新构造的，其余沿用 Definitiv 原站的查询。原站的部位购买顺序：头盔 → 副手 → 左戒 → 右戒 → 项链 → 身体 → 手套 → 腰带 → 鞋子 → 主手。</p>
+
+  <div class="slots">
+
+  <article class="slot">
+    <div class="slot-head"><h4>主手 · 圣地权杖 <span class="en">Shrine Sceptre</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100 · 获得技能：火焰净化</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>在场的友军造成的伤害提高 65%</td><td>Allies in your Presence deal 65% increased Damage</td><td class="n">65</td><td class="tier">信服的 Persuasive（46）</td></tr>
+          <tr><td>所有召唤生物技能等级 +3（下限 +2）</td><td>+3 to Level of all Minion Skills</td><td class="n">3 / 2</td><td class="tier">监督之 of the Overseer（55）/ 统御之 of the Despot（25）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>Definitiv 的原站数据与交易查询是 +2；他的正文写“开荒末期 +2、低预算 +3、中高预算 +4”，PoB 的低预算权杖也是 +3。本页取 +3 为目标，+2 为下限。其他好词缀：精魂 %、给友军的附加伤害、召唤生物暴击伤害加成、魔力再生率<b class="src d">D</b>。插声望符文<b class="src l">L</b>。</p>
+        <ol>
+          <li>找 / 买带 +召唤生物技能等级的权杖底子，不足两条词缀就用增幅石补到两条。</li>
+          <li>用（强效）命令精华，保证出“在场友军伤害提高”。</li>
+          <li>渎灵一个前缀并显现，有精魂 % 就拿。</li>
+          <li>强效崇高预兆 + （高级）崇高石补满两条后缀<b class="src d">D</b>。</li>
+        </ol>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1798257884%22%2C%22value%22%3A%7B%22min%22%3A65%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2162097452%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：+3 目标</a> <b class="src s">合</b> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1798257884%22%2C%22value%22%3A%7B%22min%22%3A65%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2162097452%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：+2 下限</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>副手 · 荒凉原野法器 <span class="en">Leyline Focus</span></h4><span class="req">需求 70 级 · 99 智 · 底子 ES 71 → 成品 253</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+69 能量护盾上限</td><td>+69 to maximum Energy Shield</td><td class="n">62</td><td class="tier">眩目的 Dazzling（60）</td></tr>
+          <tr><td>能量护盾提高 81%</td><td>81% increased Energy Shield</td><td class="n">80</td><td class="tier">无法征服的 Indomitable（60）</td></tr>
+          <tr><td>火焰抗性 +34%</td><td>+34% to Fire Resistance</td><td class="n" rowspan="2">总元素抗 62</td><td class="tier">火山之 of the Volcano（60）</td></tr>
+          <tr><td>冰霜抗性 +34%</td><td>+34% to Cold Resistance</td><td class="tier">北极熊之 of the Polar Bear（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>这一档的法器只要 ES 与双抗。下面是 Definitiv 给法器的通用做法（目标 +2 召唤生物技能等级、高 ES；法器上的召唤生物等级只来自渎灵后缀「阿曼娜姆之」，物品等级 65），做成了就是 ④ 的法器：</p>
+        <ol>
+          <li>收塔萨里奥法器、圣洁法器底子；高级蜕变石 + 增幅石，蜕变出 T1 ES 可以上完美增幅石。</li>
+          <li>按缺的抗性用强效接地 / 熔解 / 绝缘精华。</li>
+          <li>渎灵一个后缀并显现，赌 +2 召唤生物技能等级（很难出，可配深渊回响预兆）；没中就卖掉回本。</li>
+          <li>中了就用强效崇高预兆 + 高级崇高石补两条前缀，出什么 ES 都行。</li>
+          <li>插缺的抗性符文，或阿特莫瓦的退却灵核（装备法器的能量护盾提高 40%）<b class="src d">D</b>。</li>
+        </ol>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A62%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A62%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4015621042%22%2C%22value%22%3A%7B%22min%22%3A80%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.focus%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>头盔 · 卡马萨冠冕 <span class="en">Kamasan Tiara</span></h4><span class="req">需求 75 级 · 107 智 · 底子 ES 103</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>目标词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>所有召唤生物技能等级 +2</td><td>+2 to Level of all Minion Skills</td><td class="n">2</td><td class="tier">统御之 of the Despot（41）</td></tr>
+          <tr><td>能量护盾提高 (56–100)%</td><td>#% increased Energy Shield</td><td class="n">56</td><td class="tier">无惧的（46）→ 坚不可摧的（65）</td></tr>
+          <tr><td>+(42–73) 能量护盾上限</td><td>+# to maximum Energy Shield</td><td class="n">—</td><td class="tier">脉冲的（46）→ 眩目的（60）</td></tr>
+          <tr><td>一到两条元素抗性</td><td>… Resistance</td><td class="n">总元素抗 31</td><td class="tier">火山之 / 北极熊之 / 台风之（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>Definitiv 低预算用的是守护者巨盔（65 级、91 力量的护甲底，配天赋「符文战盔」），而这套配置只有 17 力量；卡马萨冠冕是他中高预算的底子之一，ds_lily 也全程用 ES 冠冕<b class="src s">合</b>。插埃曼纳姆的凝视（需求 60）<b class="src l">L</b>。Definitiv 的头盔做法：</p>
+        <ol>
+          <li>找 / 买 +2 召唤生物技能等级的头盔，带 T3 以上的固定或百分比防御前缀；前缀空着就用完美增幅石。</li>
+          <li>按缺的抗性用强效接地 / 熔解 / 绝缘精华（或强效丰裕精华出稀有度）。</li>
+          <li>渎灵一个前缀并显现，赌高防御（可配深渊回响预兆）。</li>
+          <li>强效崇高预兆 + 高级崇高石补最后的前缀与后缀<b class="src d">D</b>。</li>
+        </ol>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Kamasan%20Tiara%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2162097452%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4015621042%22%2C%22value%22%3A%7B%22min%22%3A56%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>身体 · 邪恶束衣 <span class="en">Vile Robe</span></h4><span class="req">需求 65 级 · 121 智 · 底子 ES 171 → 成品 573</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+77 能量护盾上限</td><td>+77 to maximum Energy Shield</td><td class="n">71</td><td class="tier">夺目的 Scintillating（65）</td></tr>
+          <tr><td>能量护盾提高 95%</td><td>95% increased Energy Shield</td><td class="n">92</td><td class="tier">坚不可摧的 Unassailable（65）</td></tr>
+          <tr><td>高级钢铁符文 ×2：护甲、闪避和能量护盾提高 18%（合计 36%）；羁绊：+20 生命上限，+20 魔力上限</td><td>Greater Iron Rune ×2</td><td class="n">—</td><td class="tier">需求 30</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>核算：(171 + 77) × (1 + 95% + 36%) = 572.9，与原站 573 一致。ds_lily 的邪恶束衣另带 +30 精魂（身体能出 +30–61 精魂前缀，女士的 16 级 … 女王的 78 级）<b class="src l">L</b><b class="src db">库</b>。Definitiv 没写身体的制作方法。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4052037485%22%2C%22value%22%3A%7B%22min%22%3A71%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4015621042%22%2C%22value%22%3A%7B%22min%22%3A92%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>手套 · 瓦尔手套 <span class="en">Vaal Gloves</span></h4><span class="req">需求 75 级 · 94 智 · ES 51</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+96 生命上限</td><td>+96 to maximum Life</td><td class="n">85</td><td class="tier">丰腴的 Rotund（46）</td></tr>
+          <tr><td>冰霜抗性 +34%</td><td>+34% to Cold Resistance</td><td class="n" rowspan="2">总元素抗 62</td><td class="tier">北极熊之 of the Polar Bear（60）</td></tr>
+          <tr><td>闪电抗性 +34%</td><td>+34% to Lightning Resistance</td><td class="tier">台风之 of the Maelstrom（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <ol>
+          <li>找 / 买 T1 ES% + T2 以上抗性、需求 70 级以上的手套；低预算阶段 T2 以上生命或 T2 以上 ES% 配任意 60 级以上底子也行（这一档就是生命 + 双抗）。</li>
+          <li>按缺的抗性用强效接地 / 熔解 / 绝缘精华（或强效丰裕精华）。</li>
+          <li>渎灵一个前缀并显现，赌高防御（可配深渊回响预兆）。</li>
+          <li>强效崇高预兆 + 高级崇高石补最后的前缀和后缀<b class="src d">D</b>。</li>
+        </ol>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A85%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A62%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>鞋子 · 沙誓鞋履 <span class="en">Sandsworn Sandals</span></h4><span class="req">需求 75 级 · 101 智 · ES 78</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>移动速度提高 30%</td><td>30% increased Movement Speed</td><td class="n">30</td><td class="tier">猎豹的 Cheetah's（65）</td></tr>
+          <tr><td>+100 生命上限</td><td>+100 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的 Virile（54）</td></tr>
+          <tr><td>闪电抗性 +35%</td><td>+35% to Lightning Resistance</td><td class="n">总元素抗 31</td><td class="tier">台风之 of the Maelstrom（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>Definitiv 的主做法是给 80 级丝克玛便鞋用的（82 级才出 T1 移速，属于 ④）；这一档用他给的替代做法：按手套的步骤做，但要 T2 以上移速；插缺的抗性符文<b class="src d">D</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>项链 · 日曜项链 <span class="en">Solar Amulet</span></h4><span class="req">需求 30 级 · 基底 +(10—15) 精魂</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>所有召唤生物技能等级 +2</td><td>+2 to Level of all Minion Skills</td><td class="n">2</td><td class="tier">统御之 of the Despot（41）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>Definitiv 低预算原配是赤红项链（基底：生命每秒再生 2–4），日曜项链多 10–15 精魂<b class="src l">L</b>。涂膏：督军领袖（恐惧 + 恐惧 + 偏执）<b class="src l">L</b>。想提前做 ④ 的项链：买后缀有空位的稀有 +2 项链，用古加尔系渎灵赌「古加尔之」召唤生物的冷却回复率提高 12–20%（物品等级 65），出坏了转卖<b class="src d">D</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2162097452%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a>（不限底材）</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>戒指 · 永恒紧缩之戒 + 蓝玉戒指 <span class="en">Evergrasping Ring · Sapphire Ring</span></h4><span class="req">底子需求 32 / 12</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>戒指</th><th>词缀（中文原文）</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4">永恒紧缩之戒（传奇，珠玉戒指）</td><td>施法速度提高 (7—10)%</td><td class="n" rowspan="4">—</td><td class="tier" rowspan="4">传奇固定词缀</td></tr>
+          <tr><td>+(60—100) 魔力上限</td></tr>
+          <tr><td>在场的友军获得相当于伤害 (15—25)% 的额外混沌伤害</td></tr>
+          <tr><td>在场的敌人获得相当于伤害 (6—12)% 的额外混沌伤害</td></tr>
+          <tr><td rowspan="4">蓝玉戒指（稀有）</td><td>基底：冰霜抗性 +(20—30)%</td><td class="n">—</td><td class="tier">—</td></tr>
+          <tr><td>+94 生命上限</td><td class="n">85</td><td class="tier">丰腴的 Rotund（46）</td></tr>
+          <tr><td>火焰抗性 +33%</td><td class="n" rowspan="2">总元素抗 52</td><td class="tier">火山之 of the Volcano（60）</td></tr>
+          <tr><td>冰霜抗性 +25%</td><td class="tier">雪人之 of the Yeti（38）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>永恒紧缩之戒便宜、伤害大，ds_lily 说甚至可以戴两枚<b class="src l">L</b>；代价是在场敌人也多造成混沌伤害，而这一档还没有异灵之体<b class="src s">合</b>。另一枚照 Definitiv：任意生命 + 抗性戒指，戒指生命最高档只到阳刚的（54）<b class="src d">D</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Evergrasping%20Ring%22%2C%22type%22%3A%22Pearl%20Ring%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：永恒紧缩之戒</a> <b class="src s">合</b> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A85%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：生命抗性戒</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>腰带 · 重革腰带 <span class="en">Heavy Belt</span></h4><span class="req">底子需求 50 · 基底：晕眩阈值提高 (20—30)%，具有 (1—3) 个咒符位</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>目标词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+(120—149) 生命上限</td><td>+# to maximum Life</td><td class="n">100</td><td class="tier">健将的 Athlete's（60）</td></tr>
+          <tr><td>一到两条元素抗性</td><td>… Resistance</td><td class="n">总元素抗 50</td><td class="tier">火山之 / 北极熊之 / 台风之（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>Definitiv 正文说低预算“任意生命 + 抗性腰带”，原站数据却是 +125 生命 + 28 力量；本页没有力量需求，按正文做生命 + 抗性<b class="src s">合</b>。要放下 3 个咒符，腰带得有 3 个咒符位（Definitiv 原配那条只有 2 个）。有“召唤生物命令伤害”更好<b class="src l">L</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A50%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>药剂 · 终极生命药剂 + 终极魔力药剂 <span class="en">Ultimate Life / Mana Flask</span></h4><span class="req">需求 60 级</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>药剂</th><th>词缀（中文原文）</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2">生命</td><td>立即回复25% 回复量</td><td class="n">24</td><td class="tier">沸熔的 Effervescent（27）</td></tr>
+          <tr><td>每秒获得 0.20 次充能</td><td class="n">任意</td><td class="tier">苍翠之 of the Verdant（26）</td></tr>
+          <tr><td rowspan="2">魔力</td><td>回复效果在低魔下使用时总增 88%</td><td class="n">81</td><td class="tier">长存的 Persevering（63）</td></tr>
+          <tr><td>每秒获得 0.20 次充能</td><td class="n">任意</td><td class="tier">苍翠之 of the Verdant（26）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p>点异灵之体之前用带立即回复的终极生命药剂，后缀随意；④ 删掉它，魔力药剂可换传奇拉维安加之灵<b class="src d">D</b>。<a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1873752457%22%2C%22value%22%3A%7B%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2503377690%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.life%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：生命</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1873752457%22%2C%22value%22%3A%7B%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3276224428%22%2C%22value%22%3A%7B%22min%22%3A81%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.mana%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：魔力</a></p></div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>咒符 · 融冰 / 浸润 / 紫晶 <span class="en">Thawing · Dousing · Amethyst Charm</span></h4><span class="req">需求 12 / 32 / 40 级</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>咒符</th><th>效果（poe2db 原文）</th><th>④ 换成</th></tr></thead>
+        <tbody>
+          <tr><td>融冰咒符</td><td>移除你身上的所有冻结效果，且你不会被冻结。</td><td>新生希望（点异灵之体后更好）</td></tr>
+          <tr><td>浸润咒符</td><td>移除你身上的所有燃烧效果，且你不会燃烧。</td><td>磐石咒符</td></tr>
+          <tr><td>紫晶咒符</td><td>你获得额外的混沌抗性。</td><td>英雄血液</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p>交易只限定底材：<a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Thawing%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">融冰</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Dousing%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">浸润</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Amethyst%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">紫晶</a></p></div>
+    </div>
+  </article>
+
+  </div>
+
+  <h3>④ 目标词缀</h3>
+  <p class="small">④ 不给交易链接：ds_lily 原站的查询在护甲件上用了全局 ES 的统计 ID，搜不到本地词缀；Definitiv 中高预算以传奇为主。下表是要找的词缀。</p>
   <div class="scroll"><table class="tight">
-    <thead><tr><th>词缀</th><th>English</th><th>档次</th><th class="n">物品等级</th><th>用在</th></tr></thead>
+    <thead><tr><th>词缀（poe2db 简中）</th><th>English</th><th>档次</th><th class="n">物品等级</th><th>部位</th></tr></thead>
     <tbody>
-      <tr><td>所有召唤生物技能等级 +2</td><td>+2 to Level of all Minion Skills</td><td>统御之 of the Despot</td><td class="n">权杖 25 · 头盔 / 项链 41</td><td>①–③</td></tr>
-      <tr><td>所有召唤生物技能等级 +3</td><td>+3 to Level of all Minion Skills</td><td>监督之 of the Overseer</td><td class="n">权杖 55 · 项链 75</td><td>②–④</td></tr>
-      <tr><td>所有召唤生物技能等级 +4</td><td>+4 to Level of all Minion Skills</td><td>奴监之 of the Slavedriver</td><td class="n">权杖 78</td><td>④</td></tr>
-      <tr><td>所有召唤生物技能等级 +(1–2)</td><td>+(1–2) to Level of all Minion Skills</td><td>阿曼娜姆之 of Amanamu（渎灵）</td><td class="n">法器 65</td><td>④</td></tr>
-      <tr><td>在场的友军造成的伤害提高 (65–74)%</td><td>Allies in your Presence deal (65–74)% increased Damage</td><td>信服的 Persuasive</td><td class="n">46</td><td>③</td></tr>
-      <tr><td>召唤生物的冷却回复率提高 (12–20)%</td><td>Minions have (12–20)% increased Cooldown Recovery Rate</td><td>古加尔之 of Kurgal（渎灵）</td><td class="n">项链 65</td><td>④</td></tr>
-      <tr><td>执政官增益状态持续时间提高 (35–42)%</td><td>(35–42)% increased Archon Buff duration</td><td>飓风合金（头盔）</td><td class="n">—</td><td>④</td></tr>
-      <tr><td>移动速度提高 30%</td><td>30% increased Movement Speed</td><td>猎豹的 Cheetah's</td><td class="n">65</td><td>②–④</td></tr>
+      <tr><td>所有召唤生物技能等级 +3</td><td>+3 to Level of all Minion Skills</td><td>监督之 of the Overseer</td><td class="n">权杖 55 · 项链 75</td><td>项链</td></tr>
+      <tr><td>所有召唤生物技能等级 +4</td><td>+4 to Level of all Minion Skills</td><td>奴监之 of the Slavedriver</td><td class="n">78</td><td>权杖</td></tr>
+      <tr><td>所有召唤生物技能等级 +(1–2)</td><td>+(1–2) to Level of all Minion Skills</td><td>阿曼娜姆之 of Amanamu（渎灵）</td><td class="n">65</td><td>法器</td></tr>
+      <tr><td>召唤生物的冷却回复率提高 (12–20)%</td><td>Minions have (12–20)% increased Cooldown Recovery Rate</td><td>古加尔之 of Kurgal（渎灵）</td><td class="n">65</td><td>项链</td></tr>
+      <tr><td>在场的友军造成的伤害提高 (75–89)%</td><td>Allies in your Presence deal (75–89)% increased Damage</td><td>激发的 Motivating</td><td class="n">60</td><td>权杖</td></tr>
+      <tr><td>执政官增益状态持续时间提高 (35–42)%</td><td>(35–42)% increased Archon Buff duration</td><td>飓风合金</td><td class="n">—</td><td>头盔</td></tr>
+      <tr><td>移动速度提高 30%</td><td>30% increased Movement Speed</td><td>猎豹的 Cheetah's</td><td class="n">65</td><td>鞋子</td></tr>
     </tbody>
   </table></div>
 
@@ -523,42 +813,43 @@ footer p{max-width:none}
       <tr><td>声望符文（权杖）<span class="en">Rune of Renown</span></td><td>施法武器：执政官间隔期的消减速度加快 30%；羁绊：执政官增益状态持续时间提高 30%</td><td>②–③<b class="src l">L</b></td></tr>
       <tr><td>狂猿雕像（权杖）<span class="en">Primate Idol</span></td><td>权杖：在场的友军造成的伤害提高 40%</td><td>④<b class="src l">L</b></td></tr>
       <tr><td>埃曼纳姆的凝视（头盔）<span class="en">Amanamu's Gaze</span></td><td>需求 60，限 1 个远古增幅器；头盔：使用命令技能时移除一个伤害性异常状态</td><td>②–④<b class="src l">L</b></td></tr>
-      <tr><td>拉克斯之雕像 / 埃什塔之雕像（夜临腰带）</td><td>头盔效果：召唤生物技能的保留效能提高 8% / 消耗效能提高 15%。夜临有三个版本（镶嵌物按胸甲 / 头盔 / 盾牌计算），Definitiv 用的是头盔版，镶嵌效果另提高 50–100%</td><td>④ D 中预算<b class="src d">D</b></td></tr>
+      <tr><td>拉克斯之雕像 / 埃什塔之雕像（夜临腰带）</td><td>头盔：召唤生物技能的保留效能提高 8% / 消耗效能提高 15%。夜临有三个版本（镶嵌物按胸甲 / 头盔 / 盾牌计算），Definitiv 用头盔版，镶嵌效果另提高 50–100%</td><td>④ 纳薇拉之裂路线<b class="src d">D</b></td></tr>
     </tbody>
   </table></div>
-  <p class="small">声望符文写的是“施法武器”，权杖是否算施法武器 poe2db 没有明说；ds_lily 的数据把它插在权杖上<b class="src s">合</b>。</p>
+  <p class="small">声望符文写的是“施法武器”，权杖是否算施法武器 poe2db 没有明说；ds_lily 把它插在权杖上<b class="src s">合</b>。本构筑没有额外符文槽：瓦拉煞的门徒没有给额外插槽的升华点。</p>
 </section>
 
 <!-- ============ 8 ============ -->
 <section id="s8">
   <h2><span class="no">8</span>天赋树核心节点</h2>
-  <p><b>完整点法对着原站点，本页只标核心。</b>主树点数：Definitiv 战役结束 78 → 80 级 94 → 低预算 117 → 中预算 117；ds_lily 65 级 76 → 80 级 90 → 主配置 116。表中 ✓ 为该阶段应已点上，<span class="x">✗</span> 为本阶段洗掉。</p>
+  <p><b>完整点法对着原站点，本页只标核心。</b>主树点数参考：Definitiv 战役结束 78 → 80 级 94 → 低预算 117 → 中预算 117；ds_lily 65 级 76 → 80 级 90 → 主配置 116。③ 可以直接照 <a href="https://www.pathofexile.com/passive-skill-tree/AAAABgcDfS2YVzu0CzeyRvAnk9qCFj-E1hD5VeA5Xua-9NXSI9MUNOF2OQBfOmEbwI8Pbyoz6dT5lFYaO4rofB2iJ7EVHxgCBatCwWjFM5LarQu2JIHYiz2qJWVHtuM-DZ157-vGlWkuvaixH2lB3r2AT_MCdop4ACL9w7hY_8Ev-t8jFwjOSg8OLLhAPDDGgCjU4_tEXQWntdo9wSxw5-I5BvMWhZclqvGSoZwiIVrh_STGIPPkegZ5x3uOFMJLdm28mo-Fn6y1BMJxUa9HmH0DZdXN4W4hqAB0sz05SgWZ3hkMsz2mQqUMj5--_E-ry_vaobIXvVd5fjW7np0ImDwAAA==" target="_blank" rel="noopener">官方天赋树 · Definitiv 低预算</a>（取自作者 PoB，117 点、其中属性点 力 2 / 敏 1 / 智 20）点，再按本页去掉「符文战盔」。表中 ✓ 为该阶段应已点上，<span class="x">✗</span> 为本阶段洗掉。</p>
   <div class="scroll"><table class="tight">
     <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th><th class="n">④</th><th>来源</th></tr></thead>
     <tbody>
       <tr><td><b>死灵执政官</b><span class="en">Archon of Undeath</span></td><td>使用号令技能时，有 15% 的几率获得亡灵执政官</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>傀儡大师几率 ×2</b><span class="en">Puppet Master chance</span></td><td>① 命令技能魔力消耗效能 +15%，+1 傀儡大师层数上限；② 使用命令技能时 35% 溢出几率获得一层</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>悉听遵命</b><span class="en">At your Command</span></td><td>在场每有一种不同的永久性召唤生物，召唤生物使用命令技能造成的伤害提高 10%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>傀儡大师几率 ×2</b><span class="en">Puppet Master chance</span></td><td>其一：命令技能的魔力消耗效能提高 15%，+1 傀儡大师层数上限；其二：使用命令技能时，有 35% 的溢出几率获得一层傀儡大师</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>悉听遵命</b><span class="en">At your Command</span></td><td>在场范围内每有一种不同类型的永久性召唤生物，召唤生物使用命令技能造成的伤害提高 10%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
       <tr><td><b>通灵之触</b><span class="en">Necrotic Touch</span></td><td>召唤生物的暴击率提高 40%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
       <tr><td><b>成群结队</b><span class="en">Growing Swarm</span></td><td>召唤生物的效果区域提高 20%；召唤生物的冷却回复率提高 20%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b>（“非常重要”）</td></tr>
-      <tr><td><b>惊怖主宰</b> · <b>黑暗的右臂</b></td><td>召唤生物技能保留效能 +12% · 召唤生物范围 +20% 等</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>邪恶之握</b> · <b>熵能化身</b></td><td>召唤生物暴击伤害加成 +40% · 召唤生物 10% 物理视为额外混沌</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>纯粹能量 · 强化圣盾 · 抑能护盾 · 融合</b></td><td>ES +30% / +25%（5% 生命转 ES）/ +28%（异常与晕眩阈值）/ +40%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>洞察万物 · 坚忍屏障 · 奇思妙想</b></td><td>ES +18%、智慧 +6% / ES +50%、充能延后 20% / +25 智慧</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>欢欣执政官</b><span class="en">Invigorating Archon</span></td><td>执政官增益使所有元素抗性 +20%、移动速度提高 10%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>充能执政官</b><span class="en">Energising Archon</span></td><td>执政官持续时间 +30%；受执政官影响时 ES 充能开始加快 20%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n">—</td><td><b class="src l">L</b></td></tr>
+      <tr><td><b>惊怖主宰 · 黑暗的右臂</b><span class="en">Lord of Horrors · Right Hand of Darkness</span></td><td>召唤生物技能的保留效能提高 12% · 召唤生物的效果区域提高 20%、击中时 10% 几率造成死亡凋零、法术获得 5% 的伤害作为额外混沌伤害</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>邪恶之握 · 熵能化身</b><span class="en">Grip of Evil · Entropic Incarnation</span></td><td>召唤生物的暴击伤害加成提高 40% · 召唤生物 +13% 混沌抗性、将物理伤害的 10% 视为额外混沌伤害</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>纯粹能量 · 强化圣盾 · 抑能护盾 · 融合</b></td><td>ES +30%、+10 智 / ES +25%、生命上限的 5% 转为 ES / ES +28%、异常与晕眩阈值各为 ES 的 12% / ES +40%、魔力上限 −10%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>洞察万物 · 坚忍屏障 · 奇思妙想</b></td><td>ES +18%、魔力再生率 +12%、智慧 +6% / ES +50%、充能时间延后 20% / +25 智慧</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>欢欣执政官</b><span class="en">Invigorating Archon</span></td><td>执政官增益状态使所有元素抗性 +20%、移动速度提高 10%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>充能执政官</b><span class="en">Energising Archon</span></td><td>执政官增益状态持续时间提高 30%；受执政官增益影响时，能量护盾充能开始速度加快 20%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td><td><b class="src l">L</b>（主配置已不点）</td></tr>
       <tr><td><b>持久执政官</b><span class="en">Enduring Archon</span></td><td>执政官增益状态持续时间提高 30%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
       <tr><td><b>复兴执政官</b><span class="en">Resurging Archon</span></td><td>执政官间隔期的消减速度加快 25%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td><td><b class="src d">D</b><b class="src l">L</b>；主宰后作废<b class="src s">合</b></td></tr>
       <tr><td><b>无宁之众</b><span class="en">Restless Dead</span></td><td>召唤生物的复活速度加快 25%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td><td><b class="src d">D</b></td></tr>
-      <tr><td><b>康复</b><span class="en">Convalescence</span></td><td>ES 充能率降低 10%；ES 充能时间提前 20%</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n x">✗</td><td><b class="src d">D</b></td></tr>
-      <tr><td><b>符文战盔</b><span class="en">Ruinic Helm</span></td><td>装备头盔每有 8 点物品护甲值，ES 上限 +1</td><td class="n">—</td><td class="n">—</td><td class="n x">✗</td><td class="n">—</td><td>D 低预算有；本页不点<b class="src s">合</b></td></tr>
+      <tr><td><b>康复</b><span class="en">Convalescence</span></td><td>能量护盾充能率降低 10%；能量护盾充能时间提前 20%</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n x">✗</td><td><b class="src d">D</b></td></tr>
+      <tr><td><b>符文战盔</b><span class="en">Ruinic Helm</span></td><td>装备头盔每有 8 点物品护甲值，能量护盾上限 +1</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>Definitiv 低预算有；本页用 ES 冠冕，不点<b class="src s">合</b></td></tr>
       <tr><td><b>异灵之体</b><span class="en">Chaos Inoculation</span></td><td>生命上限变成 1；免疫混沌伤害和流血</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>亡魂舞步 · 冻结 / 炼狱 / 电震上限</b></td><td>召唤生物生命与闪避 +25% · 各类灌注上限 +1（为失落的蓝玉提供大点）</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
-      <tr><td><b>明光冠冕 · 崇敬宗师</b></td><td>装备头盔的 ES 提高 70% · 异常与晕眩阈值各为 ES 的 20%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td><b class="src l">L</b></td></tr>
-      <tr><td><b>迅速充能 · 灵魂盛放 · 可靠结界</b></td><td>ES 充能率与充能提前、混沌抗性</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td><b class="src d">D</b></td></tr>
+      <tr><td><b>亡魂舞步 · 冻结 / 炼狱 / 电震上限</b><span class="en">Dead can Dance · Frozen / Infernal / Shocking Limit</span></td><td>召唤生物的生命上限、闪避值各提高 25% · 冰霜 / 火焰 / 闪电灌注上限 +1（为失落的蓝玉提供大点）</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td><b class="src d">D</b><b class="src l">L</b></td></tr>
+      <tr><td><b>明光冠冕 · 崇敬宗师</b><span class="en">Illuminated Crown · Hallowed</span></td><td>装备头盔的能量护盾提高 70%（另加照亮范围 20%）· 异常与晕眩阈值各为 ES 的 20%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td><b class="src l">L</b></td></tr>
+      <tr><td><b>迅速充能 · 灵魂盛放 · 可靠结界</b><span class="en">Rapid Recharge · Soul Bloom · Dependable Ward</span></td><td>ES 充能率 +12%、充能时间提前 12% / 充能时间提前 15% / 混沌抗性 +8%、充能时间提前 12%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">分支</td><td>纳薇拉之裂路线<b class="src d">D</b></td></tr>
     </tbody>
   </table></div>
-  <p class="small">ds_lily 主配置另外点了分裂之劲、无情陨落、废灭、祈唤上限、力量灌注、圣痕等节点；评论区的回答是“这些给失落珠宝提供大点，没有特大范围珠宝就拿去点别的”<b class="src l">L</b>。</p>
+  <p class="small">Definitiv 给的前期取点顺序：死灵执政官 → 右侧傀儡大师几率 → 悉听遵命 → 其旁的命令冷却小点 → 左侧傀儡大师几率 → 命令伤害小点 → 通灵之触；战役末补成群结队<b class="src d">D</b>。ds_lily 主配置另外点了分裂之劲、无情陨落、废灭、祈唤上限、力量灌注、圣痕；评论区的回答是“这些给失落珠宝提供大点，没有特大范围珠宝就拿去点别的”<b class="src l">L</b>。</p>
+  <p class="small">亡灵执政官（Definitiv 列出的效果）：召唤生物伤害总增 25%；命令技能冷却回复速度总增 200%；临时召唤生物技能的召唤上限总增 100%；获得时复活所有永久性亡灵召唤生物；默认持续 10 秒，之后是 20 秒回复期。傀儡大师默认最多 5 层、每层 8 秒，投资后可到 11 层、10 秒<b class="src d">D</b>。</p>
 </section>
 
 <!-- ============ 9 ============ -->
@@ -568,16 +859,26 @@ footer p{max-width:none}
     <thead><tr><th>阶段</th><th>珠宝</th><th>来源</th></tr></thead>
     <tbody>
       <tr><td>① ②</td><td>不需要。ds_lily 的 65 / 80 级变体点了 3 个插槽但没列珠宝</td><td><b class="src l">L</b></td></tr>
-      <tr><td>③</td><td>3 颗蓝玉：能量护盾上限提高 ≥15%（闪光的）+ 召唤生物的暴击伤害加成提高 ≥15%（抓取之），其中一颗再加魔力在击败敌人时恢复 1–2%（逆渗透之）。做法：买不带 ES% 的 2–3 词缀蓝玉，最后用稀释的液化愤怒补 ES 前缀（必定挤掉一条已有前缀）</td><td><b class="src d">D</b></td></tr>
+      <tr><td>③</td><td>3 颗蓝玉（需求 20），明细见下</td><td><b class="src d">D</b></td></tr>
       <tr><td>④</td><td>失落的蓝玉放中间插槽（范围远比网站显示的大），用远古强效的液化悲哀升“特大范围”，大点给召唤生物暴击率 / 暴伤；买不起就只买带暴击率的“大范围”版。另加无根之源，剩下一颗 ES% 蓝玉</td><td><b class="src l">L</b><b class="src d">D</b></td></tr>
     </tbody>
   </table></div>
+  <h3>③ 的 3 颗蓝玉</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>插槽（原站节点编号）</th><th>前缀</th><th>后缀</th><th>交易</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">node-21984</td><td>能量护盾上限提高 ≥15%<span class="en">闪光的 Shimmering (10–20)%</span></td><td>召唤生物的暴击伤害加成提高 ≥15%<span class="en">抓取之 of Gripping (15–25)%</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2482852589%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1854213750%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+      <tr><td class="mono">node-7960</td><td>能量护盾上限提高 ≥15%</td><td>召唤生物的暴击伤害加成提高 ≥15% · 魔力在击败敌人时恢复 ≥1%<span class="en">逆渗透之 of Osmosis (1–2)%</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2482852589%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1030153674%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1854213750%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+      <tr><td class="mono">node-61419</td><td>能量护盾上限提高 ≥15%</td><td>召唤生物的暴击伤害加成提高 ≥15%</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2482852589%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1854213750%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Definitiv 的做法：买 2–3 条词缀、<b>不带</b> ES% 的蓝玉，词缀在召唤生物暴击伤害加成、召唤生物暴击率、能量护盾充能时间提前里挑；后缀空一条且遗存头骨便宜时，用右旋死灵预兆渎灵第二条后缀（推荐配深渊回响预兆）。确保有 2 条前缀后，用稀释的液化愤怒收尾——它必定加上 ES 前缀，同时必定挤掉一条已有前缀，所以有一半几率丢掉“充能时间提前”<b class="src d">D</b>。插槽位置以原站天赋树为准。</p>
 </section>
 
 <!-- ============ 10 ============ -->
 <section id="s10">
   <h2><span class="no">10</span>搜索正则</h2>
-  <p>四条正则对应四个阶段，词元都取 poe2db 简中原文；词缀名后的数字是物品等级门槛，低于当前区域等级的档次才会出现。写法约定同低预算页：不用锚点，力量 / 智慧前加 <code>\+</code> 避开物品需求行。</p>
+  <p>四条正则对应四个阶段，词元都取 poe2db 简中原文；词缀名后的数字是物品等级门槛，低于当前区域等级的档次才会出现。游戏内搜索框匹配已鉴定物品的完整文本，蓝装名称由“前缀名 + 底材 + 后缀名”拼成，所以词缀名和词缀文本都能命中；地上未鉴定的蓝装只有词缀名有效。英文正则的 <code>^</code> <code>$</code> 锚点在简中失效（加值写在行尾），一律不用；智慧前加 <code>\+</code>，避开物品需求行里的“107 智慧”这类文字。</p>
   <div class="rx">
     <div class="rx-head"><b>① 50 级</b><span class="range">第 4 幕 46–53 + 间章 54–56</span><button class="copy" type="button" data-for="rx1">复制</button></div>
     <pre id="rx1">移动速度提高|召唤生物技能等级|瞪羚的|统御之|监督之|炉火之|海象之|暴风雨之|阳刚的|\+\d+ 智慧|抗性 \+[23]\d%</pre>
@@ -598,7 +899,7 @@ footer p{max-width:none}
     <pre id="rx4">先祖冠冕|塔萨里奥法器|丝克玛便鞋|海妖之鳞手套|日曜项链|赌神芬多|敬奉之绸|召唤生物技能等级 \+[34]|奴监之|召唤生物的冷却回复率|执政官增益状态持续时间|炽焰的|坚不可摧的|地狱的</pre>
     <div class="rx-body"><p>「丝克玛便鞋」「海妖之鳞手套」同时命中带“符文”前缀的版本。奴监之 +4 权杖（78）；炽焰的 +81–90 ES（70）；坚不可摧的 ES 提高 92–100%（65）；地狱的 35% 移速（82）。<b>撞名</b>：「坚不可摧的」也是力量头盔、项链上的护甲% T1。渎灵词缀的名字就是深渊领主名（「古加尔之」「阿曼娜姆之」各对应多条词缀），所以用文本「召唤生物的冷却回复率」「召唤生物技能等级」来抓。</p></div>
   </div>
-  <p class="small">四条长度 66–96 字符；Definitiv 自己的英文正则也是 96 字符，可见输入框容得下这个长度。</p>
+  <p class="small">四条长度 66–96 字符；Definitiv 自己的英文开荒正则也是 96 字符，可见输入框容得下这个长度。两份原站都没有物品过滤器（ds_lily 说她用 FilterBlade）。</p>
 </section>
 
 <!-- ============ 11 ============ -->
@@ -611,15 +912,16 @@ footer p{max-width:none}
       <li>法杖、长杖上的冰霜 / 火焰 / 物理技能等级不提升灵神，只认召唤生物技能等级<b class="src l">L</b>。</li>
       <li>魔侍焚焰使的引爆别对着自己的召唤物放<b class="src l">L</b>。</li>
       <li>用第二武器组放威能法印后记得切回武器组 1——灵神没法绑定武器组<b class="src l">L</b>。</li>
-      <li>只用圣地权杖（或其他纯净系权杖）：它们的光环挂精魂辅助不占精魂，其他权杖给的纪律、怨毒会占<b class="src d">D</b><b class="src l">L</b>。</li>
-      <li>鲁詹之陷阱不要挂冗余 II 提高上限<b class="src d">D</b>；不推荐诅咒；不需要脆弱<b class="src d">D</b>。</li>
+      <li>权杖用圣地权杖（或其他纯净系权杖）：它们的光环挂精魂辅助不占精魂，其他权杖给的纪律、怨毒会占，差 50 精魂<b class="src d">D</b><b class="src l">L</b>。</li>
+      <li>鲁詹之陷阱不要挂冗余 II 提高上限；不推荐诅咒（苦痛奉献比任何诅咒都好）；不需要脆弱——魔侍挂护甲破损 III 或厄罗克的熔炼术就有破甲<b class="src d">D</b>。</li>
       <li>巨狼猛扑只是过渡，而且需要魔符<b class="src d">D</b><b class="src db">库</b>。</li>
     </ul>
   </div>
   <h3>机制说明（正文）</h3>
   <ul>
-    <li>0.5 召唤生物对非传奇敌人的伤害加成 bug 已修，后期召唤伤害约多 25–35%（对传奇 20–25%）；裂隙（Breach）相关的首饰能出召唤生物伤害词缀；命令技能施放时的移速惩罚从 70% 降到 50%<b class="src l">L</b>。</li>
-    <li>ds_lily 对三个灵神的排序：凯拉里最好（最高伤害，施加暴击弱点，清图也不错）；鲁詹第二（陷阱补清图伤害，印记可以常驻 6 层傀儡大师、触发执政官）；纳薇拉最差（冰霜炸弹 → 捡残片 → 冰霜新星 → 纳薇拉之裂三键连招，她不认为清图更快）<b class="src l">L</b>。Definitiv 则在中高预算用纳薇拉之裂清图<b class="src d">D</b>。</li>
+    <li>0.5 修了召唤生物对非传奇敌人伤害加成的 bug，后期召唤伤害约多 25–35%（对传奇 20–25%）；裂隙（Breach）相关的首饰能出召唤生物伤害词缀；命令技能施放时的移速惩罚从 70% 降到 50%<b class="src l">L</b>。</li>
+    <li>傀儡大师最多只能把命令技能的移动减速抵消到 0，不能让你比平常走得更快；凯拉里之诡计的“命令到爆炸”间隔很短，虽然有持续时间标签，也不受持续时间辅助影响<b class="src d">D</b>。</li>
+    <li>ds_lily 对三个灵神的排序：凯拉里最好（最高伤害，施加暴击弱点，清图也不错）；鲁詹第二（陷阱补清图伤害，印记可以常驻 6 层傀儡大师、触发执政官）；纳薇拉最差（寒霜爆 → 捡残片 → 冰霜新星 → 纳薇拉之裂三键连招，她不认为清图更快）<b class="src l">L</b>。Definitiv 则在中高预算用纳薇拉之裂清图<b class="src d">D</b>。</li>
     <li>异灵之体会免除中毒与流血；流血完全不掉血是已知 bug<b class="src d">D</b>。亡灵执政官的回复期是个增益，回角色选择再进会被清掉，Definitiv 认为是非预期的 bug<b class="src d">D</b>。</li>
     <li>灵体宝石可以还原成空白版本，不会浪费<b class="src l">L</b>。莫名被秒可以试着去掉「动荡牵绊」（ds_lily 自己没遇到，她的天赋里也没点）<b class="src l">L</b>。</li>
     <li>可选：切到法印长杖放威能法印再切回，首领额外伤害<b class="src l">L</b>；高抗性地图可在纳薇拉或灵体上换拉其塔之流<b class="src l">L</b>。</li>
@@ -629,7 +931,7 @@ footer p{max-width:none}
     <thead><tr><th>站点</th><th>要点</th></tr></thead>
     <tbody>
       <tr><td>ds_lily</td><td><b>更正作者的“执政官冷却 bug”</b>：不是 bug，触发执政官的那一次技能要等它自己的正常冷却结束才吃到冷却加速；执政官间歇期连按鲁詹之印记就能重新带起来。</td></tr>
-      <tr><td>ds_lily</td><td>问主配置为什么点 +1 冰霜 / 闪电、冰霜灌注——答（读者）：给失落珠宝提供大点，没有特大范围珠宝就点别的。另有问两枚无词缀戒指换两只灵体、巨狼形态怎么变回（答：用任意其他技能）、灵神伤害公式（无回复）。9 条中 1 条已删除。</td></tr>
+      <tr><td>ds_lily</td><td>问主配置为什么点 +1 冰霜 / 闪电、冰霜灌注——读者回答：给失落珠宝提供大点，没有特大范围珠宝就点别的。另有问两枚无词缀戒指换两只灵体、巨狼形态怎么变回（答：用任意其他技能）、灵神伤害公式（无回复）。共 9 条，1 条已删除。</td></tr>
       <tr><td>Definitiv</td><td>项链制作第 3、4 步看不懂；没有身体护甲制作方法；无根之源之后点什么；狼群自爆机制与结界值——4 条都无回复。</td></tr>
     </tbody>
   </table></div>
@@ -649,14 +951,14 @@ footer p{max-width:none}
       <tr><td>灵神辅助孔</td><td>36 / 55 / 90 级</td><td>40 / 65 / 90 级</td><td>阶段按较晚的说法切</td></tr>
       <tr><td>凯拉里第 4 辅助</td><td>闪电协调</td><td>势大力沉</td><td>闪电协调（约 +25% 对 +18%）</td></tr>
       <tr><td>权杖底材</td><td>只认圣地权杖</td><td>任意纯净系权杖或罪孽权杖（给魔侍武士，前 2 只无基础精魂保留）</td><td>圣地权杖；罪孽权杖为备选</td></tr>
-      <tr><td>权杖插槽</td><td>夏波卡多的统御灵核 / 法利赛之雕像（效果写的是法杖或长杖）</td><td>声望符文 → 有主宰后狂猿雕像</td><td>采用 L</td></tr>
+      <tr><td>权杖插槽</td><td>夏波卡多的统御灵核 / 法利赛之雕像（前者效果写的是“法杖或长杖”）</td><td>声望符文 → 有主宰后狂猿雕像</td><td>采用 L</td></tr>
       <tr><td>头盔</td><td>低预算 65 级力量护甲头盔配符文战盔（要 91 力量，配置只有 45）；中高预算卡马萨 / 先祖冠冕</td><td>全程 ES 冠冕 + 埃曼纳姆的凝视（65 级变体写了 80 级底材）</td><td>全程冠冕：术士 → 法术 → 卡马萨 → 先祖</td></tr>
       <tr><td>戒指</td><td>低预算两枚稀有生命抗性戒；中预算永恒紧缩 + 赌神芬多；高预算三相戒指</td><td>65 / 80 级就上永恒紧缩之戒；主配置赌神芬多 ×2</td><td>② 起上永恒紧缩之戒</td></tr>
-      <tr><td>副手</td><td>低预算荒凉原野法器；中高塔萨里奥法器</td><td>65 级纹章盾（需求 70、50+ 力量）；80 级荒凉原野法器；主配置塔萨里奥法器</td><td>全程法器</td></tr>
-      <tr><td>灵体与魔侍</td><td>灵体可选；魔侍基本只挂亡命之息</td><td>2 只 Powered Zealot 带 5 辅助；魔侍每只 3 辅助</td><td>1 只灵体起步，辅助先省</td></tr>
-      <tr><td>苦痛奉献</td><td>首领必放</td><td>可选，可能删</td><td>保留</td></tr>
+      <tr><td>副手</td><td>低预算荒凉原野法器；中高塔萨里奥法器</td><td>65 级变体用丝克玛纹章盾（需求 70 级、54 力量）；80 级荒凉原野法器；主配置塔萨里奥法器</td><td>全程法器</td></tr>
+      <tr><td>灵体与魔侍</td><td>灵体可选；低预算魔侍基本只挂亡命之息</td><td>2 只强能狂热者带 5 辅助；魔侍每只 3 辅助</td><td>1 只灵体起步；魔侍辅助 ①–③ 照 D、④ 照 L</td></tr>
+      <tr><td>苦痛奉献</td><td>首领必放</td><td>可选，主配置已删</td><td>保留</td></tr>
       <tr><td>珠宝</td><td>低预算 3 蓝玉；中高失落的蓝玉 + 硬币地脉；高预算无根之源</td><td>主配置失落的蓝玉（特大范围）+ 无根之源 + 蓝玉</td><td>③ 用 D，④ 用 L</td></tr>
-      <tr><td>数据质量</td><td>词缀精确、交易链接可用；头盔力量、权杖 +2/+3、腰带咒符位有矛盾</td><td>词缀数值粗；65 级变体装备需求 80、升华 8 点、纳薇拉之井拿不到</td><td>词缀以 D 为准</td></tr>
+      <tr><td>数据质量</td><td>词缀精确、交易查询可用；头盔力量、权杖 +2/+3、腰带咒符位有矛盾</td><td>词缀数值粗；65 级变体底材需求 70–80、提前点了神圣仪式、纳薇拉之井拿不到</td><td>词缀以 D 为准</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -664,28 +966,88 @@ footer p{max-width:none}
 <!-- ============ 13 ============ -->
 <section id="s13">
   <h2><span class="no">13</span>术语对照表</h2>
-  <p class="small">只列本页新增或两份攻略用法不同的词；其余见 <a href="低预算.html#s13">低预算页第 13 节</a>。另一中文页把 djinn 写作“巨灵”（取自 poe2db 技能描述“沙之巨灵”），本仓库的 Definitiv 页写作“灵神”，指的是同一类召唤物。</p>
+  <p class="small">本页出现的专名。“poe2db”指 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同名页面对位；“暂译”为本页译名，游戏内可能不同。djinn 在 poe2db 技能描述里写作“巨灵”，本页统称“灵神”。</p>
   <div class="scroll"><table class="tight">
     <thead><tr><th>中文</th><th>English</th><th>来源</th></tr></thead>
     <tbody>
-      <tr><td>纳薇拉之井 · 纳薇拉之拥</td><td>Navira's Well · Navira's Embrace</td><td>poe2db</td></tr>
+      <tr><th colspan="3">职业、升华与灵神</th></tr>
+      <tr><td>魔巫 · 瓦拉煞的门徒 · 丝克玛试炼</td><td>Sorceress · Disciple of Varashta · Trial of the Sekhemas</td><td>poe2db</td></tr>
+      <tr><td>凯拉里硬币 / 鲁詹硬币 / 纳薇拉硬币</td><td>Barya of Kelari / Ruzhan / Navira</td><td>poe2db</td></tr>
+      <tr><td>凯拉里，污秽沙暴 / 鲁詹，炽焰之剑 / 纳薇拉，终末幻影</td><td>Kelari, the Tainted Sands / Ruzhan, the Blazing Sword / Navira, the Last Mirage</td><td>poe2db</td></tr>
+      <tr><td>凯拉里之诡计 · 凯拉里之残暴</td><td>Kelari's Deception · Kelari's Brutality</td><td>poe2db</td></tr>
+      <tr><td>鲁詹之陷阱 · 鲁詹之印记</td><td>Ruzhan's Trap · Ruzhan's Brand</td><td>poe2db</td></tr>
+      <tr><td>纳薇拉之裂 · 纳薇拉之井 · 纳薇拉之拥</td><td>Navira's Fracturing · Navira's Well · Navira's Embrace</td><td>poe2db</td></tr>
+      <tr><td>第四教义 · 神圣仪式 · 硬币地脉</td><td>The Fourth Teaching · Sacred Rituals · Baryanic Leylines</td><td>poe2db</td></tr>
+      <tr><td>埃尔扎拉，眼镜蛇领主</td><td>Elzarah, the Cobra Lord</td><td>poe2db</td></tr>
+      <tr><td>乌扎尔 · 刻蚀峡谷（区域）</td><td>Utzaal · Etched Ravine</td><td>poe2db</td></tr>
+      <tr><th colspan="3">机制</th></tr>
+      <tr><td>命令 · 召唤生物 · 永久性 · 在场 · 精魂</td><td>Command · Minion · Persistent · Presence · Spirit</td><td>poe2db</td></tr>
+      <tr><td>执政官 · 亡灵执政官（增益）· 死灵执政官（天赋）</td><td>Archon · Archon of Undeath</td><td>poe2db</td></tr>
+      <tr><td>傀儡大师 · 暴击弱点 · 曝露 · 冰缓地面 · 不洁之力</td><td>Puppet Master · Critical Weakness · Exposure · Chilled Ground · Unholy Might</td><td>poe2db</td></tr>
+      <tr><td>血统（辅助宝石）· 符文结界 · 维金</td><td>Lineage · Runic Ward · Verisium</td><td>poe2db</td></tr>
+      <tr><td>渎灵 · 渎灵词缀 · 显现</td><td>Desecrate · Desecrated Modifiers · Reveal</td><td>poe2db</td></tr>
+      <tr><td>涂膏 · 液化情感</td><td>Anoint · Liquid Emotions</td><td>poe2db</td></tr>
+      <tr><td>轻蔑 · 痛苦 · 孤独 · 恐惧 · 偏执 · 内疚 · 嫉妒 · 愤怒 · 憎恶 · 贪婪</td><td>Contempt · Suffering · Isolation · Fear · Paranoia · Guilt · Envy · Ire · Disgust · Greed</td><td>poe2db</td></tr>
+      <tr><th colspan="3">主动技能与怪物</th></tr>
+      <tr><td>火焰净化 · 苦痛奉献 · 束缚灵体 · 巨狼猛扑 · 狼群</td><td>Purity of Fire · Pain Offering · Bind Spectre · Pounce · Wolf Pack</td><td>poe2db</td></tr>
+      <tr><td>魔侍风暴法师 / 焚焰使 / 冰霜法师 / 神射手 / 蛮兵 / 掠夺者 / 祭司 / 武士</td><td>Skeletal Storm Mage / Arsonist / Frost Mage / Sniper / Brute / Reaver / Cleric / Warrior</td><td>poe2db</td></tr>
+      <tr><td>强能狂热者 · 瓦尔军卫</td><td>Powered Zealot · Vaal Guard</td><td>poe2db</td></tr>
+      <tr><td>召唤生物死亡时施放 · 冰霜新星 · 维金供能 · 康复 · 反制</td><td>Cast on Minion Death · Ice Nova · Powered by Verisium · Convalescence · Refutation</td><td>poe2db</td></tr>
+      <tr><td>电球 · 精华吸取 · 尖刺风暴 · 寒霜爆 · 雷霆风暴 · 威能法印</td><td>Spark · Essence Drain · Bonestorm · Frost Bomb · Thunderstorm · Sigil of Power</td><td>poe2db</td></tr>
+      <tr><td>纪律 · 怨毒 · 脆弱</td><td>Discipline · Malice · Vulnerability</td><td>poe2db</td></tr>
+      <tr><th colspan="3">辅助宝石</th></tr>
+      <tr><td>奉命 I / II / III · 海纳百川 · 魁梧仆从 · 闪电协调 · 势大力沉</td><td>Bidding I / II / III · Muster · Hulking Minions · Lightning Attunement · Heft</td><td>poe2db</td></tr>
+      <tr><td>古加尔的缰绳 · 特克罗的复仇 · 布鲁特斯之脑 · 罗米拉的报复 · 神主之握（血统）</td><td>Kurgal's Leash · Tecrod's Revenge · Brutus' Brain · Romira's Requital · Dominus' Grasp</td><td>poe2db</td></tr>
+      <tr><td>重新武装 II · 加长引线 II · 冗余 II · 处决 II</td><td>Rearm II · Long Fuse II · Overabundance II · Execute II</td><td>poe2db</td></tr>
+      <tr><td>范围扩大 I / II · 范围集中</td><td>Magnified Area I / II · Concentrated Area</td><td>poe2db</td></tr>
+      <tr><td>升流 II · 清晰 II · 活力 II · 灵秘 II · 冷静头脑 · 强健心灵 · 温热血脉</td><td>Upwelling II · Clarity II · Vitality II · Mysticism II · Cool Headed · Strong Hearted · Warm Blooded</td><td>poe2db</td></tr>
+      <tr><td>持续时间延长 I / II · 牺牲供奉 · 死亡之舞 · 快速施法 II</td><td>Prolonged Duration I / II · Sacrificial Offering · Danse Macabre · Rapid Casting II</td><td>poe2db</td></tr>
+      <tr><td>亡命之息 · 过载 · 感电 · 效能 II · 肉盾 I / II</td><td>Last Gasp · Overcharge · Shock · Efficiency II · Meat Shield I / II</td><td>poe2db</td></tr>
+      <tr><td>狂野碎片 I / II · 穿透 II / III · 狂噬 I / II · 投射物加速 III · 多重射击 II</td><td>Wildshards I / II · Pierce II / III · Feeding Frenzy I / II · Projectile Acceleration III · Multishot II</td><td>poe2db</td></tr>
+      <tr><td>护甲破损 III · 护甲破坏者 II · 厄罗克的熔炼术 · 穿刺</td><td>Armour Break III · Armour Demolisher II · Uruk's Smelting · Impale</td><td>poe2db</td></tr>
+      <tr><td>封冻枢纽 · 侵蚀地面 · 无边能量 II · 复仇之灵 · 炎军 I · 收割精华</td><td>Frost Nexus · Encroaching Ground · Boundless Energy II · Minion Instability · Infernal Legion I · Essence Harvest</td><td>poe2db</td></tr>
+      <tr><td>死亡印记 · 活体闪电 · 拉其塔之流</td><td>Mark for Death · Living Lightning · Rakiata's Flow</td><td>poe2db</td></tr>
+      <tr><td>乌尔尼多的拥抱 · 托沃的寂静</td><td>Uul-Netol's Embrace · Tul's Stillness</td><td>poe2db</td></tr>
+      <tr><th colspan="3">天赋与涂膏</th></tr>
+      <tr><td>死灵执政官 · 傀儡大师几率 · 悉听遵命 · 通灵之触 · 成群结队</td><td>Archon of Undeath · Puppet Master chance · At your Command · Necrotic Touch · Growing Swarm</td><td>poe2db</td></tr>
+      <tr><td>惊怖主宰 · 黑暗的右臂 · 邪恶之握 · 熵能化身</td><td>Lord of Horrors · Right Hand of Darkness · Grip of Evil · Entropic Incarnation</td><td>poe2db</td></tr>
+      <tr><td>纯粹能量 · 强化圣盾 · 抑能护盾 · 融合 · 洞察万物 · 坚忍屏障 · 奇思妙想 · 康复</td><td>Pure Energy · Enhanced Barrier · Dampening Shield · Melding · Insightfulness · Patient Barrier · Ingenuity · Convalescence</td><td>poe2db</td></tr>
+      <tr><td>欢欣执政官 · 充能执政官 · 持久执政官 · 复兴执政官 · 无宁之众 · 符文战盔</td><td>Invigorating Archon · Energising Archon · Enduring Archon · Resurging Archon · Restless Dead · Ruinic Helm</td><td>poe2db</td></tr>
+      <tr><td>异灵之体 · 亡魂舞步 · 冻结 / 炼狱 / 电震上限 · 明光冠冕 · 崇敬宗师</td><td>Chaos Inoculation · Dead can Dance · Frozen / Infernal / Shocking Limit · Illuminated Crown · Hallowed</td><td>poe2db</td></tr>
+      <tr><td>迅速充能 · 灵魂盛放 · 可靠结界</td><td>Rapid Recharge · Soul Bloom · Dependable Ward</td><td>poe2db</td></tr>
+      <tr><td>分裂之劲 · 无情陨落 · 废灭 · 祈唤上限 · 力量灌注 · 圣痕</td><td>Splintering Force · Relentless Fallen · Ruin · Invocated Limit · Infusion of Power · Stigmata</td><td>poe2db</td></tr>
       <tr><td>主宰 · 督军领袖 · 长距离关系 · 顽强精神 · 高效缓冲 · 动荡牵绊</td><td>Dominion · Warlord Leader · Long Distance Relationship · Mental Perseverance · Heavy Buffer · Unstable Bond</td><td>poe2db</td></tr>
-      <tr><td>轻蔑 · 痛苦 · 孤独 · 恐惧 · 偏执 · 内疚 · 嫉妒 · 愤怒 · 憎恶 · 贪婪（液化情感）</td><td>Contempt · Suffering · Isolation · Fear · Paranoia · Guilt · Envy · Ire · Disgust · Greed</td><td>poe2db</td></tr>
-      <tr><td>远古强效的液化悲哀</td><td>Ancient Potent Liquid Melancholy</td><td>poe2db</td></tr>
-      <tr><td>飓风合金</td><td>Cyclonic Alloy</td><td>poe2db</td></tr>
-      <tr><td>声望符文 · 狂猿雕像 · 埃曼纳姆的凝视</td><td>Rune of Renown · Primate Idol · Amanamu's Gaze</td><td>poe2db</td></tr>
-      <tr><td>罪孽权杖 · 魔侍武士</td><td>Rattling Sceptre · Skeletal Warrior</td><td>poe2db</td></tr>
-      <tr><td>德鲁伊法器 · 术士冠冕 · 法术冠冕 · 卡马萨冠冕 · 先祖冠冕</td><td>Druidic Focus · Magus Tiara · Sorcerous Tiara · Kamasan Tiara · Ancestral Tiara</td><td>poe2db</td></tr>
+      <tr><th colspan="3">底材与传奇</th></tr>
+      <tr><td>圣地权杖 · 罪孽权杖</td><td>Shrine Sceptre · Rattling Sceptre</td><td>poe2db</td></tr>
+      <tr><td>德鲁伊法器 · 荒凉原野法器 · 塔萨里奥法器 · 圣洁法器</td><td>Druidic Focus · Leyline Focus · Tasalian Focus · Sacred Focus</td><td>poe2db</td></tr>
+      <tr><td>术士冠冕 · 法术冠冕 · 卡马萨冠冕 · 先祖冠冕 · 守护者巨盔</td><td>Magus Tiara · Sorcerous Tiara · Kamasan Tiara · Ancestral Tiara · Guardian Greathelm</td><td>poe2db</td></tr>
       <tr><td>丝克玛纹章盾 · 神尊纹章盾 · 精巧纹章盾</td><td>Sekheman / Deified / Intricate Crest Shield</td><td>poe2db</td></tr>
-      <tr><td>海妖之鳞手套 · 金光戒指 · 双重腰带 · 真银咒符</td><td>Sirenscale Gloves · Gold Ring · Double Belt · Silver Charm</td><td>poe2db</td></tr>
-      <tr><td>势大力沉 · 快速施法 II · 护甲破坏者 II · 特克罗的复仇 · 处决 II · 盲点 · 致盲 II</td><td>Heft · Rapid Casting II · Armour Demolisher II · Tecrod's Revenge · Execute II · Blindside · Blind II</td><td>poe2db</td></tr>
-      <tr><td>狂野碎片 II · 穿透 III · 狂噬 II · 投射物加速 III · 元素军械 II · 元素大军 · 肉盾 II · 召唤生物专精</td><td>Wildshards II · Pierce III · Feeding Frenzy II · Projectile Acceleration III · Elemental Armament II · Elemental Army · Meat Shield II · Minion Mastery</td><td>poe2db</td></tr>
-      <tr><td>反制 · 威能法印 · 拉其塔之流 · 达拉的渴望 · 炎军 II · 阿曼娜姆的奉纳</td><td>Refutation · Sigil of Power · Rakiata's Flow · Dialla's Desire · Infernal Legion II · Amanamu's Tithe</td><td>poe2db</td></tr>
-      <tr><td>明光冠冕 · 崇敬宗师 · 充能执政官 · 无情陨落 · 废灭 · 祈唤上限 · 力量灌注 · 圣痕</td><td>Illuminated Crown · Hallowed · Energising Archon · Relentless Fallen · Ruin · Invocated Limit · Infusion of Power · Stigmata</td><td>poe2db</td></tr>
+      <tr><td>邪恶束衣 · 瓦尔手套 · 海妖之鳞手套 · 符文海妖之鳞手套</td><td>Vile Robe · Vaal Gloves · Sirenscale Gloves · Runeforged Sirenscale Gloves</td><td>poe2db</td></tr>
+      <tr><td>沙誓鞋履 · 丝克玛便鞋</td><td>Sandsworn Sandals · Sekhema Sandals</td><td>poe2db</td></tr>
+      <tr><td>日曜项链 · 赤红项链 · 扭曲项链</td><td>Solar Amulet · Crimson Amulet · Distorted Amulet</td><td>poe2db</td></tr>
+      <tr><td>蓝玉戒指 · 珠玉戒指 · 三相戒指</td><td>Sapphire Ring · Pearl Ring · Prismatic Ring</td><td>poe2db</td></tr>
+      <tr><td>重革腰带 · 终极生命药剂 · 终极魔力药剂</td><td>Heavy Belt · Ultimate Life Flask · Ultimate Mana Flask</td><td>poe2db</td></tr>
+      <tr><td>融冰 / 浸润 / 紫晶 / 磐石 / 真银咒符</td><td>Thawing / Dousing / Amethyst / Stone / Silver Charm</td><td>poe2db</td></tr>
+      <tr><td>蓝玉 · 失落的蓝玉</td><td>Sapphire · Time-Lost Sapphire</td><td>poe2db</td></tr>
+      <tr><td>永恒紧缩之戒 · 赌神芬多 · 敬奉之绸 · 夜临 · 法师之血</td><td>Evergrasping Ring · Ventor's Gamble · Silks of Veneration · Darkness Enthroned · Mageblood</td><td>poe2db</td></tr>
+      <tr><td>新生希望 · 英雄血液 · 拉维安加之灵 · 无根之源</td><td>Nascent Hope · Sanguis Heroum · Lavianga's Spirits · From Nothing</td><td>poe2db</td></tr>
+      <tr><th colspan="3">增幅器与工艺</th></tr>
+      <tr><td>高级钢铁符文 · 完美钢铁符文 · 羁绊</td><td>Greater Iron Rune · Perfect Iron Rune · Bonded</td><td>poe2db</td></tr>
+      <tr><td>声望符文 · 狂猿雕像 · 埃曼纳姆的凝视</td><td>Rune of Renown · Primate Idol · Amanamu's Gaze</td><td>poe2db</td></tr>
+      <tr><td>拉克斯之雕像 · 埃什塔之雕像 · 法利赛之雕像</td><td>Idol of Ralakesh · Idol of Eeshta · Idol of the Pharisee</td><td>poe2db</td></tr>
+      <tr><td>夏波卡多的统御灵核 · 阿特莫瓦的退却灵核</td><td>Xipocado's Soul Core of Dominion · Atmohua's Soul Core of Retreat</td><td>poe2db</td></tr>
+      <tr><td>命令精华 · 强效接地 / 熔解 / 绝缘 / 丰裕精华</td><td>Essence of Command · Greater Essence of Grounding / Thawing / Insulation / Opulence</td><td>poe2db</td></tr>
+      <tr><td>深渊回响预兆 · 强效崇高预兆 · 右旋死灵预兆</td><td>Omen of Abyssal Echoes · Omen of Greater Exaltation · Omen of Dextral Necromancy</td><td>poe2db</td></tr>
+      <tr><td>崇高石 · 高级崇高石 · 增幅石 · 完美增幅石 · 高级蜕变石 · 神圣石</td><td>Exalted Orb · Greater Exalted Orb · Orb of Augmentation · Perfect Orb of Augmentation · Greater Orb of Transmutation · Divine Orb</td><td>poe2db</td></tr>
+      <tr><td>遗存头骨 · 稀释的液化愤怒 · 远古强效的液化悲哀 · 飓风合金</td><td>Preserved Cranium · Diluted Liquid Ire · Ancient Potent Liquid Melancholy · Cyclonic Alloy</td><td>poe2db</td></tr>
+      <tr><th colspan="3">任务与其他</th></tr>
       <tr><td>蛇毒地窟 · 岩石之蛇毒饮剂</td><td>The Venom Crypts · Venom Draught of Stone</td><td>poe2db</td></tr>
       <tr><td>欧巴拉之柱 · 阿克莱之柱（间章七柱）</td><td>Orbala's Pillar · Ahkeli's Pillar</td><td>poe2db</td></tr>
       <tr><td>鲨鱼鳍 · 巨白鲨</td><td>Shark Fin · Great White One</td><td>poe2db（中文页自身写作“巨白鲨 / 伟大之白”两种）</td></tr>
+      <tr><td>裂隙</td><td>Breach</td><td>poe2db</td></tr>
       <tr><td>Kaom's Lesson · Rakiata's Lesson（鲨鱼鳍奖励）</td><td>Kaom's Lesson · Rakiata's Lesson</td><td><span class="chip tmp">未查到中文</span></td></tr>
+      <tr><td>总元素抗（交易站伪属性）</td><td>+#% total Elemental Resistance</td><td><span class="chip tmp">暂译</span></td></tr>
+      <tr><td>Forbidden Rites（赛季名）</td><td>Forbidden Rites</td><td><span class="chip tmp">保留英文</span></td></tr>
     </tbody>
   </table></div>
 </section>
@@ -695,43 +1057,47 @@ footer p{max-width:none}
   <h2><span class="no">14</span>数据核验</h2>
   <h3>已核实 <span class="chip ok">已核实</span></h3>
   <ul>
-    <li>两份原站数据：Definitiv 取自本目录 <code>_source.json</code>（第 11 版）；ds_lily 取自 <code>../0.5.5-瓦拉煞的门徒-凯拉里之诡计/_source.json</code>（第 170 版），两者都是 Mobalytics 整页状态。</li>
-    <li>升华试炼等级 38 / 60 / 80 与 Elzarah 必掉硬币：poe2db 升华职业页。</li>
-    <li>各幕区域等级：poe2db 幕页面（第 2 幕 16–32、第 3 幕 33–45、第 4 幕 46–53、间章 54–56；Etched Ravine 56，Powered Zealot 在该区域）。</li>
-    <li>宝石等级表（46→12 … 90→20，智慧 82 … 157）、束缚灵体 / 苦痛奉献智慧需求、巨狼猛扑“需求：魔符”、特克罗的复仇 / 达拉的渴望需求 65：poe2db 宝石页。</li>
-    <li>全部底材的需求与基础 ES、传奇（永恒紧缩之戒、赌神芬多、敬奉之绸、夜临）、增幅器（声望符文、狂猿雕像、埃曼纳姆的凝视、高级钢铁符文）、飓风合金、纳薇拉之井：poe2db 物品 / 技能页。</li>
-    <li>天赋节点效果与涂膏配方：poe2db <code>/Notable</code>、<code>/Keystone</code> 与节点页（主宰、督军领袖、长距离关系、顽强精神、高效缓冲的液化情感中英对照）。</li>
-    <li>“高效缓冲”“动荡牵绊”在 ds_lily 5 套天赋的 <code>selectedSlugs</code> 里都没有（按 PoB 社区 0.5 天赋数据的节点编号比对）。</li>
+    <li>两份原站数据：Mobalytics 页面内嵌的整页状态（Definitiv 第 11 版、7 个变体；ds_lily 第 170 版、5 个变体），均于 2026-09-23 抓取；Definitiv 另有 PoB（pobb.in/f6eoOVfZMPOD）。</li>
+    <li>全部装备词缀：poe2db 各部位词缀页 <code>/us/</code> 与 <code>/cn/</code> 同页对位（逐条校验词缀族与等级一致），按“文本模板 + 数值落在档位区间”匹配档次名与物品等级。</li>
+    <li>交易站统计 ID（召唤生物等级、本地 / 全局 ES、生命、移速、友军伤害、召唤生物暴伤、击杀回魔、总元素抗等）：在 pathofexile.com 同源读取官方统计表，逐个核对英文模板。</li>
+    <li>升华试炼等级 38 / 60 / 80 与埃尔扎拉必掉硬币：poe2db 升华职业页。各幕区域等级：poe2db 幕页面（第 2 幕 16–32、第 3 幕 33–45、第 4 幕 46–53、间章 54–56；乌扎尔 43、刻蚀峡谷 56，强能狂热者在刻蚀峡谷）。</li>
+    <li>宝石等级表（46→12 … 90→20，智慧 82 … 157）、魔侍与辅助的精魂保留、巨狼猛扑“需求：魔符”、血统辅助需求等级、每个辅助的“辅助宝石需求 +5 属性”：poe2db 宝石页。</li>
+    <li>底材需求与基础 ES、传奇（永恒紧缩之戒、赌神芬多、敬奉之绸、夜临）、增幅器（高级 / 完美钢铁符文、声望符文、狂猿雕像、埃曼纳姆的凝视）、飓风合金、纳薇拉之井 / 纳薇拉之拥：poe2db 物品与技能页。成品数值自洽：邪恶束衣 (171+77)×2.31 = 573、荒凉原野法器 (71+69)×1.81 = 253。</li>
+    <li>天赋节点效果与涂膏配方：poe2db <code>/Notable</code>、<code>/Keystone</code> 与节点页；属性点 +5；Definitiv 天赋上力量 / 智慧的来源按 PoB 社区 0.5 天赋数据逐节点统计；“高效缓冲”“动荡牵绊”在 ds_lily 5 套天赋里都没有。</li>
+    <li>原站“宝石需求”= 全部辅助的 +5 相加：Definitiv 低预算 27 个辅助 → 95 / 20 / 20；ds_lily 65 级 33 个辅助 → 合计 165；ds_lily 主配置 41 个辅助 → 合计 205，均吻合。第 6 节本页各阶段数字按同一方法、用 poe2db 宝石数据逐个算出。</li>
+    <li>Definitiv 中预算风暴法师的第 5 个辅助（原站 slug <code>supportpietysmercyplayer</code>）= 神主之握 / Dominus' Grasp：poe2db 中、英宝石页一致（被辅助技能的连锁次数总增 100%）。poe2db 中文血统列表里它的旧链接写作“派蒂的怜悯”，指向的页面已不存在。</li>
   </ul>
   <h3>两份攻略之间、以及各自内部的矛盾 <span class="chip bad">矛盾</span></h3>
   <ol>
     <li>灵神第 3、4 个辅助孔：Definitiv 36 / 55，ds_lily 40 / 65；poe2db 没有列孔数，无法裁定。</li>
-    <li>Definitiv 低预算头盔要 91 力量，配置只有 45（详见低预算页）；本页改走冠冕，问题消失。</li>
-    <li>ds_lily 65 级变体：头 / 手 / 脚需求 80、盾需求 70、升华填了 8 点（65 级最多 6）、文字提到纳薇拉之井但升华没点它——另一中文页已逐条标出，本页不沿用。</li>
-    <li>ds_lily 的护甲件 ES 数值来自项链全局词缀池，与本地词缀对不上（另一中文页已标）；本页的装备词缀改以 Definitiv 为准。</li>
-    <li>Definitiv 把效能 II 放在魔侍焚焰使上，但 poe2db 注明效能不能辅助保留精魂的技能。</li>
-    <li>另一中文页写的区域等级（“第 2 / 3 / 4 幕 17 / 31 / 45 级起，间章 60→65”）与 poe2db 幕页面不符，本页按 16 / 33 / 46、间章 54–56。</li>
+    <li>Definitiv 低预算：权杖数据与交易查询 +2，正文与 PoB +3；头盔守护者巨盔要 91 力量，配置可核实的力量只有 45（初始 7 + 属性点 10 + 腰带 28），天赋树上没有固定力量节点；腰带 2 个咒符位却配 3 个咒符；鞋子步骤写 80 级丝克玛便鞋，数据是 75 级沙誓鞋履；腰带正文说“生命 + 抗性”，数据是“生命 + 力量”；作者说“神圣仪式配敬奉之绸非常肉”，但两者在他任何一个变体里都没有同时出现。</li>
+    <li>ds_lily：65 级变体写了需求 80 的头 / 手 / 脚和需求 70 的盾，并提前点了第 4 次升华的神圣仪式；文字提到纳薇拉之井，升华却没点它；护甲件的 ES 写的是全局词缀“能量护盾上限提高”，交易查询也用全局 ES 统计 ID（2482852589），在护甲上搜不到本地词缀。</li>
+    <li>两位作者都把效能 II 挂在保留精魂的召唤技能上（D：魔侍焚焰使；L：鲁詹），poe2db 的效能说明写“不能辅助保留精魂的技能”。</li>
+    <li>“宝石需求”口径：原站数字是全部辅助相加，Definitiv 的 PoB 导出面板只有 力 17 / 敏 10 / 智 157，两者差很多。</li>
   </ol>
   <h3>本页的推算与取舍 <span class="chip tmp">合</span></h3>
   <ul>
-    <li>闪电协调对势大力沉的比较（+25% 对约 +18%）是按 poe2db 数值与凯拉里之诡计的伤害区间估算，没有计入暴击、感电等其他因素。</li>
-    <li>主宰之后“声望符文、复兴执政官作废”是按效果文字推出的（主宰：失去后没有回复期）；ds_lily 换狂猿雕像、Definitiv 中预算洗掉复兴执政官，与此一致。</li>
+    <li>闪电协调对势大力沉（+25% 对约 +18%）按 poe2db 数值与凯拉里之诡计的伤害区间估算，没算暴击、感电等因素。</li>
+    <li>主宰之后“声望符文、复兴执政官作废”按效果文字推出（主宰：失去后没有回复期）；ds_lily 换狂猿雕像、Definitiv 中预算洗掉复兴执政官，与此一致。</li>
     <li>“高效缓冲在异灵之体下致命”是推断：生命为 1 时任何穿透 ES 的伤害都会致死；作者只说了要洗掉。</li>
+    <li>头盔全程用 ES 冠冕、不点符文战盔、腰带改生命 + 抗性、副手全程法器、④ 火焰净化用冷静头脑换活力 II：都是为了让本页路线前后一致——没有力量头盔，就不需要力量腰带和符文战盔。</li>
+    <li>头盔、腰带、永恒紧缩之戒与 +3 权杖这 4 个交易查询是本页构造的：统计 ID 与底材名已核对，查询结构与原站相同；交易站搜索需要登录，本页没有实际跑过这 4 个查询。</li>
     <li>声望符文插在权杖上是否生效（效果写“施法武器”）没有核实。</li>
   </ul>
   <h3>原站缺失 <span class="chip na">原站未给</span></h3>
   <ul>
-    <li>两站都没有物品过滤器（ds_lily：用 FilterBlade）。</li>
+    <li>两站都没有物品过滤器。</li>
     <li>精魂总量、混沌抗性目标都没给；ES 目标只有 Definitiv 的 T15（2–3K）与 ds_lily 的转异灵之体门槛（约 6000）。</li>
     <li>鲨鱼鳍的两个奖励（Kaom's Lesson / Rakiata's Lesson）各是什么效果、哪个是“30% ES”：poe2db 没写。</li>
-    <li>ds_lily 的升级攻略（/poe-2/builds/djinn-sorceress-leveling）不在本仓库，① 阶段只用了 Definitiv。</li>
+    <li>ds_lily 的升级攻略本页未收录，① 阶段只用了 Definitiv。</li>
+    <li>第 3、4 幕首领的主要伤害类型未核实，① 的正则三抗一起补。</li>
   </ul>
 </section>
 
 </main>
 
 <footer>
-  <p>由 poe2-build-cn 技能的数据与流程合成 · 数据截至 2026-09-23 · 原作者 Definitiv、ds_lily（Mobalytics）· 中文以 poe2db.tw 简中口径为准。</p>
+  <p>数据截至 2026-09-23 · 原作者 Definitiv、ds_lily（Mobalytics）· 中文以 poe2db.tw 简中口径为准 · 由 poe2-build-cn 技能的数据与流程合成。</p>
 </footer>
 
 </div>
