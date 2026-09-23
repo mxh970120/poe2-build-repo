@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0.5.5 瓦拉煞的门徒 · 巨灵召唤魔巫 | 变体索引</title>
+<meta name="description" content="流亡黯道 2 0.5.5 瓦拉煞的门徒巨灵召唤构筑的中文变体索引与变体差异。">
+<style>
+:root{
+  --bg:#f6f1e7; --surface:#fffdf8; --surface2:#f0e8d8; --text:#241d14; --muted:#6a5c48; --line:#e0d3bc;
+  --accent:#96560f; --accent-soft:#f6e6cc; --link:#0d6b63; --chain:#fbf4e6;
+  --warn:#a8241a; --warn-bg:#fcebe8; --ok:#1d6f37; --ok-bg:#e6f3ea; --fix:#5b3db8; --fix-bg:#efeafc;
+  --info:#1d5a8a; --info-bg:#e7f0f8; --code-bg:#efe6d6; --shadow:0 1px 2px rgba(60,40,10,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14120e; --surface:#1d1a15; --surface2:#26221b; --text:#ece5d8; --muted:#b0a38c; --line:#3a342a;
+    --accent:#e3a54f; --accent-soft:#3a2c17; --link:#56cfc3; --chain:#221e17;
+    --warn:#ff8a7a; --warn-bg:#3a1c18; --ok:#7fd49a; --ok-bg:#16301f; --fix:#b8a4ff; --fix-bg:#2a2340;
+    --info:#8cc4f0; --info-bg:#172a3a; --code-bg:#2b261e; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14120e; --surface:#1d1a15; --surface2:#26221b; --text:#ece5d8; --muted:#b0a38c; --line:#3a342a;
+  --accent:#e3a54f; --accent-soft:#3a2c17; --link:#56cfc3; --chain:#221e17;
+  --warn:#ff8a7a; --warn-bg:#3a1c18; --ok:#7fd49a; --ok-bg:#16301f; --fix:#b8a4ff; --fix-bg:#2a2340;
+  --info:#8cc4f0; --info-bg:#172a3a; --code-bg:#2b261e; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.7 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+a{color:var(--link)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 16px 64px}
+header.top{border-bottom:1px solid var(--line);background:var(--surface);}
+header.top .wrap{padding-top:18px;padding-bottom:14px}
+.crumbs{font-size:13px;color:var(--muted)}
+.crumbs a{color:var(--muted)}
+h1{font-size:26px;line-height:1.3;margin:6px 0 4px}
+h1 .en{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-top:2px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:0;list-style:none;font-size:13px}
+.meta li{background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.switch{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.switch a,.switch button{font:inherit;font-size:13px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:4px 12px;cursor:pointer}
+.switch a.cur{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;margin-top:22px}
+nav.toc{position:sticky;top:12px;align-self:start;font-size:13px;max-height:calc(100vh - 24px);overflow:auto}
+nav.toc ol{margin:0;padding-left:22px}
+nav.toc li{margin:3px 0}
+nav.toc a{color:var(--muted);text-decoration:none}
+nav.toc a:hover{color:var(--accent)}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr)} nav.toc{position:static;max-height:none;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface)}}
+main section{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 0 18px;box-shadow:var(--shadow)}
+@media (max-width:600px){main section{padding:14px 12px}}
+h2{font-size:20px;margin:0 0 12px;display:flex;gap:10px;align-items:baseline}
+h2 .no{color:var(--accent);font-variant-numeric:tabular-nums}
+h2 .en{font-size:13px;font-weight:500;color:var(--muted)}
+h3{font-size:16px;margin:18px 0 8px}
+h4{font-size:14px;margin:14px 0 6px;color:var(--muted)}
+p{margin:6px 0 10px}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;margin-left:4px}
+.term .en{margin-left:3px}
+.tbl{overflow-x:auto;margin:8px 0 12px;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.nw{white-space:nowrap}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:.92em}
+code{background:var(--code-bg);padding:1px 5px;border-radius:5px;word-break:break-all}
+.tag{display:inline-block;font-size:11.5px;line-height:1.5;border-radius:6px;padding:0 6px;margin:0 2px;white-space:nowrap;border:1px solid transparent;vertical-align:1px}
+.tag.ok{background:var(--ok-bg);color:var(--ok);border-color:currentColor}
+.tag.bad{background:var(--warn-bg);color:var(--warn);border-color:currentColor}
+.tag.fix{background:var(--fix-bg);color:var(--fix);border-color:currentColor}
+.tag.inf{background:var(--info-bg);color:var(--info);border-color:currentColor}
+.tag.na{background:var(--surface2);color:var(--muted);border-color:var(--line)}
+.tag.must{background:var(--accent);color:var(--surface)}
+.tag.gate{background:var(--accent-soft);color:var(--accent);border-color:currentColor}
+.call{border-radius:10px;padding:10px 14px;margin:10px 0;border:1px solid var(--line);background:var(--surface2)}
+.call > :first-child{margin-top:0}.call > :last-child{margin-bottom:0}
+.call.warn{background:var(--warn-bg);border-color:var(--warn)}
+.call.warn b.h{color:var(--warn)}
+.call.fix{background:var(--fix-bg);border-color:var(--fix)}
+.call.fix b.h{color:var(--fix)}
+.call.info{background:var(--info-bg);border-color:var(--info)}
+.call.key{background:var(--accent-soft);border-color:var(--accent)}
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 22px;margin:10px 0 6px}
+.chain .step{position:relative;background:var(--chain);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+.chain .step b{display:block;color:var(--accent);font-size:13px}
+.chain .step:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:700}
+.chain .arr{display:none}
+@media (max-width:700px){.chain{grid-template-columns:minmax(0,1fr);gap:18px}.chain .step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}}
+.slot{border:1px solid var(--line);border-radius:10px;margin:12px 0;overflow:hidden}
+.slot > .sh{background:var(--surface2);padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.slot > .sh .sn{font-weight:700}
+.slot > .sh .req{font-size:12.5px;color:var(--muted)}
+.slot > .sb{padding:4px 12px 10px}
+.slot .tbl{margin:6px 0}
+.rx{display:flex;gap:8px;align-items:flex-start;margin:8px 0}
+.rx pre{flex:1;margin:0;background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;white-space:pre-wrap;word-break:break-all;font-size:14px}
+.rx button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:6px 10px;cursor:pointer;white-space:nowrap}
+.rx button.done{background:var(--ok-bg);color:var(--ok)}
+.small{font-size:12.5px;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:10px;padding:6px 12px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;font-weight:600}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;font-size:13.5px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+footer{color:var(--muted);font-size:12.5px;text-align:center;padding:24px 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:12px 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface);text-decoration:none;color:var(--text);display:block}
+.card:hover{border-color:var(--accent)}
+.card h3{margin:0 0 6px}
+.dim{opacity:.72}
+</style>
+<script>
+(function(){
+  var KEY='poe2-build-theme';
+  function apply(v){ if(v==='light'||v==='dark'){document.documentElement.setAttribute('data-theme',v);} else {document.documentElement.removeAttribute('data-theme');} var b=document.getElementById('themeBtn'); if(b){ b.textContent = v==='light'?'主题：浅色':v==='dark'?'主题：深色':'主题：跟随系统'; } }
+  var cur='auto'; try{ cur=localStorage.getItem(KEY)||'auto'; }catch(e){}
+  apply(cur);
+  document.addEventListener('DOMContentLoaded',function(){
+    apply(cur);
+    var b=document.getElementById('themeBtn');
+    if(b){ b.addEventListener('click',function(){ cur = cur==='auto'?'light':cur==='light'?'dark':'auto'; try{localStorage.setItem(KEY,cur);}catch(e){} apply(cur); }); }
+    document.querySelectorAll('.rx button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var txt=btn.parentNode.querySelector('pre').textContent;
+        function ok(){ btn.textContent='已复制'; btn.classList.add('done'); setTimeout(function(){btn.textContent='复制';btn.classList.remove('done');},1400); }
+        function fallback(){ var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); ok();}catch(e){} document.body.removeChild(ta); }
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(ok,fallback); } else { fallback(); }
+      });
+    });
+  });
+})();
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<div class="crumbs"><a href="../index.html">全部构筑</a> / 0.5.5 瓦拉煞的门徒 · 凯拉里之诡计</div>
+<h1>瓦拉煞的门徒 · 巨灵召唤魔巫（0.5.5）<span class="en">Djinn Sorceress (Disciple of Varashta)</span></h1>
+<ul class="meta"><li>补丁 <b>0.5.5</b></li><li><span class="term">魔巫<span class="en">Sorceress</span></span> → <span class="term">瓦拉煞的门徒<span class="en">Disciple of Varashta</span></span></li><li>作者 ds_lily</li><li>原站更新 2026-09-04（v170）</li><li>抓取 2026-09-23</li><li><a href="https://mobalytics.gg/poe-2/builds/djinn-sorceress-end-game" target="_blank" rel="noopener">原站 mobalytics</a></li></ul>
+<div class="switch"><a href="65级.html">约 65 级</a><a href="80级.html">约 80 级</a><a href="index.html" class="cur" aria-current="page">构筑索引</a><button type="button" id="themeBtn">主题：跟随系统</button></div>
+</div></header>
+<div class="wrap">
+<main style="margin-top:22px">
+<section><h2>这套构筑</h2>
+<p><span class="term">瓦拉煞的门徒<span class="en">Disciple of Varashta</span></span> 的巨灵召唤流：按 <span class="term">凯拉里之诡计<span class="en">Kelari's Deception</span></span> 叠暴击弱点，命令技能触发执政官缩短冷却，其余魔侍与灵体负责凑「海纳百川 / 悉听遵命」的召唤生物种类数；防御全押能量护盾，80 级后转 <span class="term">异灵之体<span class="en">Chaos Inoculation</span></span>。原站作者 ds_lily，文档版本 170，更新于 2026-09-04。</p>
+<div class="cards">
+<a class="card" href="65级.html"><h3>约 65 级 <span class="en">~Lvl 65</span></h3><p>第一道门之后：巨灵各 4 个辅助。本页补了 65 级能穿的底材（原站写的头 / 手 / 脚需求 80、盾需求 70），65–79 级只在权杖、项链、胸甲、永恒紧缩之戒上花钱。</p></a>
+<a class="card" href="80级.html"><h3>约 80 级 <span class="en">~Lvl 80</span></h3><p>第二道门之后：终局智力底材可穿、第 4 次升华（神圣仪式）、约 6000 ES 转异灵之体。下一步是主宰涂油与 90 级。</p></a>
+</div>
+</section>
+<section><h2>硬阻断一览</h2>
+<div class="tbl"><table><thead><tr><th>等级 / 条件</th><th>解开什么</th><th>来源</th></tr></thead><tbody><tr><td>65 级</td><td>巨灵第 4 个辅助插槽；邪恶束衣（121 智慧）可穿</td><td>作者 / poe2db</td></tr><tr><td>70 级</td><td>丝克玛纹章盾、荒凉原野法器可穿</td><td>poe2db</td></tr><tr><td>80 级</td><td>先祖冠冕 / 海妖之鳞手套 / 丝克玛便鞋可穿；第 4 次升华（巨灵币 80 级或混沌试炼「命运」80 级）</td><td>poe2db</td></tr><tr><td>约 6000 能量护盾</td><td>点异灵之体（同时洗掉高效缓冲涂油）</td><td>作者</td></tr><tr><td>90 级</td><td>巨灵第 5 个辅助插槽（主配置）</td><td>作者</td></tr><tr><td>买得起主宰</td><td>执政官无回复期，一键构筑（主配置）</td><td>作者</td></tr></tbody></table></div>
+</section>
+<section><h2>原站 5 个变体</h2>
+<div class="tbl"><table><thead><tr><th>原站变体</th><th>定位（按数据反推）</th><th>造价要点</th><th>宝石属性需求</th><th>主树点数</th><th>与 80 档天赋重合</th><th>本仓库</th></tr></thead><tbody><tr><td>Triple Djinn w/ Dominion Anoint (main setup)</td><td>主配置：主宰涂油 + 三巨灵，90 级（第 5 个巨灵插槽）</td><td>传奇：赌神芬多 ×2；主宰涂油；失落的蓝玉</td><td>力 70 · 敏 25 · 智 110</td><td>116</td><td>68%（需要洗点）</td><td>未生成</td></tr><tr><td>~Lvl 65</td><td>65 级：巨灵第 4 个辅助插槽；装备按 80 级终局底材写（65 级穿不上）</td><td>传奇：永恒紧缩之戒</td><td>力 30 · 敏 40 · 智 95</td><td>76</td><td>80%</td><td><a href="65级.html">约 65 级</a></td></tr><tr><td>~Lvl 80</td><td>80 级：终局底材 + 第 4 次升华 + 异灵之体（约 6000 ES）</td><td>传奇：永恒紧缩之戒</td><td>力 30 · 敏 40 · 智 95</td><td>90 + 4</td><td>—</td><td><a href="80级.html">约 80 级</a></td></tr><tr><td>Fire/Sand Pre Dominion</td><td>主宰之前的火 + 沙，巨灵各 5 辅助（90 级）</td><td>传奇：赌神芬多 ×2；督军领袖涂油</td><td>力 25 · 敏 35 · 智 105</td><td>109</td><td>81%</td><td>未生成</td></tr><tr><td>Cold / Sand</td><td>纳薇拉 + 冰霜新星连招；作者认为不值得</td><td>传奇：赌神芬多 ×2；督军领袖涂油</td><td>力 30 · 敏 45 · 智 140</td><td>96</td><td>69%</td><td>未生成</td></tr></tbody></table></div>
+<p class="small">变体顺序与原站选项卡一致，按选项卡 <code>data-key</code> 与数据 id 对位（65 = default-variant、80 = 1）。「定位」从装备、宝石、天赋数据推出，不看变体名。</p>
+</section>
+<section><h2>约 65 级 ↔ 约 80 级</h2>
+<div class="tbl"><table><thead><tr><th>项目</th><th>约 65 级</th><th>约 80 级</th></tr></thead><tbody><tr><td>副手</td><td>丝克玛纹章盾（护甲与能量护盾 56%、格挡 15%）</td><td>荒凉原野法器（能量护盾）</td></tr><tr><td>腰带</td><td>精致腰带（无词缀）</td><td>双重腰带（召唤生物命令技能伤害 13%）</td></tr><tr><td>主天赋树</td><td>76 点</td><td>90 点 + 武器组 1 专属 4 点；新增异灵之体、融合、执政官系列</td></tr><tr><td>其余装备 / 宝石 / 升华</td><td>相同</td><td>相同</td></tr></tbody></table></div>
+</section>
+<section><h2>数据来源</h2>
+<p>原站：<a href="https://mobalytics.gg/poe-2/builds/djinn-sorceress-end-game" target="_blank" rel="noopener">https://mobalytics.gg/poe-2/builds/djinn-sorceress-end-game</a>。原始数据：<a href="_source.json">_source.json</a>（页面内嵌状态中的构筑文档与评论，用于下次增量比对）。中英对照：poe2db.tw <code>/cn/</code> 与 <code>/us/</code>。</p>
+</section></main>
+</div>
+<footer>由 poe2-build-cn 技能生成 · 数据来源：mobalytics.gg（构筑）、poe2db.tw /cn/ 与 /us/（中英对照）、pathofexile.com 交易站数据接口（词缀 ID）· 抓取于 2026-09-23</footer>
+</body>
+</html>
