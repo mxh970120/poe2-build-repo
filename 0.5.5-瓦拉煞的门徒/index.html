@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>瓦拉煞的门徒 · 变体索引</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 魔巫「瓦拉煞的门徒」灵神召唤构筑（Definitiv）的 7 个变体一览与逐部位差异总表。">
+<style>
+:root{
+  --ground:#F1F4F3; --surface:#FFFFFF; --surface-2:#E6ECEA; --ink:#152032; --ink-2:#36435A; --muted:#5B687A; --line:#D0D9DA;
+  --accent:#0A7580; --accent-soft:#DCEEEF; --brass:#8A6012; --brass-soft:#F2E7CF;
+  --ember:#AE3E0E; --ember-soft:#F8E3D6; --ok:#2B764A; --ok-soft:#DCEFE2;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1420; --surface:#131C2B; --surface-2:#1A2536; --ink:#E2E8EF; --ink-2:#C1CBD8; --muted:#93A0B2; --line:#26334A;
+    --accent:#47C2CA; --accent-soft:#11323A; --brass:#DDB25A; --brass-soft:#2D2614;
+    --ember:#F0925E; --ember-soft:#3A2016; --ok:#6CC28F; --ok-soft:#14301F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1420; --surface:#131C2B; --surface-2:#1A2536; --ink:#E2E8EF; --ink-2:#C1CBD8; --muted:#93A0B2; --line:#26334A;
+  --accent:#47C2CA; --accent-soft:#11323A; --brass:#DDB25A; --brass-soft:#2D2614;
+  --ember:#F0925E; --ember-soft:#3A2016; --ok:#6CC28F; --ok-soft:#14301F;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1200px;margin:0 auto}
+.hero{padding-block:36px 26px;border-bottom:1px solid var(--line);display:grid;gap:18px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.crumbs a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:72ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.facts div{background:var(--surface);padding:10px 14px}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+h3{font-size:1.04rem;margin:22px 0 8px}
+p{margin:0 0 12px;max-width:72ch}
+ul{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code{font-family:var(--mono);font-size:.88em}
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;white-space:nowrap;background:var(--surface-2);font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en{display:block}
+tr.here td{background:var(--accent-soft)}
+.matrix td{min-width:150px}
+.timeline{list-style:none;padding:0;margin:14px 0;display:grid;gap:0;max-width:760px}
+.timeline li{display:grid;grid-template-columns:5.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);margin:0}
+.timeline li:last-child{border-bottom:0}
+.timeline .lv{font-family:var(--mono);font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;text-align:right}
+footer{padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="crumbs">
+    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span><span>0.5.5 瓦拉煞的门徒</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 魔巫 Sorceress</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M12 31c4-5 8-5 12 0s8 5 12 0 6-4 5-2" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M14 24c4-4 7-4 11 0s7 4 11 0" fill="none" stroke="var(--brass)" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <h1>瓦拉煞的门徒 · 灵神召唤<span class="en">Definitiv Guide to Varashta Sorceress — The Perfect Allrounder</span></h1>
+  </div>
+  <p class="lede">原作者 Definitiv 在 Mobalytics 发布的魔巫第三升华构筑：两个无敌灵神（凯拉里、鲁詹 / 纳薇拉）只在下达命令时出手，伤害靠召唤生物与命令加成，按住「凯拉里之诡计」秒首领。原站把从开荒到高投入拆成 7 个变体，本页列出全部变体与逐部位差异。</p>
+  <dl class="facts">
+    <div><dt>补丁</dt><dd>0.5.5</dd></div>
+    <div><dt>作者</dt><dd>Definitiv</dd></div>
+    <div><dt>变体</dt><dd>7 个 · 已生成 1</dd></div>
+    <div><dt>原站版本</dt><dd>第 11 版 · 2026-09-16</dd></div>
+    <div><dt>本页抓取</dt><dd>2026-09-23</dd></div>
+  </dl>
+  <p class="small">原站：<a href="https://mobalytics.gg/poe-2/builds/definitiv-guide-to-varashta-sorceress-the-perfect-allrounder" target="_blank" rel="noopener">Mobalytics</a> · PoB：<a href="https://pobb.in/f6eoOVfZMPOD" target="_blank" rel="noopener">pobb.in/f6eoOVfZMPOD</a> · 标签：Starter / End Game / SSF / Creator（作者自述是软核交易向，HC 与 SSF 另推他人的构筑）</p>
+</header>
+
+<main>
+
+<section id="variants">
+  <h2>变体一览</h2>
+  <p class="small">阶段、造价、差异全部由原站数据计算；“天赋重合”是本档与上一档 <code>selectedSlugs</code> 的交集占上一档的比例，低于 70% 标“需要洗点”。宝石需求为原站 <code>gemRequirements</code>，与 poe2db 实际需求有出入（见低预算页第 6 节）。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>变体</th><th>阶段定位</th><th>与上一档的主要变化</th><th>造价</th><th>宝石需求（原站）</th><th>天赋 / 升华</th><th>卡在哪</th><th>页面</th></tr></thead>
+    <tbody>
+      <tr><td><b>升华前</b><span class="en">Pre Varashta {1}</span></td><td>1–21 级，法系开荒：电球、精华吸取、尖刺风暴、火山</td><td>—</td><td>0 传奇</td><td class="n">力 0 · 敏 10 · 智 35</td><td class="n">21 点 · 升华 0</td><td>丝克玛试炼（区域 22），作者备 7K 金币洗点、1 个 T1 + 1 个 T2 辅助</td><td><span class="chip na">未生成</span></td></tr>
+      <tr><td><b>升华后</b><span class="en">Post Varashta {2}</span></td><td>22–36 级：凯拉里 + 奉命 I、闪电协调；苦痛奉献、三种魔侍</td><td>换成权杖 +2 召唤生物；全身占位装备</td><td>0 传奇</td><td class="n">力 10 · 敏 5 · 智 25</td><td class="n">43 点（重合 19%，<b>需要洗点</b>）· 升华 1</td><td>36 级开灵神第 3 孔（作者）</td><td><span class="chip na">未生成</span></td></tr>
+      <tr><td><b>战役结束</b><span class="en">End of Campaign {3}</span></td><td>36–55 级：凯拉里 3 辅助、加入鲁詹；魔侍祭司、掠夺者、束缚灵体</td><td>+鲁詹之陷阱；成群结队等召唤大点</td><td>0 传奇</td><td class="n">力 10 · 敏 10 · 智 70</td><td class="n">78 点（重合 86%，退掉起点左侧属性点）· 升华 4</td><td>55 级开第 4 孔</td><td><span class="chip na">未生成</span></td></tr>
+      <tr><td><b>80 级</b><span class="en">Level 80 {4}</span></td><td>55–80 级，T15 前：两灵神 4 辅助；狼群、康复</td><td>+第四教义；+ES 大点；奉命 II、魁梧仆从</td><td>0 传奇</td><td class="n">力 15 · 敏 20 · 智 80</td><td class="n">94 点（重合 96%）· 升华 6</td><td>作者：T15 时约 1.5K 生命、2–3K ES</td><td><span class="chip na">未生成</span></td></tr>
+      <tr class="here"><td><b>低预算</b><span class="en">Low Budget {5}</span></td><td>75–90 级：全稀有装，生命 + ES 双池，还没点异灵之体</td><td>全身换成 65–75 级稀有底材；+苦痛奉献、魔侍风暴法师 / 蛮兵；第 5 孔</td><td>几个崇高石 → 几个神圣石 · 0 传奇</td><td class="n">力 20 · 敏 20 · 智 95</td><td class="n">117 点（重合 100%）· 升华 8</td><td>75 级穿齐；78 / 90 级宝石与第 5 孔；头盔 91 力（原站矛盾）</td><td><a href="低预算.html">低预算.html</a> <span class="chip ok">已生成</span></td></tr>
+      <tr><td><b>中预算</b><span class="en">Mid Budget {6}</span></td><td>点异灵之体；第二灵神换纳薇拉；召唤生物死亡时施放、狼群</td><td>6 件传奇：敬奉之绸、永恒紧缩之戒、赌神芬多、夜临、新生希望、英雄血液</td><td>30–50 神圣石</td><td class="n">力 45 · 敏 40 · 智 145</td><td class="n">117 点（重合 85%，局部洗点）· 升华 8</td><td>作者：还需额外 180 精魂</td><td><span class="chip na">未生成</span></td></tr>
+      <tr><td><b>高预算</b><span class="en">High Budget {7}</span></td><td>作者自己的目标配置：纳薇拉之裂清图，诡计赶路</td><td>身体回到稀有邪恶束衣（+50 精魂）+ 2 颗完美钢铁符文；三相戒指；无根之源珠宝</td><td>100–200 神圣石 · 4 件传奇（含珠宝）</td><td class="n">力 45 · 敏 40 · 智 165</td><td class="n">110 点（重合 93%）· 升华 <span class="chip bad">原站只填 4 点</span></td><td>—</td><td><span class="chip na">未生成</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="gates">
+  <h2>门槛时间线</h2>
+  <ul class="timeline">
+    <li><span class="lv">20–21</span><span>丝克玛试炼（区域 22）第 1 次升华：凯拉里硬币 + 凯拉里之诡计，洗点换权杖。构筑从这里开始成立。</span></li>
+    <li><span class="lv">36</span><span>灵神第 3 个辅助孔（作者）。</span></li>
+    <li><span class="lv">55</span><span>灵神第 4 个辅助孔（作者）。间章区域 55–56 开始可能掉 +3 召唤生物权杖。</span></li>
+    <li><span class="lv">65</span><span>守护者巨盔、邪恶束衣可穿；T1 地图。</span></li>
+    <li><span class="lv">75</span><span>瓦尔手套、沙誓鞋履可穿——低预算整套穿齐。</span></li>
+    <li><span class="lv">78</span><span>18 级魔侍宝石可用（137 智）。</span></li>
+    <li><span class="lv">80–90</span><span>第 3、4 次升华：第四教义、神圣仪式（作者 90 级一次打完）。</span></li>
+    <li><span class="lv">90</span><span>灵神第 5 个辅助孔；20 级魔侍蛮兵 / 掠夺者 / 苦痛奉献（157 智）。</span></li>
+    <li><span class="lv">中预算</span><span>异灵之体 + 敬奉之绸 + 额外 180 精魂，第二灵神换纳薇拉。</span></li>
+  </ul>
+</section>
+
+<section id="matrix">
+  <h2>变体间差异总表</h2>
+  <p class="small">升华后 {2}、战役结束 {3}、80 级 {4} 三档的装备完全相同，都是占位底材，合并为一列。</p>
+  <div class="scroll"><table class="matrix">
+    <thead><tr><th>部位</th><th>升华前 {1}</th><th>升华后 / 战役结束 / 80 级</th><th>低预算 {5}</th><th>中预算 {6}</th><th>高预算 {7}</th></tr></thead>
+    <tbody>
+      <tr><th>主手</th><td>雷霆长杖：所有法术技能等级 +2</td><td>罪孽权杖：+2 召唤生物</td><td>圣地权杖：+2 召唤生物、友军伤害 65%</td><td>圣地权杖：+4 召唤生物、友军伤害 25%</td><td>圣地权杖：+4 召唤生物、友军伤害 65%、友军暴伤 25%、精魂 45%、傀儡大师层数上限 +4</td></tr>
+      <tr><th>副手</th><td>—</td><td>铃鸣纹章盾（占位）</td><td>荒凉原野法器：ES、火冰抗</td><td colspan="2">塔萨里奥法器：ES、火电抗、渎灵 +2 召唤生物</td></tr>
+      <tr><th>头盔</th><td>—</td><td>锁链冠冕（占位）</td><td>守护者巨盔：护甲、生命、+2 召唤生物、电抗</td><td colspan="2">先祖冠冕：ES、魔力、+1 召唤生物、火抗、稀有度 + 高级钢铁符文</td></tr>
+      <tr><th>身体</th><td>—</td><td>羽饰之衣（占位）</td><td>邪恶束衣：ES + 2 颗高级钢铁符文</td><td>敬奉之绸（传奇）</td><td>邪恶束衣：ES、+50 精魂、+30 智 + 2 颗完美钢铁符文</td></tr>
+      <tr><th>手套</th><td>—</td><td>精致手套（占位）</td><td>瓦尔手套：生命、冰电抗</td><td colspan="2">符文海妖之鳞手套：ES、生命、冰电抗、稀有度</td></tr>
+      <tr><th>鞋子</th><td>—</td><td>符文丝克玛便鞋（占位）</td><td>沙誓鞋履：30% 移速、生命、电抗</td><td colspan="2">丝克玛便鞋：30% 移速、ES、冰电抗、稀有度 + 1 颗灵核</td></tr>
+      <tr><th>项链</th><td>—</td><td>翠玉项链（占位）</td><td>赤红项链：+2 召唤生物</td><td>日曜项链：+3 召唤生物、渎灵召唤生物冷却回复</td><td>日曜项链：+4 召唤生物、ES、冰抗、全局防御 30%、渎灵冷却回复</td></tr>
+      <tr><th>戒指</th><td>—</td><td>黄玉 + 红玉（占位）</td><td>黄玉 + 蓝玉：生命、火冰抗</td><td>永恒紧缩之戒 + 赌神芬多（传奇）</td><td>三相戒指 ×2：稀有度、全抗、召唤生物冷却回复</td></tr>
+      <tr><th>腰带</th><td>—</td><td>精致腰带（占位）</td><td>重革腰带：生命、+28 力</td><td>夜临（传奇）+ 拉克斯 / 埃什塔之雕像</td><td>精致腰带：+2 召唤生物、电抗、执政官效果、召唤保留效能</td></tr>
+      <tr><th>药剂</th><td>—</td><td>—</td><td>终极生命 + 终极魔力</td><td>终极魔力</td><td>拉维安加之灵（传奇）</td></tr>
+      <tr><th>咒符</th><td>—</td><td>—</td><td>融冰、浸润、紫晶</td><td colspan="2">新生希望、磐石咒符、英雄血液</td></tr>
+      <tr><th>第二灵神</th><td>—</td><td>{2} 无；{3}{4} 鲁詹</td><td>鲁詹（5 辅助）</td><td colspan="2">纳薇拉（5 辅助）</td></tr>
+      <tr><th>关键石</th><td>—</td><td>—</td><td>无（生命 + ES）</td><td colspan="2">异灵之体</td></tr>
+      <tr><th>珠宝</th><td>—</td><td>—</td><td>3 颗蓝玉</td><td>2 蓝玉 + 1 失落的蓝玉</td><td>2 失落的蓝玉 + 无根之源</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="notes">
+  <h2>生成记录</h2>
+  <ul class="small">
+    <li>本目录由 poe2-build-cn 技能生成；原始数据在 <code>_source.json</code>（Mobalytics 整页状态 + 评论），用于下次增量更新比对。</li>
+    <li>中英对照一律取 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同页对位；交易站统计 ID 在 pathofexile.com 同源核对。</li>
+    <li>其余 6 个变体尚未生成中文页；需要时按同一套设计补。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><p>由 poe2-build-cn 技能生成 · 数据截至 2026-09-23 · 原作者 Definitiv（Mobalytics）</p></footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>
