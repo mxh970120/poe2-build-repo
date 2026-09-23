@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>流亡黯道 2 中文构筑库</title>
+<meta name="description" content="Path of Exile 2 构筑的简体中文专属攻略页索引，按补丁号倒序排列；词缀中英对照以 poe2db.tw 简中口径为准。">
+<style>
+:root{
+  --ground:#F1F4F3; --surface:#FFFFFF; --surface-2:#E6ECEA; --ink:#152032; --ink-2:#36435A; --muted:#5B687A; --line:#D0D9DA;
+  --accent:#0A7580; --accent-soft:#DCEEEF; --brass:#8A6012;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1420; --surface:#131C2B; --surface-2:#1A2536; --ink:#E2E8EF; --ink-2:#C1CBD8; --muted:#93A0B2; --line:#26334A;
+    --accent:#47C2CA; --accent-soft:#11323A; --brass:#DDB25A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1420; --surface:#131C2B; --surface-2:#1A2536; --ink:#E2E8EF; --ink-2:#C1CBD8; --muted:#93A0B2; --line:#26334A;
+  --accent:#47C2CA; --accent-soft:#11323A; --brass:#DDB25A;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1080px;margin:0 auto}
+header{padding-block:40px 24px;border-bottom:1px solid var(--line);display:grid;gap:12px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch;color:var(--ink-2)}
+.small{font-size:13px;color:var(--muted)}
+.bar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:28px 8px}
+h2{font-family:var(--serif);font-size:1.35rem;margin:0 0 12px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+.patch{font-family:var(--mono);font-weight:600;color:var(--brass);white-space:nowrap}
+.en{display:block;color:var(--muted);font-size:.86em}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+ul{margin:0;padding-left:1.4em;max-width:76ch;color:var(--ink-2)}
+li{margin:3px 0}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="eyebrow">Path of Exile 2 · 简体中文</div>
+  <h1>流亡黯道 2 中文构筑库</h1>
+  <p>把 Mobalytics 上的构筑逐变体转成简体中文专属攻略：词缀中文取 poe2db.tw 简中口径并附英文原名，每页都有硬阻断与换装时机、四层搜索正则和数据核验。</p>
+  <div class="bar"><span class="small">按补丁号倒序 · 共 1 个构筑</span><button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button></div>
+</header>
+<main>
+<section>
+  <h2>构筑</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>补丁</th><th>升华</th><th>构筑</th><th>作者</th><th>已生成变体</th><th>原站更新</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="patch">0.5.5</td>
+        <td><a href="0.5.5-瓦拉煞的门徒/index.html">瓦拉煞的门徒</a><span class="en">Disciple of Varashta · 魔巫</span></td>
+        <td>灵神召唤：按住凯拉里之诡计秒首领<span class="en">Definitiv Guide to Varashta Sorceress — The Perfect Allrounder</span></td>
+        <td>Definitiv</td>
+        <td><a href="0.5.5-瓦拉煞的门徒/低预算.html">低预算</a><span class="en">1 / 7</span></td>
+        <td class="n">2026-09-16</td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+<section>
+  <h2>约定</h2>
+  <ul class="small">
+    <li>目录名为 <code>补丁号-升华中文名</code>；每个变体一个 HTML 文件，文件名是变体中文名；<code>_source.json</code> 存原站原始数据。</li>
+    <li>词缀中文一律取 poe2db <code>/cn/</code>，与简中客户端一致；查不到的标“暂译”。</li>
+    <li>天赋树完整点法请对着原站点，页面只标核心节点。</li>
+    <li>生成方式见 <code>skills/poe2-build-cn/SKILL.md</code>。</li>
+  </ul>
+</section>
+</main>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>
