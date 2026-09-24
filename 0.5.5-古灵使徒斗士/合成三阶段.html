@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>古灵使徒斗士 · 合成三阶段</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 佣兵「古灵使徒斗士」烈焰爆破 + 黏油榴弹（Fubgun）：把原站 lvl 53-68、lvl 85、Endgame 三个变体合成 53–68 级 / 85 级 / 终局三个阶段，逐步标出演进，单页自洽。">
+<style>
+:root{
+  --ground:#F4F1EC; --surface:#FFFFFF; --surface-2:#ECE6DE; --ink:#221A15; --ink-2:#44372E; --muted:#6B5F56; --line:#DCD2C6;
+  --accent:#A63D12; --accent-soft:#F6E1D5; --brass:#86570F; --brass-soft:#F2E5CA;
+  --ember:#B0262B; --ember-soft:#F8DEDC; --ok:#2E7147; --ok-soft:#DCEEE1;
+  --plum:#236A6B; --plum-soft:#DAEDEC;
+  --gem-r:#C0392B; --gem-g:#2E8B57; --gem-b:#2F6FB5;
+  --code-bg:#1E1612; --code-ink:#F2E3D3;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14100D; --surface:#1C1612; --surface-2:#251E18; --ink:#EEE5DC; --ink-2:#D2C5B8; --muted:#A39485; --line:#382E26;
+    --accent:#F08A52; --accent-soft:#3A2216; --brass:#E0B25C; --brass-soft:#32271A;
+    --ember:#F2787A; --ember-soft:#3D1C1D; --ok:#72C28E; --ok-soft:#16301F;
+    --plum:#6FC6C1; --plum-soft:#15302F;
+    --gem-r:#E8746A; --gem-g:#62C08A; --gem-b:#72A6E6;
+    --code-bg:#0C0907; --code-ink:#F0E1D0;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14100D; --surface:#1C1612; --surface-2:#251E18; --ink:#EEE5DC; --ink-2:#D2C5B8; --muted:#A39485; --line:#382E26;
+  --accent:#F08A52; --accent-soft:#3A2216; --brass:#E0B25C; --brass-soft:#32271A;
+  --ember:#F2787A; --ember-soft:#3D1C1D; --ok:#72C28E; --ok-soft:#16301F;
+  --plum:#6FC6C1; --plum-soft:#15302F;
+  --gem-r:#E8746A; --gem-g:#62C08A; --gem-b:#72A6E6;
+  --code-bg:#0C0907; --code-ink:#F0E1D0;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);column-gap:44px}
+@media (min-width:1100px){.page{grid-template-columns:196px minmax(0,1fr)}}
+
+/* hero */
+.hero{grid-column:1/-1;padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:16px}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.topbar a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:74ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink-2);font-weight:600}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+
+/* stage strip */
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stages li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative;display:grid;gap:4px;align-content:start}
+.stages li + li::before{content:"→";position:absolute;left:-12px;top:50%;transform:translate(-50%,-50%);color:var(--brass);font-size:15px;background:var(--ground);line-height:1;padding:2px 0}
+.stages .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.stages b{font-family:var(--serif);font-size:1.12rem;line-height:1.3}
+.stages .lv{font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
+.stages .gate{font-size:12.5px;color:var(--muted);line-height:1.55}
+.stages a{position:absolute;inset:0;border-radius:12px}
+.stages a:hover{box-shadow:0 0 0 2px var(--accent) inset}
+@media (max-width:760px){.stages{grid-template-columns:minmax(0,1fr)}.stages li + li::before{display:none}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);align-items:center}
+
+/* toc */
+.toc{padding-block:22px 0;font-size:13px}
+.toc summary{cursor:pointer;color:var(--muted);letter-spacing:.06em;font-size:12px;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;gap:8px;padding:3px 8px;border-radius:6px;color:var(--ink-2);text-decoration:none}
+.toc a:hover{background:var(--surface-2)}
+.toc a span{font-family:var(--mono);color:var(--brass);min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+@media (min-width:1100px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}}
+@media (max-width:1099px){.toc{border-bottom:1px solid var(--line);padding-bottom:14px}.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+/* content */
+main{min-width:0;max-width:960px}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:0 8px;line-height:1.7;flex:none;position:relative;top:-3px}
+h3{font-size:1.04rem;margin:26px 0 8px;line-height:1.45;text-wrap:balance}
+h4{font-size:.95rem;margin:16px 0 6px}
+p{margin:0 0 12px;max-width:72ch}
+ul,ol{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.88em}
+kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface)}
+.num{font-variant-numeric:tabular-nums}
+
+/* chips */
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.must{background:var(--ember);color:var(--surface)}
+.chip.add{background:var(--ok-soft);color:var(--ok)}
+.chip.del{background:var(--ember-soft);color:var(--ember)}
+.chip.chg{background:var(--brass-soft);color:var(--brass)}
+.chip.kind{background:var(--surface-2);color:var(--ink-2)}
+.src{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;line-height:1.45;min-width:1.55em;text-align:center;padding:0 4px;border-radius:4px;vertical-align:1px;margin-left:3px}
+.src.f{background:var(--accent-soft);color:var(--accent)}
+.src.c{background:var(--plum-soft);color:var(--plum)}
+.src.s{background:var(--brass-soft);color:var(--brass)}
+.src.db{background:var(--ok-soft);color:var(--ok)}
+.gc{display:inline-block;width:.62em;height:.62em;border-radius:50%;margin:0 2px 1px 3px;vertical-align:middle}
+.gc.r{background:var(--gem-r)} .gc.g{background:var(--gem-g)} .gc.b{background:var(--gem-b)}
+
+/* callouts */
+.callout{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;margin:14px 0}
+.callout p:last-child,.callout ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout .lab{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.callout.warn{background:var(--ember-soft);border-color:transparent}
+.callout.warn .lab{color:var(--ember)}
+.callout.key{background:var(--accent-soft);border-color:transparent}
+.callout.key .lab{color:var(--accent)}
+.callout.note .lab{color:var(--brass)}
+
+/* evolution */
+.evo{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:16px 0;overflow:hidden;scroll-margin-top:12px}
+.evo-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.evo-head h3{margin:0;font-family:var(--serif);font-size:1.12rem}
+.evo-head span{font-size:12.5px;color:var(--muted)}
+.evo ol{margin:0;padding:10px 16px 12px 2.4em;max-width:none;display:grid;gap:7px}
+.evo li{margin:0;font-size:14px;line-height:1.65}
+.evo li .chip.kind{margin-right:4px}
+
+/* chain */
+.chain{list-style:none;padding:0;margin:14px 0 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;max-width:none}
+.chain li{margin:0}
+.chain .step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.55}
+.chain .step b{display:block;font-size:14.5px;margin-bottom:3px;color:var(--ink)}
+.chain .step.hot{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.chain .arr{flex:none;align-self:center;color:var(--brass);font-size:18px}
+@media (max-width:700px){.chain{flex-direction:column}.chain .step{flex:none}.chain .arr{transform:rotate(90deg);align-self:flex-start;margin-left:18px}}
+
+/* tables */
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;background:var(--surface-2);font-size:13px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en,th .en{display:block}
+.tight td{padding-block:6px}
+.stage-tbl td{min-width:170px}
+.stage-tbl td.dim{color:var(--muted)}
+.tick{font-family:var(--mono);color:var(--ok);font-weight:700}
+.x{font-family:var(--mono);color:var(--ember);font-weight:700}
+.w-min{white-space:nowrap}
+
+/* slot cards */
+.slots{display:grid;gap:14px;margin:14px 0}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.slot-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.slot-head h4{margin:0;font-size:1rem}
+.slot-head .req{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.slot-body{padding:4px 16px 12px}
+.slot-body table{font-size:13px}
+.slot-body th,.slot-body td{padding-inline:8px 10px}
+.slot-body .scroll{margin:8px 0 10px}
+.slot-notes{font-size:13.5px}
+.slot-notes p{margin-bottom:6px}
+.slot-notes ol,.slot-notes ul{margin-bottom:6px}
+.tier{font-size:12px;color:var(--muted)}
+
+/* regex */
+.rx{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0;background:var(--surface)}
+.rx-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.rx-head b{font-size:14.5px}
+.rx-head .range{font-size:12.5px;color:var(--muted)}
+.rx-head .copy{margin-left:auto}
+.copy{font:inherit;font-size:12px;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:2px 12px;cursor:pointer}
+.copy:hover{background:var(--accent-soft)}
+.rx pre{margin:0;padding:12px 14px;background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:13.5px;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.rx .rx-body{padding:4px 14px 10px}
+.rx .rx-body p{font-size:13.5px;margin:8px 0}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+.split > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.split h4{margin:0 0 6px}
+.split ul{margin:0;font-size:13.5px}
+
+footer{grid-column:1/-1;padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+footer p{max-width:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="topbar">
+    <span>流亡黯道 2 · 0.5.5 · 古灵使徒斗士 · 合成三阶段</span>
+    <a href="index.html">本构筑目录</a>
+    <a href="../index.html">全部构筑</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 佣兵 Mercenary · 三个变体合成</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M26 12c5 6 9 10 9 16a9 9 0 0 1-18 0c0-4 2-7 4-9 0 3 1 5 3 6-1-5 0-9 2-13z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M13 38c3-1.6 6-1.6 9 0s6 1.6 9 0 6-1.6 8 0" fill="none" stroke="var(--plum)" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <h1>古灵使徒斗士 · 烈焰爆破 × 黏油榴弹<span class="en">Fubgun “0.5.5 Fubgun Flameblast Oil Grenade” — lvl 53-68 → lvl 85 → Endgame</span></h1>
+  </div>
+  <p class="lede">52 级之前用榴弹升级，52 级洗点换成这套：长杖上吟唱烈焰爆破，打出一次强度极高的点燃；战弩扔黏油榴弹铺地，点燃顺着黏油烧过整张图，闪避翻滚时触发龙卷旋风，把火带给周围和飞行怪。原站从 1 级写到镜像级共 9 个变体，本页把中段的 lvl 53-68、lvl 85、Endgame 三个变体合成一条路线：53–68 级换装进图 → 85 级稀有装成型 → 终局高投入。每一步都标了改什么、为什么改、出自哪里；配置、逐件词缀、搜索正则与数据核验都在本页，不需要另开页面。</p>
+  <ol class="stages" aria-label="三个阶段">
+    <li><span class="n">① 阶段</span><b>53–68 级 · 换装进图</b><span class="lv">间章 54–56 → 前期地图</span><span class="gate">52 级烈焰爆破（等阶 13）；58 级 + 100 精魂开躲闪时施放；两个武器组各 24 点；升华 6 点</span><a href="#st1" aria-label="跳到 ① 的演进步骤"></a></li>
+    <li><span class="n">② 阶段</span><b>约 85 级 · 稀有装成型</b><span class="lv">80 级起 · 高阶地图</span><span class="gate">80 级第 4 次升华 → 嵌宝美玉；80 级符文锻造底材；卡哈塔的复苏（需求 65）</span><a href="#st2" aria-label="跳到 ② 的演进步骤"></a></li>
+    <li><span class="n">③ 阶段</span><b>终局 · 高投入</b><span class="lv">85 级后</span><span class="gate">无生之辱 + 3 颗完美身躯符文；金光戒指；5 词缀珠宝；树上 8 个珠宝槽</span><a href="#st3" aria-label="跳到 ③ 的演进步骤"></a></li>
+  </ol>
+  <div class="legend">
+    <span>来源标记：</span>
+    <span><b class="src f">F</b> Fubgun 原站（数据与正文）</span>
+    <span><b class="src c">评</b> 原站评论区玩家</span>
+    <span><b class="src s">合</b> 本页取舍或推算</span>
+    <span><b class="src db">库</b> poe2db 数据</span>
+  </div>
+  <div class="meta">
+    <span>原站：<a href="https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade" target="_blank" rel="noopener">0.5.5 Fubgun Flameblast Oil Grenade</a>（第 53 版，2026-09-12 更新；2026-09-03 首发；Verified；1,416 收藏；291 条评论）</span>
+    <span>本页对应原站变体：lvl 53-68（第 5 个）· lvl 85（第 6 个）· Endgame（第 7 个）</span>
+    <span>本页合成：<b>2026-09-24</b></span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ol>
+      <li><a href="#s1"><span>1</span>底层逻辑</a></li>
+      <li><a href="#s2"><span>2</span>硬阻断与阶段演进</a></li>
+      <li><a href="#s3"><span>3</span>升华节点</a></li>
+      <li><a href="#s4"><span>4</span>技能宝石配置</a></li>
+      <li><a href="#s5"><span>5</span>操作循环</a></li>
+      <li><a href="#s6"><span>6</span>属性达标值</a></li>
+      <li><a href="#s7"><span>7</span>装备与词缀</a></li>
+      <li><a href="#s8"><span>8</span>天赋树核心节点</a></li>
+      <li><a href="#s9"><span>9</span>珠宝</a></li>
+      <li><a href="#s10"><span>10</span>搜索正则</a></li>
+      <li><a href="#s11"><span>11</span>作者答疑与坑</a></li>
+      <li><a href="#s12"><span>12</span>三档的差异</a></li>
+      <li><a href="#s13"><span>13</span>术语对照表</a></li>
+      <li><a href="#s14"><span>14</span>数据核验</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <h2><span class="no">1</span>底层逻辑</h2>
+  <p>全部伤害来自一次点燃。烈焰爆破在长杖武器组上吟唱到满层，一次击中打出强度极高的点燃；黏油榴弹只负责铺油——黏油本身几乎不造成伤害，但可以被引爆技能或点燃地面引燃，着火后的点燃地面会反复给站在上面的敌人施加易燃，满 50% 就点燃他们<b class="src db">库</b>。作者把地上这团火叫「快照」（snapshot）：只要一直往火前面扔新油，那一次烈焰爆破的点燃就能烧完整张图<b class="src f">F</b>。</p>
+  <ol class="chain">
+    <li class="step"><b>扔黏油榴弹</b>武器组 2（战弩）。黏油使敌人减速 40%，并造成曝露：全部元素抗性总降 20%</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>吟唱烈焰爆破</b>武器组 1（长杖）。最多 10 层，每层伤害总增 75%；品质额外效果让每层的伤害性异常状态强度再总增最多 40%</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step hot"><b>击中 → 点燃</b>必须打中一个敌人。焚躯烈焰 II 让点燃强度总增 100%；敌人脚下的黏油着火，变成点燃地面</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>往火前面扔油</b>点燃地面反复施加易燃、满 50% 即点燃；新油接上旧火，火一路烧过去</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>翻滚触发龙卷旋风</b>躲闪时施放触发龙卷旋风；它叠上元素地面时继承该减益，把点燃带给范围内的敌人，包括飞行怪</li>
+  </ol>
+  <ul>
+    <li><b>为什么是古灵使徒斗士</b>：奇术深造让「宝石品质为镶嵌的技能提供一个额外效果」，烈焰爆破的品质效果是「每层使伤害性异常状态的强度总增 (0—40)%」<b class="src db">库</b>，所以作者把品质堆到 41–44%<b class="src f">F</b>；神经植入体给智慧技能 +2 级；美德精华（美德壁垒）和嵌宝美玉都按「技能数 / 辅助宝石颜色」给加成，见第 3 节。</li>
+    <li><b>两个武器组分工</b>：烈焰爆破只绑武器组 1（长杖），黏油榴弹只绑武器组 2（战弩），两组各有 24 点武器组天赋，要按组点<b class="src f">F</b>。武器组天赋只在对应武器组生效：烈焰爆破击中时吃的是武器组 1 那 24 点（易燃、点燃强度、异常状态强度），扔油时吃武器组 2 那 24 点（榴弹冷却回复、范围）<b class="src s">合</b>。</li>
+    <li><b>冷却</b>：烈焰爆破冷却 10 秒，黏油榴弹冷却 4 秒、可存 3 次<b class="src db">库</b>。树上的冷却回复大点、掷弹兵（+1 次冷却使用次数）和战弩渎灵词缀（再 +1 次）让油扔不完<b class="src f">F</b>。</li>
+    <li><b>快照最怕被顶掉</b>：任何更弱的点燃都会把它覆盖，伤害直接归零——长杖以外的「攻击附加火焰伤害」、自己被点燃后火扩散到油上、带燃烧地面的地图、会制造点燃地面的物品<b class="src f">F</b><b class="src c">评</b>。所以浸润咒符常驻（免疫点燃），全身除长杖外不能有火焰附加伤害。</li>
+  </ul>
+  <div class="callout key"><span class="lab">一句话</span><p>52 级前用榴弹升级，攒宝石匠的棱镜和长杖。52 级起：长杖蓄满烈焰爆破打一次点燃，战弩扔黏油把火带过整张图。装备只认两件事——让那一次点燃更强（长杖等级、宝石品质、易燃与点燃强度），以及别让任何别的点燃把它顶掉。</p></div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2><span class="no">2</span>硬阻断与阶段演进</h2>
+  <p>阶段边界由硬阻断决定，不按等级平均切。三条最硬的线：<b>52 级</b>（烈焰爆破是等阶 13 的宝石）、<b>58 级 + 间章</b>（躲闪时施放是等阶 14 的精魂宝石，要保留 100 精魂，最后 40 点精魂在间章）、<b>80 级</b>（第 4 次升华和符文锻造底材）。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>硬阻断</th><th>类型</th><th class="n">需求等级</th><th>怎么拿 / 在哪掉</th><th>卡住什么</th><th>解开之后</th></tr></thead>
+    <tbody>
+      <tr><td><b>烈焰爆破</b><span class="en">Flameblast</span></td><td>技能宝石 · 等阶 13</td><td class="n">52</td><td>未切割的技能宝石（13 级）。原站任务奖励表：第 4 幕旅途终点（区域 47）哈特林船长给一颗 13 级技能宝石<b class="src f">F</b><b class="src db">库</b></td><td>作者：「不能更早换，烈焰爆破是 52 级宝石」<b class="src f">F</b></td><td>洗点换装，约 3 万金币<b class="src f">F</b></td></tr>
+      <tr><td><b>武器组天赋点</b><span class="en">Weapon Set Passive Skill Points</span></td><td>任务奖励</td><td class="n">—</td><td>原站任务奖励表：第 1–4 幕 8 个任务、间章 3 个任务（奥斯温，恐惧典狱长；阿克西与阿努德尔（暂译）；可憎的雪人）各 2 点<b class="src f">F</b>；poe2db 另列辛格拉的文身、监守者的账本（各 2 点）、欧罗什的恩典（1 点）等来源<b class="src db">库</b></td><td>原站 52 级换装树每组 18 点，53–68 级每组 24 点；第 4 幕时还差十来点是正常的，间章补齐<b class="src c">评</b></td><td>两组各点满 24 点</td></tr>
+      <tr><td><b>躲闪时施放</b><span class="en">Cast on Dodge</span></td><td>精魂宝石 · 等阶 14</td><td class="n">58</td><td>未切割的精魂宝石（14 级）。保留 100 精魂：迷雾之王 +30（第 1 幕茂棘深林）、伊格纳杜克，沼泽老妪 +30（第 3 幕阿扎卡泥沼）、利萨拉，歧途长矛 +40（间章克里亚村，区域 54）<b class="src f">F</b><b class="src db">库</b></td><td>58 级前、精魂不到 100 时开不了；龙卷旋风先手动放<b class="src f">F</b><b class="src c">评</b></td><td>翻滚即触发龙卷旋风，移动与铺火一体</td></tr>
+      <tr><td><b>第 3 次升华</b><span class="en">植入宝石 · 神经植入体</span></td><td>升华</td><td class="n">60 / 75</td><td>丝克玛试炼第 3 层要区域等级 60；混沌试炼 10 层以上要 75；埃尔扎拉，眼镜蛇领主首杀必掉一枚可用于第 3 次的巨灵币<b class="src db">库</b></td><td>作者：丝克玛第 3 层对这套很难，要么用榴弹先打，要么换装后走混沌试炼<b class="src f">F</b></td><td>智慧技能 +2 级，升华 6 点</td></tr>
+      <tr><td><b>第 4 次升华</b><span class="en">嵌宝美玉 Gem Studded</span></td><td>升华</td><td class="n">80</td><td>丝克玛试炼第 4 层，或混沌试炼集齐怯懦、致命、胜利之运打试炼大师，均为区域等级 80<b class="src db">库</b></td><td>原站 lvl 53-68 已点嵌宝美玉，但 80 级前拿不到——本页放到 ②<b class="src s">合</b></td><td>按辅助宝石颜色拿减耗、移速惩罚、免暴伤</td></tr>
+      <tr><td><b>卡哈塔的复苏</b><span class="en">Khatal's Rejuvenation</span></td><td>血统辅助</td><td class="n">65</td><td>掉落等级 52；地图「神圣水库」（区域 65）首领扎米尔，刀锋之主掉落<b class="src db">库</b></td><td>② 的魔力残片套：冷却回复更多、魔力几乎用不完<b class="src f">F</b></td><td>拾取残片叠卡哈塔的复苏（冷却回复速度，最多 8 层）<b class="src db">库</b></td></tr>
+      <tr><td><b>符文锻造底材</b><span class="en">Runeforged Cryptic Crown / Adherent Cuffs / Cryptic Leggings</span></td><td>底材</td><td class="n">80</td><td>掉落等级 80 的底材，用维金锻造（×465 / ×350 / ×405）<b class="src db">库</b></td><td>② 的头、手、脚</td><td>符文结界 254 / 134 / 201<b class="src db">库</b>，生命 + 符文结界双池<b class="src f">F</b></td></tr>
+      <tr><td><b>高物品等级词缀</b></td><td>词缀门槛</td><td class="n">78–82</td><td>狱火之（长杖火焰法术 +7，物品等级 81）、地狱的（鞋 35% 移速，82）、女王的（胸甲 +57–61 精魂，78）、全盛的（胸甲 +200–214 生命，80）<b class="src db">库</b></td><td>② 原站成品的顶档词缀</td><td>—</td></tr>
+      <tr><td><b>无生之辱</b><span class="en">Morior Invictus</span></td><td>传奇胸甲</td><td class="n">65</td><td>灰烬仲裁官掉落<b class="src db">库</b>；要带「每个镶嵌的插槽使生命上限 +(45—60)」的那一版<b class="src f">F</b></td><td>③ 胸甲</td><td>5 孔：狐狸雕像 + 佳华尼的灵核 + 3 颗完美身躯符文</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="scroll"><table>
+    <thead><tr><th>阶段</th><th>等级</th><th>进入条件</th><th>这一阶段的主线</th><th>预算</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 换装进图</b></td><td class="num">53–68<br><span class="small">间章 54–56 → 前期地图</span></td><td>烈焰爆破（52）；武器组两组各 24 点（间章）；躲闪时施放（58）+ 利萨拉的 40 精魂；升华 6 点</td><td>+4 火焰法术长杖、轰炸战弩、稳步法印、浸润咒符；其余只要生命与抗性，作者说抗性更重要</td><td>棱镜 2–4 个、工匠石、约 3 万金币洗点</td></tr>
+      <tr><td><b>② 稀有装成型</b></td><td class="num">80–85</td><td>第 4 次升华（区域 80）→ 嵌宝美玉；80 级符文锻造底材；卡哈塔的复苏（65）</td><td>每件都要生命 + 抗性 + 稀有度；+7 火焰法术长杖；狼皮斗篷补精魂；帝金项链 5% 品质 + 典范；魔力残片</td><td>原站未给；作者说这一档已经能舒服地打全部内容<b class="src f">F</b></td></tr>
+      <tr><td><b>③ 终局</b></td><td class="num">85+</td><td>无生之辱（65）</td><td>胸甲换无生之辱 + 3 颗完美身躯符文；两枚金光戒指稀有度；项链 +3 法术技能；落刃时刻；5 词缀珠宝</td><td>原站未给；作者只说是「更高预算版」<b class="src f">F</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>烈焰爆破与躲闪时施放的属性需求</h3>
+  <p class="small">poe2db 宝石等级表。装备上的 +技能等级只提高生效等级，不提高需求；② 起的「降低属性需求」小点再降 4%。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>角色等级 ≥</th><td class="n">52</td><td class="n">58</td><td class="n">64</td><td class="n">66</td><td class="n">72</td><td class="n">78</td><td class="n">84</td><td class="n">90</td></tr></thead>
+    <tbody>
+      <tr><th>宝石等级</th><td class="n">13</td><td class="n">14</td><td class="n">15</td><td class="n">16</td><td class="n">17</td><td class="n">18</td><td class="n">19</td><td class="n">20</td></tr>
+      <tr><th>烈焰爆破 · 智慧</th><td class="n">92</td><td class="n">103</td><td class="n">113</td><td class="n">116</td><td class="n">126</td><td class="n">137</td><td class="n">147</td><td class="n">157</td></tr>
+      <tr><th>躲闪时施放 · 敏捷 / 智慧</th><td class="n">—</td><td class="n">57</td><td class="n">62</td><td class="n">64</td><td class="n">70</td><td class="n">75</td><td class="n">80</td><td class="n">86</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="evo" id="st0">
+    <div class="evo-head"><h3>起步 → ① 52 级换装</h3><span>原站 lvl 52 Swap 变体的清单；本页不单独成阶段</span></div>
+    <ol>
+      <li><span class="chip kind">宝石</span>一颗 13 级技能宝石给烈焰爆破（哈特林船长的任务奖励）<b class="src f">F</b></li>
+      <li><span class="chip kind">品质</span>2–4 个宝石匠的棱镜：品质配合古灵使徒对烈焰爆破提升很大。作者说如果 0.5 以来没改，第 2 幕克斯和第 4 幕亲眷岛各保底一个，要做该区域的联盟机制（驱灵祭坛）<b class="src f">F</b></li>
+      <li><span class="chip kind">开孔</span>高等工匠石给烈焰爆破（第 4 幕纳卡努保底一个），低等工匠石给黏油榴弹——作者说低等很多，最好也能再有一个高等<b class="src f">F</b></li>
+      <li><span class="chip kind">长杖</span>+3 或 +4 火焰法术技能等级，带法术伤害或火焰伤害提高。36 级起每几级查一次商人、收所有长杖——+4 火焰长杖从这时开始出<b class="src f">F</b></li>
+      <li><span class="chip kind">宝石</span>约 9 个未切割的辅助宝石、3 个未切割的技能宝石（龙卷旋风、寒霜爆、元素要害）、1 个未切割的精魂宝石<b class="src f">F</b></li>
+      <li><span class="chip kind">洗点</span>约 3 万金币洗天赋——战役里别乱花金币<b class="src f">F</b></li>
+      <li><span class="chip kind">设置</span>烈焰爆破只绑武器组 1、黏油榴弹只绑武器组 2，武器组天赋按原站点<b class="src f">F</b> <span class="chip must">不做会崩</span> 绑错武器组就是「时而秒怪、时而零伤害」<b class="src c">评</b></li>
+      <li><span class="chip kind">禁止</span>全身不能有「攻击附加火焰伤害」，换装前查一下黏油榴弹的面板里有没有火焰伤害；长杖上的额外火焰伤害没关系，因为扔油时长杖不在手上<b class="src f">F</b></li>
+      <li><span class="chip kind">不急</span>没攒到棱镜、没好长杖，就继续用榴弹打完战役<b class="src f">F</b></li>
+    </ol>
+  </div>
+
+  <div class="evo" id="st1">
+    <div class="evo-head"><h3>① 53–68 级：换装进图</h3><span>门槛：52 级烈焰爆破；间章补满武器组点与精魂；58 级躲闪时施放</span></div>
+    <ol>
+      <li><span class="chip kind">宝石</span>先把烈焰爆破品质做到 20%，再做躲闪时施放；精魂到 100（打完间章的利萨拉）就开躲闪时施放<b class="src f">F</b>。58 级前手动放龙卷旋风，它对飞行怪也有用，开了躲闪时施放以后也留一个在技能栏<b class="src f">F</b></li>
+      <li><span class="chip kind">宝石</span>寒霜爆与元素要害要一直跟着升级，否则对高等级敌人无效<b class="src f">F</b>——寒霜爆「无法对等级高于 (20—100) 的敌人施加曝露」，元素要害同理<b class="src db">库</b></li>
+      <li><span class="chip kind">天赋</span>主树 67 点、两个武器组各 24 点；比 52 级换装树多的是间章的武器组点和升级点：武器组 1 补火焰守护者，武器组 2 补多管齐下、原始生长、投石车，主树补宝石爱好者、扰乱威势，动荡催化剂从武器组 2 挪到主树<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">升华</span>6 点：美德精华 → 奇术深造 → 植入宝石（神经植入体）。原站这一档已经点了嵌宝美玉（8 点），但第 4 次升华要区域 80，这里先不点<b class="src s">合</b><b class="src db">库</b></li>
+      <li><span class="chip kind">涂油</span>项链涂焚尽（点燃伤害生效加快 15%）；典范最好，但前期贵<b class="src f">F</b></li>
+      <li><span class="chip kind">装备</span>长杖：火焰法术 +4、火焰伤害 69%，2 颗高级钢铁符文（长杖上：法术伤害提高 30%）；战弩：投射物技能 +2、渎灵「榴弹技能 +1 次冷却使用次数」；项链稳步法印（闪避翻滚距离 +1 米）<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span>其余部位：原站数据只写了生命（头 +60、手 +85、戒指与腰带各 +100），作者正文说战役期间生命 + 抗性、抗性更重要；底材偏护甲或护甲 / 闪避混合；鞋子必须有移速<b class="src f">F</b></li>
+      <li><span class="chip kind">咒符</span>浸润咒符（免疫点燃）<span class="chip must">不做会崩</span> 被点燃后火会扩散到你的油上，把快照顶掉，伤害归零<b class="src f">F</b>；另外两个是融冰、真银</li>
+    </ol>
+  </div>
+
+  <div class="evo" id="st2">
+    <div class="evo-head"><h3>① → ② 约 85 级：稀有装成型</h3><span>门槛：80 级第 4 次升华；80 级符文锻造底材；卡哈塔的复苏（需求 65）</span></div>
+    <ol>
+      <li><span class="chip kind">升华</span><span class="chip add">增</span>嵌宝美玉 + 通路上的降低属性需求小点，升华 8 点。三色配平见第 3 节<b class="src f">F</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>魔力残片（卡哈塔的复苏 · 和谐残迹 II）：作者说冷却回复更多、魔力几乎用不完。另一个选择是时空锁链 + 诅咒光环，要的精魂更多<b class="src f">F</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>黏油榴弹 + 侵蚀地面（地面效果每秒扩大 20%，最多 100%）；元素要害 + 范围扩大 II；躲闪时施放：持续时间延长 II → 无边能量 II（能量获得提高 45%，翻滚更快触发）<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>长杖：法术伤害 149% + 火焰伤害 149% + 额外火焰伤害 49% + 火焰法术 +7（狱火之，物品等级 81）；符文换成女巫阿桑德拉的智慧符文（所有法术技能等级 +1）+ 1 颗高级钢铁符文<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>全身：每件都要生命 + 抗性 + 稀有度，力量后缀也可以（给生命），这套空词缀很多<b class="src f">F</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>头、手、脚换 80 级符文锻造底材，堆符文结界 + 生命。作者：要最高结界就用各类混合底材的 T1 版，他偏好 ES / 护甲或纯智慧底；护甲不成规模前没什么用，先专心堆生命与结界<b class="src f">F</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>胸甲：狼皮斗篷 +200 生命 +57 精魂，插狐狸雕像（所有技能品质 +5%）+ 佳华尼的灵核（生命上限提高 5%）<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>项链：稳步法印 → 帝金项链（生命、精魂、渎灵「古加尔之」所有技能品质 +3–5%），涂典范（所有技能品质 +5%、+5 全属性）；典范太贵先涂焚尽<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>鞋子 35% 移速（地狱的，物品等级 82）+ 杂技符文（闪避翻滚距离 +0.3 米）<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">可选</span>黑焰：点燃强度提高 80–100%，作者说这套能绕开它的负面，是很好的前期选择，但最终要换成三稀有度的金光戒指；戴黑焰就加凋零姿态（持续时间延长 II · 混沌专精）<b class="src f">F</b>。评论区：戴黑焰时要先扔几发油再放烈焰爆破<b class="src c">评</b></li>
+      <li><span class="chip kind">天赋</span><span class="chip add">增</span>主树 +17 点：动量（无视护甲的移速降低）、轻盈步伐（移速 3%，免疫缓速与瘫痪）、2 个珠宝槽、7 个属性点、易燃 + 点燃强度小点；武器组 1 增焚化（点燃强度 25%）<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">坑</span>佳华尼的灵核「仅限 1」：原站在战弩和胸甲各插一颗，只有一颗生效（评论区多人遇到「无法使用此物品」）<b class="src db">库</b><b class="src c">评</b>。本页把战弩那颗换成阿兹卡帕的灵核（战斗武器 +15 精魂，作者自己给的补精魂办法）<b class="src s">合</b></li>
+    </ol>
+  </div>
+
+  <div class="evo" id="st3">
+    <div class="evo-head"><h3>② → ③ 终局：高投入</h3><span>门槛：无生之辱；作者说 85 级那档已经能打全部内容，这一档是加预算</span></div>
+    <ol>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>胸甲：狼皮斗篷 → 无生之辱（生命版），5 孔插狐狸雕像 + 佳华尼的灵核 + 3 颗完美身躯符文（护甲：+75 生命上限）。作者：最好找 5 孔、带「每个镶嵌的插槽使生命上限 +」的；插槽词缀的其他好选择是全抗、混沌抗、精魂<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>戒指：黄玉 + 蓝玉 → 两枚金光戒指，稀有度各 31%。黄玉 / 蓝玉基底的闪电 / 冰霜抗性（各 20–30%）也跟着没了，要在别处补<b class="src f">F</b><b class="src s">合</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>项链：加所有法术技能等级 +3（魔巫之，物品等级 75）、火焰抗性 31%；或者换失神项链，基底给躲闪时施放，配合全局品质能再加闪避翻滚距离，辅助照常<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>头盔混沌抗性 4% → 20%（流亡之）；手套稀有度 6% → 15%；第 3 个咒符真银 → 落刃时刻（被减速时自动使用，效果期间获得猛攻）<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">珠宝</span><span class="chip add">增</span>开始做 5 词缀珠宝，作者说伤害提升很大（第 9 节）<b class="src f">F</b></li>
+      <li><span class="chip kind">天赋</span><span class="chip add">增</span>主树 +12 点：9 个属性点、2 个移速小点、2 个珠宝槽（共 8 槽）；武器组 1 的轰鸣烈焰换成易燃 + 点燃强度小点<b class="src f">F</b><b class="src db">库</b></li>
+      <li><span class="chip kind">再往上</span>原站 Mageblood、DoT Cap 两档改走全护甲 + 法师之血，作者说能极肉（DoT Cap：约 3,500 万 DPS、8.5 万护甲、50% 闪避、3.5K 生命）<b class="src f">F</b>——不在本页范围</li>
+    </ol>
+  </div>
+
+  <div class="split">
+    <div>
+      <h4>①–② 该花钱的</h4>
+      <ul>
+        <li>长杖：火焰法术技能等级 &gt; 法术伤害 / 火焰伤害 &gt; 易燃强度<b class="src f">F</b></li>
+        <li>宝石品质：棱镜、典范涂油、狐狸雕像、古加尔之项链<b class="src f">F</b></li>
+        <li>移速鞋：作者说没有移速的鞋子他从来不穿<b class="src f">F</b></li>
+        <li>浸润咒符：便宜，但缺了就崩<b class="src f">F</b></li>
+      </ul>
+    </div>
+    <div>
+      <h4>①–② 别花的</h4>
+      <ul>
+        <li>战弩的伤害与攻速：作者说战弩属性无所谓；只看投射物技能等级和「榴弹 +1 次冷却使用次数」<b class="src f">F</b></li>
+        <li>任何带火焰附加伤害的戒指、手套、箭袋、战弩<b class="src f">F</b><b class="src db">库</b></li>
+        <li>80 级前的符文锻造底材（需求 80）<b class="src db">库</b></li>
+        <li>护甲%：作者说不成规模前没什么用<b class="src f">F</b></li>
+        <li>猎首、贝拉的苦楚<b class="src f">F</b><b class="src c">评</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2><span class="no">3</span>升华节点</h2>
+  <p>取点顺序：美德精华 → 奇术深造 → 植入宝石（选智慧）→ 嵌宝美玉，三档相同<b class="src f">F</b>。点数含通路上的小点；植入宝石的三选一不另占点。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th></tr></thead>
+    <tbody>
+      <tr><td><b>技能宝石品质 ×3</b><span class="en">Skill Gem Quality</span></td><td>所有技能品质 +2%（三个共 +6%）</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>美德精华</b><span class="en">Essence of Virtue</span></td><td>获得技能：美德壁垒</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>奇术深造</b><span class="en">Advanced Thaumaturgy</span></td><td>宝石品质为镶嵌的技能提供一个额外效果</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>植入宝石 → 神经植入体</b><span class="en">Implanted Gems → Neurological Implants</span></td><td>所有需要智慧的技能等级 +2（另两个选项是力量、敏捷）</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>降低属性需求</b><span class="en">Reduced Attribute Requirements</span></td><td>装备和技能宝石的属性需求降低 4%（去嵌宝美玉的通路）</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>嵌宝美玉</b><span class="en">Gem Studded</span></td><td>根据数量最多的镶嵌辅助宝石颜色，获得：<br>•红色：对你的击中没有暴击伤害加成<br>•蓝色：技能消耗总降 30%<br>•绿色：移动中使用技能的移动速度惩罚总降 40%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td>点数</td><td>原站 lvl 53-68 为 8 点</td><td class="n">6</td><td class="n">8</td><td class="n">8</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>美德壁垒</b>（永久性增益）：随时间积累每种属性的微粒，被击中时失去一个。每种属性的微粒上限为 3，再加上你拥有的、需求该属性的技能数，单属性技能算两倍；每个力量微粒生命上限提高 2%，每个敏捷微粒护甲、闪避与能量护盾提高 5%，每个智慧微粒生命与魔力回复速度各提高 5%<b class="src db">库</b>。所以技能越多微粒越多——这是作者多开技能栏位的原因之一<b class="src f">F</b>。</li>
+    <li><b>嵌宝美玉按「数量最多的颜色」给效果，并列时几种都给</b>（英文原文 “For each colour of Socketed Support Gem that is most numerous”）<b class="src db">库</b>。本页第 4 节的宝石表按辅助宝石的属性需求分色：① 红 5 · 绿 3 · 蓝 13，②③ 红 4 · 绿 3 · 蓝 18<b class="src s">合</b>——照搬只吃得到蓝色。作者的做法：装上随便什么战弩技能，挂任意颜色的辅助宝石，把三色补到一样多；武器组里的宝石也算，长杖自带技能（日曜球）里的辅助不算<b class="src f">F</b>。评论区补充：美德壁垒上的辅助也不算；有人验证过至少能同时拿到两种效果<b class="src c">评</b>。主树的宝石爱好者还要求每色至少 10 个<b class="src db">库</b>。</li>
+    <li><b>多开技能栏位</b>：潜能之戒（获得 1 个额外技能栏位）、增幅血肉涂油（获得 2 个额外技能栏位）。作者的做法是「快照」栏位：戴上戒指 / 项链、放好技能，再摘下来——技能用不了，但仍计入嵌宝美玉和美德精华<b class="src f">F</b><b class="src db">库</b>。</li>
+    <li><b>品质从哪来</b>（作者）：狐狸雕像 5%、典范涂油 5%、项链渎灵后缀 5%、升华小点 6%、宝石本身 20–23%，合计 41–44%。40% 是部分技能的断点，品质也是烈焰爆破的巨大伤害乘区<b class="src f">F</b>。poe2db：「古加尔之」是 +(3—5)%，原站成品是 +3%<b class="src db">库</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <h2><span class="no">4</span>技能宝石配置</h2>
+  <p>每一格是该阶段完整的辅助清单。辅助名前的圆点是颜色（<span class="gc r"></span>红 = 力量、<span class="gc g"></span>绿 = 敏捷、<span class="gc b"></span>蓝 = 智慧），用于嵌宝美玉配平。②③ 两档的宝石完全相同<b class="src f">F</b>。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>技能</th><th>① 53–68 级</th><th>②③ 85 级 / 终局</th></tr></thead>
+    <tbody>
+      <tr><th>烈焰爆破<span class="en">Flameblast · 武器组 1 · 等阶 13</span></th><td><span class="gc b"></span>审慎施法 · <span class="gc r"></span>焚躯烈焰 II · <span class="gc b"></span>范围集中 · <span class="gc b"></span>迅猛增幅 II · <span class="gc b"></span>精准破坏<b class="src f">F</b></td><td>同左<b class="src f">F</b></td></tr>
+      <tr><th>黏油榴弹<span class="en">Oil Grenade · 武器组 2 · 等阶 9</span></th><td><span class="gc r"></span>短暂引信 II · <span class="gc g"></span>新星投射物 I · <span class="gc g"></span>多重射击 II · <span class="gc b"></span>范围扩大 II<b class="src f">F</b></td><td>同左 + <span class="gc b"></span>侵蚀地面<b class="src f">F</b></td></tr>
+      <tr><th>寒霜爆<span class="en">Frost Bomb · 等阶 1</span></th><td><span class="gc b"></span>强力曝露 · <span class="gc g"></span>冗余 II · <span class="gc b"></span>施法回响<b class="src f">F</b></td><td>同左</td></tr>
+      <tr><th>元素要害<span class="en">Elemental Weakness · 等阶 7</span></th><td><span class="gc b"></span>强效诅咒 · <span class="gc b"></span>聚焦诅咒 · <span class="gc r"></span>效能 II<b class="src f">F</b></td><td>同左 + <span class="gc b"></span>范围扩大 II<b class="src f">F</b></td></tr>
+      <tr><th>龙卷旋风（手动）<span class="en">Tornado · 等阶 11</span></th><td><span class="gc b"></span>扩展 · <span class="gc b"></span>风暴行军 · <span class="gc r"></span>持续时间延长 II<b class="src f">F</b></td><td>同左</td></tr>
+      <tr><th>躲闪时施放 → 龙卷旋风<span class="en">Cast on Dodge · 等阶 14 · 保留 100 精魂</span></th><td><span class="gc b"></span>风暴行军 · <span class="gc b"></span>范围扩大 II · <span class="gc r"></span>持续时间延长 II<b class="src f">F</b></td><td><span class="gc b"></span>风暴行军 · <span class="gc b"></span>范围扩大 II · <span class="gc b"></span>无边能量 II<b class="src f">F</b></td></tr>
+      <tr><th>魔力残片<span class="en">Mana Remnants · 等阶 4 · 保留 30 精魂</span></th><td class="dim">—</td><td><span class="gc b"></span>卡哈塔的复苏（血统，需求 65）· <span class="gc b"></span>和谐残迹 II<b class="src f">F</b></td></tr>
+      <tr><th>可选：时空锁链 + 诅咒光环<span class="en">Temporal Chains · Blasphemy</span></th><td class="dim">—</td><td>替代魔力残片；诅咒光环每个镶嵌的诅咒保留 60 精魂<b class="src f">F</b><b class="src db">库</b></td></tr>
+      <tr><th>可选：凋零姿态<span class="en">Withering Presence · 保留 30 精魂</span></th><td class="dim">—</td><td>戴黑焰时加，挂 <span class="gc r"></span>持续时间延长 II · <span class="gc b"></span>混沌专精<b class="src f">F</b></td></tr>
+      <tr><th>辅助颜色合计</th><td class="num">红 5 · 绿 3 · 蓝 13（21 个）</td><td class="num">红 4 · 绿 3 · 蓝 18（25 个）</td></tr>
+      <tr><th>原站「宝石需求」</th><td class="num">力 25 · 敏 15 · 智 65</td><td class="num">力 20 · 敏 15 · 智 90</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">原站「宝石需求」恰好等于每个辅助宝石「辅助宝石需求 +5」按颜色相加（① 红 5 × 5 = 25，蓝 13 × 5 = 65；②③ 蓝 18 × 5 = 90），与瓦拉煞的门徒两份攻略的规律一致<b class="src s">合</b>。它不是面板上的属性需求，属性需求见第 6 节。</p>
+
+  <h3>优先级与升级顺序</h3>
+  <ol>
+    <li>原站优先级（① 顺序）：审慎施法 → 焚躯烈焰 II → 范围集中 → 精准破坏 → 短暂引信 II → 新星投射物 I → 多重射击 II → 范围扩大 II → 强力曝露 → 冗余 II → 施法回响 → 强效诅咒 → 聚焦诅咒 → 效能 II → 扩展 → 风暴行军 → 持续时间延长 II → 躲闪时施放那组 → 迅猛增幅 II；② 把迅猛增幅 II 提到第 4，新增的侵蚀地面、无边能量 II、卡哈塔的复苏、和谐残迹 II 排在各自技能末尾<b class="src f">F</b>。</li>
+    <li>烈焰爆破品质先做到 20%，再做躲闪时施放<b class="src f">F</b>。</li>
+    <li>寒霜爆、元素要害一直升级，否则对高等级敌人无效<b class="src f">F</b>。</li>
+  </ol>
+
+  <h3>辅助宝石效果（poe2db 原文）</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>辅助</th><th>效果</th><th>在这套里干什么</th></tr></thead>
+    <tbody>
+      <tr><td>焚躯烈焰 II <span class="en">Searing Flame II</span></td><td>击中伤害总降 30%；点燃强度总增 100%</td><td>核心：快照吃的就是点燃强度</td></tr>
+      <tr><td>审慎施法 <span class="en">Considered Casting</span></td><td>施法速度总降 15%；伤害总增 35%</td><td>烈焰爆破的击中</td></tr>
+      <tr><td>范围集中 <span class="en">Concentrated Area</span></td><td>范围伤害总增 30%；效果范围总降 50%</td><td>同上</td></tr>
+      <tr><td>迅猛增幅 II <span class="en">Burgeon II</span></td><td>每吟唱一秒伤害总增 20%，最多 40%</td><td>烈焰爆破是吟唱技能</td></tr>
+      <tr><td>精准破坏 <span class="en">Controlled Destruction</span></td><td>击中伤害总增 25%；无法暴击</td><td>这套不靠暴击</td></tr>
+      <tr><td>短暂引信 II <span class="en">Short Fuse II</span></td><td>引爆时间总降 80%；伤害总降 30%</td><td>油落地更快；伤害本来就不靠榴弹</td></tr>
+      <tr><td>新星投射物 I · 多重射击 II <span class="en">Nova Projectiles I · Multishot II</span></td><td>环形发射投射物 · 额外 2 个投射物，伤害总降 25%，技能速度总降 20%</td><td>一次铺更大一片油</td></tr>
+      <tr><td>范围扩大 II · 侵蚀地面 <span class="en">Magnified Area II · Encroaching Ground</span></td><td>效果范围提高 45% · 地面效果每秒扩大 20%，最多 100%</td><td>油更大、会自己长</td></tr>
+      <tr><td>强力曝露 · 冗余 II · 施法回响 <span class="en">Potent Exposure · Overabundance II · Spell Echo</span></td><td>曝露效果提高 20% · 上限 +1，持续时间总降 40% · 回响 1 次</td><td>寒霜爆的曝露（初始 20%、每次脉冲 +2%，最高 50%）</td></tr>
+      <tr><td>强效诅咒 · 聚焦诅咒 · 效能 II <span class="en">Heightened Curse · Focused Curse · Efficiency II</span></td><td>诅咒强度提高 25% · 诅咒爆发延迟总降 50% · 消耗总降 40%</td><td>元素要害降抗</td></tr>
+      <tr><td>扩展 · 风暴行军 · 持续时间延长 II <span class="en">Expand · Advancing Storm · Prolonged Duration II</span></td><td>最多 3 个封印、每破一个效果区域扩大 30% · 从玩家处产生并朝目标移动 · 持续时间总增 35%</td><td>龙卷旋风</td></tr>
+      <tr><td>无边能量 II <span class="en">Boundless Energy II</span></td><td>获得的能量提高 45%</td><td>躲闪时施放更快攒满能量</td></tr>
+      <tr><td>卡哈塔的复苏 · 和谐残迹 II <span class="en">Khatal's Rejuvenation · Harmonic Remnants II</span></td><td>收集残片时获得卡哈塔的复苏（每层冷却回复速度提升，最多 8 层；保留加成 120%）· 20% 几率额外一个残片，收集距离延长 35%</td><td>② 的冷却与回蓝</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>精魂</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>项目</th><th class="n">①</th><th class="n">②</th><th class="n">③</th></tr></thead>
+    <tbody>
+      <tr><td>躲闪时施放</td><td class="n">100</td><td class="n">100</td><td class="n">100</td></tr>
+      <tr><td>魔力残片 × 卡哈塔的复苏保留加成 120%</td><td class="n">—</td><td class="n">36</td><td class="n">36</td></tr>
+      <tr><td>需要合计</td><td class="n">100</td><td class="n">136</td><td class="n">136</td></tr>
+      <tr><td>来源：战役（30 + 30 + 40）</td><td class="n">100</td><td class="n">100</td><td class="n">100</td></tr>
+      <tr><td>来源：装备（原站）</td><td class="n">—</td><td class="n">胸 57 + 项链 34</td><td class="n">项链 94（见下）</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">③ 项链原站写「+94 精魂」，是把同一条精魂前缀列了两次；同族词缀不能重复，按一条「女伯爵的」47–50 算，③ 约 147–150 精魂，仍够用；不够就在战弩插阿兹卡帕的灵核（+15），或挑带「每个镶嵌的插槽使精魂 +(10—14)」的无生之辱<b class="src s">合</b><b class="src db">库</b>。走诅咒光环要另算每个诅咒 60 精魂<b class="src f">F</b>。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2><span class="no">5</span>操作循环</h2>
+  <h3>刷图</h3>
+  <ol>
+    <li>先扔一发黏油榴弹，切到长杖把烈焰爆破蓄到 10 层，打中一个敌人——地面着火<b class="src f">F</b><b class="src c">评</b>。<span class="chip must">不做会崩</span> 没打中敌人就不会点燃<b class="src f">F</b>；没蓄满也能点燃，但按放出时的层数算<b class="src c">评</b>。</li>
+    <li>之后只扔黏油榴弹：每次翻滚都往着火区域的前方扔，新油要和旧火接上<b class="src c">评</b>。顺利的话一张图只需要放一次烈焰爆破<b class="src c">评</b>。</li>
+    <li>闪避翻滚触发龙卷旋风清飞行怪、顺便把火带过去。躲闪时施放要攒满能量才触发，移速和翻滚距离越高越稳<b class="src c">评</b>。</li>
+    <li>地图带「燃烧地面」时，把龙卷旋风从躲闪时施放里拿掉，换寒霜爆之类的法术<b class="src f">F</b>。<span class="chip must">不做会崩</span> 龙卷旋风会吸入燃烧地面，把别的点燃带到怪身上<b class="src c">评</b>。评论区玩家的替代：燃烧地面图直接卖掉，或用点燃 + 瘟疫处理飞行怪<b class="src c">评</b>。</li>
+  </ol>
+  <h3>首领</h3>
+  <ol>
+    <li>首领脚下铺油、蓄满烈焰爆破打中。首领不是 100% 点燃，可能要两发；伤害越高、易燃强度越高越稳<b class="src f">F</b>。只有易燃积累到 100% 才保证一发点燃<b class="src c">评</b>。</li>
+    <li>寒霜爆维持曝露：作者在升级段写的是首领战每 8 秒放一次<b class="src f">F</b>。火抗高的怪先放元素要害和寒霜爆，再蓄烈焰爆破<b class="src c">评</b>。</li>
+    <li>首领开场自带减伤时，蓄满后等一两秒再放<b class="src c">评</b>。</li>
+    <li>灰烬仲裁官：第一阶段在它右侧铺油、蓄满烈焰爆破，第二阶段趁换阶段蓄<b class="src c">评</b>。</li>
+  </ol>
+  <p class="small">缺蓝：② 起魔力残片 + 卡哈塔的复苏回蓝<b class="src f">F</b>；嵌宝美玉的蓝色效果「技能消耗总降 30%」也在帮忙<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <h2><span class="no">6</span>属性达标值</h2>
+  <p>原站这三档没有面板数值：它的 PoB 只有一套 98 级配置，对应的是 DoT Cap 档（见第 14 节）。下表凡是「原站未给」的格子都是真没给；带 <b class="src s">合</b> 的数字是按原站装备逐件相加，不含天赋、百分比与抗性惩罚，只用来看数量级。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>项目</th><th>① 53–68 级</th><th>② 85 级</th><th>③ 终局</th></tr></thead>
+    <tbody>
+      <tr><th>生命</th><td>装备「+生命上限」约 485–505：头 60、手 85、戒指 100 × 2、腰带 100、稳步法印 40–60<b class="src s">合</b></td><td>原站数值相加 1,105；其中头 +175、脚 +190 超出可出档，按可出范围（头 150–174、脚 120–149）约 1,010–1,063<b class="src s">合</b>；另有佳华尼的灵核生命上限提高 5%</td><td>胸甲换无生之辱：每个镶嵌的插槽 +45–60 生命，每颗完美身躯符文 +75；按原站 5 孔配置（3 颗符文）约 1,260–1,390<b class="src s">合</b></td></tr>
+      <tr><th>符文结界</th><td>17（符文肃穆手套）<b class="src db">库</b></td><td>589 = 头 254 + 手 134 + 脚 201<b class="src db">库</b></td><td>同 ②</td></tr>
+      <tr><th>护甲 / 闪避</th><td colspan="3">原站未给。评论区玩家：3.5K 护甲太低，建议 5–6 万；另一位 8.1 万护甲基本不怕<b class="src c">评</b>（玩家说法）。原站 PoB（DoT Cap 档）是护甲 80,088、闪避几率 50%、生命 3,257<b class="src f">F</b></td></tr>
+      <tr><th>元素抗性（装备 + 任务）</th><td>原站装备只列生命，没列抗性；作者说这一段抗性比生命更重要<b class="src f">F</b>。基底：黄玉戒指电抗、蓝玉戒指冰抗各 20–30%</td><td>火 77 · 冰 61–71 · 电 61–71<b class="src s">合</b></td><td>火 108 · 冰 41 · 电 41<b class="src s">合</b>——换金光戒指丢了基底的冰电抗，要靠无生之辱「每个镶嵌的插槽使所有元素抗性 +(8—10)%」或别处补</td></tr>
+      <tr><th>混沌抗性</th><td>原站未给</td><td>24（戒指 20、头 4）<b class="src s">合</b></td><td>40（戒指 20、头 20）<b class="src s">合</b></td></tr>
+      <tr><th>精魂</th><td>需要 100 = 战役给的 100</td><td>需要 136；原站装备后有 191</td><td>需要 136；按可出档约 147–150（原站写 194）</td></tr>
+      <tr><th>力 / 敏 / 智</th><td>烈焰爆破 13–17 级：智 92–126；躲闪时施放 14–17 级：敏 / 智 57–70；先祖锁甲 44 力 44 敏<b class="src db">库</b></td><td colspan="2">宝石 19–20 级：智 147–157（烈焰爆破）；力 80–86（黏油榴弹、龙卷旋风）；敏 80–86（躲闪时施放、黏油榴弹）<b class="src db">库</b>；嵌宝美玉通路上的小点再降 4%。底材：狼皮斗篷 67 力 67 智，符文隐秘之冠 63 / 63<b class="src db">库</b>。作者：路径走得远，属性点很宽裕，只要智慧够烈焰爆破<b class="src f">F</b>。一位 94 级玩家的面板是力 150、敏 133、智 170<b class="src c">评</b></td></tr>
+      <tr><th>移动速度</th><td>鞋 20%；稳步法印闪避翻滚距离 +1 米；激情冲动（近期击败 4%）</td><td>鞋 35%；杂技符文翻滚距离 +0.3 米；轻盈步伐 3%；动量无视胸甲的 -4% 基础移速<b class="src db">库</b></td><td>同 ②，另加 2 个 2% 移速小点</td></tr>
+      <tr><th>物品稀有度</th><td>—</td><td>每件都带（作者）<b class="src f">F</b>；逐件约 77–85%<b class="src s">合</b></td><td>约 130–156%<b class="src s">合</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">任务抗性按原站任务奖励表：冰 / 电 / 火各 +10%（第 1–3 幕首领），第 4 幕三个纹身各 +5%<b class="src f">F</b>。75% 是游戏默认上限；战役后的抗性惩罚本页没有核实，以游戏内面板为准。</p>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <h2><span class="no">7</span>装备与词缀</h2>
+  <p>作者的配装规则很简单：<b>长杖</b>要最高的 +等级，其次法术伤害、火焰伤害、火焰强度；<b>战弩</b>属性无所谓；<b>其余部位</b>在 85 级起每件都要生命 + 抗性 + 稀有度，力量后缀也行，因为它给生命<b class="src f">F</b>。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>部位</th><th>① 53–68 级</th><th>② 85 级</th><th>③ 终局</th></tr></thead>
+    <tbody>
+      <tr><th>武器组 1 · 长杖</th><td>耐火长杖：火焰法术 +4（烈焰之，36）· 火焰伤害 69%（酷热的，8）· 2 颗高级钢铁符文<b class="src f">F</b></td><td>耐火长杖：法术伤害 149%（魔咒师的，60）· 火焰伤害 149%（熔岩的，60）· 额外火焰伤害 49%（狱炎的，60）· 火焰法术 +7（狱火之，81）· 女巫阿桑德拉的智慧符文 + 高级钢铁符文<b class="src f">F</b></td><td>同 ②</td></tr>
+      <tr><th>武器组 2 · 战弩</th><td>轰炸战弩：投射物 +2（制箭之，18）· 榴弹 +1 次冷却使用（阿曼娜姆的，渎灵，65）<b class="src f">F</b></td><td>投射物 +3（锐眼之，36）；插槽：阿兹卡帕的灵核（原站是佳华尼，见坑）+ 高级启迪符文<b class="src f">F</b><b class="src s">合</b></td><td>同 ②</td></tr>
+      <tr><th>头盔</th><td>覆颜面具：+60 生命<b class="src f">F</b></td><td>符文隐秘之冠：生命 150–174（原站写 175）· 稀有度 14% · 混沌抗 4%<b class="src f">F</b><b class="src s">合</b></td><td>混沌抗 4% → 20%（流亡之，68）<b class="src f">F</b></td></tr>
+      <tr><th>胸甲</th><td>先祖锁甲：护甲与闪避提高 80%（英雄的，60）<b class="src f">F</b></td><td>狼皮斗篷：+200 生命（全盛的，80）· +57 精魂（女王的，78）· 狐狸雕像 + 佳华尼的灵核<b class="src f">F</b></td><td>无生之辱（生命）· 狐狸雕像 + 佳华尼的灵核 + 3 颗完美身躯符文<b class="src f">F</b></td></tr>
+      <tr><th>手套</th><td>符文肃穆手套：+85 生命<b class="src f">F</b></td><td>符文信徒袖带：+120 生命 · 稀有度 6%<b class="src f">F</b></td><td>稀有度 6% → 15%<b class="src f">F</b></td></tr>
+      <tr><th>鞋子</th><td>青铜胫甲：移速 20%<b class="src f">F</b></td><td>符文隐秘绑腿：移速 35%（地狱的，82）· 生命 120–149（原站写 190）· 稀有度 15% · 杂技符文<b class="src f">F</b><b class="src s">合</b></td><td>同 ②</td></tr>
+      <tr><th>项链</th><td>稳步法印（传奇）<b class="src f">F</b></td><td>帝金项链：+100 生命 · +34 精魂 · 所有技能品质 +3%（古加尔之，渎灵）· 典范<b class="src f">F</b></td><td>+ 火焰抗 31% · 所有法术技能 +3（魔巫之，75）· 精魂；或失神项链带躲闪时施放<b class="src f">F</b></td></tr>
+      <tr><th>戒指</th><td>黄玉 + 蓝玉：各 +100 生命<b class="src f">F</b></td><td>黄玉 + 蓝玉：生命 · 稀有度 15% · 抗性 · 火焰伤害提高 27% / 23%<b class="src f">F</b>；可选黑焰</td><td>两枚金光戒指：稀有度 31%<b class="src f">F</b></td></tr>
+      <tr><th>腰带</th><td>万用腰带：+100 生命<b class="src f">F</b></td><td>+187 护甲 · +120 生命 · +31 力量 · 火抗 31%<b class="src f">F</b></td><td>同 ②</td></tr>
+      <tr><th>药剂</th><td colspan="3">非凡生命药剂（立即回复 20%）+ 恢弘魔力药剂，三档相同<b class="src f">F</b></td></tr>
+      <tr><th>咒符</th><td colspan="2">融冰 · 浸润 · 真银<b class="src f">F</b></td><td>真银 → 落刃时刻<b class="src f">F</b></td></tr>
+      <tr><th>涂油（项链）</th><td>焚尽（典范买不起时）<b class="src f">F</b></td><td colspan="2">典范<b class="src f">F</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>② 85 级逐件</h3>
+  <p class="small">词缀中文取 poe2db 对应部位的简中词缀页；档次名后括号为物品等级门槛。交易链接是国际服官方交易站（Forbidden Rites 赛季，需要登录），国服需在国服交易站按中文词缀自行筛。标 <b class="src s">合</b> 的查询是本页改过的：超出可出档的数值调到可出范围，战弩去掉作者说不重要的攻速；其余沿用原站查询。原站的部位购买顺序：左戒 → 右戒 → 腰带 → 头盔 → 手套 → 长杖 → 鞋子 → 战弩 → 胸甲 → 项链<b class="src f">F</b>。</p>
+
+  <div class="slots">
+
+  <article class="slot">
+    <div class="slot-head"><h4>武器组 1 · 耐火长杖 <span class="en">Pyrophyte Staff</span></h4><span class="req">需求 16 级 · 31 智 · 获得技能：日曜球</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>所有火焰法术技能等级 +7</td><td>+7 to Level of all Fire Spell Skills</td><td class="n">7</td><td class="tier">狱火之 of Inferno（81）</td></tr>
+          <tr><td>法术伤害提高 149%</td><td>149% increased Spell Damage</td><td class="n">149</td><td class="tier">魔咒师的 Incanter's（60）</td></tr>
+          <tr><td>火焰伤害提高 149%</td><td>149% increased Fire Damage</td><td class="n">149</td><td class="tier">熔岩的 Magmatic（60）</td></tr>
+          <tr><td>获得相当于伤害 49% 的额外火焰伤害</td><td>Gain 49% of Damage as Extra Fire Damage</td><td class="n">49</td><td class="tier">狱炎的 Infernal（60）</td></tr>
+          <tr><td>女巫阿桑德拉的智慧符文：法杖或长杖：所有法术技能等级 +1</td><td>Hedgewitch Assandra's Rune of Wisdom</td><td class="n">—</td><td class="tier">仅限 1 · 需求 50</td></tr>
+          <tr><td>高级钢铁符文：法杖或长杖：法术伤害提高 30%</td><td>Greater Iron Rune</td><td class="n">—</td><td class="tier">需求 30</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>火焰法术等级各档：烈焰之 +3–4（36）→ 献祭之 +5–6（55）→ 狱火之 +7（81）；长杖还能出「易燃强度提高」后缀：点燃之 51–60%（15）… 灼烧之 81–90%（60）、燃爆之 91–100%（75）<b class="src db">库</b>。评论区：长杖上的易燃强度能让一发烈焰爆破点燃超级首领，但这一条会让长杖贵一倍<b class="src c">评</b>。长杖上的额外火焰伤害没关系，扔油时它不在手上<b class="src f">F</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2974417149%22%2C%22value%22%3A%7B%22min%22%3A149%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A149%7D%7D%2C%7B%22id%22%3A%22explicit.stat_591105508%22%2C%22value%22%3A%7B%22min%22%3A7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3015669065%22%2C%22value%22%3A%7B%22min%22%3A49%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：② 原站成品</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A69%7D%7D%2C%7B%22id%22%3A%22explicit.stat_591105508%22%2C%22value%22%3A%7B%22min%22%3A4%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.staff%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：① 过渡（+4、火焰伤害 69%）</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>武器组 2 · 轰炸战弩 <span class="en">Bombard Crossbow</span></h4><span class="req">需求 33 级 · 34 力 · 34 敏 · 基底：榴弹技能发射 1 个额外投射物</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>榴弹技能拥有 +1 次冷却使用次数</td><td>Grenade Skills have +1 Cooldown Uses</td><td class="n">1</td><td class="tier">阿曼娜姆的 Amanamu's（渎灵前缀，65）</td></tr>
+          <tr><td>所有投射物技能等级 +3</td><td>+3 to Level of all Projectile Skills</td><td class="n">3</td><td class="tier">锐眼之 of the Sharpshooter（36）</td></tr>
+          <tr><td>攻击速度提高 14%</td><td>14% increased Attack Speed</td><td class="n">—</td><td class="tier">声望之 of Renown（30）· 不用追</td></tr>
+          <tr><td>阿兹卡帕的灵核：战斗武器：+15 精魂</td><td>Soul Core of Azcapa</td><td class="n">—</td><td class="tier">本页替换原站的佳华尼的灵核<b class="src s">合</b></td></tr>
+          <tr><td>高级启迪符文：战斗武器：每击败一名敌人获得 30 点魔力</td><td>Greater Inspiration Rune</td><td class="n">—</td><td class="tier">需求 30</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>黏油榴弹的等级提高黏油溅射范围（2–2.6 米），所以投射物技能等级有用<b class="src db">库</b>。<b>绝对不能有</b>战弩本地的「附加 # - # 火焰伤害」——评论区好几个人栽在这<b class="src f">F</b><b class="src c">评</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250681686%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：+3 投射物 + 榴弹 +1 次</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>头盔 · 符文隐秘之冠 <span class="en">Runeforged Cryptic Crown</span></h4><span class="req">需求 80 级 · 63 力 · 63 智 · 护甲 86 · 能量护盾 24 · 符文结界 254</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>目标词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+(150—174) 生命上限</td><td>+# to maximum Life</td><td class="n">150</td><td class="tier">丰饶的 Fecund（65）· 原站写 175，头盔出不了</td></tr>
+          <tr><td>物品稀有度提高 14%（前缀 + 后缀）</td><td>14% increased Rarity of Items found</td><td class="n">14</td><td class="tier">喜鹊的 8–11（10）/ 收藏家的 12–15（29）+ 掠夺之 6–10（3）/ 扫荡之 11–14（24）</td></tr>
+          <tr><td>混沌抗性 +4%（③ 要 +20%）</td><td>+4% / +20% to Chaos Resistance</td><td class="n">4 / 20</td><td class="tier">失落之 of the Lost（16）/ 流亡之 of Exile（68）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>作者：头、手、脚用混合底材的 T1 版堆符文结界，他偏好 ES / 护甲或纯智慧底<b class="src f">F</b>。符文锻造版需求 80 级：用隐秘之冠 + 维金 ×465 锻造<b class="src db">库</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A4%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：②</a> <b class="src s">合</b> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：③（混沌抗 20%）</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>胸甲 · 狼皮斗篷 <span class="en">Wolfskin Mantle</span></h4><span class="req">需求 65 级 · 67 力 · 67 智 · 护甲 313 · 能量护盾 87 · 基础移动速度 -4%</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+200 生命上限</td><td>+200 to maximum Life</td><td class="n">200</td><td class="tier">全盛的 Prime（80）</td></tr>
+          <tr><td>+57 精魂</td><td>+57 to Spirit</td><td class="n">57</td><td class="tier">女王的 Queen's（78）</td></tr>
+          <tr><td>狐狸雕像：护甲：镶嵌在该物品上的雕像获得其自身的绑定词缀的强化效果；羁绊：护甲：所有技能品质 +5%</td><td>Fox Idol</td><td class="n">—</td><td class="tier">仅限 1 · 掉落等级 65</td></tr>
+          <tr><td>佳华尼的灵核：护甲：生命上限提高 5%</td><td>Soul Core of Jiquani</td><td class="n">—</td><td class="tier">仅限 1</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>② 的精魂主要来自这件。③ 换无生之辱。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A200%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A57%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>手套 · 符文信徒袖带 <span class="en">Runeforged Adherent Cuffs</span></h4><span class="req">需求 80 级 · 55 力 · 55 智 · 护甲 39 · 能量护盾 11 · 符文结界 134</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+120 生命上限</td><td>+120 to maximum Life</td><td class="n">120</td><td class="tier">健将的 Athlete's（60，手套最高档）</td></tr>
+          <tr><td>物品稀有度提高 6%（③ 15%）</td><td>6% / 15% increased Rarity of Items found</td><td class="n">6 / 15</td><td class="tier">掠夺之 of Plunder（3）/ 考古之 of Archaeology（40）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：②</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：③</a></p></div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>鞋子 · 符文隐秘绑腿 <span class="en">Runeforged Cryptic Leggings</span></h4><span class="req">需求 80 级 · 59 力 · 59 智 · 护甲 59 · 能量护盾 16 · 符文结界 201</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>目标词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>移动速度提高 35%</td><td>35% increased Movement Speed</td><td class="n">35</td><td class="tier">地狱的 Hellion's（82）</td></tr>
+          <tr><td>+(120—149) 生命上限</td><td>+# to maximum Life</td><td class="n">120</td><td class="tier">健将的 Athlete's（60）· 原站写 190，鞋子出不了</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td>15% increased Rarity of Items found</td><td class="n">15</td><td class="tier">考古之 of Archaeology（40）</td></tr>
+          <tr><td>杂技符文：鞋子：闪避翻滚距离 +0.3 米</td><td>Rune of Acrobatics</td><td class="n">—</td><td class="tier">仅限 1 · 需求 15</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>作者：没有移速的鞋子不穿<b class="src f">F</b>。移速各档：瞪羚的 25%（46）→ 猎豹的 30%（65）→ 地狱的 35%（82）<b class="src db">库</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A35%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>项链 · 帝金项链 <span class="en">Gold Amulet</span></h4><span class="req">需求 35 级 · 基底：物品稀有度提高 (12—20)%</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+100 生命上限</td><td>+100 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的 Virile（54）</td></tr>
+          <tr><td>+34 精魂</td><td>+34 to Spirit</td><td class="n">34</td><td class="tier">女男爵的 Baronness'（25）；项链精魂最高是女伯爵的 47–50（54）</td></tr>
+          <tr><td>所有技能品质 +3%</td><td>+3% to Quality of all Skills</td><td class="n">3</td><td class="tier">古加尔之 of Kurgal（渎灵后缀，65，3–5%）</td></tr>
+          <tr><td>涂油：典范——所有技能品质 +5%；+5 全属性</td><td>Paragon</td><td class="n">—</td><td class="tier">液化情感：凶残、孤独、绝望</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>作者：前期先用稳步法印跑速度（闪避翻滚距离 +1 米），买得起带 5% 品质的帝金项链 + 典范再换；典范太贵就先涂焚尽（你造成的点燃的伤害生效速度加快 15%；液化情感：孤独、贪婪、偏执）<b class="src f">F</b><b class="src db">库</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3655769732%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Surefooted%20Sigil%22%2C%22type%22%3A%22Jade%20Amulet%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：稳步法印</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>戒指 · 黄玉戒指 + 蓝玉戒指 <span class="en">Topaz Ring · Sapphire Ring</span></h4><span class="req">需求 16 / 12 级 · 基底：闪电抗性 / 冰霜抗性 +(20—30)%</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>戒指</th><th>词缀（中文原文）</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="5">左 · 黄玉</td><td>+100 生命上限</td><td class="n">100</td><td class="tier">阳刚的 Virile（54，戒指最高档）</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td class="n">15</td><td class="tier">考古之 of Archaeology（40）</td></tr>
+          <tr><td>冰霜抗性 +26%</td><td class="n" rowspan="2">总元素抗 52</td><td class="tier">海象之 of the Walrus（50）</td></tr>
+          <tr><td>闪电抗性 +26%</td><td class="tier">暴风雨之 of the Tempest（49）</td></tr>
+          <tr><td>火焰伤害提高 27%</td><td class="n">27</td><td class="tier">熔岩的 Magmatic（75）</td></tr>
+          <tr><td rowspan="5">右 · 蓝玉</td><td>+100 生命上限</td><td class="n">100</td><td class="tier">阳刚的 Virile（54）</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td class="n">15</td><td class="tier">考古之（40）</td></tr>
+          <tr><td>火焰抗性 +31%</td><td class="n">总元素抗 31</td><td class="tier">火山之 of the Volcano（60）</td></tr>
+          <tr><td>混沌抗性 +20%</td><td class="n">20</td><td class="tier">流亡之 of Exile（68）</td></tr>
+          <tr><td>火焰伤害提高 23%</td><td class="n">23</td><td class="tier">火山的 Volcanic（65）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>作者：戒指上的「火焰伤害提高」有更好，不是必需<b class="src f">F</b>——注意这是「提高」，不是「附加」；戒指上的「攻击附加 # - # 基础火焰伤害」绝对不能要<b class="src f">F</b><b class="src db">库</b>。③ 两枚都换金光戒指。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A27%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：左</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：右</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Blackflame%22%2C%22type%22%3A%22Amethyst%20Ring%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：黑焰（可选）</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>腰带 · 万用腰带 <span class="en">Utility Belt</span></h4><span class="req">需求 55 级 · 基底：具有 (1—3) 个咒符位；药剂回复量的 20% 立即生效</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+187 护甲</td><td>+187 to Armour</td><td class="n">187</td><td class="tier">围绕的 Encased（54）</td></tr>
+          <tr><td>+120 生命上限</td><td>+120 to maximum Life</td><td class="n">120</td><td class="tier">健将的 Athlete's（60）</td></tr>
+          <tr><td>+31 力量</td><td>+31 to Strength</td><td class="n">31</td><td class="tier">泰坦之 of the Titan（74）</td></tr>
+          <tr><td>火焰抗性 +31%</td><td>+31% to Fire Resistance</td><td class="n">总元素抗 31</td><td class="tier">火山之 of the Volcano（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>放 3 个咒符：原站任务奖励表里第 2 幕的奖章任务另给 +1 咒符位，所以腰带至少要 2 个咒符位<b class="src f">F</b><b class="src s">合</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A187%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>药剂与咒符 <span class="en">Transcendent Life Flask · Gargantuan Mana Flask · Charms</span></h4><span class="req">三档相同；③ 真银咒符换落刃时刻</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>物品</th><th>效果（poe2db 原文）</th><th>交易</th></tr></thead>
+        <tbody>
+          <tr><td>非凡生命药剂（需求 50）</td><td>立即回复 (20—23)% 回复量（煨闷的 Simmering，3）；基础 4 秒回复 840 生命</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2503377690%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.life%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+          <tr><td>恢弘魔力药剂（需求 40）</td><td>2 秒回复 185 魔力；原站不要求词缀</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.mana%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+          <tr><td>融冰咒符</td><td>移除你身上的所有冻结效果，且你不会被冻结</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Thawing%20Charm%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+          <tr><td><b>浸润咒符</b></td><td>移除你身上的所有点燃效果，且你不会被点燃。<span class="chip must">必带</span> 作者：被点燃后火会扩散到你的油上，快照被顶掉，伤害归零<b class="src f">F</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Dousing%20Charm%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+          <tr><td>真银咒符</td><td>你的速度不受减速效果影响（被减速时使用，持续 3 秒）</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Silver%20Charm%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+          <tr><td>落刃时刻（③，传奇真银咒符）</td><td>当你受到减速影响时使用；你的速度不受减速效果影响；效果期间获得猛攻</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22The%20Fall%20of%20the%20Axe%22%2C%22type%22%3A%22Silver%20Charm%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p>不要用贝拉的苦楚（传奇浸润咒符）：使用时会造成燃烧地面，评论区确认会把整套搞崩<b class="src c">评</b><b class="src db">库</b>。</p></div>
+    </div>
+  </article>
+
+  </div>
+
+  <h3>③ 终局改动</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>部位</th><th>目标（中文原文）</th><th>档次 / 来源</th><th>交易</th></tr></thead>
+    <tbody>
+      <tr><td>胸甲 · 无生之辱<span class="en">Morior Invictus · Grand Regalia</span></td><td>护甲、闪避和能量护盾提高 (300—400)%；3 条随机插槽词缀，要「每个镶嵌的插槽使生命上限 +(45—60)」，其他好选择：所有元素抗性 +(8—10)%、混沌抗性 +(10—13)%、精魂 +(10—14)（均为每孔）；5 孔插狐狸雕像 + 佳华尼的灵核 + 3 颗完美身躯符文（护甲：+75 生命上限）</td><td>需求 65 · 41 力 41 敏 41 智；灰烬仲裁官掉落；基础 4 孔，作者说找 5 孔的<b class="src f">F</b><b class="src db">库</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Morior%20Invictus%22%2C%22type%22%3A%22Grand%20Regalia%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> <b class="src s">合</b></td></tr>
+      <tr><td>戒指 · 金光戒指 ×2<span class="en">Gold Ring</span></td><td>基底：物品稀有度提高 (6—15)%；+100 生命、稀有度 31%（囤宝者的 16–19 + 考古之 15–18 这类组合）、抗性、火焰伤害提高 27% / 23%</td><td>需求 40<b class="src f">F</b><b class="src db">库</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A52%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A27%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">左</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3962278098%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">右</a></td></tr>
+      <tr><td>项链 · 帝金项链</td><td>所有法术技能等级 +3（魔巫之，75）· 火焰抗性 +31% · +100 生命 · 精魂 · 所有技能品质 +3% · 典范</td><td>原站精魂写 +94，按一条女伯爵的 47–50 算<b class="src s">合</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_124131830%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A47%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3655769732%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> <b class="src s">合</b></td></tr>
+      <tr><td>项链（替代）· 失神项链<span class="en">Absent Amulet</span></td><td>基底获得 12 级技能（躲闪时施放等多种之一），允许的前缀、后缀各 -1；作者：配合全局品质能加更多闪避翻滚距离，辅助照原来的躲闪时施放</td><td>需求 50<b class="src f">F</b><b class="src db">库</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Absent%20Amulet%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+      <tr><td>头盔</td><td>混沌抗性 +20%（流亡之，68）</td><td><b class="src f">F</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a> <b class="src s">合</b></td></tr>
+      <tr><td>手套</td><td>物品稀有度提高 15%（考古之，40）</td><td><b class="src f">F</b></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>① 过渡装</h3>
+  <p>原站 ① 的装备数据只写了一条生命：覆颜面具 +60、先祖锁甲护甲与闪避 80%、符文肃穆手套 +85、青铜胫甲 20% 移速、黄玉 / 蓝玉戒指和万用腰带各 +100<b class="src f">F</b>。这一段照作者正文买：生命 + 抗性，抗性优先；护甲或护甲 / 闪避混合底；鞋子必须带移速；长杖 +等级优先<b class="src f">F</b>。作者升级段写的「戒指、手套拿攻击附加伤害」是换装前的建议，换装后火焰附加伤害一条都不能有<b class="src f">F</b><b class="src s">合</b>。</p>
+  <p class="small"><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1202301673%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250681686%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.crossbow%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：① 战弩（+2 投射物 + 榴弹 +1 次）</a> <b class="src s">合</b> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Unset%20Ring%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：潜能之戒（多开技能栏位用）</a></p>
+
+  <h3>增幅器（符文、灵核、雕像）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>物品</th><th>效果（poe2db 原文）</th><th>位置</th><th>阶段</th></tr></thead>
+    <tbody>
+      <tr><td>高级钢铁符文<span class="en">Greater Iron Rune</span></td><td>法杖或长杖：法术伤害提高 30%（需求 30）</td><td>长杖</td><td>① ×2，②③ ×1<b class="src f">F</b></td></tr>
+      <tr><td>女巫阿桑德拉的智慧符文<span class="en">Hedgewitch Assandra's Rune of Wisdom</span></td><td>仅限 1；需求 50，掉落等级 65；法杖或长杖：所有法术技能等级 +1</td><td>长杖</td><td>②③<b class="src f">F</b></td></tr>
+      <tr><td>高级启迪符文<span class="en">Greater Inspiration Rune</span></td><td>战斗武器：每击败一名敌人获得 30 点魔力</td><td>战弩</td><td>②③<b class="src f">F</b></td></tr>
+      <tr><td>佳华尼的灵核<span class="en">Soul Core of Jiquani</span></td><td><b>仅限 1</b>；战斗武器：生命在击败敌人时恢复 5%；护甲：生命上限提高 5%</td><td>胸甲（原站战弩另插一颗，无效）</td><td>②③<b class="src f">F</b><b class="src db">库</b></td></tr>
+      <tr><td>阿兹卡帕的灵核<span class="en">Soul Core of Azcapa</span></td><td>战斗武器：+15 精魂</td><td>战弩</td><td>②③ 作者给的补精魂办法<b class="src f">F</b>，本页用来替换无效的那颗<b class="src s">合</b></td></tr>
+      <tr><td>狐狸雕像<span class="en">Fox Idol</span></td><td>仅限 1；掉落等级 65；护甲：镶嵌在该物品上的雕像获得其自身的绑定词缀的强化效果；羁绊：护甲：所有技能品质 +5%</td><td>胸甲</td><td>②③<b class="src f">F</b></td></tr>
+      <tr><td>杂技符文<span class="en">Rune of Acrobatics</span></td><td>仅限 1；需求 15；鞋子：闪避翻滚距离 +0.3 米</td><td>鞋子</td><td>②③<b class="src f">F</b></td></tr>
+      <tr><td>完美身躯符文<span class="en">Perfect Body Rune</span></td><td>需求 50；护甲：+75 生命上限</td><td>无生之辱</td><td>③ ×3<b class="src f">F</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <h2><span class="no">8</span>天赋树核心节点</h2>
+  <p><b>完整点法对着原站点，本页只标核心。</b>三档都不点关键石：主树和两个武器组的全部选点都对照过 poe2db 的 33 个关键石<b class="src db">库</b>。三档所有大点都在原站的核心节点清单里，没有漏标。点数：主树 67 / 84 / 96；武器组 1、2 各 24；升华 6 / 8 / 8（原站 ① 为 8）。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th>位置</th><th class="n">①</th><th class="n">②</th><th class="n">③</th></tr></thead>
+    <tbody>
+      <tr><th colspan="6">主树</th></tr>
+      <tr><td><b>激情冲动</b><span class="en">Adrenaline Rush</span></td><td>若你近期内有击败敌人，则移动速度提高 4%；攻击速度提高 8%</td><td>主树</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>退化</b><span class="en">Deterioration</span></td><td>你已经受到伤害型异常状态时不会再受到伤害异常状态；你造成的伤害性异常状态强度提高 20%</td><td>主树</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>纵火狂</b><span class="en">Arsonist</span></td><td>你造成的点燃的伤害生效速度加快 18%</td><td>主树</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>动荡催化剂</b><span class="en">Volatile Catalyst</span></td><td>效果区域提高 8%；冷却回复速度提高 10%</td><td>主树（52 级换装树在武器组 2）</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>宝石爱好者</b><span class="en">Gem Enthusiast</span></td><td>若你镶嵌了至少 10 个红色辅助宝石，生命上限提高 5%；至少 10 个蓝色，魔力上限提高 5%；至少 10 个绿色，移动速度提高 5%</td><td>主树</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>扰乱威势</b><span class="en">Distracting Presence</span></td><td>冷却回复速度提高 10%；在场的敌人的冷却回复速度降低 10%</td><td>主树</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>动量</b><span class="en">Momentum</span></td><td>无视护甲所带来的移动速度降低效果；你受到的异常状态的减速强度降低 5%</td><td>主树</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>轻盈步伐</b><span class="en">Light on your Feet</span></td><td>移动速度提高 3%；免疫缓速；免疫瘫痪</td><td>主树</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><th colspan="6">武器组 1（长杖 · 烈焰爆破）</th></tr>
+      <tr><td><b>灼热气息</b><span class="en">Searing Heat</span></td><td>易燃强度提高 100%；你造成的点燃的伤害生效速度加快 10%</td><td>武器组 1</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>速效毒素</b><span class="en">Fast Acting Toxins</span></td><td>伤害型异常状态生效速度加快 12%</td><td>武器组 1</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>损耗</b><span class="en">Wasting</span></td><td>敌人受到伤害性异常状态的持续时间提高 15%；对受异常状态影响的敌人造成的击中伤害提高 30%</td><td>武器组 1</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>持久创伤</b><span class="en">Lasting Trauma</span></td><td>攻击速度降低 5%；你造成的异常状态强度提高 30%；敌人受到伤害性异常状态的持续时间提高 20%</td><td>武器组 1</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>火焰守护者</b><span class="en">Flamekeeper</span></td><td>火焰伤害提高 20%；点燃强度提高 15%；你受到的点燃效果降低 30%</td><td>武器组 1</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>轰鸣烈焰</b><span class="en">Fulmination</span></td><td>易燃强度提高 80%；对点燃敌人的击中伤害提高 40%</td><td>武器组 1</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td></tr>
+      <tr><td><b>焚化</b><span class="en">Immolation</span></td><td>点燃强度提高 25%；+10 力量</td><td>武器组 1</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><th colspan="6">武器组 2（战弩 · 黏油榴弹）</th></tr>
+      <tr><td><b>集束炸弹</b><span class="en">Cluster Bombs</span></td><td>榴弹引爆时间提高 50%；榴弹技能发射 1 个额外投射物</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>掷弹兵</b><span class="en">Grenadier</span></td><td>榴弹技能拥有 +1 次冷却使用次数</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>匠造烈焰</b><span class="en">Engineered Blaze</span></td><td>你在过去 8 秒内每点燃一个敌人，攻击效果范围提高 4%，最多 40%</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>实用军械</b><span class="en">Utility Ordnance</span></td><td>榴弹伤害降低 80%；榴弹技能的冷却回复速度提高 40%</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>权威</b><span class="en">Authority</span></td><td>攻击技能的效果区域提高 15%；冷却回复速度提高 10%</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>多管齐下</b><span class="en">Multitasking</span></td><td>技能效果持续时间提高 15%；冷却回复速度提高 12%</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>原始生长</b><span class="en">Primal Growth</span></td><td>若你近期内有击败敌人，则效果区域提高 15%；攻击技能的效果区域提高 8%</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>投石车</b><span class="en">Catapult</span></td><td>投射物速度提高 15%；攻击技能的效果区域提高 12%</td><td>武器组 2</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><th colspan="6">涂油（项链）</th></tr>
+      <tr><td><b>焚尽</b><span class="en">Burnout</span></td><td>你造成的点燃的伤害生效速度加快 15%（液化情感：孤独、贪婪、偏执）</td><td>项链</td><td class="n tick">✓</td><td class="n">—</td><td class="n">—</td></tr>
+      <tr><td><b>典范</b><span class="en">Paragon</span></td><td>所有技能品质 +5%；+5 全属性（液化情感：凶残、孤独、绝望）</td><td>项链</td><td class="n">买得起就上</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>增幅血肉</b><span class="en">Augmented Flesh</span></td><td>获得 2 个额外技能栏位（液化情感：轻蔑、痛苦、痛苦）</td><td>项链（快照栏位用）</td><td class="n" colspan="3">作者答疑里的做法，原站没写在哪一档</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="small">
+    <li>实用军械的「榴弹伤害降低 80%」对这套无所谓：黏油本来就不靠榴弹伤害，要的是冷却回复<b class="src s">合</b>。</li>
+    <li>小点构成（poe2db 逐个核对）：武器组 1 是点燃强度、异常状态强度、伤害型异常状态生效加快、火焰伤害、火焰穿透 6%、伤害 10%；武器组 2 是 4 个榴弹冷却回复 15%、榴弹范围、榴弹伤害、攻击范围与冷却回复小点。主树 ① 有 37 个「+5 任意属性」点和 4 个珠宝槽<b class="src db">库</b>。</li>
+    <li>评论区有人建议点「引爆预备」（引爆技能的效果范围提高 40%，伤害降低 80%）：黏油榴弹是引爆技能、不需要伤害<b class="src c">评</b>。原站树没点，本页不改。</li>
+  </ul>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <h2><span class="no">9</span>珠宝</h2>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>阶段</th><th>珠宝槽</th><th>原站珠宝</th><th>本页补充</th></tr></thead>
+    <tbody>
+      <tr><td>①</td><td>4 个（原站节点 2491、46882、54127、55190）</td><td>3 颗：蓝玉（智慧珠宝）易燃强度 ≥10%；红玉（力量珠宝）易燃强度 ≥10%；蓝玉「暗光」渎灵前缀（元素伤害 + 你造成的异常状态强度，交易 min 2）<b class="src f">F</b></td><td>55190 空着：照作者说法再放一颗易燃强度珠宝<b class="src s">合</b></td></tr>
+      <tr><td>②</td><td>6 个（+26725、26196）</td><td>同 ① 的 3 颗<b class="src f">F</b></td><td>空的 3 个同上<b class="src s">合</b></td></tr>
+      <tr><td>③</td><td>8 个（+7960、60735）</td><td>54127 那颗换成 5 词缀蓝玉（点燃强度 ≥5 · 异常状态强度 ≥3 · 伤害型异常状态生效加快 ≥5）；另外两颗不变<b class="src f">F</b></td><td>其余 5 个空槽：按下面的 5 词缀思路，买得起哪些词缀先买哪些<b class="src c">评</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>作者：每颗珠宝都要易燃强度，红玉、蓝玉都能出；伤害型异常状态生效加快也很强<b class="src f">F</b>。poe2db：「点燃之」易燃强度提高 (10—20)%（红玉、蓝玉后缀）<b class="src db">库</b>。</p>
+  <h3>作者的理想 5 词缀珠宝</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>位置</th><th>词缀（poe2db 原文）</th><th>档次</th><th>可出的珠宝</th></tr></thead>
+    <tbody>
+      <tr><td>前缀 1</td><td>你造成的异常状态强度提高 15%（作者写的目标值）</td><td>尖刻的 Acrimonious (5—15)%</td><td>蓝玉、翡翠</td></tr>
+      <tr><td>前缀 2</td><td>点燃强度提高 15%</td><td>燃烧的 Burning (5—15)%</td><td>红玉、蓝玉</td></tr>
+      <tr><td>前缀 3</td><td>法术伤害提高或元素伤害提高；以护甲或 ES 为主时，护甲% / ES% 也行</td><td>秘言的 Mystic (5—15)% / 虹光的 Prismatic (5—15)%</td><td>蓝玉（法术伤害）；三种都能出元素伤害</td></tr>
+      <tr><td>后缀 1</td><td>允许的前缀 +1</td><td>用强效的液化轻蔑制作</td><td>—</td></tr>
+      <tr><td>后缀 2</td><td>伤害型异常状态生效速度加快 7%</td><td>朽迈之 of Decrepifying (3—7)%</td><td>蓝玉、翡翠</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">五条能同时出现的只有蓝玉<b class="src s">合</b>。评论区：不必五条齐全，除「生效加快 7%」以外其他都不难买<b class="src c">评</b>。「暗光」是渎灵前缀（元素伤害 (4—8)% + 你造成的异常状态强度 (4—8)%）<b class="src db">库</b>。</p>
+  <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2968503605%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：易燃强度 ≥10%</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_538241406%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：异常状态强度 ≥2%（暗光那颗）</a> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1303248024%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_538241406%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3791899485%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：③ 5 词缀</a></p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>搜索正则</h2>
+  <p>三条正则对应三个阶段，另加一条自查。词元都取 poe2db 简中原文；词缀名后括号是物品等级门槛，低于当前区域等级的档次才会出现。游戏内搜索框匹配已鉴定物品的完整文本，蓝装名称由「前缀名 + 底材 + 后缀名」拼成，所以词缀名和词缀文本都能命中；地上未鉴定的蓝装只有词缀名有效。英文正则的 <code>^</code> <code>$</code> 锚点在简中失效（加值写在行尾），一律不用。</p>
+  <div class="rx">
+    <div class="rx-head"><b>① 53–68 级</b><span class="range">间章 54–56 → 前期地图 · 起点由 52 级换装定</span><button class="copy" type="button" data-for="rx1">复制</button></div>
+    <pre id="rx1">耐火长杖|烈焰之|献祭之|轰炸战弩|锐眼之|瞪羚的|猎豹的|阳刚的|健将的|炉火之|海象之|暴风雨之|火山之|北极熊之|台风之|浸润咒符</pre>
+    <div class="rx-body"><p>底材：耐火长杖（需求 16）、轰炸战弩（33）、浸润咒符（掉落 32）。长杖火焰法术 +3–4（烈焰之，36）、+5–6（献祭之，55）；投射物技能 +3（锐眼之，36）；移速 25%（瞪羚的，46）/ 30%（猎豹的，65）；生命 +100–119（阳刚的，54）/ +120–149（健将的，60，戒指上没有这档）；三抗 26–30%（炉火之 48 / 海象之 50 / 暴风雨之 49）与 31–35%（火山之 / 北极熊之 / 台风之，60）。<b>撞名</b>：「炉火之」也是长杖、权杖、法杖、戒指上的「魔力再生率 / 照亮范围」（30）。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>② 68–80 级</b><span class="range">门槛前：等第 4 次升华与 80 级底材，边打边收门槛道具</span><button class="copy" type="button" data-for="rx2">复制</button></div>
+    <pre id="rx2">卡哈塔的复苏|狐狸雕像|智慧符文|杂技符文|狼皮斗篷|帝金项链|万用腰带|献祭之|魔咒师的|猎豹的|丰饶的|健将的|流亡之|考古之|火山之|北极熊之|台风之</pre>
+    <div class="rx-body"><p>门槛道具从掉落等级起就收：卡哈塔的复苏（掉落 52，需求 65）、狐狸雕像与女巫阿桑德拉的智慧符文（掉落 65）、杂技符文。底材：狼皮斗篷（65）、帝金项链（35）、万用腰带（55）。这一段买的头、手、脚到 80 级都会换成符文锻造底材，所以护甲件只筛生命、抗性、稀有度、移速，不筛伤害：丰饶的 +150–174 生命（65，头盔 / 腰带 / 胸甲）、流亡之 混沌抗 20–23%（68）、考古之 稀有度 15–18%（40）。长杖另筛献祭之 +5–6（55）、魔咒师的 法术伤害 149–188%（60）。<b>撞名</b>：「魔咒师的」在法器、法杖、项链上也出（法术伤害）。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>③ 80 级后</b><span class="range">终局：80 级底材 + 高物品等级词缀</span><button class="copy" type="button" data-for="rx3">复制</button></div>
+    <pre id="rx3">符文隐秘之冠|符文信徒袖带|符文隐秘绑腿|无生之辱|落刃时刻|金光戒指|完美身躯符文|狱火之|地狱的|全盛的|女王的|魔巫之|女伯爵的|囤宝者的|岩浆之|寒冰之|电之</pre>
+    <div class="rx-body"><p>80 级符文锻造底材三件；无生之辱、落刃时刻、金光戒指（40）、完美身躯符文（需求 50）。长杖火焰法术 +7（狱火之，81）；鞋 35% 移速（地狱的，82）；胸甲 +200–214 生命（全盛的，80）、+57–61 精魂（女王的，78）；项链所有法术技能 +3（魔巫之，75）、精魂 47–50（女伯爵的，54）；稀有度 16–19%（囤宝者的，47）；三抗 36–40%（岩浆之 / 寒冰之 / 电之，71）。<b>撞名</b>：「寒冰之」也是长杖、法杖 36 级的冰霜法术等级；「电之」是「静电之」（闪电法术等级）和「导电之」（感电几率）的子串；「魔巫之」在长杖、法杖上是所有法术技能等级。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>自查：身上不能亮的词缀</b><span class="range">不是用来买东西的</span><button class="copy" type="button" data-for="rx0">复制</button></div>
+    <pre id="rx0">附加.*火焰伤害</pre>
+    <div class="rx-body"><p>在背包或仓库里高亮带火焰附加伤害的物品：戒指、手套、箭袋上的「攻击附加 # - # 基础火焰伤害」和战弩上的「附加 # - # 火焰伤害」都会亮——除长杖外，穿在身上的装备一件都不能亮<b class="src f">F</b><b class="src db">库</b>。<code>.*</code> 通配作者自己的英文正则也在用<b class="src f">F</b>；本页没有在国服客户端实测。</p></div>
+  </div>
+  <p class="small">四条长度 8–83 个字符；作者自己的英文商人正则约 226 个字符<b class="src f">F</b>，可见输入框容得下。原站变体说明里另有升级用的物品过滤器，作者说只用到进图为止，本页没有收录<b class="src f">F</b>。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>作者答疑与坑</h2>
+  <div class="callout warn"><span class="lab">作者明确说「不要 / 必须」的</span>
+    <ul>
+      <li>除长杖外，全身任何地方都不能有「攻击附加火焰伤害」或额外火焰伤害，否则整套会废；看黏油榴弹面板里有没有火焰伤害就能检查。长杖上的额外火焰伤害没问题，扔油时它不在手上<b class="src f">F</b>。</li>
+      <li>武器组：烈焰爆破放武器组 1，黏油榴弹放武器组 2，武器组天赋也按组点<b class="src f">F</b>。</li>
+      <li>带燃烧地面的地图，把龙卷旋风从躲闪时施放里拿掉，换成别的法术（比如寒霜爆）<b class="src f">F</b>。</li>
+      <li>要把黏油扔进烈焰爆破的范围，烈焰爆破必须打中目标；首领不保证点燃，可能要两发<b class="src f">F</b>。</li>
+      <li>被点燃会顶掉你油上的点燃——浸润咒符一直带着<b class="src f">F</b>。</li>
+      <li>猎首不适合这套：它给的增益可能把点燃搞坏<b class="src f">F</b>。</li>
+      <li>52 级不必急着换：没棱镜、没好武器，就继续用榴弹打完战役<b class="src f">F</b>。</li>
+      <li>丝克玛试炼第 3 层对这套很难：先用榴弹打，或换装后从混沌试炼拿第 3 次升华<b class="src f">F</b>。</li>
+      <li>用黑焰就一起用凋零姿态<b class="src f">F</b>。</li>
+      <li>佳华尼的灵核只能生效一颗（poe2db：「仅限 1」）——原站 ②③ 在战弩和胸甲各插一颗<b class="src db">库</b><b class="src c">评</b>。</li>
+      <li>贝拉的苦楚使用时会造成燃烧地面，别用<b class="src c">评</b><b class="src db">库</b>。</li>
+    </ul>
+  </div>
+  <h3>机制说明（正文）</h3>
+  <ul>
+    <li>多开技能栏位、品质来源、嵌宝美玉配平：见第 3 节<b class="src f">F</b>。</li>
+    <li>52 级前：原站前三个变体用高爆、闪光、瓦斯榴弹升级；把遇到的宝石匠的棱镜全部存下，换装时必需；还要留几颗技能 / 辅助宝石<b class="src f">F</b>。</li>
+    <li>洗点约 3 万金币；原站给了英文商人正则和升级用物品过滤器，都只适用于升级期<b class="src f">F</b>。</li>
+    <li>Endgame 的定位：作者说 85 级那档已经能舒服地打全部内容，Endgame 是更高预算；想再往上可以走全护甲 / 法师之血，会极肉<b class="src f">F</b>。</li>
+  </ul>
+  <h3>评论区（291 条，作者只回复了一条）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>话题</th><th>要点</th></tr></thead>
+    <tbody>
+      <tr><td>时灵时不灵、零伤害</td><td>最常见的原因：身上有火焰附加伤害（尤其战弩）；技能没绑对武器组；被怪点燃把快照顶掉。有人说 90 级后、T15 轻度堆图几乎每张图都会被怪的点燃顶掉，带着咒符也一样<b class="src c">评</b></td></tr>
+      <tr><td>躲闪时施放</td><td>58 级才能用；精魂到 100 要打完间章的一个首领（+40）<b class="src c">评</b></td></tr>
+      <tr><td>52 级换装后打不动</td><td>武器组天赋没点满、技能没绑对武器组；这是「地板是岩浆」的构筑，要先把火点起来、再一路带着走。有人换装初期留着高爆榴弹当备用点火，后来换成长杖上的日曜球（挂点燃、易燃强度、审慎施法）<b class="src c">评</b></td></tr>
+      <tr><td>飞行怪与燃烧地面</td><td>龙卷旋风吸入燃烧地面后会把伤害带崩；燃烧地面的图可以直接卖掉；也有人用点燃 + 瘟疫处理飞行怪<b class="src c">评</b></td></tr>
+      <tr><td>嵌宝美玉</td><td>有人验证至少能同时拿到两种效果；有人说把长杖技能的辅助算进去才生效，与作者说法相反；美德壁垒上的辅助不算<b class="src c">评</b></td></tr>
+      <tr><td>佳华尼的灵核</td><td>战弩和胸甲各插一颗时，一件会提示「无法使用此物品，属性将被忽略」<b class="src c">评</b></td></tr>
+      <tr><td>防御</td><td>3.5K 护甲太低，有人建议 5–6 万；有人 8.1 万护甲基本没压力；「一定比例的护甲也作用于元素伤害」最多能到 200%<b class="src c">评</b></td></tr>
+      <tr><td>首领点不着</td><td>只有易燃积累到 100% 才保证一发点燃；首领开场有减伤，蓄满后等一两秒再放<b class="src c">评</b></td></tr>
+      <tr><td>丝克玛试炼</td><td>等触发时一直掉荣誉，首领房复位要重来；有人说作者说过不建议用这套打丝克玛<b class="src c">评</b></td></tr>
+      <tr><td>黑焰</td><td>戴黑焰时要先扔几发油再放烈焰爆破<b class="src c">评</b></td></tr>
+      <tr><td>引爆预备</td><td>黏油榴弹是引爆技能、不需要伤害，只吃范围，有人建议点「引爆预备」<b class="src c">评</b>（原站没点）</td></tr>
+      <tr><td>极地装甲</td><td>高投入档用极地装甲时，被打后它会造成点燃地面、覆盖快照<b class="src c">评</b>（不在本页三档）</td></tr>
+      <tr><td>性能</td><td>主机上很卡；NVIDIA DLAA 下帧数反而更低<b class="src c">评</b></td></tr>
+      <tr><td>作者的唯一回复</td><td>关于构筑起源：他最早看到 jungroan 在古灵使徒改版前玩过这套，不认为「谁先玩」有什么意义<b class="src f">F</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>三档的差异</h2>
+  <p>三档的引擎相同：烈焰爆破快照 + 黏油铺地 + 翻滚触发龙卷旋风。差别集中在升华点数、魔力残片、装备档次和珠宝；②③ 的技能宝石完全相同<b class="src f">F</b>。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>维度</th><th>① → ②</th><th>② → ③</th></tr></thead>
+    <tbody>
+      <tr><td>升华</td><td><span class="chip add">增</span>嵌宝美玉（6 → 8 点）</td><td>同</td></tr>
+      <tr><td>技能宝石</td><td><span class="chip add">增</span>魔力残片；<span class="chip chg">改</span>黏油榴弹 + 侵蚀地面，元素要害 + 范围扩大 II，躲闪时施放 持续时间延长 II → 无边能量 II</td><td>同</td></tr>
+      <tr><td>长杖</td><td><span class="chip chg">改</span>+4 → +7 火焰法术，加法术伤害与额外火焰伤害；符文 2 颗高级钢铁 → 智慧符文 + 高级钢铁</td><td>同</td></tr>
+      <tr><td>战弩</td><td><span class="chip chg">改</span>投射物 +2 → +3；<span class="chip add">增</span>灵核 + 启迪符文</td><td>同</td></tr>
+      <tr><td>头盔</td><td><span class="chip chg">改</span>覆颜面具 → 符文隐秘之冠</td><td><span class="chip chg">改</span>混沌抗 4% → 20%</td></tr>
+      <tr><td>胸甲</td><td><span class="chip chg">改</span>先祖锁甲 → 狼皮斗篷 + 狐狸雕像 + 佳华尼的灵核</td><td><span class="chip chg">改</span>→ 无生之辱 + 3 颗完美身躯符文</td></tr>
+      <tr><td>手套</td><td><span class="chip chg">改</span>→ 符文信徒袖带</td><td><span class="chip chg">改</span>稀有度 6% → 15%</td></tr>
+      <tr><td>鞋子</td><td><span class="chip chg">改</span>移速 20% → 35%；<span class="chip add">增</span>杂技符文</td><td>同</td></tr>
+      <tr><td>项链</td><td><span class="chip chg">改</span>稳步法印 → 帝金项链 + 典范</td><td><span class="chip chg">改</span>加所有法术技能 +3、火抗；或失神项链</td></tr>
+      <tr><td>戒指</td><td><span class="chip chg">改</span>加稀有度、抗性、火焰伤害提高</td><td><span class="chip chg">改</span>→ 两枚金光戒指</td></tr>
+      <tr><td>腰带</td><td><span class="chip chg">改</span>加护甲、力量、火抗</td><td>同</td></tr>
+      <tr><td>咒符 · 涂油</td><td><span class="chip chg">改</span>焚尽 → 典范</td><td><span class="chip chg">改</span>真银 → 落刃时刻</td></tr>
+      <tr><td>天赋</td><td><span class="chip add">增</span>主树 +17（动量、轻盈步伐、2 个珠宝槽）；武器组 1 焚化</td><td><span class="chip add">增</span>主树 +12（2 个珠宝槽）；<span class="chip del">删</span>武器组 1 轰鸣烈焰</td></tr>
+      <tr><td>珠宝</td><td><span class="chip add">增</span>2 个槽</td><td><span class="chip add">增</span>2 个槽；5 词缀珠宝</td></tr>
+    </tbody>
+  </table></div>
+  <h3>原站 9 个变体与本页的对应</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>原站变体</th><th>本页</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>lvl 1-14 · lvl 15-32 · lvl 33-51</td><td>不收录</td><td>榴弹升级：高爆、闪光、瓦斯榴弹，灰烬之捷，巨狼猛扑</td></tr>
+      <tr><td>lvl 52 Swap</td><td>第 2 节「起步 → ①」</td><td>换装清单</td></tr>
+      <tr><td>lvl 53-68</td><td>①</td><td>升华按 6 点（原站 8 点）</td></tr>
+      <tr><td>lvl 85</td><td>②</td><td>原站这个变体的说明是空的</td></tr>
+      <tr><td>Endgame</td><td>③</td><td>作者：更高预算版</td></tr>
+      <tr><td>Mageblood · DoT Cap</td><td>不收录</td><td>全护甲 + 法师之血；作者说极肉</td></tr>
+    </tbody>
+  </table></div>
+  <h3>本页相对原站的改动 <b class="src s">合</b></h3>
+  <div class="scroll"><table>
+    <thead><tr><th>改动</th><th>原因</th></tr></thead>
+    <tbody>
+      <tr><td>嵌宝美玉从 ① 挪到 ②</td><td>第 4 次升华要区域等级 80</td></tr>
+      <tr><td>头盔、鞋子的生命改到可出范围（150–174 / 120–149）</td><td>原站的 175 / 190 是胸甲专属档</td></tr>
+      <tr><td>②③ 战弩的佳华尼的灵核改成阿兹卡帕的灵核</td><td>佳华尼的灵核「仅限 1」；阿兹卡帕是作者自己给的补精魂办法</td></tr>
+      <tr><td>③ 项链精魂按一条前缀算</td><td>同族词缀不能重复</td></tr>
+      <tr><td>空珠宝槽补易燃强度珠宝</td><td>作者正文：每颗珠宝都要易燃强度</td></tr>
+      <tr><td>宝石颜色要补平（填充栏位）</td><td>作者答疑；原站宝石表没列填充技能</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>术语对照表</h2>
+  <p class="small">本页出现的专名。「poe2db」指 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同名页面对位；「暂译」为本页译名，游戏内可能不同。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>中文</th><th>English</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><th colspan="3">职业、升华与试炼</th></tr>
+      <tr><td>佣兵 · 古灵使徒斗士</td><td>Mercenary · Gemling Legionnaire</td><td>poe2db</td></tr>
+      <tr><td>美德精华 · 美德壁垒 · 奇术深造 · 嵌宝美玉</td><td>Essence of Virtue · Virtuous Barrier · Advanced Thaumaturgy · Gem Studded</td><td>poe2db</td></tr>
+      <tr><td>植入宝石 · 神经植入体 · 强化植入体 · 运动植入体</td><td>Implanted Gems · Neurological / Bolstering / Motoric Implants</td><td>poe2db</td></tr>
+      <tr><td>技能宝石品质 · 降低属性需求</td><td>Skill Gem Quality · Reduced Attribute Requirements</td><td>poe2db</td></tr>
+      <tr><td>丝克玛试炼 · 混沌试炼 · 巨灵币 · 贪婪战书</td><td>Trial of the Sekhemas · Trial of Chaos · Djinn Barya · Inscribed Ultimatum</td><td>poe2db</td></tr>
+      <tr><th colspan="3">机制</th></tr>
+      <tr><td>点燃 · 易燃 · 点燃地面 · 黏油 · 引爆技能 · 曝露</td><td>Ignite · Flammability · Ignited Ground · Oil · Detonator Skills · Exposure</td><td>poe2db</td></tr>
+      <tr><td>伤害性异常状态 · 异常状态 · 强度 · 持续吟唱 · 层数</td><td>Damaging Ailments · Ailment · Magnitude · Channelling · Staged</td><td>poe2db</td></tr>
+      <tr><td>武器组 · 闪避翻滚 · 精魂 · 能量 · 非凡 · 永久性 · 在场</td><td>Weapon Set · Dodge Roll · Spirit · Energy · Meta · Persistent · Presence</td><td>poe2db</td></tr>
+      <tr><td>符文结界 · 维金 · 残片 · 猛攻 · 缓速 · 瘫痪 · 死亡凋零</td><td>Runic Ward · Verisium · Remnant · Onslaught · Hinder · Maim · Withered</td><td>poe2db</td></tr>
+      <tr><td>渎灵 · 液化情感 · 羁绊 · 增幅器 · 灵核 · 雕像</td><td>Desecrate · Liquid Emotions · Bonded · Augment · Soul Core · Idol</td><td>poe2db</td></tr>
+      <tr><td>符文锻造</td><td>Runeforging</td><td><span class="chip tmp">暂译</span>（poe2db 中文页的分页标签写作「重铸」）</td></tr>
+      <tr><td>快照</td><td>snapshot</td><td><span class="chip tmp">暂译</span>（作者用语，不是游戏术语）</td></tr>
+      <tr><th colspan="3">技能宝石</th></tr>
+      <tr><td>烈焰爆破 · 黏油榴弹 · 寒霜爆 · 元素要害 · 龙卷旋风</td><td>Flameblast · Oil Grenade · Frost Bomb · Elemental Weakness · Tornado</td><td>poe2db</td></tr>
+      <tr><td>躲闪时施放 · 魔力残片 · 日曜球</td><td>Cast on Dodge · Mana Remnants · Solar Orb</td><td>poe2db</td></tr>
+      <tr><td>时空锁链 · 诅咒光环 · 凋零姿态 · 极地装甲</td><td>Temporal Chains · Blasphemy · Withering Presence · Arctic Armour</td><td>poe2db</td></tr>
+      <tr><td>高爆榴弹 · 闪光榴弹 · 瓦斯榴弹 · 灰烬之捷 · 巨狼猛扑 · 瘟疫</td><td>Explosive Grenade · Flash Grenade · Gas Grenade · Herald of Ash · Pounce · Contagion</td><td>poe2db</td></tr>
+      <tr><th colspan="3">辅助宝石</th></tr>
+      <tr><td>审慎施法 · 焚躯烈焰 II · 范围集中 · 迅猛增幅 II · 精准破坏</td><td>Considered Casting · Searing Flame II · Concentrated Area · Burgeon II · Controlled Destruction</td><td>poe2db</td></tr>
+      <tr><td>短暂引信 II · 新星投射物 I · 多重射击 II · 范围扩大 II · 侵蚀地面</td><td>Short Fuse II · Nova Projectiles I · Multishot II · Magnified Area II · Encroaching Ground</td><td>poe2db</td></tr>
+      <tr><td>强力曝露 · 冗余 II · 施法回响 · 强效诅咒 · 聚焦诅咒 · 效能 II</td><td>Potent Exposure · Overabundance II · Spell Echo · Heightened Curse · Focused Curse · Efficiency II</td><td>poe2db</td></tr>
+      <tr><td>扩展 · 风暴行军 · 持续时间延长 II · 无边能量 II</td><td>Expand · Advancing Storm · Prolonged Duration II · Boundless Energy II</td><td>poe2db</td></tr>
+      <tr><td>卡哈塔的复苏（血统）· 和谐残迹 II · 混沌专精</td><td>Khatal's Rejuvenation · Harmonic Remnants II · Chaos Mastery</td><td>poe2db</td></tr>
+      <tr><th colspan="3">天赋与涂油</th></tr>
+      <tr><td>激情冲动 · 退化 · 纵火狂 · 动荡催化剂 · 宝石爱好者 · 扰乱威势 · 动量 · 轻盈步伐</td><td>Adrenaline Rush · Deterioration · Arsonist · Volatile Catalyst · Gem Enthusiast · Distracting Presence · Momentum · Light on your Feet</td><td>poe2db</td></tr>
+      <tr><td>灼热气息 · 速效毒素 · 损耗 · 持久创伤 · 火焰守护者 · 轰鸣烈焰 · 焚化</td><td>Searing Heat · Fast Acting Toxins · Wasting · Lasting Trauma · Flamekeeper · Fulmination · Immolation</td><td>poe2db</td></tr>
+      <tr><td>集束炸弹 · 掷弹兵 · 匠造烈焰 · 实用军械 · 权威 · 多管齐下 · 原始生长 · 投石车 · 引爆预备</td><td>Cluster Bombs · Grenadier · Engineered Blaze · Utility Ordnance · Authority · Multitasking · Primal Growth · Catapult · Primed to Explode</td><td>poe2db</td></tr>
+      <tr><td>焚尽 · 典范 · 增幅血肉</td><td>Burnout · Paragon · Augmented Flesh</td><td>poe2db</td></tr>
+      <tr><td>凶残 · 孤独 · 绝望 · 贪婪 · 偏执 · 轻蔑 · 痛苦（液化情感）</td><td>Ferocity · Isolation · Despair · Greed · Paranoia · Contempt · Suffering</td><td>poe2db</td></tr>
+      <tr><th colspan="3">底材与传奇</th></tr>
+      <tr><td>耐火长杖 · 轰炸战弩</td><td>Pyrophyte Staff · Bombard Crossbow</td><td>poe2db</td></tr>
+      <tr><td>覆颜面具 · 先祖锁甲 · 符文肃穆手套 · 青铜胫甲</td><td>Face Mask · Ancestral Mail · Runeforged Sombre Gloves · Bronze Greaves</td><td>poe2db</td></tr>
+      <tr><td>符文隐秘之冠 · 狼皮斗篷 · 符文信徒袖带 · 符文隐秘绑腿</td><td>Runeforged Cryptic Crown · Wolfskin Mantle · Runeforged Adherent Cuffs · Runeforged Cryptic Leggings</td><td>poe2db</td></tr>
+      <tr><td>黄玉戒指 · 蓝玉戒指 · 金光戒指 · 潜能之戒 · 紫晶戒指</td><td>Topaz Ring · Sapphire Ring · Gold Ring · Unset Ring · Amethyst Ring</td><td>poe2db</td></tr>
+      <tr><td>帝金项链 · 失神项链 · 翠玉项链 · 万用腰带 · 重革腰带</td><td>Gold Amulet · Absent Amulet · Jade Amulet · Utility Belt · Heavy Belt</td><td>poe2db</td></tr>
+      <tr><td>非凡生命药剂 · 恢弘魔力药剂 · 融冰 / 浸润 / 真银咒符</td><td>Transcendent Life Flask · Gargantuan Mana Flask · Thawing / Dousing / Silver Charm</td><td>poe2db</td></tr>
+      <tr><td>红玉 · 蓝玉 · 翡翠（珠宝）</td><td>Ruby · Sapphire · Emerald</td><td>poe2db</td></tr>
+      <tr><td>稳步法印 · 无生之辱（恢弘盛装）· 落刃时刻 · 黑焰 · 猎首 · 贝拉的苦楚 · 法师之血</td><td>Surefooted Sigil · Morior Invictus (Grand Regalia) · The Fall of the Axe · Blackflame · Headhunter · Beira's Anguish · Mageblood</td><td>poe2db</td></tr>
+      <tr><th colspan="3">增幅器与通货</th></tr>
+      <tr><td>高级钢铁符文 · 女巫阿桑德拉的智慧符文 · 高级启迪符文 · 杂技符文 · 完美身躯符文</td><td>Greater Iron Rune · Hedgewitch Assandra's Rune of Wisdom · Greater Inspiration Rune · Rune of Acrobatics · Perfect Body Rune</td><td>poe2db</td></tr>
+      <tr><td>佳华尼的灵核 · 阿兹卡帕的灵核 · 狐狸雕像</td><td>Soul Core of Jiquani · Soul Core of Azcapa · Fox Idol</td><td>poe2db</td></tr>
+      <tr><td>宝石匠的棱镜 · 高等工匠石 · 低等工匠石</td><td>Gemcutter's Prism · Greater / Lesser Jeweller's Orb</td><td>poe2db</td></tr>
+      <tr><td>未切割的技能宝石 · 未切割的辅助宝石 · 未切割的精魂宝石</td><td>Uncut Skill / Support / Spirit Gem</td><td>poe2db</td></tr>
+      <tr><td>强效的液化轻蔑</td><td>Potent Liquid Contempt</td><td>poe2db</td></tr>
+      <tr><th colspan="3">任务、区域与首领</th></tr>
+      <tr><td>哈特林船长 · 旅途终点</td><td>Captain Hartlin · Journey's End</td><td>poe2db</td></tr>
+      <tr><td>迷雾之王 · 茂棘深林 · 伊格纳杜克，沼泽老妪 · 阿扎卡泥沼</td><td>The King in the Mists · Freythorn · Ignagduk, the Bog Witch · The Azak Bog</td><td>poe2db</td></tr>
+      <tr><td>利萨拉，歧途长矛 · 克里亚村</td><td>Lythara, the Wayward Spear · Kriar Village</td><td>poe2db</td></tr>
+      <tr><td>奥斯温，恐惧典狱长 · 可憎的雪人</td><td>Oswin, the Dread Warden · The Abominable Yeti</td><td>poe2db</td></tr>
+      <tr><td>阿克西与阿努德尔</td><td>Akthi and Anundr</td><td><span class="chip tmp">暂译</span>（poe2db 查不到该页）</td></tr>
+      <tr><td>埃尔扎拉，眼镜蛇领主 · 扎米尔，刀锋之主 · 神圣水库 · 灰烬仲裁官</td><td>Elzarah, the Cobra Lord · Zahmir, the Blade Sovereign · Sacred Reservoir · The Arbiter of Ash</td><td>poe2db</td></tr>
+      <tr><td>克斯 · 亲眷岛 · 纳卡努 · 驱灵祭坛</td><td>Keth · Isle of Kin · Ngakanu · Ritual</td><td>poe2db</td></tr>
+      <tr><td>辛格拉的文身 · 监守者的账本 · 欧罗什的恩典</td><td>Tattoo of Hinekora · Warden's Ledger · Olroth's Boon</td><td>poe2db</td></tr>
+      <tr><td>间章</td><td>Interlude</td><td>本仓库沿用；poe2db 页面标题作「间歇」</td></tr>
+      <tr><td>总元素抗（交易站伪属性）</td><td>+#% total Elemental Resistance</td><td><span class="chip tmp">暂译</span></td></tr>
+      <tr><td>Forbidden Rites（赛季名）</td><td>Forbidden Rites</td><td><span class="chip tmp">保留英文</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>数据核验</h2>
+  <h3>已核实 <span class="chip ok">已核实</span></h3>
+  <ul>
+    <li>原站数据：Mobalytics 页面内嵌的整页状态（第 53 版、9 个变体），2026-09-24 在浏览器里读取；评论区 291 条全部展开（含回复）后逐条读过。</li>
+    <li>变体对位：变体名直接取自数据里的变体列表（lvl 53-68、lvl 85、Endgame 对应 id 4、5、6），不靠页面顺序猜；与装备也对得上：lvl 85 起才有 80 级符文锻造底材，Endgame 才有无生之辱。</li>
+    <li>全部装备词缀：poe2db 各部位词缀页 <code>/us/</code> 与 <code>/cn/</code> 同页对位，按「文本模板 + 数值落在档位区间」匹配档次名与物品等级；渎灵词缀（阿曼娜姆的、古加尔之、暗光）取 poe2db 渎灵词缀表。</li>
+    <li>升华：poe2db 古灵使徒斗士升华树（节点编号、连线、效果），据此算出每档的升华点数；试炼区域等级（丝克玛 22 / 38 / 60 / 80，混沌试炼 75 / 80）与埃尔扎拉必掉巨灵币取 poe2db 升华职业页。</li>
+    <li>天赋：在 poe2db 天赋树页按节点编号逐个核对三档的主树和两个武器组的全部选点——大点与原站核心清单一致、没有关键石、珠宝槽 4 / 6 / 8 个、属性点个数。</li>
+    <li>宝石：等阶、冷却、精魂保留、属性需求随等级的变化（烈焰爆破 13 级 92 智 … 20 级 157 智；躲闪时施放 14 级 57 … 20 级 86）、辅助效果与「辅助宝石需求 +5」全部取 poe2db 宝石页；卡哈塔的复苏的需求 65、掉落 52、掉落首领取其宝石页。</li>
+    <li>增幅器：原站的物品代号与 poe2db 物品元数据逐个对上——高级钢铁符文、女巫阿桑德拉的智慧符文、高级启迪符文、佳华尼的灵核、阿兹卡帕的灵核、狐狸雕像、杂技符文、完美身躯符文。</li>
+    <li>底材需求与基础属性、符文结界数值、传奇词缀（稳步法印、无生之辱及其插槽词缀池、落刃时刻、黑焰、猎首、贝拉的苦楚）取 poe2db 物品页；区域等级（旅途终点 47、纳卡努 53、亲眷岛 46、克斯 21、克里亚村 54、神圣水库 65）取 poe2db 区域页。</li>
+    <li>原站「宝石需求」= 全部辅助的 +5 按颜色相加：① 21 个辅助 → 25 / 15 / 65；②③ 25 个 → 20 / 15 / 90，均吻合。</li>
+    <li>正则词元：在 poe2db 49 个部位词缀页里逐个查过撞名。</li>
+  </ul>
+  <h3>原站自相矛盾的地方 <span class="chip bad">矛盾</span></h3>
+  <ol>
+    <li>lvl 53-68 已点嵌宝美玉（升华 8 点），第 4 次升华要区域等级 80。</li>
+    <li>lvl 85 / Endgame 的头盔 +175 生命、鞋子 +190 生命：普通词缀池里头盔最高丰饶的 150–174、鞋子最高健将的 120–149；175、190 是胸甲专属的蓬勃的、狂喜的两档。</li>
+    <li>lvl 85 / Endgame 在战弩和胸甲各插一颗佳华尼的灵核，它「仅限 1」。</li>
+    <li>Endgame 项链 +94 精魂：同一条精魂前缀（女伯爵的 47–50）在数据里出现两次。</li>
+    <li>lvl 52 Swap 已经列了躲闪时施放，但它是等阶 14（58 级），而且要 100 精魂，间章打完利萨拉才凑齐。</li>
+    <li>三档都只列 3 颗珠宝，树上的珠宝槽是 4 / 6 / 8 个。</li>
+    <li>宝石表只列在用的辅助（① 红 5 · 绿 3 · 蓝 13；②③ 红 4 · 绿 3 · 蓝 18），照搬只吃得到嵌宝美玉的蓝色效果；作者答疑说要补平，但没给填充技能。宝石爱好者还要求每色至少 10 个。</li>
+    <li>① 的装备数据只有生命，与正文「抗性更重要」不一致；lvl 53-68 的装备说明沿用了升级段「戒指、手套拿攻击附加伤害」，与换装后「不能有火焰附加伤害」冲突。</li>
+    <li>长杖技能里的辅助算不算嵌宝美玉：作者说不算，评论区有人说算进去才生效，无法裁定。</li>
+  </ol>
+  <h3>本页的推算与取舍 <span class="chip tmp">合</span></h3>
+  <ul>
+    <li>「武器组天赋只在对应武器组生效」按游戏的一般规则写，本页没有实测烈焰爆破的快照具体吃了哪些节点。</li>
+    <li>属性表里的生命、抗性、稀有度是装备逐件相加，不含天赋、百分比与抗性惩罚。</li>
+    <li>头盔与鞋子的生命、项链精魂、战弩灵核按可出范围改写；对应的交易查询（头盔 ×2、鞋子、战弩 ×2、③ 项链、无生之辱）是本页构造的，统计 ID 沿用原站查询。交易站搜索要登录，本页没有实际跑过这些查询。</li>
+    <li>自查正则里的 <code>.*</code> 通配照作者英文正则的写法，没有在国服客户端实测。</li>
+  </ul>
+  <h3>原站缺失 <span class="chip na">原站未给</span></h3>
+  <ul>
+    <li>三档都没有面板数值（生命、护甲、抗性、DPS）。原站 PoB 只有一套 98 级配置，对应 DoT Cap 档：护甲 80,088、生命 3,257、闪避几率 50%、点燃 DPS 约 1,508 万。</li>
+    <li>「How it Plays」「Changelog」「Strengths and Weaknesses」三节是空的；lvl 85 变体没有说明文字。</li>
+    <li>没有进图后用的物品过滤器：过滤器一栏为空，变体说明里只给了升级用的，作者说只用到进图。</li>
+    <li>天赋属性点怎么分：原站的属性点清单几乎全写「任意」，只指定了 1 个智慧、1 个力量。</li>
+    <li>无生之辱第 5 孔的来源；卡哈塔的复苏每层给多少冷却回复（poe2db 只写每层提升，最多 8 层）。</li>
+    <li>交易站统计 ID：这次在 pathofexile.com 遇到人机验证页，没有核对，统计 ID 全部沿用原站查询。其中生命、移速、药剂立即回复、总元素抗四个 ID 在本仓库瓦拉煞的门徒那页核对过。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>数据截至 2026-09-24 · 原作者 Fubgun（Mobalytics）· 中文以 poe2db.tw 简中口径为准 · 由 poe2-build-cn 技能的数据与流程合成。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(mode){
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode); else root.removeAttribute('data-theme');
+    if (btn) btn.textContent = labels[mode] || labels.system;
+  }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){
+    mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system';
+    apply(mode);
+    try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {}
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var pre = document.getElementById(b.getAttribute('data-for'));
+      if (!pre) return;
+      var text = pre.textContent;
+      function done(ok){ var t = b.textContent; b.textContent = ok ? '已复制' : '已选中，按 Ctrl+C'; setTimeout(function(){ b.textContent = t; }, 1600); }
+      function selectIt(){ var r = document.createRange(); r.selectNodeContents(pre); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done(false); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function(){ done(true); }, selectIt); else selectIt();
+    });
+  });
+})();
+</script>
+</body>
+</html>

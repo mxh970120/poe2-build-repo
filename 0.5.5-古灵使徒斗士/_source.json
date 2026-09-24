@@ -1,0 +1,2948 @@
+{
+ "generatedBy": "poe2-build-cn skill, Claude Code desktop session",
+ "fetchedAt": "2026-09-24",
+ "source": "https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade",
+ "note": "Compact extracts read in-browser from window.__PRELOADED_STATE__ (poe2State.apollo.graphqlV2.queries[1] ... userGeneratedDocumentBySlug.data) and from the expanded comment section; NOT the full page state. Icons, rich-text markup and ad widgets were dropped; trade queries are reduced to stat ids with min values plus type filters. Variant ids: see meta.variants.",
+ "meta": {
+  "title": "0.5.5 Fubgun Flameblast Oil Grenade",
+  "slug": "fubgun-flameblast-oil-grenade",
+  "docId": "d8987c2e-2314-427a-ba1f-874fe85f6f2c",
+  "author": "Fubgun",
+  "version": 53,
+  "createdAt": "2026-09-03T07:18:57Z",
+  "updatedAt": "2026-09-12T01:43:52Z",
+  "tags": [
+   "Mercenary",
+   "Gemling Legionnaire",
+   "Starter",
+   "End Game",
+   "0.5.5 FR",
+   "Verified"
+  ],
+  "favorites": 1416,
+  "comments": 291,
+  "variants": [
+   [
+    "default-variant",
+    "lvl 1-14"
+   ],
+   [
+    "1",
+    "lvl 15-32"
+   ],
+   [
+    "2",
+    "lvl 33-51"
+   ],
+   [
+    "3",
+    "lvl 52 Swap"
+   ],
+   [
+    "4",
+    "lvl 53-68"
+   ],
+   [
+    "5",
+    "lvl 85"
+   ],
+   [
+    "6",
+    "Endgame"
+   ],
+   [
+    "ec6511a2-8023-4841-b1a2-731bf5fdcd93",
+    "Mageblood"
+   ],
+   [
+    "600846cb-2882-4f6e-b16a-ca6f8c62464c",
+    "DoT Cap"
+   ]
+  ],
+  "lootFilter": null,
+  "pob": "single spec, level 98, treeVersion 0_5, 157 nodes; PlayerStat: Life 3257, Armour 80088, Evasion 9231, EvadeChance 50, PhysicalDamageReduction 89, Spirit 150 (unreserved -4), Str 135 Dex 64 Int 155 (Req Str 116 Dex 76 Int 150), all res 75, IgniteDPS 15.08M, Cooldown 10.032 -> matches the DoT Cap variant, not lvl 53-68/85/Endgame"
+ },
+ "text": {
+  "BuildOverview": "This is my [Flameblast] / [Oil Grenade] build for 0.5.5, trying to focus on speed and clear, as this build already has a ton of damage built in. Opting for a [Cast on Dodge] setup with gemling for a speedy setup. You'll level as the very powerful grenade merc setup and once you reach lvl 52 you'll swap to [Flameblast], you cannot swap any earlier because [Flameblast] is a lvl 52 gem.",
+  "HowItPlays": "(empty)",
+  "HowItWorks_FAQ": "Issues with oil grenade not igniting or not dealing damage: 1) You cannot have flat fire damage or extra fire damage anywhere on your gear (the only exception is your staff). 2) Make sure your weapon swap is setup correctly. Flameblast on weapon set 1 and oil grenade on weapon set 2. 3) If you're doing a map with burning ground you have to takeout tornado from your cast on dodge and replace it with another spell (like frost bomb). 4) You have to press oil grenades into flameblast and your flameblast has to hit a target. Keep in mind on bosses, you don't have 100% chance to ignite and it could take 2 flameblast. Higher damage/higher flammability magnitude does help with this. 5) You're getting ignited and it's overriding your ignite on oil grenade, make sure to always use a [Dousing Charm]. 6) [Headhunter] is not good for this build and the buffs it provides can brick your ignite. -How do I get more skill slots? With [Unset Ring]s and [Augmented Flesh]. You can snapshot skill slots. Put on your rings/amulet, equip your skills and than take them off. While you wont be able to use the skills, they will still count for stuff like [Gem Studded] and [Essence of Virtue]. To balance [Gem Studded], just make sure all the gems at the top are equal, but exclude gems in your staff skill as those do not count towards the total amount. -Where do you get all of your gem quality from? 5% from [Fox Idol]; 5% from [Paragon] Anoint; 5% From Amulet suffix (desecrated modifier); 6% from gemling small ascendancy nodes; 20-23% from Gem quality. This will give you in total 41-44% quality. 40% quality is pretty important as it's a breakpoint for some skills, [Arctic Armour] armour will gain 1 stage (and another +1 stage if you get gem lvl 27, for a total of 8). Quality is also a massive damage multiplier for [Flameblast].",
+  "Changelog": "(empty)",
+  "StrengthsWeaknesses": "(empty)",
+  "v3_swap_description": "This is the [Flameblast] Swap, you'll want a decent staff (+fire skills), 30k~ gold to respec your passive tree and enough uncut skill/support gems. Keep in mind there's no rush to swap, you can finish the campaign as grenades, if you didn't get any GCP or don't have a good weapon, than just stay as grenades for a bit longer. Mandatory For swap to feel good: one lvl 13 skill gem for [Flameblast]; 2-4 Gemcutter's prism (the quality is massive for [Flameblast] with gemling); Greater jeweller's orb for [Flameblast] (one is guaranteed in Ngakanu in act 4); Lesser jeweller's orb for [Oil Grenade] (pretty plentiful, ideally a 2nd Greater would be nice); Good weapon (+3 or +4 with inc spell damage or inc fire damage); 9~ uncut support gems for your new skills; 3 uncut skill gems for [Tornado], [Frost Bomb] and [Elemental Weakness]; 1 uncut spirit gem. Make sure to properly setup your weapon set for [Flameblast] and [Oil Grenade] (flameblast on weapon set 1 and oil grenade on weapon set 2, and also follow the points correctly on the tree). Important: Do Not have Flat fire damage to attacks anywhere or it can brick your build. You can always check your oil grenade to see if it has any fire damage. (Extra fire damage is fine on the staff because you'll never have it out when using oil grenade). Note: Trial 3 for sekhema's can feel rather challenging on this build, I would either do it first on grenades or swap to flameblast and just get your third ascend through ultimatum. You can get 2 guaranteed Gemcutter's prism from campaign if it's not changed from 0.5, The first one is in act 2 Keth and 2nd one is from act 4 Isle of kin (will have to do the league mechanic in those zones, so ritual).",
+  "v4_description": "same as v3 swap description minus the Trial 3 note",
+  "v5_description": "(empty)",
+  "v6_description": "This is a higher budget version, the lvl 85 version can already comfortable clear all content. You can push even farther if you opt for a full armour/mageblood setup to be extremely tanky.",
+  "v2_description": "Starting from lvl 36, you'll want to be checking the vendor every few lvls and picking up every staff, because this is when +4 fire staffs can start dropping, which is extremely important to have if you want to swap to flameblast at lvl 52.",
+  "v0_description": "Keep in mind this build will require a respec at lvl 52, which will cost around 30k~ gold, so don't waste gold in campaign. Vendor Regex: \"!Item Class: (One Hand Maces|Two Hand Maces|Quarterstaves|Spears|Bows|Quivers|Shields|Bucklers|Sceptres|Foci|Wands)\" \"s: (am|ri|be|Cross)|movem|[edgl] to.attack|[2-4]\\d% to.*res|to.*(int|dex)|^\\+.*all sp.*ls$|^\\+.*re sp.*ls$\" Lvling filter: https://www.pathofexile.com/item-filter/rkyBKzHX Only use until you get to maps.",
+  "v4_equip_desc": "For campaign ... basic gear with life+resist, generally resist is more important. For rings/gloves, these are pretty good pieces to pickup flat damage to attacks ... As for bases, armour/energy shield is generally what you aim for, but life/resist are more important. Weapon: You're not a spellcaster and only care for spell damage stats, your crossbow stats do not matter. As for your staff you want the highest +lvl staff you can find, followed by spell dmg/fire damage/fire magnitude. For boots you're looking for movement speed ... Body armour ... high armour or armour/evasion hybrid ... Flask: upgrade life/mana flask (lvl 10, 16, 23, 30, 40, 50 and 60). Dousing charm: This is pretty important and a must have. If you get ignited, that ignite can spread to your oil grenade and brick your snapshot (you'll do 0 damage). So make sure to always use this charm. Anoint: [Burnout]. [Paragon] is the best anoint, but might be expensive early on.",
+  "v4_gems_desc": "Get [Flameblast] to 20 quality first and than [Cast on Dodge] (this will give you a lot of mobility). As soon as you get 100 spirit (which you get naturally in campaign) You'll want to use [Cast on Dodge]. It's still good to have a castable [Tornado] on your bars as well, as it can come in handy for flying monsters. Remember to keep lvling up [Frost Bomb] and [Elemental Weakness] or they wont work vs high lvl enemies.",
+  "v4v5v6_tree_desc": "Because you travel so far on the tree, your attributes should generally be pretty free. You need high enough intelligence for [Flameblast], but it shouldn't be an issue to solve all attributes as this build. You'll want every jewel with flammability magnitude, these can roll on ruby jewels or sapphire jewels. Ailments inflict damage faster is also a strong stat. Ascendancy order: [Essence of Virtue] -> [Advanced Thaumaturgy] -> [Implanted Gems](int) -> [Gem Studded]",
+  "v5_equip_desc": "Gear: It's really simple and easy to gear this character, you just want Life/resist and rarity on every single piece. %inc fire damage is nice on rings, but it's a small boost and not needed. Also keep in mind, strength is always a good suffix because it provides life, you have a lot of free affixes on this build. You're also going to stack both ward and life, to get the highest amount of ward you want to use Tier 1 bases of any hybrid base. I prefer ES/armour or pure int bases, just to give us the highest pool. Armour is not that effective until you start actually starting it so just focus on pure life/ward. [Morior Invictus (life)] is a great chest option, specially if you can pickup a 5 socket one with life per socket, combined with [Perfect Body Rune] you can get a ton of life. Other good options with life would be all resist, chaos resist or spirit. If you need spirit you can also use [Soul Core of Azcapa] in your crossbow. [Blackflame] is another item you can go for, we bypass the downside and get a massive ignite magnitude. It's a good early pickup, but eventually you would want to replace it with a triple rarity gold ring. If you do use black flame, make sure you also use [Withering Presence]. Dousing charm: (same). Amulet: [Surefooted Sigil] is the go to for speed at the start. Swap to a rare [Gold Amulet] when you can afford a 5% quality with [Paragon] Anointed. Anoint: [Paragon] is the best anoint, but might be expensive early on. [Burnout] is a cheaper option if paragon is too expensive.",
+  "v5_gems_desc": "You have 1 decision you can make here, you can either go for a [Temporal Chains]/[Blasphemy] setup or use [Mana Remnants] for [Khatal's Rejuvenation], as this will provide more CDR and near infinite mana. If you opt for [Blackflame] you'll want to use [Withering Presence] with [Prolonged Duration II] and [Chaos Mastery]. Because we're gemling, it's important we balance our gem colors for [Gem Studded], it's not hard to setup you can just equip any crossbow skills and than just use any support gem of any color until you have all 3 equal. This will also count the gems in your weapon swap.",
+  "v6_equip_desc": "(same Gear/ward/Morior/Azcapa/Blackflame text as v5) Amulet: You can go for a [Cast on Dodge] [Absent Amulet] amulet, as this will provide even more dodge roll distance with our global quality, use the same links as the regular cast on dodge setup. The other option is using a [Gold Amulet], which will be a lot cheaper as well. Dousing charm: (same). Anoint: [Paragon] is the best anoint. At this point you can start making your 5 prop jewels, these will give a massive amount of damage: Ideal 5 prop: Prefix 1: Mag of ailments you inflict 15%; Prefix 2: Ignite magnitude 15%; Prefix 3: Spell dmg or elemental damage (% armour or %Es can also be good if you scale your build for those). Suffix 1: +1 prefix modifier; Suffix 2: Damaging ailments deal damage 7% faster",
+  "v6_gems_desc": "(same as v5) + Keep in mind the blasphemy setup will require more spirit to use. + the skill slot FAQ (Unset Ring / Augmented Flesh; exclude staff skill gems)",
+  "v0_equip_desc_relevant": "Save all Gemcutters Prism (GCP), these are mandatory for [Flameblast] swap at lvl 52. You'll also need to Save a couple of skill gems/support gems for the swap at lvl 52."
+ },
+ "questRewards": [
+  [
+   "Act 1",
+   "Clearfell",
+   "Beira of the Rotten Pack",
+   "+10% to Cold Resistance"
+  ],
+  [
+   "Act 1",
+   "Hunting Grounds",
+   "The Crowbell",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 1",
+   "Freythorn",
+   "The King in the Mists",
+   "+30 to Spirit"
+  ],
+  [
+   "Act 1",
+   "Ogham Farmlands",
+   "Una's Hut",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 1",
+   "Ogham Manor",
+   "Candlemass, the Living Rite",
+   "+20 to maximum Life"
+  ],
+  [
+   "Act 2",
+   "Keth",
+   "Kabala, Constrictor Queen",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 2",
+   "Valley of the Titans",
+   "Medallion",
+   "30% increased Charm Charges gained, +1 Charm Slot"
+  ],
+  [
+   "Act 2",
+   "Deshar",
+   "Final Letter",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 2",
+   "The Spires of Deshar",
+   "Sisters of Garukhan",
+   "+10% to Lightning Resistance"
+  ],
+  [
+   "Act 3",
+   "Jungle Ruins",
+   "Mighty Silverfist",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 3",
+   "The Venom Crypts",
+   "Venom Draught",
+   "25% increased Stun Threshold"
+  ],
+  [
+   "Act 3",
+   "Jiquani's Machinarium",
+   "Blackjaw, the Remnant",
+   "+10% to Fire Resistance"
+  ],
+  [
+   "Act 3",
+   "The Azak Bog",
+   "Ignagduk, the Bog Witch",
+   "+30 to Spirit"
+  ],
+  [
+   "Act 3",
+   "The Molten Vault",
+   "The Molten Vault",
+   "Reforging Bench"
+  ],
+  [
+   "Act 3",
+   "Aggorat",
+   "Blood Sacrifice",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 4",
+   "Journey's End",
+   "Captain Hartlin",
+   "Two Weapon Set Passive Skill Points, Skill Gem(Lv 13), Delirium Drop"
+  ],
+  [
+   "Act 4",
+   "Whakapanu Island",
+   "Great White One",
+   null
+  ],
+  [
+   "Act 4",
+   "Eye of Hinekora",
+   "Navali's Rest",
+   "5% increased Maximum Mana"
+  ],
+  [
+   "Act 4",
+   "Halls of the Dead",
+   "Yama The White",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 4",
+   "Halls of the Dead",
+   "Tawhoa's Test",
+   "Lightning Tattoo of Tawhoa: +5% to Lightning Resistance"
+  ],
+  [
+   "Act 4",
+   "Abandoned Prison",
+   "Goddess of Justice",
+   "30% increased Life Recovery from Flasks"
+  ],
+  [
+   "Interlude",
+   "Wolvenhold",
+   "Oswin, the Dread Warden",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Interlude",
+   "The Khari Crossing",
+   "Akthi and Anundr",
+   "Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Interlude",
+   "The Khari Crossing",
+   "Molten Shrine",
+   "5% increased Maximum Life"
+  ],
+  [
+   "Interlude",
+   "Qimah",
+   "Tabana's Pillar",
+   "Orbala's Pillar: 3% increased Movement Speed"
+  ],
+  [
+   "Interlude",
+   "Kriar Village",
+   "Lythara, the Wayward Spear",
+   "+40 to Spirit"
+  ],
+  [
+   "Interlude",
+   "Howling Caves",
+   "The Abominable Yeti",
+   "Grants Two Weapon Set Passive Skill Points"
+  ],
+  [
+   "Act 4",
+   "Halls of the Dead",
+   "Tasalio's Test",
+   "Cold Tattoo of Tasalio: +5% to Cold Resistance"
+  ],
+  [
+   "Act 4",
+   "Halls of the Dead",
+   "Ngamahu's Test",
+   "Fire Tattoo of Ngamahu: +5% to Fire Resistance"
+  ],
+  [
+   "Act 4",
+   "Halls of the Dead",
+   "Tribal Medicine",
+   "Kaom's Lesson: +30% increased Global Armour, Evasion and Energy Shield"
+  ]
+ ],
+ "comments": {
+  "note": "291 comments total (290 parsed after expanding all pages and reply threads on 2026-09-24). Only one author reply (Fubgun, 21d ago, score 14): 'It's also not his, the first person I saw play this build was jungroan before gemling reworked...' (build origin, no gameplay content). Curated player comments below (user|age|score|text).",
+  "curated": [
+   "IronStorm|3d|0|if i partial cast flameblast does the oil on the ground ignite for lower damage? -> jsanada: yup, it ignites at whatever stage your flameblast casted at",
+   "ELYMAS|4d|3|I dont understand how to get Flameblast to lvl 40?? -> BoldShadow: you get it to lvl 20 (or 21) + passive +skills (+2 gemling ascendancy, up to +10 staff; +7 easy). What you get to 40 is QUALITY: 20-23% gem + paragon, amulet, body armour socket, ascendancy passives.",
+   "BoldShadow|5d|0|cant get gem studded gems equal -> SilentStorm(-1): gem studded doesn't stack, only one bonus at a time -> BoldShadow(2): not true, verified at least 2 active at same time (movement speed and mana cost reduction).",
+   "creambiggums69|5d|1|struggling at the respec (52): A) have all weapon set passives allocated B) skills associated to correct weapon sets C) floor-is-lava build: spark the fire and keep it spreading; kept explosive grenade initially as backup ignition; later replaced with Solar Orb on staff with ignite/flammability magnitude/considered casting as backup if flameblast on cooldown.",
+   "RustyShadow|15h|0|How do I accumulate 100 Spirit for Cast on Dodge? At level 58 my max Spirit is 60 -> ReeferRaid: One of the Interlude bosses drops a thing gives you last 40",
+   "PrettyShield|6d|0|How u can use all spirit gems? You have 149 spirit, but all gems cost 160",
+   "FreshGun|6d|3|more in depth on defensive options at level 85? can't afford mageblood, one shot at 3.5k armor -> BoldShadow: 3.5k WAY too low, aim for 50-60k (90% dmg reduction phys and ele)",
+   "Birdey|9d|0|lvl 85 tree so many skill points? -> SlimShady: Check you got all Weapon Skill points (24) throughout the campaign and assign them properly",
+   "Erbibbo|11d|0|lvl52 swap in act 4, out of ~10 points -> GrimFlower: normal, you'll get more skill points in the interludes which the guide's level 52 tree assumes you already have.",
+   "CoolGolem|7d|1|grand expeditions ignited ground on juiced maps, flying enemies without Tornado? -> DeadlyMask: mosquitos on burning ground crash maps; BoldShadow: juiced effectiveness always get ignited ground; place tornado accordingly OR ignite + contagion kills most flying mobs.",
+   "Vomit|12d|1|You cant use cast on dodge until your lvl 58 -> PrettyGolem: CoD not really needed; mainly to spread fire and deal with flying enemies; slot Tornado for flyers.",
+   "davidlpower|16d|0|'lvl 52 Swap' lists 'Cast on Dodge' but that skill can't be got until lv58. -> PrettyShield: doesn't matter, tornado in CoD is for additional damage and flying enemies.",
+   "FreshRobot|5d|0|Tornado doesn't proc every roll unless MS is really high. It will on the 4th roll as it requires energy to cast. Increase movement and roll distance and it'll fire everytime",
+   "CyanDye|11d|3|bug with soul core of jiquani: if socketed in crossbow can't use it and oil grenade -> GenerateTheWave: in armour + crossbow says 'You cannot use this item, the stats will be ignored'; RustyStorm: had Jiquani in crossbow and armor, needed to remove one; StoneGolem: 'don't have the right weapon to use the abilities if I wear the endgame armor' -> same cause",
+   "DeadlyDragon|11d|0|boss can't be re-ignited -> arq: flammability buildup - only 100% guarantees ignite from a single flameblast.",
+   "SlimShady|11d|0|Flammability magnitude on the staff: ignite Uber bosses with one flameblast but staff costs almost double for that single mod",
+   "BoldShield|11d|0|trials of sekhemas lose honor waiting for trigger; PS5 laggy -> Thiago Geek: he said you should not do sekhemas on this build",
+   "arq|9d|0|if you miss flameblast, go back to character selection and come back in, cooldown will be reset",
+   "FreshSun|10d|1|from Fubgun's video: Flame Blast set to only use weapon set with staff and oil grenade only weapon set with crossbow, otherwise melts then doesnt",
+   "kosm|9d|0|Beira's Anguish Dousing charm creates ignited ground -> FreshRobot: dont use it with ignited ground, messes up whole build",
+   "RustyStorm|9d|0|mobs igniting your oil grenade; after 90 nearly every map even with charm, T15 slightly juiced",
+   "StoneShadow|11d|0|how to kill fire resistant monster? -> SlimShady: Drop Elemental Weakness and Frost Bomb on their feet and charge Flameblast",
+   "turmalin|13d|0|no +fire damage to attacks or %added as fire damage to attacks anywhere except staff; had it on crossbow",
+   "GrimShield|19d|1|check your Crossbow for Fire damage!!",
+   "BMDaiaw7!|14d|0|channel FlameBlast up to 10 stages when igniting ground oil; each stage additional 75% increased damage for as long as you carry the flame",
+   "Tom Besselink|14d|0|Flameblast 1x at first sight of enemies, then keep spreading ignite with oil grenades; only need Flameblast 1x per map",
+   "NoobStyle|14d|0|cast 1 grenade then cast flameblast to 10 stacks and hit an enemy; connect the ground with other grenades",
+   "BMDaiaw7!|14d|0|need at least 10 gems of each color for Gem Enthusiast bonuses (10R 5% max health, 10B 5% max mana, 10G 5% movement speed)",
+   "Ragerghost|17d|1|ensure same amount of each support type socketed TOTAL; weapon set doesn't matter; blue majority only gives 30% skill cost reduction; weapon's own skill counts only for that weapon set",
+   "LocoLacan|9d|0|could not get gem studded working until including supports on the staff; SlimShady: supports on Virtuous Barrier don't count",
+   "FierceFlame|14d|0|inactive skills on rings count, skills in staff that you use don't",
+   "BrightSun|16d|0|page shows 12 skill slots, game has only 9 -> Unset Ring technique (Fubgun video 'My Day 3 Build Update')",
+   "BrightSun|17d|1|if you have fire damage, Elemental Focus on attacks except flameblast stops elemental ailments; bosses have damage reduction at start of fight (ToS), wait a couple seconds with flameblast charged",
+   "kal|17d|0|cannot have ANY +fire to attacks; boss spawn timing in Trial of Sekhemas",
+   "Ragerghost|17d|1|trialmaster at ~lvl75 second try, some bosses didn't ignite after 5 flameblasts",
+   "SlimShady|13d|0|Arbiter of Ash: first phase oil grenade + charge flameblast on his right side; elemental weakness and frost bomb after; second phase charge while he swaps phase",
+   "PrettyGolem|18d/12d|0|81k armor, 0 survivability issues; build squishy without lots of armour; Iron Reflexes converts evasion to armour; armour/evasion hybrid bases",
+   "SlimShady|11d|0|'x% of armour also applies to elemental damage' up to 200%",
+   "PrettyGolem|12d|0|Str 150, Dex 133, Int 170 at Lv94",
+   "IronSun|16d|0|arctic armour blasts ignite ground and rewrites ignite damage after switching to armour stack build",
+   "Fafah|14d|0|Blackflame prevents igniting the ground -> need to shoot some grenades before flameblast when blackflame is equipped",
+   "PrettyGolem|12d|0|2 Azcapa in xbow + 185 spirit: Cannibalism II in Mana Remnants for 3% life on kill",
+   "RustyDagger|18d|2|nvidia DLSS DLAA gives less fps with this build"
+  ]
+ },
+ "variants": {
+  "3 lvl 52 Swap (reference only)": {
+   "gems": {
+    "req": {
+     "dex": 10,
+     "str": 15,
+     "int": 55
+    },
+    "gems": [
+     [
+      "Flameblast",
+      "Considered Casting | Searing Flame II | Concentrated Area | Burgeon II"
+     ],
+     [
+      "Oil Grenade",
+      "Short Fuse II | Nova Projectiles I | Multishot II | Magnified Area II"
+     ],
+     [
+      "Frost Bomb",
+      "Potent Exposure"
+     ],
+     [
+      "Elemental Weakness",
+      "Heightened Curse | Focused Curse"
+     ],
+     [
+      "Tornado",
+      "Expand | Advancing Storm | Prolonged Duration II"
+     ],
+     [
+      "Cast on Dodge",
+      "Tornado | Advancing Storm | Magnified Area II"
+     ]
+    ],
+    "prio": [
+     "Considered Casting>Flameblast",
+     "Searing Flame II>Flameblast",
+     "Concentrated Area>Flameblast",
+     "Short Fuse II>Oil Grenade",
+     "Nova Projectiles I>Oil Grenade",
+     "Multishot II>Oil Grenade",
+     "Magnified Area II>Oil Grenade",
+     "Potent Exposure>Frost Bomb",
+     "Heightened Curse>Elemental Weakness",
+     "Advancing Storm>Tornado",
+     "Prolonged Duration II>Tornado",
+     "Tornado>Cast on Dodge",
+     "Advancing Storm>Cast on Dodge",
+     "Magnified Area II>Cast on Dodge",
+     "Focused Curse>Elemental Weakness",
+     "Expand>Tornado",
+     "Burgeon II>Flameblast"
+    ]
+   },
+   "tree": {
+    "mainN": 52,
+    "main": "59915,7741,42500,59881,54417,49657,63526,48635,21755,62051,17340,54127,54282,52125,2847,55802,58814,51048,17702,27262,49110,54746,14343,46882,34201,24922,18923,16484,42250,61976,54099,8493,64471,28175,2491,51561,62498,3446,27082,53719,21387,63114,26952,59661,12245,13610,41447,59777,27296,52746,2200,35689",
+    "set1": "45137,44487,39884,36298,8510,13030,55,40918,1773,51213,18073,49952,13856,18496,11275,17348,15522,24630",
+    "set2": "14572,11037,52274,3109,29514,36169,48429,58714,354,21077,2814,23373,17026,17303,36522,9737,24813,20397",
+    "asc": "55536,34882,11641,45248,14429,55582,60287,37397",
+    "ascPrio": [
+     "Essence of Virtue",
+     "Advanced Thaumaturgy",
+     "Implanted Gems"
+    ],
+    "prio": [
+     "Volatile Catalyst#11037",
+     "Adrenaline Rush#17340",
+     "Cluster Bombs#29514",
+     "Grenadier#58714",
+     "Deterioration#14343",
+     "Searing Heat#39884",
+     "Fast Acting Toxins#55",
+     "Wasting#51213",
+     "Lasting Trauma#18496",
+     "Arsonist#12245",
+     "Engineered Blaze#2814",
+     "Utility Ordnance#17303",
+     "Authority#20397",
+     "Fulmination#24630"
+    ],
+    "attrCount": {
+     "any": 25,
+     "int": 1,
+     "str": 1
+    }
+   }
+  },
+  "4 lvl 53-68": {
+   "equipment": {
+    "variant": "lvl 53-68",
+    "id": "4",
+    "mainHand": {
+     "set1": {
+      "item": {
+       "name": "Pyrophyte Staff",
+       "slug": "weapon-fourstaff5",
+       "cls": "staff",
+       "mods": [
+        "69% increased Fire Damage",
+        "+4 to Level of all Fire Spell Skills"
+       ],
+       "pre": [
+        "FireDamagePrefixOnTwoHandWeapon2___"
+       ],
+       "suf": [
+        "GlobalFireSpellGemsLevelWeapon4"
+       ],
+       "trade": {
+        "stats": [
+         "explicit.stat_3962278098>=69",
+         "explicit.stat_591105508>=4"
+        ],
+        "filters": {
+         "category": "{\"option\":\"weapon.staff\"}"
+        }
+       },
+       "league": "Forbidden Rites"
+      },
+      "blocksOffHand": true,
+      "runes": [
+       "soulcore-runeenhancegreater",
+       "soulcore-runeenhancegreater"
+      ]
+     },
+     "set2": {
+      "item": {
+       "name": "Bombard Crossbow",
+       "slug": "weapon-fourcrossbow7",
+       "cls": "crossbow",
+       "mods": [
+        "14% increased Attack Speed",
+        "+2 to Level of all Projectile Skills",
+        "Grenade Skills have +1 Cooldown Use"
+       ],
+       "pre": [
+        "AbyssModCrossbowAmanamuPrefixGrenadeAdditionalCooldown"
+       ],
+       "suf": [
+        "GlobalProjectileSkillGemLevelTwoHandWeapon1",
+        "LocalIncreasedAttackSpeed4"
+       ],
+       "stats": "Minimum Physical Damage=14; Maximum Physical Damage=56; Critical Hit Chance=5; Weapon Speed=13.92",
+       "trade": {
+        "stats": [
+         "explicit.stat_210067635>=14",
+         "explicit.stat_1202301673>=2",
+         "explicit.stat_2250681686>=1"
+        ],
+        "filters": {
+         "category": "{\"option\":\"weapon.crossbow\"}"
+        }
+       },
+       "league": "Forbidden Rites"
+      }
+     }
+    },
+    "offHand": {
+     "set1": {
+      "item": null
+     },
+     "set2": {
+      "item": null
+     }
+    },
+    "helmet": {
+     "item": {
+      "name": "Face Mask",
+      "slug": "armour-fourhelmetdexint2",
+      "cls": "helmet",
+      "mods": [
+       "+60 to maximum Life"
+      ],
+      "pre": [
+       "IncreasedLife5"
+      ],
+      "stats": "Evasion Rating=32; Energy Shield=16",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=60"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.helmet\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "body": {
+     "item": {
+      "name": "Ancestral Mail",
+      "slug": "armour-fourbodystrdex8",
+      "cls": "body-armour",
+      "mods": [
+       "80% increased Armour and Evasion"
+      ],
+      "pre": [
+       "LocalIncreasedArmourAndEvasion6"
+      ],
+      "stats": "Armour=409; Evasion Rating=371",
+      "trade": {
+       "stats": [
+        "explicit.stat_2451402625>=80"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.chest\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "gloves": {
+     "item": {
+      "name": "Runeforged Sombre Gloves",
+      "slug": "armour-fourglovesint2verisium",
+      "cls": "gloves",
+      "mods": [
+       "+85 to maximum Life"
+      ],
+      "pre": [
+       "IncreasedLife7"
+      ],
+      "stats": "Energy Shield=15",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=85"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.gloves\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "boots": {
+     "item": {
+      "name": "Bronze Greaves",
+      "slug": "armour-fourbootsstr3",
+      "cls": "boots",
+      "mods": [
+       "20% increased Movement Speed"
+      ],
+      "pre": [
+       "MovementVelocity3"
+      ],
+      "stats": "Armour=74",
+      "trade": {
+       "stats": [
+        "explicit.stat_2250533757>=20"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.boots\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "amulet": {
+     "item": {
+      "name": "Surefooted Sigil",
+      "slug": "amulet-fouruniqueamulet7-surefooted-sigil",
+      "cls": "amulet",
+      "U": 1,
+      "trade": {
+       "name": "Surefooted Sigil",
+       "filters": {
+        "rarity": "{\"option\":\"unique\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     },
+     "anointment": null
+    },
+    "leftRing": {
+     "item": {
+      "name": "Topaz Ring",
+      "slug": "ring-fourring5",
+      "cls": "ring",
+      "mods": [
+       "+100 to maximum Life"
+      ],
+      "pre": [
+       "IncreasedLife8"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.ring\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "rightRing": {
+     "item": {
+      "name": "Sapphire Ring",
+      "slug": "ring-fourring4",
+      "cls": "ring",
+      "mods": [
+       "+100 to maximum Life"
+      ],
+      "pre": [
+       "IncreasedLife8"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.ring\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "extraRing": null,
+    "belt": {
+     "item": {
+      "name": "Utility Belt",
+      "slug": "armour-fourbelt10",
+      "cls": "belt",
+      "mods": [
+       "+100 to maximum Life"
+      ],
+      "pre": [
+       "IncreasedLife8"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.belt\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "flask1": {
+     "item": {
+      "name": "Transcendent Life Flask",
+      "slug": "flask-fourflasklife8",
+      "cls": "lifeflask",
+      "mods": [
+       "20% of Recovery applied Instantly"
+      ],
+      "pre": [
+       "FlaskPartialInstantRecovery1"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_2503377690>=20"
+       ],
+       "filters": {
+        "category": "{\"option\":\"flask.life\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "flask2": {
+     "item": {
+      "name": "Gargantuan Mana Flask",
+      "slug": "flask-fourflaskmana7",
+      "cls": "manaflask",
+      "trade": {
+       "filters": {
+        "category": "{\"option\":\"flask.mana\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "charm1": {
+     "item": {
+      "name": "Thawing Charm",
+      "slug": "flask-fourcharm1",
+      "cls": "utilityflask",
+      "trade": {
+       "type": "Thawing Charm"
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "charm2": {
+     "item": {
+      "name": "Dousing Charm",
+      "slug": "flask-fourcharm4",
+      "cls": "utilityflask",
+      "trade": {
+       "type": "Dousing Charm"
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "charm3": {
+     "item": {
+      "name": "Silver Charm",
+      "slug": "flask-fourcharm7",
+      "cls": "utilityflask",
+      "trade": {
+       "type": "Silver Charm"
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "priorityList": [
+     [
+      "helmet",
+      "Face Mask",
+      null
+     ],
+     [
+      "boots",
+      "Bronze Greaves",
+      null
+     ],
+     [
+      "belt",
+      "Utility Belt",
+      null
+     ],
+     [
+      "leftRing",
+      "Topaz Ring",
+      null
+     ],
+     [
+      "rightRing",
+      "Sapphire Ring",
+      null
+     ],
+     [
+      "gloves",
+      "Runeforged Sombre Gloves",
+      null
+     ],
+     [
+      "amulet",
+      "Surefooted Sigil",
+      null
+     ],
+     [
+      "body",
+      "Ancestral Mail",
+      null
+     ],
+     [
+      "mainHand",
+      "Bombard Crossbow",
+      null
+     ],
+     [
+      "mainHand",
+      "Pyrophyte Staff",
+      null
+     ]
+    ],
+    "chakras": null
+   },
+   "gems": {
+    "req": {
+     "dex": 15,
+     "str": 25,
+     "int": 65
+    },
+    "gems": [
+     [
+      "Flameblast",
+      "flameblastplayer",
+      "Considered Casting | Searing Flame II | Concentrated Area | Burgeon II | Controlled Destruction"
+     ],
+     [
+      "Oil Grenade",
+      "oilgrenadeplayer",
+      "Short Fuse II | Nova Projectiles I | Multishot II | Magnified Area II"
+     ],
+     [
+      "Frost Bomb",
+      "frostbombplayer",
+      "Potent Exposure | Overabundance II | Spell Echo"
+     ],
+     [
+      "Elemental Weakness",
+      "elementalweaknessplayer",
+      "Heightened Curse | Focused Curse | Efficiency II"
+     ],
+     [
+      "Tornado",
+      "tornadoplayer",
+      "Expand | Advancing Storm | Prolonged Duration II"
+     ],
+     [
+      "Cast on Dodge",
+      "metacastondodgeplayer",
+      "Tornado | Advancing Storm | Magnified Area II | Prolonged Duration II"
+     ]
+    ],
+    "prio": [
+     [
+      "Considered Casting",
+      "supportconsideredcastingplayer",
+      "flameblastplayer"
+     ],
+     [
+      "Searing Flame II",
+      "supportdeadlyignitesplayertwo",
+      "flameblastplayer"
+     ],
+     [
+      "Concentrated Area",
+      "supportconcentratedareaplayer",
+      "flameblastplayer"
+     ],
+     [
+      "Controlled Destruction",
+      "supportcontrolleddestructionplayer",
+      "flameblastplayer"
+     ],
+     [
+      "Short Fuse II",
+      "supportshortfuseplayertwo",
+      "oilgrenadeplayer"
+     ],
+     [
+      "Nova Projectiles I",
+      "supportnovaprojectilesplayer",
+      "oilgrenadeplayer"
+     ],
+     [
+      "Multishot II",
+      "supportmultishotplayertwo",
+      "oilgrenadeplayer"
+     ],
+     [
+      "Magnified Area II",
+      "supportmagnifiedareaplayertwo",
+      "oilgrenadeplayer"
+     ],
+     [
+      "Potent Exposure",
+      "supportpotentexposureplayer",
+      "frostbombplayer"
+     ],
+     [
+      "Overabundance II",
+      "supportincreaselimitplayertwo",
+      "frostbombplayer"
+     ],
+     [
+      "Spell Echo",
+      "supportspellechoplayer",
+      "frostbombplayer"
+     ],
+     [
+      "Heightened Curse",
+      "supportcurseeffectplayer",
+      "elementalweaknessplayer"
+     ],
+     [
+      "Focused Curse",
+      "supportfocusedcurseplayer",
+      "elementalweaknessplayer"
+     ],
+     [
+      "Efficiency II",
+      "supportefficiencyplayertwo",
+      "elementalweaknessplayer"
+     ],
+     [
+      "Expand",
+      "supportexpandplayer",
+      "tornadoplayer"
+     ],
+     [
+      "Advancing Storm",
+      "supportadvancingstormplayer",
+      "tornadoplayer"
+     ],
+     [
+      "Prolonged Duration II",
+      "prolongeddurationsupportplayertwo",
+      "tornadoplayer"
+     ],
+     [
+      "Tornado",
+      "tornadoplayer",
+      "metacastondodgeplayer"
+     ],
+     [
+      "Advancing Storm",
+      "supportadvancingstormplayer",
+      "metacastondodgeplayer"
+     ],
+     [
+      "Magnified Area II",
+      "supportmagnifiedareaplayertwo",
+      "metacastondodgeplayer"
+     ],
+     [
+      "Prolonged Duration II",
+      "prolongeddurationsupportplayertwo",
+      "metacastondodgeplayer"
+     ],
+     [
+      "Burgeon II",
+      "supportburgeonplayertwo",
+      "flameblastplayer"
+     ]
+    ]
+   },
+   "tree": {
+    "mainN": 67,
+    "main": "59915,7741,42500,59881,54417,49657,63526,48635,21755,62051,17340,54127,54282,52125,2847,55802,58814,51048,17702,27262,49110,54746,14343,46882,34201,24922,18923,16484,42250,61976,54099,8493,64471,28175,2491,51561,62498,3446,27082,53719,21387,63114,26952,59661,12245,13610,41447,59777,27296,59785,1200,55190,28982,52746,14572,11037,65176,14045,36070,40341,364,49285,34202,32976,11066,26663,44765",
+    "prio": [
+     [
+      "Adrenaline Rush",
+      "17340",
+      "NOTABLE",
+      "passive-movement-speed11"
+     ],
+     [
+      "Cluster Bombs",
+      "29514",
+      "NOTABLE",
+      "passive-grenades11"
+     ],
+     [
+      "Grenadier",
+      "58714",
+      "NOTABLE",
+      "passive-grenades10"
+     ],
+     [
+      "Deterioration",
+      "14343",
+      "NOTABLE",
+      "passive-ailments17"
+     ],
+     [
+      "Searing Heat",
+      "39884",
+      "NOTABLE",
+      "passive-fire66"
+     ],
+     [
+      "Fast Acting Toxins",
+      "55",
+      "NOTABLE",
+      "passive-ailments38"
+     ],
+     [
+      "Wasting",
+      "51213",
+      "NOTABLE",
+      "passive-ailments39-"
+     ],
+     [
+      "Lasting Trauma",
+      "18496",
+      "NOTABLE",
+      "passive-slow-attacks11"
+     ],
+     [
+      "Arsonist",
+      "12245",
+      "NOTABLE",
+      "passive-fire63-"
+     ],
+     [
+      "Engineered Blaze",
+      "2814",
+      "NOTABLE",
+      "passive-fire61"
+     ],
+     [
+      "Utility Ordnance",
+      "17303",
+      "NOTABLE",
+      "passive-grenades27"
+     ],
+     [
+      "Authority",
+      "20397",
+      "NOTABLE",
+      "passive-area-attacks30"
+     ],
+     [
+      "Multitasking",
+      "8810",
+      "NOTABLE",
+      "passive-cooldowns15"
+     ],
+     [
+      "Flamekeeper",
+      "52669",
+      "NOTABLE",
+      "passive-fire75"
+     ],
+     [
+      "Primal Growth",
+      "32071",
+      "NOTABLE",
+      "passive-area-attacks26"
+     ],
+     [
+      "Volatile Catalyst",
+      "11037",
+      "NOTABLE",
+      "passive-cooldowns20"
+     ],
+     [
+      "Catapult",
+      "9472",
+      "NOTABLE",
+      "passive-ranged36"
+     ],
+     [
+      "Gem Enthusiast",
+      "32976",
+      "NOTABLE",
+      "passive-attributes100-"
+     ],
+     [
+      "Distracting Presence",
+      "44765",
+      "NOTABLE",
+      "passive-cooldowns13"
+     ],
+     [
+      "Fulmination",
+      "24630",
+      "NOTABLE",
+      "passive-fire40"
+     ]
+    ],
+    "set1": "45137,44487,39884,36298,8510,13030,55,40918,1773,51213,18073,49952,13856,18496,2617,13326,55188,52669,11275,17348,15522,24630,2200,35689",
+    "set2": "52274,3109,29514,36169,48429,58714,354,21077,2814,23373,17026,17303,36522,9737,24813,20397,12451,33751,8810,31295,9352,32071,31991,9472",
+    "asc": "55536,34882,11641,45248,14429,55582,60287,37397,3084,30996",
+    "ascPrio": [
+     [
+      "Essence of Virtue",
+      "11641",
+      "ASCENDANCY_LARGE",
+      "passive-ascendancymercenary3notable1-"
+     ],
+     [
+      "Advanced Thaumaturgy",
+      "14429",
+      "ASCENDANCY_LARGE",
+      "passive-ascendancymercenary3notable4"
+     ],
+     [
+      "Implanted Gems",
+      "60287",
+      "CHOICE",
+      "passive-ascendancymercenary3notable2"
+     ],
+     [
+      "Gem Studded",
+      "30996",
+      "ASCENDANCY_LARGE",
+      "passive-ascendancymercenary3notable3"
+     ]
+    ],
+    "attrCount": {
+     "any": 32,
+     "int": 1,
+     "str": 1
+    },
+    "attr": "a49657,i63526,s28370,a7741,a42500,a59881,a54417,a54282,a52125,a2847,a55802,a58814,a51048,a17702,a34201,a24922,a18923,a16484,a42250,a61976,a51561,a62498,a3446,a27082,a53719,a21387,a63114,a59785,a1200,a28982,a30141,a18448,a47263,a38707",
+    "jewels": [
+     {
+      "j": "jewel-jewelint",
+      "node": "node-2491",
+      "suf": [
+       "JewelIgniteChance"
+      ],
+      "trade": [
+       "explicit.stat_2968503605>=10"
+      ]
+     },
+     {
+      "j": "jewel-jewelstr",
+      "node": "node-46882",
+      "suf": [
+       "JewelIgniteChance"
+      ],
+      "trade": [
+       "explicit.stat_2968503605>=10"
+      ]
+     },
+     {
+      "j": "jewel-jewelint",
+      "node": "node-54127",
+      "pre": [
+       "prefix-heart-of-the-well-51"
+      ],
+      "trade": [
+       "explicit.stat_538241406>=2"
+      ]
+     }
+    ]
+   }
+  },
+  "5 lvl 85": {
+   "equipment": {
+    "variant": "lvl 85",
+    "id": "5",
+    "mainHand": {
+     "set1": {
+      "item": {
+       "name": "Pyrophyte Staff",
+       "slug": "weapon-fourstaff5",
+       "cls": "staff",
+       "mods": [
+        "149% increased Spell Damage",
+        "149% increased Fire Damage",
+        "+7 to Level of all Fire Spell Skills",
+        "Gain 49% of Damage as Extra Fire Damage"
+       ],
+       "pre": [
+        "FireDamagePrefixOnTwoHandWeapon6",
+        "SpellDamageGainedAsFireTwoHand5",
+        "SpellDamageOnTwoHandWeapon6"
+       ],
+       "suf": [
+        "GlobalFireSpellGemsLevelTwoHandWeapon5"
+       ],
+       "trade": {
+        "stats": [
+         "explicit.stat_2974417149>=149",
+         "explicit.stat_3962278098>=149",
+         "explicit.stat_591105508>=7",
+         "explicit.stat_3015669065>=49"
+        ],
+        "filters": {
+         "category": "{\"option\":\"weapon.staff\"}"
+        }
+       },
+       "league": "Forbidden Rites"
+      },
+      "blocksOffHand": true,
+      "runes": [
+       "soulcore-runespecial5",
+       "soulcore-runeenhancegreater"
+      ]
+     },
+     "set2": {
+      "item": {
+       "name": "Bombard Crossbow",
+       "slug": "weapon-fourcrossbow7",
+       "cls": "crossbow",
+       "mods": [
+        "14% increased Attack Speed",
+        "+3 to Level of all Projectile Skills",
+        "Grenade Skills have +1 Cooldown Use"
+       ],
+       "pre": [
+        "AbyssModCrossbowAmanamuPrefixGrenadeAdditionalCooldown"
+       ],
+       "suf": [
+        "LocalIncreasedAttackSpeed4",
+        "GlobalProjectileSkillGemLevelTwoHandWeapon3"
+       ],
+       "stats": "Minimum Physical Damage=14; Maximum Physical Damage=56; Critical Hit Chance=5; Weapon Speed=13.92",
+       "trade": {
+        "stats": [
+         "explicit.stat_210067635>=14",
+         "explicit.stat_1202301673>=3",
+         "explicit.stat_2250681686>=1"
+        ],
+        "filters": {
+         "category": "{\"option\":\"weapon.crossbow\"}"
+        }
+       },
+       "league": "Forbidden Rites"
+      },
+      "runes": [
+       "soulcore-soulcoremaxlife",
+       "soulcore-runemanarecoverygreater"
+      ]
+     }
+    },
+    "offHand": {
+     "set1": {
+      "item": null
+     },
+     "set2": {
+      "item": null
+     }
+    },
+    "helmet": {
+     "item": {
+      "name": "Runeforged Cryptic Crown",
+      "slug": "armour-fourhelmetstrint6endgameverisium",
+      "cls": "helmet",
+      "mods": [
+       "+175 to maximum Life",
+       "14% increased Rarity of Items found",
+       "+4% to Chaos Resistance"
+      ],
+      "pre": [
+       "IncreasedLife11",
+       "ItemFoundRarityIncreasePrefix1"
+      ],
+      "suf": [
+       "ChaosResist1",
+       "ItemFoundRarityIncrease1"
+      ],
+      "stats": "Armour=86; Energy Shield=24",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=175",
+        "explicit.stat_3917489142>=14",
+        "explicit.stat_2923486259>=4"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.helmet\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "body": {
+     "item": {
+      "name": "Wolfskin Mantle",
+      "slug": "armour-fourbodystrint2endgame",
+      "cls": "body-armour",
+      "mods": [
+       "+200 to maximum Life",
+       "+57 to Spirit"
+      ],
+      "pre": [
+       "IncreasedLife13",
+       "IncreasedSpirit8"
+      ],
+      "stats": "Armour=313; Energy Shield=87",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=200",
+        "explicit.stat_3981240776>=57"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.chest\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     },
+     "runes": [
+      "soulcore-talismanfox",
+      "soulcore-soulcoremaxlife"
+     ]
+    },
+    "gloves": {
+     "item": {
+      "name": "Runeforged Adherent Cuffs",
+      "slug": "armour-fourglovesstrint4endgameverisium",
+      "cls": "gloves",
+      "mods": [
+       "+120 to maximum Life",
+       "6% increased Rarity of Items found"
+      ],
+      "pre": [
+       "IncreasedLife9"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease1"
+      ],
+      "stats": "Armour=39; Energy Shield=11",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=120",
+        "explicit.stat_3917489142>=6"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.gloves\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "boots": {
+     "item": {
+      "name": "Runeforged Cryptic Leggings",
+      "slug": "armour-fourbootsstrint4endgameverisium",
+      "cls": "boots",
+      "mods": [
+       "+190 to maximum Life",
+       "15% increased Rarity of Items found",
+       "35% increased Movement Speed"
+      ],
+      "pre": [
+       "IncreasedLife12",
+       "MovementVelocity6"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease3"
+      ],
+      "stats": "Armour=59; Energy Shield=16",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=190",
+        "explicit.stat_3917489142>=15",
+        "explicit.stat_2250533757>=35"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.boots\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     },
+     "runes": [
+      "soulcore-runeoftheancients16"
+     ]
+    },
+    "amulet": {
+     "item": {
+      "name": "Gold Amulet",
+      "slug": "amulet-fouramulet10",
+      "cls": "amulet",
+      "mods": [
+       "+100 to maximum Life",
+       "+34 to Spirit",
+       "+3% to Quality of all Skills"
+      ],
+      "pre": [
+       "IncreasedLife8",
+       "IncreasedSpirit2"
+      ],
+      "suf": [
+       "AbyssModAmuletKurgalSuffixQualityofAllSkills"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100",
+        "explicit.stat_3981240776>=34",
+        "explicit.stat_3655769732>=3"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.amulet\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     },
+     "anointment": {
+      "slug": "anointment-DeliriumAnoint_Paragon"
+     }
+    },
+    "leftRing": {
+     "item": {
+      "name": "Topaz Ring",
+      "slug": "ring-fourring5",
+      "cls": "ring",
+      "mods": [
+       "+100 to maximum Life",
+       "15% increased Rarity of Items found",
+       "+26% to Cold Resistance",
+       "+26% to Lightning Resistance",
+       "27% increased Fire Damage"
+      ],
+      "pre": [
+       "IncreasedLife8",
+       "FireDamagePercent6"
+      ],
+      "suf": [
+       "LightningResist5",
+       "ColdResist5",
+       "ItemFoundRarityIncrease3"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100",
+        "explicit.stat_3917489142>=15",
+        "pseudo.pseudo_total_elemental_resistance>=52",
+        "explicit.stat_3962278098>=27"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.ring\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "rightRing": {
+     "item": {
+      "name": "Sapphire Ring",
+      "slug": "ring-fourring4",
+      "cls": "ring",
+      "mods": [
+       "+100 to maximum Life",
+       "15% increased Rarity of Items found",
+       "+31% to Fire Resistance",
+       "+20% to Chaos Resistance",
+       "23% increased Fire Damage"
+      ],
+      "pre": [
+       "IncreasedLife8",
+       "FireDamagePercent5"
+      ],
+      "suf": [
+       "ChaosResist5",
+       "ItemFoundRarityIncrease3",
+       "FireResist6"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100",
+        "explicit.stat_3917489142>=15",
+        "pseudo.pseudo_total_elemental_resistance>=31",
+        "explicit.stat_2923486259>=20",
+        "explicit.stat_3962278098>=23"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.ring\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "extraRing": null,
+    "belt": {
+     "item": {
+      "name": "Utility Belt",
+      "slug": "armour-fourbelt10",
+      "cls": "belt",
+      "mods": [
+       "+187 to Armour",
+       "+120 to maximum Life",
+       "+31 to Strength",
+       "+31% to Fire Resistance"
+      ],
+      "pre": [
+       "IncreasedLife9",
+       "IncreasedPhysicalDamageReductionRating7"
+      ],
+      "suf": [
+       "Strength8",
+       "FireResist6"
+      ],
+      "stats": "Armour=225",
+      "trade": {
+       "stats": [
+        "explicit.stat_809229260>=187",
+        "explicit.stat_3299347043>=120",
+        "explicit.stat_4080418644>=31",
+        "pseudo.pseudo_total_elemental_resistance>=31"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.belt\"}"
+       }
+      },
+      "league": "Forbidden Rites"
+     }
+    },
+    "flasks_charms": "same as lvl 53-68: Transcendent Life Flask (20% of Recovery applied Instantly, trade min 20), Gargantuan Mana Flask, Thawing / Dousing / Silver Charm",
+    "priorityList": [
+     [
+      "leftRing",
+      "Topaz Ring",
+      null
+     ],
+     [
+      "rightRing",
+      "Sapphire Ring",
+      null
+     ],
+     [
+      "belt",
+      "Utility Belt",
+      null
+     ],
+     [
+      "helmet",
+      "Runeforged Cryptic Crown",
+      null
+     ],
+     [
+      "gloves",
+      "Runeforged Adherent Cuffs",
+      null
+     ],
+     [
+      "mainHand",
+      "Pyrophyte Staff",
+      null
+     ],
+     [
+      "boots",
+      "Runeforged Cryptic Leggings",
+      null
+     ],
+     [
+      "mainHand",
+      "Bombard Crossbow",
+      null
+     ],
+     [
+      "body",
+      "Wolfskin Mantle",
+      null
+     ],
+     [
+      "amulet",
+      "Gold Amulet",
+      null
+     ]
+    ],
+    "chakras": null
+   },
+   "gems": {
+    "req": {
+     "dex": 15,
+     "str": 20,
+     "int": 90
+    },
+    "gems": [
+     [
+      "Flameblast",
+      "Considered Casting | Searing Flame II | Concentrated Area | Burgeon II | Controlled Destruction"
+     ],
+     [
+      "Oil Grenade",
+      "Short Fuse II | Nova Projectiles I | Multishot II | Magnified Area II | Encroaching Ground"
+     ],
+     [
+      "Frost Bomb",
+      "Potent Exposure | Overabundance II | Spell Echo"
+     ],
+     [
+      "Elemental Weakness",
+      "Heightened Curse | Focused Curse | Efficiency II | Magnified Area II"
+     ],
+     [
+      "Tornado",
+      "Expand | Advancing Storm | Prolonged Duration II"
+     ],
+     [
+      "Cast on Dodge",
+      "Tornado | Advancing Storm | Magnified Area II | Boundless Energy II"
+     ],
+     [
+      "Mana Remnants",
+      "manaremnantsplayer",
+      "Khatal's Rejuvenation (supportkhatalsrejuvenationplayer) | Harmonic Remnants II (supportfleetingremnantsplayertwo)"
+     ]
+    ],
+    "prio_order": "Considered Casting, Searing Flame II, Concentrated Area, Burgeon II, Controlled Destruction (Flameblast); Short Fuse II, Nova Projectiles I, Multishot II, Magnified Area II, Encroaching Ground(supportencroachinggroundplayer) (Oil Grenade); Potent Exposure, Overabundance II, Spell Echo (Frost Bomb); Heightened Curse, Focused Curse, Efficiency II, Magnified Area II (Elemental Weakness); Expand, Advancing Storm, Prolonged Duration II (Tornado); Tornado, Advancing Storm, Magnified Area II, Boundless Energy II(supportboundlessenergyplayertwo) (Cast on Dodge); Khatal's Rejuvenation, Harmonic Remnants II (Mana Remnants)"
+   },
+   "tree": {
+    "mainN": 84,
+    "main": "59915,7741,42500,59881,54417,49657,63526,48635,21755,62051,17340,54127,54282,52125,2847,55802,58814,51048,17702,27262,49110,54746,14343,46882,34201,24922,18923,16484,42250,61976,54099,8493,64471,28175,2491,51561,62498,3446,27082,53719,21387,63114,26952,59661,12245,13610,41447,59777,27296,59785,1200,55190,14572,11037,65176,364,49285,34202,32976,26725,36522,9737,59480,2864,32564,39207,33518,63579,37519,17045,55131,11066,26663,44765,28982,41768,29611,32474,47931,39131,11741,26196,53329,64724",
+    "prio": [
+     "Adrenaline Rush#17340",
+     "Cluster Bombs#29514",
+     "Grenadier#58714",
+     "Deterioration#14343",
+     "Searing Heat#39884",
+     "Fast Acting Toxins#55",
+     "Wasting#51213",
+     "Lasting Trauma#18496",
+     "Arsonist#12245",
+     "Engineered Blaze#2814",
+     "Utility Ordnance#17303",
+     "Multitasking#8810",
+     "Flamekeeper#52669",
+     "Volatile Catalyst#11037",
+     "Gem Enthusiast#32976",
+     "Momentum#63579(passive-slow-mitigation7-)",
+     "Light on your Feet#55131(passive-slow-mitigation8)",
+     "Authority#20397",
+     "Distracting Presence#44765",
+     "Primal Growth#32071",
+     "Catapult#9472",
+     "Fulmination#24630",
+     "Immolation#53030(passive-ignite5)"
+    ],
+    "set1": "45137,44487,39884,36298,8510,13030,55,40918,1773,51213,18073,49952,13856,18496,2617,13326,55188,52669,11275,17348,15522,24630,11525,53030",
+    "set2": "52274,3109,29514,36169,48429,58714,354,21077,2814,23373,17026,17303,12451,33751,8810,24813,20397,31295,9352,32071,14045,36070,31991,9472",
+    "asc": "55536,34882,11641,45248,14429,55582,60287,37397,3084,30996",
+    "attrCount": {
+     "any": 36,
+     "int": 1,
+     "str": 1
+    },
+    "jewels": "same as v4"
+   }
+  },
+  "6 Endgame": {
+   "equipment": {
+    "variant": "Endgame",
+    "id": "6",
+    "mainHand": {
+     "set1": {
+      "item": {
+       "name": "Pyrophyte Staff",
+       "slug": "weapon-fourstaff5",
+       "cls": "staff",
+       "mods": [
+        "149% increased Spell Damage",
+        "149% increased Fire Damage",
+        "+7 to Level of all Fire Spell Skills",
+        "Gain 49% of Damage as Extra Fire Damage"
+       ],
+       "pre": [
+        "FireDamagePrefixOnTwoHandWeapon6",
+        "SpellDamageGainedAsFireTwoHand5",
+        "SpellDamageOnTwoHandWeapon6"
+       ],
+       "suf": [
+        "GlobalFireSpellGemsLevelTwoHandWeapon5"
+       ],
+       "trade": {
+        "stats": [
+         "explicit.stat_2974417149>=149",
+         "explicit.stat_3962278098>=149",
+         "explicit.stat_591105508>=7",
+         "explicit.stat_3015669065>=49"
+        ],
+        "filters": {
+         "category": "{\"option\":\"weapon.staff\"}"
+        }
+       }
+      },
+      "blocksOffHand": true,
+      "runes": [
+       "soulcore-runespecial5",
+       "soulcore-runeenhancegreater"
+      ]
+     },
+     "set2": {
+      "item": {
+       "name": "Bombard Crossbow",
+       "slug": "weapon-fourcrossbow7",
+       "cls": "crossbow",
+       "mods": [
+        "14% increased Attack Speed",
+        "+3 to Level of all Projectile Skills",
+        "Grenade Skills have +1 Cooldown Use"
+       ],
+       "pre": [
+        "AbyssModCrossbowAmanamuPrefixGrenadeAdditionalCooldown"
+       ],
+       "suf": [
+        "LocalIncreasedAttackSpeed4",
+        "GlobalProjectileSkillGemLevelTwoHandWeapon3"
+       ],
+       "stats": "Minimum Physical Damage=14; Maximum Physical Damage=56; Critical Hit Chance=5; Weapon Speed=13.92",
+       "trade": {
+        "stats": [
+         "explicit.stat_210067635>=14",
+         "explicit.stat_1202301673>=3",
+         "explicit.stat_2250681686>=1"
+        ],
+        "filters": {
+         "category": "{\"option\":\"weapon.crossbow\"}"
+        }
+       }
+      },
+      "runes": [
+       "soulcore-soulcoremaxlife",
+       "soulcore-runemanarecoverygreater"
+      ]
+     }
+    },
+    "offHand": {
+     "set1": {
+      "item": null
+     },
+     "set2": {
+      "item": null
+     }
+    },
+    "helmet": {
+     "item": {
+      "name": "Runeforged Cryptic Crown",
+      "slug": "armour-fourhelmetstrint6endgameverisium",
+      "cls": "helmet",
+      "mods": [
+       "+175 to maximum Life",
+       "14% increased Rarity of Items found",
+       "+20% to Chaos Resistance"
+      ],
+      "pre": [
+       "IncreasedLife11",
+       "ItemFoundRarityIncreasePrefix1"
+      ],
+      "suf": [
+       "ChaosResist5",
+       "ItemFoundRarityIncrease1"
+      ],
+      "stats": "Armour=86; Energy Shield=24",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=175",
+        "explicit.stat_3917489142>=14",
+        "explicit.stat_2923486259>=20"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.helmet\"}"
+       }
+      }
+     }
+    },
+    "body": {
+     "item": {
+      "name": "Morior Invictus (life)",
+      "slug": "armour-morior-invictus-(life)",
+      "cls": "body-armour",
+      "U": 1,
+      "trade": {
+       "name": "Morior Invictus (life)",
+       "filters": {
+        "rarity": "{\"option\":\"unique\"}"
+       }
+      }
+     },
+     "runes": [
+      "soulcore-talismanfox",
+      "soulcore-soulcoremaxlife",
+      "soulcore-runelifeperfect",
+      "soulcore-runelifeperfect",
+      "soulcore-runelifeperfect"
+     ]
+    },
+    "gloves": {
+     "item": {
+      "name": "Runeforged Adherent Cuffs",
+      "slug": "armour-fourglovesstrint4endgameverisium",
+      "cls": "gloves",
+      "mods": [
+       "+120 to maximum Life",
+       "15% increased Rarity of Items found"
+      ],
+      "pre": [
+       "IncreasedLife9"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease3"
+      ],
+      "stats": "Armour=39; Energy Shield=11",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=120",
+        "explicit.stat_3917489142>=15"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.gloves\"}"
+       }
+      }
+     }
+    },
+    "boots": {
+     "item": {
+      "name": "Runeforged Cryptic Leggings",
+      "slug": "armour-fourbootsstrint4endgameverisium",
+      "cls": "boots",
+      "mods": [
+       "+190 to maximum Life",
+       "15% increased Rarity of Items found",
+       "35% increased Movement Speed"
+      ],
+      "pre": [
+       "IncreasedLife12",
+       "MovementVelocity6"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease3"
+      ],
+      "stats": "Armour=59; Energy Shield=16",
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=190",
+        "explicit.stat_3917489142>=15",
+        "explicit.stat_2250533757>=35"
+       ],
+       "filters": {
+        "category": "{\"option\":\"armour.boots\"}"
+       }
+      }
+     },
+     "runes": [
+      "soulcore-runeoftheancients16"
+     ]
+    },
+    "amulet": {
+     "item": {
+      "name": "Gold Amulet",
+      "slug": "amulet-fouramulet10",
+      "cls": "amulet",
+      "mods": [
+       "+100 to maximum Life",
+       "+31% to Fire Resistance",
+       "+3 to Level of all Spell Skills",
+       "+94 to Spirit",
+       "+3% to Quality of all Skills"
+      ],
+      "pre": [
+       "IncreasedSpirit5",
+       "IncreasedLife8",
+       "IncreasedSpirit5"
+      ],
+      "suf": [
+       "AbyssModAmuletKurgalSuffixQualityofAllSkills",
+       "GlobalSpellGemsLevel3",
+       "FireResist6"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100",
+        "pseudo.pseudo_total_elemental_resistance>=31",
+        "explicit.stat_124131830>=3",
+        "explicit.stat_3981240776>=94",
+        "explicit.stat_3655769732>=3"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.amulet\"}"
+       }
+      }
+     },
+     "anointment": {
+      "slug": "anointment-DeliriumAnoint_Paragon"
+     }
+    },
+    "leftRing": {
+     "item": {
+      "name": "Gold Ring",
+      "slug": "ring-fourring10",
+      "cls": "ring",
+      "mods": [
+       "+100 to maximum Life",
+       "31% increased Rarity of Items found",
+       "+26% to Cold Resistance",
+       "+26% to Lightning Resistance",
+       "27% increased Fire Damage"
+      ],
+      "pre": [
+       "IncreasedLife8",
+       "FireDamagePercent6",
+       "ItemFoundRarityIncreasePrefix3"
+      ],
+      "suf": [
+       "LightningResist5",
+       "ColdResist5",
+       "ItemFoundRarityIncrease3"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100",
+        "explicit.stat_3917489142>=31",
+        "pseudo.pseudo_total_elemental_resistance>=52",
+        "explicit.stat_3962278098>=27"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.ring\"}"
+       }
+      }
+     }
+    },
+    "rightRing": {
+     "item": {
+      "name": "Gold Ring",
+      "slug": "ring-fourring10",
+      "cls": "ring",
+      "mods": [
+       "+100 to maximum Life",
+       "31% increased Rarity of Items found",
+       "+31% to Fire Resistance",
+       "+20% to Chaos Resistance",
+       "23% increased Fire Damage"
+      ],
+      "pre": [
+       "IncreasedLife8",
+       "FireDamagePercent5",
+       "ItemFoundRarityIncreasePrefix3"
+      ],
+      "suf": [
+       "ChaosResist5",
+       "ItemFoundRarityIncrease3",
+       "FireResist6"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_3299347043>=100",
+        "explicit.stat_3917489142>=31",
+        "pseudo.pseudo_total_elemental_resistance>=31",
+        "explicit.stat_2923486259>=20",
+        "explicit.stat_3962278098>=23"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.ring\"}"
+       }
+      }
+     }
+    },
+    "extraRing": null,
+    "belt": {
+     "item": {
+      "name": "Utility Belt",
+      "slug": "armour-fourbelt10",
+      "cls": "belt",
+      "mods": [
+       "+187 to Armour",
+       "+120 to maximum Life",
+       "+31 to Strength",
+       "+31% to Fire Resistance"
+      ],
+      "pre": [
+       "IncreasedLife9",
+       "IncreasedPhysicalDamageReductionRating7"
+      ],
+      "suf": [
+       "Strength8",
+       "FireResist6"
+      ],
+      "stats": "Armour=225",
+      "trade": {
+       "stats": [
+        "explicit.stat_809229260>=187",
+        "explicit.stat_3299347043>=120",
+        "explicit.stat_4080418644>=31",
+        "pseudo.pseudo_total_elemental_resistance>=31"
+       ],
+       "filters": {
+        "category": "{\"option\":\"accessory.belt\"}"
+       }
+      }
+     }
+    },
+    "flask1": {
+     "item": {
+      "name": "Transcendent Life Flask",
+      "slug": "flask-fourflasklife8",
+      "mods": [
+       "20% of Recovery applied Instantly"
+      ],
+      "trade": {
+       "stats": [
+        "explicit.stat_2503377690>=20"
+       ]
+      }
+     }
+    },
+    "flask2": {
+     "item": {
+      "name": "Gargantuan Mana Flask",
+      "slug": "flask-fourflaskmana7"
+     }
+    },
+    "charm1": {
+     "item": {
+      "name": "Thawing Charm",
+      "slug": "flask-fourcharm1"
+     }
+    },
+    "charm2": {
+     "item": {
+      "name": "Dousing Charm",
+      "slug": "flask-fourcharm4"
+     }
+    },
+    "charm3": {
+     "item": {
+      "name": "The Fall of the Axe",
+      "slug": "flask-fouruniquecharm7--the-fall-of-the-axe",
+      "U": 1,
+      "trade": {
+       "name": "The Fall of the Axe",
+       "filters": {
+        "rarity": "{\"option\":\"unique\"}"
+       }
+      }
+     }
+    },
+    "priorityList": [
+     [
+      "belt",
+      "Utility Belt",
+      null
+     ],
+     [
+      "mainHand",
+      "Pyrophyte Staff",
+      null
+     ],
+     [
+      "boots",
+      "Runeforged Cryptic Leggings",
+      null
+     ],
+     [
+      "mainHand",
+      "Bombard Crossbow",
+      null
+     ],
+     [
+      "leftRing",
+      "Gold Ring",
+      null
+     ],
+     [
+      "helmet",
+      "Runeforged Cryptic Crown",
+      null
+     ],
+     [
+      "gloves",
+      "Runeforged Adherent Cuffs",
+      null
+     ],
+     [
+      "amulet",
+      "Gold Amulet",
+      null
+     ],
+     [
+      "body",
+      "Morior Invictus (life)",
+      null
+     ]
+    ],
+    "chakras": null
+   },
+   "gems": "identical to lvl 85",
+   "tree": {
+    "mainN": 96,
+    "main": "59915,7741,42500,59881,54417,49657,63526,48635,21755,62051,17340,54127,54282,52125,2847,55802,58814,51048,17702,27262,49110,54746,14343,46882,34201,24922,18923,16484,42250,61976,54099,8493,64471,28175,2491,51561,62498,3446,27082,53719,21387,63114,26952,59661,12245,13610,41447,59777,27296,59785,1200,55190,14572,11037,65176,364,49285,34202,32976,26725,36522,9737,59480,2864,32564,39207,33518,63579,37519,17045,55131,11066,26663,44765,28982,41768,29611,32474,47931,39131,11741,26196,33722,4140,59093,23382,7960,38463,29285,9745,7526,43044,63566,42658,60735,53329",
+    "prio": "same as v5 minus Fulmination (Immolation last)",
+    "set1": "45137,44487,39884,36298,8510,13030,55,40918,1773,51213,18073,49952,13856,18496,2617,13326,55188,52669,11275,17348,15522,64724,11525,53030",
+    "set2": "same as v5",
+    "asc": "same as v4/v5",
+    "attrCount": {
+     "any": 36,
+     "int": 1,
+     "str": 1
+    },
+    "jewels": [
+     {
+      "j": "jewel-jewelint",
+      "node": "node-2491",
+      "suf": [
+       "JewelIgniteChance"
+      ],
+      "trade": [
+       "explicit.stat_2968503605>=10"
+      ]
+     },
+     {
+      "j": "jewel-jewelstr",
+      "node": "node-46882",
+      "suf": [
+       "JewelIgniteChance"
+      ],
+      "trade": [
+       "explicit.stat_2968503605>=10"
+      ]
+     },
+     {
+      "j": "jewel-jewelint",
+      "node": "node-54127",
+      "pre": [
+       "JewelIgniteEffect",
+       "JewelAilmentEffect"
+      ],
+      "suf": [
+       "JewelFasterAilments"
+      ],
+      "trade": [
+       "explicit.stat_1303248024>=5",
+       "explicit.stat_538241406>=3",
+       "explicit.stat_3791899485>=5"
+      ]
+     }
+    ]
+   }
+  },
+  "others (summary only)": {
+   "v0_lvl1-14": {
+    "req": {
+     "str": 15,
+     "dex": 20,
+     "int": 0
+    },
+    "items": [
+     "amulet=Amber Amulet",
+     "belt=Utility Belt",
+     "boots=Bronze Greaves",
+     "charm1=Thawing Charm",
+     "gloves=Runeforged Sombre Gloves",
+     "helmet=Face Mask",
+     "leftRing=Iron Ring",
+     "mainHand#1=Tense Crossbow",
+     "rightRing=Iron Ring"
+    ],
+    "gems": [
+     "Crossbow Shot(1)",
+     "Explosive Grenade(2)",
+     "Flash Grenade(2)",
+     "Gas Grenade(2)",
+     "Frost Bomb(0)",
+     "Herald of Ash(0)",
+     "Pounce(0)"
+    ],
+    "main": 18,
+    "set1": 0,
+    "set2": 0,
+    "ascSel": 3,
+    "asc": [
+     "Essence of Virtue"
+    ],
+    "jewels": 0
+   },
+   "v1_lvl15-32": {
+    "req": {
+     "str": 20,
+     "dex": 20,
+     "int": 15
+    },
+    "items": [
+     "amulet=Amber Amulet",
+     "belt=Utility Belt",
+     "boots=Bronze Greaves",
+     "charm1=Thawing Charm",
+     "gloves=Runeforged Sombre Gloves",
+     "helmet=Face Mask",
+     "leftRing=Iron Ring",
+     "mainHand#1=Varnished Crossbow",
+     "rightRing=Iron Ring"
+    ],
+    "gems": [
+     "Explosive Grenade(3)",
+     "Flash Grenade(2)",
+     "Gas Grenade(2)",
+     "Frost Bomb(1)",
+     "Herald of Ash(1)",
+     "Pounce(1)",
+     "Oil Grenade(1)"
+    ],
+    "main": 48,
+    "set1": 0,
+    "set2": 0,
+    "ascSel": 5,
+    "asc": [
+     "Essence of Virtue",
+     "Advanced Thaumaturgy"
+    ],
+    "jewels": 0
+   },
+   "v2_lvl33-51": {
+    "req": {
+     "str": 20,
+     "dex": 20,
+     "int": 10
+    },
+    "items": [
+     "amulet=Amber Amulet",
+     "belt=Utility Belt",
+     "boots=Bronze Greaves",
+     "charm1=Thawing Charm",
+     "gloves=Runeforged Sombre Gloves",
+     "helmet=Face Mask",
+     "leftRing=Topaz Ring",
+     "mainHand#1=Bombard Crossbow",
+     "rightRing=Sapphire Ring"
+    ],
+    "gems": [
+     "Explosive Grenade(3)",
+     "Flash Grenade(2)",
+     "Gas Grenade(2)",
+     "Herald of Ash(1)",
+     "Pounce(1)",
+     "Oil Grenade(1)"
+    ],
+    "main": 66,
+    "set1": 0,
+    "set2": 0,
+    "ascSel": 8,
+    "asc": [
+     "Essence of Virtue",
+     "Advanced Thaumaturgy",
+     "Implanted Gems"
+    ],
+    "jewels": 0
+   },
+   "v7_Mageblood": {
+    "req": {
+     "str": 75,
+     "dex": 75,
+     "int": 80
+    },
+    "items": [
+     "amulet=Gold Amulet",
+     "belt=Mageblood[U]",
+     "body=Dastard Armour",
+     "boots=Fortress Sabatons",
+     "flask1=Ultimate Life Flask",
+     "flask2=Lavianga's Spirits[U]",
+     "charm1=Nascent Hope[U]",
+     "charm2=Rite of Passage[U]",
+     "charm3=Dousing Charm",
+     "gloves=Ancient Mitts",
+     "helmet=Paragon Greathelm",
+     "leftRing=Gold Ring",
+     "mainHand#1=Ashen Staff",
+     "mainHand#2=Cannonade Crossbow",
+     "rightRing=Gold Ring"
+    ],
+    "gems": [
+     "Flameblast(5)",
+     "Oil Grenade(5)",
+     "Cast on Dodge(5)",
+     "Tornado(2)",
+     "Frost Bomb(4)",
+     "Elemental Weakness(3)",
+     "Virtuous Barrier(1)",
+     "Arctic Armour(2)",
+     "Mana Remnants(3)",
+     "Ice Shards(4)",
+     "Shockwave Totem(4)",
+     "Seismic Cry(4)",
+     "Crossbow Shot(5)"
+    ],
+    "main": 95,
+    "set1": 29,
+    "set2": 32,
+    "ascSel": 9,
+    "asc": [
+     "Essence of Virtue",
+     "Advanced Thaumaturgy",
+     "Implanted Gems",
+     "Gem Studded"
+    ],
+    "jewels": 6
+   },
+   "v8_DoTCap": {
+    "req": {
+     "str": 70,
+     "dex": 55,
+     "int": 75
+    },
+    "items": [
+     "amulet=Gold Amulet",
+     "belt=Mageblood[U]",
+     "body=Warlord Cuirass",
+     "boots=Tasalian Greaves",
+     "flask1=Ultimate Life Flask",
+     "flask2=Lavianga's Spirits[U]",
+     "charm1=Nascent Hope[U]",
+     "charm2=Rite of Passage[U]",
+     "charm3=Dousing Charm",
+     "gloves=Massive Mitts",
+     "helmet=Imperial Greathelm",
+     "leftRing=Gold Ring",
+     "mainHand#1=Chiming Staff",
+     "mainHand#2=Cannonade Crossbow",
+     "rightRing=Gold Ring"
+    ],
+    "gems": [
+     "Flameblast(5)",
+     "Oil Grenade(5)",
+     "Arctic Armour(3)",
+     "Cast on Dodge(5)",
+     "Mana Remnants(3)",
+     "Incendiary Shot(0)",
+     "Ice Shards(4)",
+     "Infernal Cry(0)",
+     "Shockwave Totem(4)",
+     "Elemental Weakness(3)",
+     "Tornado(3)",
+     "Seismic Cry(2)",
+     "Frost Bomb(4)"
+    ],
+    "main": 98,
+    "set1": 30,
+    "set2": 31,
+    "ascSel": 9,
+    "asc": [
+     "Essence of Virtue",
+     "Advanced Thaumaturgy",
+     "Implanted Gems",
+     "Gem Studded"
+    ],
+    "jewels": 11
+   }
+  }
+ },
+ "poe2db": {
+  "part1": {
+   "ascendancy": {
+    "cn": "古灵使徒斗士",
+    "en": "Gemling Legionnaire",
+    "class": "佣兵 Mercenary",
+    "nodes": {
+     "55536": "start",
+     "34882": "技能宝石品质 Skill Gem Quality: 所有技能品质 +2% / +2% to Quality of all Skills",
+     "45248": "技能宝石品质 +2%",
+     "55582": "技能宝石品质 +2%",
+     "11641": "美德精华 Essence of Virtue: 获得技能：美德壁垒 Grants Skill: Virtuous Barrier (base max gemling barrier stacks 3)",
+     "14429": "奇术深造 Advanced Thaumaturgy: 宝石品质为镶嵌的技能提供一个额外效果 / Gem Quality grants Socketed Skills an additional effect",
+     "60287": "植入宝石 Implanted Gems (choice)",
+     "37397": "神经植入体 Neurological Implants: 所有需要智慧的技能等级 +2 / +2 to Level of all Skills with an Intelligence requirement",
+     "32952": "强化植入体 Bolstering Implants (+2 Str skills)",
+     "63259": "运动植入体 Motoric Implants (+2 Dex skills)",
+     "3084": "降低属性需求 Reduced Attribute Requirements: 装备和技能宝石的属性需求降低 4% / Equipment and Skill Gems have 4% reduced Attribute Requirements",
+     "30996": "嵌宝美玉 Gem Studded: 根据数量最多的镶嵌辅助宝石颜色，获得：•红色：对你的击中没有暴击伤害加成 •蓝色：技能消耗总降 30% •绿色：移动中使用技能的移动速度惩罚总降 40% / For each colour of Socketed Support Gem that is most numerous, gain: •Red: Hits against you have no Critical Damage Bonus •Blue: Skills have 30% less cost •Green: 40% less Movement Speed Penalty from using Skills while Moving",
+     "18146": "降低属性需求",
+     "53762": "降低属性需求",
+     "1442": "属性 Attributes: 所有属性提高 3%",
+     "36822": "属性",
+     "57819": "集成效能 Integrated Efficiency",
+     "53108": "应变性能 Adaptive Capability",
+     "36728": "奇术灌输 Thaumaturgical Infusion",
+     "58591": "强化效能 Enhanced Effectiveness"
+    },
+    "edges": "55536-34882, 34882-11641, 11641-45248, 45248-14429, 11641-55582, 55582-60287, 60287-{37397,32952,63259}, 55536-3084, 3084-30996, 30996-53762, 53762-36728, 30996-18146, 18146-57819, 55536-1442, 1442-53108, 53108-36822, 36822-58591",
+    "variant_paid_points": "lvl52swap: 34882,11641,45248,14429,55582,60287 (+choice 37397 free) = 6 pts (3 trials); lvl53-68/85/Endgame: + 3084, 30996 = 8 pts (4 trials)"
+   },
+   "trials": {
+    "sekhemas": "1st Balbala's Barya area 22 (2pts); 2nd Djinn Barya area 38 (4pts); 3rd area 60 (6pts); 4th area 80 (8pts)",
+    "chaos": "Chimeral Inscribed Ultimatum 4 trials (4pts); Inscribed Ultimatum 10+ trials Level 75 (6pts, us page); Cowardly/Deadly/Victorious Fate 10 trials Level 80 (8pts)",
+    "notes": "us page: You can gain first 6 points before Map. cn page: 初次击杀「眼镜蛇领主．艾尔札拉」保证掉落巨灵之币，可用来取得第三次升华点数. 总共 8 点."
+   },
+   "virtuous_barrier": {
+    "cn": "美德壁垒",
+    "en": "Virtuous Barrier",
+    "effect_en": "Persistent buff. Gains a random Mote every (1.53—2) s; loses a random Mote when Hit. Maximum of each Attribute of Mote is 3 plus the number of Skills you have which require that Attribute; Single-Attribute Skills grant twice as many maximum Motes. 2% increased maximum Life per Strength Mote; 5% increased Armour, Evasion and Energy Shield per Dexterity Mote; 5% increased Life and Mana Regeneration rate per Intelligence Mote. Quality: (0—2.5)% increased Life/Mana Regeneration per Int Mote",
+    "effect_cn": "激活时，召唤一面闪烁的屏障，随时间积累每种属性类型的保护性宝石尘埃，但当你被击中时会失去一个随机尘埃。每 (1.53—2) 秒获得一个随机微粒。每种属性的微粒上限为 3，并额外增加等同于你拥有的且为该属性需求的技能数量；单属性技能赋予双倍微粒上限。每有一点力量微粒，生命上限提高 2%；每有一点敏捷微粒，护甲，闪避与能量护盾提高 5%；每点智慧微粒使生命回复速度提高 5%、魔力回复速度提高 5%"
+   },
+   "gem_level_to_char_level": {
+    "1": 0,
+    "2": 3,
+    "3": 6,
+    "4": 10,
+    "5": 14,
+    "6": 18,
+    "7": 22,
+    "8": 26,
+    "9": 31,
+    "10": 36,
+    "11": 41,
+    "12": 46,
+    "13": 52,
+    "14": 58,
+    "15": 64,
+    "16": 66,
+    "17": 72,
+    "18": 78,
+    "19": 84,
+    "20": 90
+   },
+   "gems": {
+    "Flameblast": {
+     "cn": "烈焰爆破",
+     "tier": 13,
+     "note": "Spell, AoE, Fire, Channelling, Nova, Staged; Cooldown 10.00 s; Cast 0.25 s; Crit 8%; 75% more damage per Stage; 10 maximum Stages; explosion radius 0.6 m per stage; cost (5.62—57.5) mana per second; Quality: (0—20)% more Cast Speed, (0—40)% more Magnitude of Damaging Ailments per Stage; From Uncut Skill Gem Tier 13"
+    },
+    "Oil Grenade": {
+     "cn": "黏油榴弹",
+     "tier": 9,
+     "note": "Attack, AoE, Projectile, Grenade, Fire, Duration; Cooldown 4.00 s (3 Times); Requires Crossbows; Str/Dex; Oil can be Ignited by Detonator Skills or Ignited Ground; Oil slows 40%; Oil applies Exposure -20% total elemental res; oil duration 6 s; detonation 1.6 s"
+    },
+    "Frost Bomb": {
+     "cn": "寒霜爆",
+     "tier": 1,
+     "note": "Cooldown 6 s; Elemental Exposure initial 20% +2% per pulse up to 50%; Exposure 8 s; Cannot apply Exposure to enemies of level higher than (20—100); Limit 1"
+    },
+    "Elemental Weakness": {
+     "cn": "元素要害",
+     "tier": 7,
+     "note": "Curse -(40—59)% elemental res; does not apply to enemies above a level scaling with gem level; duration 6-7.4 s; 1.5 s delay"
+    },
+    "Tornado": {
+     "cn": "龙卷旋风",
+     "tier": 11,
+     "note": "Storm; A Tornado that overlaps an Elemental Ground Surface absorbs that surface's Debuff; Limit 1; duration 8 s"
+    },
+    "Cast on Dodge": {
+     "cn": "躲闪时施放",
+     "tier": 14,
+     "note": "Meta, Persistent, Trigger; Reservation 100 Spirit; Dex/Int; gains 2 Energy per metre dodge rolled; triggers socketed spells at max Energy (10 max Energy per 0.1 s base cast time of socketed spells); Quality: (0—10)% increased Reservation Efficiency, +(0—1) metre Dodge Roll distance; From Absent Amulet or Uncut Spirit Gem Tier 14"
+    },
+    "Mana Remnants": {
+     "cn": "魔力残片",
+     "tier": 4,
+     "note": "Persistent, Remnant; Reservation 30 Spirit; 25% chance on killing enemy with elemental ailment to spawn Remnant; each Remnant grants (28—281) Mana"
+    },
+    "Temporal Chains": {
+     "cn": "时空锁链",
+     "tier": 7
+    },
+    "Blasphemy": {
+     "cn": "诅咒光环",
+     "tier": 8,
+     "note": "Reserves 60 Spirit per socketed Curse"
+    },
+    "Withering Presence": {
+     "cn": "凋零姿态",
+     "tier": 4,
+     "note": "Reservation 30 Spirit; Withers enemies in Presence"
+    },
+    "Arctic Armour": {
+     "cn": "极地装甲"
+    },
+    "Explosive Grenade": {
+     "cn": "高爆榴弹"
+    },
+    "Gas Grenade": {
+     "cn": "瓦斯榴弹"
+    },
+    "Flash Grenade": {
+     "cn": "闪光榴弹"
+    },
+    "Solar Orb": {
+     "cn": "日曜球"
+    },
+    "Contagion": {
+     "cn": "瘟疫"
+    },
+    "Sigil of Power": {
+     "cn": "威能法印"
+    },
+    "Flammability": {
+     "cn": "易燃"
+    }
+   },
+   "supports": {
+    "Considered Casting": {
+     "cn": "审慎施法",
+     "tier": 2,
+     "attr": "Int",
+     "eff": "Supported Spell Skills have 15% less Cast Speed; Supported Spells deal 35% more Damage; cost x115%"
+    },
+    "Searing Flame II": {
+     "cn": "焚躯烈焰 II",
+     "tier": 4,
+     "attr": "Str",
+     "eff": "Supported Skills deal 30% less Damage with Hits; 100% more Magnitude of Ignite inflicted"
+    },
+    "Concentrated Area": {
+     "cn": "范围集中",
+     "tier": 1,
+     "attr": "Int",
+     "eff": "30% more Area Damage; 50% less Area of Effect"
+    },
+    "Burgeon II": {
+     "cn": "迅猛增幅 II",
+     "tier": 4,
+     "attr": "Int",
+     "eff": "Channelling: 20% more Damage per second spent Channelling, up to 40%; cost x120%"
+    },
+    "Controlled Destruction": {
+     "cn": "精准破坏",
+     "tier": 1,
+     "attr": "Int",
+     "eff": "Supported Spells deal 25% more Hit Damage; cannot deal Critical Hits"
+    },
+    "Short Fuse II": {
+     "cn": "短暂引信 II",
+     "tier": 4,
+     "attr": "Str",
+     "eff": "80% less Detonation Time; 30% less Damage; cost x115%"
+    },
+    "Nova Projectiles I": {
+     "cn": "新星投射物 I",
+     "tier": 2,
+     "attr": "Dex",
+     "eff": "fire Projectiles in a circle"
+    },
+    "Multishot II": {
+     "cn": "多重射击 II",
+     "tier": 2,
+     "attr": "Dex",
+     "eff": "25% less Damage; 2 additional Projectiles; 20% less Skill Speed"
+    },
+    "Magnified Area II": {
+     "cn": "范围扩大 II",
+     "tier": 3,
+     "attr": "Int",
+     "eff": "45% increased Area of Effect; cost x130%"
+    },
+    "Encroaching Ground": {
+     "cn": "侵蚀地面",
+     "tier": 2,
+     "attr": "Int",
+     "eff": "Ground Surfaces gain 20% increased AoE per second, up to 100%; cost x110%"
+    },
+    "Potent Exposure": {
+     "cn": "强力曝露",
+     "tier": 2,
+     "attr": "Int",
+     "eff": "Exposure applied has 20% increased effect"
+    },
+    "Overabundance II": {
+     "cn": "冗余 II",
+     "tier": 4,
+     "attr": "Dex",
+     "eff": "+1 to Limit; 40% less Skill Effect Duration"
+    },
+    "Spell Echo": {
+     "cn": "施法回响",
+     "tier": 2,
+     "attr": "Int",
+     "eff": "Spells Echo 1 time; 30% less Cast Speed; echoes 40% increased AoE; cost x150%"
+    },
+    "Heightened Curse": {
+     "cn": "强效诅咒",
+     "tier": 1,
+     "attr": "Int",
+     "eff": "Curses 25% increased Magnitudes; reservation/cost x140%"
+    },
+    "Focused Curse": {
+     "cn": "聚焦诅咒",
+     "tier": 2,
+     "attr": "Int",
+     "eff": "Curse zones erupt after 50% less delay; cost x120%"
+    },
+    "Efficiency II": {
+     "cn": "效能 II",
+     "tier": 4,
+     "attr": "Str",
+     "eff": "40% less Cost; cannot support skills which reserve Spirit"
+    },
+    "Expand": {
+     "cn": "扩展",
+     "tier": 5,
+     "attr": "Int",
+     "eff": "max 3 Seals; 30% increased AoE per Seal broken; seal every 200% of cast time; cannot support Channelling/Cooldown skills"
+    },
+    "Advancing Storm": {
+     "cn": "风暴行军",
+     "tier": 4,
+     "attr": "Int",
+     "eff": "Storm skills originate from the player and move towards the target location"
+    },
+    "Prolonged Duration II": {
+     "cn": "持续时间延长 II",
+     "tier": 3,
+     "attr": "Str",
+     "eff": "35% more Skill Effect Duration; cost x120%"
+    },
+    "Boundless Energy II": {
+     "cn": "无边能量 II",
+     "tier": 4,
+     "attr": "Int",
+     "eff": "Meta: 45% increased Energy; cost x115%"
+    },
+    "Khatal's Rejuvenation": {
+     "cn": "卡哈塔的复苏",
+     "lineage": true,
+     "attr": "Int",
+     "req_level": 65,
+     "drop_level": 52,
+     "dropped_by": "Zahmir, the Blade Sovereign / 扎米尔，刀锋之主 (Sacred Reservoir 神圣水库, map boss tier 3, monster level 65)",
+     "eff": "Remnants created by Supported Skills grant Khatal's Rejuvenation when collected; buff: increased Cooldown Recovery Rate per stack, MaxStacks 8 (value not listed on poe2db); reservation/cost x120%"
+    },
+    "Harmonic Remnants II": {
+     "cn": "和谐残迹 II",
+     "tier": 3,
+     "attr": "Int",
+     "eff": "20% chance to create an additional Remnant; collected from 35% further away"
+    },
+    "Chaos Mastery": {
+     "cn": "混沌专精",
+     "tier": 5,
+     "attr": "Int",
+     "eff": "+1 to Level of Supported Chaos Skills"
+    },
+    "Elemental Focus": {
+     "cn": "元素集中"
+    },
+    "Cannibalism II": {
+     "cn": "吞灵 II"
+    }
+   },
+   "items": {
+    "Pyrophyte Staff": "耐火长杖",
+    "Bombard Crossbow": "轰炸战弩",
+    "Face Mask": "覆颜面具",
+    "Ancestral Mail": "先祖锁甲",
+    "Sombre Gloves": "肃穆手套",
+    "Runeforged Sombre Gloves": "符文肃穆手套",
+    "Bronze Greaves": "青铜胫甲",
+    "Topaz Ring": "黄玉戒指",
+    "Sapphire Ring": "蓝玉戒指",
+    "Gold Ring": "金光戒指",
+    "Utility Belt": "万用腰带",
+    "Transcendent Life Flask": "非凡生命药剂",
+    "Gargantuan Mana Flask": "恢弘魔力药剂",
+    "Thawing Charm": "融冰咒符",
+    "Dousing Charm": "浸润咒符",
+    "Silver Charm": "真银咒符",
+    "Cryptic Crown": "隐秘之冠",
+    "Runeforged Cryptic Crown": "符文隐秘之冠 (Armour 86, ES 24, Runic Ward 254, Req L80 63Str 63Int; runeforging cost: Cryptic Crown + Verisium x465; DropLevel 80)",
+    "Wolfskin Mantle": "狼皮斗篷",
+    "Adherent Cuffs": "信徒袖带",
+    "Runeforged Adherent Cuffs": "符文信徒袖带",
+    "Cryptic Leggings": "隐秘绑腿",
+    "Runeforged Cryptic Leggings": "符文隐秘绑腿",
+    "Gold Amulet": "帝金项链",
+    "Absent Amulet": "失神项链 (grants Cast on Dodge)",
+    "Unset Ring": "潜能之戒",
+    "Ruby": "红玉",
+    "Sapphire": "蓝玉",
+    "Emerald": "翡翠",
+    "Surefooted Sigil": "稳步法印（翠玉项链 Jade Amulet）",
+    "Morior Invictus": "无生之辱（恢弘盛装 Grand Regalia）",
+    "The Fall of the Axe": "落刃时刻（真银咒符）",
+    "Blackflame": "黑焰（紫晶戒指 Amethyst Ring）",
+    "Headhunter": "猎首（重革腰带）",
+    "Mageblood": "法师之血（万用腰带）",
+    "Beira's Anguish": "贝拉的苦楚（浸润咒符）",
+    "Kaom's Lesson": "岗姆的训诫",
+    "Rakiata's Lesson": "拉其塔的训诫"
+   },
+   "runes": {
+    "soulcore-runeenhancegreater": "Greater Iron Rune 高级钢铁符文 (Req 30): Wand or Staff: 30% increased Spell Damage / 法杖或长杖: 法术伤害提高 30% (Martial: 18% inc phys; Armour: 18% inc Armour/Evasion/ES)",
+    "soulcore-runespecial5": "Hedgewitch Assandra's Rune of Wisdom 女巫阿桑德拉的智慧符文 (Limited to 1, Req 50, DropLevel 65): Wand or Staff: +1 to Level of all Spell Skills / 法杖或长杖: 所有法术技能等级 +1; Bonded: Archon recovery period expires 30% faster",
+    "soulcore-runemanarecoverygreater": "Greater Inspiration Rune 高级启迪符文 (Req 30): Martial Weapon: Gain 30 Mana per enemy killed / 战斗武器: 每击败一名敌人获得 30 点魔力",
+    "soulcore-soulcoremaxlife": "Soul Core of Jiquani 佳华尼的灵核 (Limited to 1, DropLevel 35): Martial Weapon: Recover 5% of maximum Life on Kill / 战斗武器: 生命在击败敌人时恢复 5%; Body Armours: 5% increased maximum Life / 护甲: 生命上限提高 5%",
+    "soulcore-soulcorelight": "Soul Core of Azcapa 阿兹卡帕的灵核 (DropLevel 35): Martial Weapon: +15 to Spirit / 战斗武器: +15 精魂; Gloves: 10% increased Quantity of Gold",
+    "soulcore-talismanfox": "Fox Idol 狐狸雕像 (Limited to 1, DropLevel 65): Body Armours: Idols socketed in this item gain the benefits of their Bonded modifiers; Bonded: Body Armours: +5% to Quality of all Skills / 羁绊：护甲: 所有技能品质 +5%",
+    "soulcore-runeoftheancients16": "Rune of Acrobatics 杂技符文 (Limited to 1, Req 15): Boots: +0.3 metres to Dodge Roll distance / 鞋子: 闪避翻滚距离 +0.3 米; Bonded boots: 30% increased Armour if you haven't Dodge Rolled Recently",
+    "soulcore-runelifeperfect": "Perfect Body Rune 完美身躯符文 (Req 50): Armour: +75 to maximum Life / 护甲: +75 生命上限"
+   },
+   "notables_cn": {
+    "Adrenaline Rush": "激情冲动",
+    "Cluster Bombs": "集束炸弹",
+    "Grenadier": "掷弹兵",
+    "Deterioration": "退化",
+    "Searing Heat": "灼热气息",
+    "Fast Acting Toxins": "速效毒素",
+    "Wasting": "损耗",
+    "Lasting Trauma": "持久创伤",
+    "Arsonist": "纵火狂",
+    "Engineered Blaze": "匠造烈焰",
+    "Utility Ordnance": "实用军械",
+    "Authority": "权威",
+    "Multitasking": "多管齐下",
+    "Flamekeeper": "火焰守护者",
+    "Primal Growth": "原始生长",
+    "Volatile Catalyst": "动荡催化剂",
+    "Catapult": "投石车",
+    "Gem Enthusiast": "宝石爱好者",
+    "Distracting Presence": "扰乱威势",
+    "Fulmination": "轰鸣烈焰",
+    "Momentum": "动量",
+    "Light on your Feet": "轻盈步伐",
+    "Immolation": "焚化",
+    "Primed to Explode": "引爆预备",
+    "Curved Weapon": "曲刃战械",
+    "Colossal Weapon": "巨神兵器",
+    "Paragon": "典范",
+    "Burnout": "焚尽",
+    "Augmented Flesh": "增幅血肉",
+    "Iron Reflexes": "霸体"
+   },
+   "mods_staff": [
+    "69% increased Fire Damage -> Sizzling / 酷热的 (lv8, prefix) :: (69—88)% increased Fire Damage :: 火焰伤害提高 (69—88)%",
+    "+4 to Level of all Fire Spell Skills -> of Flames / 烈焰之 (lv36, suffix) :: +(3—4) to Level of all Fire Spell Skills :: 所有火焰法术技能等级 +(3—4)",
+    "149% increased Spell Damage -> Incanter's / 魔咒师的 (lv60, prefix) :: (149—188)% :: 法术伤害提高 (149—188)%",
+    "149% increased Fire Damage -> Magmatic / 熔岩的 (lv60, prefix) :: (149—188)% :: 火焰伤害提高 (149—188)%",
+    "+7 to Level of all Fire Spell Skills -> of Inferno / 狱火之 (lv81, suffix) :: +7 :: 所有火焰法术技能等级 +7",
+    "Gain 49% of Damage as Extra Fire Damage -> Infernal / 狱炎的 (lv60, prefix) :: Gain (49—54)% :: 获得相当于伤害 (49—54)% 的额外火焰伤害"
+   ]
+  },
+  "part2": {
+   "mods": {
+    "crossbow": [
+     "14% increased Attack Speed -> of Renown / 声望之 (lv30, suffix) (14—16)% / 攻击速度提高 (14—16)%",
+     "+2 to Level of all Projectile Skills -> of the Fletcher / 制箭之 (lv18, suffix) / 所有投射物技能等级 +2",
+     "+3 to Level of all Projectile Skills -> of the Sharpshooter / 锐眼之 (lv36, suffix) / 所有投射物技能等级 +3",
+     "Grenade Skills have +1 Cooldown Use(s) -> Amanamu's / 阿曼娜姆的 (desecrated prefix, lv65) / 榴弹技能拥有 +1 次冷却使用次数"
+    ],
+    "helmet_dex_int": [
+     "+60 to maximum Life -> Stout / 粗壮的 (lv33) +(60—69) / +(60—69) 生命上限"
+    ],
+    "helmet_str_int": [
+     "+175 to maximum Life -> NO HIT: helmet life tops at Fecund / 丰饶的 lv65 +(150—174); +175 is Vigorous / 蓬勃的 (lv70, body armour only)",
+     "+4% Chaos Res -> of the Lost / 失落之 (lv16) +(4—7)% / 混沌抗性 +(4—7)%",
+     "+20% Chaos Res -> of Exile / 流亡之 (lv68) +(20—23)% / 混沌抗性 +(20—23)%",
+     "Rarity prefixes: Magpie's/喜鹊的 lv10 (8—11)%, Collector's/收藏家的 lv29 (12—15)%, Hoarder's/囤宝者的 lv47 (16—19)%; suffixes: of Plunder/掠夺之 lv3 (6—10)%, of Raiding/扫荡之 lv24 (11—14)%, of Archaeology/考古之 lv40 (15—18)% ; CN: 物品稀有度提高 X%"
+    ],
+    "body_str_dex": [
+     "80% increased Armour and Evasion -> Hero's / 英雄的 (lv60) (80—91)% / 护甲与闪避提高 (80—91)%"
+    ],
+    "body_str_int": [
+     "+200 to maximum Life -> Prime / 全盛的 (lv80) +(200—214)",
+     "+57 to Spirit -> Queen's / 女王的 (lv78) +(57—61) / +(57—61) 精魂",
+     "body life tiers: ...Athlete's/健将的 lv60 120—149; Fecund/丰饶的 lv65 150—174; Vigorous/蓬勃的 lv70 175—189; Rapturous/狂喜的 lv75 190—199; Prime/全盛的 lv80 200—214"
+    ],
+    "gloves": [
+     "+85 Life (int) -> Rotund / 丰腴的 (lv46) +(85—99)",
+     "+120 Life (str_int) -> Athlete's / 健将的 (lv60) +(120—149) (gloves max tier)",
+     "6% rarity -> of Plunder / 掠夺之 (lv3) (6—10)%",
+     "15% rarity -> of Archaeology / 考古之 (lv40) (15—18)%"
+    ],
+    "boots": [
+     "20% MS -> Stallion's / 种马的 (lv33)",
+     "MS tiers: Runner's/跑步的 lv1 10%; Sprinter's/短跑的 lv16 15%; Stallion's/种马的 lv33 20%; Gazelle's/瞪羚的 lv46 25%; Cheetah's/猎豹的 lv65 30%; Hellion's/地狱的 lv82 35% ; CN 移动速度提高 X%",
+     "35% MS -> Hellion's / 地狱的 (lv82)",
+     "+190 Life -> NO HIT on boots: boots life max Athlete's / 健将的 lv60 +(120—149); +190 is Rapturous (body only)"
+    ],
+    "amulet": [
+     "+100 Life -> Virile / 阳刚的 (lv54) +(100—119)",
+     "+34 Spirit -> Baronness' / 女男爵的 (lv25) +(34—37)",
+     "Amulet spirit tiers: Lady's/女士的 lv16 30—33; Baronness'/女男爵的 lv25 34—37; Viscountess'/女子爵的 lv33 38—42; Marchioness'/女侯爵的 lv46 43—46; Countess'/女伯爵的 lv54 47—50 (max) -> Endgame '+94 to Spirit' = IncreasedSpirit5 listed twice (same family, cannot stack)",
+     "+31% Fire Res -> of the Volcano / 火山之 (lv60) +(31—35)%",
+     "+3 to Level of all Spell Skills -> of the Sorcerer / 魔巫之 (lv75) / 所有法术技能等级 +3",
+     "+3% Quality of all Skills -> of Kurgal / 古加尔之 (desecrated suffix, lv65) +(3—5)% / 所有技能品质 +(3—5)%"
+    ],
+    "rings": [
+     "+100 Life -> Virile / 阳刚的 (lv54) (ring max)",
+     "15% rarity -> of Archaeology / 考古之 (lv40) or Collector's / 收藏家的 (lv29)",
+     "+26% Cold -> of the Walrus / 海象之 (lv50) +(26—30)%",
+     "+26% Lightning -> of the Tempest / 暴风雨之 (lv49) +(26—30)%",
+     "+31% Fire -> of the Volcano / 火山之 (lv60)",
+     "+20% Chaos -> of Exile / 流亡之 (lv68)",
+     "27% inc Fire Damage -> Magmatic / 熔岩的 (lv75) (27—30)% / 火焰伤害提高",
+     "23% inc Fire Damage -> Volcanic / 火山的 (lv65) (23—26)%",
+     "Res tiers fire: Kiln/窑炉之 lv36 21-25; Furnace/炉火之 lv48 26-30; Volcano/火山之 lv60 31-35; Magma/岩浆之 lv71 36-40; Tzteosh/提耶须之 lv82 41-45. cold: Yeti/雪人之 lv38; Walrus/海象之 lv50; Polar Bear/北极熊之 lv60; Ice/寒冰之 lv71; Haast/哈斯特之 lv82. lightning: Thunderhead/积雨云之 lv37; Tempest/暴风雨之 lv49; Maelstrom/台风之 lv60; Lightning/电之 lv71; Ephij/艾菲吉之 lv82"
+    ],
+    "belt": [
+     "+187 to Armour -> Encased / 围绕的 (lv54) +(187—225) / +(187—225) 护甲",
+     "+120 Life -> Athlete's / 健将的 (lv60)",
+     "+31 Str -> of the Titan / 泰坦之 (lv74) +(31—33) / +(31—33) 力量",
+     "+31% Fire -> of the Volcano / 火山之 (lv60)"
+    ],
+    "flask": [
+     "20% of Recovery applied Instantly -> Simmering / 煨闷的 (lv3) (20—23)% / 立即回复(20—23)% 回复量"
+    ],
+    "staff_tiers": [
+     "Fire spell level: Coals/煤之 lv2 +1; Cinders/灰烬之 lv18 +2; Flames/烈焰之 lv36 +(3—4); Immolation/献祭之 lv55 +(5—6); Inferno/狱火之 lv81 +7 ; CN 所有火焰法术技能等级 +X",
+     "Spell damage: Occultist's/神秘学者的 lv46 129—148; Incanter's/魔咒师的 lv60 149—188; Glyphic/雕纹的 lv70 189—208; Runic/锋芒的 lv80 209—238",
+     "Fire damage: Smoldering/焖烧的 lv46 129—148; Magmatic/熔岩的 lv60 149—188; Volcanic/火山的 lv70 189—208; Pyromancer's/烈焰法师的 lv81 209—238",
+     "Extra fire: Zealot's/狂信的 lv46 43—48; Infernal/狱炎的 lv60 49—54; Flamebound/缚焰的 lv80 55—60 ; CN 获得相当于伤害 X% 的额外火焰伤害",
+     "Flammability magnitude (suffix): of Ignition/点燃之 lv15 51—60; of Scorching/酷热之 lv30 61—70; of Incineration/焚化之 lv45 71—80; of Combustion/灼烧之 lv60 81—90; of Conflagration/燃爆之 lv75 91—100 ; CN 易燃强度提高 X%"
+    ],
+    "jewels": [
+     "JewelIgniteChance -> of Ignition / 点燃之 (suffix) (10—20)% increased Flammability Magnitude / 易燃强度提高 (10—20)% (Ruby, Sapphire)",
+     "JewelIgniteEffect -> Burning / 燃烧的 (prefix) (5—15)% increased Ignite Magnitude / 点燃强度提高 (5—15)% (Ruby, Sapphire)",
+     "JewelAilmentEffect -> Acrimonious / 尖刻的 (prefix) (5—15)% increased Magnitude of Ailments you inflict / 你造成的异常状态强度提高 (5—15)% (Sapphire, Emerald)",
+     "JewelFasterAilments -> of Decrepifying / 朽迈之 (suffix) Damaging Ailments deal damage (3—7)% faster / 伤害型异常状态生效速度加快 (3—7)% (Sapphire, Emerald)",
+     "prefix-heart-of-the-well-51 -> Lightless / 暗光 desecrated prefix (4—8)% increased Elemental Damage + (4—8)% increased Magnitude of Ailments you inflict / 元素伤害提高 (4—8)% + 你造成的异常状态强度提高 (4—8)% (trade stat 538241406 = ailment magnitude)",
+     "+1 Prefix Modifier allowed (CraftedJewelAdditionalPrefixAllowed) / 允许的前缀 +1 -> crafted with Potent Liquid Contempt / 强效的液化轻蔑",
+     "Mystic/秘言的 (5—15)% Spell Damage / 法术伤害提高; Prismatic/虹光的 (5—15)% Elemental Damage / 元素伤害提高"
+    ]
+   },
+   "tree": {
+    "keystones": "none in main, set1 or set2 of any variant (checked all 33 poe2db keystones)",
+    "notables_equal_priority": "selected notables == author priorityList in every variant",
+    "v3_swap": {
+     "main": "52 = 49 normal + 3 notables (Adrenaline Rush, Deterioration, Arsonist); jewel sockets 54127, 46882, 2491",
+     "s1": "18 (5 notables: Searing Heat, Fast Acting Toxins, Wasting, Lasting Trauma, Fulmination)",
+     "s2": "18 (6 notables: Volatile Catalyst, Cluster Bombs, Grenadier, Engineered Blaze, Utility Ordnance, Authority)"
+    },
+    "v4": {
+     "main": "67 = 61 normal + 6 notables (Adrenaline Rush, Deterioration, Arsonist, Volatile Catalyst, Gem Enthusiast, Distracting Presence); 37 attribute(+5 any), 4 jewel sockets (54127, 46882, 2491, 55190 [empty in data]), 3x Projectile Damage 10%, 2x MS 3% if killed recently, 3x ailment chance+magnitude 6%, flammability small nodes, 3x CDR 5%, +3 all attr, 2x +8 str, 1x fire dmg 12%, 1x attack area 6%",
+     "s1": "24 (6 notables: Searing Heat, Fast Acting Toxins, Wasting, Lasting Trauma, Flamekeeper, Fulmination) + ignite magnitude / ailment effect / faster ailments / fire damage / fire penetration 6% / damage 10% small nodes",
+     "s2": "24 (8 notables: Cluster Bombs, Grenadier, Engineered Blaze, Utility Ordnance, Authority, Multitasking, Primal Growth, Catapult) + grenade CDR 15% x4, grenade area x2, grenade damage x2, attack area x6, CDR 5% x2"
+    },
+    "v5": {
+     "main": "84 = 76 normal + 8 notables (+Momentum, Light on your Feet); added: jewel sockets 26725, 26196; attack area x2, area damage 10%, 7 attribute nodes, slow-effect-on-you nodes, MS 2% x2 + 1% , Flammability+Ignite magnitude small x2 (53329, 64724); removed: fire damage 52746, projectile damage 14045, attack area 36070, MS 40341",
+     "s1": "24 (7 notables: +Immolation; Fulmination kept)",
+     "s2": "24 (8 notables same as v4)"
+    },
+    "v6": {
+     "main": "96 = 88 normal + 8 notables (same as v5); added 9 attribute nodes, MS 2% x2, jewel sockets 7960, 60735 => 8 sockets total (54127, 46882, 2491, 55190, 26725, 26196, 7960, 60735) but data lists 3 jewels",
+     "s1": "24 (6 notables: Fulmination swapped out for small node 64724 Flammability+Ignite; keeps Immolation)",
+     "s2": "same as v5"
+    }
+   },
+   "notables": {
+    "Adrenaline Rush 激情冲动": "若你近期内有击败敌人，则移动速度提高 4% / 攻击速度提高 8% | 4% MS / 8% attack speed if Killed Recently | 涂油: 憎恶, 愤怒, 恐惧",
+    "Cluster Bombs 集束炸弹": "榴弹引爆时间提高 50% / 榴弹技能发射 1 个额外投射物 | 50% increased Grenade Detonation Time / Grenade Skills Fire 1 additional Projectiles",
+    "Grenadier 掷弹兵": "榴弹技能拥有 +1 次冷却使用次数 | Grenade Skills have +1 Cooldown Uses",
+    "Deterioration 退化": "你已经受到伤害型异常状态时不会再受到伤害异常状态 / 你造成的伤害性异常状态强度提高 20%",
+    "Searing Heat 灼热气息": "易燃强度提高 100% / 你造成的点燃的伤害生效速度加快 10%",
+    "Fast Acting Toxins 速效毒素": "伤害型异常状态生效速度加快 12%",
+    "Wasting 损耗": "敌人受到伤害性异常状态的持续时间提高 15% / 对受异常状态影响的敌人造成的击中伤害提高 30%",
+    "Lasting Trauma 持久创伤": "攻击速度降低 5% / 你造成的异常状态强度提高 30% / 敌人受到伤害性异常状态的持续时间提高 20%",
+    "Arsonist 纵火狂": "你造成的点燃的伤害生效速度加快 18%",
+    "Engineered Blaze 匠造烈焰": "你在过去 8 秒内每点燃一个敌人，攻击效果范围提高 4%，最多 40%",
+    "Utility Ordnance 实用军械": "榴弹伤害降低 80% / 榴弹技能的冷却回复速度提高 40%",
+    "Authority 权威": "攻击技能的效果区域提高 15% / 冷却回复速度提高 10%",
+    "Multitasking 多管齐下": "技能效果持续时间提高 15% / 冷却回复速度提高 12%",
+    "Flamekeeper 火焰守护者": "火焰伤害提高 20% / 点燃强度提高 15% / 你受到的点燃效果降低 30%",
+    "Primal Growth 原始生长": "若你近期内有击败敌人，则效果区域提高 15% / 攻击技能的效果区域提高 8%",
+    "Volatile Catalyst 动荡催化剂": "效果区域提高 8% / 冷却回复速度提高 10%",
+    "Catapult 投石车": "投射物速度提高 15% / 攻击技能的效果区域提高 12%",
+    "Gem Enthusiast 宝石爱好者": "若你镶嵌了至少 10 个红色辅助宝石，生命上限提高 5% / 至少 10 个蓝色，魔力上限提高 5% / 至少 10 个绿色，移动速度提高 5%",
+    "Distracting Presence 扰乱威势": "冷却回复速度提高 10% / 在场的敌人的冷却回复速度降低 10%",
+    "Fulmination 轰鸣烈焰": "易燃强度提高 80% / 对点燃敌人的击中伤害提高 40%",
+    "Momentum 动量": "无视护甲所带来的移动速度降低效果 / 你受到的异常状态的减速强度降低 5%",
+    "Light on your Feet 轻盈步伐": "移动速度提高 3% / 免疫缓速 / 免疫瘫痪",
+    "Immolation 焚化": "点燃强度提高 25% / +10 力量",
+    "Paragon 典范 (anoint)": "所有技能品质 +5% / +5 全属性 | 涂油: 凶残, 孤独, 绝望 (Ferocity, Isolation, Despair)",
+    "Burnout 焚尽 (anoint)": "你造成的点燃的伤害生效速度加快 15% | 涂油: 孤独, 贪婪, 偏执 (Isolation, Greed, Paranoia)",
+    "Augmented Flesh 增幅血肉 (anoint)": "获得 2 个额外技能栏位 | 涂油: 轻蔑, 痛苦, 痛苦 (Contempt, Suffering, Suffering)",
+    "Primed to Explode 引爆预备": "引爆技能的效果范围提高 40% / 引爆技能伤害降低 80% (commenter suggestion)"
+   }
+  },
+  "part3": {
+   "bases": {
+    "Pyrophyte Staff 耐火长杖": "Req L16, 31 Int; Grants Skill: Solar Orb 日曜球; DropLevel 16",
+    "Bombard Crossbow 轰炸战弩": "Phys 14-56, crit 5%, APS 1.65, reload 0.75; Req L33, 34 Str 34 Dex; implicit: Grenade Skills Fire 1 additional Projectiles; DropLevel 33",
+    "Face Mask 覆颜面具": "Evasion 32, ES 16; Req L10, 10 Dex 10 Int",
+    "Ancestral Mail 先祖锁甲": "Armour 214, Evasion 194, Base Movement Speed -0.04; Req L50, 44 Str 44 Dex",
+    "Runeforged Sombre Gloves 符文肃穆手套": "ES 15, Runic Ward 17; Req L12, 17 Int; (Sombre Gloves + Verisium x20)",
+    "Bronze Greaves 青铜胫甲": "Armour 74; Req L16, 23 Str",
+    "Topaz Ring 黄玉戒指": "Req L16; implicit +(20—30)% Lightning Res",
+    "Sapphire Ring 蓝玉戒指": "Req L12; implicit +(20—30)% Cold Res",
+    "Gold Ring 金光戒指": "Req L40; implicit (6—15)% increased Rarity",
+    "Utility Belt 万用腰带": "Req L55; Has (1—3) Charm Slots; 20% of Flask Recovery applied Instantly",
+    "Transcendent Life Flask 非凡生命药剂": "Recovers 840 Life over 4 s; 10 of 75 charges; Req L50",
+    "Gargantuan Mana Flask 恢弘魔力药剂": "Recovers 185 Mana over 2 s; Req L40",
+    "Wolfskin Mantle 狼皮斗篷": "Armour 313, ES 87, Base MS -0.04; Req L65, 67 Str 67 Int; DropLevel 65; Runeforged version: Armour 114 ES 32 Runic Ward 417",
+    "Runeforged Adherent Cuffs 符文信徒袖带": "Armour 39, ES 11, Runic Ward 134; Req L80, 55 Str 55 Int; (Adherent Cuffs + Verisium x350)",
+    "Runeforged Cryptic Leggings 符文隐秘绑腿": "Armour 59, ES 16, Runic Ward 201; Req L80, 59 Str 59 Int; (Cryptic Leggings + Verisium x405)",
+    "Runeforged Cryptic Crown 符文隐秘之冠": "Armour 86, ES 24, Runic Ward 254; Req L80, 63 Str 63 Int; (Cryptic Crown + Verisium x465)",
+    "Gold Amulet 帝金项链": "Req L35; implicit (12—20)% increased Rarity",
+    "Absent Amulet 失神项链": "Req L50; Grants Skill: Level 12 (one of) Cast on Elemental Ailment / Cast on Critical / Cast on Dodge / Rhoa Mount / Archmage / Trinity / Eternal Rage; -1 Prefix / -1 Suffix Modifier allowed (允许的前缀 -1 允许的后缀 -1)",
+    "Unset Ring 潜能之戒": "Req L44; Grants 1 additional Skill Slots / 获得 1 个额外技能栏位",
+    "Thawing Charm 融冰咒符": "移除你身上的所有冻结效果，且你不会被冻结 / All Freeze removed, cannot be Frozen (DropLevel 12)",
+    "Dousing Charm 浸润咒符": "移除你身上的所有点燃效果，且你不会被点燃 / All Ignite has been removed from you, and Ignite cannot be inflicted on you (DropLevel 32)",
+    "Silver Charm 真银咒符": "你的速度不受减速效果影响 / Your speed is unaffected by Slows; 3 s; 20 of 40 charges; used when Slowed; Req L10"
+   },
+   "uniques": {
+    "Surefooted Sigil 稳步法印 (Jade Amulet 翠玉项链)": "Req L8; +(10—15) 敏捷 (implicit); +(40—60) 生命上限; +(5—15) 敏捷; 闪避翻滚距离 +1 米; 若你近期使用过闪避翻滚，闪避值提高 50% / +1 metre to Dodge Roll distance",
+    "Morior Invictus 无生之辱 (Grand Regalia 恢弘盛装)": "Req L65, 41/41/41; 护甲、闪避和能量护盾提高 (300—400)%; [3 Random Socket Modifiers]; Has 4 Augment Sockets (Hidden); Limit/Dropped by The Arbiter of Ash 灰烬仲裁官. Socket mods pool: 每个镶嵌的插槽使生命上限 +(45—60) / +(45—60) to maximum Life per Socket filled; 所有元素抗性 +(8—10)%; 混沌抗性 +(10—13)%; 精魂 +(10—14); 所有属性 +(5—7); 魔力上限 +(50—60); 全局护甲闪避能量护盾提高 (9—12)%; 每秒再生 (8—12) 生命; 对你的击中的暴击伤害加成降低 (15—20)%; 晕眩阈值 +(70—90)",
+    "The Fall of the Axe 落刃时刻 (Silver Charm)": "Req L10; 当你受到减速影响时使用; 你的速度不受减速效果影响; 效果期间获得猛攻 / Grants Onslaught during effect",
+    "Blackflame 黑焰 (Amethyst Ring 紫晶戒指)": "Req L20; 混沌抗性 +(7—13)%; 魔力再生率提高 (15—30)%; 你施加的点燃造成混沌伤害而非火焰伤害; 点燃强度提高 (80—100)%; 敌人被点燃的持续时间降低 (60—75)%; 你施加的死亡凋零还会使承受的火焰伤害提高; 被你点燃的敌人身上的死亡凋零不会消减",
+    "Headhunter 猎首 (Heavy Belt 重革腰带)": "Req L50; 当你击败稀有怪物时，获得它的词缀，持续 60 秒 (author: bad, can brick ignite)",
+    "Beira's Anguish 贝拉的苦楚 (Dousing Charm)": "Req L32; 被点燃时自动使用; 可以免疫点燃; 使用时造成持续 4 秒的燃烧地面，地面点燃敌人时造成等同你生命上限 500% 的火焰伤害 (commenters: creates ignited ground, don't use)"
+   },
+   "mechanics": {
+    "Oil Grenade secondary (Oil Ground 黏油地面)": "EN: Converts 100% of Physical damage to Fire damage; Once Ignited, Oil Ground adds 150% of this Attack's Fire Damage as unscalable Damage to the Ignite; Oil Ground Duration 6 s. CN: 将物理伤害的 100% 转化为火焰伤害；一旦点燃，黏油地面会为点燃附加该攻击 150% 的火焰伤害，该伤害无法透过其他效果加成；黏油地面持续时间为 6 秒. Primary: 以这种方式产生的黏油可以被引爆技能或点燃地面点燃 / Oil created this way can be Ignited by Detonator Skills or Ignited Ground; 黏油造成曝露，使全部元素抗性总降 20%; Quality: CDR (0—20)%, exposure extra (0—10)%",
+    "Ignited Ground 点燃地面": "点燃地面会反复对站在其中的敌人施加易燃，当其达到 50% 时点燃他们。默认持续 4 秒，范围 2 米 / repeatedly inflicts Flammability on enemies standing on it, Igniting them when it reaches 50%",
+    "Flameblast CN": "持续吟唱，在你周围积蓄毁灭能量……造成 (7—244) - (11—367) 火焰伤害; 每层使伤害总增 75%; 上限为 10 层; 引爆范围为每层 0.6 米; 冷却时间 10.00 秒; 等阶 13; 品质额外效果：施法速度总增 (0—20)%，每层使伤害性异常状态的强度总增 (0—40)%",
+    "Cast on Dodge CN": "等阶 14; 保留 100 精魂; 闪避翻滚时每移动一米，获得 2 能量; 达到能量上限时触发所有镶嵌的法术; 镶嵌的法术每有 0.1 秒基础施法时间，获得 10 能量上限; 品质：保留效能提高 (0—10)%，闪避翻滚距离 +(0—1) 米",
+    "Frost Bomb CN": "冷却 6 秒; 初始施加 20% 元素曝露，每次脉冲施加 2% 曝露，最高 50%; 曝露持续 8 秒; 无法对等级高于 (20—100) 的敌人施加曝露",
+    "Tornado CN": "当龙卷风叠加元素地面效果时，将继承其减益状态，并对范围内的敌人施加该状态; 上限 1 个; 持续 8 秒",
+    "Mana Remnants CN": "保留 30 精魂; 击败受到元素异常状态影响的敌人时有 25% 的几率生成一个残片; 每个残片提供 (28—281) 魔力",
+    "support CN lines": "审慎施法: 施法速度总降 15%，伤害总增 35% | 焚躯烈焰 II: 击中伤害总降 30%，点燃强度总增 100% | 范围集中: 范围伤害总增 30%，效果范围总降 50% | 迅猛增幅 II: 每吟唱一秒伤害总增 20%，最多 40% | 精准破坏: 击中伤害总增 25%，无法暴击 | 短暂引信 II: 引爆时间总降 80%，伤害总降 30% | 新星投射物 I: 环形发射投射物 | 多重射击 II: 伤害总降 25%，额外 2 个投射物，技能速度总降 20% | 范围扩大 II: 效果范围提高 45% | 侵蚀地面: 地面效果范围每秒提高 20%，最多 100% | 强力曝露: 曝露效果提高 20% | 冗余 II: 上限 +1，持续时间总降 40% | 施法回响: 回响 1 次，施法速度总降 30%，回响范围提高 40% | 强效诅咒: 诅咒强度提高 25%（保留/消耗加成 140%） | 聚焦诅咒: 诅咒区域爆发延迟总降 50% | 效能 II: 消耗总降 40%，无法辅助保留精魂的技能 | 扩展: 封印上限 3，每破一个封印效果区域扩大 30%，无法辅助持续吟唱或有冷却的技能 | 风暴行军: 从玩家处释放并朝目标位置移动 | 持续时间延长 II: 持续时间总增 35% | 无边能量 II: 获得的能量提高 45% | 和谐残迹 II: 20% 几率额外一个残片，收集距离延长 35% | 卡哈塔的复苏（血统，需求 65，掉落 52，扎米尔，刀锋之主）: 收集残片时获得卡哈塔的复苏（每层冷却回复速度提升，最多 8 层）"
+   },
+   "areas": {
+    "Journey's End 旅途终点 (Act4, Captain Hartlin 哈特林船长, Lv13 skill gem reward)": 47,
+    "Ngakanu 纳卡努 (Act4, guaranteed Greater Jeweller's Orb per author)": 53,
+    "Isle of Kin 亲眷岛 (Act4, GCP via ritual per author)": 46,
+    "Keth 克斯 (Act2, GCP via ritual per author)": 21,
+    "Kriar Village 克里亚村 (Interlude, Lythara 利萨拉，歧途长矛 +40 Spirit)": 54,
+    "The Khari Crossing (Interlude, Akthi and Anundr weapon set points)": 54,
+    "Howling Caves (Interlude, The Abominable Yeti 可憎的雪人 weapon set points)": 55,
+    "Wolvenhold (Interlude, Oswin 奥斯温，恐惧典狱长 weapon set points)": 56,
+    "Qimah (Interlude pillars)": 56,
+    "Freythorn 茂棘深林 (Act1, The King in the Mists 迷雾之王 +30 Spirit)": 11,
+    "The Azak Bog 阿扎卡泥沼 (Act3, Ignagduk 伊格纳杜克，沼泽老妪 +30 Spirit)": 40,
+    "Sacred Reservoir 神圣水库 (map, Zahmir 扎米尔，刀锋之主, monster level 65)": 65
+   },
+   "terms": {
+    "Ignite": "点燃",
+    "Flammability": "易燃",
+    "Ignited Ground": "点燃地面",
+    "Detonator Skills": "引爆技能",
+    "Exposure": "曝露",
+    "Weapon Set": "武器组",
+    "Dodge Roll": "闪避翻滚",
+    "Oil": "黏油",
+    "Presence": "在场",
+    "Hinder": "缓速",
+    "Maim": "瘫痪",
+    "Onslaught": "猛攻",
+    "Withered": "死亡凋零",
+    "Remnant": "残片",
+    "Runic Ward": "符文结界",
+    "Spirit": "精魂",
+    "Energy": "能量",
+    "Meta": "非凡",
+    "Persistent": "永久性",
+    "Grenade": "榴弹",
+    "Channelling": "持续吟唱",
+    "Staged": "层数",
+    "Curse": "诅咒",
+    "Damaging Ailments": "伤害性异常状态",
+    "Magnitude": "强度",
+    "Chaos Inoculation": "异灵之体",
+    "Gemcutter's Prism": "宝石匠的棱镜",
+    "Greater Jeweller's Orb": "高等工匠石",
+    "Lesser Jeweller's Orb": "低等工匠石",
+    "Uncut Skill Gem": "未切割的技能宝石",
+    "Uncut Support Gem": "未切割的辅助宝石",
+    "Uncut Spirit Gem": "未切割的精魂宝石",
+    "Verisium": "维金",
+    "Divine Orb": "神圣石",
+    "Exalted Orb": "崇高石",
+    "Chaos Orb": "混沌石",
+    "Vaal Orb": "瓦尔宝珠",
+    "Orb of Alchemy": "点金石",
+    "Regal Orb": "富豪石",
+    "Artificer's Orb": "巧匠石",
+    "Liquid Emotions": "液化情感",
+    "Potent Liquid Contempt": "强效的液化轻蔑",
+    "Trial of the Sekhemas": "丝克玛试炼",
+    "Trial of Chaos": "混沌试炼",
+    "Ultimatum": "致命贪婪",
+    "Inscribed Ultimatum": "贪婪战书",
+    "Djinn Barya": "巨灵币",
+    "Ritual": "驱灵祭坛",
+    "Delirium": "惊悸迷雾",
+    "Expedition": "先祖秘藏",
+    "Breach": "裂隙",
+    "Critical Weakness": "暴击弱点",
+    "Augment": "增幅器",
+    "Idol": "雕像",
+    "Soul Core": "灵核",
+    "Rune": "符文",
+    "Interlude": "间歇 (poe2db page title; repo pages use 间章)",
+    "Balbala, the Traitor": "叛徒贝尔巴拉",
+    "Elzarah, the Cobra Lord": "埃尔扎拉，眼镜蛇领主",
+    "Holten": "霍尔顿",
+    "Tavakai": "塔瓦凯",
+    "The Arbiter of Ash": "灰烬仲裁官",
+    "Jiquani's Machinarium": "佳华尼的机械迷城",
+    "Grand Regalia": "恢弘盛装",
+    "Jade Amulet": "翠玉项链",
+    "Amethyst Ring": "紫晶戒指",
+    "Heavy Belt": "重革腰带"
+   },
+   "trade_check": "pathofexile.com/trade2 showed a Cloudflare 'Just a moment / 请稍候' interstitial in the in-app browser on 2026-09-24; not bypassed; stat IDs taken as-is from Mobalytics queries (life 3299347043, MS 2250533757, flask instant 2503377690, total ele res pseudo were verified in the earlier repo page)."
+  }
+ }
+}
