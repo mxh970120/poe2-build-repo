@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>古灵使徒斗士 · 变体索引</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 佣兵「古灵使徒斗士」烈焰爆破 + 黏油榴弹构筑（Fubgun）的 9 个变体一览、门槛时间线与逐部位差异总表。">
+<style>
+:root{
+  --ground:#F4F1EC; --surface:#FFFFFF; --surface-2:#ECE6DE; --ink:#221A15; --ink-2:#44372E; --muted:#6B5F56; --line:#DCD2C6;
+  --accent:#A63D12; --accent-soft:#F6E1D5; --brass:#86570F; --brass-soft:#F2E5CA;
+  --ember:#B0262B; --ember-soft:#F8DEDC; --ok:#2E7147; --ok-soft:#DCEEE1;
+  --plum:#236A6B; --plum-soft:#DAEDEC;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14100D; --surface:#1C1612; --surface-2:#251E18; --ink:#EEE5DC; --ink-2:#D2C5B8; --muted:#A39485; --line:#382E26;
+    --accent:#F08A52; --accent-soft:#3A2216; --brass:#E0B25C; --brass-soft:#32271A;
+    --ember:#F2787A; --ember-soft:#3D1C1D; --ok:#72C28E; --ok-soft:#16301F;
+    --plum:#6FC6C1; --plum-soft:#15302F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14100D; --surface:#1C1612; --surface-2:#251E18; --ink:#EEE5DC; --ink-2:#D2C5B8; --muted:#A39485; --line:#382E26;
+  --accent:#F08A52; --accent-soft:#3A2216; --brass:#E0B25C; --brass-soft:#32271A;
+  --ember:#F2787A; --ember-soft:#3D1C1D; --ok:#72C28E; --ok-soft:#16301F;
+  --plum:#6FC6C1; --plum-soft:#15302F;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1200px;margin:0 auto}
+.hero{padding-block:36px 26px;border-bottom:1px solid var(--line);display:grid;gap:18px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.crumbs a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:72ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.facts div{background:var(--surface);padding:10px 14px}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code{font-family:var(--mono);font-size:.88em}
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;white-space:nowrap;background:var(--surface-2);font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en{display:block}
+tr.here td{background:var(--accent-soft)}
+.matrix td{min-width:120px}
+.timeline{list-style:none;padding:0;margin:14px 0;display:grid;gap:0;max-width:780px}
+.timeline li{display:grid;grid-template-columns:5.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);margin:0}
+.timeline li:last-child{border-bottom:0}
+.timeline .lv{font-family:var(--mono);font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;text-align:right}
+footer{padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="crumbs">
+    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span><span>0.5.5 古灵使徒斗士</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 佣兵 Mercenary</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M26 12c5 6 9 10 9 16a9 9 0 0 1-18 0c0-4 2-7 4-9 0 3 1 5 3 6-1-5 0-9 2-13z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M13 38c3-1.6 6-1.6 9 0s6 1.6 9 0 6-1.6 8 0" fill="none" stroke="var(--plum)" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <h1>古灵使徒斗士 · 烈焰爆破 × 黏油榴弹<span class="en">0.5.5 Fubgun Flameblast Oil Grenade</span></h1>
+  </div>
+  <p class="lede">原作者 Fubgun 在 Mobalytics 发布的佣兵第三升华构筑：52 级前用榴弹升级，52 级洗点换成长杖吟唱烈焰爆破打一次强力点燃、战弩扔黏油榴弹把火带过整张图，闪避翻滚触发龙卷旋风。原站从 1 级写到镜像级共 9 个变体，本页列出全部变体、门槛时间线与逐部位差异。</p>
+  <dl class="facts">
+    <div><dt>补丁</dt><dd>0.5.5</dd></div>
+    <div><dt>作者</dt><dd>Fubgun</dd></div>
+    <div><dt>变体</dt><dd>9 个 · 合成 3 个</dd></div>
+    <div><dt>原站版本</dt><dd>第 53 版 · 2026-09-12</dd></div>
+    <div><dt>本页抓取</dt><dd>2026-09-24</dd></div>
+  </dl>
+  <p class="small">原站：<a href="https://mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade" target="_blank" rel="noopener">Mobalytics</a> · 标签：Starter / End Game / Verified · 2026-09-03 首发 · 1,416 收藏 · 291 条评论</p>
+</header>
+
+<main>
+
+<section id="synthesis">
+  <h2>合成三阶段</h2>
+  <p>把原站的 lvl 53-68、lvl 85、Endgame 三个变体合成一条路线：① 53–68 级换装进图 → ② 约 85 级稀有装成型 → ③ 终局高投入。每一步标出改什么、为什么、出自哪里，并修正了原站的几处矛盾（嵌宝美玉的等级门槛、超档的生命数值、只能生效一颗的佳华尼的灵核等）。配置、逐件词缀、搜索正则与数据核验都在那一页。</p>
+  <p><a href="合成三阶段.html">打开合成三阶段.html</a></p>
+</section>
+
+<section id="variants">
+  <h2>变体一览</h2>
+  <p class="small">阶段与差异由原站数据计算。「天赋重合」是本档与上一档主树选点的交集占上一档的比例，低于 70% 标「需要洗点」；52 级换装是作者明说的洗点（约 3 万金币）。宝石需求为原站数字，等于全部辅助宝石的「+5 属性」按颜色相加，不是面板需求。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>变体</th><th>阶段定位</th><th>与上一档的主要变化</th><th>传奇</th><th>宝石需求（原站）</th><th>天赋 / 升华</th><th>卡在哪</th><th>页面</th></tr></thead>
+    <tbody>
+      <tr><td><b>lvl 1-14</b><span class="en">{1} default</span></td><td>第 1 幕：战弩射击 + 高爆、闪光、瓦斯榴弹；寒霜爆挂曝露</td><td>—</td><td class="n">0</td><td class="n">力 15 · 敏 20 · 智 0</td><td class="n">主树 18 · 升华 2</td><td>作者：52 级要洗点约 3 万金币，战役里别乱花</td><td><span class="chip na">不收录</span></td></tr>
+      <tr><td><b>lvl 15-32</b><span class="en">{2}</span></td><td>第 2 幕：加黏油榴弹；16 级把浸漆战弩一次做好（富豪 / 点金、2 个巧匠石、2 颗符文）</td><td>紧弦战弩 → 浸漆战弩</td><td class="n">0</td><td class="n">力 20 · 敏 20 · 智 15</td><td class="n">主树 48 · 升华 4</td><td>—</td><td><span class="chip na">不收录</span></td></tr>
+      <tr><td><b>lvl 33-51</b><span class="en">{3}</span></td><td>最终的榴弹配置；36 级起每几级查商人收 +4 火焰长杖</td><td>轰炸战弩；戒指换黄玉 + 蓝玉</td><td class="n">0</td><td class="n">力 20 · 敏 20 · 智 10</td><td class="n">主树 66 · 升华 6</td><td>攒宝石匠的棱镜与长杖</td><td><span class="chip na">不收录</span></td></tr>
+      <tr><td><b>lvl 52 Swap</b><span class="en">{4}</span></td><td>换烈焰爆破 + 黏油榴弹，两个武器组分工</td><td>洗点；+耐火长杖、稳步法印、浸润咒符、真银咒符</td><td class="n">1</td><td class="n">力 15 · 敏 10 · 智 55</td><td class="n">主树 52 + 武器组 18 / 18 · 升华 6（<b>洗点</b>，作者明说）</td><td>烈焰爆破 52 级；躲闪时施放 58 级 + 100 精魂</td><td><a href="合成三阶段.html#st0">合成页 · 起步</a></td></tr>
+      <tr class="here"><td><b>lvl 53-68</b><span class="en">{5}</span></td><td>间章 → 前期地图</td><td>武器组点补到 24 / 24；冷却与点燃大点</td><td class="n">1</td><td class="n">力 25 · 敏 15 · 智 65</td><td class="n">主树 67（重合 96%）+ 24 / 24 · 升华 <span class="chip bad">原站 8，实际 6</span></td><td>第 4 次升华要区域 80</td><td><a href="合成三阶段.html#st1">合成页 · ①</a> <span class="chip ok">已合成</span></td></tr>
+      <tr class="here"><td><b>lvl 85</b><span class="en">{6}</span></td><td>全稀有装：生命 + 抗性 + 稀有度 + 符文结界</td><td>+7 火焰法术长杖；80 级符文锻造头、手、脚；狼皮斗篷；帝金项链 + 典范；魔力残片</td><td class="n">0</td><td class="n">力 20 · 敏 15 · 智 90</td><td class="n">主树 84（重合 94%）+ 24 / 24 · 升华 8</td><td>80 级底材；卡哈塔的复苏（需求 65）；原站说明为空</td><td><a href="合成三阶段.html#st2">合成页 · ②</a> <span class="chip ok">已合成</span></td></tr>
+      <tr class="here"><td><b>Endgame</b><span class="en">{7}</span></td><td>更高预算版（作者：85 级那档已能打全部内容）</td><td>无生之辱 + 3 颗完美身躯符文；金光戒指 ×2；项链 +3 法术技能；落刃时刻；5 词缀珠宝</td><td class="n">2</td><td class="n">力 20 · 敏 15 · 智 90</td><td class="n">主树 96（重合 99%）+ 24 / 24 · 升华 8</td><td>无生之辱</td><td><a href="合成三阶段.html#st3">合成页 · ③</a> <span class="chip ok">已合成</span></td></tr>
+      <tr><td><b>Mageblood</b><span class="en">{8}</span></td><td>高投入：堆护甲、极肉</td><td>法师之血；枯灰长杖 + 轰鸣战弩；典范巨盔、懦夫护甲、远古护手、要塞战靴；加极地装甲、冰屑、震波图腾、震地战吼等技能</td><td class="n">4</td><td class="n">力 75 · 敏 75 · 智 80</td><td class="n">主树 95 + 武器组 29 / 32 · 升华 8</td><td>法师之血</td><td><span class="chip na">未生成</span></td></tr>
+      <tr><td><b>DoT Cap</b><span class="en">{9}</span></td><td>极限版：作者称接近持续伤害上限（约 3,500 万 DPS），8.5 万护甲、50% 闪避、3.5K 生命</td><td>鸣谐长杖、督军胸甲；11 颗珠宝</td><td class="n">4</td><td class="n">力 70 · 敏 55 · 智 75</td><td class="n">主树 98 + 武器组 30 / 31 · 升华 8</td><td>玉 / 花岗岩版法师之血（作者）</td><td><span class="chip na">未生成</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">原站 PoB 只有一套 98 级配置，对应 DoT Cap 档。Mageblood、DoT Cap 两档的武器组点超过 24，来源原站没写，本页未核实。</p>
+</section>
+
+<section id="gates">
+  <h2>门槛时间线</h2>
+  <ul class="timeline">
+    <li><span class="lv">1–51</span><span>榴弹升级；存下所有宝石匠的棱镜（第 2 幕克斯、第 4 幕亲眷岛的驱灵祭坛各保底一个，作者说 0.5 如未改）；36 级起收 +4 火焰长杖。</span></li>
+    <li><span class="lv">47</span><span>第 4 幕旅途终点：哈特林船长的任务奖励含一颗 13 级技能宝石——留给烈焰爆破；第 4 幕纳卡努保底一个高等工匠石。</span></li>
+    <li><span class="lv">52</span><span>烈焰爆破（等阶 13）可用；洗点约 3 万金币换装。</span></li>
+    <li><span class="lv">54–56</span><span>间章：利萨拉，歧途长矛 +40 精魂（战役精魂凑满 100）；三个首领各给 2 点武器组天赋点；埃尔扎拉，眼镜蛇领主首杀必掉第 3 次升华用的巨灵币。</span></li>
+    <li><span class="lv">58</span><span>躲闪时施放（等阶 14，保留 100 精魂）。</span></li>
+    <li><span class="lv">65</span><span>卡哈塔的复苏可装备（血统，掉落 52，地图「神圣水库」的扎米尔，刀锋之主）；狼皮斗篷、狐狸雕像、女巫阿桑德拉的智慧符文从 65 级开始掉。</span></li>
+    <li><span class="lv">80</span><span>第 4 次升华 → 嵌宝美玉；符文锻造的头、手、脚底材（需求 80）。</span></li>
+    <li><span class="lv">81–82</span><span>狱火之（长杖火焰法术 +7）、地狱的（鞋 35% 移速）开始出现。</span></li>
+    <li><span class="lv">终局</span><span>无生之辱（灰烬仲裁官掉落）、两枚金光戒指、5 词缀珠宝；再往上是全护甲 + 法师之血。</span></li>
+  </ul>
+</section>
+
+<section id="matrix">
+  <h2>变体间差异总表</h2>
+  <p class="small">底材名取 poe2db 简中；「—」为原站该档没填。{5}–{7} 的逐件词缀见合成页第 7 节。</p>
+  <div class="scroll"><table class="matrix">
+    <thead><tr><th>部位</th><th>lvl 1-14</th><th>lvl 15-32</th><th>lvl 33-51</th><th>lvl 52 Swap</th><th>lvl 53-68</th><th>lvl 85</th><th>Endgame</th><th>Mageblood</th><th>DoT Cap</th></tr></thead>
+    <tbody>
+      <tr><th>主技能</th><td colspan="3">高爆 / 闪光 / 瓦斯榴弹（15 级起 + 黏油榴弹）</td><td colspan="6">烈焰爆破 + 黏油榴弹</td></tr>
+      <tr><th>武器组 1</th><td>紧弦战弩</td><td>浸漆战弩</td><td>轰炸战弩</td><td colspan="2">耐火长杖：火焰法术 +4</td><td colspan="2">耐火长杖：火焰法术 +7、法术 / 火焰伤害、额外火焰伤害</td><td>枯灰长杖</td><td>鸣谐长杖</td></tr>
+      <tr><th>武器组 2</th><td colspan="3">—</td><td>轰炸战弩：投射物 +2</td><td>轰炸战弩：投射物 +2、榴弹 +1 次</td><td colspan="2">轰炸战弩：投射物 +3、榴弹 +1 次</td><td colspan="2">轰鸣战弩</td></tr>
+      <tr><th>头盔</th><td colspan="5">覆颜面具</td><td colspan="2">符文隐秘之冠</td><td>典范巨盔</td><td>帝国巨盔</td></tr>
+      <tr><th>胸甲</th><td colspan="3">—</td><td colspan="2">先祖锁甲</td><td>狼皮斗篷</td><td>无生之辱</td><td>懦夫护甲</td><td>督军胸甲</td></tr>
+      <tr><th>手套</th><td colspan="5">符文肃穆手套</td><td colspan="2">符文信徒袖带</td><td>远古护手</td><td>巨型护手</td></tr>
+      <tr><th>鞋子</th><td colspan="5">青铜胫甲</td><td colspan="2">符文隐秘绑腿</td><td>要塞战靴</td><td>塔萨里奥胫甲</td></tr>
+      <tr><th>项链</th><td colspan="3">琥珀项链</td><td colspan="2">稳步法印</td><td colspan="4">帝金项链</td></tr>
+      <tr><th>戒指</th><td colspan="2">锻铁戒指 ×2</td><td colspan="4">黄玉 + 蓝玉</td><td colspan="3">金光戒指 ×2</td></tr>
+      <tr><th>腰带</th><td colspan="7">万用腰带</td><td colspan="2">法师之血</td></tr>
+      <tr><th>药剂</th><td colspan="3">—</td><td colspan="4">非凡生命 + 恢弘魔力</td><td colspan="2">终极生命 + 拉维安加之灵</td></tr>
+      <tr><th>咒符</th><td colspan="3">融冰</td><td colspan="3">融冰 · 浸润 · 真银</td><td>融冰 · 浸润 · 落刃时刻</td><td colspan="2">新生希望 · 仪式通道 · 浸润</td></tr>
+      <tr><th>升华</th><td>美德精华</td><td>+ 奇术深造</td><td colspan="2">+ 植入宝石</td><td colspan="5">+ 嵌宝美玉</td></tr>
+      <tr><th>珠宝</th><td colspan="3">0</td><td colspan="4">3</td><td>6</td><td>11</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="notes">
+  <h2>生成记录</h2>
+  <ul class="small">
+    <li>本目录由 poe2-build-cn 技能生成；<code>_source.json</code> 存的是在浏览器里读出的精简抽取（变体装备、宝石、天赋选点、正文、任务奖励、评论要点与 poe2db 查询结果），不是整页状态。</li>
+    <li>中英对照一律取 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同页对位；交易站统计 ID 这次因 pathofexile.com 的人机验证没有核对，沿用原站查询。</li>
+    <li>其余 6 个变体没有单独生成中文页；lvl 52 Swap 的换装清单并入合成页。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><p>由 poe2-build-cn 技能生成 · 数据截至 2026-09-24 · 原作者 Fubgun（Mobalytics）</p></footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>
