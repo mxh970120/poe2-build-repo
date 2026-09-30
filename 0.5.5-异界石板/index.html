@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>异界石板与引路石词条 · 0.5.5</title>
+<meta name="description" content="流亡黯道 2 · 0.5 / 0.5.5 终局：各异界玩法该插哪些石板、要哪些词条；引路石抬头数值到多少才卖得上价、哪些引路石词条和玩法强相关。词条取 poe2db.tw 简中原文，攻略观点汇总自中（简 / 繁）、英、日、韩、俄、德、葡语社区，引路石价格门槛来自国服市集快照。">
+<style>
+:root{
+  --ground:#F2F1F6; --surface:#FFFFFF; --surface-2:#E7E5EF; --ink:#1B1A28; --ink-2:#3B3950; --muted:#646179; --line:#D4D1E0;
+  --accent:#4A43A6; --accent-soft:#E4E2F6; --brass:#81600F; --brass-soft:#F1E6CB;
+  --ember:#AE2A2E; --ember-soft:#F8DEDD; --ok:#2B6E45; --ok-soft:#DCEEE2;
+  --plum:#1F6A6B; --plum-soft:#D9EDEC;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#111019; --surface:#191823; --surface-2:#22202F; --ink:#E7E5F0; --ink-2:#C8C5D9; --muted:#9A97AF; --line:#2F2C42;
+    --accent:#ABA5F7; --accent-soft:#25224A; --brass:#E0B25C; --brass-soft:#33281A;
+    --ember:#F2787A; --ember-soft:#3D1C1E; --ok:#74C490; --ok-soft:#16301F;
+    --plum:#6FC6C1; --plum-soft:#15302F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#111019; --surface:#191823; --surface-2:#22202F; --ink:#E7E5F0; --ink-2:#C8C5D9; --muted:#9A97AF; --line:#2F2C42;
+  --accent:#ABA5F7; --accent-soft:#25224A; --brass:#E0B25C; --brass-soft:#33281A;
+  --ember:#F2787A; --ember-soft:#3D1C1E; --ok:#74C490; --ok-soft:#16301F;
+  --plum:#6FC6C1; --plum-soft:#15302F;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);column-gap:44px}
+@media (min-width:1100px){.page{grid-template-columns:196px minmax(0,1fr)}}
+
+/* hero */
+.hero{grid-column:1/-1;padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:16px}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.topbar a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:74ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink-2);font-weight:600}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+.facts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.facts li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:2px;align-content:start}
+.facts b{font-family:var(--serif);font-size:1.5rem;line-height:1.2;font-variant-numeric:tabular-nums}
+.facts span{font-size:12.5px;color:var(--muted);line-height:1.55}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);align-items:center}
+
+/* toc */
+.toc{padding-block:22px 0;font-size:13px}
+.toc summary{cursor:pointer;color:var(--muted);letter-spacing:.06em;font-size:12px;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;gap:8px;padding:3px 8px;border-radius:6px;color:var(--ink-2);text-decoration:none}
+.toc a:hover{background:var(--surface-2)}
+.toc a span{font-family:var(--mono);color:var(--brass);min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+@media (min-width:1100px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}}
+@media (max-width:1099px){.toc{border-bottom:1px solid var(--line);padding-bottom:14px}.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+/* content */
+main{min-width:0;max-width:980px}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:0 8px;line-height:1.7;flex:none;position:relative;top:-3px}
+h3{font-size:1.04rem;margin:26px 0 8px;line-height:1.45;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul,ol{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.88em}
+.num{font-variant-numeric:tabular-nums}
+
+/* chips and source tags */
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.must{background:var(--ember);color:var(--surface)}
+.chip.good{background:var(--ok-soft);color:var(--ok)}
+.chip.opt{background:var(--brass-soft);color:var(--brass)}
+.chip.cond{background:var(--accent-soft);color:var(--accent)}
+.chip.no{background:var(--ember-soft);color:var(--ember)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.chip.kind{background:var(--surface-2);color:var(--ink-2);font-weight:500}
+.src{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;line-height:1.45;min-width:1.55em;text-align:center;padding:0 4px;border-radius:4px;vertical-align:1px;margin-left:3px;background:var(--surface-2);color:var(--ink-2)}
+.src.db{background:var(--ok-soft);color:var(--ok)}
+.src.off{background:var(--accent-soft);color:var(--accent)}
+.pos{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* callouts */
+.callout{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;margin:14px 0}
+.callout p:last-child,.callout ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout .lab{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.callout.warn{background:var(--ember-soft);border-color:transparent}
+.callout.warn .lab{color:var(--ember)}
+.callout.key{background:var(--accent-soft);border-color:transparent}
+.callout.key .lab{color:var(--accent)}
+.callout.note .lab{color:var(--brass)}
+.setup{border-left:3px solid var(--accent);background:var(--surface);border-radius:0 10px 10px 0;padding:10px 14px;margin:12px 0;font-size:14px}
+.setup b{color:var(--ink)}
+
+/* chain */
+.chain{list-style:none;padding:0;margin:14px 0 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;max-width:none}
+.chain li{margin:0}
+.chain .step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.55}
+.chain .step b{display:block;font-size:14.5px;margin-bottom:3px;color:var(--ink)}
+.chain .step.hot{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.chain .arr{flex:none;align-self:center;color:var(--brass);font-size:18px}
+@media (max-width:700px){.chain{flex-direction:column}.chain .step{flex:none}.chain .arr{transform:rotate(90deg);align-self:flex-start;margin-left:18px}}
+
+/* tables */
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;background:var(--surface-2);font-size:13px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en,th .en{display:block}
+td.w,th.w{white-space:nowrap}
+.mods td:nth-child(2){min-width:260px}
+.mods td:nth-child(4){min-width:200px}
+.quick td:first-child{min-width:120px}
+.quick td:nth-child(3){min-width:220px}
+tr.grp th{background:var(--surface-2);font-size:12.5px;color:var(--ink-2);text-align:left}
+
+/* mod pool filter */
+.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0 4px}
+.fbtn{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:2px 12px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.search{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:4px 10px;flex:1 1 200px;max-width:340px;min-width:0}
+.count{font-size:12.5px;color:var(--muted)}
+.pool td:nth-child(3){min-width:240px}
+.way td:nth-child(3){min-width:230px}
+.way td:nth-child(5){min-width:150px}
+.way td:nth-child(7){min-width:120px}
+.snap td:nth-child(1){min-width:180px}
+.snap td:nth-child(4){min-width:200px}
+.pool td:nth-child(4){min-width:220px}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+.split > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.split h3{margin:0 0 6px;font-size:1rem}
+.split ul{margin:0;font-size:13.5px}
+
+footer{grid-column:1/-1;padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+footer p{max-width:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="topbar">
+    <span>流亡黯道 2 · 0.5.5 · 终局专题 · 异界石板</span>
+    <a href="../index.html">全部构筑与专题</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5 / 0.5.5 · Forbidden Rites · Precursor Tablets · 多语种信源汇总</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <rect x="12" y="5" width="28" height="42" rx="5" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <rect x="16" y="9" width="20" height="34" rx="3" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M26 13l5.5 6.5L26 26l-5.5-6.5z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M19.5 31h13M19.5 35h13M21.5 39h9" stroke="var(--plum)" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <h1>异界石板与引路石：各玩法要哪些词条<span class="en">Precursor Tablets &amp; Waystones in 0.5.5 — which modifiers each Atlas strategy wants</span></h1>
+  </div>
+  <p class="lede">石板插在地图装置里，给地图加上对应的终局机制和词条。本页按玩法列出该插哪几块石板、每块要哪些词条、哪些词条不值得留。词条一律用 poe2db.tw 简中原文和当前数值，下面附英文；攻略观点来自中文（简体、繁体）、英、日、韩、俄、德、葡七种语言的社区，每条都标了出处，各语种说法不一致的地方单独写出。引路石词条和“抬头数值到多少才卖得上价”见 <a href="#s16">§16</a>。</p>
+  <ul class="facts" aria-label="要点">
+    <li><b>8 种</b><span>裂隙、先祖秘藏、惊悸迷雾、驱灵仪式、能量辐照、霸主、深渊、神庙</span></li>
+    <li><b>86 条</b><span>可随机词条：13 前缀 + 11 后缀全类型通用，另 62 条是各类型特有后缀</span></li>
+    <li><b>4 条 · 4 格</b><span>单块石板最多 4 条词缀；一张图最多插 4 块（第 4 格仅城市地图）</span></li>
+    <li><b>7 种语言</b><span>中（简 / 繁）、英、日、韩、俄、德、葡，查阅约 170 份资料，截至 2026-09-25</span></li>
+  </ul>
+  <div class="legend">
+    <span>出处标记：</span>
+    <span><b class="src db">库</b> poe2db 数据</span>
+    <span><b class="src off">官</b> 官方补丁说明</span>
+    <span><b class="src">中</b> 简中社区</span>
+    <span><b class="src">台</b> 繁中（巴哈姆特）</span>
+    <span><b class="src">英</b></span><span><b class="src">日</b></span><span><b class="src">韩</b></span><span><b class="src">俄</b></span><span><b class="src">德</b></span><span><b class="src">葡</b></span>
+  </div>
+  <div class="legend">
+    <span>优先级：</span>
+    <span class="chip must">必备</span><span class="chip good">优秀</span><span class="chip opt">可选</span><span class="chip cond">看目标</span><span class="chip no">不要</span><span class="chip na">少有人评价</span>
+  </div>
+  <div class="meta">
+    <span>版本：<b>0.5「Runes of Aldur」赛季 + 0.5.5「Forbidden Rites」活动赛季</b>（2026-09-04 上线）</span>
+    <span>词缀池抓取：poe2db <a href="https://poe2db.tw/cn/Tablet" target="_blank" rel="noopener">/cn/Tablet</a> 与 8 个石板页，<b>2026-09-25</b></span>
+    <span>价格都是社区帖子里的时点价格，赛季中波动很大，只作相对参考</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ol>
+      <li><a href="#s1"><span>1</span>速查表</a></li>
+      <li><a href="#s2"><span>2</span>先弄清规则</a></li>
+      <li><a href="#s3"><span>3</span>通用词条</a></li>
+      <li><a href="#s4"><span>4</span>裂隙</a></li>
+      <li><a href="#s5"><span>5</span>惊悸迷雾</a></li>
+      <li><a href="#s6"><span>6</span>驱灵仪式</a></li>
+      <li><a href="#s7"><span>7</span>先祖秘藏</a></li>
+      <li><a href="#s8"><span>8</span>深渊</a></li>
+      <li><a href="#s9"><span>9</span>神庙</a></li>
+      <li><a href="#s10"><span>10</span>刷石板</a></li>
+      <li><a href="#s11"><span>11</span>续航与首领</a></li>
+      <li><a href="#s12"><span>12</span>副机制</a></li>
+      <li><a href="#s13"><span>13</span>打造与交易</a></li>
+      <li><a href="#s14"><span>14</span>传奇石板</a></li>
+      <li><a href="#s15"><span>15</span>石板相关天赋</a></li>
+      <li><a href="#s16"><span>16</span>引路石词条</a></li>
+      <li><a href="#s17"><span>17</span>完整词缀池</a></li>
+      <li><a href="#s18"><span>18</span>各语种侧重</a></li>
+      <li><a href="#s19"><span>19</span>数据核验</a></li>
+      <li><a href="#s20"><span>20</span>来源</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <h2><span class="no">1</span>速查表</h2>
+  <p>普通地图最多 3 格，城市地图点了「工业改进」之后 4 格。「核心词条」是各语种攻略的共识，完整写法和次要词条见对应小节。</p>
+  <div class="scroll"><table class="quick">
+    <thead><tr><th>玩法</th><th>石板组合</th><th>核心词条</th><th>详见</th></tr></thead>
+    <tbody>
+      <tr><td><b>裂隙</b>：稳定裂隙刷稀有怪</td><td>围困瓦尔克拉斯 + 3 块裂隙</td><td>稳定时额外稀有怪（每块都要）、怪物效能、稀有裂隙怪效能</td><td><a href="#s4">§4</a></td></tr>
+      <tr><td><b>裂隙</b>：孕育赠礼、虫巢之血</td><td>3–4 块裂隙</td><td>孕育赠礼数量、孕育赠礼高一级、虫巢之血数量</td><td><a href="#s4b">§4</a></td></tr>
+      <tr><td><b>惊悸迷雾</b>：首领、拟像</td><td>3–4 块惊悸迷雾</td><td>每块至少一条：传奇首领几率 / 破溃之镜碎片 / 拟像裂片堆叠</td><td><a href="#s5">§5</a></td></tr>
+      <tr><td><b>驱灵仪式</b></td><td>信念的自由 + 3 块驱灵</td><td>额外重置恩典；重置、延时的贡品降低；贡品提高；预兆几率（看目标）</td><td><a href="#s6">§6</a></td></tr>
+      <tr><td><b>先祖秘藏</b>（0.5.5）</td><td>2–4 块先祖秘藏</td><td>额外维金残片 + 残片额外符文词缀；埋藏的保险箱</td><td><a href="#s7">§7</a></td></tr>
+      <tr><td><b>宏大先祖秘藏</b></td><td>3 块能量辐照</td><td>额外随机词缀 + 怪物效能或稀有怪数量</td><td><a href="#s7b">§7</a></td></tr>
+      <tr><td><b>深渊</b>：宝箱、渎灵通货、预兆</td><td>3–4 块深渊</td><td>额外四个深渊、巨坑双倍奖励、额外 1 个深渊、深渊额外稀有怪</td><td><a href="#s8">§8</a></td></tr>
+      <tr><td><b>200% 迷雾深渊</b></td><td>无常因果 + 3 块不同类型</td><td>额外随机词缀 + 稀有怪数量</td><td><a href="#s8b">§8</a></td></tr>
+      <tr><td><b>神庙</b>（瓦尔灯塔）</td><td>3–4 块神庙</td><td>瓦尔灯塔额外水晶</td><td><a href="#s9">§9</a></td></tr>
+      <tr><td><b>刷石板</b></td><td>3 块能量辐照</td><td>引路石数量 + 怪物效能</td><td><a href="#s10">§10</a></td></tr>
+      <tr><td><b>推图续航、刷城寨</b></td><td>能量辐照或任意</td><td>引路石数量 ≥35%</td><td><a href="#s11">§11</a></td></tr>
+      <tr><td><b>保险箱 + 阿兹莫里之灵</b></td><td>3 块先祖秘藏 + 1 块霸主</td><td>埋藏的保险箱、额外保险箱 / 额外阿兹莫里之灵</td><td><a href="#s12">§12</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2><span class="no">2</span>先弄清规则</h2>
+  <p>以下规则都对照过官方补丁说明（poe2db 收录版）和 poe2db 数据<b class="src off">官</b><b class="src db">库</b>，括号里是改动的版本。</p>
+
+  <h3>放在哪、能用几次</h3>
+  <ul>
+    <li>石板放进<b>地图装置</b>使用（0.3.1 起不再插高塔）。普通石板每块 10 次；能量辐照类传奇石板和「无常因果」只有 1 次。</li>
+    <li>传奇地图等不能增加额外内容的地图插不了石板（0.5.0）。地图失败后重开，石板效果不再生效<b class="src db">库</b>。</li>
+    <li>基底掉落等级 65；石板可以是普通、魔法、稀有、传奇<b class="src db">库</b>。0.5.0 起石板可以放进碎片仓库页。</li>
+  </ul>
+
+  <h3>一张图能插几块：看引路石的词缀数</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>引路石</th><th class="n">石板栏位</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td>普通（0 条词缀）</td><td class="n">0</td><td>多数资料写 0 格；日文 junkgg 写 1 格并标“待确认”<b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td>魔法（1–2 条）</td><td class="n">1</td><td rowspan="3">0.3.1：“栏位数取决于地图的词缀数，6 条词缀时 3 格全开”<b class="src off">官</b>；各档分界据 pathofexile.gg、Gamerch<b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td>稀有（3–5 条）</td><td class="n">2</td></tr>
+      <tr><td>稀有（6 条及以上，含腐化 8 词）</td><td class="n">3</td></tr>
+      <tr><td>城市地貌地图 + 天赋「工业改进」</td><td class="n">+1 → 4</td><td>「城市地图上可使用一个额外的石板」，需完成燃石巨塔，适用于 75+ 区域<b class="src db">库</b>。台服玩家说神庙周边、城寨附近的图也算城市地貌<b class="src">台</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>单块石板的词缀上限：2 → 3 → 4</h3>
+  <ol class="chain">
+    <li class="step"><b>默认：魔法，最多 2 条</b>蜕变 + 增幅就能做满</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>「逆转录」：可升稀有，上限 +1</b>需要完成燃石巨塔（打过灰烬仲裁者）。只点这个时，用富豪石升到 3 条</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step hot"><b>「部分翻译」：上限再 +1，共 4 条</b>需要击败先驱要塞巅峰首领（神圣仲裁官）。两个都点了才能用点金石直接出 4 条</li>
+  </ol>
+  <p class="small">天赋需求原文取自 poe2db 石板页<b class="src db">库</b>；“只点一个只能用富豪、两个都点才能用点金”出自巴哈玩家和官方论坛回复<b class="src">台</b><b class="src">英</b>。0.4 版的旧规则是“打过灰烬仲裁者才能做 2 条以上”，已被这两个天赋取代。</p>
+  <div class="callout key"><span class="lab">后缀抢位</span><p>各类石板的特有词条<b>全部是后缀</b>，前缀只有 13 条通用词条<b class="src db">库</b>。各语种攻略的稀有石板基本都是 2 前缀 + 2 后缀的配法（这是从攻略组合归纳的，没有找到官方说明），所以机制词条要和「地图拥有 (1—2) 个额外的随机词缀」「地图内找到的引路石数量提高 (30—40)%」这些通用后缀抢位置。</p></div>
+
+  <h3>同类石板叠放与空栏位（0.5.0 起）</h3>
+  <ul>
+    <li>同类石板可以一起用，叠得越多，对应机制内容越多：有的机制放大单次遭遇，有的增加遭遇数量<b class="src off">官</b>。</li>
+    <li>每个<b>空着的栏位</b>会增加地图里随机出现的其他机制；栏位插满后，地图里就只剩石板带来的内容<b class="src off">官</b>。</li>
+  </ul>
+  <div class="scroll"><table>
+    <thead><tr><th>机制</th><th>多块同类石板的效果</th><th>版本</th></tr></thead>
+    <tbody>
+      <tr><td>惊悸迷雾</td><td>迷雾强度随迷雾石板数量缩放，插 3 块等于改版前的强度（同时迷雾整体强度减半）</td><td class="w">0.5.3</td></tr>
+      <tr><td>驱灵仪式</td><td>多于 1 块时额外增加一个祭坛（在能加的前提下），并提高在 Viridian Wildwood 里收集到的阿兹莫里之灵（wisp）数量</td><td class="w">0.5.5</td></tr>
+      <tr><td>先祖秘藏</td><td>1 块：增加一个卡古兰先祖秘藏；2 块：增加一个维金残片，先祖秘藏密度 +35%；3 块：再增加一个先祖秘藏；4 块：再增加一个维金残片，密度再 +35%</td><td class="w">0.5.5</td></tr>
+      <tr><td>其他类型</td><td>补丁说明只写了“各类型规则不同”，没有逐项公布</td><td class="w">—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>掉落条件</h3>
+  <ul>
+    <li>能量辐照石板要点天赋「万古污染」才会掉；霸主石板要点「万古统治」才会从强力地图首领身上掉<b class="src db">库</b>。能量辐照的效果是区域怪物等级 +1，多块不叠加<b class="src db">库</b><b class="src">英</b>。</li>
+    <li>先祖秘藏石板只在 Forbidden Rites 赛季和标准服掉落，Runes of Aldur 赛季不掉；0.5.5b 提高了先祖秘藏、神庙、惊悸迷雾三种石板的掉率<b class="src off">官</b>。</li>
+    <li>赛季机制石板不再从模拟幻像、绝望深渊、扭曲领域这类非地图区域掉落（0.5.0）<b class="src off">官</b>。</li>
+    <li>英、日、韩资料都提到：<b>用哪类机制石板，那一类石板就掉得更少</b>，所以专门刷石板的人用能量辐照<b class="src">英</b><b class="src">日</b><b class="src">韩</b>。官方没有公布这条规则。</li>
+  </ul>
+
+  <h3>0.5.5 的数值改动</h3>
+  <ul>
+    <li>裂隙「入侵之」：不稳定裂隙稳定时额外生成的稀有怪从 1–3 个削到 <b>1–2 个</b><b class="src off">官</b><b class="src db">库</b>。</li>
+    <li>深渊「冠军之」：深渊额外生成的稀有怪从 1–2 个加强到 <b>2–3 个</b><b class="src off">官</b><b class="src db">库</b>。</li>
+    <li>新增一批先祖秘藏石板词条（爆炸范围、日志数量、冰封首领、维金哨兵等）<b class="src off">官</b>。</li>
+  </ul>
+
+  <h3>放大石板效果的途径</h3>
+  <p>图鉴天赋「石板效果」「城市地貌：石板效果」「受控天气」，贾多的「残篇译解」（随机 +0~40%），希尔达的「远古铭文」（每多一种石板类型 +8%）。有些配置故意插 4 种不同类型的石板，就是为了吃「远古铭文」。完整需求和数值见 <a href="#s15">§15</a>。</p>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2><span class="no">3</span>通用词条（8 种石板都能出）</h2>
+  <p>「物品数量」词条在 0.4 就删掉了<b class="src off">官</b>，看到按“物品数量 + X”报价的都是 0.3 的旧资料。0.5.0 把通用词条的数值向引路石词缀看齐，并缩小了浮动范围<b class="src off">官</b>。</p>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>评价</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">核心</span></td><td>地图拥有 (1—2) 个额外的随机词缀<span class="en">Map has (1—2) additional random Modifiers</span></td><td class="pos">后缀</td><td>Fubgun 说这是最重要的一条<b class="src">英</b>；韩服单条约 3D<b class="src">韩</b>；日服说“加地图词缀数的最贵”<b class="src">日</b></td></tr>
+      <tr><td><span class="chip must">核心</span></td><td>怪物的效能提高 (10—15)%<span class="en">Monsters have (10—15)% increased Effectiveness</span></td><td class="pos">前缀</td><td>多数攻略的第一前缀<b class="src">英</b><b class="src">葡</b><b class="src">俄</b>。效能会提高怪物生命、经验和掉落数量<b class="src off">官</b></td></tr>
+      <tr><td><span class="chip must">核心</span></td><td>地图内稀有怪物数量提高 (25—35)%<span class="en">Map has (25—35)% increased number of Rare Monsters</span></td><td class="pos">前缀</td><td>日服要求 ≥30%<b class="src">日</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图上的怪物稀有度提高 (15—20)%<span class="en">Map has (15—20)% increased Monster Rarity</span></td><td class="pos">前缀</td><td>怪物稀有度影响魔法、稀有怪的几率和稀有怪额外词缀的几率<b class="src off">官</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内获取物品的稀有度提高 (8—12)%<span class="en">(8—12)% increased Rarity of Items found in Map</span></td><td class="pos">前缀</td><td>日服：“效能 1 : 稀有度 2 的比例”<b class="src">日</b></td></tr>
+      <tr><td><span class="chip must">续航核心</span></td><td>地图内找到的引路石数量提高 (30—40)%<span class="en">(30—40)% increased Quantity of Waystones found in Map</span></td><td class="pos">后缀</td><td>保留门槛：俄服 ≥37%、日服 ≥38%、韩服 ≥34%<b class="src">俄</b><b class="src">日</b><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip cond">特定用途</span></td><td>传奇怪物额外具有 1 个词缀<span class="en">Unique Monsters have 1 additional Rare Modifiers</span></td><td class="pos">后缀</td><td>神庙、抓宠（<a href="#s9">§9</a>）；台服约 2D<b class="src">台</b></td></tr>
+      <tr><td><span class="chip cond">特定用途</span></td><td>地图包含 1 个额外的阿兹莫里之灵<span class="en">Map contains 1 additional Azmeri Spirits</span></td><td class="pos">前缀</td><td>保险箱 + 阿兹莫里之灵（<a href="#s12">§12</a>）</td></tr>
+      <tr><td><span class="chip cond">特定用途</span></td><td>地图包含 1 个额外的保险箱<span class="en">Map contains 1 additional Strongboxes</span></td><td class="pos">后缀</td><td>同上</td></tr>
+      <tr><td><span class="chip cond">特定用途</span></td><td>地图包含 1 个额外的召唤法阵<span class="en">Map contains 1 additional Summoning Circles</span></td><td class="pos">前缀</td><td>召唤法阵首领流（<a href="#s11">§11</a>）；葡语称“很稀有”<b class="src">葡</b></td></tr>
+      <tr><td><span class="chip cond">特定用途</span></td><td>地图内会出现 1 个额外的盗贼流放者<span class="en">Map is inhabited by 1 additional Rogue Exiles</span></td><td class="pos">前缀</td><td>Maxroll 深渊宝箱流的前缀首选（<a href="#s8">§8</a>）<b class="src">英</b></td></tr>
+      <tr><td><span class="chip cond">特定用途</span></td><td>地图包含 1 个额外的精华<span class="en">Map contains 1 additional Essences</span></td><td class="pos">前缀</td><td>精华配法（<a href="#s12">§12</a>）</td></tr>
+      <tr><td><span class="chip opt">冲级才用</span></td><td>地图内的经验值获取提高 (12—18)%<span class="en">(12—18)% increased Experience gain in Map</span></td><td class="pos">前缀</td><td>日服：18% 的能小幅加价<b class="src">日</b></td></tr>
+      <tr><td><span class="chip no">基本没人要</span></td><td>地图内怪物群规模提高 (5—7)%<span class="en">(5—7)% increased Pack Size in Map</span></td><td class="pos">前缀</td><td>多数攻略只当填充<b class="src">英</b>；葡语驱灵配法例外，排前缀第一<b class="src">葡</b></td></tr>
+      <tr><td><span class="chip no">基本没人要</span></td><td>地图内魔法怪物数量提高 (30—40)%<span class="en">Map has (30—40)% increased Magic Monsters</span></td><td class="pos">前缀</td><td><b class="src">英</b></td></tr>
+      <tr><td><span class="chip no">基本没人要</span></td><td>地图内找到的金币数量提高 (25—35)%<span class="en">(25—35)% increased Gold found in Map</span></td><td class="pos">前缀</td><td>七种语言都没有推荐</td></tr>
+      <tr><td><span class="chip na">少有人评价</span></td><td>地图包含 (2—3) 个额外的稀有宝箱<span class="en">Map contains (2—3) additional Rare Chests</span></td><td class="pos">前缀</td><td>—</td></tr>
+      <tr><td><span class="chip na">少有人评价</span></td><td>地图包含 1 个额外的神龛<span class="en">Map contains 1 additional Shrines</span></td><td class="pos">后缀</td><td>—</td></tr>
+      <tr><td><span class="chip na">少有人评价</span></td><td>地图包含神龛 / 保险箱 / 精华的几率提高 (70—100)%；地图有阿兹莫里之灵 / 盗贼流放者的几率提高 (70—100)%；地图包含召唤法阵的几率提高 (70—100)%<span class="en">Map has (70—100)% increased chance to contain Shrines / Strongboxes / Essences / Azmeri Spirits / Rogue Exiles / a Summoning Circle</span></td><td class="pos">后缀</td><td>韩服正则只保留「保险箱几率」一条<b class="src">韩</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">poe2db 上「额外 1 个精华 / 阿兹莫里之灵 / 盗贼流放者 / 神龛 / 保险箱」这几条还挂着“怪物群规模降低 %”“引路石数量提高 %”等数值为 0 的附带属性，实际不起作用<b class="src db">库</b>，上表省略。</p>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <h2><span class="no">4</span>裂隙</h2>
+  <h3>A. 稳定裂隙刷稀有怪（主流）</h3>
+  <div class="setup"><b>配置：</b>城市地图插「围困瓦尔克拉斯」+ 3 块裂隙石板，常和 200% 亢奋的迷雾叠着刷<b class="src">英</b><b class="src">日</b><b class="src">葡</b><b class="src">中</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>地图中的不稳定裂隙在稳定时会生成 (1—2) 个额外的稀有怪物<span class="en">Unstable Breaches in Map spawn (1—2) additional Rare Monsters when Stabilised</span></td><td class="pos">后缀</td><td>每块都要，各语种一致<b class="src">英</b><b class="src">日</b><b class="src">葡</b><b class="src">中</b><b class="src">台</b><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>怪物的效能提高 (10—15)%<span class="en">Monsters have (10—15)% increased Effectiveness</span></td><td class="pos">前缀</td><td>Maxroll 次序第一；葡语前缀第一<b class="src">英</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图中稀有裂隙怪物的效能提高 (5—20)%<span class="en">(5—20)% increased Effectiveness of Rare Breach Monsters in Map</span></td><td class="pos">后缀</td><td>俄服 ≥15% 才留<b class="src">英</b><b class="src">葡</b><b class="src">俄</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内获取物品的稀有度提高 (8—12)%<span class="en">(8—12)% increased Rarity of Items found in Map</span></td><td class="pos">前缀</td><td>Warlug 嫌贵不追<b class="src">英</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图拥有 (1—2) 个额外的随机词缀<span class="en">Map has (1—2) additional random Modifiers</span></td><td class="pos">后缀</td><td>Maxroll 次序第四<b class="src">英</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图中的不稳定裂隙包含薛斯的元帅弗伦的几率提高 (20—50)%<span class="en">Unstable Breaches in Map have (20—50)% increased chance to contain Vruun, Marshal of Xesht</span></td><td class="pos">后缀</td><td>韩服高价词条正则里保留<b class="src">韩</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>葡语前缀顺序</b>：效能 &gt; 物品稀有度 &gt; 怪物稀有度 &gt; 稀有怪数量<b class="src">葡</b>。</li>
+    <li><b>传奇「围困瓦尔克拉斯」</b>：「地图中的不稳定裂隙在稳定时会生成 (2—5) 个额外的稀有怪物」越高越好；「地图裂隙中的怪物群落规模降低 (-10—20)%」最好落在 ≥0% 那头<b class="src">英</b><b class="src">日</b>。</li>
+    <li><b>过时价格</b>：0.5.5 削成 1–2 个之后，六七月按“3 个额外稀有怪”标的价格都不能再参考<b class="src off">官</b>。</li>
+    <li><b>倒卖做法</b>（B 站，0.5.2）：买满次数的裂隙石板，用混沌石洗，约 5% 出这条，再洗效能、稀有度，最后用神圣石把数值顶满<b class="src">中</b>。</li>
+  </ul>
+
+  <h3 id="s4b">B. 刷创世之树材料（孕育赠礼、虫巢之血）</h3>
+  <div class="setup"><b>配置：</b>3–4 块裂隙石板<b class="src">日</b><b class="src">葡</b><b class="src">韩</b><b class="src">俄</b>。葡语的孕育赠礼流用 T16 腐化 6 词引路石</div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>地图中孕育赠礼的掉落数量提高 (30—60)%<span class="en">(30—60)% increased Quantity of Wombgifts found in Map</span></td><td class="pos">后缀</td><td>日服称“收入核心”；俄服 ≥45% 才留<b class="src">日</b><b class="src">俄</b><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip must">必备</span></td><td>地图中掉落的孕育赠礼有 (10—30)% 的几率高一级<span class="en">Wombgifts have (10—30)% chance to drop one Level higher in Map</span></td><td class="pos">后缀</td><td>葡语列为孕育赠礼流必备；俄服 ≥20%<b class="src">葡</b><b class="src">俄</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图中虫巢之血的掉落数量提高 (30—60)%<span class="en">(30—60)% increased Quantity of Hiveblood found in Map</span></td><td class="pos">后缀</td><td>俄服 ≥30%；葡语说“虫巢之血 + 孕育赠礼数量”这对好卖<b class="src">日</b><b class="src">俄</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图裂隙中的怪物群落规模提高 (5—15)%<span class="en">Breaches in Map have (5—15)% increased Pack Size</span></td><td class="pos">后缀</td><td>日服：0.5.1 后更值钱<b class="src">日</b></td></tr>
+      <tr><td><span class="chip cond">看目标</span></td><td>怪物效能、物品稀有度、稀有怪数量</td><td class="pos">前缀</td><td>英文 aoeah 认为这个流派不追这些前缀，和 A 相反<b class="src">英</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">aoeah 还提到“裂隙碎片数量”词条，但当前词缀池里没有这条<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2><span class="no">5</span>惊悸迷雾（首领、拟像）</h2>
+  <div class="setup"><b>配置：</b>3 块惊悸迷雾石板，城市地图 4 块，常配 200% 亢奋<b class="src">英</b><b class="src">日</b><b class="src">韩</b><b class="src">中</b>。0.5.3 起插 3 块才是改版前的迷雾强度<b class="src off">官</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备·三选一</span></td><td>地图内的惊悸迷雾遭遇战生成传奇首领的几率总增 (15—30)%<span class="en">Delirium Encounters in Map are (15—30)% more likely to spawn Unique Bosses</span></td><td class="pos">后缀</td><td>Maxroll：每块至少带这三条之一，要 20%+<b class="src">英</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip must">必备·三选一</span></td><td>地图中的惊悸迷雾生成的破溃之镜碎片数量提高 (12—26)%<span class="en">Delirium Fog in Map spawns (12—26)% increased Mirror Shards</span></td><td class="pos">后缀</td><td>日服 0.5.5 实测：它比下面的「破溃之镜数量」好用<b class="src">英</b><b class="src">日</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip must">必备·三选一</span></td><td>地图内的梦魇拟像裂片堆叠数量提高 (15—30)%<span class="en">(15—30)% increased Stack size of Simulacrum Splinters found in Map</span></td><td class="pos">后缀</td><td>韩服拟像流要 ≥28%<b class="src">英</b><b class="src">韩</b><b class="src">日</b></td></tr>
+      <tr><td><span class="chip cond">有分歧</span></td><td>地图内的惊悸迷雾生成的破溃之镜数量提高 (15—30)%<span class="en">Delirium Fog in Map spawns (15—30)% increased Fracturing Mirrors</span></td><td class="pos">后缀</td><td>中文 233 乐园：四块都要；日服实测不如碎片<b class="src">中</b><b class="src">日</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图上的怪物稀有度提高 (15—20)%<span class="en">Map has (15—20)% increased Monster Rarity</span></td><td class="pos">前缀</td><td>Maxroll 前缀第一<b class="src">英</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内稀有怪物数量提高 (25—35)%<span class="en">Map has (25—35)% increased number of Rare Monsters</span></td><td class="pos">前缀</td><td>日服 ≥30%<b class="src">日</b><b class="src">英</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>怪物的效能提高 (10—15)% → 地图内获取物品的稀有度提高 (8—12)%</td><td class="pos">前缀</td><td>Maxroll 次序：怪物稀有度 → 效能 → 物品稀有度 → 额外随机词缀 → 稀有怪数量<b class="src">英</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图内找到的引路石数量提高 (30—40)%<span class="en">(30—40)% increased Quantity of Waystones found in Map</span></td><td class="pos">后缀</td><td>韩服拟像流要 ≥34%<b class="src">韩</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>韩服拟像流</b>：3 块都带「拟像裂片堆叠 ≥28%」+「引路石数量 ≥34%」，引路石用怪物稀有度 ≥60% 的 T15 腐化图，再配贾多，每 10 张图约出 7–10 个拟像<b class="src">韩</b>。</li>
+    <li><b>日服整套</b>：稀有怪 ≥30% + 拟像裂片 ≥25% + 一条破溃之镜类词条，三块共约 80D<b class="src">日</b>。</li>
+    <li><b>葡语好卖的组合</b>：召唤法阵 + 传奇额外词缀；效能 + 稀有怪；破溃之镜 + 拟像裂片<b class="src">葡</b>。</li>
+    <li>传奇「万里晴空」（迷雾永不消散）很便宜，韩服建议直接分解<b class="src">韩</b>。</li>
+    <li>Mobalytics 摘要里 Fubgun 的迷雾速刷是 3 块能量辐照 + 额外随机词缀，页面没打开，未核实<b class="src">英</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <h2><span class="no">6</span>驱灵仪式（刷预兆、谒王之约，蹲 Headhunter / Mageblood）</h2>
+  <div class="setup"><b>配置：</b>「信念的自由」+ 3 块驱灵石板，城市地图 4 块<b class="src">英</b><b class="src">韩</b><b class="src">日</b><b class="src">葡</b><b class="src">台</b>。0.5.5 起多插驱灵石板会多一个祭坛<b class="src off">官</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>地图内的驱灵祭坛可以额外重置恩典 (1—3) 次<span class="en">Ritual Altars in Map allow rerolling Favours (1—3) additional times</span></td><td class="pos">后缀</td><td>各语种一致认为最贵；韩服 +3 次约 25D（6 月）<b class="src">英</b><b class="src">韩</b><b class="src">日</b><b class="src">葡</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内在驱灵祭坛重置恩典消耗的贡品降低 (20—30)%<span class="en">Rerolling Favours at Ritual Altars in Map costs (20—30)% reduced Tribute</span></td><td class="pos">后缀</td><td>Fubgun 列为必备；韩服约 30E<b class="src">英</b><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内在驱灵祭坛延时恩典消耗的贡品降低 (20—30)%<span class="en">Deferring Favours at Ritual Altars in Map costs (20—30)% reduced Tribute</span></td><td class="pos">后缀</td><td>韩服要 ≥23%；Path of Evening 建议整套只放一块<b class="src">韩</b><b class="src">英</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内在驱灵祭坛献祭怪物提供的贡品提高 (18—30)%<span class="en">Monsters Sacrificed at Ritual Altars in Map grant (18—30)% increased Tribute</span></td><td class="pos">后缀</td><td>日服第一优先；俄服的起步石板<b class="src">日</b><b class="src">俄</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip cond">看目标</span></td><td>地图内驱灵恩典为预兆的几率提高 (35—70)%<span class="en">Ritual Favours in Map have (35—70)% increased chance to be Omens</span></td><td class="pos">后缀</td><td>刷预兆：Path of Evening 称它是驱灵石板最好的一条，韩服要 ≥50%。蹲 Headhunter / Mageblood：韩服说别带，会压低出传奇的几率<b class="src">英</b><b class="src">韩</b><b class="src">日</b><b class="src">葡</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图内在驱灵祭坛重置恩典有 (3—6)% 几率不消耗贡品<span class="en">Favours Rerolled at Ritual Altars in Map have (3—6)% chance to cost no Tribute</span></td><td class="pos">后缀</td><td><b class="src">台</b></td></tr>
+      <tr><td><span class="chip no">不要</span></td><td>地图内驱灵祭坛再生怪物为魔法怪物的几率提高 (35—70)%；地图内的驱灵祭坛再生怪物为稀有怪物的几率提高 (25—40)%<span class="en">Revived Monsters from Ritual Altars in Map have increased chance to be Magic / Rare</span></td><td class="pos">后缀</td><td>“接近无效”<b class="src">英</b></td></tr>
+      <tr><td><span class="chip no">不要</span></td><td>地图内驱灵祭坛上延时的恩典重现速度加快 (25—40)%<span class="en">Favours Deferred at Ritual Altars in Map reappear (25—40)% sooner</span></td><td class="pos">后缀</td><td><b class="src">英</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>前缀</b>：葡语按怪物群规模 &gt; 怪物稀有度 &gt; 稀有怪数量；英文的破溃宝珠刷法是 3 块驱灵都带「额外随机词缀」，再配怪物稀有度、效能、物品稀有度或怪物群规模<b class="src">葡</b><b class="src">英</b>。</li>
+    <li><b>韩服 0.5.5 城市最低配置</b>：① 额外重置 3 次 + 延时贡品 −23% 以上；② 预兆几率 50% 以上 + 延时贡品 −23% 以上；③ 贡品提高或重置贡品降低；④「信念的自由」，词条随意<b class="src">韩</b>。</li>
+    <li><b>巴哈的分场次配法</b>：前三场 2 块预兆 + 1 块不消耗 + 1 块传奇；后三场 2 块减贡品 + 1 块随意 + 1 块传奇<b class="src">台</b>。</li>
+    <li><b>「信念的自由」</b>：重置次数翻倍，但恩典消耗的贡品 +10–15%；据 expcarry 两块不叠加<b class="src">英</b>。价格：葡语说约 70D 不推荐，韩服 6 月报 45–75E<b class="src">葡</b><b class="src">韩</b>。</li>
+    <li><b>分歧</b>：B 站威尔认为驱灵上城市地图插 4 块是“智商税”<b class="src">中</b>；俄服提醒城市驱灵要很肉的角色<b class="src">俄</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <h2><span class="no">7</span>先祖秘藏（0.5.5 回归）</h2>
+  <div class="setup"><b>配置：</b>2–4 块先祖秘藏石板，吃 <a href="#s2">§2</a> 的叠放档位（2 块开始加维金残片）<b class="src off">官</b><b class="src">韩</b><b class="src">日</b><b class="src">葡</b><b class="src">英</b>。只在 Forbidden Rites 赛季和标准服掉落</div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">高价组合</span></td><td>先祖秘藏有 +(30—40)% 的溢出几率包含一个额外的维金残片<span class="en">Expeditions have +(30—40)% Surpassing chance to contain an additional Verisium Remnant</span></td><td class="pos">后缀</td><td>和下一条同块：韩服说价格“疯了”，有人卖出 50D；日服、葡语也说很贵<b class="src">韩</b><b class="src">日</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip must">高价组合</span></td><td>地图内的维金残片有 +(25—35)% 的几率添加一个额外的符文词缀<span class="en">Verisium Remnants have +(25—35)% chance to add an additional Runic Modifier in Map</span></td><td class="pos">后缀</td><td><b class="src">韩</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip cond">看目标</span></td><td>地图内的先祖秘藏包含 (1—2) 个埋藏的保险箱<span class="en">Expeditions contain (1—2) buried Strongboxes in Map</span></td><td class="pos">后缀</td><td>保险箱流核心，见 <a href="#s12">§12</a><b class="src">韩</b><b class="src">英</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内的先祖秘藏额外包含 (1—2) 个维金哨兵<span class="en">Expeditions contain (1—2) Additional Verisium Sentries in Map</span></td><td class="pos">后缀</td><td>日服实测“最有潜力”<b class="src">日</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图内符文怪物掉落的先祖秘藏日志数量提高 (15—25)%<span class="en">(15—25)% increased Quantity of Expedition Logbooks dropped by Runic Monsters in Map</span></td><td class="pos">后缀</td><td>刷日志用<b class="src">英</b></td></tr>
+      <tr><td><span class="chip no">慎用</span></td><td>地图内的先祖秘藏包含 (1—2) 个瓦尔遗物；地图内的先祖秘藏额外包含 (1—2) 个被坚冰包裹的首领<span class="en">Expeditions contain (1—2) Vaal Relics / Additional Bosses encased in ice in Map</span></td><td class="pos">后缀</td><td>日服：怪会明显变难打<b class="src">日</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>怪物的效能提高 (10—15)%<span class="en">Monsters have (10—15)% increased Effectiveness</span></td><td class="pos">前缀</td><td>俄服高配：3 块都带效能<b class="src">俄</b></td></tr>
+      <tr><td><span class="chip na">少有人评价</span></td><td>符文怪物标记数量、复制符文怪物、最先开掘的符文怪物为稀有、维金数量、先祖秘藏怪物稀有度、爆炸范围</td><td class="pos">后缀</td><td>完整写法见 <a href="#s17">§17</a></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">韩服有人说插 3 块先祖秘藏石板会触发隐藏套装效果（额外一个先祖秘藏、埋藏保险箱 2 → 3 个）<b class="src">韩</b>。前半句和官方的 3 块档位一致，保险箱部分没有官方说明。</p>
+
+  <h3 id="s7b">宏大先祖秘藏</h3>
+  <div class="setup"><b>配置：</b>3 块能量辐照<b class="src">英</b><b class="src">中</b><b class="src">韩</b>。Fubgun 说先祖秘藏石板对宏大先祖秘藏不生效，韩服也有同样的说法，官方没有说明</div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>地图拥有 (1—2) 个额外的随机词缀<span class="en">Map has (1—2) additional random Modifiers</span></td><td class="pos">后缀</td><td>Fubgun 第一优先<b class="src">英</b><b class="src">中</b><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>怪物的效能提高 (10—15)% → 地图内稀有怪物数量提高 (25—35)%</td><td class="pos">前缀</td><td><b class="src">英</b><b class="src">中</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图内获取物品的稀有度提高 (8—12)%</td><td class="pos">前缀</td><td>四条里最弱<b class="src">英</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Fubgun：单块别花超过约 10D；3 条词缀的石板留给高层符文的宏大先祖秘藏<b class="src">英</b>。低配是稀有怪数量、怪物效能、怪物稀有度三选二<b class="src">中</b>。</li>
+    <li>中文的另一套（里奥，0.5.5）：2 块深渊（额外随机词缀 +「地图中的深渊通往绝望深渊的几率提高 (10—20)%」）+ 1 块先祖秘藏（额外随机词缀 + 怪物效能）<b class="src">中</b>。</li>
+    <li>0.5.0 开荒期的俄语攻略认为白图 T14 刷宏大先祖秘藏不需要石板<b class="src">俄</b>，9 月的攻略都改成了上面的三块能量辐照。</li>
+  </ul>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <h2><span class="no">8</span>深渊</h2>
+  <h3>A. 深渊宝箱、渎灵通货、Amanamu 预兆</h3>
+  <div class="setup"><b>配置：</b>3–4 块深渊石板<b class="src">英</b><b class="src">韩</b><b class="src">日</b><b class="src">台</b><b class="src">葡</b><b class="src">中</b>。避开沙漠地貌：Survival of the Fittest 节点会破坏深渊的稀有怪（Fubgun、aoeah）<b class="src">英</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备·至少一块</span></td><td>地图有 (20—40)% 的几率额外包含四个深渊<span class="en">Map has (20—40)% chance to contain four additional Abysses</span></td><td class="pos">后缀</td><td>日服要 ≥35%；台服 0.5.2 时单条约 80E<b class="src">英</b><b class="src">日</b><b class="src">台</b><b class="src">葡</b><b class="src">中</b></td></tr>
+      <tr><td><span class="chip must">必备·至少一块</span></td><td>地图中的深渊巨坑有双倍几率有奖励<span class="en">Abyss Pits in Map are twice as likely to have Rewards</span></td><td class="pos">后缀</td><td>两块都带就必出奖励（Maxroll）；台服约 30E；韩服列为顶级<b class="src">英</b><b class="src">韩</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图额外包含 1 个深渊<span class="en">Map contains 1 additional Abysses</span></td><td class="pos">后缀</td><td>韩服顶级<b class="src">韩</b><b class="src">英</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图中的深渊额外生成 (2—3) 个稀有怪物<span class="en">(2—3) additional Rare Monsters are spawned from Abysses in Map</span></td><td class="pos">后缀</td><td>0.5.5 由 1—2 加强；葡语列为优先<b class="src off">官</b><b class="src">葡</b><b class="src">日</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图中的深渊怪物带有深渊词缀的几率提高 (20—30)%<span class="en">(20—30)% increased chance for Abyssal monsters in Map to have Abyssal Modifiers</span></td><td class="pos">后缀</td><td>Fubgun 和葡语的 Amanamu 预兆刷法都是 3 块都带；俄服 ≥25% 才留<b class="src">中</b><b class="src">葡</b><b class="src">俄</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>每关闭一个巨坑，深渊怪物的效能提高 (8—12)%，最高可达 100%<span class="en">Abyssal Monsters have (8—12)% increased Effectiveness for each closed Pit, up to 100%</span></td><td class="pos">后缀</td><td>Fubgun 放一块；台服约 30E<b class="src">中</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图中的深渊掉落渎灵通货的几率提高 (20—30)%<span class="en">(20—30)% increased chance for Desecrated Currency from Abysses in Map</span></td><td class="pos">后缀</td><td>韩服中上<b class="src">韩</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图中的深渊通往绝望深渊的几率提高 (10—20)%<span class="en">Abysses in Map have (10—20)% increased chance to lead to an Abyssal Depths</span></td><td class="pos">后缀</td><td>俄服 ≥20% 就留；韩服有“这条没用”的说法<b class="src">俄</b><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip na">填充</span></td><td>地图中的深渊生成的怪物数量提高 (20—30)%<span class="en">Abysses in Map spawn (20—30)% increased Monsters</span></td><td class="pos">后缀</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>前缀</b>：稀有怪数量（日服 ≥30%）&gt; 怪物稀有度 &gt; 物品稀有度 &gt; 效能（Fubgun 认为效能在这个玩法里收益低）<b class="src">日</b><b class="src">中</b>。Maxroll 宝箱流的前缀首选是「地图内会出现 1 个额外的盗贼流放者」，然后物品稀有度 → 效能 → 怪物稀有度<b class="src">英</b>。</li>
+    <li><b>Fubgun 配法</b>（中文转述）：3 块「深渊词缀几率 + 稀有怪数量」，1 块「每关闭巨坑效能 + 额外四个深渊」<b class="src">中</b>。葡语的预兆刷法同样是 3 + 1，额外稀有怪优先<b class="src">葡</b>。</li>
+    <li><b>台服实战</b>：三块都带「四个深渊」，再配稀有怪数量、物品稀有度和任意一条深渊词条<b class="src">台</b>。</li>
+    <li><b>早期续航问题</b>：俄服 6 月认为纯深渊石板难以续航，用 1 块深渊 + 1 块霸主 + 填充<b class="src">俄</b>；9 月的攻略都改成 3–4 块深渊。</li>
+  </ul>
+
+  <h3 id="s8b">B. 200% 迷雾深渊（城市地图）</h3>
+  <div class="setup"><b>配置：</b>「无常因果」+ 3 块<b>不同类型</b>的非深渊石板（如能量辐照、霸主或神庙、裂隙），正好吃「远古铭文」的每种类型 +8%<b class="src">英</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>地图拥有 (1—2) 个额外的随机词缀<span class="en">Map has (1—2) additional random Modifiers</span></td><td class="pos">后缀</td><td>每块都要<b class="src">英</b></td></tr>
+      <tr><td><span class="chip must">必备</span></td><td>地图内稀有怪物数量提高 (25—35)%<span class="en">Map has (25—35)% increased number of Rare Monsters</span></td><td class="pos">前缀</td><td>每块都要<b class="src">英</b></td></tr>
+      <tr><td><span class="chip good">补位</span></td><td>效能 → 怪物稀有度 → 物品稀有度 → 怪物群规模</td><td class="pos">前缀</td><td>Maxroll 次序<b class="src">英</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>C. 深渊裂谷（0.5.5）</h3>
+  <p>裂谷上的地图必出深渊<b class="src off">官</b>。还没找到专门的石板攻略；韩服有人配「巨坑效能 + 四个深渊 + 额外稀有怪 + 深渊词缀」，也有韩文视频标题说不用插石板<b class="src">韩</b>。德语 Wakayashi 认为可以再用石板加强，但同样没有实测<b class="src">德</b>。</p>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <h2><span class="no">9</span>神庙（瓦尔灯塔）</h2>
+  <div class="setup"><b>配置：</b>3 块神庙石板；俄服说城市地图插 4 块就有 4 座灯塔<b class="src">俄</b><b class="src">英</b><b class="src">日</b>。开荒推图时韩服建议插一块神庙石板，最好带引路石数量<b class="src">韩</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>有 (5—10)% 的几率从地图中的瓦尔灯塔获得一个额外的水晶<span class="en">(5—10)% chance to gain an additional Crystal from Vaal Beacons in Map</span></td><td class="pos">后缀</td><td>各语种一致，基本是唯一重要的神庙后缀<b class="src">英</b><b class="src">俄</b><b class="src">日</b><b class="src">葡</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内稀有怪物数量提高 (25—35)%；怪物的效能提高 (10—15)%</td><td class="pos">前缀</td><td>Maxroll 列为奢侈项<b class="src">英</b></td></tr>
+      <tr><td><span class="chip cond">抓宠</span></td><td>传奇怪物额外具有 1 个词缀<span class="en">Unique Monsters have 1 additional Rare Modifiers</span></td><td class="pos">后缀</td><td>和下一条同块：Maxroll 列为高价组合<b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td><span class="chip cond">抓宠</span></td><td>有 (10—25)% 的几率为地图增加一个瓦尔灯塔传奇怪物<span class="en">(10—25)% chance to add a Vaal Beacon Unique Monster to the Map</span></td><td class="pos">后缀</td><td><b class="src">英</b><b class="src">日</b><b class="src">台</b></td></tr>
+      <tr><td><span class="chip cond">抓宠</span></td><td>地图中的瓦尔灯塔召唤额外怪物的几率提高 (25—50)%<span class="en">(25—50)% increased chance Vaal Beacons summon additional Monsters in Map</span></td><td class="pos">后缀</td><td>韩服多数人用它代替较贵的传奇怪物词条<b class="src">韩</b></td></tr>
+      <tr><td><span class="chip na">少有人评价</span></td><td>瓦尔灯塔附近的怪物群落规模、额外怪物群落（两条）、瓦尔灯塔宝箱为稀有</td><td class="pos">后缀</td><td>完整写法见 <a href="#s17">§17</a></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>抓宠</b>：日服用 4 块「传奇额外词缀 + 瓦尔灯塔传奇怪物」的石板驯服 Quadrilla Sergeant<b class="src">日</b>；巴哈的“抓猿神”用 3 块带「传奇额外词缀」的石板，类型不限，但不要用「残酷霸权」<b class="src">台</b>。</li>
+    <li><b>低预算</b>：词条无所谓，3 块便宜神庙石板、点满灯塔即可；日服实测大约 2 图开一次神庙、4 图见一次阿兹里<b class="src">英</b><b class="src">日</b><b class="src">韩</b>。</li>
+    <li>0.5.5b 提高了神庙石板掉率，但 9 月中旬韩服仍说稀缺<b class="src off">官</b><b class="src">韩</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>刷石板、通用爆装（能量辐照）</h2>
+  <div class="setup"><b>配置：</b>3 块能量辐照。它随机加机制，正好避开“用哪类石板就少掉哪类”的惩罚<b class="src">英</b><b class="src">日</b><b class="src">韩</b><b class="src">葡</b>。要先点「万古污染」<b class="src db">库</b></div>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>优先级</th><th>词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip must">必备</span></td><td>地图内找到的引路石数量提高 (30—40)%<span class="en">(30—40)% increased Quantity of Waystones found in Map</span></td><td class="pos">后缀</td><td>Maxroll 评为 S 级刷法；日服 ≥38% 约 15–20E<b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td><span class="chip must">必备</span></td><td>怪物的效能提高 (10—15)%<span class="en">Monsters have (10—15)% increased Effectiveness</span></td><td class="pos">前缀</td><td><b class="src">英</b><b class="src">葡</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图拥有 (1—2) 个额外的随机词缀<span class="en">Map has (1—2) additional random Modifiers</span></td><td class="pos">后缀</td><td>韩服单条约 3D<b class="src">韩</b><b class="src">英</b></td></tr>
+      <tr><td><span class="chip good">优秀</span></td><td>地图内稀有怪物数量提高 (25—35)%；地图上的怪物稀有度提高 (15—20)%（要 15%+）；地图内获取物品的稀有度提高 (8—12)%（要 8%+）</td><td class="pos">前缀</td><td><b class="src">英</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图包含保险箱的几率提高 (70—100)%<span class="en">Map has (70—100)% increased chance to contain Strongboxes</span></td><td class="pos">后缀</td><td>韩服高价正则保留<b class="src">韩</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>配套</b>：「山地专精」（高山地貌可选石板数量 +50%）、「传播秘密」（每块石板 +8% 石板数量）、「考古兴趣」（石板数量 +15%）、「皮实顽石」（8% 不消耗次数）、液化憎恶（区域内石板数量 +30%）<b class="src db">库</b>。</li>
+    <li><b>分歧</b>：葡语排序是效能 &gt; 物品稀有度 &gt; 怪物稀有度 &gt; 引路石数量 &gt; 额外随机词缀<b class="src">葡</b>；英文有个“100 图测试”视频认为，稀有怪数量和怪物稀有度比引路石数量更赚<b class="src">英</b>。</li>
+    <li>日服：能量辐照和霸主石板掉得多，市场容易饱和<b class="src">日</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>推图续航、刷城寨、地图首领（霸主）</h2>
+  <ul>
+    <li><b>推图和刷城寨</b>：俄服说唯一重要的词条就是「地图内找到的引路石数量提高 (30—40)%」，石板类型无所谓，≥37% 的约 5E；刷城寨和殿堂用 3 块 ≥35% 的能量辐照<b class="src">俄</b>。</li>
+    <li><b>打王图</b>：巴哈用「额外随机词缀 + 引路石数量」提高族裔辅助宝石的掉率<b class="src">台</b>。</li>
+    <li>0.5.0 起，天赋里涉及“强力地图首领”的节点对霸主石板也生效<b class="src off">官</b>。</li>
+  </ul>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>评价</th><th>霸主石板特有词条（国服原文 / 英文）</th><th>位置</th><th>说明 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip good">卖点</span></td><td>地图包含 (1—2) 个额外的保险箱<span class="en">Map contains (1—2) additional Strongboxes</span></td><td class="pos">后缀</td><td>韩服高价正则；保险箱流（<a href="#s12">§12</a>）<b class="src">韩</b></td></tr>
+      <tr><td><span class="chip good">卖点</span></td><td>地图包含 (1—2) 个额外的阿兹莫里之灵<span class="en">Map contains (1—2) additional Azmeri Spirits</span></td><td class="pos">后缀</td><td>韩服高价正则；日服说带阿兹莫里的前缀也能加价<b class="src">韩</b><b class="src">日</b></td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图首领掉落的引路石数量提高 (18—30)%<span class="en">(18—30)% increased Quantity of Waystones dropped by Map Bosses</span></td><td class="pos">后缀</td><td>续航</td></tr>
+      <tr><td><span class="chip opt">可选</span></td><td>地图包含 (1—2) 个额外的精华；地图包含 (1—2) 个额外的神龛<span class="en">Map contains (1—2) additional Essences / Shrines</span></td><td class="pos">后缀</td><td>精华配法见 <a href="#s12">§12</a><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip na">少有人评价</span></td><td>地图首领掉落的物品数量提高 (13—20)%；地图首领掉落的物品稀有度提高 (35—60)%；地图首领提供的经验值提高 (40—80)%</td><td class="pos">后缀</td><td>各语种都没找到围绕这几条的首领刷法；韩服有人问两块首领经验石板能否叠加，没人回答<b class="src">韩</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>实际用法</b>：霸主石板多是深渊配置里的填充格<b class="src">俄</b><b class="src">英</b>；英文价格贴把它排在最不值钱的一档<b class="src">英</b>。传奇「狩猎时节」约 2–4E、「残酷霸权」约 4–5E（韩服，6 月）<b class="src">韩</b>。</li>
+    <li><b>召唤法阵首领刷法</b>：「残酷霸权」+ 驱灵 + 能量辐照或迷雾，每块都带「地图包含 1 个额外的召唤法阵」<b class="src">葡</b>；天赋「符文之主」让霸主石板额外提高召唤法阵首领 20% 效能<b class="src db">库</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>副机制</h2>
+  <div class="split">
+    <div>
+      <h3>保险箱 + 阿兹莫里之灵（0.5.5 热门）</h3>
+      <ul>
+        <li>3 块先祖秘藏（「地图内的先祖秘藏包含 (1—2) 个埋藏的保险箱」）+ 1 块霸主（「地图包含 (1—2) 个额外的保险箱」或「地图包含 (1—2) 个额外的阿兹莫里之灵」），韩服说一张图能开 18 个保险箱<b class="src">韩</b>。</li>
+        <li>地貌排序：艾兹麦 &gt; 瓦尔森林 &gt; 法里敦沙漠<b class="src">韩</b>。</li>
+        <li>还可以补通用的「地图包含 1 个额外的阿兹莫里之灵」（前缀）和「地图包含 1 个额外的保险箱」（后缀）<b class="src">英</b><b class="src">葡</b>。</li>
+        <li>B 站称高配单块可卖到 100D，预算版三块共 7–8D<b class="src">中</b>。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>精华</h3>
+      <ul>
+        <li>韩服配法：2 块霸主（「地图包含 (1—2) 个额外的精华」）+ 1 块迷雾（传奇额外词缀 +「地图包含 1 个额外的精华」）<b class="src">韩</b>。</li>
+        <li>Maxroll 把单独刷精华或保险箱评为 F 级<b class="src">英</b>。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>召唤法阵、盗贼流放者</h3>
+      <ul>
+        <li>召唤法阵：「地图包含 1 个额外的召唤法阵」（前缀，葡语称很稀有），配法见 <a href="#s11">§11</a><b class="src">葡</b>。</li>
+        <li>盗贼流放者：主要配合深渊宝箱刷法；日韩评价都低<b class="src">英</b><b class="src">日</b><b class="src">韩</b>。天赋「竞争性考古」让盗贼流放者有 5% 几率多掉一块石板<b class="src db">库</b>。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>冲经验、神龛、金币</h3>
+      <ul>
+        <li>冲经验：日服用希尔达 + 4 种不同石板（吃「远古铭文」），带经验和效能<b class="src">日</b>；韩服用 4 块裂隙，带怪物群规模、经验、额外随机词缀和额外稀有怪<b class="src">韩</b>。</li>
+        <li>神龛、金币：七种语言都没人推荐。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>打造与交易</h2>
+  <h3>标准流程</h3>
+  <ol>
+    <li>蜕变石 → 增幅石，得到 2 条词缀的魔法石板<b class="src">英</b><b class="src">日</b><b class="src">台</b>。</li>
+    <li>词条好：富豪石升稀有（要「逆转录」），再用崇高石补到 4 条（要「部分翻译」）。</li>
+    <li>词条不好：点金石重洗（两个天赋都点了才能用），或者 3 块丢进重铸台合成 1 块稀有石板<b class="src">英</b>。0.5.0 起丝克玛试炼入口也有重铸台<b class="src off">官</b>。</li>
+  </ol>
+  <ul>
+    <li><b>洗数值</b>：神圣石可以重洗数值（Fubgun）<b class="src">英</b>；B 站用混沌石洗稀有裂隙石板，再用神圣石顶数值<b class="src">中</b>。</li>
+    <li><b>赌传奇石板</b>：0.5.0 起机会石能用在石板上<b class="src off">官</b>；韩服有人用机会石配 Omen of the Ancients，洗便宜的白色迷雾石板<b class="src">韩</b>。</li>
+    <li><b>远古注能装置</b>：随机修改一块石板并将其腐化<b class="src db">库</b>。有英文攻略说能做到 5 条词缀，未证实<b class="src">英</b>。</li>
+    <li><b>买之前</b>看剩余次数，只买满 10 次的，便宜的往往次数不满<b class="src">韩</b><b class="src">台</b>。</li>
+    <li><b>定价规律</b>：通用前缀单独不值钱，要和该机制的核心后缀同时出现才贵<b class="src">韩</b>。日服建议白色和未鉴定的魔法石板直接卖：白板“还可能出好词”，有时比烂稀有石板还贵<b class="src">日</b>。</li>
+  </ul>
+  <h3>价格参考（时点价格）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>石板 / 词条</th><th>价格</th><th>时间 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td>驱灵「可以额外重置恩典」+3 次</td><td class="w">约 25D；17–20D</td><td>6 月 <b class="src">韩</b>；6–7 月 <b class="src">英</b></td></tr>
+      <tr><td>深渊「额外包含四个深渊」</td><td class="w">约 80E</td><td>6 月，0.5.2 <b class="src">台</b></td></tr>
+      <tr><td>深渊「巨坑双倍几率有奖励」「每关闭一个巨坑效能提高」</td><td class="w">各约 30E</td><td>6 月，0.5.2 <b class="src">台</b></td></tr>
+      <tr><td>先祖秘藏「额外维金残片 + 残片额外符文词缀」</td><td class="w">成交 50D</td><td>9 月 <b class="src">韩</b></td></tr>
+      <tr><td>「额外随机词缀」单条</td><td class="w">约 3D</td><td>9 月 <b class="src">韩</b></td></tr>
+      <tr><td>能量辐照 +2 随机词缀；再配一条好词</td><td class="w">约 2D；6–8D</td><td>9 月，0.5.5 <b class="src">英</b></td></tr>
+      <tr><td>「引路石数量」≥37%；≥38%</td><td class="w">约 5E；15–20E</td><td>6 月 <b class="src">俄</b>；6 月 <b class="src">日</b></td></tr>
+      <tr><td>「传奇怪物额外具有 1 个词缀」</td><td class="w">约 2D</td><td>6 月 <b class="src">台</b></td></tr>
+      <tr><td>裂隙「稳定额外稀有怪 + 效能」</td><td class="w">7D</td><td>6 月，削弱前 <b class="src">台</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>传奇石板</h2>
+  <p>文字取 poe2db <code>/cn/</code> 与 <code>/us/</code> 石板页<b class="src db">库</b>。</p>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>名称</th><th>类型 · 次数</th><th>词条</th><th>社区评价</th></tr></thead>
+    <tbody>
+      <tr><td><b>围困瓦尔克拉斯</b><span class="en">Wraeclast Besieged</span></td><td class="w">裂隙 · 10</td><td>地图裂隙中的怪物群落规模降低 (-10—20)%；地图中的裂隙巢穴拥有 (2—5) 个额外的裂隙虫群怪物波次；地图中的不稳定裂隙在计时器填满后，会额外延迟 120 秒塌缩；地图中的不稳定裂隙在稳定时会生成 (2—5) 个额外的稀有怪物</td><td>裂隙稀有怪刷法的第四格；韩服 6 月 100–700E，看数值<b class="src">英</b><b class="src">韩</b></td></tr>
+      <tr><td><b>万里晴空</b><span class="en">Clear Skies</span></td><td class="w">惊悸迷雾 · 10</td><td>你地图中的惊悸迷雾永不消散；地图中的惊悸迷雾使玩家的亢奋度降低 (-10—10)%</td><td>便宜，韩服建议分解<b class="src">韩</b></td></tr>
+      <tr><td><b>信念的自由</b><span class="en">Freedom of Faith</span></td><td class="w">驱灵仪式 · 10</td><td>区域内的驱灵祭坛恩典消耗的贡品提高 (10—15)%；你地图中的驱灵祭坛可以重置恩典的次数变为两倍</td><td>驱灵核心；两块不叠加<b class="src">英</b><b class="src">韩</b><b class="src">日</b></td></tr>
+      <tr><td><b>宏伟计划</b><span class="en">The Grand Project</span></td><td class="w">能量辐照 · 1</td><td>只能应用于先驱高塔地图；完成高塔后解锁所有附近的地图</td><td>韩服 6 月 540E+，9 月约 4D<b class="src">韩</b></td></tr>
+      <tr><td><b>乐园幻象</b><span class="en">Visions of Paradise</span></td><td class="w">能量辐照 · 1</td><td>若地图之前未受能量辐照，完成地图时改为增加能量辐照</td><td>韩服 6 月 630E+，9 月约 3D<b class="src">韩</b></td></tr>
+      <tr><td><b>疆域主宰</b><span class="en">Mastered Domain</span></td><td class="w">能量辐照 · 1</td><td>地图也视为水域地图</td><td>韩服 6 月 20–550E，9 月约 1D<b class="src">韩</b></td></tr>
+      <tr><td><b>狩猎时节</b><span class="en">Season of the Hunt</span></td><td class="w">霸主 · 10</td><td>地图首领被阿兹莫里之灵追猎</td><td>约 2–4E<b class="src">韩</b></td></tr>
+      <tr><td><b>残酷霸权</b><span class="en">Cruel Hegemony</span></td><td class="w">霸主 · 10</td><td>地图首领额外具有 1 个词缀</td><td>召唤法阵首领刷法要用<b class="src">葡</b>；抓宠时别用<b class="src">台</b>；约 4–5E<b class="src">韩</b></td></tr>
+      <tr><td><b>无常因果</b><span class="en">Unforeseen Consequences</span></td><td class="w">深渊 · 1</td><td>地图额外包含 (14—18) 个深渊；地图被深渊侵占（数据里另有一条 −75% 的隐藏修正，poe2db 没有说明文字）</td><td>200% 迷雾深渊的核心<b class="src">英</b>；韩服 6 月 195E+<b class="src">韩</b>。0.5.0 移除了它的“深渊额外 4–6 个稀有怪”<b class="src off">官</b></td></tr>
+      <tr><td><b>时光的埋没</b><span class="en">Forgotten By Time</span></td><td class="w">先祖秘藏 · 10</td><td>你地图中的先祖秘藏怪物产生时额外失去一半生命值；你地图中的符文怪物被复制</td><td>poe2db 标注「禁止掉落」（0.5.0 起停掉）<b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="s15">
+  <h2><span class="no">15</span>石板相关天赋与大师选项</h2>
+  <p>名称、需求和效果原文取 poe2db 石板页和图鉴天赋树<b class="src db">库</b>。</p>
+  <div class="scroll"><table class="mods">
+    <thead><tr><th>名称</th><th>需求</th><th>效果</th></tr></thead>
+    <tbody>
+      <tr class="grp"><th colspan="3">解锁与栏位</th></tr>
+      <tr><td><b>逆转录</b><span class="en">Reverse Transcription</span></td><td>需要完成燃石巨塔</td><td>你的石板可以升级为稀有石板，且词缀上限 +1</td></tr>
+      <tr><td><b>部分翻译</b><span class="en">Partial Translation</span></td><td>需要击败先驱要塞巅峰首领</td><td>你的石板可以升级为稀有石板，且词缀上限 +1</td></tr>
+      <tr><td><b>工业改进</b><span class="en">Industrial Improvements</span></td><td>75+ 区域；需要完成燃石巨塔</td><td>城市地图上可使用一个额外的石板</td></tr>
+      <tr><td><b>万古污染</b><span class="en">Eons of Contamination</span></td><td>—</td><td>现在可以找到能量辐照先驱石板</td></tr>
+      <tr><td><b>万古统治</b><span class="en">Eons of Domination</span></td><td>—</td><td>强力地图首领可以掉落霸主先驱石板</td></tr>
+      <tr class="grp"><th colspan="3">石板效果</th></tr>
+      <tr><td><b>石板效果</b><span class="en">Tablet Effect · 树上 3 个</span></td><td>70+ / 75+ 区域；需要完成东方或西方通道 / 燃石巨塔</td><td>石板上的外延词缀效果提高 5%</td></tr>
+      <tr><td><b>城市地貌：石板效果</b><span class="en">City Biome: Tablet Effect · 树上 3 个</span></td><td>75+ 区域；需要完成燃石巨塔</td><td>你城市地图上的石板外延词缀效果提高 8%</td></tr>
+      <tr><td><b>受控天气</b><span class="en">Controlled Climates</span></td><td>75+ 区域；需要完成主母殿堂</td><td>每有一个影响地图区域的石板，石板上的外延词缀效果提高 5%</td></tr>
+      <tr><td><b>残篇译解</b><span class="en">Partial Translations · 贾多的间谍之道 T3</span></td><td>大师选项</td><td>石板上的外延词缀效果随机提高 0 至 40%（0.5.2 改版）</td></tr>
+      <tr><td><b>远古铭文</b><span class="en">Ancient Inscriptions · 希尔达的狩猎之道 T3</span></td><td>大师选项</td><td>每有一种影响地图区域的石板类型，石板上的外延词缀效果提高 8%</td></tr>
+      <tr><td><b>神秘强化</b><span class="en">Enigmatic Intensification</span></td><td>75+ 区域；需要完成长老殿堂</td><td>每有一个影响地图区域的石板，引路石上的外延词缀效果提高 3%</td></tr>
+      <tr class="grp"><th colspan="3">石板数量与次数</th></tr>
+      <tr><td><b>传播秘密</b><span class="en">Propagating Secrets</span></td><td>75+ 区域；需要完成燃石巨塔</td><td>每有一个影响地图区域的石板，石板的数量提高 8%</td></tr>
+      <tr><td><b>考古兴趣</b><span class="en">Archaeological Interest</span></td><td>70+ 区域；需要完成东方或西方通道</td><td>地图首领掉落的引路石数量提高 10%；石板的数量提高 15%</td></tr>
+      <tr><td><b>山地专精</b><span class="en">Mountain Mastery</span></td><td>关键天赋</td><td>在高山区域中选择一个加成：石板的掉落数量提高 50% / 符文的掉落数量提高 50% / 物品稀有度提高 6%</td></tr>
+      <tr><td><b>竞争性考古</b><span class="en">Competitive Archaeology</span></td><td>70+ 区域；需要完成东方或西方通道</td><td>盗贼流放者有 5% 的几率掉落一个额外的石板</td></tr>
+      <tr><td><b>皮实顽石</b><span class="en">Curiously Durable Stone</span></td><td>75+ 区域；需要击败先驱要塞巅峰首领</td><td>开启地图时，有 8% 的几率不消耗石板使用次数</td></tr>
+      <tr class="grp"><th colspan="3">机制联动</th></tr>
+      <tr><td><b>专业搜集者</b><span class="en">Specialised Seeker</span></td><td>70+ 区域；需要完成东方或西方通道</td><td>石板同样使通过石板机制生成的怪物掉落的物品稀有度提高 10%</td></tr>
+      <tr><td><b>符文之主</b><span class="en">Lord of the Runes</span></td><td>—</td><td>霸主石板同样使召唤法阵首领的效能提高 20%</td></tr>
+      <tr><td><b>接近地表</b><span class="en">Close to the Surface</span></td><td>—</td><td>深渊石板同样作用于绝望深渊：深渊词缀几率 +25%、巫妖血脉词缀几率 +25%、怪物群落规模 +4%（0.5.3 追加）</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">相关物品：远古注能装置（随机修改一块石板，并将其腐化）；液化憎恶（区域里的玩家 18% 亢奋；区域内的石板数量提高 30%）<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 16 ============ -->
+<section id="s16">
+  <h2><span class="no">16</span>引路石词条：哪些数值卖得上价</h2>
+  <p>引路石上的每条词缀都由两部分组成：一部分给怪物或玩家加难度，另一部分给地图加一种收益。收益分五类，汇总显示在引路石的抬头上：<b>怪物效能、物品稀有度、怪物群规模、怪物稀有度、引路石掉落几率</b>。其中引路石掉落几率每条词都会带一点<b class="src db">库</b><b class="src off">官</b>。同一条词在低、中、高阶引路石上收益完全一样，只有难度数值随阶级变大<b class="src db">库</b>。所以买家看的是抬头汇总数值，不是单条词。</p>
+
+  <h3>国服市集快照：抬头数值到多少才值钱</h3>
+  <p class="small">2026-09-28 查的国服「周年庆巅峰挑战」联盟：T15 以上的稀有引路石，只看「立即购买」挂单，按价格从低到高取最便宜的 10 个<b class="src me">推</b>。按市集的价格排序推算，1 混沌石约合 90–105 崇高石。价格变化快，看量级就好。挂单数显示「1 万+」是因为市集最多只数到 10000。</p>
+  <div class="scroll"><table class="snap">
+    <thead><tr><th>抬头数值</th><th>最便宜的挂单</th><th>挂单数</th><th>结论</th></tr></thead>
+    <tbody>
+      <tr><td>什么都不挑（T15+）</td><td class="w">2 崇高</td><td class="n">1 万+</td><td><span class="chip no">不值钱</span> 普通的混合词引路石只值地板价</td></tr>
+      <tr><td>T16，其他不挑</td><td class="w">约 1 混沌</td><td class="n">1 万+</td><td><span class="chip opt">有溢价</span> T16（区域等级 80）本身就贵一截</td></tr>
+      <tr><td>引路石掉落几率 ≥90%</td><td class="w">3 崇高</td><td class="n">1 万+</td><td><span class="chip no">不值钱</span></td></tr>
+      <tr><td>引路石掉落几率 ≥100%</td><td class="w">3–4 崇高</td><td class="n">1 万+</td><td><span class="chip no">不值钱</span></td></tr>
+      <tr><td>引路石掉落几率 ≥110%</td><td class="w">21–30 崇高</td><td class="n">1 万+</td><td><span class="chip opt">开始值钱</span></td></tr>
+      <tr><td>引路石掉落几率 ≥120%</td><td class="w">222–255 崇高</td><td class="n">1 万+</td><td><span class="chip good">值钱</span> 这批几乎都是腐化后 7–10 条词缀的</td></tr>
+      <tr><td>物品稀有度 ≥50%</td><td class="w">10–15 崇高</td><td class="n">1 万+</td><td><span class="chip opt">开始值钱</span></td></tr>
+      <tr><td>物品稀有度 ≥70%</td><td class="w">7 混沌</td><td class="n">1319</td><td><span class="chip good">值钱</span></td></tr>
+      <tr><td>怪物稀有度 ≥60%</td><td class="w">220–250 崇高</td><td class="n">1 万+</td><td><span class="chip good">值钱</span> 偶有只有 3 条词的 2 崇高漏网货</td></tr>
+      <tr><td>怪物稀有度 ≥100%（常见 103%）</td><td class="w">10 混沌</td><td class="n">5129</td><td><span class="chip good">值钱</span> 用预兆洗成“全是怪物稀有度词”的定制品</td></tr>
+      <tr><td>怪物效能 ≥50%</td><td class="w">9 混沌</td><td class="n">7335</td><td><span class="chip good">值钱</span></td></tr>
+      <tr><td>怪物效能 ≥70%（常见 86%）</td><td class="w">10 混沌</td><td class="n">4711</td><td><span class="chip good">值钱</span> 全效能定制品</td></tr>
+      <tr><td>怪物群规模 ≥30%</td><td class="w">约 1 混沌</td><td class="n">1 万+</td><td><span class="chip opt">开始值钱</span></td></tr>
+      <tr><td>怪物群规模 ≥45%</td><td class="w">4–6 混沌</td><td class="n">844</td><td><span class="chip good">值钱</span> 全群规模定制品</td></tr>
+      <tr><td>带深渊渎灵词缀的引路石</td><td class="w">—</td><td class="n">0</td><td><span class="chip na">查不到</span> 当前联盟任何状态都没有挂单，无法判断</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout key"><span class="lab">一句话</span><p>随手捡到的混合词引路石基本只值 2–4 崇高。值钱的是两类：一类是某一项收益特别高，比如引路石掉落几率 ≥110%、物品稀有度 ≥50%、怪物稀有度 ≥60%、怪物效能 ≥50%、怪物群规模 ≥30%；另一类是用预兆洗成单一收益类型的定制引路石，另外 T16 也有溢价<b class="src me">推</b>。高掉落几率的引路石贵，还因为最能加掉落几率的词正好是最危险的那几条（见下表的「高危」标记），能刷的人少<b class="src me">推</b>。</p></div>
+
+  <h3>各玩法要什么样的引路石</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>玩法</th><th>引路石要求</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip kind">刷石板</span> 能量辐照刷石板</td><td>T15，用崇高石做到 6 条词缀，再用瓦尔宝珠腐化，要求引路石掉落几率 90% 以上。按上面的国服快照，110% 以上才开始值钱</td><td><b class="src">英</b><b class="src me">推</b></td></tr>
+      <tr><td><span class="chip kind">城塞</span> 古铜 / 钢铁 / 磐石城塞</td><td>要 T15 以上才能开。引路石掉落几率越高，首领越有机会多掉一个危机碎片。俄服的例子是 4 条词缀、60% 掉落几率</td><td><b class="src db">库</b><b class="src">俄</b></td></tr>
+      <tr><td><span class="chip kind">裂隙</span> 稳定裂隙刷稀有怪</td><td>T15、6 条词缀；先放「混沌数量预兆」和「混沌怪物预兆」再用混沌石，把词缀洗成物品稀有度和怪物效能两类，两项合计 60% 以上（通常一次就能洗到）</td><td><b class="src">英</b></td></tr>
+      <tr><td><span class="chip kind">深渊</span><span class="chip kind">迷雾</span> 200% 迷雾深渊</td><td>T15。先做到 5 条词缀，同时放「混沌数量预兆」「混沌稀有预兆」「混沌效能预兆」再用混沌石，固定得到 103% 怪物稀有度，最后崇高到 6 条</td><td><b class="src">英</b></td></tr>
+      <tr><td><span class="chip kind">迷雾</span> 刷梦魇拟像（韩服做法）</td><td>T15 腐化引路石，怪物稀有度 60% 以上</td><td><b class="src">韩</b></td></tr>
+      <tr><td><span class="chip kind">先祖秘藏</span> 宏大先祖秘藏</td><td>台服：怪物效能 70% 的 8 条词缀引路石。Fubgun：引路石上的怪物群规模对它收益最低</td><td><b class="src">台</b><b class="src">中</b></td></tr>
+      <tr><td><span class="chip kind">深渊</span> 深渊宝箱</td><td>T15、6 条词缀、腐化；物品稀有度高更好，但不是必须。天赋「接近地表」能让引路石的词缀也作用于绝望深渊</td><td><b class="src">英</b><b class="src db">库</b></td></tr>
+      <tr><td>迷雾首领速刷、神庙</td><td>T15、6 条词缀（迷雾首领速刷还要腐化），不挑具体词</td><td><b class="src">英</b></td></tr>
+      <tr><td><span class="chip kind">裂隙</span> 刷孕育赠礼</td><td>T16 腐化、6 条词缀</td><td><b class="src">葡</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul class="small">
+    <li><b>预兆的作用</b>：放在背包里生效，下一次用混沌石时把引路石上的词缀全部换成<b>不属于</b>对应收益的词。「混沌稀有预兆」排除物品稀有度，「混沌数量预兆」排除怪物群规模，「混沌怪物预兆」排除怪物稀有度，「混沌效能预兆」排除怪物效能，最多同时用 3 个<b class="src db">库</b><b class="src off">官</b>。想要哪一类，就把另外三类排除掉。</li>
+    <li><b>腐化</b>：Maxroll 各刷法都是先崇高到 6 条再用瓦尔宝珠腐化。市集上腐化后的引路石常见 7–10 条词缀，6 条以上就能插满 3 块石板<b class="src">英</b>。</li>
+    <li><b>别用高级崇高石做引路石</b>：Maxroll 每个刷法页面都专门强调这一点<b class="src">英</b>。</li>
+    <li><b>三合一</b>：3 块 N 阶引路石可以在重铸台换 1 块 N+1 阶的<b class="src db">库</b>。</li>
+  </ul>
+
+  <h3>高阶引路石词缀一览（按收益类型标出对应玩法）</h3>
+  <p class="small">poe2db「引路石（高阶）」词缀池，共 27 条<b class="src db">库</b>。「标记」一列里：玩法标签表示哪个玩法想要这类收益；「刷石板 / 城塞」标给引路石掉落 ≥20% 的词；「高危」是本页按常见经验标的最容易出事的词<b class="src me">推</b>。「穿透的」的国服文本写成了“召唤生物的伤害”，英文原文是怪物伤害。</p>
+  <div class="scroll"><table class="way">
+    <thead><tr><th>位置</th><th>词缀名</th><th>难度（国服原文 / 英文）</th><th>收益类型</th><th>收益</th><th class="n">引路石</th><th>标记</th></tr></thead>
+    <tbody>
+      <tr data-t="效能"><td class="pos">前缀</td><td class="w">狱炎的</td><td>怪物造成相当于伤害 (15—19)% 的额外火焰伤害<span class="en">Monsters deal (15—19)% of Damage as Extra Fire</span></td><td class="w">效能</td><td>怪物效能 +16%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">先祖秘藏</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">前缀</td><td class="w">霜噬的</td><td>怪物造成相当于伤害 (15—19)% 的额外冰霜伤害<span class="en">Monsters deal (15—19)% of Damage as Extra Cold</span></td><td class="w">稀有度</td><td>物品稀有度 +14%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+      <tr data-t="群规模"><td class="pos">前缀</td><td class="w">雷鸣的</td><td>怪物造成相当于伤害 (15—19)% 的额外闪电伤害<span class="en">Monsters deal (15—19)% of Damage as Extra Lightning</span></td><td class="w">群规模</td><td>群规模 +8%</td><td class="n">15%</td><td>—</td></tr>
+      <tr data-t="怪物稀有度"><td class="pos">前缀</td><td class="w">痛苦的</td><td>怪物伤害提高 (15—19)%<span class="en">(15—19)% increased Monster Damage</span></td><td class="w">怪物稀有度</td><td>魔法和稀有怪物 +25%；稀有怪词缀几率 +25%</td><td class="n">20%</td><td><span class="chip kind">迷雾</span><span class="chip kind">深渊</span><span class="chip kind">刷石板</span><span class="chip kind">城塞</span></td></tr>
+      <tr data-t="群规模"><td class="pos">前缀</td><td class="w">飞驰的</td><td>怪物的攻击，施法，移动速度提高 (10—15)%<span class="en">Monsters have (10—15)% increased Attack, Cast and Movement Speed</span></td><td class="w">群规模</td><td>群规模 +9%</td><td class="n">25%</td><td><span class="chip kind">刷石板</span><span class="chip kind">城塞</span><span class="chip no">高危</span></td></tr>
+      <tr data-t="群规模"><td class="pos">前缀</td><td class="w">灭绝的</td><td>怪物暴击率提高 (200—240)%；+(21—25)% 怪物暴击伤害加成<span class="en">Monsters have (200—240)% increased Critical Hit Chance</span></td><td class="w">群规模</td><td>群规模 +9%</td><td class="n">15%</td><td>—</td></tr>
+      <tr data-t="怪物稀有度"><td class="pos">前缀</td><td class="w">粗硬的</td><td>怪物生命总增 (20—25)%<span class="en">(20—25)% more Monster Life</span></td><td class="w">怪物稀有度</td><td>魔法和稀有怪物 +23%；稀有怪词缀几率 +23%</td><td class="n">15%</td><td><span class="chip kind">迷雾</span><span class="chip kind">深渊</span></td></tr>
+      <tr data-t="群规模"><td class="pos">前缀</td><td class="w">剧毒的</td><td>怪物的击中有 (27—33)% 的几率造成中毒<span class="en">Monsters have (27—33)% chance to Poison on Hit</span></td><td class="w">群规模</td><td>群规模 +7%</td><td class="n">10%</td><td>—</td></tr>
+      <tr data-t="效能"><td class="pos">前缀</td><td class="w">穿孔的</td><td>怪物的击中有 (15—20)% 的几率造成流血<span class="en">Monsters have (15—20)% chance to inflict Bleeding on Hit</span></td><td class="w">效能</td><td>怪物效能 +13%</td><td class="n">10%</td><td><span class="chip kind">裂隙</span><span class="chip kind">先祖秘藏</span></td></tr>
+      <tr data-t="怪物稀有度"><td class="pos">前缀</td><td class="w">碎离的</td><td>怪物粉碎护甲，相当于造成物理伤害的 (25—30)%<span class="en">Monsters Break Armour equal to (25—30)% of Physical Damage dealt</span></td><td class="w">怪物稀有度</td><td>魔法和稀有怪物 +19%；稀有怪词缀几率 +19%</td><td class="n">10%</td><td><span class="chip kind">迷雾</span><span class="chip kind">深渊</span></td></tr>
+      <tr data-t="群规模"><td class="pos">前缀</td><td class="w">精确的</td><td>怪物的命中值提高 (30—40)%<span class="en">Monsters have (30—40)% increased Accuracy Rating</span></td><td class="w">群规模</td><td>群规模 +7%</td><td class="n">10%</td><td>—</td></tr>
+      <tr data-t="稀有度"><td class="pos">前缀</td><td class="w">渎神的</td><td>怪物造成相当于伤害 (15—19)% 的额外混沌伤害<span class="en">Monsters deal (15—19)% of Damage as Extra Chaos</span></td><td class="w">稀有度</td><td>物品稀有度 +15%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+      <tr data-t="效能"><td class="pos">前缀</td><td class="w">冲击的</td><td>怪物的晕眩积蓄提高 (90—100)%<span class="en">Monsters have (90—100)% increased Stun Buildup</span></td><td class="w">效能</td><td>怪物效能 +13%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">先祖秘藏</span></td></tr>
+      <tr data-t="群规模"><td class="pos">前缀</td><td class="w">分裂的</td><td>怪物可以发射 3 个额外投射物<span class="en">Monsters fire 3 additional Projectiles</span></td><td class="w">群规模</td><td>群规模 +9%</td><td class="n">25%</td><td><span class="chip kind">刷石板</span><span class="chip kind">城塞</span><span class="chip no">高危</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">前缀</td><td class="w">穿透的</td><td>召唤生物的伤害穿透 (12—14)% 元素抗性<span class="en">Monster Damage Penetrates (12—14)% Elemental Resistances</span></td><td class="w">稀有度</td><td>物品稀有度 +16%</td><td class="n">20%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span><span class="chip kind">刷石板</span><span class="chip kind">城塞</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">后缀</td><td class="w">棱镜之</td><td>+(30—34)% 怪物的元素抗性<span class="en">+(30—34)% Monster Elemental Resistances</span></td><td class="w">稀有度</td><td>物品稀有度 +14%</td><td class="n">10%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+      <tr data-t="效能"><td class="pos">后缀</td><td class="w">不懈之</td><td>怪物的异常状态阈值提高 (70—79)%；怪物的晕眩阈值提高 (60—69)%<span class="en">Monsters have (70—79)% increased Ailment Threshold</span></td><td class="w">效能</td><td>怪物效能 +13%</td><td class="n">10%</td><td><span class="chip kind">裂隙</span><span class="chip kind">先祖秘藏</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">后缀</td><td class="w">强威之</td><td>怪物的元素异常状态应用提高 (100—119)%<span class="en">Monster have (100—119)% increased Elemental Ailment Application</span></td><td class="w">稀有度</td><td>物品稀有度 +11%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+      <tr data-t="效能"><td class="pos">后缀</td><td class="w">烈火的</td><td>区域内有点燃地面<span class="en">Area has patches of Ignited Ground</span></td><td class="w">效能</td><td>怪物效能 +15%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">先祖秘藏</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">后缀</td><td class="w">雨雪的</td><td>区域内有冰缓地面<span class="en">Area has patches of Chilled Ground</span></td><td class="w">稀有度</td><td>物品稀有度 +12%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+      <tr data-t="群规模"><td class="pos">后缀</td><td class="w">感电的</td><td>区域内有感电地面<span class="en">Area has patches of Shocked Ground</span></td><td class="w">群规模</td><td>群规模 +7%</td><td class="n">15%</td><td>—</td></tr>
+      <tr data-t="群规模"><td class="pos">后缀</td><td class="w">曝露之</td><td>玩家的抗性上限 (-8—-6)%<span class="en">(-8—-6)% maximum Player Resistances</span></td><td class="w">群规模</td><td>群规模 +10%</td><td class="n">25%</td><td><span class="chip kind">刷石板</span><span class="chip kind">城塞</span><span class="chip no">高危</span></td></tr>
+      <tr data-t="群规模"><td class="pos">后缀</td><td class="w">干枯之</td><td>玩家获得的药剂充能降低 (30—35)%<span class="en">Players gain (30—35)% reduced Flask Charges</span></td><td class="w">群规模</td><td>群规模 +7%</td><td class="n">15%</td><td>—</td></tr>
+      <tr data-t="稀有度"><td class="pos">后缀</td><td class="w">窒息之</td><td>玩家的生命和能量护盾总回复速度总降 (36—40)%<span class="en">Players have (36—40)% less Recovery Rate of Life and Energy Shield</span></td><td class="w">稀有度</td><td>物品稀有度 +15%</td><td class="n">20%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span><span class="chip kind">刷石板</span><span class="chip kind">城塞</span><span class="chip no">高危</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">后缀</td><td class="w">疲惫之</td><td>玩家的冷却回复率总降 (25—30)%<span class="en">Players have (25—30)% less Cooldown Recovery Rate</span></td><td class="w">稀有度</td><td>物品稀有度 +12%</td><td class="n">15%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+      <tr data-t="怪物稀有度"><td class="pos">后缀</td><td class="w">阻挠之</td><td>怪物受到的暴击伤害降低 (26—30)%<span class="en">Monsters take (26—30)% reduced Extra Damage from Critical Hits</span></td><td class="w">怪物稀有度</td><td>魔法和稀有怪物 +18%；稀有怪词缀几率 +18%</td><td class="n">10%</td><td><span class="chip kind">迷雾</span><span class="chip kind">深渊</span></td></tr>
+      <tr data-t="稀有度"><td class="pos">后缀</td><td class="w">辟邪之</td><td>怪物受到的诅咒效果总降 (40—50)%<span class="en">(40—50)% less effect of Curses on Monsters</span></td><td class="w">稀有度</td><td>物品稀有度 +10%</td><td class="n">10%</td><td><span class="chip kind">裂隙</span><span class="chip kind">深渊宝箱</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">低阶引路石还有几条高阶没有的词，例如“玩家周期性受到诅咒”“怪物效果区域提高 50%”“稀有怪物额外具有 1 个词缀”；「飞驰的」只在高阶出现<b class="src db">库</b>。</p>
+
+  <h3><span class="chip kind">深渊</span> 渎灵引路石词缀（用「遗存椎骨」渎灵一个稀有引路石）</h3>
+  <p class="small">这是真正和玩法内容绑定的一组：11 条前缀全部改变地图里的深渊，并附带固定收益<b class="src db">库</b>。当前国服联盟市集里查不到任何带这些词的引路石挂单，所以没有价格参考。</p>
+  <div class="scroll"><table class="way">
+    <thead><tr><th>位置</th><th>词缀名</th><th>效果（国服原文 / 英文）</th><th>附带收益</th><th>标记</th></tr></thead>
+    <tbody>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>深渊怪物给予的经验值提高 (50—100)%<span class="en">Abyssal Monsters grant (50—100)% increased Experience</span></td><td>引路石掉落 +20%；群规模 +16%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>区域额外包含 (2—3) 个深渊<span class="en">Area contains (2—3) additional Abysses</span></td><td>物品稀有度 +25%；引路石掉落 +20%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>深渊生成的怪物数量提高 (50—100)%<span class="en">Abysses spawn (50—100)% increased Monsters</span></td><td>引路石掉落 +20%；群规模 +12%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>深渊额外生成 3 个稀有怪物；区域被深渊占据；区域额外包含 (14—18) 个深渊<span class="en">Area is overrun by the Abyssal / 3 additional Rare Monsters are spawned from Abysses / Area contains (14—18) additional Abysses</span></td><td>引路石掉落 +25%；群规模 +10%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>深渊通向深渊首领（物品等级 78 以上）<span class="en">Abysses lead to an Abyssal Boss</span></td><td>物品稀有度 +25%；引路石掉落 +10%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>区域内额外有 1 个孵化女王<span class="en">Area contains 1 additional Incubator Queens</span></td><td>引路石掉落 +25%；群规模 +12%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>深渊巨坑有 (50—80)% 的几率使产生的所有怪物至少为魔法怪物；深渊裂隙有 (40—60)% 的几率使产生的所有怪物至少为魔法怪物<span class="en">Abyss Pits have (50—80)% chance to spawn all Monsters as at least Magic / Abyss Cracks have (40—60)% chance to spawn all Monsters as at least Magic</span></td><td>引路石掉落 +25%；魔法怪物群 +40%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>深渊通向绝望深渊<span class="en">Abysses lead to an Abyssal Depths</span></td><td>物品稀有度 +25%；引路石掉落 +20%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>每关闭一个巨坑，深渊怪物的难度与奖励都会提高<span class="en">Abyssal Monsters have increased Difficulty and Reward for each closed Pit</span></td><td>引路石掉落 +20%；群规模 +12%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>区域内的深渊巨坑必定有奖励<span class="en">Abyss Pits in Area always have Rewards</span></td><td>引路石掉落 +25%；魔法怪物群 +40%；稀有怪物群 +30%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">前缀</td><td class="w">深渊的</td><td>区域内的源生稀有怪物额外具有 1 个深渊词缀<span class="en">Natural Rare Monsters in Area have 1 extra Abyssal Modifiers</span></td><td>引路石掉落 +25%；稀有怪物群 +30%</td><td><span class="chip kind">深渊</span></td></tr>
+      <tr><td class="pos">后缀</td><td class="w">消耗之</td><td>区域内的源生稀有怪物在其在场范围内的怪物被击败时吞噬灵魂；玩家窃取区域内被击杀稀有怪物的被吞噬灵魂<span class="en">Natural Rare Monsters in Area Eat the Souls of slain Monsters in their Presence / Players steal the Eaten Souls of Slain Rare Monsters in Area</span></td><td>引路石掉落 +25%；群规模 +18%</td><td>—</td></tr>
+      <tr><td class="pos">后缀</td><td class="w">循环之</td><td>每 10 秒中，玩家及其召唤生物有 3 秒不能造成伤害<span class="en">Players and their Minions deal no damage for 3 out of every 10 seconds</span></td><td>引路石掉落 +40%；稀有怪物群 +50%</td><td><span class="chip no">高危</span></td></tr>
+      <tr><td class="pos">后缀</td><td class="w">缓速之</td><td>玩家近期每使用一次技能，移动和技能速度总降 3%<span class="en">Players have 3% less Movement and Skill Speed for each time they've used a Skill Recently</span></td><td>物品稀有度 +45%；引路石掉落 +25%</td><td>—</td></tr>
+      <tr><td class="pos">后缀</td><td class="w">贪婪之</td><td>怪物击中时施加 1 缓速藤蔓<span class="en">Monsters inflict 1 Grasping Vines on Hit</span></td><td>引路石掉落 +30%；群规模 +22%</td><td>—</td></tr>
+      <tr><td class="pos">后缀</td><td class="w">惩戒之</td><td>玩家击败稀有或传奇怪物后被打上死亡印记，持续 10 秒<span class="en">Players are Marked for Death for 10 seconds after killing a Rare or Unique monster</span></td><td>物品稀有度 +40%；引路石掉落 +25%；群规模 +10%</td><td>—</td></tr>
+      <tr><td class="pos">后缀</td><td class="w">虹吸之</td><td>区域有魔力虹吸地面<span class="en">Area has patches of Mana Siphoning Ground</span></td><td>引路石掉落 +35%；群规模 +18%</td><td>—</td></tr>
+      <tr><td class="pos">后缀</td><td class="w">结合之</td><td>（无额外效果，只有收益）</td><td>引路石掉落 +20%；群规模 +22%</td><td>—</td></tr>
+      <tr><td class="pos">后缀</td><td class="w">结合之</td><td>（无额外效果，只有收益）</td><td>引路石掉落 +25%；稀有怪物群 +50%</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">和引路石相关的天赋：「神秘强化」每有一块石板影响地图，引路石上的外延词缀效果提高 3%；「接近地表」让引路石的外延词缀也作用于地图里的绝望深渊<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 17 ============ -->
+<section id="s17">
+  <h2><span class="no">17</span>完整词缀池（86 条）</h2>
+  <p>poe2db <code>/cn/</code> 与 <code>/us/</code> 8 个石板页的内嵌数据按顺序对位，2026-09-25 抓取<b class="src db">库</b>。选一种石板时，显示它能出的全部词条（通用 + 特有）。神庙特有词条在 poe2db 上没有中文词缀名，只显示内部代号。</p>
+  <div class="filters" role="group" aria-label="按石板类型筛选">
+    <button class="fbtn" type="button" data-f="all" aria-pressed="true">全部</button>
+    <button class="fbtn" type="button" data-f="ALL" aria-pressed="false">仅通用</button>
+    <button class="fbtn" type="button" data-f="B" aria-pressed="false">裂隙</button>
+    <button class="fbtn" type="button" data-f="D" aria-pressed="false">惊悸迷雾</button>
+    <button class="fbtn" type="button" data-f="R" aria-pressed="false">驱灵仪式</button>
+    <button class="fbtn" type="button" data-f="X" aria-pressed="false">先祖秘藏</button>
+    <button class="fbtn" type="button" data-f="A" aria-pressed="false">深渊</button>
+    <button class="fbtn" type="button" data-f="T" aria-pressed="false">神庙</button>
+    <button class="fbtn" type="button" data-f="O" aria-pressed="false">霸主</button>
+    <button class="fbtn" type="button" data-f="I" aria-pressed="false">能量辐照</button>
+  </div>
+  <div class="filters">
+    <input class="search" id="poolSearch" type="search" placeholder="搜索词条（中文或英文）" aria-label="搜索词条">
+    <span class="count" id="poolCount" aria-live="polite">共 86 条</span>
+  </div>
+  <div class="scroll"><table class="pool" id="poolTable">
+    <thead><tr><th>位置</th><th>可出现在</th><th>词条（国服原文）</th><th>英文</th><th>词缀名</th></tr></thead>
+    <tbody>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>怪物的效能提高 (10—15)%</td><td><span class="en">Monsters have (10—15)% increased Effectiveness</span></td><td class="w">挑战者的<span class="en">Challenger&#x27;s</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内获取物品的稀有度提高 (8—12)%</td><td><span class="en">(8—12)% increased Rarity of Items found in Map</span></td><td class="w">收藏家的<span class="en">Collector&#x27;s</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内怪物群规模提高 (5—7)%</td><td><span class="en">(5—7)% increased Pack Size in Map</span></td><td class="w">多产的<span class="en">Breeding</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内魔法怪物数量提高 (30—40)%</td><td><span class="en">Map has (30—40)% increased Magic Monsters</span></td><td class="w">浇灌的<span class="en">Teeming</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内稀有怪物数量提高 (25—35)%</td><td><span class="en">Map has (25—35)% increased number of Rare Monsters</span></td><td class="w">盈满的<span class="en">Brimming</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图上的怪物稀有度提高 (15—20)%</td><td><span class="en">Map has (15—20)% increased Monster Rarity</span></td><td class="w">充满的<span class="en">Abounding</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内找到的金币数量提高 (25—35)%</td><td><span class="en">(25—35)% increased Gold found in Map</span></td><td class="w">丰厚的<span class="en">Bountiful</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内的经验值获取提高 (12—18)%</td><td><span class="en">(12—18)% increased Experience gain in Map</span></td><td class="w">睿智的<span class="en">Elevated</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图包含 (2—3) 个额外的稀有宝箱</td><td><span class="en">Map contains (2—3) additional Rare Chests</span></td><td class="w">司库的<span class="en">Treasurer&#x27;s</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图包含 1 个额外的精华</td><td><span class="en">Map contains 1 additional Essences</span></td><td class="w">结晶的<span class="en">Crystallised</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图包含 1 个额外的阿兹莫里之灵</td><td><span class="en">Map contains 1 additional Azmeri Spirits</span></td><td class="w">阿兹莫里的<span class="en">Azmeri&#x27;s</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图内会出现 1 个额外的盗贼流放者</td><td><span class="en">Map is inhabited by 1 additional Rogue Exiles</span></td><td class="w">流放的<span class="en">Exiled</span></td></tr>
+      <tr data-types="ALL"><td class="pos">前缀</td><td class="w">全部 8 种</td><td>地图包含 1 个额外的召唤法阵</td><td><span class="en">Map contains 1 additional Summoning Circles</span></td><td class="w">召唤者的<span class="en">Summoner&#x27;s</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图内找到的引路石数量提高 (30—40)%</td><td><span class="en">(30—40)% increased Quantity of Waystones found in Map</span></td><td class="w">制图师之<span class="en">of the Cartographer</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图包含神龛的几率提高 (70—100)%</td><td><span class="en">Map has (70—100)% increased chance to contain Shrines</span></td><td class="w">殿堂之<span class="en">of Shrines</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图包含 1 个额外的神龛</td><td><span class="en">Map contains 1 additional Shrines</span></td><td class="w">奉献者之<span class="en">of the Devoted</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图包含保险箱的几率提高 (70—100)%</td><td><span class="en">Map has (70—100)% increased chance to contain Strongboxes</span></td><td class="w">保险箱之<span class="en">of Strongboxes</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图包含 1 个额外的保险箱</td><td><span class="en">Map contains 1 additional Strongboxes</span></td><td class="w">金石家之<span class="en">of the Antiquarian</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图包含精华的几率提高 (70—100)%</td><td><span class="en">Map has (70—100)% increased chance to contain Essences</span></td><td class="w">精华之<span class="en">of the Essence</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图有阿兹莫里之灵的几率提高 (70—100)%</td><td><span class="en">Map has (70—100)% increased chance to contain Azmeri Spirits</span></td><td class="w">万灵之<span class="en">of Spirits</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图有盗贼流放者的几率提高 (70—100)%</td><td><span class="en">Map has (70—100)% increased chance to contain Rogue Exiles</span></td><td class="w">流放者之<span class="en">of the Exile</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图包含召唤法阵的几率提高 (70—100)%</td><td><span class="en">Map has (70—100)% increased chance to contain a Summoning Circle</span></td><td class="w">召唤之<span class="en">of the Summoning</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>地图拥有 (1—2) 个额外的随机词缀</td><td><span class="en">Map has (1—2) additional random Modifiers</span></td><td class="w">重担之<span class="en">of Undertaking</span></td></tr>
+      <tr data-types="ALL"><td class="pos">后缀</td><td class="w">全部 8 种</td><td>传奇怪物额外具有 1 个词缀</td><td><span class="en">Unique Monsters have 1 additional Rare Modifiers</span></td><td class="w">争辩之<span class="en">of Contest</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图中虫巢之血的掉落数量提高 (30—60)%</td><td><span class="en">(30—60)% increased Quantity of Hiveblood found in Map</span></td><td class="w">涨潮之<span class="en">of the Flow</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图中孕育赠礼的掉落数量提高 (30—60)%</td><td><span class="en">(30—60)% increased Quantity of Wombgifts found in Map</span></td><td class="w">形态之<span class="en">of the Form</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图中掉落的孕育赠礼有 (10—30)% 的几率高一级</td><td><span class="en">Wombgifts have (10—30)% chance to drop one Level higher in Map</span></td><td class="w">血肉之<span class="en">of the Flesh</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图中的不稳定裂隙包含薛斯的元帅弗伦的几率提高 (20—50)%</td><td><span class="en">Unstable Breaches in Map have (20—50)% increased chance to contain Vruun, Marshal of Xesht</span></td><td class="w">指挥官之<span class="en">of the Commander</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图中的不稳定裂隙在稳定时会生成 (1—2) 个额外的稀有怪物</td><td><span class="en">Unstable Breaches in Map spawn (1—2) additional Rare Monsters when Stabilised</span></td><td class="w">入侵之<span class="en">of the Invasion</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图中稀有裂隙怪物的效能提高 (5—20)%</td><td><span class="en">(5—20)% increased Effectiveness of Rare Breach Monsters in Map</span></td><td class="w">手之<span class="en">of the Hand</span></td></tr>
+      <tr data-types="B"><td class="pos">后缀</td><td class="w">裂隙</td><td>地图裂隙中的怪物群落规模提高 (5—15)%</td><td><span class="en">Breaches in Map have (5—15)% increased Pack Size</span></td><td class="w">部落之<span class="en">of the Horde</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图内的梦魇拟像裂片堆叠数量提高 (15—30)%</td><td><span class="en">(15—30)% increased Stack size of Simulacrum Splinters found in Map</span></td><td class="w">拟像之<span class="en">of the Simulacrum</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图内的惊悸迷雾在消散前额外持续 (6—12) 秒</td><td><span class="en">Delirium Fog in Map lasts (6—12) additional seconds before dissipating</span></td><td class="w">永恒之<span class="en">of Eternity</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图内惊悸迷雾消散速度减慢 (20—30)%</td><td><span class="en">Delirium Fog in Map dissipates (20—30)% slower</span></td><td class="w">无尽之<span class="en">of the Unending</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图中的惊悸迷雾使玩家的亢奋度提高 (15—30)%</td><td><span class="en">Delirium Fog in Map applies (15—30)% increased Deliriousness to Players</span></td><td class="w">疯狂之<span class="en">of Madness</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图内惊悸迷雾怪物的怪物群规模提高 (15—30)%</td><td><span class="en">Delirium Monsters in Map have (15—30)% increased Pack Size</span></td><td class="w">纷扰之<span class="en">of Persecution</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图内的惊悸迷雾生成的破溃之镜数量提高 (15—30)%</td><td><span class="en">Delirium Fog in Map spawns (15—30)% increased Fracturing Mirrors</span></td><td class="w">镜面之<span class="en">of Mirrors</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>击败地图内的稀有怪物使惊悸迷雾之镜的倒计时暂停 (3—5) 秒</td><td><span class="en">Slaying Rare Monsters in Map pauses the Delirium Mirror Timer for (3—5) seconds</span></td><td class="w">凝时之<span class="en">of Freeze Time</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图内的惊悸迷雾遭遇战生成传奇首领的几率总增 (15—30)%</td><td><span class="en">Delirium Encounters in Map are (15—30)% more likely to spawn Unique Bosses</span></td><td class="w">畏惧之<span class="en">of Phobia</span></td></tr>
+      <tr data-types="D"><td class="pos">后缀</td><td class="w">惊悸迷雾</td><td>地图中的惊悸迷雾生成的破溃之镜碎片数量提高 (12—26)%</td><td><span class="en">Delirium Fog in Map spawns (12—26)% increased Mirror Shards</span></td><td class="w">碎离之<span class="en">of Shattering</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内在驱灵祭坛献祭怪物提供的贡品提高 (18—30)%</td><td><span class="en">Monsters Sacrificed at Ritual Altars in Map grant (18—30)% increased Tribute</span></td><td class="w">牺牲之<span class="en">of Sacrifice</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内在驱灵祭坛重置恩典消耗的贡品降低 (20—30)%</td><td><span class="en">Rerolling Favours at Ritual Altars in Map costs (20—30)% reduced Tribute</span></td><td class="w">教义之<span class="en">of the Dogma</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内在驱灵祭坛延时恩典消耗的贡品降低 (20—30)%</td><td><span class="en">Deferring Favours at Ritual Altars in Map costs (20—30)% reduced Tribute</span></td><td class="w">奉献之<span class="en">of Devotion</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内驱灵祭坛上延时的恩典重现速度加快 (25—40)%</td><td><span class="en">Favours Deferred at Ritual Altars in Map reappear (25—40)% sooner</span></td><td class="w">请愿之<span class="en">of the Appeal</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内的驱灵祭坛可以额外重置恩典 (1—3) 次</td><td><span class="en">Ritual Altars in Map allow rerolling Favours (1—3) additional times</span></td><td class="w">祈祷之<span class="en">of Prayers</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内在驱灵祭坛重置恩典有 (3—6)% 几率不消耗贡品</td><td><span class="en">Favours Rerolled at Ritual Altars in Map have (3—6)% chance to cost no Tribute</span></td><td class="w">密教之<span class="en">of the Occult</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内驱灵祭坛再生怪物为魔法怪物的几率提高 (35—70)%</td><td><span class="en">Revived Monsters from Ritual Altars in Map have (35—70)% increased chance to be Magic</span></td><td class="w">养子之<span class="en">of the Foundling</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内的驱灵祭坛再生怪物为稀有怪物的几率提高 (25—40)%</td><td><span class="en">Revived Monsters from Ritual Altars in Map have (25—40)% increased chance to be Rare</span></td><td class="w">密会之<span class="en">of the Cult</span></td></tr>
+      <tr data-types="R"><td class="pos">后缀</td><td class="w">驱灵仪式</td><td>地图内驱灵恩典为预兆的几率提高 (35—70)%</td><td><span class="en">Ritual Favours in Map have (35—70)% increased chance to be Omens</span></td><td class="w">预兆之<span class="en">of Omens</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内先祖秘藏爆炸范围提高 (5—10)%</td><td><span class="en">(5—10)% increased Expedition Explosive Area of Effect in Map</span></td><td class="w">爆破之<span class="en">of the Demolition</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内符文怪物掉落的先祖秘藏日志数量提高 (15—25)%</td><td><span class="en">(15—25)% increased Quantity of Expedition Logbooks dropped by Runic Monsters in Map</span></td><td class="w">知识之<span class="en">of Knowledge</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内符文怪物标记的数量提高 (15—25)%</td><td><span class="en">Map contains (15—25)% increased number of Runic Monster Markers</span></td><td class="w">符文之<span class="en">of Runes</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>维金残片生成的怪物掉落的维金数量提高 (15—25)%</td><td><span class="en">Monsters from Verisium Remnants drop (15—25)% increased Verisium</span></td><td class="w">维金之<span class="en">of Verisium</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内最先被开掘的 (1—2) 个符文怪物将为稀有怪物</td><td><span class="en">The first (1—2) unearthed Runic Monsters will be Rare Monsters in Map</span></td><td class="w">古恶之<span class="en">of Ancient Evil</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的先祖秘藏额外包含 (1—2) 个维金哨兵</td><td><span class="en">Expeditions contain (1—2) Additional Verisium Sentries in Map</span></td><td class="w">哨卫之<span class="en">of Sentinels</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的先祖秘藏怪物稀有度提高 (15—25)%<span class="en">另有隐藏属性：先祖秘藏精英怪物群规模 +20%</span></td><td><span class="en">(15—25)% increased Expedition Monster Rarity in Map<span class="en">hidden: expedition elite pack size +20%</span></span></td><td class="w">暴击之<span class="en">of Power</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的先祖秘藏额外包含 (1—2) 个被坚冰包裹的首领</td><td><span class="en">Expeditions contain (1—2) Additional Bosses encased in ice in Map</span></td><td class="w">保存之<span class="en">of Preservation</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的先祖秘藏包含 (1—2) 个埋藏的保险箱</td><td><span class="en">Expeditions contain (1—2) buried Strongboxes in Map</span></td><td class="w">财宝之<span class="en">of Treasure</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的先祖秘藏包含 (1—2) 个瓦尔遗物</td><td><span class="en">Expeditions contain (1—2) Vaal Relics in Map</span></td><td class="w">过往之<span class="en">of the Past</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>先祖秘藏有 +(30—40)% 的溢出几率包含一个额外的维金残片</td><td><span class="en">Expeditions have +(30—40)% Surpassing chance to contain an additional Verisium Remnant</span></td><td class="w">残片之<span class="en">of Remnants</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的先祖秘藏有 +(30—40)% 的溢出几率复制符文怪物</td><td><span class="en">Expeditions have +(30—40)% Surpassing chance to Duplicate Runic Monsters in Map</span></td><td class="w">双子之<span class="en">of Twins</span></td></tr>
+      <tr data-types="X"><td class="pos">后缀</td><td class="w">先祖秘藏</td><td>地图内的维金残片有 +(25—35)% 的几率添加一个额外的符文词缀</td><td><span class="en">Verisium Remnants have +(25—35)% chance to add an additional Runic Modifier in Map</span></td><td class="w">古魔之<span class="en">of Ancient Fiends</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图中的深渊生成的怪物数量提高 (20—30)%</td><td><span class="en">Abysses in Map spawn (20—30)% increased Monsters</span></td><td class="w">部落之<span class="en">of the Horde</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图中的深渊额外生成 (2—3) 个稀有怪物</td><td><span class="en">(2—3) additional Rare Monsters are spawned from Abysses in Map</span></td><td class="w">冠军之<span class="en">of Champions</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>每关闭一个巨坑，深渊怪物的效能提高 (8—12)%，最高可达 100%</td><td><span class="en">Abyssal Monsters have (8—12)% increased Effectiveness for each closed Pit, up to 100%</span></td><td class="w">疾升之<span class="en">of Escalation</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图中的深渊通往绝望深渊的几率提高 (10—20)%</td><td><span class="en">Abysses in Map have (10—20)% increased chance to lead to an Abyssal Depths</span></td><td class="w">深处之<span class="en">of the Depths</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图额外包含 1 个深渊</td><td><span class="en">Map contains 1 additional Abysses</span></td><td class="w">空洞之<span class="en">of Hollows</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图中的深渊巨坑有双倍几率有奖励</td><td><span class="en">Abyss Pits in Map are twice as likely to have Rewards</span></td><td class="w">珍宝之<span class="en">of Treasures</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图有 (20—40)% 的几率额外包含四个深渊</td><td><span class="en">Map has (20—40)% chance to contain four additional Abysses</span></td><td class="w">分立之<span class="en">of Schisms</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图中的深渊怪物带有深渊词缀的几率提高 (20—30)%</td><td><span class="en">(20—30)% increased chance for Abyssal monsters in Map to have Abyssal Modifiers</span></td><td class="w">暗力之<span class="en">of Dark Power</span></td></tr>
+      <tr data-types="A"><td class="pos">后缀</td><td class="w">深渊</td><td>地图中的深渊掉落渎灵通货的几率提高 (20—30)%</td><td><span class="en">(20—30)% increased chance for Desecrated Currency from Abysses in Map</span></td><td class="w">骨化之<span class="en">of Ossification</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>地图中的瓦尔灯塔附近的怪物群落规模提高 (10—30)%</td><td><span class="en">(10—30)% increased Pack Size for Monsters around Vaal Beacons in Map</span></td><td class="w">—<span class="en">TowerIncursionPackSize</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>地图中的瓦尔灯塔附近出现 1 个额外怪物群落</td><td><span class="en">1 extra packs of Monsters around Vaal Beacons in Map</span></td><td class="w">—<span class="en">TowerIncursionExtraPacks</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>地图中的瓦尔灯塔附近有 (30—60)% 的几率出现一个额外怪物群落</td><td><span class="en">(30—60)% chance for an extra packs of Monsters around Vaal Beacons in Map</span></td><td class="w">—<span class="en">TowerIncursionExtraPacksChance</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>地图中的瓦尔灯塔召唤额外怪物的几率提高 (25—50)%</td><td><span class="en">(25—50)% increased chance Vaal Beacons summon additional Monsters in Map</span></td><td class="w">—<span class="en">TowerIncursionSecondaryEncounters</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>有 (5—10)% 的几率从地图中的瓦尔灯塔获得一个额外的水晶</td><td><span class="en">(5—10)% chance to gain an additional Crystal from Vaal Beacons in Map</span></td><td class="w">—<span class="en">TowerIncursionTokenChance</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>有 (10—25)% 的几率为地图增加一个瓦尔灯塔传奇怪物</td><td><span class="en">(10—25)% chance to add a Vaal Beacon Unique Monster to the Map</span></td><td class="w">—<span class="en">TowerIncursionBossChance</span></td></tr>
+      <tr data-types="T"><td class="pos">后缀</td><td class="w">神庙</td><td>地图中的瓦尔灯塔宝箱为稀有的几率提高 (30—60)%</td><td><span class="en">(30—60)% increased chance Vaal Beacon Chests are Rare in Map</span></td><td class="w">—<span class="en">TowerIncursionRareChestChance</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图包含 (1—2) 个额外的保险箱</td><td><span class="en">Map contains (1—2) additional Strongboxes</span></td><td class="w">暗格之<span class="en">of Compartments</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图包含 (1—2) 个额外的神龛</td><td><span class="en">Map contains (1—2) additional Shrines</span></td><td class="w">崇敬之<span class="en">of Worship</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图包含 (1—2) 个额外的精华</td><td><span class="en">Map contains (1—2) additional Essences</span></td><td class="w">水晶之<span class="en">of Crystals</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图包含 (1—2) 个额外的阿兹莫里之灵</td><td><span class="en">Map contains (1—2) additional Azmeri Spirits</span></td><td class="w">鬼灵之<span class="en">of Wisps</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图首领掉落的引路石数量提高 (18—30)%</td><td><span class="en">(18—30)% increased Quantity of Waystones dropped by Map Bosses</span></td><td class="w">路途之<span class="en">of Pathways</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图首领提供的经验值提高 (40—80)%</td><td><span class="en">Map Bosses grant (40—80)% increased Experience</span></td><td class="w">征服之<span class="en">of Conquering</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图首领掉落的物品稀有度提高 (35—60)%</td><td><span class="en">(35—60)% increased Rarity of Items dropped by Map Bosses</span></td><td class="w">财宝之<span class="en">of Treasure</span></td></tr>
+      <tr data-types="O"><td class="pos">后缀</td><td class="w">霸主</td><td>地图首领掉落的物品数量提高 (13—20)%</td><td><span class="en">(13—20)% increased Quantity of Items dropped by Map Bosses</span></td><td class="w">囤积之<span class="en">of Hoards</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">poe2db 的先驱高塔词缀表共 90 条，另有 4 条不在任何石板的词缀池里（可能是旧词条或专用词条）：地图中的稀有怪物有 (50—80)% 的溢出几率有一个额外词缀；地图内稀有先祖秘藏怪物数量提高 (25—35)%；地图内先祖秘藏炸药放置范围提高 (10—20)%；每关闭一个巨坑，地图中的深渊怪物的难度与奖励都会提高。</p>
+</section>
+
+<!-- ============ 18 ============ -->
+<section id="s18">
+  <h2><span class="no">18</span>各语种社区的侧重</h2>
+  <div class="split">
+    <div><h3>简体中文</h3><ul><li>B 站、233 乐园、踩蘑菇以转述主播方案（Fubgun 等）和倒卖教程为主。</li><li>NGA 没找到 0.5 的石板帖；贴吧抓取被拒。</li></ul></div>
+    <div><h3>繁体中文（巴哈姆特）</h3><ul><li>单条词价格贴最多：深渊逐条报价、各类碑牌高价词、+1 传奇词。</li><li>两个天赋分别对应富豪石、点金石，这一点讲得最清楚。</li></ul></div>
+    <div><h3>英文</h3><ul><li>Maxroll 各刷法指南最系统，9 月都更新到 0.5.5。</li><li>主播方案：Fubgun、Path of Evening、Warlug、GhazzyTV。</li></ul></div>
+    <div><h3>日文</h3><ul><li>note.com 作者做对照实测：迷雾碎片 vs 破溃之镜、先祖秘藏新词条、物品稀有度。</li><li>主张白板和未鉴定魔法石板直接卖。</li></ul></div>
+    <div><h3>韩文</h3><ul><li>DC 画廊维护一份高价词条正则清单。</li><li>0.5.5 把先祖秘藏石板当主要赚钱石板；Fubgun 指南的翻译影响很大。</li></ul></div>
+    <div><h3>俄文</h3><ul><li>偏续航：引路石数量是推图、刷城寨的唯一重要词条。</li><li>“城市地图 4 块神庙 + 额外水晶”只在俄语资料里见到。</li></ul></div>
+    <div><h3>德文</h3><ul><li>原创内容少，主要是 0.5.5 叠放说明，以及“石板天赋全拿”。</li></ul></div>
+    <div><h3>葡萄牙文</h3><ul><li>最系统地按组合定价，给出魔法 + 富豪的做法。</li><li>把效能排在引路石数量前面。</li></ul></div>
+  </div>
+  <div class="callout note"><span class="lab">主要分歧</span>
+    <ul>
+      <li><b>引路石数量</b>：俄服说它是唯一重要的词条，葡语排第四。两边优化的目标不同：前者是推图续航，后者是掉落。</li>
+      <li><b>预兆几率</b>：刷预兆时是驱灵石板最好的一条；蹲 Headhunter / Mageblood 时韩服说别带。</li>
+      <li><b>破溃之镜 vs 破溃之镜碎片</b>：中文攻略要前者，日服实测后者更好。</li>
+      <li><b>城市地图插满 4 块驱灵</b>：英、韩、日、葡都这么配，B 站威尔认为是“智商税”。</li>
+      <li><b>深渊</b>：6 月的资料说纯深渊难以续航，只放 1 块；9 月的资料都是 3–4 块。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 19 ============ -->
+<section id="s19">
+  <h2><span class="no">19</span>数据核验</h2>
+  <h3>已核实 <span class="chip ok">已核实</span></h3>
+  <ul>
+    <li>86 条可随机词条：poe2db <code>/cn/</code> 与 <code>/us/</code> 8 个石板页内嵌的词缀数据按顺序对位，词缀族名全部一致；13 条前缀 + 73 条后缀（11 条通用 + 62 条特有），2026-09-25 抓取。</li>
+    <li>当前数值：用 poe2db 的实时词缀接口核对了 0.5.5 改动的两条（「入侵之」1—2、「冠军之」2—3）。poe2db 页面里嵌的 CDN 缓存还是旧值（1—3、1—2），页面正文已是新值。</li>
+    <li>规则：官方补丁说明 0.3.1、0.4.0、0.5.0、0.5.2、0.5.3、0.5.5、0.5.5b（poe2db 收录版，0.5.0 有简中译本）。</li>
+    <li>天赋名称、需求和效果：poe2db 石板页（<code>/cn/Tablets</code>）和图鉴天赋树，按节点编号对位中英文；大师选项取 poe2db 大师页。</li>
+    <li>能量辐照 = 区域怪物等级 +1：poe2db 关键词页。</li>
+    <li>引路石词缀：poe2db <code>/cn/</code> 与 <code>/us/</code> 的「引路石（低阶 / 中阶 / 高阶）」三页按顺序对位，2026-09-28 抓取。高阶 27 条普通词缀、19 条渎灵词缀；三阶的收益部分完全相同，只有难度数值随阶级变化。「遗存椎骨」、四种混沌预兆、三座城塞和「接近地表」「神秘强化」的文字取 poe2db 引路石页。</li>
+    <li>引路石价格门槛：2026-09-28 在你已登录的国服市集只读搜索了 17 次，范围是「周年庆巅峰挑战」联盟、立即购买、T15 以上的稀有引路石；市集返回的抬头字段是怪物群规模、怪物效能、物品稀有度、怪物稀有度、引路石掉落几率。</li>
+  </ul>
+  <h3>存疑与矛盾 <span class="chip bad">存疑</span></h3>
+  <ol>
+    <li>普通引路石的栏位：多数资料写 0 格，日文 junkgg 写 1 格。</li>
+    <li>“2 前缀 + 2 后缀”：从各攻略的组合归纳，没有找到官方说明。</li>
+    <li>宏大先祖秘藏只吃能量辐照石板：Fubgun 的说法和韩服传闻，官方没有说明。</li>
+    <li>“用哪类石板就少掉哪类”：英、日、韩资料都这么说，官方没有公布。</li>
+    <li>先祖秘藏 3 块的隐藏套装效果（保险箱 2 → 3 个）：只有韩服一则帖子。</li>
+    <li>远古注能装置能做出 5 条词缀：只有一则英文攻略。</li>
+    <li>破溃之镜 vs 碎片：中文攻略和日服实测结论相反。</li>
+    <li>17173 在 6/14 发的「深渊、驱灵、裂隙石板怎么洗」：正文抓不到，摘要里提到的“裂隙手刷新数量”“首领碎片双倍”等词条在当前词缀池里并不存在（0.5.0 还禁用了“裂隙包含额外抑制之手”这类失效词条）。</li>
+    <li>宏大先祖秘藏、深渊裂谷、阿玛纳姆（Amanamu）、Viridian Wildwood 等 0.5 新名词，本页没有在国服客户端里逐一核对译名。</li>
+    <li>引路石价格：只是一个联盟、一个时间点的最便宜挂单；「1 混沌约合 90–105 崇高」是从市集价格排序反推的，不是交易所汇率。</li>
+    <li>引路石「高危」标记是本页按常见经验标的，没有社区统一清单。</li>
+    <li>带深渊渎灵词缀的引路石在当前联盟市集查不到挂单，无法判断价格。</li>
+  </ol>
+  <h3>过时内容 <span class="chip tmp">过时</span></h3>
+  <ul>
+    <li>石板插高塔、“范围内 2–4 张图出首领”：0.3.1 之前的规则，timesaver、poe2hub、game8 的部分页面仍这样写。</li>
+    <li>所有“物品数量 + X”的报价：0.3 的旧资料，物品数量词条 0.4 已删除。</li>
+    <li>Maxroll「Rolling Waystones and Precursor Tablets」：0.2 版本。</li>
+    <li>0.4 的规则“打过灰烬仲裁者才能做 2 条以上”：0.5 改为「逆转录」「部分翻译」两个天赋。</li>
+  </ul>
+  <h3>没覆盖到 <span class="chip na">未覆盖</span></h3>
+  <ul>
+    <li>法语、泰语、PTT、小黑盒、知乎：整个会话的搜索额度用完了，没来得及搜，不代表这些社区没有内容。</li>
+    <li>Reddit、Mobalytics、arca.live、贴吧：页面抓取被拒，只看到搜索摘要。YouTube 只看到标题或第三方文字稿。</li>
+    <li>石板价格：都是社区帖子里的时点价格，本页没有到交易站核对（引路石的价格门槛是在国服市集实查的，见上）。</li>
+  </ul>
+</section>
+
+<!-- ============ 20 ============ -->
+<section id="s20">
+  <h2><span class="no">20</span>来源</h2>
+  <div class="split">
+    <div>
+      <h3>官方与数据</h3>
+      <ul>
+        <li>poe2db：<a href="https://poe2db.tw/cn/Tablet" target="_blank" rel="noopener">石板</a> · <a href="https://poe2db.tw/cn/Tablets" target="_blank" rel="noopener">石板相关天赋</a> · <a href="https://poe2db.tw/cn/Masters_of_the_Atlas" target="_blank" rel="noopener">大师</a> · <a href="https://poe2db.tw/cn/atlas-skill-tree/" target="_blank" rel="noopener">图鉴天赋树</a></li>
+        <li>poe2db 各类石板：<a href="https://poe2db.tw/cn/Breach_Tablet" target="_blank" rel="noopener">裂隙</a> · <a href="https://poe2db.tw/cn/Expedition_Tablet" target="_blank" rel="noopener">先祖秘藏</a> · <a href="https://poe2db.tw/cn/Delirium_Tablet" target="_blank" rel="noopener">惊悸迷雾</a> · <a href="https://poe2db.tw/cn/Ritual_Tablet" target="_blank" rel="noopener">驱灵仪式</a> · <a href="https://poe2db.tw/cn/Irradiated_Tablet" target="_blank" rel="noopener">能量辐照</a> · <a href="https://poe2db.tw/cn/Overseer_Tablet" target="_blank" rel="noopener">霸主</a> · <a href="https://poe2db.tw/cn/Abyss_Tablet" target="_blank" rel="noopener">深渊</a> · <a href="https://poe2db.tw/cn/Temple_Tablet" target="_blank" rel="noopener">神庙</a></li>
+        <li>补丁说明（poe2db 收录）：<a href="https://poe2db.tw/us/Version_0.3.1" target="_blank" rel="noopener">0.3.1</a> · <a href="https://poe2db.tw/us/Version_0.4.0" target="_blank" rel="noopener">0.4.0</a> · <a href="https://poe2db.tw/cn/Version_0.5.0" target="_blank" rel="noopener">0.5.0（简中）</a> · <a href="https://poe2db.tw/us/Version_0.5.2" target="_blank" rel="noopener">0.5.2</a> · <a href="https://poe2db.tw/us/Version_0.5.3" target="_blank" rel="noopener">0.5.3</a> · <a href="https://poe2db.tw/us/Version_0.5.5" target="_blank" rel="noopener">0.5.5</a> · <a href="https://poe2db.tw/us/Version_0.5.5b" target="_blank" rel="noopener">0.5.5b</a></li>
+        <li>poe2db 引路石：<a href="https://poe2db.tw/cn/Waystones" target="_blank" rel="noopener">引路石总览</a> · <a href="https://poe2db.tw/cn/Waystones_top_tier" target="_blank" rel="noopener">高阶词缀</a> · <a href="https://poe2db.tw/cn/Waystones_mid_tier" target="_blank" rel="noopener">中阶</a> · <a href="https://poe2db.tw/cn/Waystones_low_tier" target="_blank" rel="noopener">低阶</a> · <a href="https://poe2db.tw/cn/Desecrated_Modifiers" target="_blank" rel="noopener">渎灵词缀</a></li>
+        <li>国服市集（引路石价格门槛）：<a href="https://poe.game.qq.com/trade2/search/poe2/%E5%91%A8%E5%B9%B4%E5%BA%86%E5%B7%85%E5%B3%B0%E6%8C%91%E6%88%98" target="_blank" rel="noopener">周年庆巅峰挑战</a>，2026-09-28，需要登录</li>
+        <li>官方论坛：<a href="https://www.pathofexile.com/forum/view-thread/3932540" target="_blank" rel="noopener">0.5.0</a> · <a href="https://www.pathofexile.com/forum/view-thread/4000864" target="_blank" rel="noopener">0.5.5</a> · <a href="https://pathofexile.tw/forum/view-thread/293372" target="_blank" rel="noopener">0.5.0 繁中</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>简体中文</h3>
+      <ul>
+        <li><a href="https://www.gamersky.com/handbook/202606/2154506.shtml" target="_blank" rel="noopener">游民星空：0.5 石板四词缀解锁</a>（06-10）</li>
+        <li><a href="https://www.gamersky.com/handbook/202605/2144692.shtml" target="_blank" rel="noopener">游民星空：0.5 通用词缀调整</a>（05-23）</li>
+        <li><a href="https://www.bilibili.com/video/BV1Bojq62Exz/" target="_blank" rel="noopener">B 站：裂隙石板洗词倒卖</a>（06-19，0.5.2）</li>
+        <li><a href="https://www.233leyuan.com/post-detail/2070036371557691392" target="_blank" rel="noopener">233 乐园：迷雾四张破溃之镜</a>（06-25）</li>
+        <li><a href="https://www.233leyuan.com/post-detail/2069681239826673664" target="_blank" rel="noopener">233 乐园：Fubgun 深渊方案</a> · <a href="https://www.bilibili.com/video/BV1ARjD64EVR/" target="_blank" rel="noopener">B 站</a>（06-24）</li>
+        <li><a href="https://www.bilibili.com/video/BV137MF6gEPP/" target="_blank" rel="noopener">B 站：威尔谈驱灵城市 4 石板</a>（07-04）</li>
+        <li><a href="https://www.bilibili.com/video/BV1zMYL6ZEDi/" target="_blank" rel="noopener">B 站：Fubgun 宏大先祖秘藏</a>（09-11）</li>
+        <li><a href="https://www.caimogu.cc/post/2478051.html" target="_blank" rel="noopener">踩蘑菇：里奥 0.5.5 先祖秘藏</a>（09-15）</li>
+        <li><a href="https://www.bilibili.com/video/BV1s6ev6aEEN/" target="_blank" rel="noopener">B 站：保险箱 + 阿兹莫里之灵</a>（09-20）· <a href="https://www.bilibili.com/video/BV1YTh66UErr/" target="_blank" rel="noopener">KingPinUwU 版</a>（09-22）</li>
+        <li><a href="https://news.17173.com/content/09042026/101049692.shtml" target="_blank" rel="noopener">17173：0.5.5 资讯</a>（09-04）· <a href="https://news.17173.com/content/06142026/164559108.shtml" target="_blank" rel="noopener">石板高价值词条（存疑）</a>（06-14）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>繁体中文（巴哈姆特）</h3>
+      <ul>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3655" target="_blank" rel="noopener">各类碑牌高价词</a>（06-17）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3651" target="_blank" rel="noopener">深渊单条价格</a>（06-17）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3608" target="_blank" rel="noopener">深渊搭配</a>（06-15）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3610" target="_blank" rel="noopener">驱灵分场次配法</a>（06-30）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=4020" target="_blank" rel="noopener">两个天赋与富豪 / 点金</a>（07-24）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=4028" target="_blank" rel="noopener">稀有 4 词与崇高</a>（07-28）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3366" target="_blank" rel="noopener">城市地貌放置 +1</a>（06-05）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3469" target="_blank" rel="noopener">城市地貌范围</a>（06-09）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3748" target="_blank" rel="noopener">+1 传奇词价格</a>（06-22）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=4107" target="_blank" rel="noopener">迷雾与抓宠</a>（09-09）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>英文</h3>
+      <ul>
+        <li>Maxroll（0.5.5，2026-09）：<a href="https://maxroll.gg/poe2/currency/tablet-farming-strategy" target="_blank" rel="noopener">Tablet Farming</a> · <a href="https://maxroll.gg/poe2/currency/breach-rare-monster-farming-strategy" target="_blank" rel="noopener">Breach Rare</a> · <a href="https://maxroll.gg/poe2/currency/delirium-boss-rush" target="_blank" rel="noopener">Delirium Boss Rush</a> · <a href="https://maxroll.gg/poe2/currency/abyssal-chest-farming" target="_blank" rel="noopener">Abyssal Chest</a> · <a href="https://maxroll.gg/poe2/currency/200-delirium-abyss-farming-strategy" target="_blank" rel="noopener">200% Delirium Abyss</a> · <a href="https://maxroll.gg/poe2/currency/vaal-temple-atziri-farming" target="_blank" rel="noopener">Vaal Temple</a> · <a href="https://maxroll.gg/poe2/tierlists/endgame-farming-tier-list" target="_blank" rel="noopener">Tier List</a></li>
+        <li><a href="https://maxroll.gg/poe2/news/0-5-5-forbidden-rites-event-launch-date-and-endgame-changes" target="_blank" rel="noopener">Maxroll：0.5.5 终局改动</a> · <a href="https://pathofexile.gg/path-of-exile-2-atlas-guide/" target="_blank" rel="noopener">pathofexile.gg 图鉴指南</a>（09-05）</li>
+        <li><a href="https://expcarry.com/path-of-exile-2-tablet-stacking-expedition-ritual-abyss-breach-setups" target="_blank" rel="noopener">expcarry：石板叠放</a> · <a href="https://www.aoeah.com/news/4804--poe-2-055-expedition-farm-tablets-rumors-logbooks-atlas-map-strategy" target="_blank" rel="noopener">aoeah：0.5.5 先祖秘藏</a> · <a href="https://www.mmoexp.com/News/path-of-exile-2-tablet-farming-guide-how-i-made-500-divines-in-a-single-day.html" target="_blank" rel="noopener">mmoexp：刷石板</a></li>
+        <li>主播方案（经 exile.codex-wiki.com 文字稿）：Fubgun、Path of Evening、Warlug、GhazzyTV、terence_、AlanStriker</li>
+        <li>已过时：<a href="https://timesaver.gg/blog/poe2-tablets-and-towers-guide" target="_blank" rel="noopener">timesaver（塔时代写法）</a> · <a href="https://maxroll.gg/poe2/resources/rolling-waystones-and-precursor-tablets" target="_blank" rel="noopener">Maxroll 旧文（0.2）</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>日文</h3>
+      <ul>
+        <li><a href="https://note.com/mrdagonn/n/n9490abf52a0e" target="_blank" rel="noopener">売れる石板</a>（06-10）· <a href="https://note.com/ripple_poe2/n/n27cb1da800fc" target="_blank" rel="noopener">石板クラフトと価格</a>（06-10）</li>
+        <li><a href="https://note.com/poe2_sat/n/ne548bc110e7a" target="_blank" rel="noopener">石板ファーム</a>（06-27）· <a href="https://note.com/scarlet_0/n/n1907b4f63d19" target="_blank" rel="noopener">ファーム用石板</a>（07-07）</li>
+        <li><a href="https://note.com/poe2_sat/n/nd02f9ebd995b" target="_blank" rel="noopener">デリリウム検証</a>（09-17，0.5.5）· <a href="https://note.com/koni_pu3/n/n4e021aa8d05f" target="_blank" rel="noopener">エクスペ新MOD検証</a>（09-17，0.5.5）</li>
+        <li><a href="https://note.com/pulseasdf/n/nbb620a235270" target="_blank" rel="noopener">リチュアル</a>（08-09）· <a href="https://note.com/tenstudio/n/n26982cd05ce0" target="_blank" rel="noopener">神殿ファーム</a>（06-15）· <a href="https://note.com/ready_iris3558/n/nd6f5bcd8f42c" target="_blank" rel="noopener">テイム</a>（06-11）</li>
+        <li><a href="https://gamerch.com/poe2/997706" target="_blank" rel="noopener">Gamerch：ファーム</a> · <a href="https://gamerch.com/poe2/994366" target="_blank" rel="noopener">Gamerch：MOD とスロット</a> · <a href="https://junkgg.fun/poe2/breach-farm/" target="_blank" rel="noopener">junkgg：ブリーチ</a>（06-08）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>韩文</h3>
+      <ul>
+        <li>DC 画廊：<a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=375525" target="_blank" rel="noopener">의식 서판·가격</a>（06-13）· <a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=437532" target="_blank" rel="noopener">0.5.5 의식 최소</a>（09-24）</li>
+        <li><a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=434179" target="_blank" rel="noopener">고가 옵션 정규식</a>（09-17）· <a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=432540" target="_blank" rel="noopener">탐험 서판 고가</a>（09-14）· <a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=434352" target="_blank" rel="noopener">금고런</a>（09-17）</li>
+        <li><a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=407244" target="_blank" rel="noopener">복제된 영토 파밍</a>（07-07）· <a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=375859" target="_blank" rel="noopener">고유 서판 가격</a>（06-14）· <a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=436670" target="_blank" rel="noopener">사원 테이밍</a>（09-22）</li>
+        <li><a href="https://www.snomet.kr/poe2/gx/1" target="_blank" rel="noopener">snomet：심연</a>（06-04）· <a href="https://www.inven.co.kr/board/poe/6317/39624" target="_blank" rel="noopener">인벤：0.5.5 요약</a>（09-03）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>俄文</h3>
+      <ul>
+        <li><a href="https://dtf.ru/games/5134884-strategiya-farma-valyuty-v-path-of-exile-2" target="_blank" rel="noopener">DTF：刷货币策略</a>（06-19）· <a href="https://sozai.app/transcript/atlas-farming-guide-path-of-exile-2/" target="_blank" rel="noopener">入门视频文字稿</a>（06-17）</li>
+        <li>Playground：<a href="https://www.playground.ru/path_of_exile_2/guide/ot_startovyh_tablichek_do_endgejm_dzhusa_v_biomah_gorodov_poshagovyj_farm_rituala_v_patche_0_5_dlya_path_of_exile_2-1849281" target="_blank" rel="noopener">驱灵</a>（06-03）· <a href="https://www.playground.ru/path_of_exile_2/guide/chistaya_valyuta_ot_ulamana_i_abuz_tumana_amanamu_dve_topovye_strategii_farma_bezdny_v_poe_2-1849278" target="_blank" rel="noopener">深渊</a>（06-03）· <a href="https://www.playground.ru/path_of_exile_2/guide/kak_postroit_hram_vaal_81_urovnya_v_poe_2_i_zarabotat_195_divajnov_za_10_zabegov-1860147" target="_blank" rel="noopener">神庙</a>（07-17）· <a href="https://www.playground.ru/path_of_exile_2/guide/farm_ekspeditsii_v_path_of_exile_gajd_ot_byudzhetnogo_do_topovogo-1874329" target="_blank" rel="noopener">先祖秘藏 0.5.5</a>（09-14）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>德文、葡萄牙文</h3>
+      <ul>
+        <li><a href="https://wakayashi.gg/poe2/poe-2-patch-0-5-5-neue-league-grosse-reworks-versteckte-nerfs" target="_blank" rel="noopener">Wakayashi：0.5.5 改动</a> · <a href="https://wakayashi.gg/poe2/poe-2-endgame-guide-0-5-5-atlas-prioritaeten-skillpunkte-freischaltungen" target="_blank" rel="noopener">Wakayashi：终局指南</a>（2026-09）</li>
+        <li><a href="https://talionoak.github.io/Carvalho/6---notas-completas/path-of-exile-2/regex-de-itens" target="_blank" rel="noopener">talionoak 的 PoE2 笔记</a>：高价词条组合与各刷法（06–09 月）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>石板数据截至 2026-09-25，引路石数据与国服市集快照 2026-09-28 · 词条中文以 poe2db.tw 简中口径为准 · 攻略观点汇总自中、英、日、韩、俄、德、葡语社区，结构化数据见同目录 <code>_source.json</code>。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(mode){
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode); else root.removeAttribute('data-theme');
+    if (btn) btn.textContent = labels[mode] || labels.system;
+  }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){
+    mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system';
+    apply(mode);
+    try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {}
+  });
+
+  var table = document.getElementById('poolTable');
+  if (!table) return;
+  var rows = Array.prototype.slice.call(table.tBodies[0].rows);
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.fbtn'));
+  var search = document.getElementById('poolSearch');
+  var count = document.getElementById('poolCount');
+  var current = 'all';
+  function refresh(){
+    var q = (search && search.value || '').trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function(r){
+      var t = r.getAttribute('data-types') || '';
+      var okType = current === 'all' || (current === 'ALL' ? t === 'ALL' : (t === 'ALL' || t.indexOf(current) !== -1));
+      var okText = !q || r.textContent.toLowerCase().indexOf(q) !== -1;
+      var on = okType && okText;
+      r.hidden = !on;
+      if (on) shown++;
+    });
+    if (count) count.textContent = '显示 ' + shown + ' / ' + rows.length + ' 条';
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      current = b.getAttribute('data-f');
+      buttons.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      refresh();
+    });
+  });
+  if (search) search.addEventListener('input', refresh);
+  refresh();
+})();
+</script>
+</body>
+</html>

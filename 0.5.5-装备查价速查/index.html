@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>装备查价速查 · 0.5.5</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 新手速查：捡到装备时，哪些部位出现哪些词条组合就值得用查价器查一下。词条中文与分档数值取 poe2db.tw 简中口径，判断依据汇总自中（简 / 繁）、英、日、韩社区与 poe.ninja 统计；不含价格估算。">
+<style>
+:root{
+  --ground:#F5F3EE; --surface:#FFFFFF; --surface-2:#ECE8DF; --ink:#1E1B16; --ink-2:#3E382F; --muted:#6A6258; --line:#DAD3C6;
+  --accent:#1E6B52; --accent-soft:#DCEFE6; --brass:#85600C; --brass-soft:#F3E7CC;
+  --ember:#AE2E2A; --ember-soft:#F8DEDB; --ok:#2B6E45; --ok-soft:#DCEEE2;
+  --plum:#5645A0; --plum-soft:#E6E2F5;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#12110E; --surface:#1B1915; --surface-2:#24211C; --ink:#EDE8DF; --ink-2:#CFC7BA; --muted:#A1998C; --line:#332F28;
+    --accent:#6BC9A5; --accent-soft:#15302A; --brass:#E0B25C; --brass-soft:#33281A;
+    --ember:#F2787A; --ember-soft:#3D1C1D; --ok:#74C490; --ok-soft:#16301F;
+    --plum:#AFA4F2; --plum-soft:#25214A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#12110E; --surface:#1B1915; --surface-2:#24211C; --ink:#EDE8DF; --ink-2:#CFC7BA; --muted:#A1998C; --line:#332F28;
+  --accent:#6BC9A5; --accent-soft:#15302A; --brass:#E0B25C; --brass-soft:#33281A;
+  --ember:#F2787A; --ember-soft:#3D1C1D; --ok:#74C490; --ok-soft:#16301F;
+  --plum:#AFA4F2; --plum-soft:#25214A;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);column-gap:44px}
+@media (min-width:1100px){.page{grid-template-columns:196px minmax(0,1fr)}}
+
+/* hero */
+.hero{grid-column:1/-1;padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:16px}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.topbar a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:74ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink-2);font-weight:600}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.steps li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start;position:relative}
+.steps .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.steps b{font-family:var(--serif);font-size:1.12rem;line-height:1.3}
+.steps span.d{font-size:13px;color:var(--ink-2);line-height:1.6}
+.steps a{position:absolute;inset:0;border-radius:12px}
+.steps a:hover{box-shadow:0 0 0 2px var(--accent) inset}
+@media (max-width:760px){.steps{grid-template-columns:minmax(0,1fr)}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);align-items:center}
+
+/* toc */
+.toc{padding-block:22px 0;font-size:13px}
+.toc summary{cursor:pointer;color:var(--muted);letter-spacing:.06em;font-size:12px;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;gap:8px;padding:3px 8px;border-radius:6px;color:var(--ink-2);text-decoration:none}
+.toc a:hover{background:var(--surface-2)}
+.toc a span{font-family:var(--mono);color:var(--brass);min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+@media (min-width:1100px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}}
+@media (max-width:1099px){.toc{border-bottom:1px solid var(--line);padding-bottom:14px}.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+/* content */
+main{min-width:0;max-width:980px}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:0 8px;line-height:1.7;flex:none;position:relative;top:-3px}
+h3{font-size:1.04rem;margin:26px 0 8px;line-height:1.45;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul,ol{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.88em}
+kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface)}
+
+/* chips and source tags */
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.hot{background:var(--ember);color:var(--surface)}
+.chip.good{background:var(--ok-soft);color:var(--ok)}
+.chip.opt{background:var(--brass-soft);color:var(--brass)}
+.chip.no{background:var(--ember-soft);color:var(--ember)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.src{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;line-height:1.45;min-width:1.55em;text-align:center;padding:0 4px;border-radius:4px;vertical-align:1px;margin-left:3px;background:var(--surface-2);color:var(--ink-2)}
+.src.db{background:var(--ok-soft);color:var(--ok)}
+.src.off{background:var(--accent-soft);color:var(--accent)}
+.src.me{background:var(--brass-soft);color:var(--brass)}
+.src.st{background:var(--plum-soft);color:var(--plum)}
+.mod{color:var(--ink);font-weight:600}
+
+/* callouts */
+.callout{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;margin:14px 0}
+.callout p:last-child,.callout ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout .lab{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.callout.warn{background:var(--ember-soft);border-color:transparent}
+.callout.warn .lab{color:var(--ember)}
+.callout.key{background:var(--accent-soft);border-color:transparent}
+.callout.key .lab{color:var(--accent)}
+.callout.note .lab{color:var(--brass)}
+.rule{border-left:3px solid var(--accent);background:var(--surface);border-radius:0 10px 10px 0;padding:10px 14px;margin:12px 0;font-size:14px}
+.rule b{color:var(--ink)}
+
+/* tables */
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;background:var(--surface-2);font-size:13px}
+td .en,th .en{display:block}
+td.w,th.w{white-space:nowrap}
+.combo td:nth-child(1){min-width:250px}
+.combo td:nth-child(2){min-width:150px}
+.combo td:nth-child(3){min-width:170px}
+.combo td:nth-child(4){min-width:160px}
+@media (max-width:600px){.combo th,.combo td{padding:7px 8px}.combo td:nth-child(1){min-width:175px}.combo td:nth-child(2){min-width:105px}}
+.gold td:nth-child(1){min-width:120px}
+.gold td:nth-child(2){min-width:320px}
+tr.grp th{background:var(--surface-2);font-size:12.5px;color:var(--ink-2);text-align:left}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+.split > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.split h3{margin:0 0 6px;font-size:1rem}
+.split ul{margin:0;font-size:13.5px}
+.bars{list-style:none;padding:0;margin:8px 0 14px;display:grid;gap:5px;max-width:560px}
+.bars li{display:grid;grid-template-columns:7.5em minmax(0,1fr) 3.4em;gap:8px;align-items:center;font-size:13px;margin:0}
+.bars .bar{height:10px;border-radius:5px;background:var(--surface-2);overflow:hidden}
+.bars .bar i{display:block;height:100%;background:var(--accent);border-radius:5px}
+.bars .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+
+footer{grid-column:1/-1;padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+footer p{max-width:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="topbar">
+    <span>流亡黯道 2 · 0.5.5 · 专题 · 装备查价速查</span>
+    <a href="../index.html">全部构筑与专题</a>
+    <a href="../0.5.5-异界石板/index.html">异界石板词条</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5 / 0.5.5 · Forbidden Rites · 新手速查 · 不含价格</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="21" cy="21" r="14" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.6"/>
+      <circle cx="21" cy="21" r="9.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M21 14.5l2 4.2 4.5.6-3.3 3.1.8 4.5-4-2.2-4 2.2.8-4.5-3.3-3.1 4.5-.6z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M31.5 31.5l11 11" stroke="var(--ink-2)" stroke-width="3.4" stroke-linecap="round"/>
+    </svg>
+    <h1>看到这些词条，就去查价<span class="en">Path of Exile 2 · 0.5.5 — which gear mods are worth a price check</span></h1>
+  </div>
+  <p class="lede">给刚进终局的新手用：捡到装备时，先按下面三步判断要不要查价；然后翻到对应部位，看有没有出现「核心词」的组合、数值有没有到门槛。词条一律用 poe2db.tw 的国服原文和当前分档，判断依据来自中文（简体、繁体）、英、日、韩社区的 0.5 攻略和 poe.ninja 的角色统计。页面只告诉你“该查”，不给价格。</p>
+  <ol class="steps" aria-label="三步判断">
+    <li><span class="n">① 第一步</span><b>是不是不用看词条的东西</b><span class="d">传奇、通货、宝石、碎片、石板……一律直接查</span><a href="#s2" aria-label="跳到第 2 节"></a></li>
+    <li><span class="n">② 第二步</span><b>物品等级和底子</b><span class="d">顶档词缀大多要物品等级 75–82；高物等的魔法装只要有一条顶档核心词也值得查</span><a href="#s1" aria-label="跳到第 1 节"></a></li>
+    <li><span class="n">③ 第三步</span><b>核心词凑够两条</b><span class="d">同一部位的核心词出现 2 条以上、数值到门槛就查；稀缺的顶档词出现 1 条也查</span><a href="#s3" aria-label="跳到第 3 节"></a></li>
+  </ol>
+  <div class="legend">
+    <span>出处标记：</span>
+    <span><b class="src db">库</b> poe2db 数据</span>
+    <span><b class="src off">官</b> 官方补丁说明</span>
+    <span><b class="src st">统</b> poe.ninja 统计</span>
+    <span><b class="src me">推</b> 本页按分档推算的建议</span>
+    <span><b class="src">中</b> 简中社区</span>
+    <span><b class="src">台</b> 繁中（巴哈姆特）</span>
+    <span><b class="src">英</b></span><span><b class="src">日</b></span><span><b class="src">韩</b></span>
+  </div>
+  <div class="legend">
+    <span>结论标记：</span>
+    <span class="chip hot">必查</span><span class="chip good">值得查</span><span class="chip opt">看情况</span><span class="chip no">别浪费时间</span>
+  </div>
+  <div class="meta">
+    <span>版本：<b>0.5「Runes of Aldur」+ 0.5.5「Forbidden Rites」</b></span>
+    <span>词缀与分档：poe2db <code>/cn/</code> 各部位词缀页，<b>2026-09-25</b></span>
+    <span>需求统计：poe.ninja 国际服 Forbidden Rites，2026-09-25；国服需求可能不同</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ol>
+      <li><a href="#s1"><span>1</span>三步判断</a></li>
+      <li><a href="#s2"><span>2</span>不用看词条的</a></li>
+      <li><a href="#s3"><span>3</span>通用金词</a></li>
+      <li><a href="#s4"><span>4</span>攻击武器</a></li>
+      <li><a href="#s5"><span>5</span>法术武器</a></li>
+      <li><a href="#s6"><span>6</span>权杖与法器</a></li>
+      <li><a href="#s7"><span>7</span>箭袋与盾</a></li>
+      <li><a href="#s8"><span>8</span>头盔</a></li>
+      <li><a href="#s9"><span>9</span>胸甲</a></li>
+      <li><a href="#s10"><span>10</span>手套</a></li>
+      <li><a href="#s11"><span>11</span>鞋子</a></li>
+      <li><a href="#s12"><span>12</span>腰带</a></li>
+      <li><a href="#s13"><span>13</span>戒指</a></li>
+      <li><a href="#s14"><span>14</span>项链</a></li>
+      <li><a href="#s15"><span>15</span>珠宝</a></li>
+      <li><a href="#s16"><span>16</span>白底、蓝底</a></li>
+      <li><a href="#s17"><span>17</span>腐化与渎灵</a></li>
+      <li><a href="#s18"><span>18</span>查价器怎么用</a></li>
+      <li><a href="#s19"><span>19</span>谁在买</a></li>
+      <li><a href="#s20"><span>20</span>数据核验</a></li>
+      <li><a href="#s21"><span>21</span>来源</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <h2><span class="no">1</span>三步判断</h2>
+  <ol>
+    <li><b>是不是「不用看词条」的东西</b>：传奇、通货类、宝石、碎片钥匙、石板、高阶引路石……直接查，见 <a href="#s2">§2</a>。</li>
+    <li><b>看物品等级和底子</b>：按住 <kbd>Alt</kbd> 看装备的物品等级。顶档词缀大多要物品等级 75–82（各节表格「最高档」一列写了具体要求），同样的词条，物品等级高的底子更值钱，因为还能继续做<b class="src">台</b><b class="src">日</b>。台服玩家的经验是“高物等跟蓝装，先看有没有 T1 词”：一件只有 1–2 条词缀的魔法（蓝色）装备，只要核心词是顶档，常常比同类黄装还值钱<b class="src">台</b>。</li>
+    <li><b>数核心词</b>：翻到对应部位，同一部位的「核心词」出现 <b>2 条以上</b>、数值达到「值得查的门槛」就查；+技能等级、35% 移速、精魂、额外箭矢这类<b>稀缺的顶档词</b>，出现 1 条也查。只有生命 + 单抗、数值又低的大路货，不用浪费时间<b class="src me">推</b>。</li>
+  </ol>
+  <div class="callout note"><span class="lab">关于“T1、T2”</span><p>各工具和攻略对档位编号的写法不一样：有的 T1 最好，有的反过来<b class="src">韩</b>。本页一律写具体数值和所需物品等级，你只要看游戏里显示的数值有没有到门槛。</p></div>
+  <div class="callout key"><span class="lab">新手最常见的三个误区</span>
+    <ul>
+      <li>黄装词缀多≠值钱：价格来自“某个流派想要的词条组合”，不是词缀数量<b class="src">英</b>。</li>
+      <li>高物等的白色底子别乱点金：有些是机会石或做装的底子，点了反而不值钱（<a href="#s16">§16</a>）<b class="src">日</b>。</li>
+      <li>开荒期的装备一般不值得花通货去改，捡到直接查、直接卖<b class="src">中</b>。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2><span class="no">2</span>不用看词条，一律先查</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>东西</th><th>结论</th><th>说明</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td><b>传奇物品</b>（橙色）</td><td><span class="chip hot">必查</span></td><td>全部查。咒符「新生希望」「仪式通道」「落刃时刻」使用率很高；腰带「猎首」「法师之血」，传奇珠宝「泉井之心」是高价常客；日服说因为「满溢之甲」的需求，传奇戒指基本都能卖掉</td><td><b class="src st">统</b><b class="src">英</b><b class="src">日</b><b class="src">中</b></td></tr>
+      <tr><td><b>通货与堆叠物品</b>：各种石、宝珠、预兆、符文、灵核、精华、液化情感、催化剂、深渊骨</td><td><span class="chip hot">必查</span></td><td>放通货交易所卖。很多低阶灵核、精华、深渊骨几乎不值钱，但查一下只要几秒；预兆里高价的品种不少，台服说 0.5.5 光卖预兆就能攒下神圣石</td><td><b class="src">英</b><b class="src">台</b><b class="src">日</b></td></tr>
+      <tr><td><b>血脉辅助宝石</b></td><td><span class="chip hot">必查</span></td><td>73 种，贵的和便宜的差别极大，每颗都要查</td><td><b class="src">英</b><b class="src">中</b><b class="src">台</b></td></tr>
+      <tr><td><b>未切割的宝石</b></td><td><span class="chip good">值得查</span></td><td>20 级的未切割技能宝石、精魂宝石值钱；日服说低等级的未切割精魂宝石、5 级未切割辅助宝石也好卖</td><td><b class="src">英</b><b class="src">日</b><b class="src">台</b></td></tr>
+      <tr><td><b>碎片、钥匙、门票</b>：梦魇拟像裂片、裂隙相关、先祖秘藏日志、各种钥匙</td><td><span class="chip hot">必查</span></td><td>先祖秘藏日志只在普通地图掉</td><td><b class="src">英</b><b class="src">日</b><b class="src">台</b></td></tr>
+      <tr><td><b>石板</b></td><td><span class="chip hot">必查</span></td><td>稀有石板和带好词的魔法石板都查，词条见 <a href="../0.5.5-异界石板/index.html">异界石板词条</a></td><td><b class="src">日</b><b class="src">英</b><b class="src">台</b></td></tr>
+      <tr><td><b>引路石</b></td><td><span class="chip opt">看情况</span></td><td>高阶（15–16 阶）、词缀好的查；不要的可以腐化或崇高后再查，剩下的卖商店</td><td><b class="src">日</b><b class="src">英</b></td></tr>
+      <tr><td><b>镶嵌物</b>：深渊之眼、渡鸦之触碎片</td><td><span class="chip hot">必查</span></td><td>带渡鸦之触碎片灌注天赋的头盔也是高价追求品</td><td><b class="src">英</b></td></tr>
+      <tr><td><b>0.5.5 新物品</b>：神圣之花</td><td><span class="chip good">值得查</span></td><td>新的驱灵奖励，暂时没有价格资料，去通货交易所看</td><td><b class="src">英</b><b class="src">中</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2><span class="no">3</span>通用金词：出现在哪都值得多看一眼</h2>
+  <p>这些词条稀缺、很多流派都要，出现在对应部位时，哪怕只有一条顶档也值得查<b class="src me">推</b>。数值是 poe2db 的最高档，括号里是所需物品等级<b class="src db">库</b>。</p>
+  <div class="scroll"><table class="gold">
+    <thead><tr><th>金词</th><th>能出的部位与最高档（物品等级）</th></tr></thead>
+    <tbody>
+      <tr><td><b>+技能等级</b></td><td>
+        项链 <span class="mod">所有法术 / 召唤生物 / 近战 / 投射物技能等级 +3</span>（75）<br>
+        长杖 <span class="mod">所有法术技能等级 +(5—6)</span>（78），单系 <span class="mod">所有火焰 / 冰霜 / 闪电 / 混沌 / 物理法术技能等级 +7</span>（81）<br>
+        法杖 <span class="mod">所有法术技能等级 +4</span>（78），单系 +5（81）<br>
+        权杖 <span class="mod">所有召唤生物技能等级 +4</span>（78）<br>
+        战弩 <span class="mod">所有投射物技能等级 +5</span>（81）；弓、战矛 +4（81）<br>
+        节杖、双手锤、魔符 <span class="mod">所有近战技能等级 +5</span>（81）；单手锤、战矛 +4（81）<br>
+        头盔 <span class="mod">所有召唤生物技能等级 +2</span>（41）；手套 <span class="mod">所有近战技能等级 +2</span>（41）；法器 <span class="mod">所有法术技能等级 +2</span>（41）；箭袋 <span class="mod">所有投射物技能等级 +1</span>
+      </td></tr>
+      <tr><td><b>精魂</b></td><td>胸甲 <span class="mod">+(57—61) 精魂</span>（78）；项链 <span class="mod">+(47—50) 精魂</span>（54）；权杖 <span class="mod">该装备精魂提高 (61—65)%</span>（82）；头盔可以腐化出 <span class="mod">+(20—30) 精魂</span></td></tr>
+      <tr><td><b>移动速度</b></td><td>鞋子 <span class="mod">移动速度提高 35%</span>（82）、30%（65）；鞋子可以腐化出 <span class="mod">移动速度提高 (3—5)%</span></td></tr>
+      <tr><td><b>攻击速度</b></td><td>节杖、战矛、锤 <span class="mod">攻击速度提高 (26—28)%</span>（77）；弓、战弩最高 (17—19)%；手套、箭袋最高 (14—16)%（60）</td></tr>
+      <tr><td><b>施法速度</b></td><td>长杖 <span class="mod">施法速度提高 (50—52)%</span>（80）；法杖 (33—35)%（80）；法器 (29—32)%（70）；项链 (25—28)%（66）；戒指 (22—24)%（60）</td></tr>
+      <tr><td><b>暴击</b></td><td>项链 <span class="mod">暴击率提高 (35—38)%</span>（72）、<span class="mod">暴击伤害加成提高 (35—39)%</span>（74）；手套 <span class="mod">暴击伤害加成提高 (30—34)%</span>（59）；头盔 <span class="mod">暴击率提高 (30—34)%</span>（58）；攻击武器 <span class="mod">暴击几率 +(4.41—5)%</span>、<span class="mod">+(23—25)% 暴击伤害加成</span>（73）</td></tr>
+      <tr><td><b>抗性上限</b></td><td>盾 <span class="mod">+3% 火焰 / 冰霜 / 闪电 / 混沌抗性上限</span>、<span class="mod">+2% 元素抗性上限</span>（81）；项链、胸甲可以腐化出 <span class="mod">+1% 元素抗性上限</span>；珠宝 <span class="mod">+1% 某抗性上限</span></td></tr>
+      <tr><td><b>额外投射物</b></td><td>弓 <span class="mod">+(175—200)% 的溢出几率发射一支额外箭矢</span>（82，只有 82 级才出）；箭袋 (41—60)%（80）；战弩 <span class="mod">额外装填 2 支弩箭</span>（82）；弓可以腐化出 <span class="mod">弓类攻击发射 1 支额外箭矢</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <h2><span class="no">4</span>攻击武器（战弩、战矛、弓、节杖、锤、魔符）</h2>
+  <div class="rule"><b>口诀：</b>物理伤害% + 附加物理伤害 + 攻击速度（或暴击），再有一条技能等级就是好货。台服玩家说，弓上单单一条高物理伤害%、底子又对，就可以停下来查价了<b class="src">台</b>。</div>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr class="grp"><th colspan="4">所有攻击武器通用</th></tr>
+      <tr><td><span class="mod">物理伤害提高 #%</span> + <span class="mod">附加 # - # 物理伤害</span> + <span class="mod">攻击速度提高 #%</span></td><td>物理% ≥135，附加物理到第二档以上<b class="src me">推</b></td><td>物理% (170—179)（82）；附加物理：单手类 (26—39)-(44—66)，双手类 (37—55)-(63—94)（75）</td><td>所有物理攻击流派<b class="src">台</b><b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td><span class="mod">暴击几率 +#%</span> + <span class="mod">+#% 暴击伤害加成</span> + 伤害词</td><td>暴击几率 ≥3.81%<b class="src me">推</b></td><td>+(4.41—5)%、+(23—25)%（73）</td><td>暴击流<b class="src">英</b></td></tr>
+      <tr class="grp"><th colspan="4">按武器类型</th></tr>
+      <tr><td><b>战弩</b>：<span class="mod">所有投射物技能等级 +#</span> + <span class="mod">攻击速度提高 #%</span>，外加渎灵词缀 <span class="mod">榴弹有 (15—25)% 的几率再次激活</span></td><td>技能等级 ≥ +4</td><td>+5（81）；攻速最高 (17—19)%</td><td>古灵使徒斗士·黏油榴弹（本赛季使用最多的升华）。这类买家<b>不要附加元素伤害</b>，会把黏油自己点着<b class="src">英</b><b class="src st">统</b></td></tr>
+      <tr><td><b>战矛</b>：最高档 <span class="mod">攻击速度提高 #%</span> + 物理伤害；或三条附加伤害前缀（物理、冰霜）+ 高暴击</td><td>T1 攻速要物品等级 77 以上；没腐化过的更好</td><td>攻速 (26—28)%（77）；<span class="mod">所有近战 / 投射物技能等级 +4</span>（81）</td><td>旋龙古灵使徒斗士、灵魂行者、回旋挥斩<b class="src">英</b><b class="src">中</b></td></tr>
+      <tr><td><b>弓</b>：<span class="mod">所有投射物技能等级 +#</span> + 附加物理 / 冰霜伤害 + 暴击、攻速；<span class="mod">溢出几率发射一支额外箭矢</span></td><td>技能等级 ≥ +3；额外箭矢出现就查</td><td>+4（81）；额外箭矢 (175—200)%（82）</td><td>锐眼（冰霜射击、龙卷射击、弹幕）。中档弓不值钱，要么高 DPS 要么有稀缺词<b class="src">英</b><b class="src">中</b><b class="src">日</b></td></tr>
+      <tr><td><b>节杖</b>：高物理 + 元素 DPS + 暴击 + <span class="mod">所有近战技能等级 +#</span> + 攻速</td><td>技能等级 ≥ +4</td><td>+5（81）；攻速 (26—28)%（77）</td><td>武圣。注意「梦境节杖」基础暴击率 0%，暴击流不要<b class="src">英</b><b class="src db">库</b></td></tr>
+      <tr><td><b>锤、魔符</b></td><td>只有 DPS 很高时才查</td><td>近战技能等级 +5（双手锤、魔符）/ +4（单手锤）（81）</td><td>用稀有锤、魔符的角色只占 1–5%，需求小<b class="src st">统</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">0.5 实装的武器只有：弓、战弩、战矛、节杖、单手锤、双手锤、魔符、法杖、长杖、权杖；副手是箭袋、法器、盾、轻盾。剑、斧、匕首、爪、连枷在 poe2db 有数据但还没实装<b class="src">英</b><b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2><span class="no">5</span>法术武器（长杖、法杖）</h2>
+  <div class="rule"><b>口诀：</b>技能等级 + 法术伤害（或同系元素伤害）+ 施法速度或额外元素伤害。中文 0.5 攻略的排序是：法术等级、额外伤害% 优先，其次施法速度<b class="src">中</b>。</div>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><b>长杖</b>：<span class="mod">所有火焰法术技能等级 +#</span>（或其他单系）+ <span class="mod">所有法术技能等级 +#</span> + <span class="mod">法术伤害提高 #%</span> / <span class="mod">火焰伤害提高 #%</span> + <span class="mod">获得相当于伤害 #% 的额外火焰伤害</span></td><td>单系 ≥ +5 或全法术 ≥ +4</td><td>单系 +7（81）；全法术 +(5—6)（78）；法术伤害 (209—238)%（80）；额外元素伤害 (55—60)%（80）；施法速度 (50—52)%（80）</td><td>烈焰爆破古灵使徒斗士（用长杖的角色占 13.5%，本赛季最多）。差一档价格差很多，一定要按实际数值查<b class="src">英</b><b class="src st">统</b></td></tr>
+      <tr><td><b>法杖</b>：<span class="mod">所有法术技能等级 +#</span>（或单系）+ <span class="mod">法术伤害提高 #%</span> + <span class="mod">施法速度提高 #%</span> + <span class="mod">法术暴击率提高 #%</span></td><td>全法术 ≥ +3 或单系 ≥ +4</td><td>全法术 +4（78）；单系 +5（81）；法术伤害 (105—119)%（80）；施法速度 (33—35)%（80）；法术暴击率 (60—73)%（76）</td><td>神谕者、电球、彗星落等法系<b class="src">英</b><b class="src">中</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">法杖可以腐化出「所有火焰 / 冰霜 / 闪电 / 混沌 / 物理法术技能等级 +1」<b class="src db">库</b>。旧版本（0.1）闪电系当道时的“闪电 &gt; 冰霜 &gt; 其他”排序已经不适用，先看当前流行什么（<a href="#s19">§19</a>）。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <h2><span class="no">6</span>权杖与法器</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><b>权杖·召唤</b>：<span class="mod">所有召唤生物技能等级 +#</span>（底子「罪孽权杖」「圣地权杖」）</td><td>≥ +3</td><td>+4（78）</td><td>瓦拉煞的门徒。权杖是稀有使用率最高的武器位（23.8%）<b class="src">英</b><b class="src st">统</b></td></tr>
+      <tr><td><b>权杖·精魂</b>：<span class="mod">该装备精魂提高 #%</span> + 法术伤害、施法速度</td><td>精魂% ≥56</td><td>(61—65)%（82）</td><td>神谕者（看权杖总精魂）<b class="src">英</b></td></tr>
+      <tr><td><b>权杖·友军</b>：<span class="mod">在场的友军造成的伤害提高 #%</span>、友军攻速 / 暴击，附加伤害 + 暴击（底子「预兆权杖」）</td><td>友军伤害 ≥90%</td><td>友军伤害 (105—119)%（82）</td><td>旋龙流、召唤流<b class="src">英</b><b class="src me">推</b></td></tr>
+      <tr><td><b>法器</b>：<span class="mod">所有法术技能等级 +2</span> + 能量护盾 + 法术伤害或施法速度</td><td>技能等级 +2 必须有</td><td>技能等级 +2（41）；法术伤害 (75—89)%（60）；施法速度 (29—32)%（70）；能量护盾 (92—100)%（65）</td><td>法系<b class="src">日</b><b class="src db">库</b></td></tr>
+      <tr><td><b>法器·召唤</b>：渎灵词缀 <span class="mod">所有召唤生物技能等级 +(1—2)</span> + 能量护盾</td><td>+2</td><td>只能靠渎灵出（物品等级 65+）</td><td>召唤流<b class="src">英</b><b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <h2><span class="no">7</span>箭袋与盾</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><b>箭袋</b>：附加伤害 + <span class="mod">攻击暴击率提高 #%</span> / <span class="mod">攻击伤害的暴击伤害加成 #%</span> + <span class="mod">溢出几率发射一支额外箭矢</span> + <span class="mod">弓类技能伤害提高 #%</span>；<span class="mod">所有投射物技能等级 +1</span> 是加分项</td><td>核心词 2 条以上；双词缀比单词缀值钱</td><td>攻击暴击率 (35—38)%（72）；暴击伤害加成 (35—39)%（74）；额外箭矢 (41—60)%（80）；弓类技能伤害 (51—59)%（81）</td><td>弓系锐眼（用稀有箭袋的角色只占 3%）<b class="src">英</b><b class="src">中</b><b class="src st">统</b></td></tr>
+      <tr><td><b>盾、轻盾</b>：生命 + 抗性 + <span class="mod">+3% 某抗性上限</span> 或 <span class="mod">+2% 元素抗性上限</span></td><td>抗性上限词出现就查</td><td>生命 (175—189)（70）；抗性上限（81）；格挡 (25—30)%（65）</td><td>用盾的角色很少（2.7%）<b class="src st">统</b><b class="src">英</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">中文旧资料（0.3）说箭袋能出「所有投射物技能等级 +2」，0.5 的箭袋只有 +1 这一档<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <h2><span class="no">8</span>头盔</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">所有召唤生物技能等级 +#</span> + 高能量护盾</td><td>+2 出现就查</td><td>+2（41）；能量护盾提高 (92—100)%（65）</td><td>召唤流<b class="src">英</b><b class="src">中</b><b class="src">日</b></td></tr>
+      <tr><td>能量护盾%（或能量护盾点数）顶档 + 抗性后缀</td><td>能量护盾% ≥80，两条抗性</td><td>(92—100)%（65）；混合 (39—42)% + 生命 (42—49)（78）</td><td>能量护盾流。台服：做完护甲片能到 440–450 能量护盾就很强<b class="src">台</b></td></tr>
+      <tr><td><span class="mod">+# 生命上限</span> + 两条抗性（+ 闪避或护甲）</td><td>生命 ≥120，抗性 ≥36%</td><td>生命 (150—174)（65）；单抗 (41—45)%（82）、(36—40)%（71）</td><td>生命流<b class="src">英</b><b class="src me">推</b></td></tr>
+      <tr><td><span class="mod">暴击率提高 #%</span>、<span class="mod">+#% 的护甲同样作用于元素伤害</span>（护甲流）</td><td>配上生命 / 抗性再查</td><td>暴击率 (30—34)%（58）</td><td>暴击流、护甲流<b class="src">英</b></td></tr>
+      <tr><td>腐化出 <span class="mod">+(20—30) 精魂</span> 或 <span class="mod">所有召唤生物技能等级 +1</span></td><td>出现就查</td><td>—</td><td>精魂说法出自 0.4 资料<b class="src">英</b><b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">日服 0.5：物品等级 82 的能量护盾头盔底子本身就好卖<b class="src">日</b>。所有属性的头盔都能出召唤生物技能等级 +2 和暴击率<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <h2><span class="no">9</span>胸甲</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">+# 精魂</span> + 生命或能量护盾 + 抗性</td><td>精魂 ≥51</td><td>(57—61)（78）；(54—56)（65）</td><td>几乎所有需要精魂的流派<b class="src">英</b><b class="src">中</b><b class="src">日</b></td></tr>
+      <tr><td>高能量护盾 + 精魂（+ 魔力）</td><td>能量护盾% ≥92</td><td>能量护盾提高 (101—110)%（75）；+(91—96)（79）</td><td>能量护盾流<b class="src">英</b></td></tr>
+      <tr><td>闪避 + <span class="mod">+# 生命上限</span> + 抗性</td><td>生命 ≥175</td><td>生命 (200—214)（80）</td><td>弓、战矛流派<b class="src">英</b></td></tr>
+      <tr><td>腐化出 <span class="mod">+1% 元素抗性上限</span></td><td>出现就查</td><td>—</td><td><b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">所有属性的胸甲都能出精魂<b class="src db">库</b>。稀有胸甲的使用率只有 55%（很多人穿传奇）<b class="src st">统</b>，没有精魂的普通防御胸甲不容易卖。中文 0.3 资料的敏捷系组合“精魂 + 闪避转偏转”可以参考，但没有 0.5 资料复核。</p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>手套</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">攻击附加 # - # 物理伤害</span>（或元素）+ <span class="mod">攻击速度提高 #%</span> + <span class="mod">暴击伤害加成提高 #%</span>，外加生命 / 闪避 + 抗性</td><td>攻速 ≥11%，附加伤害到第二档以上<b class="src me">推</b></td><td>攻速 (14—16)%（60）；附加物理 (12—19)-(22—32)（75）；暴击伤害加成 (30—34)%（59）</td><td>攻击流派<b class="src">英</b><b class="src">中</b></td></tr>
+      <tr><td><span class="mod">所有近战技能等级 +#</span> + 攻速</td><td>+2 出现就查</td><td>+2（41）；腐化还能 +1</td><td>近战<b class="src db">库</b><b class="src me">推</b></td></tr>
+      <tr><td>高能量护盾 + 混沌抗性</td><td>能量护盾顶档</td><td>—</td><td>能量护盾流（中文 0.3 资料）<b class="src">中</b></td></tr>
+      <tr><td>渎灵词缀 <span class="mod">你造成的异常状态强度提高 (10—20)%</span></td><td>配上生命 / 抗性再查</td><td>物品等级 65+ 才有渎灵</td><td>异常流<b class="src">英</b><b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">分歧：日服旧资料（0.1）说“攻击手套基本卖不掉”，0.5 的英文、中文资料都把攻击手套列为可卖。另外手套的普通词缀池里没有施法速度<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>鞋子</h2>
+  <div class="rule"><b>口诀：</b>移速是入场券。<span class="mod">移动速度提高 #%</span> ≥30% + 生命或能量护盾 + 两条抗性，几乎所有流派都要。中文资料原话：“移速快是最重要的”<b class="src">中</b><b class="src">英</b><b class="src">日</b><b class="src">韩</b>。</div>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">移动速度提高 #%</span> + <span class="mod">+# 生命上限</span> + 两条抗性</td><td>移速 ≥30%，生命 ≥85，抗性 ≥31%<b class="src me">推</b></td><td>移速 35%（82）、30%（65）；生命 (120—149)（60）；单抗 (41—45)%（82）</td><td>几乎所有流派（稀有鞋子使用率 90%）<b class="src st">统</b></td></tr>
+      <tr><td>移速 + 能量护盾 + 两条抗性</td><td>移速 ≥30%，能量护盾 ≥50，抗性 ≥36%（Mobalytics 的搜索示例）</td><td>—</td><td>能量护盾流<b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td>移速 35%</td><td>出现就查</td><td>只在物品等级 82 出</td><td>日服说 35% 移速的价格“极端地高”<b class="src">日</b><b class="src db">库</b></td></tr>
+      <tr><td>移速 + <span class="mod">混沌抗性 +#%</span></td><td>混沌抗 ≥20%</td><td>(24—27)%（81）</td><td><b class="src">韩</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">例外：旋龙古灵使徒斗士不看鞋子移速<b class="src">英</b>。鞋子可以腐化出「移动速度提高 (3—5)%」<b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>腰带</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">+# 生命上限</span> + 两到三条抗性</td><td>生命 ≥120，抗性合计高<b class="src me">推</b></td><td>生命 (150—174)（65）；单抗 (41—45)%（82）</td><td>生命流<b class="src">英</b></td></tr>
+      <tr><td>创世之树做出来的 <span class="mod">所有召唤生物技能等级 +2</span></td><td>出现就查</td><td>+2（64）；+1（36）</td><td>召唤流<b class="src">英</b><b class="src db">库</b></td></tr>
+      <tr><td><b>白色</b>「重革腰带」「万用腰带」</td><td>保持白色，直接查</td><td>—</td><td>机会石赌「猎首」「法师之血」的底子<b class="src">日</b><b class="src">中</b></td></tr>
+      <tr><td>腐化出 <span class="mod">+(1—3)% 火焰抗性上限</span> 或 <span class="mod">耐力球数量上限 +1</span></td><td>出现就查</td><td>—</td><td><b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">终局很多腰带位被「法师之血」「猎首」占掉（稀有腰带使用率 46%）<b class="src st">统</b>。</p>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>戒指</h2>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">+# 生命上限</span> + 两三条抗性（含 <span class="mod">混沌抗性 +#%</span>）</td><td>生命 ≥85，抗性 ≥36%<b class="src me">推</b></td><td>生命 (100—119)（54）；单抗 (41—45)%（82）；<span class="mod">所有元素抗性 +(15—16)%</span>（68）</td><td>大多数流派。烈焰爆破要总抗 200% 以上（含混沌）<b class="src">英</b></td></tr>
+      <tr><td><span class="mod">施法速度提高 #%</span> + <span class="mod">火焰 / 冰霜 / 闪电 / 混沌伤害提高 #%</span></td><td>施法速度 ≥19%</td><td>施法速度 (22—24)%（60）；元素伤害 (27—30)%（75）</td><td>法系<b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td>两条高档 <span class="mod">攻击附加 # - # … 伤害</span></td><td>两条都到第二档以上</td><td>附加物理 (12—19)-(22—32)（75）</td><td>攻击流。台服：戒指前缀两条高点伤就可以直接挂<b class="src">台</b></td></tr>
+      <tr><td>创世之树词缀：<span class="mod">召唤生物粉碎护甲，相当于造成物理伤害的 (2—4)%</span>、<span class="mod">法术获得相当于伤害 (8—12)% 的额外火焰 / 冰霜 / 闪电伤害</span>、<span class="mod">召唤生物的伤害提高 #%</span></td><td>出现就查</td><td>召唤生物伤害 (28—31)%（82）</td><td>召唤、法系<b class="src">英</b><b class="src db">库</b></td></tr>
+      <tr><td>腐化出 <span class="mod">技能速度提高 (4—6)%</span>、<span class="mod">伤害提高 (20—30)%</span>、<span class="mod">暴击伤害加成提高 (15—20)%</span></td><td>配上好词缀再查</td><td>—</td><td><b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">戒指没有攻击速度词缀<b class="src db">库</b>。0.5.0 起戒指、项链的施法速度和法杖、法器分开计档<b class="src">日</b><b class="src off">官</b>。稀有戒指使用率 94.6%，是需求最大的部位<b class="src st">统</b>。</p>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>项链</h2>
+  <div class="rule"><b>口诀：</b>技能等级 + 精魂是项链里最值钱的组合，再有防御或暴击就更贵<b class="src">英</b><b class="src">中</b><b class="src">日</b>。</div>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>看到这些</th><th>值得查的门槛</th><th>最高档（物品等级）</th><th>谁在要 · 出处</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mod">所有法术 / 召唤生物 / 近战 / 投射物技能等级 +#</span> + <span class="mod">+# 精魂</span></td><td>技能等级 ≥ +2 就查</td><td>技能等级 +3（75）、+2（41）；精魂 (47—50)（54）</td><td>各流派<b class="src">英</b><b class="src">中</b></td></tr>
+      <tr><td><span class="mod">暴击率提高 #%</span> / <span class="mod">暴击伤害加成提高 #%</span> + 技能等级或精魂</td><td>暴击 ≥30%</td><td>暴击率 (35—38)%（72）；暴击伤害加成 (35—39)%（74）</td><td>暴击流<b class="src">中</b></td></tr>
+      <tr><td><span class="mod">施法速度提高 #%</span> + <span class="mod">法术伤害提高 #%</span> + 能量护盾</td><td>施法速度 ≥22%</td><td>施法速度 (25—28)%（66）；法术伤害 (27—30)%（75）</td><td>法系<b class="src">日</b><b class="src">英</b></td></tr>
+      <tr><td>渎灵：<span class="mod">所有技能等级 +1</span>（乌拉曼之）、<span class="mod">所有技能品质 +(3—5)%</span>（古加尔之）</td><td>出现就查</td><td>物品等级 65+</td><td>技能品质是古灵使徒斗士要的<b class="src">英</b><b class="src db">库</b></td></tr>
+      <tr><td>腐化出 <span class="mod">所有技能等级 +1</span> 或 <span class="mod">+1% 元素抗性上限</span></td><td>出现就查</td><td>—</td><td><b class="src db">库</b><b class="src">英</b></td></tr>
+      <tr><td>底子：「日曜项链」（自带精魂）、「失神项链」（创世之树底子，自带持续增益技能）</td><td>日曜配高精魂查；失神直接查</td><td>—</td><td>失神项链是旋龙、烈焰爆破古灵使徒斗士的毕业底子<b class="src">英</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="s15">
+  <h2><span class="no">15</span>珠宝</h2>
+  <div class="rule"><b>口诀：</b>同一方向的有用词条凑够 <b>3 条</b>就查，4 条全中更贵；只有 2 条好词的珠宝便宜，别人会自己补第 3 条<b class="src">日</b><b class="src">中</b>。稀有珠宝使用率 94.4%，需求很大<b class="src st">统</b>。</div>
+  <div class="scroll"><table class="combo">
+    <thead><tr><th>方向</th><th>看这些词（poe2db 原文）</th><th>出在哪种珠宝</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td><b>攻击暴击</b></td><td><span class="mod">攻击伤害的暴击伤害加成 (10—20)%</span>、<span class="mod">攻击暴击率提高 (6—16)%</span>、<span class="mod">攻击伤害提高 (5—15)%</span>、<span class="mod">投射物伤害提高 (5—15)%</span>、<span class="mod">攻击速度提高 (2—4)%</span></td><td>翡翠</td><td><b class="src">英</b><b class="src">日</b><b class="src">中</b></td></tr>
+      <tr><td><b>法术</b></td><td><span class="mod">法术伤害提高 (5—15)%</span>、<span class="mod">火焰 / 冰霜 / 元素伤害提高</span>、<span class="mod">施法速度提高 (2—4)%</span>、<span class="mod">法术暴击伤害加成提高 (10—20)%</span>、<span class="mod">伤害穿透 (5—10)% 冰霜抗性</span></td><td>蓝玉（红玉有火焰类）</td><td><b class="src">英</b><b class="src">日</b></td></tr>
+      <tr><td><b>召唤</b></td><td><span class="mod">召唤生物的伤害提高 (5—15)%</span>、<span class="mod">召唤生物的暴击率提高 (10—20)%</span>、<span class="mod">召唤生物的暴击伤害加成提高 (15—25)%</span>、<span class="mod">在场范围提高 (15—25)%</span></td><td>蓝玉</td><td>Maxroll 提醒「召唤生物有 +#% 元素抗性」不值钱<b class="src">英</b></td></tr>
+      <tr><td><b>防御与杂项</b></td><td><span class="mod">能量护盾上限提高 (10—20)%</span>、<span class="mod">移动速度提高 (1—2)%</span>、<span class="mod">+1% 某抗性上限</span></td><td>蓝玉 / 翡翠 / 各色</td><td><b class="src">英</b><b class="src">中</b></td></tr>
+      <tr><td><b>失落的珠宝</b>（失落的红玉 / 翡翠 / 蓝玉 / 宝钻）</td><td><span class="mod">将范围升级为大型</span> + 两条对路的 <span class="mod">范围内的核心天赋同时提供 …</span></td><td>—</td><td>大范围 + 两条匹配的核心天赋加成就值得查<b class="src">英</b><b class="src db">库</b></td></tr>
+      <tr><td><b>传奇宝钻「泉井之心」</b></td><td>腐化后 5 条词缀的一定查；好词是额外元素伤害、暴击、移速</td><td>—</td><td>近一半角色在用<b class="src">英</b><b class="src st">统</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">中文旧资料（0.3）按颜色列过一版，和日服 0.5 的“同方向三条”思路一致；另一篇文章对颜色的归类不同，以游戏里珠宝能出的词为准。</p>
+</section>
+
+<!-- ============ 16 ============ -->
+<section id="s16">
+  <h2><span class="no">16</span>白底、蓝底和破溃底子</h2>
+  <ul>
+    <li><b>高物等 + 蓝装 + 一条顶档核心词</b>：做装的人会买来继续做，是值钱的底子。台服原话：“蓝装单基底单词是最贵的”<b class="src">台</b>。</li>
+    <li><b>物品等级 82 的弓、箭袋、能量护盾头盔</b>：日服 0.5 说这类底子好卖<b class="src">日</b>。0.5 的高阶底子举例：弓「毁灭者之弓」「双子之弓」、战弩「轰炸战弩」<b class="src">中</b><b class="src">英</b>。</li>
+    <li><b>白色「重革腰带」「万用腰带」</b>：保持白色，是机会石赌「猎首」「法师之血」的底子<b class="src">日</b><b class="src">中</b>。</li>
+    <li><b>破溃（锁定词缀）的顶档底子</b>：比如锁住 30% 以上移速的鞋子，做装的人会收<b class="src">英</b>。</li>
+    <li><b>魔法装留着空的前缀或后缀</b>：旧资料（0.4）说这类底子也有人收，价值看底子和那条词<b class="src">日</b>。</li>
+  </ul>
+  <div class="callout warn"><span class="lab">别乱点</span><p>如果一件白色或蓝色的高物等底子你拿不准，先查价再用点金石、富豪石，点完往往就不值钱了<b class="src">日</b><b class="src me">推</b>。</p></div>
+</section>
+
+<!-- ============ 17 ============ -->
+<section id="s17">
+  <h2><span class="no">17</span>腐化、渎灵、创世之树词缀</h2>
+  <h3>腐化（瓦尔宝珠）</h3>
+  <ul>
+    <li>0.5 的腐化结果：无变化（约四分之一），1–3 条词缀按当前数值倍率重算，加一条腐化附魔，或者多一个插槽<b class="src">英</b><b class="src">中</b>。</li>
+    <li>头盔、手套、鞋子、胸甲、盾、法器、攻击武器能多插槽；法杖、长杖改为品质能到 23%<b class="src">英</b>。</li>
+    <li><b>值得查</b>：多了插槽的，或者出了有用附魔的（见下表）。什么都没变的腐化稀有装基本只能卖商店<b class="src">英</b>。</li>
+  </ul>
+  <div class="scroll"><table>
+    <thead><tr><th>部位</th><th>值得查的腐化附魔（国服原文）</th></tr></thead>
+    <tbody>
+      <tr><td>项链</td><td><span class="mod">所有技能等级 +1</span>；<span class="mod">+1% 元素抗性上限</span></td></tr>
+      <tr><td>头盔</td><td><span class="mod">+(20—30) 精魂</span>；<span class="mod">所有召唤生物技能等级 +1</span></td></tr>
+      <tr><td>手套</td><td><span class="mod">所有近战技能等级 +1</span></td></tr>
+      <tr><td>弓</td><td><span class="mod">弓类攻击发射 1 支额外箭矢</span></td></tr>
+      <tr><td>鞋子</td><td><span class="mod">移动速度提高 (3—5)%</span></td></tr>
+      <tr><td>胸甲</td><td><span class="mod">+1% 元素抗性上限</span></td></tr>
+      <tr><td>腰带</td><td><span class="mod">+(1—3)% 火焰抗性上限</span>；<span class="mod">耐力球数量上限 +1</span></td></tr>
+      <tr><td>法杖</td><td><span class="mod">所有火焰 / 冰霜 / 闪电 / 混沌 / 物理法术技能等级 +1</span></td></tr>
+      <tr><td>权杖</td><td><span class="mod">该装备精魂提高 (15—25)%</span></td></tr>
+      <tr><td>戒指</td><td><span class="mod">技能速度提高 (4—6)%</span>；<span class="mod">暴击伤害加成提高 (15—20)%</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>渎灵词缀（物品等级 65 以上）</h3>
+  <ul>
+    <li>战弩：<span class="mod">榴弹有 (15—25)% 的几率再次激活</span>、<span class="mod">榴弹技能拥有 +1 次冷却使用次数</span>（黏油榴弹流要）<b class="src">英</b><b class="src db">库</b>。</li>
+    <li>项链：<span class="mod">所有技能等级 +1</span>（乌拉曼之）、<span class="mod">所有技能品质 +(3—5)%</span>（古加尔之）<b class="src">英</b><b class="src db">库</b>。</li>
+    <li>法器：<span class="mod">所有召唤生物技能等级 +(1—2)</span>（阿曼娜姆之）<b class="src db">库</b>。</li>
+    <li>戒指、项链：<span class="mod">技能速度提高 (3—6)%</span>（乌拉曼之）<b class="src db">库</b><b class="src me">推</b>。</li>
+  </ul>
+  <h3>创世之树（裂隙）词缀</h3>
+  <p>0.5 的创世之树可以在戒指、项链、腰带上做出特殊词缀。带下面这类词的都值得查：腰带 <span class="mod">所有召唤生物技能等级 +2</span>；戒指 <span class="mod">召唤生物粉碎护甲，相当于造成物理伤害的 (2—4)%</span>、<span class="mod">法术获得相当于伤害 (8—12)% 的额外火焰伤害</span>（冰霜、闪电同理）；项链 <span class="mod">火焰法术暴击率提高 +(4—5)%</span><b class="src db">库</b><b class="src">英</b>。</p>
+</section>
+
+<!-- ============ 18 ============ -->
+<section id="s18">
+  <h2><span class="no">18</span>查价器怎么用</h2>
+  <h3>可用的工具</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>工具</th><th>怎么用</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr><td><b>游戏内置查价</b>（0.5.0 新增）</td><td>在城镇或藏身处，<kbd>Shift</kbd>+<kbd>Alt</kbd>+左键点自己的物品，打开市集并自动填好词条；稀有物品可以逐条开关词条<b class="src">英</b><b class="src">台</b></td><td>只能查自己的物品；词条按精确值匹配，记得取消次要词条。台服已确认，国服没查到资料，可以自己试</td></tr>
+      <tr><td><b>POE Overlay II</b>（Overwolf）</td><td>常用 <kbd>Alt</kbd>+<kbd>E</kbd> 查价<b class="src">中</b><b class="src">日</b></td><td>17173 称支持国服和国际服</td></tr>
+      <tr><td><b>易刷查价器</b></td><td>默认 <kbd>Ctrl</kbd>+<kbd>D</kbd>，显示最低价、均价、走势<b class="src">中</b></td><td>页面没写是否支持国服</td></tr>
+      <tr><td><b>Exiled Exchange 2</b></td><td><kbd>Ctrl</kbd>+<kbd>D</kbd> 或 <kbd>Alt</kbd>+<kbd>C</kbd>（各资料说法不一）<b class="src">英</b><b class="src">日</b></td><td>要在设置里改语言；是否支持简中客户端没查到</td></tr>
+      <tr><td><b>国服网页市集</b></td><td><a href="https://poe.game.qq.com/trade2" target="_blank" rel="noopener">poe.game.qq.com/trade2</a><b class="src">中</b></td><td>通货类看游戏里通货交易所的“市集比率”</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><span class="lab">账号安全</span><p>有些第三方查价器要你把网页市集 Cookie 里的 <code>POESESSID</code> 填进去，这相当于把登录凭证交给第三方，有被盗号的风险<b class="src">中</b>。汉化补丁、加速器改过词缀文字会导致查价失败；国际服版的查价器不要拿来登录国服<b class="src">中</b>。</p></div>
+  <h3>勾选技巧</h3>
+  <ol>
+    <li><b>只勾 2–4 条撑价格的核心词</b>，别把整件装备的词都勾上<b class="src">英</b>。</li>
+    <li><b>最低值取整、取本节门槛</b>：比如移速填 30，不要填 33<b class="src">英</b>。</li>
+    <li><b>用伪属性合计</b>：总抗性、总生命（含力量换算）比逐条抗性好搜<b class="src">英</b>。</li>
+    <li><b>必要时加物品等级筛选</b>：35% 移速要 82，渎灵词缀要 65+<b class="src">英</b>。</li>
+    <li><b>看最低的 5–10 个在线挂单</b>，定价等于或略低于最便宜的真实挂单；搜不到就去掉一条或调低数值<b class="src">英</b><b class="src">中</b>。</li>
+    <li><b>挂了几天没人问，就是挂贵了</b>；不确定时先挂低一点，被秒买就知道卖便宜了<b class="src">英</b><b class="src">台</b>。</li>
+    <li><b>选对联盟</b>：0.5.5 的 Forbidden Rites 是全新经济，和 Runes of Aldur、标准服的价格不通<b class="src">中</b>。</li>
+  </ol>
+</section>
+
+<!-- ============ 19 ============ -->
+<section id="s19">
+  <h2><span class="no">19</span>谁在买：0.5.5 需求快照</h2>
+  <p>poe.ninja 国际服 Forbidden Rites 软核，2026-09-25，共 124,113 个角色<b class="src st">统</b>。需求决定哪些词条好卖；国服的流行程度可能不同，只作方向参考。</p>
+  <div class="split">
+    <div>
+      <h3>升华职业</h3>
+      <ul class="bars">
+        <li><span>古灵使徒斗士</span><span class="bar"><i style="width:100%"></i></span><span class="v">36.9%</span></li>
+        <li><span>武圣</span><span class="bar"><i style="width:26.6%"></i></span><span class="v">9.8%</span></li>
+        <li><span>瓦拉煞的门徒</span><span class="bar"><i style="width:23.3%"></i></span><span class="v">8.6%</span></li>
+        <li><span>灵魂行者</span><span class="bar"><i style="width:21.1%"></i></span><span class="v">7.8%</span></li>
+        <li><span>神谕者</span><span class="bar"><i style="width:19.2%"></i></span><span class="v">7.1%</span></li>
+        <li><span>锐眼</span><span class="bar"><i style="width:16.8%"></i></span><span class="v">6.2%</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>武器组合</h3>
+      <ul class="bars">
+        <li><span>长杖</span><span class="bar"><i style="width:100%"></i></span><span class="v">13.5%</span></li>
+        <li><span>战矛</span><span class="bar"><i style="width:97%"></i></span><span class="v">13.1%</span></li>
+        <li><span>法杖 + 权杖</span><span class="bar"><i style="width:66.7%"></i></span><span class="v">9.0%</span></li>
+        <li><span>权杖 + 法器</span><span class="bar"><i style="width:61.5%"></i></span><span class="v">8.3%</span></li>
+        <li><span>弓 + 箭袋</span><span class="bar"><i style="width:57.8%"></i></span><span class="v">7.8%</span></li>
+        <li><span>战弩</span><span class="bar"><i style="width:54.8%"></i></span><span class="v">7.4%</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>主技能（可重叠）</h3>
+      <ul class="bars">
+        <li><span>寒霜爆</span><span class="bar"><i style="width:100%"></i></span><span class="v">19.3%</span></li>
+        <li><span>弹幕</span><span class="bar"><i style="width:93.3%"></i></span><span class="v">18.0%</span></li>
+        <li><span>寒冰之捷</span><span class="bar"><i style="width:92.2%"></i></span><span class="v">17.8%</span></li>
+        <li><span>回旋挥斩</span><span class="bar"><i style="width:77.7%"></i></span><span class="v">15.0%</span></li>
+        <li><span>旋龙</span><span class="bar"><i style="width:67.9%"></i></span><span class="v">13.1%</span></li>
+        <li><span>黏油榴弹</span><span class="bar"><i style="width:67.4%"></i></span><span class="v">13.0%</span></li>
+        <li><span>烈焰爆破</span><span class="bar"><i style="width:62.2%"></i></span><span class="v">12.0%</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>各部位穿稀有装的比例</h3>
+      <ul class="bars">
+        <li><span>戒指</span><span class="bar"><i style="width:94.6%"></i></span><span class="v">94.6%</span></li>
+        <li><span>珠宝</span><span class="bar"><i style="width:94.4%"></i></span><span class="v">94.4%</span></li>
+        <li><span>鞋子</span><span class="bar"><i style="width:90%"></i></span><span class="v">90.0%</span></li>
+        <li><span>项链</span><span class="bar"><i style="width:87.7%"></i></span><span class="v">87.7%</span></li>
+        <li><span>手套</span><span class="bar"><i style="width:81.9%"></i></span><span class="v">81.9%</span></li>
+        <li><span>头盔</span><span class="bar"><i style="width:79.3%"></i></span><span class="v">79.3%</span></li>
+        <li><span>胸甲</span><span class="bar"><i style="width:55.4%"></i></span><span class="v">55.4%</span></li>
+        <li><span>腰带</span><span class="bar"><i style="width:45.7%"></i></span><span class="v">45.7%</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="small">武器位穿稀有的比例：权杖 23.8%、长杖 19.8%、战弩 15.6%、法杖 14.1%、法器 12.9%、战矛 10.7%、节杖 7.7%、弓 7.5%、魔符 4.6%、箭袋 3.0%、盾 2.7%、单手锤 1.6%、双手锤 1.1%<b class="src st">统</b>。</p>
+</section>
+
+<!-- ============ 20 ============ -->
+<section id="s20">
+  <h2><span class="no">20</span>数据核验</h2>
+  <h3>已核实 <span class="chip ok">已核实</span></h3>
+  <ul>
+    <li>所有词条中文、分档数值和所需物品等级：poe2db <code>/cn/</code> 各部位词缀页（鞋子、手套、头盔、胸甲按属性分页，另有戒指、项链、腰带、箭袋、法器、盾、轻盾、各类武器、珠宝），2026-09-25 抓取。</li>
+    <li>腐化附魔、渎灵词缀、创世之树（裂隙）词缀：同一批页面里的对应词缀列表。</li>
+    <li>物品和传奇的国服名称（猎首、法师之血、泉井之心、满溢之甲、日曜项链、失神项链、梦境节杖等）、升华职业和技能名称：poe2db 页面标题。</li>
+    <li>需求快照：poe.ninja 国际服 Forbidden Rites 角色统计（英文调研代理解码的原始数据）。</li>
+  </ul>
+  <h3>本页推算 <span class="chip tmp">推</span></h3>
+  <ul>
+    <li>“值得查的门槛”大多按 poe2db 分档取第二档左右，是本页给新手的建议，不是社区统一标准；标了 <b class="src me">推</b> 的都属于这一类。</li>
+  </ul>
+  <h3>存疑与分歧 <span class="chip bad">存疑</span></h3>
+  <ol>
+    <li>英文资料里提到的“手套施法速度”“法器召唤生物技能等级”“腰带召唤生物技能等级”，在 poe2db 的普通词缀池里都没有：法器的召唤等级只来自渎灵，腰带的召唤等级只来自创世之树，手套没有施法速度。本页按 poe2db 写。</li>
+    <li>头盔腐化出精魂：英文资料出自 0.4，poe2db 当前列表里仍有这条。</li>
+    <li>档位编号（T1 还是 T8 最好）各资料说法相反，本页不用编号。</li>
+    <li>游戏内查价在国服能否使用、第三方查价器是否支持简中客户端：没有查到确切资料。</li>
+    <li>日服旧资料说攻击手套难卖，0.5 的英文、中文资料列为可卖。</li>
+    <li>“满溢之甲带动传奇戒指需求”只见于日服一篇 0.5 文章。</li>
+  </ol>
+  <h3>没覆盖到 <span class="chip na">未覆盖</span></h3>
+  <ul>
+    <li>价格：按要求不写。社区帖子里的价格都是时点价格，国服和国际服经济也不同。</li>
+    <li>NGA、知乎、arca.live 抓取被拒；B 站和 YouTube 视频只看到标题。</li>
+  </ul>
+</section>
+
+<!-- ============ 21 ============ -->
+<section id="s21">
+  <h2><span class="no">21</span>来源</h2>
+  <div class="split">
+    <div>
+      <h3>数据</h3>
+      <ul>
+        <li>poe2db 词缀页：<a href="https://poe2db.tw/cn/Modifiers" target="_blank" rel="noopener">词缀总览</a> · <a href="https://poe2db.tw/cn/Boots_dex#ModifiersCalc" target="_blank" rel="noopener">鞋子</a> · <a href="https://poe2db.tw/cn/Amulets#ModifiersCalc" target="_blank" rel="noopener">项链</a> · <a href="https://poe2db.tw/cn/Rings#ModifiersCalc" target="_blank" rel="noopener">戒指</a> · <a href="https://poe2db.tw/cn/Staves#ModifiersCalc" target="_blank" rel="noopener">长杖</a> · <a href="https://poe2db.tw/cn/Desecrated_Modifiers" target="_blank" rel="noopener">渎灵词缀</a></li>
+        <li>poe.ninja：<a href="https://poe.ninja/poe2/builds" target="_blank" rel="noopener">角色统计</a> · <a href="https://poe.ninja/poe2/economy" target="_blank" rel="noopener">经济</a>（2026-09-25）</li>
+        <li>Maxroll：<a href="https://maxroll.gg/poe2/news/0-5-0-patch-notes-return-of-the-ancients" target="_blank" rel="noopener">0.5.0 补丁说明</a> · <a href="https://maxroll.gg/poe2/news/0-5-5-forbidden-rites-patch-notes" target="_blank" rel="noopener">0.5.5 补丁说明</a> · <a href="https://maxroll.gg/poe2/tierlists/league-starter-build-tier-list" target="_blank" rel="noopener">开荒流派榜</a>（09-19）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>简体中文</h3>
+      <ul>
+        <li><a href="https://news.17173.com/content/06082026/144016978.shtml" target="_blank" rel="noopener">17173：POE Overlay II</a>（06-08）· <a href="https://news.17173.com/content/06082026/002148388.shtml" target="_blank" rel="noopener">暗金榜</a>（06-08）</li>
+        <li><a href="https://gl.ali213.net/html/2026-6/1780073.html" target="_blank" rel="noopener">游侠：82+ 底材榜</a>（06-08）· <a href="https://ol.3dmgame.com/gl/345088.html" target="_blank" rel="noopener">3DM：T0–T2 掉落分级</a>（06-26）</li>
+        <li><a href="https://www.gamersky.com/handbook/202606/2152407.shtml" target="_blank" rel="noopener">游民星空：属性优先级</a>（06-06）· <a href="https://www.gamersky.com/handbook/202605/2144692.shtml" target="_blank" rel="noopener">0.5 改动</a>（05-23）</li>
+        <li><a href="https://www.sohu.com/a/1045544182_122598898" target="_blank" rel="noopener">搜狐：攻速矛</a>（07-04）· <a href="https://patch.ali213.net/showpatch/307515.html" target="_blank" rel="noopener">易刷查价器</a>（09-03）</li>
+        <li><a href="https://www.gamersky.com/handbook/202508/1978925.shtml" target="_blank" rel="noopener">游民星空：查价器注意事项</a>（2025-08，旧）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>繁体中文（巴哈姆特）</h3>
+      <ul>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3294" target="_blank" rel="noopener">赚钱随笔</a>（06-03）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3566" target="_blank" rel="noopener">要留什么底子</a>（06-13）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3393" target="_blank" rel="noopener">高价值掉落</a>（06-06）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=3176" target="_blank" rel="noopener">内建查价</a>（05-31）</li>
+        <li><a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=4107" target="_blank" rel="noopener">卖预兆</a>（09-09）· <a href="https://forum.gamer.com.tw/C.php?bsn=82273&amp;snA=4164" target="_blank" rel="noopener">查价工具</a>（09 下旬）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>英文</h3>
+      <ul>
+        <li><a href="https://timesaver.gg/blog/poe2-how-to-sell-items-guide" target="_blank" rel="noopener">Timesaver：卖装备与查价</a>（07-20）· <a href="https://expcarry.com/poe-2-trading-price-guide" target="_blank" rel="noopener">expcarry：稀有装定价</a>（08-02）</li>
+        <li><a href="https://www.elyxir.gg/guide/path-of-exile-2/path-of-exile-2-crafting-price-checks-how-to-value-items-before-you-commit" target="_blank" rel="noopener">Elyxir：做装前查价</a>（07-18）· <a href="https://gamerant.com/path-of-exile-2-use-in-game-price-checker-poe2/" target="_blank" rel="noopener">GameRant：游戏内查价</a>（06-07）</li>
+        <li><a href="https://mobalytics.gg/poe-2/guides/poe2-price-check" target="_blank" rel="noopener">Mobalytics：查价指南</a>（只读到摘要）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>日文</h3>
+      <ul>
+        <li><a href="https://junkgg.fun/poe2/ritual-gold/" target="_blank" rel="noopener">junkgg：驱灵奖励价值</a>（06-01）· <a href="https://junkgg.fun/poe2/farm-tier-list/" target="_blank" rel="noopener">刷法榜与 82 级底子</a>（06-12）</li>
+        <li><a href="https://note.com/mrdagonn/n/n229f2cc00cb6" target="_blank" rel="noopener">note：容易漏掉的值钱物品</a>（06-12）· <a href="https://note.com/poe2_sat/n/n2d4db975cd94" target="_blank" rel="noopener">note：珠宝</a>（06-25）</li>
+        <li><a href="https://gamerch.com/poe2/986735" target="_blank" rel="noopener">Gamerch：0.5.0 词缀改动</a>（06-10）· <a href="https://gamerch.com/poe2/997706" target="_blank" rel="noopener">Gamerch：刷法与出售</a>（09-14）</li>
+        <li><a href="https://note.com/mouse_betobeto/n/n277b5114eb83" target="_blank" rel="noopener">note：各部位出售门槛</a>（2025-01，0.1 旧资料，数值仅作参考）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>韩文</h3>
+      <ul>
+        <li><a href="https://www.inven.co.kr/board/poe/6317/37301" target="_blank" rel="noopener">Inven：0.5 开荒 5 大流派</a>（05-24）· <a href="https://www.inven.co.kr/board/poe/6317/39624" target="_blank" rel="noopener">0.5.5 总结</a>（09-03）</li>
+        <li>DC 画廊：<a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=433117" target="_blank" rel="noopener">石板和珠宝最赚</a>（09-15）· <a href="https://gall.dcinside.com/mgallery/board/view/?id=poe2&amp;no=437704" target="_blank" rel="noopener">引路石腐化后查价</a>（09-25）</li>
+        <li>价格站：<a href="https://seominugi.com/poe2/economy/items/" target="_blank" rel="noopener">seominugi</a> · <a href="https://www.poe2way.com/market/ko" target="_blank" rel="noopener">poe2way</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>数据截至 2026-09-25 · 词条中文以 poe2db.tw 简中口径为准 · 判断依据汇总自中、英、日、韩社区与 poe.ninja 统计 · 不含价格估算。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(mode){
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode); else root.removeAttribute('data-theme');
+    if (btn) btn.textContent = labels[mode] || labels.system;
+  }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){
+    mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system';
+    apply(mode);
+    try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
