@@ -1,0 +1,1580 @@
+{
+ "generatedBy": "Claude Code desktop session: poe2db extraction + multi-language web research",
+ "fetchedAt": "2026-09-25",
+ "gameVersion": "Path of Exile 2 0.5 (Runes of Aldur) + 0.5.5 event (Forbidden Rites, launched 2026-09-04)",
+ "note": "Mod pool = ModsView JSON embedded in poe2db /cn/<Type>_Tablet and /us/<Type>_Tablet, joined by array index (all ModFamilyList values matched). Current values checked against poe2db live hover (/cn/hover?s=Data%5CMods%2F<ModId>); CDN-cached hovers still showed pre-0.5.5 values. Hybrid '+1 X' mods carry extra 0-value stats (pack size / waystone quantity / rarity) that are dropped here.",
+ "tabletTypes": [
+  {
+   "code": "B",
+   "cn": "裂隙",
+   "en": "Breach",
+   "poe2db": "https://poe2db.tw/cn/Breach_Tablet",
+   "implicitCn": "为一张地图增加异界裂隙",
+   "implicitEn": "Adds an Otherworldly Breach to a Map",
+   "uses": 10
+  },
+  {
+   "code": "D",
+   "cn": "惊悸迷雾",
+   "en": "Delirium",
+   "poe2db": "https://poe2db.tw/cn/Delirium_Tablet",
+   "implicitCn": "为一张地图增加惊悸迷雾之镜",
+   "implicitEn": "Adds a Mirror of Delirium to a Map",
+   "uses": 10
+  },
+  {
+   "code": "R",
+   "cn": "驱灵仪式",
+   "en": "Ritual",
+   "poe2db": "https://poe2db.tw/cn/Ritual_Tablet",
+   "implicitCn": "为一张地图增加驱灵祭坛",
+   "implicitEn": "Adds Ritual Altars to a Map",
+   "uses": 10
+  },
+  {
+   "code": "X",
+   "cn": "先祖秘藏",
+   "en": "Expedition",
+   "poe2db": "https://poe2db.tw/cn/Expedition_Tablet",
+   "implicitCn": "为一张地图增加卡古兰先祖秘藏",
+   "implicitEn": "Adds a Kalguuran Expedition to a Map",
+   "uses": 10
+  },
+  {
+   "code": "A",
+   "cn": "深渊",
+   "en": "Abyss",
+   "poe2db": "https://poe2db.tw/cn/Abyss_Tablet",
+   "implicitCn": "为一张地图增加深渊",
+   "implicitEn": "Adds Abysses to a Map",
+   "uses": 10
+  },
+  {
+   "code": "T",
+   "cn": "神庙",
+   "en": "Temple",
+   "poe2db": "https://poe2db.tw/cn/Temple_Tablet",
+   "implicitCn": "为一张地图增加瓦尔灯塔",
+   "implicitEn": "Adds Vaal Beacons to a Map",
+   "uses": 10
+  },
+  {
+   "code": "O",
+   "cn": "霸主",
+   "en": "Overseer",
+   "poe2db": "https://poe2db.tw/cn/Overseer_Tablet",
+   "implicitCn": "强化一张地图中的地图首领",
+   "implicitEn": "Empowers the Map Boss of a Map",
+   "uses": 10
+  },
+  {
+   "code": "I",
+   "cn": "能量辐照",
+   "en": "Irradiated",
+   "poe2db": "https://poe2db.tw/cn/Irradiated_Tablet",
+   "implicitCn": "为一张地图增加能量辐照",
+   "implicitEn": "Adds Irradiated to a Map",
+   "uses": 10
+  }
+ ],
+ "mods": [
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapMonsterEffectiveness",
+   "cnAffix": "挑战者的",
+   "enAffix": "Challenger's",
+   "cn": "怪物的效能提高 (10—15)%",
+   "en": "Monsters have (10—15)% increased Effectiveness",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapDroppedItemRarityIncrease",
+   "cnAffix": "收藏家的",
+   "enAffix": "Collector's",
+   "cn": "地图内获取物品的稀有度提高 (8—12)%",
+   "en": "(8—12)% increased Rarity of Items found in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapPackSizeIncrease",
+   "cnAffix": "多产的",
+   "enAffix": "Breeding",
+   "cn": "地图内怪物群规模提高 (5—7)%",
+   "en": "(5—7)% increased Pack Size in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapMagicPackIncrease",
+   "cnAffix": "浇灌的",
+   "enAffix": "Teeming",
+   "cn": "地图内魔法怪物数量提高 (30—40)%",
+   "en": "Map has (30—40)% increased Magic Monsters",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapRarePackIncrease",
+   "cnAffix": "盈满的",
+   "enAffix": "Brimming",
+   "cn": "地图内稀有怪物数量提高 (25—35)%",
+   "en": "Map has (25—35)% increased number of Rare Monsters",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapMonsterRarityIncrease",
+   "cnAffix": "充满的",
+   "enAffix": "Abounding",
+   "cn": "地图上的怪物稀有度提高 (15—20)%",
+   "en": "Map has (15—20)% increased Monster Rarity",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapDroppedGoldIncrease",
+   "cnAffix": "丰厚的",
+   "enAffix": "Bountiful",
+   "cn": "地图内找到的金币数量提高 (25—35)%",
+   "en": "(25—35)% increased Gold found in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapExperienceGainIncrease",
+   "cnAffix": "睿智的",
+   "enAffix": "Elevated",
+   "cn": "地图内的经验值获取提高 (12—18)%",
+   "en": "(12—18)% increased Experience gain in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapAdditionalChests",
+   "cnAffix": "司库的",
+   "enAffix": "Treasurer's",
+   "cn": "地图包含 (2—3) 个额外的稀有宝箱",
+   "en": "Map contains (2—3) additional Rare Chests",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapAdditionalEssence",
+   "cnAffix": "结晶的",
+   "enAffix": "Crystallised",
+   "cn": "地图包含 1 个额外的精华",
+   "en": "Map contains 1 additional Essences",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapAdditionalAzmeriWisp",
+   "cnAffix": "阿兹莫里的",
+   "enAffix": "Azmeri's",
+   "cn": "地图包含 1 个额外的阿兹莫里之灵",
+   "en": "Map contains 1 additional Azmeri Spirits",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapAdditionalExile",
+   "cnAffix": "流放的",
+   "enAffix": "Exiled",
+   "cn": "地图内会出现 1 个额外的盗贼流放者",
+   "en": "Map is inhabited by 1 additional Rogue Exiles",
+   "hiddenStat": null
+  },
+  {
+   "pf": "prefix",
+   "types": "ALL",
+   "family": "MapAdditionalStoneCircle",
+   "cnAffix": "召唤者的",
+   "enAffix": "Summoner's",
+   "cn": "地图包含 1 个额外的召唤法阵",
+   "en": "Map contains 1 additional Summoning Circles",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapDroppedMapsIncrease",
+   "cnAffix": "制图师之",
+   "enAffix": "of the Cartographer",
+   "cn": "地图内找到的引路石数量提高 (30—40)%",
+   "en": "(30—40)% increased Quantity of Waystones found in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalShrine",
+   "cnAffix": "殿堂之",
+   "enAffix": "of Shrines",
+   "cn": "地图包含神龛的几率提高 (70—100)%",
+   "en": "Map has (70—100)% increased chance to contain Shrines",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalShrine",
+   "cnAffix": "奉献者之",
+   "enAffix": "of the Devoted",
+   "cn": "地图包含 1 个额外的神龛",
+   "en": "Map contains 1 additional Shrines",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalStrongbox",
+   "cnAffix": "保险箱之",
+   "enAffix": "of Strongboxes",
+   "cn": "地图包含保险箱的几率提高 (70—100)%",
+   "en": "Map has (70—100)% increased chance to contain Strongboxes",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalStrongbox",
+   "cnAffix": "金石家之",
+   "enAffix": "of the Antiquarian",
+   "cn": "地图包含 1 个额外的保险箱",
+   "en": "Map contains 1 additional Strongboxes",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalEssence",
+   "cnAffix": "精华之",
+   "enAffix": "of the Essence",
+   "cn": "地图包含精华的几率提高 (70—100)%",
+   "en": "Map has (70—100)% increased chance to contain Essences",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalSpirit",
+   "cnAffix": "万灵之",
+   "enAffix": "of Spirits",
+   "cn": "地图有阿兹莫里之灵的几率提高 (70—100)%",
+   "en": "Map has (70—100)% increased chance to contain Azmeri Spirits",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalExile",
+   "cnAffix": "流放者之",
+   "enAffix": "of the Exile",
+   "cn": "地图有盗贼流放者的几率提高 (70—100)%",
+   "en": "Map has (70—100)% increased chance to contain Rogue Exiles",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalStoneCircle",
+   "cnAffix": "召唤之",
+   "enAffix": "of the Summoning",
+   "cn": "地图包含召唤法阵的几率提高 (70—100)%",
+   "en": "Map has (70—100)% increased chance to contain a Summoning Circle",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalModifier",
+   "cnAffix": "重担之",
+   "enAffix": "of Undertaking",
+   "cn": "地图拥有 (1—2) 个额外的随机词缀",
+   "en": "Map has (1—2) additional random Modifiers",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": "ALL",
+   "family": "MapAdditionalUniqueMonsterModifier",
+   "cnAffix": "争辩之",
+   "enAffix": "of Contest",
+   "cn": "传奇怪物额外具有 1 个词缀",
+   "en": "Unique Monsters have 1 additional Rare Modifiers",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachHivebloodQuantity",
+   "cnAffix": "涨潮之",
+   "enAffix": "of the Flow",
+   "cn": "地图中虫巢之血的掉落数量提高 (30—60)%",
+   "en": "(30—60)% increased Quantity of Hiveblood found in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachWombgiftQuantity",
+   "cnAffix": "形态之",
+   "enAffix": "of the Form",
+   "cn": "地图中孕育赠礼的掉落数量提高 (30—60)%",
+   "en": "(30—60)% increased Quantity of Wombgifts found in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachWombgiftLevelChance",
+   "cnAffix": "血肉之",
+   "enAffix": "of the Flesh",
+   "cn": "地图中掉落的孕育赠礼有 (10—30)% 的几率高一级",
+   "en": "Wombgifts have (10—30)% chance to drop one Level higher in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachBossChance",
+   "cnAffix": "指挥官之",
+   "enAffix": "of the Commander",
+   "cn": "地图中的不稳定裂隙包含薛斯的元帅弗伦的几率提高 (20—50)%",
+   "en": "Unstable Breaches in Map have (20—50)% increased chance to contain Vruun, Marshal of Xesht",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachAdditionalRares",
+   "cnAffix": "入侵之",
+   "enAffix": "of the Invasion",
+   "cn": "地图中的不稳定裂隙在稳定时会生成 (1—2) 个额外的稀有怪物",
+   "en": "Unstable Breaches in Map spawn (1—2) additional Rare Monsters when Stabilised",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachRareMonsterPotency",
+   "cnAffix": "手之",
+   "enAffix": "of the Hand",
+   "cn": "地图中稀有裂隙怪物的效能提高 (5—20)%",
+   "en": "(5—20)% increased Effectiveness of Rare Breach Monsters in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "B"
+   ],
+   "family": "BreachMonsterQuantity",
+   "cnAffix": "部落之",
+   "enAffix": "of the Horde",
+   "cn": "地图裂隙中的怪物群落规模提高 (5—15)%",
+   "en": "Breaches in Map have (5—15)% increased Pack Size",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumMonsterSplinterIncrease",
+   "cnAffix": "拟像之",
+   "enAffix": "of the Simulacrum",
+   "cn": "地图内的梦魇拟像裂片堆叠数量提高 (15—30)%",
+   "en": "(15—30)% increased Stack size of Simulacrum Splinters found in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumFogDissipationDelay",
+   "cnAffix": "永恒之",
+   "enAffix": "of Eternity",
+   "cn": "地图内的惊悸迷雾在消散前额外持续 (6—12) 秒",
+   "en": "Delirium Fog in Map lasts (6—12) additional seconds before dissipating",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumFogPersistence",
+   "cnAffix": "无尽之",
+   "enAffix": "of the Unending",
+   "cn": "地图内惊悸迷雾消散速度减慢 (20—30)%",
+   "en": "Delirium Fog in Map dissipates (20—30)% slower",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumDifficultyIncrease",
+   "cnAffix": "疯狂之",
+   "enAffix": "of Madness",
+   "cn": "地图中的惊悸迷雾使玩家的亢奋度提高 (15—30)%",
+   "en": "Delirium Fog in Map applies (15—30)% increased Deliriousness to Players",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumPackSizeIncrease",
+   "cnAffix": "纷扰之",
+   "enAffix": "of Persecution",
+   "cn": "地图内惊悸迷雾怪物的怪物群规模提高 (15—30)%",
+   "en": "Delirium Monsters in Map have (15—30)% increased Pack Size",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumDoodadsIncrease",
+   "cnAffix": "镜面之",
+   "enAffix": "of Mirrors",
+   "cn": "地图内的惊悸迷雾生成的破溃之镜数量提高 (15—30)%",
+   "en": "Delirium Fog in Map spawns (15—30)% increased Fracturing Mirrors",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumRareMonsterPause",
+   "cnAffix": "凝时之",
+   "enAffix": "of Freeze Time",
+   "cn": "击败地图内的稀有怪物使惊悸迷雾之镜的倒计时暂停 (3—5) 秒",
+   "en": "Slaying Rare Monsters in Map pauses the Delirium Mirror Timer for (3—5) seconds",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumBossChance",
+   "cnAffix": "畏惧之",
+   "enAffix": "of Phobia",
+   "cn": "地图内的惊悸迷雾遭遇战生成传奇首领的几率总增 (15—30)%",
+   "en": "Delirium Encounters in Map are (15—30)% more likely to spawn Unique Bosses",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "D"
+   ],
+   "family": "DeliriumAdditionalShardsChance",
+   "cnAffix": "碎离之",
+   "enAffix": "of Shattering",
+   "cn": "地图中的惊悸迷雾生成的破溃之镜碎片数量提高 (12—26)%",
+   "en": "Delirium Fog in Map spawns (12—26)% increased Mirror Shards",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualTributeIncrease",
+   "cnAffix": "牺牲之",
+   "enAffix": "of Sacrifice",
+   "cn": "地图内在驱灵祭坛献祭怪物提供的贡品提高 (18—30)%",
+   "en": "Monsters Sacrificed at Ritual Altars in Map grant (18—30)% increased Tribute",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualRerollCostIncrease",
+   "cnAffix": "教义之",
+   "enAffix": "of the Dogma",
+   "cn": "地图内在驱灵祭坛重置恩典消耗的贡品降低 (20—30)%",
+   "en": "Rerolling Favours at Ritual Altars in Map costs (20—30)% reduced Tribute",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualDeferCostIncrease",
+   "cnAffix": "奉献之",
+   "enAffix": "of Devotion",
+   "cn": "地图内在驱灵祭坛延时恩典消耗的贡品降低 (20—30)%",
+   "en": "Deferring Favours at Ritual Altars in Map costs (20—30)% reduced Tribute",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualDeferSpeed",
+   "cnAffix": "请愿之",
+   "enAffix": "of the Appeal",
+   "cn": "地图内驱灵祭坛上延时的恩典重现速度加快 (25—40)%",
+   "en": "Favours Deferred at Ritual Altars in Map reappear (25—40)% sooner",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualAdditionalReroll",
+   "cnAffix": "祈祷之",
+   "enAffix": "of Prayers",
+   "cn": "地图内的驱灵祭坛可以额外重置恩典 (1—3) 次",
+   "en": "Ritual Altars in Map allow rerolling Favours (1—3) additional times",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualChanceForNoCost",
+   "cnAffix": "密教之",
+   "enAffix": "of the Occult",
+   "cn": "地图内在驱灵祭坛重置恩典有 (3—6)% 几率不消耗贡品",
+   "en": "Favours Rerolled at Ritual Altars in Map have (3—6)% chance to cost no Tribute",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualRareMonsters",
+   "cnAffix": "养子之",
+   "enAffix": "of the Foundling",
+   "cn": "地图内驱灵祭坛再生怪物为魔法怪物的几率提高 (35—70)%",
+   "en": "Revived Monsters from Ritual Altars in Map have (35—70)% increased chance to be Magic",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualMagicMonsters",
+   "cnAffix": "密会之",
+   "enAffix": "of the Cult",
+   "cn": "地图内的驱灵祭坛再生怪物为稀有怪物的几率提高 (25—40)%",
+   "en": "Revived Monsters from Ritual Altars in Map have (25—40)% increased chance to be Rare",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "R"
+   ],
+   "family": "RitualOmenChance",
+   "cnAffix": "预兆之",
+   "enAffix": "of Omens",
+   "cn": "地图内驱灵恩典为预兆的几率提高 (35—70)%",
+   "en": "Ritual Favours in Map have (35—70)% increased chance to be Omens",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionExplosionRadius",
+   "cnAffix": "爆破之",
+   "enAffix": "of the Demolition",
+   "cn": "地图内先祖秘藏爆炸范围提高 (5—10)%",
+   "en": "(5—10)% increased Expedition Explosive Area of Effect in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionLogbookIncrease",
+   "cnAffix": "知识之",
+   "enAffix": "of Knowledge",
+   "cn": "地图内符文怪物掉落的先祖秘藏日志数量提高 (15—25)%",
+   "en": "(15—25)% increased Quantity of Expedition Logbooks dropped by Runic Monsters in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionRunicMonsters",
+   "cnAffix": "符文之",
+   "enAffix": "of Runes",
+   "cn": "地图内符文怪物标记的数量提高 (15—25)%",
+   "en": "Map contains (15—25)% increased number of Runic Monster Markers",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionIncreasedVerisium",
+   "cnAffix": "维金之",
+   "enAffix": "of Verisium",
+   "cn": "维金残片生成的怪物掉落的维金数量提高 (15—25)%",
+   "en": "Monsters from Verisium Remnants drop (15—25)% increased Verisium",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionUnearthedRares",
+   "cnAffix": "古恶之",
+   "enAffix": "of Ancient Evil",
+   "cn": "地图内最先被开掘的 (1—2) 个符文怪物将为稀有怪物",
+   "en": "The first (1—2) unearthed Runic Monsters will be Rare Monsters in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionAdditionalSentinels",
+   "cnAffix": "哨卫之",
+   "enAffix": "of Sentinels",
+   "cn": "地图内的先祖秘藏额外包含 (1—2) 个维金哨兵",
+   "en": "Expeditions contain (1—2) Additional Verisium Sentries in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionIncreasedMonsterRarity",
+   "cnAffix": "暴击之",
+   "enAffix": "of Power",
+   "cn": "地图内的先祖秘藏怪物稀有度提高 (15—25)%",
+   "en": "(15—25)% increased Expedition Monster Rarity in Map",
+   "hiddenStat": "expedition elite pack size +20%"
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionFrozenBosses",
+   "cnAffix": "保存之",
+   "enAffix": "of Preservation",
+   "cn": "地图内的先祖秘藏额外包含 (1—2) 个被坚冰包裹的首领",
+   "en": "Expeditions contain (1—2) Additional Bosses encased in ice in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionBuriedStrongboxes",
+   "cnAffix": "财宝之",
+   "enAffix": "of Treasure",
+   "cn": "地图内的先祖秘藏包含 (1—2) 个埋藏的保险箱",
+   "en": "Expeditions contain (1—2) buried Strongboxes in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionVaalRemnants",
+   "cnAffix": "过往之",
+   "enAffix": "of the Past",
+   "cn": "地图内的先祖秘藏包含 (1—2) 个瓦尔遗物",
+   "en": "Expeditions contain (1—2) Vaal Relics in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionChanceForVerisiumRemnant",
+   "cnAffix": "残片之",
+   "enAffix": "of Remnants",
+   "cn": "先祖秘藏有 +(30—40)% 的溢出几率包含一个额外的维金残片",
+   "en": "Expeditions have +(30—40)% Surpassing chance to contain an additional Verisium Remnant",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "ExpeditionChanceForTwinnedElites",
+   "cnAffix": "双子之",
+   "enAffix": "of Twins",
+   "cn": "地图内的先祖秘藏有 +(30—40)% 的溢出几率复制符文怪物",
+   "en": "Expeditions have +(30—40)% Surpassing chance to Duplicate Runic Monsters in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "X"
+   ],
+   "family": "Expedition2RunicModPassoverChance",
+   "cnAffix": "古魔之",
+   "enAffix": "of Ancient Fiends",
+   "cn": "地图内的维金残片有 +(25—35)% 的几率添加一个额外的符文词缀",
+   "en": "Verisium Remnants have +(25—35)% chance to add an additional Runic Modifier in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssMonsterIncrease",
+   "cnAffix": "部落之",
+   "enAffix": "of the Horde",
+   "cn": "地图中的深渊生成的怪物数量提高 (20—30)%",
+   "en": "Abysses in Map spawn (20—30)% increased Monsters",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssRareMonsterIncrease",
+   "cnAffix": "冠军之",
+   "enAffix": "of Champions",
+   "cn": "地图中的深渊额外生成 (2—3) 个稀有怪物",
+   "en": "(2—3) additional Rare Monsters are spawned from Abysses in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssEnhancedMonstersPerChasm",
+   "cnAffix": "疾升之",
+   "enAffix": "of Escalation",
+   "cn": "每关闭一个巨坑，深渊怪物的效能提高 (8—12)%，最高可达 100%",
+   "en": "Abyssal Monsters have (8—12)% increased Effectiveness for each closed Pit, up to 100%",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssDepthsChance",
+   "cnAffix": "深处之",
+   "enAffix": "of the Depths",
+   "cn": "地图中的深渊通往绝望深渊的几率提高 (10—20)%",
+   "en": "Abysses in Map have (10—20)% increased chance to lead to an Abyssal Depths",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssAdditionalChance",
+   "cnAffix": "空洞之",
+   "enAffix": "of Hollows",
+   "cn": "地图额外包含 1 个深渊",
+   "en": "Map contains 1 additional Abysses",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssIncreasedRewards",
+   "cnAffix": "珍宝之",
+   "enAffix": "of Treasures",
+   "cn": "地图中的深渊巨坑有双倍几率有奖励",
+   "en": "Abyss Pits in Map are twice as likely to have Rewards",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "Abyss4AdditionalChance",
+   "cnAffix": "分立之",
+   "enAffix": "of Schisms",
+   "cn": "地图有 (20—40)% 的几率额外包含四个深渊",
+   "en": "Map has (20—40)% chance to contain four additional Abysses",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssExtraModifiers",
+   "cnAffix": "暗力之",
+   "enAffix": "of Dark Power",
+   "cn": "地图中的深渊怪物带有深渊词缀的几率提高 (20—30)%",
+   "en": "(20—30)% increased chance for Abyssal monsters in Map to have Abyssal Modifiers",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "A"
+   ],
+   "family": "AbyssExtraTickets",
+   "cnAffix": "骨化之",
+   "enAffix": "of Ossification",
+   "cn": "地图中的深渊掉落渎灵通货的几率提高 (20—30)%",
+   "en": "(20—30)% increased chance for Desecrated Currency from Abysses in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionPackSize",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionPackSize",
+   "cn": "地图中的瓦尔灯塔附近的怪物群落规模提高 (10—30)%",
+   "en": "(10—30)% increased Pack Size for Monsters around Vaal Beacons in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionExtraPacks",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionExtraPacks",
+   "cn": "地图中的瓦尔灯塔附近出现 1 个额外怪物群落",
+   "en": "1 extra packs of Monsters around Vaal Beacons in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionExtraPacks",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionExtraPacksChance",
+   "cn": "地图中的瓦尔灯塔附近有 (30—60)% 的几率出现一个额外怪物群落",
+   "en": "(30—60)% chance for an extra packs of Monsters around Vaal Beacons in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionSecondaryEncounters",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionSecondaryEncounters",
+   "cn": "地图中的瓦尔灯塔召唤额外怪物的几率提高 (25—50)%",
+   "en": "(25—50)% increased chance Vaal Beacons summon additional Monsters in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionTokenChance",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionTokenChance",
+   "cn": "有 (5—10)% 的几率从地图中的瓦尔灯塔获得一个额外的水晶",
+   "en": "(5—10)% chance to gain an additional Crystal from Vaal Beacons in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionBossChance",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionBossChance",
+   "cn": "有 (10—25)% 的几率为地图增加一个瓦尔灯塔传奇怪物",
+   "en": "(10—25)% chance to add a Vaal Beacon Unique Monster to the Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "T"
+   ],
+   "family": "IncursionRareChestChance",
+   "cnAffix": null,
+   "enAffix": "TowerIncursionRareChestChance",
+   "cn": "地图中的瓦尔灯塔宝箱为稀有的几率提高 (30—60)%",
+   "en": "(30—60)% increased chance Vaal Beacon Chests are Rare in Map",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossAdditionalStrongbox",
+   "cnAffix": "暗格之",
+   "enAffix": "of Compartments",
+   "cn": "地图包含 (1—2) 个额外的保险箱",
+   "en": "Map contains (1—2) additional Strongboxes",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossAdditionalShrine",
+   "cnAffix": "崇敬之",
+   "enAffix": "of Worship",
+   "cn": "地图包含 (1—2) 个额外的神龛",
+   "en": "Map contains (1—2) additional Shrines",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossAdditionalEssence",
+   "cnAffix": "水晶之",
+   "enAffix": "of Crystals",
+   "cn": "地图包含 (1—2) 个额外的精华",
+   "en": "Map contains (1—2) additional Essences",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossAdditionalSpirit",
+   "cnAffix": "鬼灵之",
+   "enAffix": "of Wisps",
+   "cn": "地图包含 (1—2) 个额外的阿兹莫里之灵",
+   "en": "Map contains (1—2) additional Azmeri Spirits",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossWaystoneChance",
+   "cnAffix": "路途之",
+   "enAffix": "of Pathways",
+   "cn": "地图首领掉落的引路石数量提高 (18—30)%",
+   "en": "(18—30)% increased Quantity of Waystones dropped by Map Bosses",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossExperience",
+   "cnAffix": "征服之",
+   "enAffix": "of Conquering",
+   "cn": "地图首领提供的经验值提高 (40—80)%",
+   "en": "Map Bosses grant (40—80)% increased Experience",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossRarity",
+   "cnAffix": "财宝之",
+   "enAffix": "of Treasure",
+   "cn": "地图首领掉落的物品稀有度提高 (35—60)%",
+   "en": "(35—60)% increased Rarity of Items dropped by Map Bosses",
+   "hiddenStat": null
+  },
+  {
+   "pf": "suffix",
+   "types": [
+    "O"
+   ],
+   "family": "MapBossQuantity",
+   "cnAffix": "囤积之",
+   "enAffix": "of Hoards",
+   "cn": "地图首领掉落的物品数量提高 (13—20)%",
+   "en": "(13—20)% increased Quantity of Items dropped by Map Bosses",
+   "hiddenStat": null
+  }
+ ],
+ "uniques": [
+  {
+   "cn": "围困瓦尔克拉斯",
+   "en": "Wraeclast Besieged",
+   "type": "B",
+   "uses": 10,
+   "mods_cn": [
+    "地图裂隙中的怪物群落规模降低 (-10—20)%",
+    "地图中的裂隙巢穴拥有 (2—5) 个额外的裂隙虫群怪物波次",
+    "地图中的不稳定裂隙在计时器填满后，会额外延迟 120 秒塌缩",
+    "地图中的不稳定裂隙在稳定时会生成 (2—5) 个额外的稀有怪物"
+   ],
+   "mods_en": [
+    "Breaches in Map have (-10—20)% reduced Pack Size",
+    "Breach Hives in Map have (2—5) additional waves of Hiveborn Monsters",
+    "Unstable Breaches in Map take 120 additional seconds to collapse after timer is filled",
+    "Unstable Breaches in Map spawn (2—5) additional Rare Monsters when Stabilised"
+   ]
+  },
+  {
+   "cn": "万里晴空",
+   "en": "Clear Skies",
+   "type": "D",
+   "uses": 10,
+   "mods_cn": [
+    "你地图中的惊悸迷雾永不消散",
+    "地图中的惊悸迷雾使玩家的亢奋度降低 (-10—10)%"
+   ],
+   "mods_en": [
+    "Delirium Fog in your Maps never dissipates",
+    "Delirium Fog in Map applies (-10—10)% reduced Deliriousness to Players"
+   ]
+  },
+  {
+   "cn": "信念的自由",
+   "en": "Freedom of Faith",
+   "type": "R",
+   "uses": 10,
+   "mods_cn": [
+    "区域内的驱灵祭坛恩典消耗的贡品提高 (10—15)%",
+    "你地图中的驱灵祭坛可以重置恩典的次数变为两倍"
+   ],
+   "mods_en": [
+    "Favours at Ritual Altars in Area costs (10—15)% increased Tribute",
+    "Can Reroll Favours at Ritual Altars in your Maps twice as many times"
+   ]
+  },
+  {
+   "cn": "宏伟计划",
+   "en": "The Grand Project",
+   "type": "I",
+   "uses": 1,
+   "mods_cn": [
+    "只能应用于先驱高塔地图",
+    "完成高塔后解锁所有附近的地图"
+   ],
+   "mods_en": [
+    "Can only be applied to Precursor Tower Maps",
+    "Completing the Tower makes all nearby Maps accessible"
+   ]
+  },
+  {
+   "cn": "乐园幻象",
+   "en": "Visions of Paradise",
+   "type": "I",
+   "uses": 1,
+   "mods_cn": [
+    "若地图之前未受能量辐照，完成地图时改为增加能量辐照"
+   ],
+   "mods_en": [
+    "If Map was not previously Irradiated, completing Map adds Irradiation instead"
+   ]
+  },
+  {
+   "cn": "疆域主宰",
+   "en": "Mastered Domain",
+   "type": "I",
+   "uses": 1,
+   "mods_cn": [
+    "地图也视为水域地图"
+   ],
+   "mods_en": [
+    "Map also counts as a Water Map"
+   ]
+  },
+  {
+   "cn": "狩猎时节",
+   "en": "Season of the Hunt",
+   "type": "O",
+   "uses": 10,
+   "mods_cn": [
+    "地图首领被阿兹莫里之灵追猎"
+   ],
+   "mods_en": [
+    "Map Bosses are Hunted by Azmeri Spirits"
+   ]
+  },
+  {
+   "cn": "残酷霸权",
+   "en": "Cruel Hegemony",
+   "type": "O",
+   "uses": 10,
+   "mods_cn": [
+    "地图首领额外具有 1 个词缀"
+   ],
+   "mods_en": [
+    "Map Bosses have 1 additional Modifiers"
+   ]
+  },
+  {
+   "cn": "无常因果",
+   "en": "Unforeseen Consequences",
+   "type": "A",
+   "uses": 1,
+   "mods_cn": [
+    "地图额外包含 (14—18) 个深渊",
+    "地图被深渊侵占"
+   ],
+   "mods_en": [
+    "Map contains (14—18) additional Abysses",
+    "Map is overrun by the Abyssal"
+   ],
+   "note": "poe2db also lists a hidden stat 'map abyss tower augment quantity +% final from overrun unique tablet [-75]' without display text; 0.5.0 removed its 4-6 additional Abyss rares."
+  },
+  {
+   "cn": "时光的埋没",
+   "en": "Forgotten By Time",
+   "type": "X",
+   "uses": 10,
+   "mods_cn": [
+    "你地图中的先祖秘藏怪物产生时额外失去一半生命值",
+    "你地图中的符文怪物被复制"
+   ],
+   "mods_en": [
+    "Expedition Monsters in your Maps spawn with half of their Life missing",
+    "Runic Monsters in your Maps are Duplicated"
+   ],
+   "note": "poe2db: drop disabled (temporarily disabled from dropping since 0.5.0)."
+  }
+ ],
+ "atlasPassives": [
+  {
+   "cn": "逆转录",
+   "en": "Reverse Transcription",
+   "req": "需要完成燃石巨塔",
+   "effect": "你的石板可以升级为稀有石板，且词缀上限 +1"
+  },
+  {
+   "cn": "部分翻译",
+   "en": "Partial Translation",
+   "req": "需要击败先驱要塞巅峰首领",
+   "effect": "你的石板可以升级为稀有石板，且词缀上限 +1"
+  },
+  {
+   "cn": "工业改进",
+   "en": "Industrial Improvements",
+   "req": "适用于等级 75+区域；需要完成燃石巨塔",
+   "effect": "城市地图上可使用一个额外的石板"
+  },
+  {
+   "cn": "万古污染",
+   "en": "Eons of Contamination",
+   "req": null,
+   "effect": "现在可以找到能量辐照先驱石板"
+  },
+  {
+   "cn": "万古统治",
+   "en": "Eons of Domination",
+   "req": null,
+   "effect": "强力地图首领可以掉落霸主先驱石板"
+  },
+  {
+   "cn": "石板效果",
+   "en": "Tablet Effect",
+   "req": "适用于等级 70+/75+ 区域；需要完成东方或西方通道 / 燃石巨塔",
+   "effect": "石板上的外延词缀效果提高 5%",
+   "countOnTree": 3
+  },
+  {
+   "cn": "城市地貌：石板效果",
+   "en": "City Biome: Tablet Effect",
+   "req": "适用于等级 75+区域；需要完成燃石巨塔",
+   "effect": "你城市地图上的石板外延词缀效果提高 8%",
+   "countOnTree": 3
+  },
+  {
+   "cn": "受控天气",
+   "en": "Controlled Climates",
+   "req": "适用于等级 75+区域；需要完成主母殿堂",
+   "effect": "每有一个影响地图区域的石板，石板上的外延词缀效果提高 5%"
+  },
+  {
+   "cn": "神秘强化",
+   "en": "Enigmatic Intensification",
+   "req": "适用于等级 75+区域；需要完成长老殿堂",
+   "effect": "每有一个影响地图区域的石板，引路石上的外延词缀效果提高 3%"
+  },
+  {
+   "cn": "传播秘密",
+   "en": "Propagating Secrets",
+   "req": "适用于等级 75+区域；需要完成燃石巨塔",
+   "effect": "每有一个影响地图区域的石板，石板的数量提高 8%"
+  },
+  {
+   "cn": "考古兴趣",
+   "en": "Archaeological Interest",
+   "req": "适用于等级 70+区域；需要完成东方或西方通道",
+   "effect": "地图首领掉落的引路石数量提高 10%；石板的数量提高 15%"
+  },
+  {
+   "cn": "山地专精",
+   "en": "Mountain Mastery",
+   "req": "关键天赋",
+   "effect": "在高山区域中选择一个加成：石板的掉落数量提高 50% / 符文的掉落数量提高 50% / 物品稀有度提高 6%"
+  },
+  {
+   "cn": "竞争性考古",
+   "en": "Competitive Archaeology",
+   "req": "适用于等级 70+区域；需要完成东方或西方通道",
+   "effect": "盗贼流放者有 5% 的几率掉落一个额外的石板"
+  },
+  {
+   "cn": "皮实顽石",
+   "en": "Curiously Durable Stone",
+   "req": "适用于等级 75+区域；需要击败先驱要塞巅峰首领",
+   "effect": "开启地图时，有 8% 的几率不消耗石板使用次数"
+  },
+  {
+   "cn": "专业搜集者",
+   "en": "Specialised Seeker",
+   "req": "适用于等级 70+区域；需要完成东方或西方通道",
+   "effect": "石板同样使通过石板机制生成的怪物掉落的物品稀有度提高 10%"
+  },
+  {
+   "cn": "符文之主",
+   "en": "Lord of the Runes",
+   "req": null,
+   "effect": "霸主石板同样使召唤法阵首领的效能提高 20%"
+  },
+  {
+   "cn": "接近地表",
+   "en": "Close to the Surface",
+   "req": null,
+   "effect": "深渊石板同样使绝望深渊的怪物拥有深渊词缀的几率提高 25%、巫妖血脉词缀的几率提高 25%、怪物群落规模提高 4%"
+  }
+ ],
+ "atlasMasters": [
+  {
+   "cn": "残篇译解",
+   "en": "Partial Translations",
+   "master": "贾多的间谍之道 T3 (Jado's Spycraft)",
+   "effect": "石板上的外延词缀效果随机提高 0 至 40%"
+  },
+  {
+   "cn": "远古铭文",
+   "en": "Ancient Inscriptions",
+   "master": "希尔达的狩猎之道 T3 (Hilda's Hunting)",
+   "effect": "每有一种影响地图区域的石板类型，石板上的外延词缀效果提高 8%"
+  }
+ ],
+ "towerModsNotInAnyTabletPool": [
+  {
+   "cn": "地图中的稀有怪物有 (50—80)% 的溢出几率有一个额外词缀",
+   "en": "Rare Monsters in Map have a (50—80)% Surpassing chance to have an additional Modifier"
+  },
+  {
+   "cn": "地图内稀有先祖秘藏怪物数量提高 (25—35)%",
+   "en": "(25—35)% increased number of Rare Expedition Monsters in Map"
+  },
+  {
+   "cn": "地图内先祖秘藏炸药放置范围提高 (10—20)%",
+   "en": "(10—20)% increased Expedition Explosive Placement Range in Map"
+  },
+  {
+   "cn": "每关闭一个巨坑，地图中的深渊怪物的难度与奖励都会提高",
+   "en": "Abyssal Monsters in Map have increased Difficulty and Reward for each closed Pit"
+  }
+ ],
+ "patchNotes": [
+  {
+   "version": "0.3.1",
+   "points": [
+    "Tablets can now be placed into the Map Device to add their bonuses directly to your Map.",
+    "Up to 3 Tablets per Map; slots available depend on how many modifiers the Map has; 6 modifiers enable all 3."
+   ]
+  },
+  {
+   "version": "0.4.0",
+   "points": [
+    "Tablets now have a maximum of 4 modifiers.",
+    "Crafting beyond 2 modifiers required defeating the Arbiter of Ash (superseded in 0.5 by the Reverse Transcription / Partial Translation passives).",
+    "Generic Precursor Tablet modifiers can roll on all tablet base types; 'Plundering' item quantity modifier disabled."
+   ]
+  },
+  {
+   "version": "0.5.0",
+   "points": [
+    "Temple Precursor Tablets added (guarantee Vaal Beacons).",
+    "Tablets of the same type may be used together to increase the amount of league content spawned.",
+    "Each empty tablet slot contributes to the amount of random non-tablet league content.",
+    "Orbs of Chance usable on Tablets; Irradiated (basic) and Overseer tablets require Atlas specialisation.",
+    "Tablets cannot be used on maps that cannot have extra content; league tablets no longer drop from non-map areas.",
+    "General tablet modifier values aligned with waystone modifiers; roll variance reduced.",
+    "Forgotten By Time temporarily disabled from dropping."
+   ]
+  },
+  {
+   "version": "0.5.2",
+   "points": [
+    "Jado's Partial Translations now: randomly gain 0-40% increased effect of explicit modifiers on tablets."
+   ]
+  },
+  {
+   "version": "0.5.3",
+   "points": [
+    "Delirium fog scaling halved; Delirium tablets now scale fog effect, three tablets = previous value.",
+    "Close to the Surface extended to Abyssal Depths; City Biome: Tablet Effect passives fixed."
+   ]
+  },
+  {
+   "version": "0.5.5",
+   "points": [
+    "More than one Ritual Tablet adds an extra Altar and more Azmeri Wisps in the Viridian Wildwood.",
+    "Expedition Tablets drop in Standard and Forbidden Rites (not Runes of Aldur); 1-4 tablet breakpoints; new Expedition modifiers.",
+    "'of the Invasion' now 1-2 additional rares (was 1-3); 'of Champions' now 2-3 (was 1-2)."
+   ]
+  },
+  {
+   "version": "0.5.5b",
+   "points": [
+    "Increased the droprate of Expedition, Temple & Delirium Tablets."
+   ]
+  }
+ ],
+ "items": [
+  {
+   "cn": "远古注能装置",
+   "en": "Ancient Infuser",
+   "effect": "随机修改一块石板，并将其腐化"
+  },
+  {
+   "cn": "液化憎恶",
+   "en": "Liquid Disgust",
+   "effect": "区域里的玩家 18% 亢奋；区域内的石板数量提高 30%"
+  }
+ ],
+ "researchCoverage": {
+  "languages": [
+   "zh-CN",
+   "zh-TW",
+   "en",
+   "ja",
+   "ko",
+   "ru",
+   "de",
+   "pt"
+  ],
+  "notSearched": [
+   "fr",
+   "th",
+   "PTT",
+   "小黑盒",
+   "知乎"
+  ],
+  "fetchRefused": [
+   "reddit.com",
+   "mobalytics.gg",
+   "arca.live",
+   "tieba.baidu.com"
+  ],
+  "reason": "WebSearch budget (200 per session, shared by subagents) ran out; see page section 18."
+ },
+ "waystones": {
+  "fetchedAt": "2026-09-28",
+  "poe2db": [
+   "https://poe2db.tw/cn/Waystones",
+   "https://poe2db.tw/cn/Waystones_top_tier",
+   "https://poe2db.tw/cn/Waystones_mid_tier",
+   "https://poe2db.tw/cn/Waystones_low_tier"
+  ],
+  "notes": [
+   "Each waystone mod = difficulty part + one reward type (monster effectiveness / item rarity / pack size / monster rarity) + waystone drop chance; reward parts identical across low/mid/top tier pools, only difficulty scales.",
+   "Top tier pool: 27 normal mods, 19 desecrated mods (11 Abyss prefixes 'of the Abyss' + 8 suffixes); desecrated via Preserved Vertebrae (遗存椎骨).",
+   "Omens: 混沌稀有/数量/怪物/效能预兆 make the next Chaos Orb reroll into mods NOT of item rarity / pack size / monster rarity / effectiveness; up to 3 at once (0.5.0).",
+   "Citadels (古铜/钢铁/磐石城塞) need T15+; higher waystone drop chance gives a chance for extra crisis fragments (poe2db text).",
+   "Waystone tier N area level = 64 + N (T15 = 79, T16 = 80); 3 waystones of tier N reforge into 1 of tier N+1."
+  ],
+  "marketSnapshot": {
+   "realm": "Tencent (国服)",
+   "league": "周年庆巅峰挑战",
+   "date": "2026-09-28",
+   "query": "category map.waystone, rarity rare, map_tier>=15, status securable (instant buyout), sort price asc, cheapest 10",
+   "conversionNote": "From price-sort order: 1 chaos ~ 90-105 exalted; 1 divine < 7 chaos. Not an exchange rate.",
+   "rows": [
+    {
+     "filter": "any T15+",
+     "floor": "2 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "T16 any",
+     "floor": "~1 chaos",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_bonus>=90",
+     "floor": "3 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_bonus>=100",
+     "floor": "3-4 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_bonus>=110",
+     "floor": "21-30 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_bonus>=120",
+     "floor": "222-255 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_iir>=50",
+     "floor": "10-15 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_iir>=70",
+     "floor": "7 chaos",
+     "count": 1319
+    },
+    {
+     "filter": "map_rare_monsters>=60",
+     "floor": "220-250 exalted",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_rare_monsters>=100",
+     "floor": "10 chaos",
+     "count": 5129
+    },
+    {
+     "filter": "map_magic_monsters (怪物效能)>=50",
+     "floor": "9 chaos",
+     "count": 7335
+    },
+    {
+     "filter": "map_magic_monsters (怪物效能)>=70",
+     "floor": "10 chaos",
+     "count": 4711
+    },
+    {
+     "filter": "map_packsize>=30",
+     "floor": "~1 chaos",
+     "count": "10000+"
+    },
+    {
+     "filter": "map_packsize>=45",
+     "floor": "4-6 chaos",
+     "count": 844
+    },
+    {
+     "filter": "desecrated / abyss waystone stats",
+     "floor": "none",
+     "count": 0
+    }
+   ]
+  },
+  "strategyRequirements": [
+   {
+    "strategy": "Irradiated tablet farming",
+    "req": "T15, exalt to 6 mods, Vaal corrupt, 90%+ waystone drop chance",
+    "src": "maxroll tablet-farming-strategy"
+   },
+   {
+    "strategy": "Breach rare farming",
+    "req": "T15, 6 mods, Omen of Chaotic Quantity + Chaotic Monsters + Chaos Orb -> 60%+ item rarity and effectiveness",
+    "src": "maxroll breach-rare-monster-farming-strategy"
+   },
+   {
+    "strategy": "200% Delirium Abyss",
+    "req": "T15, 5 mods, Chaotic Quantity + Rarity + Effectiveness omens + Chaos -> 103% monster rarity, exalt to 6",
+    "src": "maxroll 200-delirium-abyss-farming-strategy"
+   },
+   {
+    "strategy": "Abyssal chest",
+    "req": "T15, 6 mods, corrupt; item rarity optional",
+    "src": "maxroll abyssal-chest-farming"
+   },
+   {
+    "strategy": "Delirium boss rush / Vaal temple",
+    "req": "T15, 6 mods (corrupt for deli rush); no specific mods",
+    "src": "maxroll"
+   },
+   {
+    "strategy": "Simulacrum (KR)",
+    "req": "T15 corrupted, monster rarity >= 60%",
+    "src": "dcinside 407244"
+   },
+   {
+    "strategy": "Grand Expedition",
+    "req": "effectiveness ~70% 8-mod (TW); pack size least useful (Fubgun)",
+    "src": "bahamut 4008; bilibili BV1zMYL6ZEDi"
+   },
+   {
+    "strategy": "Citadels (RU)",
+    "req": "4 mods, 60% waystone drop chance",
+    "src": "dtf.ru"
+   }
+  ]
+ }
+}

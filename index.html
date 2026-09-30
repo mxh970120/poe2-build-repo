@@ -58,7 +58,7 @@ li{margin:3px 0}
   <div class="eyebrow">Path of Exile 2 · 简体中文</div>
   <h1>流亡黯道 2 中文构筑库</h1>
   <p>把 Mobalytics 上的构筑逐变体转成简体中文专属攻略：词缀中文取 poe2db.tw 简中口径并附英文原名，每页都有硬阻断与换装时机、分阶段搜索正则和数据核验。</p>
-  <div class="bar"><span class="small">按补丁号倒序 · 共 3 个构筑 · 2 份合成</span><button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button></div>
+  <div class="bar"><span class="small">按补丁号倒序 · 共 3 个构筑 · 2 份合成 · 2 个专题</span><button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button></div>
 </header>
 <main>
 <section>
@@ -102,9 +102,30 @@ li{margin:3px 0}
   </table></div>
 </section>
 <section>
+  <h2>专题</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>补丁</th><th>专题</th><th>内容</th><th>更新</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="patch">0.5.5</td>
+        <td><a href="0.5.5-装备查价速查/index.html">装备查价速查</a><span class="en">Gear price-check cheat sheet</span></td>
+        <td>新手捡到装备时，哪些部位出现哪些词条组合就值得查价：各部位核心词、值得查的门槛、最高档所需物品等级，外加腐化、渎灵、查价器用法；不含价格<span class="en">攻击武器 · 法术武器 · 防具 · 饰品 · 珠宝 · 非装备掉落</span></td>
+        <td class="n">2026-09-25</td>
+      </tr>
+      <tr>
+        <td class="patch">0.5.5</td>
+        <td><a href="0.5.5-异界石板/index.html">异界石板与引路石词条</a><span class="en">Precursor Tablets &amp; Waystones</span></td>
+        <td>各异界玩法该插哪些石板、要哪些词条：8 种石板 86 条词条的国服原文，汇总中、英、日、韩、俄、德、葡语社区的攻略；引路石抬头数值到多少才卖得上价（国服市集快照），以及和玩法强相关的引路石词条<span class="en">裂隙 · 惊悸迷雾 · 驱灵仪式 · 先祖秘藏 · 深渊 · 神庙 · 刷石板 · 续航 · 副机制 · 引路石</span></td>
+        <td class="n">2026-09-28</td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+<section>
   <h2>约定</h2>
   <ul class="small">
     <li>目录名为 <code>补丁号-升华中文名</code>；同补丁同升华有第二套构筑时，目录名后加核心技能名（如 <code>0.5.5-瓦拉煞的门徒-凯拉里之诡计</code>）；每个变体一个 HTML 文件，文件名是变体中文名；<code>_source.json</code> 存原站原始数据。</li>
+    <li>专题（非构筑）的目录名为 <code>补丁号-主题</code>，如 <code>0.5.5-异界石板</code>、<code>0.5.5-装备查价速查</code>。</li>
     <li>词缀中文一律取 poe2db <code>/cn/</code>，与简中客户端一致；查不到的标“暂译”。</li>
     <li>天赋树完整点法请对着原站点，页面只标核心节点。</li>
     <li>生成方式见 <code>skills/poe2-build-cn/SKILL.md</code>。</li>
