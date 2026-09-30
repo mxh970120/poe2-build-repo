@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>奇塔弗匠师 · 盾墙 · 合成四阶段</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 战士「奇塔弗匠师」盾墙开荒构筑（Lundburgerr）：把原站 8 个变体合成 起步→间章 / 65 级进图 / 终局初期 / 大后期 四个阶段，逐步写出换技能、换装、升华与洗点时机，单页自洽。">
+<style>
+:root{
+  --ground:#F1F3F6; --surface:#FFFFFF; --surface-2:#E5EAF0; --ink:#141C2B; --ink-2:#34425A; --muted:#566377; --line:#CDD5DF;
+  --accent:#2C5A88; --accent-soft:#DCE6F1; --brass:#8A571A; --brass-soft:#F3E6D2;
+  --ember:#A6361A; --ember-soft:#F7E0D7; --ok:#2A6C47; --ok-soft:#DCEEE2;
+  --plum:#5B4E9A; --plum-soft:#E7E3F4;
+  --code-bg:#132030; --code-ink:#DCE7F1;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E131B; --surface:#151C27; --surface-2:#1C2533; --ink:#E3E8EF; --ink-2:#C3CCD8; --muted:#95A1B2; --line:#283345;
+    --accent:#86B4E2; --accent-soft:#17293C; --brass:#DCAA68; --brass-soft:#2E2416;
+    --ember:#F2957A; --ember-soft:#3B2019; --ok:#6CC08E; --ok-soft:#14301F;
+    --plum:#BBB3F2; --plum-soft:#26233D;
+    --code-bg:#0A0F17; --code-ink:#D6E2EE;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E131B; --surface:#151C27; --surface-2:#1C2533; --ink:#E3E8EF; --ink-2:#C3CCD8; --muted:#95A1B2; --line:#283345;
+  --accent:#86B4E2; --accent-soft:#17293C; --brass:#DCAA68; --brass-soft:#2E2416;
+  --ember:#F2957A; --ember-soft:#3B2019; --ok:#6CC08E; --ok-soft:#14301F;
+  --plum:#BBB3F2; --plum-soft:#26233D;
+  --code-bg:#0A0F17; --code-ink:#D6E2EE;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px;overflow-x:hidden}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);column-gap:44px}
+@media (min-width:1100px){.page{grid-template-columns:196px minmax(0,1fr)}}
+
+/* hero */
+.hero{grid-column:1/-1;padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:16px}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.topbar a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:74ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink-2);font-weight:600}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+
+/* stage strip */
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.stages li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative;display:grid;gap:4px;align-content:start}
+.stages li + li::before{content:"→";position:absolute;left:-12px;top:50%;transform:translate(-50%,-50%);color:var(--brass);font-size:15px;background:var(--ground);line-height:1;padding:2px 0}
+.stages .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.stages b{font-family:var(--serif);font-size:1.12rem;line-height:1.3}
+.stages .lv{font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
+.stages .gate{font-size:12.5px;color:var(--muted);line-height:1.55}
+.stages a{position:absolute;inset:0;border-radius:12px}
+.stages a:hover{box-shadow:0 0 0 2px var(--accent) inset}
+.stages li.derived{border-style:dashed}
+@media (max-width:820px){.stages{grid-template-columns:repeat(2,minmax(0,1fr))}.stages li:nth-child(3)::before{display:none}}
+@media (max-width:460px){.stages{grid-template-columns:minmax(0,1fr)}.stages li + li::before{display:none}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);align-items:center}
+
+/* toc */
+.toc{padding-block:22px 0;font-size:13px}
+.toc summary{cursor:pointer;color:var(--muted);letter-spacing:.06em;font-size:12px;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;gap:8px;padding:3px 8px;border-radius:6px;color:var(--ink-2);text-decoration:none}
+.toc a:hover{background:var(--surface-2)}
+.toc a span{font-family:var(--mono);color:var(--brass);min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+@media (min-width:1100px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}}
+@media (max-width:1099px){.toc{border-bottom:1px solid var(--line);padding-bottom:14px}.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+/* content */
+main{min-width:0;max-width:960px}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:0 8px;line-height:1.7;flex:none;position:relative;top:-3px}
+h3{font-size:1.04rem;margin:26px 0 8px;line-height:1.45;text-wrap:balance}
+h4{font-size:.95rem;margin:16px 0 6px}
+p{margin:0 0 12px;max-width:72ch}
+ul,ol{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.88em}
+kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface)}
+.num{font-variant-numeric:tabular-nums}
+
+/* chips */
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.must{background:var(--ember);color:var(--surface)}
+.chip.add{background:var(--ok-soft);color:var(--ok)}
+.chip.del{background:var(--ember-soft);color:var(--ember)}
+.chip.chg{background:var(--brass-soft);color:var(--brass)}
+.chip.kind{background:var(--surface-2);color:var(--ink-2)}
+.src{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;line-height:1.45;min-width:1.55em;text-align:center;padding:0 4px;border-radius:4px;vertical-align:1px;margin-left:3px}
+.src.l{background:var(--accent-soft);color:var(--accent)}
+.src.c{background:var(--surface-2);color:var(--ink-2)}
+.src.x{background:var(--plum-soft);color:var(--plum)}
+.src.s{background:var(--brass-soft);color:var(--brass)}
+.src.db{background:var(--ok-soft);color:var(--ok)}
+
+/* callouts */
+.callout{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;margin:14px 0}
+.callout p:last-child,.callout ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout .lab{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.callout.warn{background:var(--ember-soft);border-color:transparent}
+.callout.warn .lab{color:var(--ember)}
+.callout.key{background:var(--accent-soft);border-color:transparent}
+.callout.key .lab{color:var(--accent)}
+.callout.note .lab{color:var(--brass)}
+
+/* evolution */
+.evo{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:16px 0;overflow:hidden;scroll-margin-top:12px}
+.evo.derived{border-style:dashed}
+.evo-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.evo-head h3{margin:0;font-family:var(--serif);font-size:1.12rem}
+.evo-head span{font-size:12.5px;color:var(--muted)}
+.evo ol{margin:0;padding:10px 16px 12px 2.4em;max-width:none;display:grid;gap:7px}
+.evo li{margin:0;font-size:14px;line-height:1.65}
+.evo li .chip.kind{margin-right:4px}
+.evo .sub{padding:8px 16px 0;margin:0;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--brass)}
+.evo .exit{margin:0;padding:10px 16px 12px;border-top:1px dashed var(--line);font-size:13.5px;max-width:none}
+
+/* chain */
+.chain{list-style:none;padding:0;margin:14px 0 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;max-width:none}
+.chain li{margin:0}
+.chain .step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.55}
+.chain .step b{display:block;font-size:14.5px;margin-bottom:3px;color:var(--ink)}
+.chain .step.hot{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.chain .arr{flex:none;align-self:center;color:var(--brass);font-size:18px}
+@media (max-width:700px){.chain{flex-direction:column}.chain .step{flex:none}.chain .arr{transform:rotate(90deg);align-self:flex-start;margin-left:18px}}
+
+/* tables */
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;background:var(--surface-2);font-size:13px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en,th .en{display:block}
+.tight td{padding-block:6px}
+.stage-tbl td{min-width:170px}
+.stage-tbl td.dim{color:var(--muted)}
+.tick{font-family:var(--mono);color:var(--ok);font-weight:700}
+.x{font-family:var(--mono);color:var(--ember);font-weight:700}
+.tri{font-family:var(--mono);color:var(--brass);font-weight:700}
+.w-min{white-space:nowrap}
+
+/* slot cards */
+.slots{display:grid;gap:14px;margin:14px 0}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.slot-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.slot-head h4{margin:0;font-size:1rem}
+.slot-head .req{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.slot-body{padding:4px 16px 12px}
+.slot-body table{font-size:13px}
+.slot-body th,.slot-body td{padding-inline:8px 10px}
+.slot-body .scroll{margin:8px 0 10px}
+.slot-notes{font-size:13.5px}
+.slot-notes p{margin-bottom:6px}
+.slot-notes ol{margin-bottom:6px}
+.tier{font-size:12px;color:var(--muted)}
+
+/* regex */
+.rx{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0;background:var(--surface)}
+.rx-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.rx-head b{font-size:14.5px}
+.rx-head .range{font-size:12.5px;color:var(--muted)}
+.rx-head .copy{margin-left:auto}
+.copy{font:inherit;font-size:12px;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:2px 12px;cursor:pointer}
+.copy:hover{background:var(--accent-soft)}
+.rx pre{margin:0;padding:12px 14px;background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:13.5px;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.rx .rx-body{padding:4px 14px 10px}
+.rx .rx-body p{font-size:13.5px;margin:8px 0}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+.split > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.split h4{margin:0 0 6px}
+.split ul{margin:0;font-size:13.5px}
+
+footer{grid-column:1/-1;padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+footer p{max-width:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="topbar">
+    <a href="index.html">本构筑索引</a><span aria-hidden="true">/</span>
+    <span>流亡黯道 2 · 0.5.5 · 奇塔弗匠师 · 盾墙 · 合成四阶段</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 战士 Warrior · 单作者攻略合成</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M26 12l11 4v9c0 7-5 12-11 15-6-3-11-8-11-15v-9z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M26 16v20M19 24h14" stroke="var(--brass)" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <h1>奇塔弗匠师 · 盾墙 · 合成四阶段<span class="en">Lundburgerr “0.5 Shield Wall Smith Leaguestarter” — Level 1 → Giga Endgame</span></h1>
+  </div>
+  <p class="lede">原站从第 1 幕写到 Giga Endgame，一共 8 个变体，中间在 Maps 和 Giga Endgame 之间缺了一档。整套构筑只有一个伤害来源：盾牌上的护甲。盾墙和坚韧战吼的盾护冲击波都按盾牌护甲加伤害，其余投入都围着它转：护甲破损、护甲撕裂，还有普通胸甲换来的抗性。本页把 8 个变体压成四个阶段，每个阶段先列这一步该换什么、先买哪件，再说达到什么条件可以进下一阶段。③ 是按相邻两档逐槽位推算的，页面上用虚线框和「合」标出。</p>
+  <ol class="stages" aria-label="四个阶段">
+    <li><span class="n">① 阶段</span><b>起步 → 间章</b><span class="lv">1–约 56 级 · 第 1 幕 → 间章</span><span class="gate">22 级盾墙 + 第 1 次升华；31 级坚韧战吼 / 大地震击；零预算</span><a href="#st1" aria-label="跳到阶段一"></a></li>
+    <li><span class="n">② 阶段</span><b>65 级进图</b><span class="lv">约 56–74 级 · T1–T5</span><span class="gate">60 第 3 次升华 · 司炉的炭火；65 级血统 汉恩的城塞 + 冈姆的疯狂；完美工匠石</span><a href="#st2" aria-label="跳到阶段二"></a></li>
+    <li class="derived"><span class="n">③ 阶段 · 推算</span><b>终局初期</b><span class="lv">75–85 级 · T10–T15</span><span class="gate">75 / 80 级底材；盾牌 T1 词缀（物品等级 74–77）；80 第 4 次升华</span><a href="#st3" aria-label="跳到阶段三"></a></li>
+    <li><span class="n">④ 阶段</span><b>大后期</b><span class="lv">原站 Giga Endgame</span><span class="gate">乌尔尼多的拥抱 → 重做锤子；猎首；退 22 个天赋点</span><a href="#st4" aria-label="跳到阶段四"></a></li>
+  </ol>
+  <div class="legend">
+    <span>来源标记：</span>
+    <span><b class="src l">L</b> Lundburgerr 原站</span>
+    <span><b class="src c">评</b> 原站评论区</span>
+    <span><b class="src x">X</b> Lexd 攻略（只在 ③ 作交叉参照）</span>
+    <span><b class="src s">合</b> 本页推算或取舍</span>
+    <span><b class="src db">库</b> poe2db 数据</span>
+  </div>
+  <div class="meta">
+    <span>原站：<a href="https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr" target="_blank" rel="noopener">Lundburgerr's 0.5 Shield Wall Smith Leaguestarter</a>（第 38 版，2026-09-22 更新 · 881 收藏 · 27 条评论 · 标签 Starter / Speed Leveling / Mirror Tier / Beginner / Verified）</span>
+    <span>交叉参照：<a href="https://mobalytics.gg/poe-2/builds/avatar-of-fire-smith-of-kitava-lexd" target="_blank" rel="noopener">Lexd · 0.5.5 Shield Wall + Avatar of Fire Smith of Kitava Build</a>（第 201 版，2026-09-17 更新）</span>
+    <span>本页合成：<b>2026-09-30</b></span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ol>
+      <li><a href="#s1"><span>1</span>底层逻辑</a></li>
+      <li><a href="#s2"><span>2</span>硬阻断与换装时机</a></li>
+      <li><a href="#s3"><span>3</span>升华节点</a></li>
+      <li><a href="#s4"><span>4</span>技能宝石配置</a></li>
+      <li><a href="#s5"><span>5</span>操作循环</a></li>
+      <li><a href="#s6"><span>6</span>属性达标值</a></li>
+      <li><a href="#s7"><span>7</span>装备与词缀</a></li>
+      <li><a href="#s8"><span>8</span>天赋树核心节点</a></li>
+      <li><a href="#s9"><span>9</span>珠宝</a></li>
+      <li><a href="#s10"><span>10</span>搜索正则</a></li>
+      <li><a href="#s11"><span>11</span>作者答疑与坑</a></li>
+      <li><a href="#s12"><span>12</span>变体对应与逐槽位差异</a></li>
+      <li><a href="#s13"><span>13</span>术语对照表</a></li>
+      <li><a href="#s14"><span>14</span>数据核验</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <h2><span class="no">1</span>底层逻辑</h2>
+  <p>盾墙（Shield Wall）是一个把盾牌砸进地面、竖起一道土墙的攻击。墙被你自己的技能打碎时爆炸，伤害按<b>盾牌上的护甲</b>加：poe2db 写的是「盾牌上每有 15 点护甲，附加 5 - 7 物理伤害」，被你的技能摧毁时伤害总增 100%<b class="src db">库</b>。0.5 把这个数从 6 - 8 降到 5 - 7，作者说这是为了抵消盾牌基础护甲的上调<b class="src l">L</b><b class="src db">库</b>。</p>
+  <ol class="chain">
+    <li class="step hot"><b>堆盾牌护甲</b>塔盾基底 + 固定护甲 + 护甲 % + 钢铁符文。评论区的玩家：换了一面 1 混沌石买的好盾就不卡了<b class="src c">评</b></li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>放盾墙</b>每 15 点盾牌护甲 +5–7 物理伤害；同时最多 2 面墙</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>坚韧战吼引爆</b>破墙时每段墙各放一次盾护冲击波，冲击波同样按盾牌护甲加伤害；0.5 起同一面墙的冲击波不能重复打同一个敌人<b class="src db">库</b></li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>打满护甲破损</b>① 护甲破损 III → ②③ 锤子渎灵「粉碎护甲」 → ④ 乌尔尼多的拥抱</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>大地震击</b>只打护甲完全破损的目标：施加护甲撕裂，受到的物理伤害额外提高 20%<b class="src db">库</b></li>
+  </ol>
+  <ul>
+    <li><b>防御靠一件普通胸甲</b>：升华「匠人的杰作」规定只能穿普通（白色）胸甲，每个与它相连的大点再给 +200 护甲；相连的大点把胸甲变成功能件，其中液态金属（50% 护甲同样作用于元素伤害）、熔火符印（25% 受到的击中物理伤害转为火焰）、钽质合金（火焰抗性 +75%）是作者说的前期最强三件<b class="src l">L</b><b class="src db">库</b>。</li>
+    <li><b>抗性只堆火</b>：「司炉的炭火」让火焰抗性词缀按 50% 同时提供冰霜和闪电抗性<b class="src db">库</b>。装备上只要一种抗性，腾出来的位置从进图那天起就堆稀有度，这是作者列的第一条优点<b class="src l">L</b>。</li>
+    <li><b>清图与打首领是同一套</b>：清图就是扔墙，再用战吼或重盾冲锋把墙打碎；打首领按冰冻印记 → 图腾 → 炽焰战吼 + 坚韧战吼 → 连按盾墙 → 护甲破损后大地震击的顺序<b class="src l">L</b>。65 级起盾墙挂汉恩的城塞 + 冈姆的疯狂，墙会沿额外裂缝铺开，这是地图清屏的来源<b class="src l">L</b><b class="src db">库</b>。</li>
+    <li><b>上限在哪</b>：作者写得很直白，这是开荒构筑。装备顶到极限后伤害和清图涨不动，可以考虑刷到第一批通货后换一套（大约一周）<b class="src l">L</b>；评论区他也回复说可以一直玩到 Giga 档<b class="src c">评</b>。</li>
+  </ul>
+  <div class="callout key"><span class="lab">一句话</span><p>盾牌护甲 → 盾墙 + 盾护冲击波的伤害 → 护甲打到完全破损 → 大地震击护甲撕裂。胸甲穿普通底，由升华把它变成抗性和减伤来源，其余装备只堆火抗、生命和稀有度。</p></div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2><span class="no">2</span>硬阻断与换装时机</h2>
+  <p>阶段边界由下表的硬阻断决定，不按等级平均切。最硬的四条线：<b>22 级</b>（盾墙是等阶 7 的宝石，还要装护甲盾牌）、<b>65 级</b>（两颗血统辅助的需求等级，也是完美工匠石的掉落等级）、<b>75 / 80 级</b>（原站 Maps 档四件护甲的底材需求）、<b>乌尔尼多的拥抱</b>（作者说很贵；拿到它之后才能把锤子上的「粉碎护甲」换掉）。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>硬阻断</th><th>类型</th><th class="n">需求</th><th>掉落 / 获取</th><th>卡住什么</th><th>解开之后</th></tr></thead>
+    <tbody>
+      <tr><td><b>盾墙</b><span class="en">Shield Wall</span></td><td>技能宝石 · 等阶 7</td><td class="n">22 级 · 41 力</td><td>未切割的技能宝石（7 级）；需求「护甲盾牌」<b class="src db">库</b></td><td>作者列的缺点：主技能 22 级前拿不到<b class="src l">L</b></td><td>换单手锤 + 塔盾；洗掉 5 个双手武器点</td></tr>
+      <tr><td><b>第 1 次升华</b><span class="en">Trial of the Sekhemas</span></td><td>升华</td><td class="n">区域 22</td><td>第 2 幕丝克玛试炼，给 2 点<b class="src db">库</b></td><td>匠人的杰作与第一批胸甲大点</td><td>作者：第一次升华后战役里非常肉<b class="src l">L</b></td></tr>
+      <tr><td><b>坚韧战吼 · 大地震击</b><span class="en">Fortifying Cry · Sunder</span></td><td>技能宝石 · 等阶 9</td><td class="n">31 级 · 57 力</td><td>作者：第 3 幕用前两颗 9 级以上技能宝石先切坚韧战吼、再切大地震击<b class="src l">L</b><b class="src db">库</b></td><td>盾护冲击波、护甲撕裂</td><td>首领循环成型</td></tr>
+      <tr><td><b>高等工匠石</b><span class="en">Greater Jeweller's Orb</span></td><td>通货</td><td class="n">掉落 45</td><td>第 4 幕纳卡努（区域 53）联盟机制保底一个<b class="src l">L</b><b class="src db">库</b></td><td>盾墙第 4 个辅助孔</td><td>盾墙挂护甲破损 III，从此不再需要冰冻印记</td></tr>
+      <tr><td><b>第 3 次升华</b></td><td>升华</td><td class="n">区域 60</td><td>间章「塞卡莉圣所」（区域 55）首领埃尔扎拉，眼镜蛇领主首杀保底一枚巨灵之币<b class="src db">库</b>；作者：第 2 次可以不打，60 级这次两次一起补<b class="src l">L</b></td><td>司炉的炭火（前面要先点一个 +8% 火抗小点）</td><td>冰电抗由火抗折半补上</td></tr>
+      <tr><td><b>汉恩的城塞 · 冈姆的疯狂</b><span class="en">Ahn's Citadel · Kaom's Madness</span></td><td>血统辅助</td><td class="n">65 级</td><td>汉恩的城塞：全局掉落；冈姆的疯狂：马诺基，天命者掉落，掉落等级 52<b class="src db">库</b>。作者：通常很便宜<b class="src l">L</b></td><td>地图清图</td><td>墙改为沿裂缝生成 + 额外 3 道裂隙<b class="src db">库</b></td></tr>
+      <tr><td><b>完美工匠石</b><span class="en">Perfect Jeweller's Orb</span></td><td>通货</td><td class="n">掉落 65</td><td>使技能宝石拥有 5 个辅助孔<b class="src db">库</b></td><td>盾墙第 5 孔（之后坚韧战吼、图腾、炽焰战吼也要）</td><td>没有时先拔范围扩大 II<b class="src l">L</b></td></tr>
+      <tr><td><b>原站 Maps 档底材</b></td><td>底材</td><td class="n">75 / 80</td><td>瓦尔塔盾 75、瓦尔胫甲 75、督军胸甲 80、巨型护手 80<b class="src db">库</b></td><td>65 级进图时穿不上——原站变体叫 Maps，其实是 80 级的配置</td><td>② 先用 65 级底材顶，③ 再换</td></tr>
+      <tr><td><b>盾牌 T1 词缀</b></td><td>词缀门槛</td><td class="n">物品等级 74–77</td><td>不动的 +249–277 护甲（75）、无法通过的 护甲 +101–110%（75）、长毛象的（74）、保护者之 8% 额外物理伤害减免（77）<b class="src db">库</b></td><td>盾墙伤害上限</td><td>Giga 档那面盾</td></tr>
+      <tr><td><b>第 4 次升华</b></td><td>升华</td><td class="n">区域 80</td><td>巨灵之币第 4 层，或混沌试炼集齐怯懦、致命、胜利之运<b class="src db">库</b></td><td>敬奉奇塔弗、绝热防护、供奉尤图拉</td><td>护甲作用于混沌伤害、不受伤害性异常状态影响、精魂</td></tr>
+      <tr><td><b>乌尔尼多的拥抱</b><span class="en">Uul-Netol's Embrace</span></td><td>血统辅助</td><td class="n">65 级</td><td>薛斯，万魔一体掉落，掉落等级 52<b class="src db">库</b>；作者：通常非常贵，可以不买<b class="src l">L</b><b class="src c">评</b></td><td>锤子要不要保留「粉碎护甲」</td><td>锤子改做「对护甲完全破损的敌人伤害提高」</td></tr>
+      <tr><td><b>猎首</b><span class="en">Headhunter</span></td><td>传奇腰带</td><td class="n">50 级</td><td>原站未给来源<b class="src db">库</b></td><td>—</td><td>击败稀有怪物时获得它的词缀 60 秒</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="scroll"><table>
+    <thead><tr><th>阶段</th><th>等级</th><th>进入条件</th><th>这一阶段的主线</th><th>预算</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 起步 → 间章</b></td><td class="num">1–约 56</td><td>22 级盾墙 + 第 1 次升华；31 级坚韧战吼 / 大地震击；第 4 幕高等工匠石</td><td>1–21 级双手锤轰动猛击 + 七伤破；22 级换单手锤 + 塔盾 + 普通胸甲；装备只看盾牌护甲、+近战技能等级、攻速、平伤、偷取</td><td>0；盾牌用护甲片</td></tr>
+      <tr><td><b>② 65 级进图</b></td><td class="num">约 56–74<br><span class="small">T1–T5</span></td><td>第 3 次升华（60）→ 司炉的炭火；65 级两颗血统；完美工匠石</td><td>原站 Maps 档的技能与词缀，底材换成 65 级能穿的；锤子渎灵出「粉碎护甲」；抗性只堆火，其余堆稀有度</td><td>2 件便宜传奇（惊险刺激、努葛玛呼的亲选）+ 2 颗血统；具体价格原站未给</td></tr>
+      <tr><td><b>③ 终局初期</b> <span class="chip tmp">推算</span></td><td class="num">75–85<br><span class="small">T10–T15</span></td><td>75 / 80 级底材；盾牌 T1 词缀；第 4 次升华（80）</td><td>先把盾牌做到 Giga 档；四件护甲换回原站底材；+2 升华点；图腾、战吼补第 5 孔</td><td>与 ② 同样的 2 件传奇；主要花在盾牌上</td></tr>
+      <tr><td><b>④ 大后期</b></td><td class="num">原站未给</td><td>乌尔尼多的拥抱；猎首</td><td>原站 Giga Endgame：锤子重做、腰带换猎首、盛怒、退 22 点换盾牌 / 偷取 / 对稀有大点</td><td>3 件传奇 + 3 颗血统（其中乌尔尼多作者说“很贵”）；原站未给价格</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="evo" id="st1">
+    <div class="evo-head"><h3>① 起步 → 间章（1–约 56 级）</h3><span>原站 Act 1 → Act 2 Before lvl 22 → Act 2 Shield Wall Swap → Act 3 → Act 4 → Interludes，六档合为一段</span></div>
+    <p class="sub">1–21 级：双手锤开荒</p>
+    <ol>
+      <li><span class="chip kind">技能</span>轰动猛击 + 七伤破（冲击震波）清图，锤打击 / 完美一击打首领，炽焰战吼挂冷酷，另带灰烬之捷、寒霜爆<b class="src l">L</b>。<b>轰动猛击保持 1 级</b>，只用它给敌人堆晕眩，让七伤破的冲击波触发；被迫升级时留一颗 1 级的备用<b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span>辅助的切割顺序：冲击震波（七伤破）→ 范围集中（锤打击）→ 火焰协调（锤打击）→ 范围扩大 I（七伤破）→ 冷酷（炽焰战吼）→ 大好时机 I（完美一击）→ 范围扩大 I（灰烬之捷）→ 快速攻击 I（轰动猛击）；可选崩溃边缘 I。拿到完美一击后把范围集中从锤打击移过去；完美一击对不上节奏就换火焰协调或快速攻击 I<b class="src l">L</b>。</li>
+      <li><span class="chip kind">装备</span>锻炉巨锤（11 级，物理伤害提高 40%）→ 镶钉巨棍（16 级，50%）<b class="src l">L</b><b class="src db">库</b>。天赋先点凶残、碾碎，第 2 幕补屠戮之械、燃烧打击、壮汉<b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span>第 2 幕开始切第 2 档辅助：愤怒战吼（炽焰战吼）→ 紧急图腾 I（震波图腾）→ 死亡印记 + 虹吸印记（冰冻印记）→ 愤怒战吼（给第 3 幕的坚韧战吼）；可选坚韧图腾 I。震波图腾要等换盾墙才用，建议用 6 级技能宝石切，莫丹矿场（区域 18）首领保底掉一颗<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">装备</span><b>进第 2 幕就捡一件普通（白色）胸甲</b>，最好是力量底——升华之后只能穿普通胸甲<b class="src l">L</b>。</li>
+    </ol>
+    <p class="sub">22 级：换盾墙（① 内部最关键的一步）</p>
+    <ol>
+      <li><span class="chip kind">技能</span><span class="chip add">增</span>盾墙（等阶 7，22 级、41 力）<b class="src db">库</b>；掩埋的殿堂（区域 23）的联盟机制大概率保底一个低等工匠石，先用在盾墙上（作者原话是“probably”）<b class="src l">L</b>。盾墙挂快速攻击 I · 范围扩大 I · 火焰协调；另带炽焰战吼、冰冻印记、震波图腾、灰烬之捷、重盾冲锋、跃击（只作位移，可不带）<b class="src l">L</b>。</li>
+      <li><span class="chip kind">升华</span>丝克玛试炼（区域 22）：匠人的杰作 + 液态金属 + 熔火符印。作者：熔火符印、液态金属、钽质合金三选二就很肉<b class="src l">L</b>。原站这一档点了 3 个节点，第一次试炼只有 2 点，见第 3 节<b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>双手锤 → 战镐（单手锤，22 级）找 +1 近战技能等级（决斗之，物品等级 18）；副手塑像塔盾（21 级）插次级钢铁符文；身体穿那件普通胸甲（原站是铁锻胸甲）<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">装备</span>盾牌上用护甲片提品质，换盾时把旧盾拆掉能拿回大部分：每 5% 品质返 1 个<b class="src l">L</b>。手套找平伤、攻速、+近战、偷取，一般只有一两条好词缀；戒指找抗性、平伤、偷取<b class="src l">L</b>。</li>
+      <li><span class="chip kind">天赋</span><span class="chip del">删</span>4 个双手武器伤害小点 + 屠戮之械；<span class="chip add">增</span>倾力裁决、训诫、血脉贲张、回荡冲击、言出力随，开始分配武器组天赋点（每组 4 点）<b class="src l">L</b>。主树与上一档重合 79%，不到 70% 的洗点线<b class="src s">合</b>。</li>
+      <li><span class="chip kind">设置</span><span class="chip must">不做会崩</span>战吼放在武器组 2（战吼大点点在武器组 2 的天赋上），其他技能放武器组 1<b class="src l">L</b>。坚韧战吼要求持护甲盾牌：在背包里右键装备上方的「I」把盾牌锁到两个武器组<b class="src c">评</b>。</li>
+    </ol>
+    <p class="sub">第 3 幕 → 间章（31–约 56 级）</p>
+    <ol>
+      <li><span class="chip kind">技能</span><span class="chip add">增</span>用前两颗 9 级以上技能宝石，先切坚韧战吼，再切大地震击（都是等阶 9，31 级）。飞沙沼泽（区域 33）尽头的小区域有 2 只稀有怪和一个箱子，保底低等工匠石，留给坚韧战吼。技能栏满了就暂时拔掉跃击<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">宝石</span>第 3 档辅助：坚韧战吼缺的话先补愤怒战吼、火焰协调，然后依次切近战 I（坚韧战吼）→ 范围扩大 II（盾墙）→ 范围扩大 II（灰烬之捷）→ 持续时间延长 II（大地震击）→ 快速攻击 I（大地震击）→ 魔力源泉（震波图腾；已经有魔力偷取就换持续时间延长 II）。多出来的低等工匠石先给震波图腾、再给炽焰战吼<b class="src l">L</b>。</li>
+      <li><span class="chip kind">精魂</span>阿扎卡的首领给 +30 精魂：持久鏖战或战旗二选一，战旗打首领伤害更高，但要主动插旗<b class="src l">L</b>。</li>
+      <li><span class="chip kind">升华</span>第 2 次（区域 38）可选：钽质合金 + 奇塔弗铭文。作者说第 3 幕升华防御提升很大，但盾墙够强，可以跳过，到 60 级用塞卡莉圣所保底的巨灵之币一次补两次<b class="src l">L</b>。</li>
+      <li><span class="chip kind">装备</span>盾牌：徽纹塔盾（33 级，+57 护甲 · 护甲 +27%）→ 熔铸塔盾（45 级，+57 · 43%）<b class="src l">L</b><b class="src db">库</b>。锤子、手套、戒指、胸甲从换盾墙起一直没变<b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span>第 4 幕纳卡努（区域 53）的联盟机制保底高等工匠石，用在盾墙上；第 4 档辅助：燃怒战吼 I（坚韧战吼，替近战 I）→ 护甲破损 III（盾墙，此后不再需要冰冻印记）→ 穿刺（盾墙，替火焰协调）→ 快速攻击 II（盾墙）→ 紧急图腾 III → 坚韧图腾 II；可选冷却回复 II（炽焰战吼）<b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span>间章第 5 档：燃怒战吼 II → 沉重挥舞（坚韧战吼，替火焰协调）→ 精准 I（灰烬之捷，间章 3 的精魂到手后）→ 快速攻击 III（大地震击、跃击、重盾冲锋）→ 狂怒 III（同上）→ 增强图腾 II（有魔力偷取后替魔力源泉）→ 吞灵 II（任一精魂技能）；首领可在盾墙上换近战 II<b class="src l">L</b>。</li>
+      <li><span class="chip kind">天赋</span>第 3 幕起逐档加：刺耳怒吼、冲击之力、震荡中心 → 巨兽、熔岩者的馈赠、不屈、紧急呼喊 → 轻盈步伐、动量、威压裁决、权威、咆哮战吼、振奋呐喊。每档都 100% 包含上一档，不用洗点<b class="src l">L</b><b class="src s">合</b>。</li>
+    </ol>
+    <p class="exit"><b>进 ② 的条件：</b>盾墙 4 孔（有护甲破损 III），坚韧战吼 + 大地震击 + 震波图腾齐了，间章 3 的精魂已拿；原站这一档的宝石需求口径为 力 65 · 敏 35 · 智 15<b class="src l">L</b>。</p>
+  </div>
+
+  <div class="evo" id="st2">
+    <div class="evo-head"><h3>② 间章 → 65 级进图（约 56–74 级，T1–T5）</h3><span>数据取原站 Maps 档；原站四件护甲要 75 / 80 级，本页换成 65 级底材</span></div>
+    <ol>
+      <li><span class="chip kind">升华</span>塞卡莉圣所首领埃尔扎拉首杀保底巨灵之币 → 第 3 次试炼（区域 60）。第 2 次没打的这时一起补：钽质合金、奇塔弗铭文、+8% 火焰抗性小点、司炉的炭火<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>65 级：汉恩的城塞 + 冈姆的疯狂挂盾墙，作者说这两颗通常很便宜、组合起来清图大幅提升<b class="src l">L</b>。盾墙变成 快速攻击 II · 范围扩大 II · 汉恩的城塞 · 冈姆的疯狂 · 穿刺；<b>还没有完美工匠石就先拔范围扩大 II</b><b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span><span class="chip del">删</span>盾墙上的护甲破损 III——Maps 档的护甲破损改由锤子提供<b class="src l">L</b>。<span class="chip must">顺序</span>锤子做出「粉碎护甲」之前别拔它<b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>锤子（作者做法）：找 +2 以上近战技能等级、后缀有空位的单手锤 → 开领主预兆 + 右旋死灵预兆，用遗存颚骨渎灵（颚骨掉落等级 61）→ 显现，求「粉碎护甲，相当于造成物理伤害的 2–4%」（阿曼娜姆之，物品等级 65），可配深渊回响预兆重掷 → 崇高石填满 → 完美磨蚀精华加「获得相当于伤害 15–20% 的额外物理伤害」<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>盾牌（作者做法）：找最高档固定护甲、最好带火抗后缀的底子 → 强效增强精华 → 左旋死灵预兆 + 渎灵 → 显现，求护甲 % → 崇高石填满<b class="src l">L</b>。瓦尔塔盾要 75 级，65 级先用皇家塔盾 / 黑钢塔盾（护甲 203），固定护甲这时最高只到柔缓的 +222–248（物品等级 65）<b class="src db">库</b><b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>胸甲换 65 级普通底：士兵胸甲护甲 570，比原站的督军胸甲（80 级，496）还高，只是没有隐式词缀<b class="src db">库</b><b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>手、脚、戒指、项链（作者做法）：找有两条好词缀的魔法底子，还没有稀有度就用强效丰裕精华（稀有度 15–18%），否则用强效绝缘精华（火抗 31–35%）；鞋子至少 30% 移速（猎豹的，65）<b class="src l">L</b><b class="src db">库</b>。手、脚先用 65 级底材：骑士护手 / 堂皇护手、堡垒胫甲 / 图腾胫甲<b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip add">增</span>头盔惊险刺激（27 级就能穿，猛攻）；咒符努葛玛呼的亲选（受到火焰击中时用，给火抗 +25%、怒火直接满）；项链涂「加速」（液化恐惧 + 嫉妒 + 憎恶：移速 +3%、技能速度 +10%）<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">装备</span>偷取：生命和魔力偷取都要，戒指或手套上拿。没有也能玩，但近战技能等级加上去之后要一直按魔力药剂<b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>坚韧战吼第 4 孔势大力沉（元素 / 混沌伤害很少时可换野性残暴 III）；装甲回收 + 持续时间延长 II 替掉跃击；震波图腾：紧急图腾 III · 坚韧图腾 II · 增强图腾 II · 持续时间延长 II；重盾冲锋加效能 II<b class="src l">L</b>。装备上有多余精魂可以上盛怒（大概要撤掉持久鏖战）<b class="src l">L</b>。</li>
+      <li><span class="chip kind">玩法</span>开荒时先冲寻路点数，别在图里恋战；用重盾冲锋穿图，比冲刺快也更安全<b class="src l">L</b>。</li>
+      <li><span class="chip kind">天赋</span><span class="chip add">增</span>战斗迷神、钢化防御、激情冲动、辉光之钢、一起上吧；主树 92 点，完全包含间章树，不用洗<b class="src l">L</b><b class="src s">合</b>。</li>
+    </ol>
+    <p class="exit"><b>进 ③ 的条件：</b>75 级；三抗靠火抗 + 司炉的炭火封顶；盾墙 5 孔。盾牌护甲大约 900 左右就够打前期地图（Lexd 的说法是 800–900<b class="src x">X</b>）；作者说不交易也能刷到融化 T15 首领的装备<b class="src c">评</b>。</p>
+  </div>
+
+  <div class="evo derived" id="st3">
+    <div class="evo-head"><h3>③ 65 级 → 终局初期（75–85 级，T10–T15）</h3><span>原站缺档：Maps 与 Giga 之间逐槽位推算。「Maps 原样」= 原站数据，其余标 合</span></div>
+    <ol>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span><b>第一件升级是盾牌</b>：75 级换瓦尔塔盾（基底护甲 244），先做到 Maps 原样（+278 护甲 · 护甲 +68% · 火抗 +26% · 高级钢铁符文），再朝 Giga 那面盾做：不动的（+249–277）+ 无法通过的（+101–110%）+ 长毛象的（+39–42% 与 +95–136 晕眩阈值）+ 炉火之火抗 + 保护者之 8% 额外物理伤害减免（物品等级 77）<b class="src l">L</b><b class="src db">库</b>。理由：伤害吃盾牌护甲，评论区两位玩家都是换了盾就不卡了<b class="src c">评</b><b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>瓦尔胫甲（75）、督军胸甲（80，隐式 15–25% 护甲同样作用于元素伤害）、巨型护手（80）换回原站底材，词缀照 Maps 原样<b class="src l">L</b><b class="src db">库</b>。只看护甲时士兵胸甲（570）比督军胸甲（496）高；督军的隐式能叠在液态金属上，两件取舍看元素伤害压力<b class="src s">合</b>。</li>
+      <li><span class="chip kind">升华</span><span class="chip add">增</span>第 4 次试炼（区域 80）+2 点：先点敬奉奇塔弗（胸甲使 100% 的护甲同样作用于混沌伤害；Maps 档的混沌抗只有腰带上 16%），再点绝热防护（不受伤害性异常状态影响）。钽质合金先留着<b class="src s">合</b>。这三点都在 Giga 档的升华里<b class="src l">L</b>。</li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>继续用完美工匠石补第 5 孔：坚韧战吼 + 范围集中，震波图腾 + 效能 II，炽焰战吼第 4 孔 + 效能 II——都是 Giga 原样的普通辅助<b class="src l">L</b><b class="src s">合</b>。</li>
+      <li><span class="chip kind">宝石</span>可选：沃拉娜的围城（65 级血统，梅德维德，堕落先知掉落）换掉盾墙上的范围扩大 II，两者同一类别，不能同时插；重盾冲锋加瑞佛的凶猛（65 级血统），<b>只能放在武器组 1</b>才有攻速<b class="src l">L</b><b class="src db">库</b>。原站没给这两颗的价格<b class="src s">合</b>。</li>
+      <li><span class="chip kind">天赋</span>不洗点。升级得到的新点数，先点 Giga 树新增、又跟现有路径相连的大点：刚毅金属（装备胸甲的护甲 +80%）、卓绝防御（装备盾牌每有 75 点物品护甲值与物品闪避，攻击伤害 +4%）、冷酷无情。具体路径对照原站 Giga 树<b class="src s">合</b>。</li>
+      <li><span class="chip kind">参照</span>Lexd 的 5–10、10–15 档可作对照：他用塔赫亚塔盾（80 级，护甲 264）+242 护甲 · 95% · +123 生命；胸甲用普通符文华丽战铠，插 3 颗高级身躯符文（每颗 +60 生命）<b class="src x">X</b><b class="src db">库</b>。Lundburgerr 的普通胸甲没写符文，有空孔可以照 Lexd 补<b class="src s">合</b>。</li>
+    </ol>
+    <p class="exit"><b>进 ④ 的条件：</b>盾牌已是 Giga 档；四抗和混沌减伤稳定；手里的通货够买乌尔尼多的拥抱或猎首。作者说不买乌尔尼多也行，把护甲破损留在别处（锤子）就可以<b class="src c">评</b>。</p>
+  </div>
+
+  <div class="evo" id="st4">
+    <div class="evo-head"><h3>③ 终局初期 → ④ 大后期（原站 Giga Endgame）</h3><span>作者：指南写到他自己会玩到的程度，就是 Giga 这一档<b class="src c">评</b></span></div>
+    <ol>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>乌尔尼多的拥抱挂盾墙：额外获得 40% 物理伤害并转为混沌，混沌伤害按 20% 粉碎护甲。盾墙变成 快速攻击 II · 沃拉娜的围城 · 汉恩的城塞 · 冈姆的疯狂 · 乌尔尼多的拥抱（删穿刺、范围扩大 II）<b class="src l">L</b><b class="src db">库</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span><span class="chip must">顺序</span>锤子必须在拿到乌尔尼多之后才重做，否则就没有护甲破损了<b class="src l">L</b>。做法：+4 近战技能等级（征战之，物品等级 81）且前缀有空位 → 领主预兆 + 左旋死灵预兆 + 颚骨渎灵 → 破溃宝珠便宜就用，赌锁住 +4 → 显现「对护甲完全破损的敌人造成的伤害提高 41–59%」（作者：应该是必出）→ 崇高石补满 → 完美磨蚀精华，别把 +近战和渎灵词缀洗掉 → 渎灵没中可以剥离一个前缀再渎灵<b class="src l">L</b><b class="src db">库</b>。原站成品是 +3 近战，不是 +4<b class="src s">合</b>。</li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>腰带换猎首（50 级；1–3 个咒符位，+40–60 生命，+20–40 力量与敏捷，击败稀有怪物时获得它的词缀 60 秒）<b class="src l">L</b><b class="src db">库</b>。其余部位作者说做法会比以前复杂，只能等新的制作方法出现<b class="src l">L</b>。</li>
+      <li><span class="chip kind">升华</span><span class="chip chg">改</span>钽质合金 → 供奉尤图拉（胸甲使精魂提高 30%）；④ 的升华 = +8% 火焰抗性小点 + 司炉的炭火 + 匠人的杰作 + 液态金属 + 熔火符印 + 奇塔弗铭文 + 敬奉奇塔弗 + 绝热防护 + 供奉尤图拉<b class="src l">L</b>。作者没解释为什么丢钽质合金；按装备上的火抗算，去掉它之后火抗来源合计仍约 +208–228%（见第 6 节）<b class="src s">合</b>。</li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>盛怒替持久鏖战（有额外怒火获取的珠宝更好）；重盾冲锋 + 瑞佛的凶猛，只放武器组 1；坚韧战吼第 5 孔范围集中；震波图腾、炽焰战吼加效能 II<b class="src l">L</b>。</li>
+      <li><span class="chip kind">天赋</span><span class="chip del">删</span>22 点：燃烧打击、巨兽、激情冲动、冲击之力、震荡中心及其小点，8 个属性点；<span class="chip add">增</span>34 点：刚毅金属、冷酷无情、卓绝防御、淤血创痕、障目飞沙、巨人克星、继承力量、宝石爱好者，加一个珠宝插槽。主树重合 76%（算上武器组 82%），不到 70% 的洗点线，但要按原站点法退点<b class="src l">L</b><b class="src s">合</b>。</li>
+    </ol>
+    <p class="exit">原站这一档的宝石需求口径为 力 95 · 敏 30 · 智 15；主树 98 点 + 武器组 19 / 20 点<b class="src l">L</b>。</p>
+  </div>
+
+  <div class="split">
+    <div>
+      <h4>①–③ 该花钱的</h4>
+      <ul>
+        <li>盾牌护甲：从换盾墙起一直是第一优先<b class="src l">L</b><b class="src c">评</b></li>
+        <li>+近战技能等级的锤子；有渎灵「粉碎护甲」的锤子<b class="src l">L</b></li>
+        <li>汉恩的城塞 + 冈姆的疯狂（作者说便宜）<b class="src l">L</b></li>
+        <li>完美工匠石：盾墙、坚韧战吼、图腾都要第 5 孔<b class="src l">L</b></li>
+      </ul>
+    </div>
+    <div>
+      <h4>①–③ 别花的</h4>
+      <ul>
+        <li>冰、电抗性词缀：司炉的炭火之后由火抗折半给<b class="src s">合</b></li>
+        <li>胸甲词缀：普通胸甲不能有词缀，只看底材<b class="src db">库</b></li>
+        <li>65–74 级的 T1 盾牌：75 级会换瓦尔塔盾，词缀门槛 74–77<b class="src s">合</b></li>
+        <li>乌尔尼多的拥抱：作者说很贵，可以不买<b class="src c">评</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2><span class="no">3</span>升华节点</h2>
+  <p>奇塔弗匠师的树分两块：起点连着 4 条小路（力量、近战伤害、火焰伤害各接一个给技能的大点；+8% 火焰抗性接司炉的炭火、再接烈焰的淬炼），以及中间的「匠人的杰作」，它连着 12 个「胸甲使……」大点<b class="src db">库</b>。这套构筑只走火抗那条路和匠人的杰作那一簇。取点顺序照原站 <code>priorityList</code>。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">① 22</th><th class="n">① 38 可选</th><th class="n">② 60</th><th class="n">③ 80</th><th class="n">④</th></tr></thead>
+    <tbody>
+      <tr><td><b>匠人的杰作</b><span class="en">Smith's Masterwork</span></td><td>只能使用一件普通胸甲；每个已配置相连接的核心天赋技能使护甲 +200</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>液态金属</b><span class="en">Flowing Metal</span></td><td>胸甲使 +50% 的护甲同样作用于元素伤害</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>熔火符印</b><span class="en">Molten Symbol</span></td><td>胸甲使受到的击中物理伤害的 25% 转化为火焰伤害</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>钽质合金</b><span class="en">Tantalum Alloy</span></td><td>胸甲使火焰抗性 +75%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td></tr>
+      <tr><td><b>奇塔弗铭文</b><span class="en">Kitavan Engraving</span></td><td>胸甲使生命上限提高 15%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td>火焰抗性（小点）</td><td>火焰抗性 +8%（司炉的炭火的前置）</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>司炉的炭火</b><span class="en">Coal Stoker</span></td><td>火焰抗性修正的 50% 也作用于冰霜和闪电抗性</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>敬奉奇塔弗</b><span class="en">Dedication to Kitava</span></td><td>胸甲使 +100% 的护甲同样作用于混沌伤害</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓<b class="src s">合</b></td><td class="n tick">✓</td></tr>
+      <tr><td><b>绝热防护</b><span class="en">Heatproofing</span></td><td>胸甲使你不受伤害性异常状态影响</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓<b class="src s">合</b></td><td class="n tick">✓</td></tr>
+      <tr><td><b>供奉尤图拉</b><span class="en">Tribute to Utula</span></td><td>胸甲使精魂提高 30%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td></tr>
+      <tr><td>原站节点数（不含起点）</td><td>—</td><td class="n">3</td><td class="n">5</td><td class="n">7</td><td class="n">9<b class="src s">合</b></td><td class="n">9</td></tr>
+      <tr><td>试炼给的点数<b class="src db">库</b></td><td>丝克玛试炼 1 / 2 / 3 / 4 层</td><td class="n">2</td><td class="n">4</td><td class="n">6</td><td class="n">8</td><td class="n">8</td></tr>
+      <tr><td>匠人的杰作 +200 护甲 ×</td><td>与它相连且已点的大点数</td><td class="n">2</td><td class="n">4</td><td class="n">4</td><td class="n">6</td><td class="n">6</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><span class="lab">点数对不上</span>
+    <p>原站每一档的升华节点都比试炼给的点数多 1 个：Act 2 换装档 3 个对 2 点，Act 3 到间章 5 个对 4 点，Maps 7 个对 6 点，Giga 9 个对 8 点<b class="src l">L</b><b class="src db">库</b>。Lexd 的终局档同样是 9 个节点<b class="src x">X</b>。作者正文说第一次升华“熔火符印、液态金属、钽质合金任选两个”——如果匠人的杰作要占 1 点，2 点里只能再拿 1 个。poe2db 的节点页没有标点数，本页无法裁定匠人的杰作是否免费。<b>以游戏内为准</b>：如果点不下，每一档先放弃表中最后一个节点（①：熔火符印；②：奇塔弗铭文；③ / ④：绝热防护）<b class="src s">合</b>。</p>
+  </div>
+  <ul>
+    <li><b>熔火符印的方向</b>：作者写成“25% of fire damage taken as physical”，poe2db 原文是“25% of Physical Damage from Hits taken as Fire Damage”（物理转火）。配合钽质合金的火抗 +75%，物理转火才说得通，本页按 poe2db<b class="src l">L</b><b class="src db">库</b>。</li>
+    <li><b>第 3 次升华的捷径</b>：间章塞卡莉圣所的首领埃尔扎拉首杀必掉一枚可用于第 3 次试炼的巨灵之币；poe2db 的说明也写了可以跳过前两次直接打第三次拿 6 点<b class="src db">库</b>。作者据此建议第 3 幕的升华可以不打<b class="src l">L</b>。</li>
+    <li><b>④ 为什么丢钽质合金</b>：原站没解释。钽质合金只影响火抗，④ 装备上的火抗与 Maps 档相同，第 6 节算了去掉后的合计；换来的供奉尤图拉给精魂，对应 ④ 新加的盛怒<b class="src s">合</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <h2><span class="no">4</span>技能宝石配置</h2>
+  <p>每一格是该阶段结束时的完整辅助清单，写法照原站 <code>priorityGems</code> 的顺序。① 取间章档，② 取 Maps 档，④ 取 Giga Endgame 档，③ 是两者之间的推算。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>技能</th><th>① 间章末</th><th>② 65 级进图</th><th>③ 终局初期<b class="src s">合</b></th><th>④ 大后期</th></tr></thead>
+    <tbody>
+      <tr><th>盾墙<span class="en">Shield Wall</span></th><td>快速攻击 II · 范围扩大 II · 护甲破损 III · 穿刺<b class="src l">L</b></td><td>快速攻击 II · 范围扩大 II · 汉恩的城塞 · 冈姆的疯狂 · 穿刺<b class="src l">L</b></td><td>同 ②；可选沃拉娜的围城替范围扩大 II</td><td>快速攻击 II · 沃拉娜的围城 · 汉恩的城塞 · 冈姆的疯狂 · 乌尔尼多的拥抱<b class="src l">L</b></td></tr>
+      <tr><th>坚韧战吼<span class="en">Fortifying Cry</span></th><td>愤怒战吼 · 沉重挥舞 · 燃怒战吼 II<b class="src l">L</b></td><td>愤怒战吼 · 沉重挥舞 · 燃怒战吼 II · 势大力沉<b class="src l">L</b></td><td>+ 范围集中</td><td>愤怒战吼 · 沉重挥舞 · 燃怒战吼 II · 势大力沉 · 范围集中<b class="src l">L</b></td></tr>
+      <tr><th>炽焰战吼<span class="en">Infernal Cry</span></th><td>冷酷 · 愤怒战吼 · 冷却回复 II<b class="src l">L</b></td><td>冷酷 · 愤怒战吼 · 冷却回复 II<b class="src l">L</b></td><td>+ 效能 II</td><td>冷酷 · 愤怒战吼 · 冷却回复 II · 效能 II<b class="src l">L</b></td></tr>
+      <tr><th>震波图腾<span class="en">Shockwave Totem</span></th><td>紧急图腾 III · 坚韧图腾 II · 魔力源泉（有偷取后换增强图腾 II）<b class="src l">L</b></td><td>紧急图腾 III · 坚韧图腾 II · 增强图腾 II · 持续时间延长 II<b class="src l">L</b></td><td>+ 效能 II</td><td>紧急图腾 III · 坚韧图腾 II · 持续时间延长 II · 增强图腾 II · 效能 II<b class="src l">L</b></td></tr>
+      <tr><th>大地震击<span class="en">Sunder</span></th><td>持续时间延长 II · 快速攻击 III · 狂怒 III<b class="src l">L</b></td><td>同左<b class="src l">L</b></td><td>同左</td><td>同左<b class="src l">L</b></td></tr>
+      <tr><th>灰烬之捷<span class="en">Herald of Ash</span></th><td>范围扩大 II · 精准 I<b class="src l">L</b></td><td>同左<b class="src l">L</b></td><td>同左</td><td>同左<b class="src l">L</b></td></tr>
+      <tr><th>装甲回收<span class="en">Scavenged Plating</span></th><td class="dim">正文说可放（持续时间延长 II），宝石数据里没有</td><td>持续时间延长 II<b class="src l">L</b></td><td>同左</td><td>同左<b class="src l">L</b></td></tr>
+      <tr><th>持久鏖战 / 盛怒<span class="en">Attrition / Berserk</span></th><td>持久鏖战 · 吞灵 II<b class="src l">L</b></td><td>持久鏖战（不挂辅助）<b class="src l">L</b></td><td>同左；精魂够可上盛怒</td><td>盛怒（替持久鏖战）<b class="src l">L</b></td></tr>
+      <tr><th>重盾冲锋<span class="en">Shield Charge</span></th><td>快速攻击 III · 狂怒 III<b class="src l">L</b></td><td>快速攻击 III · 狂怒 III · 效能 II<b class="src l">L</b></td><td>可选 + 瑞佛的凶猛（只放武器组 1）</td><td>快速攻击 III · 狂怒 III · 效能 II · 瑞佛的凶猛<b class="src l">L</b></td></tr>
+      <tr><th>跃击<span class="en">Leap Slam</span></th><td>快速攻击 III · 狂怒 III（只作位移）<b class="src l">L</b></td><td class="dim">删</td><td class="dim">—</td><td class="dim">—</td></tr>
+      <tr><th>冰冻印记<span class="en">Freezing Mark</span></th><td class="dim">第 4 幕护甲破损 III 到手后删<b class="src l">L</b></td><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td></tr>
+      <tr><th>① 前段（1–21 级）</th><td colspan="4">七伤破：冲击震波 · 范围扩大 I；锤打击：范围集中 · 火焰协调；轰动猛击（1 级）：快速攻击 I · 崩溃边缘 I；炽焰战吼：冷酷 · 愤怒战吼；完美一击：大好时机 I · 范围集中；灰烬之捷：范围扩大 I；震波图腾：紧急图腾 I；寒霜爆不挂辅助<b class="src l">L</b></td></tr>
+      <tr><th>① 22–30 级</th><td colspan="4">盾墙：快速攻击 I · 范围扩大 I · 火焰协调；冰冻印记：死亡印记 · 虹吸印记；震波图腾：紧急图腾 I · 坚韧图腾 I；跃击 / 重盾冲锋：快速攻击 I<b class="src l">L</b>。备选：带魔符时可切凶蛮咆哮，拿到坚韧战吼后把炽焰战吼挪进凶蛮咆哮；冰冻印记可换巨狼猛扑<b class="src l">L</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>宝石门槛（poe2db 宝石等级表）</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>技能</th><th class="n">等阶</th><th class="n">需求等级</th><th class="n">力量</th><th>其他</th></tr></thead>
+    <tbody>
+      <tr><td>轰动猛击 · 七伤破</td><td class="n">1</td><td class="n">1</td><td class="n">4</td><td>—</td></tr>
+      <tr><td>炽焰战吼 · 震波图腾 · 重盾冲锋</td><td class="n">3</td><td class="n">6</td><td class="n">14</td><td>战吼冷却 8 秒；重盾冲锋需护甲盾牌</td></tr>
+      <tr><td>灰烬之捷 · 装甲回收 · 持久鏖战 · 战旗</td><td class="n">4</td><td class="n">10</td><td class="n">21 / 13</td><td>各保留 30 精魂；持久鏖战、战旗另要 13 敏</td></tr>
+      <tr><td><b>盾墙</b> · 跃击 · 冰冻印记</td><td class="n">7</td><td class="n"><b>22</b></td><td class="n">41</td><td>盾墙需护甲盾牌；冰冻印记是智 / 敏 24</td></tr>
+      <tr><td><b>坚韧战吼 · 大地震击</b></td><td class="n">9</td><td class="n"><b>31</b></td><td class="n">57</td><td>坚韧战吼需护甲盾牌；大地震击需单手锤 / 双手锤</td></tr>
+      <tr><td>盛怒</td><td class="n">14</td><td class="n">58</td><td class="n">103</td><td>保留 30 精魂</td></tr>
+      <tr><td>所有技能 20 级</td><td class="n">—</td><td class="n">90</td><td class="n">157</td><td>—</td></tr>
+      <tr><td>血统：汉恩的城塞 · 冈姆的疯狂 · 乌尔尼多的拥抱 · 沃拉娜的围城 · 瑞佛的凶猛</td><td class="n">—</td><td class="n">65</td><td class="n">—</td><td>除汉恩（全局掉落）外掉落等级都是 52</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>关键辅助的作用（poe2db 简中原文）</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>辅助</th><th class="n">等阶</th><th>效果</th><th>挂在</th></tr></thead>
+    <tbody>
+      <tr><td>汉恩的城塞<span class="en">Ahn's Citadel</span></td><td class="n">血统</td><td>被辅助技能的墙改为沿裂缝创造</td><td>盾墙 ②–④</td></tr>
+      <tr><td>冈姆的疯狂<span class="en">Kaom's Madness</span></td><td class="n">血统</td><td>额外产生 3 道裂隙；伤害总降 20%、技能速度总降 20%、效果范围总降 30%</td><td>盾墙 ②–④</td></tr>
+      <tr><td>乌尔尼多的拥抱<span class="en">Uul-Netol's Embrace</span></td><td class="n">血统</td><td>额外获得 40% 物理伤害并转化为混沌伤害；粉碎护甲，相当于造成混沌伤害的 20%；消耗加成 120%</td><td>盾墙 ④</td></tr>
+      <tr><td>沃拉娜的围城<span class="en">Vorana's Siege</span></td><td class="n">血统</td><td>效果范围提高 35%；对孤立目标的击中伤害提高 20%</td><td>盾墙 ④（③ 可选）</td></tr>
+      <tr><td>瑞佛的凶猛<span class="en">Rigwald's Ferocity</span></td><td class="n">血统</td><td>武器组 I：攻击速度 +30%、伤害总降 15%；武器组 II：攻速 −10%、伤害总增 30%</td><td>重盾冲锋 ④，只放武器组 1</td></tr>
+      <tr><td>护甲破损 III</td><td class="n">4</td><td>粉碎护甲，相当于物理伤害的 20%；使敌人护甲完全破损时 20% 几率获得耐力球</td><td>盾墙 ①</td></tr>
+      <tr><td>燃怒战吼 II</td><td class="n">5</td><td>消耗 15 怒火来忽略冷却时间，而非消耗一个耐力球</td><td>坚韧战吼</td></tr>
+      <tr><td>愤怒战吼</td><td class="n">2</td><td>范围内每 5 点威力值产生 4 点怒火</td><td>两个战吼</td></tr>
+      <tr><td>冷酷</td><td class="n">1</td><td>被强化的攻击有 25% 几率不计入强化次数</td><td>炽焰战吼</td></tr>
+      <tr><td>沉重挥舞<span class="en">Heavy Swing</span></td><td class="n">4</td><td>poe2db 简中页未翻译；英文：近战物理伤害总增 35%，攻击速度总降 10%</td><td>坚韧战吼</td></tr>
+      <tr><td>势大力沉</td><td class="n">5</td><td>物理击中伤害上限总增 30%（元素 / 混沌伤害很少时作者建议换野性残暴 III）</td><td>坚韧战吼 ②–④</td></tr>
+      <tr><td>穿刺</td><td class="n">4</td><td>击中时穿刺敌人；被辅助技能无法提取穿刺</td><td>盾墙 ①–③</td></tr>
+      <tr><td>狂怒 III</td><td class="n">5</td><td>近战击中产生 5 怒火；未达怒火上限时攻击速度提高 15%</td><td>大地震击、重盾冲锋</td></tr>
+      <tr><td>紧急图腾 III · 坚韧图腾 II · 增强图腾 II</td><td class="n">4 / 4 / 5</td><td>图腾攻速 +20%、放置速度 +100% · 图腾生命总增 50% · 图腾元素抗性上限 +10%、所有元素抗性 +40%</td><td>震波图腾</td></tr>
+      <tr><td>魔力源泉</td><td class="n">2</td><td>图腾产生 4 米魔力源泉，友军获得相当于图腾物理伤害 12% 的魔力偷取</td><td>震波图腾 ①（有偷取后换掉）</td></tr>
+      <tr><td>精准 I · 吞灵 II</td><td class="n">1 / 4</td><td>激活时命中值 +30% · 激活时击败敌人回复 3% 生命</td><td>精魂技能</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">辅助孔：低等工匠石 3 孔（掉落 25）、高等工匠石 4 孔（45）、完美工匠石 5 孔（65）<b class="src db">库</b>。④ 有盾墙、坚韧战吼、震波图腾三个 5 孔技能，所以 ③ 要攒 3 个完美工匠石<b class="src s">合</b>。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2><span class="no">5</span>操作循环</h2>
+  <h3>刷图</h3>
+  <ol>
+    <li>扔盾墙，然后用战吼（炽焰或坚韧）或重盾冲锋把墙打碎<b class="src l">L</b>。墙被你的猛击、战吼和重盾冲锋打中时会瞬间破碎；0.5 秒内被你以外的东西打碎，伤害总降 80%<b class="src db">库</b>——所以要自己引爆。</li>
+    <li>进了终局，重盾冲锋用得越多清图越快<b class="src l">L</b>。作者回复评论：精英和首领没什么区别，多数怪应该一轮就死<b class="src c">评</b>。</li>
+    <li>跃击只是位移，评论区有人问，作者说不用也行<b class="src c">评</b>。</li>
+  </ol>
+  <h3>首领</h3>
+  <ol>
+    <li>冰冻印记——等护甲破损有了别的来源（第 4 幕的护甲破损 III）就可以不放<b class="src l">L</b>。</li>
+    <li>放震波图腾<b class="src l">L</b>。</li>
+    <li>炽焰战吼 + 坚韧战吼（有了再放）<b class="src l">L</b>。<span class="chip must">不做会崩</span> 两个战吼必须在武器组 2 施放，才吃得到武器组 2 上的战吼大点；盾牌要锁在两个武器组，否则切过去没有护甲盾牌，坚韧战吼放不出来<b class="src l">L</b><b class="src c">评</b>。</li>
+    <li>连按盾墙<b class="src l">L</b>。</li>
+    <li>护甲完全破损后放大地震击<b class="src l">L</b>。<span class="chip must">不做会崩</span> 作者回复评论：大地震击只用在护甲已破碎的目标上<b class="src c">评</b>。</li>
+    <li>重复<b class="src l">L</b>。首领可以在盾墙上把一个辅助换成近战 II<b class="src l">L</b>。</li>
+  </ol>
+  <h3>① 前段（1–21 级）</h3>
+  <p>轰动猛击只用来堆晕眩，让七伤破的冲击波触发；敌人身上出现白色发光球时晕眩积蓄刚好。伤害或晕眩太高会直接把敌人晕住，这时冲击波反而打不出来<b class="src l">L</b>。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <h2><span class="no">6</span>属性达标值</h2>
+  <p>原站没给生命、护甲、抗性的面板数字。下表里原站给了的直接引用，其余从 poe2db 数值推算，标「合」。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>项目</th><th>① 起步 → 间章</th><th>② 65 级进图</th><th>③ 终局初期</th><th>④ 大后期</th></tr></thead>
+    <tbody>
+      <tr><th>盾牌护甲（不计品质）</th><td>塑像 76 + 28 → 熔铸 (145+57)×(1+43%+14%) ≈ 317<b class="src s">合</b></td><td>皇家塔盾 (203+222~248)×(1+92~100%+18%) ≈ 893–983<b class="src s">合</b>；原站 Maps 盾 (244+278)×1.86 ≈ 971</td><td>Giga 盾 (244+278)×(1+140%+18%) ≈ 1,347<b class="src s">合</b></td><td>同 ③（原站盾牌未变）</td></tr>
+      <tr><th>盾墙附加物理（按上一行）</th><td>约 105–147</td><td>约 295–455</td><td>约 445–623</td><td>同 ③</td></tr>
+      <tr><th>匠人的杰作护甲</th><td>+400（22 级）→ +800（38 级）</td><td>+800</td><td>+1,200</td><td>+1,200</td></tr>
+      <tr><th>生命</th><td colspan="4">原站未给。生命来源：手套 +150、腰带 +120（② 起）、奇塔弗铭文 15%；④ 猎首 +40–60</td></tr>
+      <tr><th>火焰抗性来源</th><td>钽质合金 +75%（38 级起）+ 熔岩者的馈赠 +10% + 戒指</td><td colspan="2">盾 26 + 鞋 31 + 项链 31 + 右戒 31 + 腰带 31 = 150；两枚红玉戒指隐式 +40~60；钽质合金 +75；熔岩者的馈赠 +10；升华小点 +8 → 约 +283–303%<b class="src s">合</b></td><td>去掉钽质合金 → 约 +208–228%；猎首替掉腰带后少 31<b class="src s">合</b></td></tr>
+      <tr><th>冰霜 / 闪电抗性</th><td>靠戒指、熔火符印（物理转火）、液态金属（护甲作用于元素）</td><td colspan="3">司炉的炭火：火抗来源的 50% → 约 +140–150%（④ 换猎首后约 +89–99%）；另有努葛玛呼的亲选生效时火抗 +25%。实际封顶与否以游戏内面板为准<b class="src s">合</b></td></tr>
+      <tr><th>混沌抗性</th><td>原站未给</td><td>腰带 +16%（出境之）</td><td>+ 敬奉奇塔弗：100% 护甲同样作用于混沌伤害<b class="src s">合</b></td><td>腰带换猎首后混沌抗只剩护甲这一条<b class="src s">合</b></td></tr>
+      <tr><th>力量（硬下限）</th><td>盾墙 41（22 级）、坚韧战吼 / 大地震击 57（31 级）</td><td>士兵胸甲 121、皇家塔盾 91</td><td>督军胸甲 121、瓦尔塔盾 107、巨型护手 / 瓦尔胫甲 101</td><td>技能 20 级 157（90 级）</td></tr>
+      <tr><th>天赋属性点</th><td>间章：力 17 · 敏 4 · 智 4 个（每个 +5）</td><td>同左</td><td>同左</td><td>9 个，原站设成“任意”</td></tr>
+      <tr><th>宝石需求（原站口径）<b class="src l">L</b></th><td class="num">Act 1 力 20 敏 10 智 20 → 间章 力 65 敏 35 智 15</td><td class="num">力 80 · 敏 30 · 智 15</td><td class="num">原站未给</td><td class="num">力 95 · 敏 30 · 智 15</td></tr>
+      <tr><th>精魂</th><td>战役共 100（第 1 幕 30、第 3 幕 30、间章 40）<b class="src db">库</b>；作者：间章 3 的精魂到手后才上精准 I<b class="src l">L</b></td><td>灰烬之捷 + 装甲回收 + 持久鏖战 = 3 × 30 + 辅助</td><td>同左；精魂够才上盛怒</td><td>供奉尤图拉：胸甲使精魂 +30%；盛怒替持久鏖战</td></tr>
+      <tr><th>移动速度</th><td>原站未给鞋子</td><td colspan="3">鞋 30%（猎豹的）+ 涂油加速 3% + 轻盈步伐 3%；动量无视护甲带来的减速</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><span class="lab">“宝石需求”是什么口径</span>
+    <p>原站的 <code>gemRequirements</code> 正好等于所有辅助宝石的「辅助宝石需求 +5」按颜色相加：Maps 档 25 个辅助 = 125 = 力 80 + 敏 30 + 智 15，Giga 档 29 个辅助里 28 个带 +5（沃拉娜的围城没有属性需求）= 140 = 95 + 30 + 15，都对得上<b class="src db">库</b><b class="src s">合</b>。这不是面板上的属性需求；真正卡人的是上面「力量（硬下限）」那一行。</p>
+    <p>盾牌护甲的算法：底材护甲加固定护甲词缀，再乘以（1 + 护甲 % 词缀 + 钢铁符文）。品质另算，本页都没算品质，实际会更高。盾墙附加物理 = 盾牌护甲 ÷ 15 取整 × 5–7<b class="src db">库</b><b class="src s">合</b>。</p>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <h2><span class="no">7</span>装备与词缀</h2>
+  <p>原站从 Act 2 换装到间章只填了锤子、盾牌、胸甲、手套、左戒 5 个部位，头盔、鞋子、项链、腰带、药剂都空着；Maps 与 Giga 两档才填满（药剂两档都没填）<b class="src l">L</b>。词缀中文取 poe2db 对应部位的简中词缀页，括号里是物品等级门槛；交易统计 ID 已和国服交易站的简中统计表逐条对过<b class="src db">库</b>。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>部位</th><th>① 起步 → 间章</th><th>② 65 级进图</th><th>③ 终局初期<b class="src s">合</b></th><th>④ 大后期</th></tr></thead>
+    <tbody>
+      <tr><th>主手</th><td>锻炉巨锤 → 镶钉巨棍（双手）；22 级起战镐 +1 近战<b class="src l">L</b></td><td>战镐：+3 近战 · 粉碎护甲 2% · 21% 额外物理 · +28 力量<b class="src l">L</b></td><td>同 ②</td><td>战镐：+3 近战 · 对护甲完全破损敌人伤害 +41% · 21% 额外物理<b class="src l">L</b></td></tr>
+      <tr><th>副手</th><td>塑像塔盾 → 徽纹塔盾 → 熔铸塔盾 · 次级钢铁符文<b class="src l">L</b></td><td>皇家 / 黑钢塔盾（65 级）套 Maps 词缀<b class="src s">合</b></td><td>瓦尔塔盾：Maps 原样 → Giga 词缀（140% · 8% 额外物理减伤）</td><td>瓦尔塔盾：+278 · 140% · +95 晕眩阈值 · +26% 火抗 · 8% 额外物理减伤 · 高级钢铁符文<b class="src l">L</b></td></tr>
+      <tr><th>头盔</th><td class="dim">原站未给</td><td colspan="3">惊险刺激（螺旋巨盔，27 级；猛攻）<b class="src l">L</b></td></tr>
+      <tr><th>身体（普通）</th><td>铁锻胸甲（普通）<b class="src l">L</b></td><td>士兵胸甲（65 级，护甲 570）<b class="src s">合</b></td><td colspan="2">督军胸甲（80 级，护甲 496，隐式 +15–25% 护甲同样作用于元素伤害）<b class="src l">L</b></td></tr>
+      <tr><th>手套</th><td>铆接护手：攻击附加闪电 · +1 近战 · 5% 攻速<b class="src l">L</b></td><td>骑士 / 堂皇护手（65）套 Maps 词缀<b class="src s">合</b></td><td colspan="2">巨型护手（80）：+150 生命 · 15% 稀有度 · 5% 攻速<b class="src l">L</b></td></tr>
+      <tr><th>鞋子</th><td class="dim">原站未给</td><td>堡垒 / 图腾胫甲（65）套 Maps 词缀<b class="src s">合</b></td><td colspan="2">瓦尔胫甲（75）：30% 移速 · 15% 稀有度 · +31% 火抗<b class="src l">L</b></td></tr>
+      <tr><th>项链</th><td class="dim">原站未给</td><td colspan="3">帝金项链：15% 稀有度 · +31% 火抗 · +2 近战；涂油「加速」<b class="src l">L</b></td></tr>
+      <tr><th>左戒</th><td>红玉戒指：攻击附加 1–10 闪电<b class="src l">L</b></td><td colspan="3">红玉戒指：15% 稀有度 · 生命偷取 · 魔力偷取（原站数值超戒指上限，见下）<b class="src l">L</b></td></tr>
+      <tr><th>右戒</th><td class="dim">原站未给</td><td colspan="3">红玉戒指：攻击附加 1–33 闪电 · 15% 稀有度 · +31% 火抗<b class="src l">L</b></td></tr>
+      <tr><th>腰带</th><td class="dim">原站未给</td><td colspan="2">生皮腰带：+120 生命 · +31% 火抗 · +16% 混沌抗<b class="src l">L</b></td><td>猎首<b class="src l">L</b></td></tr>
+      <tr><th>咒符</th><td class="dim">原站未给</td><td colspan="3">努葛玛呼的亲选<b class="src l">L</b></td></tr>
+      <tr><th>药剂</th><td colspan="4" class="dim">原站所有变体都没填</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>① 战役过渡装（原站各档原样）</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>部位</th><th>Act 1</th><th>Act 2（22 级前）</th><th>Act 2 换盾墙</th><th>Act 3</th><th>Act 4 · 间章</th></tr></thead>
+    <tbody>
+      <tr><td>主手</td><td>锻炉巨锤<span class="en">Forge Maul · 11 级</span>物理伤害提高 40%（重量的，1）</td><td>镶钉巨棍<span class="en">Studded Greatclub · 16 级</span>物理伤害提高 50%（锯齿的，8）</td><td colspan="3">战镐<span class="en">Warpick · 22 级 · 41 力</span>所有近战技能等级 +1（决斗之，18）</td></tr>
+      <tr><td>副手</td><td colspan="2" class="small">—（双手武器）</td><td>塑像塔盾<span class="en">Effigial Tower Shield · 21 级 · 护甲 76</span>+28 护甲（镶嵌的，8）</td><td>徽纹塔盾<span class="en">Heraldric · 33 级 · 111</span>+57 护甲（螺纹的，16）· 护甲 +27%（分层的，16）</td><td>熔铸塔盾<span class="en">Crucible · 45 级 · 145</span>+57 护甲 · 护甲 +43%（甲壳的，35）</td></tr>
+      <tr><td>身体</td><td colspan="2" class="small">—</td><td colspan="3">铁锻胸甲<span class="en">Iron Cuirass · 11 级 · 护甲 115</span>普通，无词缀</td></tr>
+      <tr><td>手套</td><td colspan="2" class="small">—</td><td colspan="3">铆接护手<span class="en">Riveted Mitts · 11 级</span>攻击附加 1 - 4 基础闪电伤害（低鸣的，1）· 所有近战技能等级 +1（战意之，5）· 攻击速度提高 5%（技巧之，1）</td></tr>
+      <tr><td>左戒</td><td colspan="2" class="small">—</td><td colspan="3">红玉戒指<span class="en">Ruby Ring · 8 级 · 隐式火抗 +20–30%</span>攻击附加 1 - 10 基础闪电伤害（嗡嗡的，8）</td></tr>
+      <tr><td>符文</td><td colspan="2" class="small">—</td><td colspan="3">盾牌：次级钢铁符文（护甲：护甲、闪避和能量护盾提高 14%）</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">原站购买顺序（priorityList）：换盾墙时 盾 → 胸甲 → 锤 → 戒指 → 手套；Act 4 起 胸甲 → 锤 → 戒指 → 手套 → 盾。作者的部位要求：锤子要 +近战技能等级（不常见，没有很正常）；手套要平伤、攻速、+近战、偷取，一般只有一两条好的；戒指要抗性、平伤、偷取<b class="src l">L</b>。</p>
+
+  <h3>② / ③ 逐件（原站 Maps 档）</h3>
+  <p class="small">交易链接是国际服官方交易站（Forbidden Rites 赛季，需要登录），国服请在国服交易站按下面的中文词缀自己筛。标 <b class="src s">合</b> 的查询由本页改过（原站数值超出词缀上限时下调到可出的档位），没实际跑过。原站 Maps 档的购买顺序：胸甲 → 头盔 → 手套 → 鞋子 → 盾 → 锤 → 腰带 → 左戒 → 项链<b class="src l">L</b>。</p>
+
+  <div class="slots">
+
+  <article class="slot">
+    <div class="slot-head"><h4>主手 · 战镐 <span class="en">Warpick</span></h4><span class="req">需求 22 级 · 41 力 · 单手锤 18–24 · 暴击 7% · 每秒 1.45 次</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>所有近战技能等级 +3 <span class="chip must">必须</span></td><td>+3 to Level of all Melee Skills</td><td class="n">3</td><td class="tier">激战之 of Battle（55）</td></tr>
+          <tr><td>粉碎护甲，相当于造成物理伤害的 2% <span class="chip must">必须</span></td><td>Break Armour equal to 2% of Physical Damage dealt</td><td class="n">2</td><td class="tier">阿曼娜姆之（渎灵后缀，65）· 2–4%</td></tr>
+          <tr><td>获得相当于伤害 21% 的额外物理伤害 <span class="chip must">必须</span></td><td>Gain 21% of Damage as Extra Physical Damage</td><td class="n">21</td><td class="tier">完美磨蚀精华（需求 57）；单手上限 20%</td></tr>
+          <tr><td>+28 力量</td><td>+28 to Strength</td><td class="n">28</td><td class="tier">海兽之 of the Leviathan（66）</td></tr>
+          <tr><td>+11 命中值</td><td>+11 to Accuracy Rating</td><td class="n">11</td><td class="tier">精确的 Precise（8）</td></tr>
+          <tr><td>附加 1 - 4 闪电伤害</td><td>Adds 1 to 4 Lightning Damage</td><td class="n">1</td><td class="tier">低鸣的 Humming（1）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>后三条只是原站成品上顺带的词缀。做法见第 2 节 ② 第 4 步。原站写「获得 21%」，poe2db 的完美磨蚀精华在单手近战武器上是 15–20%（双手 25–33%），21% 出不来<b class="src db">库</b>，本页核心查询改成 ≥15。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1103616075%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4019237939%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：三条必须词缀</a> <b class="src s">合</b> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_691932474%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3336890334%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1103616075%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4019237939%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：原站查询</a></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>副手 · 瓦尔塔盾 <span class="en">Vaal Tower Shield</span></h4><span class="req">需求 75 级 · 107 力 · 护甲 244 · 格挡 26% · ② 用皇家塔盾 / 黑钢塔盾（65 级 · 91 力 · 护甲 203）</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+278 护甲</td><td>+278 to Armour</td><td class="n">278 → 249<b class="src s">合</b></td><td class="tier">不动的 Unmoving（75）249–277；② 最高 柔缓的 Abating（65）222–248</td></tr>
+          <tr><td>护甲提高 68%</td><td>68% increased Armour</td><td class="n">68</td><td class="tier">加厚的 Thickened（54）68–79；更高：围城的（60）80–91、坚不可摧的（65）92–100</td></tr>
+          <tr><td>火焰抗性 +26%</td><td>+26% to Fire Resistance</td><td class="n">总元素抗 26</td><td class="tier">炉火之 of the Furnace（48）26–30</td></tr>
+          <tr><td>高级钢铁符文：护甲、闪避和能量护盾提高 18%</td><td>Greater Iron Rune</td><td class="n">—</td><td class="tier">需求 30；掉落 52</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>+278 比 poe2db 盾牌固定护甲的最高档（不动的 249–277）多 1 点，原站查询搜不到东西，本页改成 ≥249<b class="src db">库</b><b class="src s">合</b>。③ 的目标见下面 ④ 那面盾（原站 Giga 档的盾牌），本页建议 ③ 就开始做它。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A222%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A92%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：② 65 级档（柔缓的 + 坚不可摧的）</a> <b class="src s">合</b> · <a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A249%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A68%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：Maps 原样</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>头盔 · 惊险刺激 <span class="en">Thrillsteel</span></h4><span class="req">传奇 · 螺旋巨盔 · 需求 27 级 · 40 力 · 护甲 149</span></div>
+    <div class="slot-body"><div class="slot-notes">
+      <p>唯一的词缀是「猛攻」<b class="src db">库</b>。原站没写为什么选它；它 27 级就能穿，① 手头宽裕可以提前戴<b class="src s">合</b>。Lexd 的另一套终局也有“Thrillsteel Version”<b class="src x">X</b>。</p>
+      <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Thrillsteel%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：惊险刺激</a></p>
+    </div></div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>身体 · 督军胸甲 <span class="en">Warlord Cuirass</span>（普通）</h4><span class="req">需求 80 级 · 121 力 · 护甲 496 · 隐式 +(15—25)% 的护甲同样作用于元素伤害 · ② 用士兵胸甲（65 级 · 121 力 · 护甲 570）</span></div>
+    <div class="slot-body"><div class="slot-notes">
+      <p>匠人的杰作要求普通胸甲，所以只看底材，没有词缀可做<b class="src db">库</b>。原站 Maps / Giga 都没给胸甲插符文<b class="src l">L</b>；Lexd 在普通的符文华丽战铠上插了 3 颗高级身躯符文（护甲：+60 生命上限）<b class="src x">X</b><b class="src db">库</b>。</p>
+    </div></div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>手套 · 巨型护手 <span class="en">Massive Mitts</span></h4><span class="req">需求 80 级 · 101 力 · 护甲 187 · ② 用骑士护手 / 堂皇护手（65 级 · 80 力 · 162）</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+150 生命上限</td><td>+150 to maximum Life</td><td class="n">150 → 120<b class="src s">合</b></td><td class="tier">健将的 Athlete's（60）120–149</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td>15% increased Rarity of Items found</td><td class="n">15</td><td class="tier">考古之 of Archaeology（40）15–18</td></tr>
+          <tr><td>攻击速度提高 5%</td><td>5% increased Attack Speed</td><td class="n">见右</td><td class="tier">技巧之 of Skill（1）5–7；最高 声望之（60）14–16</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>手套生命最高档是 120–149，原站 +150 多了 1 点；原站查询里的攻速用的是统计 ID <code>210067635</code>（「攻击速度提高 #% (区域)」，武器本地攻速），手套上的攻速是全局词缀，这一条在手套上搜不到<b class="src db">库</b>。本页的查询去掉了攻速、生命改成 ≥120<b class="src s">合</b>。偷取也可以放在手套上：手套的生命偷取能到 9–9.9%（吸血鬼之，65）、魔力偷取 8–8.9%（绝望之，65），比戒指高<b class="src db">库</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：生命 + 稀有度</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>鞋子 · 瓦尔胫甲 <span class="en">Vaal Greaves</span></h4><span class="req">需求 75 级 · 101 力 · 护甲 268 · ② 用堡垒胫甲 / 图腾胫甲（65 级 · 86 力 · 244）</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>移动速度提高 30% <span class="chip must">必须</span></td><td>30% increased Movement Speed</td><td class="n">30</td><td class="tier">猎豹的 Cheetah's（65）；35% 地狱的（82）</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td>15% increased Rarity of Items found</td><td class="n">15</td><td class="tier">考古之（40）</td></tr>
+          <tr><td>火焰抗性 +31%</td><td>+31% to Fire Resistance</td><td class="n">总元素抗 31</td><td class="tier">火山之 of the Volcano（60）31–35</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p>作者：鞋子至少要 30% 移速<b class="src l">L</b>。<a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：原站查询</a></p></div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>项链 · 帝金项链 <span class="en">Gold Amulet</span></h4><span class="req">需求 35 级 · 隐式 物品稀有度提高 (12—20)% · 涂油「加速」</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>所有近战技能等级 +2</td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之 of Dueling（41）；+3 激战之（75）</td></tr>
+          <tr><td>火焰抗性 +31%</td><td>+31% to Fire Resistance</td><td class="n">总元素抗 31</td><td class="tier">火山之（60）</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td>15% increased Rarity of Items found</td><td class="n">15</td><td class="tier">考古之（40）或 收藏家的（前缀，29）</td></tr>
+          <tr><td>涂油：加速（液化恐惧 + 嫉妒 + 憎恶）</td><td>Acceleration</td><td class="n">—</td><td class="tier">移动速度提高 3%，技能速度提高 10%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p>注意「决斗之」在锤子上是 +1（18），在项链、手套上是 +2（41）<b class="src db">库</b>。<a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：原站查询</a></p></div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>左戒 · 红玉戒指 <span class="en">Ruby Ring</span></h4><span class="req">需求 8 级 · 隐式 火焰抗性 +(20—30)%</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>物理攻击伤害的 8% 转化为生命偷取</td><td>Leech 8% of Physical Attack Damage as Life</td><td class="n">8 → 7<b class="src s">合</b></td><td class="tier">戒指最高 鲫鱼之 of the Remora（38）7–7.9</td></tr>
+          <tr><td>物理攻击伤害的 7% 转化为魔力偷取</td><td>Leech 7% of Physical Attack Damage as Mana</td><td class="n">7 → 6<b class="src s">合</b></td><td class="tier">戒指最高 干旱之 of the Arid（38）6–6.9</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td>15% increased Rarity of Items found</td><td class="n">15</td><td class="tier">考古之（40）/ 收藏家的（29）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes">
+        <p>原站的 8% / 7% 正好是手套上「七鳃鳗之」「枯旱之」（物品等级 54）的数值，戒指出不了<b class="src db">库</b>。作者只说偷取来自戒指或手套，Maps 档把两条偷取都标成必须；Giga 档去掉了必须标记<b class="src l">L</b>。</p>
+        <p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2557965901%22%2C%22value%22%3A%7B%22min%22%3A7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_707457662%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：戒指可出的最高档</a> <b class="src s">合</b></p>
+      </div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>右戒 · 红玉戒指 <span class="en">Ruby Ring</span></h4><span class="req">需求 8 级 · 隐式 火焰抗性 +(20—30)%</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>攻击附加 1 - 33 基础闪电伤害</td><td>Adds 1 to 33 Lightning damage to Attacks</td><td class="n">1</td><td class="tier">电弧的 Arcing（54）(1—2)-(33—40)</td></tr>
+          <tr><td>物品稀有度提高 15%</td><td>15% increased Rarity of Items found</td><td class="n">15</td><td class="tier">考古之（40）</td></tr>
+          <tr><td>火焰抗性 +31%</td><td>+31% to Fire Resistance</td><td class="n">总元素抗 31</td><td class="tier">火山之（60）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1754445556%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：原站查询</a></p></div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>腰带 · 生皮腰带 <span class="en">Rawhide Belt</span></h4><span class="req">② ③；④ 换猎首</span></div>
+    <div class="slot-body">
+      <div class="scroll"><table>
+        <thead><tr><th>词缀（中文原文）</th><th>English</th><th class="n">交易 min</th><th>档次</th></tr></thead>
+        <tbody>
+          <tr><td>+120 生命上限</td><td>+120 to maximum Life</td><td class="n">120</td><td class="tier">健将的（60）120–149；腰带独有 丰饶的（65）150–174</td></tr>
+          <tr><td>火焰抗性 +31%</td><td>+31% to Fire Resistance</td><td class="n">总元素抗 31</td><td class="tier">火山之（60）</td></tr>
+          <tr><td>混沌抗性 +16%</td><td>+16% to Chaos Resistance</td><td class="n">16</td><td class="tier">出境之 of Expulsion（56）；流亡之（68）20–23</td></tr>
+        </tbody>
+      </table></div>
+      <div class="slot-notes"><p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2923486259%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：原站查询</a></p></div>
+    </div>
+  </article>
+
+  <article class="slot">
+    <div class="slot-head"><h4>咒符 · 努葛玛呼的亲选 <span class="en">Ngamahu's Chosen</span></h4><span class="req">传奇 · 红玉咒符 · 需求 5 级</span></div>
+    <div class="slot-body"><div class="slot-notes">
+      <p>持续 4 秒，火焰抗性 +25%；受到击中火焰伤害时自动使用；充能次数提高 30–40%；使用时怒火直接到上限<b class="src db">库</b>。<a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Ngamahu%27s%20Chosen%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易：努葛玛呼的亲选</a></p>
+    </div></div>
+  </article>
+
+  </div>
+
+  <h3>④ 改动（原站 Giga Endgame）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>部位</th><th>与 Maps 档相比</th><th>词缀（中文原文 · 档次）</th><th>交易</th></tr></thead>
+    <tbody>
+      <tr><td>主手 · 战镐</td><td><span class="chip del">删</span>粉碎护甲 2% · 附加闪电<br><span class="chip add">增</span>对护甲完全破损的敌人伤害 +41% · 每击败一名敌人 +4 生命</td><td>所有近战技能等级 +3（激战之，55）<span class="chip must">必须</span>；对护甲完全破损的敌人造成的伤害提高 41%（阿曼娜姆的，渎灵前缀，65，41–59%）<span class="chip must">必须</span>；获得相当于伤害 21% 的额外物理伤害（完美磨蚀精华）<span class="chip must">必须</span>；+28 力量；+11 命中值；每击败一名敌人获得 4 点生命（成功之，1）</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2301718443%22%2C%22value%22%3A%7B%22min%22%3A41%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4019237939%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">三条必须</a><b class="src s">合</b></td></tr>
+      <tr><td>副手 · 瓦尔塔盾</td><td><span class="chip chg">改</span>护甲 68% → 140%<br><span class="chip add">增</span>+95 晕眩阈值 · 8% 额外物理伤害减免</td><td>+278 护甲（不动的，75）；护甲提高 140% = 无法通过的（75）101–110% + 长毛象的（74）39–42% 且 +95–136 晕眩阈值；火焰抗性 +26%（炉火之，48）；8% 额外物理伤害减免（保护者之，77）；高级钢铁符文</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A249%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A140%7D%7D%2C%7B%22id%22%3A%22explicit.stat_915769802%22%2C%22value%22%3A%7B%22min%22%3A95%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A8%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">Giga 盾</a><b class="src s">合</b></td></tr>
+      <tr><td>腰带 · 猎首</td><td><span class="chip chg">改</span>生皮腰带 → 猎首</td><td>重革腰带，需求 50；1–3 个咒符位；晕眩阈值 +20–30%；+40–60 生命；+20–40 力量；+20–40 敏捷；击败稀有怪物时获得它的词缀 60 秒</td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Headhunter%22%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">猎首</a></td></tr>
+      <tr><td>其余部位</td><td colspan="3">与 Maps 档相同；左戒的两条偷取不再标必须<b class="src l">L</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>插槽、涂油与额外符文槽</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>物品</th><th>效果（poe2db 原文）</th><th>阶段</th></tr></thead>
+    <tbody>
+      <tr><td>次级钢铁符文<span class="en">Lesser Iron Rune</span></td><td>护甲：护甲、闪避和能量护盾提高 14%；羁绊 护甲：+20 生命上限，+20 魔力上限</td><td>①（盾）</td></tr>
+      <tr><td>高级钢铁符文<span class="en">Greater Iron Rune</span></td><td>需求 30；护甲：护甲、闪避和能量护盾提高 18%</td><td>②–④（盾）</td></tr>
+      <tr><td>涂油：加速<span class="en">Acceleration</span></td><td>液化恐惧 + 嫉妒 + 憎恶；移动速度提高 3%，技能速度提高 10%</td><td>②–④（项链）</td></tr>
+      <tr><td>高级身躯符文<span class="en">Greater Body Rune</span></td><td>需求 30；护甲：+60 生命上限（Lexd 插在普通胸甲上，原站没有）</td><td>③ 可选<b class="src x">X</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">原站所有变体的 <code>chakras</code>（额外符文槽）都是空的；奇塔弗匠师也没有给额外符文槽的升华点<b class="src l">L</b><b class="src db">库</b>。</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <h2><span class="no">8</span>天赋树核心节点</h2>
+  <p><b>完整点法对着原站点，本页只标核心大点。</b>主树点数：Act 1 17 → Act 2（22 前）24 → 换盾墙 32 → Act 3 35 → Act 4 50 → 间章 68 → Maps 92 → Giga 98；武器组天赋点（组 1 / 组 2）：换盾墙 4 / 4 → Act 3 9 / 9 → Act 4 13 / 13 → 间章 17 / 17 → Maps 16 / 17 → Giga 19 / 20<b class="src l">L</b>。标 <span class="tri">△</span> 的是 ③ 建议提前点的 Giga 大点<b class="src s">合</b>。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th><th class="n">④</th></tr></thead>
+    <tbody>
+      <tr><td><b>凶残</b><span class="en">Brutal</span></td><td>晕眩积蓄值提高 10%；近战伤害提高 16%；+10 力量</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>碾碎</b><span class="en">Smash</span></td><td>近战伤害提高 20%；对重度晕眩的敌人的近战伤害提高 40%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>屠戮之械</b><span class="en">Singular Purpose</span></td><td>攻击速度降低 5%；晕眩积蓄值提高 20%；双手武器的攻击伤害提高 40%</td><td class="n">22 前</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+      <tr><td><b>壮汉</b><span class="en">Beef</span></td><td>+25 力量</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>燃烧打击</b><span class="en">Burning Strikes</span></td><td>获得额外火焰伤害，其数值等同于物理伤害的 12%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td></tr>
+      <tr><td><b>倾力裁决</b><span class="en">Crushing Verdict</span></td><td>攻击速度降低 5%；晕眩积蓄值提高 30%；攻击伤害提高 50%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>血脉贲张</b><span class="en">Blood Rush</span></td><td>技能速度提高 6%；技能的魔力消耗的 6% 转化为生命消耗</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>回荡冲击</b><span class="en">Reverberating Impact</span></td><td>粉碎的护甲提高 25%；攻击技能的效果区域提高 12%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>熔岩者的馈赠</b><span class="en">The Molten One's Gift</span></td><td>火焰抗性 +10%；护甲完全破损效果提高 15%；造成护甲完全破损时还会提高击中时承受的火焰伤害</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>一起上吧</b><span class="en">Pile On</span>（武器组 1）</td><td>护甲完全破损效果提高 30%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>威压裁决 · 权威</b><span class="en">Crushing Judgement · Authority</span>（武器组 1）</td><td>护甲破损持续时间提高 25%、攻击范围伤害提高 25% · 攻击技能效果区域 +15%、冷却回复速度 +10%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>冲击之力 · 震荡中心 · 巨兽</b><span class="en">Impact Force · Impact Area · Behemoth</span></td><td>攻击范围伤害 +25% · 攻击技能效果区域 +12%（近期晕眩过再 +12%）· 生命 +3%、攻击效果区域 +8%、猛击 5% 额外余震</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td></tr>
+      <tr><td><b>言出力随 · 刺耳怒吼 · 训诫 · 紧急呼喊 · 咆哮战吼</b>（武器组 2）</td><td>战吼额外强化 1 次攻击 · 战吼伤害 +40%、效果范围 +25% · 战吼速度 / 冷却回复 +25% · 施放战吼回复 2% 生命与魔力 · 战吼至少有 10 点威力值</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>振奋呐喊</b><span class="en">Bolstering Yell</span></td><td>强化攻击造成的伤害提高 30%；战吼技能的效果范围提高 30%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>不屈 · 轻盈步伐 · 动量</b></td><td>近期被击中时攻速 +15% · 移速 +3%、免疫缓速与瘫痪 · 无视护甲带来的移速降低</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>战斗迷神 · 钢化防御 · 辉光之钢</b></td><td>+8 怒火上限 · 护甲 +25%、+15% 的护甲同样作用于元素伤害 · 护甲 +25%、晕眩阈值 +装备护甲的 30%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>激情冲动</b><span class="en">Adrenaline Rush</span></td><td>近期击败过敌人时移速 +4%、攻速 +8%</td><td class="n">—</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n x">✗</td></tr>
+      <tr><td><b>刚毅金属</b><span class="en">Sturdy Metal</span></td><td>装备身体护甲的护甲提高 80%</td><td class="n">—</td><td class="n">—</td><td class="n tri">△</td><td class="n tick">✓</td></tr>
+      <tr><td><b>卓绝防御</b><span class="en">Greatest Defence</span></td><td>装备盾牌每有 75 点物品护甲值与物品闪避，攻击伤害提高 4%</td><td class="n">—</td><td class="n">—</td><td class="n tri">△</td><td class="n tick">✓</td></tr>
+      <tr><td><b>冷酷无情</b><span class="en">Relentless</span></td><td>护甲提高 15%；生命每秒再生 0.5%；+10 力量</td><td class="n">—</td><td class="n">—</td><td class="n tri">△</td><td class="n tick">✓</td></tr>
+      <tr><td><b>淤血创痕 · 障目飞沙 · 巨人克星</b></td><td>生命 +3%、生命偷取量 +20% · 攻速 +10%、15% 致盲 · 击中稀有 / 传奇伤害 +25%、命中 +20%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td></tr>
+      <tr><td><b>继承力量 · 宝石爱好者</b></td><td>战吼 15% 几率额外强化 3 次攻击 · 镶嵌 10 个红色辅助时生命 +5%（蓝 / 绿对应魔力 / 移速）</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="small">
+    <li>作者正文：0.5 的树基本沿用 0.4；想尝鲜可以点瓦尔契约和“偷取时攻速”那几个偷取点，并说即时生命药剂在瓦尔契约下应该仍然有效（没测过），配欧罗什的决心很好<b class="src l">L</b>。poe2db 的瓦尔契约写的是「除偷取之外无法回复生命」，欧罗什的决心回复的是符文结界并在结束时给防卫，药剂那句话以游戏内为准<b class="src db">库</b>。原站所有变体都没点瓦尔契约。</li>
+    <li>重合度：换盾墙那一档主树与上一档重合 79%，Giga 与 Maps 主树重合 76%（算上武器组 82%），都没低于 70% 的洗点线；其余各档 100% 包含上一档<b class="src s">合</b>。</li>
+    <li>属性点（每个 +5）：Act 2 换盾墙 敏 4 · 智 4；间章与 Maps 力 17 · 敏 4 · 智 4；Giga 9 个，原站设成“任意”<b class="src l">L</b>。</li>
+  </ul>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <h2><span class="no">9</span>珠宝</h2>
+  <p>原站换盾墙那档点了第 1 个珠宝插槽，Act 4 起 2 个，Maps 3 个，Giga 4 个，但<b>所有变体的珠宝列表都是空的</b><b class="src l">L</b>。评论区 3 天前有人问 Maps / Giga 该用什么珠宝，作者没回<b class="src c">评</b>。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>插槽（原站节点编号）</th><th>从哪一档开始点</th><th>Lexd 同一插槽放了什么（按词缀 slug 意译）<b class="src x">X</b></th></tr></thead>
+    <tbody>
+      <tr><td class="mono">node-26725</td><td>Act 2 换盾墙</td><td>Mapping Start：流血几率 · 火焰穿透 / 旗帜持续时间 · 战吼速度；5–15 档：火焰伤害 % · 格挡 / 击退 · 火焰抗性上限；终局：传奇珠宝 无根之源</td></tr>
+      <tr><td class="mono">node-2491</td><td>Act 4</td><td>火焰伤害 % · 火焰穿透 / 变形速度 · 火焰抗性上限</td></tr>
+      <tr><td class="mono">node-54127</td><td>Maps</td><td>火焰伤害 % · 格挡 / 击中获得怒火 · 火焰抗性上限</td></tr>
+      <tr><td class="mono">node-55190</td><td>Giga</td><td>5–15 档：火焰伤害 % · 格挡 / 晕眩阈值 · 火焰抗性上限；终局：传奇珠宝 泉井之心</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Lexd 走火焰（火之化身）路线，珠宝以火焰伤害为主，不能照搬。两边都用得上的只有「击中获得怒火」：作者提到盛怒时说，有额外怒火获取的珠宝更好<b class="src l">L</b><b class="src s">合</b>。无根之源、泉井之心的中文名取自 poe2db 页面标题<b class="src db">库</b>；其余词缀按 slug 意译，没有逐条核对 poe2db 词缀页，视为暂译。</p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>搜索正则</h2>
+  <p>四条正则对应四个阶段，词元取 poe2db 简中原文。游戏内搜索框匹配已鉴定物品的完整文本，蓝装名称由「前缀名 + 底材 + 后缀名」拼成，所以词缀名和词缀文本都能命中；地上未鉴定的蓝装只有名称可读，这时只有词缀名和底材名有效。英文正则的 <code>^</code> <code>$</code> 锚点在简中失效（加值写在行尾），一律不用。词缀名后括号里是物品等级门槛，低于当前区域等级的档次才会出现。</p>
+  <div class="rx">
+    <div class="rx-head"><b>作者原版（英文客户端）</b><span class="range">原站正文 REGEX</span><button class="copy" type="button" data-for="rx0">复制</button></div>
+    <pre id="rx0">to.att|speed|melee|leech|tower|Leech</pre>
+    <div class="rx-body"><p>对应：攻击附加伤害（to Attacks）、各种速度、+近战技能等级、偷取、塔盾（Tower Shield）<b class="src l">L</b>。下面 ① 是它的简中版。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>① 起步 → 间章</b><span class="range">区域 1–56</span><button class="copy" type="button" data-for="rx1">复制</button></div>
+    <pre id="rx1">塔盾|战镐|近战技能等级|攻击附加|攻击速度提高|移动速度提高|偷取</pre>
+    <div class="rx-body"><p>全用词缀文本，没有等级门槛问题。「偷取」从物品等级 21 起才有（蝗虫之 / 干渴之）；「战镐」底材 22 级。22 级前用双手锤时，把「塔盾|战镐」换成「物理伤害提高」（重量的 1、锯齿的 8、邪恶的 16）<b class="src db">库</b>。战役抗性靠升华，作者说战役和终局都很容易封顶，所以这一层不收抗性<b class="src l">L</b>。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>② 65 级进图</b><span class="range">T1–T5 · 区域 65–74</span><button class="copy" type="button" data-for="rx2">复制</button></div>
+    <pre id="rx2">塔盾|士兵胸甲|粉碎护甲|近战技能等级 \+[23]|物品稀有度提高 1[5-9]|火焰抗性 \+3|猎豹的|偷取|健将的|柔缓的|坚不可摧的</pre>
+    <div class="rx-body"><p>士兵胸甲 65 级；粉碎护甲 = 锤子的渎灵后缀（显现后才看得到）；<code>近战技能等级 \+[23]</code> 命中锤子 +2 / +3（纷争之 36、激战之 55）与手套、项链 +2（决斗之 41）；稀有度 15–19% 同时命中帝金项链隐式；<code>火焰抗性 \+3</code> 命中 30–39%（火山之 60），不会命中「火焰抗性上限」；猎豹的 30% 移速（65）；健将的 +120–149 生命（60）；柔缓的 +222–248 护甲、坚不可摧的 护甲 92–100%（都是 65）。<b>撞名</b>：「坚不可摧的」「柔缓的」也出现在其他护甲部位的同类词缀上，只在盾牌上有意义<b class="src db">库</b><b class="src s">合</b>。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>③ 终局初期</b><span class="range">T10–T15 · 区域 75–85</span><button class="copy" type="button" data-for="rx3">复制</button></div>
+    <pre id="rx3">瓦尔塔盾|督军胸甲|巨型护手|瓦尔胫甲|不动的|无法通过的|长毛象的|保护者之|近战技能等级 \+[34]|火焰抗性 \+3|流亡之|丰饶的</pre>
+    <div class="rx-body"><p>瓦尔塔盾、瓦尔胫甲 75 级，督军胸甲、巨型护手 80 级；不动的 +249–277 护甲（75）、无法通过的 护甲 101–110%（75）、长毛象的 护甲 39–42% + 晕眩阈值（74）、保护者之 8% 额外物理伤害减免（77）；<code>近战技能等级 \+[34]</code> = 锤子激战之 / 征战之、项链激战之（75）；流亡之 混沌抗 20–23%（68）；丰饶的 腰带生命 150–174（65）。<b>撞名</b>：「瓦尔塔盾」同时命中符文瓦尔塔盾（护甲 221）、符文师匠瓦尔塔盾（203）和传奇「降伏」，按护甲数值挑<b class="src db">库</b>。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>④ 大后期</b><span class="range">Giga Endgame</span><button class="copy" type="button" data-for="rx4">复制</button></div>
+    <pre id="rx4">猎首|乌尔尼多的拥抱|沃拉娜的围城|瑞佛的凶猛|征战之|对护甲完全破损|地狱的|无法通过的|保护者之</pre>
+    <div class="rx-body"><p>征战之 +4 近战（81）、地狱的 35% 移速（82）是这一档才会掉的最高档；「对护甲完全破损」命中锤子的渎灵前缀（显现后）；三颗血统宝石写全名，免得撞到同家族宝石。</p></div>
+  </div>
+  <p class="small">原站没有物品过滤器（<code>lootFilter</code> 为空）<b class="src l">L</b>。四条长度约 30–70 个汉字，与英文原版一起放进搜索框前先确认长度没被截断。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>作者答疑与坑</h2>
+  <div class="callout warn"><span class="lab">作者明确说“必须 / 不要”的</span>
+    <ul>
+      <li><b>轰动猛击保持 1 级</b>；被迫升级时留一颗 1 级的备用<b class="src l">L</b>。</li>
+      <li><b>战吼放在武器组 2，其他技能放在武器组 1</b>（假设战吼大点点在武器组 2）——Act 2 之后每一档都写着 IMPORTANT<b class="src l">L</b>。</li>
+      <li>坚韧战吼要求武器组 2 也有盾牌：同一面盾可以锁定到两个武器组，在背包里右键装备上方的「I」<b class="src c">评</b>。</li>
+      <li><b>大地震击只打护甲完全破损的目标</b><b class="src c">评</b>。</li>
+      <li><b>先拿到乌尔尼多的拥抱，再重做终局锤子</b>，否则就没有护甲破损了<b class="src l">L</b>。乌尔尼多很贵，可以不买，把护甲破损留在别处<b class="src c">评</b>。</li>
+      <li>还没有完美工匠石，就从盾墙上拔掉范围扩大 II<b class="src l">L</b>。</li>
+      <li>重盾冲锋只放在武器组 1，瑞佛的凶猛才给攻速<b class="src l">L</b>。</li>
+      <li>第 2 幕一进来就捡一件普通胸甲（最好是力量底），升华后要用<b class="src l">L</b>。</li>
+    </ul>
+  </div>
+  <h3>机制说明（正文）</h3>
+  <ul>
+    <li>0.5 盾墙与坚韧战吼基础伤害下调，是为了抵消盾牌基础护甲上调；坚韧战吼的改动让它不能“霰弹”（一面墙的多个冲击波打同一目标），作者估计终局单体最坏少 30% 伤害。他认为 0.4 首周最强的构筑挨这一刀也合理<b class="src l">L</b><b class="src db">库</b>。</li>
+    <li>作者 0.2 版本开荒时是经验榜第一，0.2、0.3、0.4 开荒前几天经验榜顶端都有奇塔弗匠师<b class="src l">L</b>。</li>
+    <li>盾牌护甲的品质：用护甲片，找到更好的盾时拆掉旧盾，每 5% 品质返还 1 个护甲片<b class="src l">L</b>。</li>
+    <li>偷取：生命和魔力偷取都要，来自戒指或手套；没有也能玩，但近战技能等级加上去之后会一直按魔力药剂<b class="src l">L</b>。</li>
+    <li>缺点：22 级前没有主技能；装备顶到极限后伤害与清图不如别的构筑涨得多，可以刷一周后换一套<b class="src l">L</b>。</li>
+  </ul>
+  <h3>评论区（27 条，作者回复 10 条）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>谁问</th><th>要点</th></tr></thead>
+    <tbody>
+      <tr><td>PraiseThaSun88 · Pendaison</td><td>T8、T11 首领打很久 → 自己更正：伤害吃盾牌护甲，原来的盾太旧，1 个混沌石换了好盾就好了；另一位玩家也说“盾牌护甲对盾墙的爆炸伤害至关重要”。作者：不交易也能刷到融化 T15 首领的装备，“你缺了什么”；他会在正文里强调这一点（目前正文仍没有写）<b class="src c">评</b></td></tr>
+      <tr><td>Inversion472</td><td>什么时候换掉这套？作者：指南写到他自己会玩到的程度，一直玩到 Giga 档；乌尔尼多现在很贵，可以不买，把护甲破损放在别处<b class="src c">评</b></td></tr>
+      <tr><td>GrimFlame</td><td>这是开荒过渡构筑吗？作者：对，定位就是早期开荒，大部分内容 SSF 也能玩，能推很远，但最终会被别的构筑超过。清图：盾墙 + 战吼（炽焰或坚韧）或盾墙 + 重盾冲锋，精英和首领差别不大，多数怪应该一轮就死<b class="src c">评</b></td></tr>
+      <tr><td>FierceShadow</td><td>坚韧战吼要武器组 2 有盾 → 作者：把同一面盾锁到两个武器组<b class="src c">评</b></td></tr>
+      <tr><td>Gaafah · John</td><td>大地震击是否只在护甲破碎后用 → 是；跃击干什么用 → 只是位移，可以不用<b class="src c">评</b></td></tr>
+      <tr><td>DeadlyMask</td><td>为什么优先火抗？什么锤子伤害高？——作者没回；另一位玩家答：有 4–6 个升华点就点司炉的炭火，火抗按 50% 给冰电<b class="src c">评</b>。第二个问题（锤子）和“买什么盾”都没人答</td></tr>
+      <tr><td>Ash（3 天前）</td><td>Maps / Giga 用什么珠宝——作者没回<b class="src c">评</b></td></tr>
+      <tr><td>DrBeatz</td><td>自己多用了狼形态（龙爪撕裂、巨狼猛扑，配传奇魔符「奔涌潮汐」），玩得开心——属于个人改法<b class="src c">评</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>变体对应与逐槽位差异</h2>
+  <h3>原站 8 个变体与本页四阶段</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>原站变体</th><th>本页</th><th class="n">主树 · 武器组 · 升华节点</th><th class="n">宝石需求（原站口径）</th><th class="n">传奇</th><th>卡在哪</th></tr></thead>
+    <tbody>
+      <tr><td><b>Act 1 - Rolling slam/Boneshatter</b></td><td>① 前段</td><td class="n">17 · 0/0 · 0</td><td class="n">力 20 敏 10 智 20</td><td class="n">0</td><td>盾墙 22 级</td></tr>
+      <tr><td><b>Act 2 Before lvl 22</b></td><td>① 前段</td><td class="n">24 · 0/0 · 0</td><td class="n">力 25 敏 10 智 15</td><td class="n">0</td><td>同上</td></tr>
+      <tr><td><b>Act 2 - Shield Wall Swap</b></td><td>① 22 级换装</td><td class="n">32 · 4/4 · 3</td><td class="n">力 30 敏 15 智 15</td><td class="n">0</td><td>坚韧战吼、大地震击 31 级</td></tr>
+      <tr><td><b>Act 3</b></td><td>① 第 3 幕</td><td class="n">35 · 9/9 · 5</td><td class="n">力 45 敏 25 智 20</td><td class="n">0</td><td>高等工匠石（第 4 幕保底）</td></tr>
+      <tr><td><b>Act 4</b></td><td>① 第 4 幕</td><td class="n">50 · 13/13 · 5</td><td class="n">力 45 敏 30 智 15</td><td class="n">0</td><td>—</td></tr>
+      <tr><td><b>Interludes</b></td><td>① 终点</td><td class="n">68 · 17/17 · 5</td><td class="n">力 65 敏 35 智 15</td><td class="n">0</td><td>第 3 次升华（60）、65 级血统</td></tr>
+      <tr><td><b>Maps</b></td><td>② 原样（底材换 65 级）+ ③ 底材</td><td class="n">92 · 16/17 · 7</td><td class="n">力 80 敏 30 智 15</td><td class="n">2</td><td>75 / 80 级底材；盾牌 T1 词缀</td></tr>
+      <tr><td class="dim">（原站缺档）</td><td>③ <span class="chip tmp">推算</span></td><td class="n">—</td><td class="n">—</td><td class="n">2</td><td>第 4 次升华（80）</td></tr>
+      <tr><td><b>Giga Endgame</b></td><td>④ 原样</td><td class="n">98 · 19/20 · 9</td><td class="n">力 95 敏 30 智 15</td><td class="n">3</td><td>乌尔尼多的拥抱；猎首</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">「升华节点」不含起点；每档都比试炼点数多 1 个，见第 3 节。镜像级件数：0。④ 最贵的是猎首和乌尔尼多的拥抱，原站没给价格。</p>
+
+  <h3>逐档差异（增 / 删 / 改）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>从 → 到</th><th>装备</th><th>宝石</th><th>天赋 / 升华</th></tr></thead>
+    <tbody>
+      <tr><td>Act 1 → Act 2（22 前）</td><td><span class="chip chg">改</span>锻炉巨锤 40% → 镶钉巨棍 50%</td><td><span class="chip add">增</span>震波图腾（紧急图腾 I）、愤怒战吼；<span class="chip del">删</span>锤打击</td><td><span class="chip add">增</span>屠戮之械、燃烧打击、壮汉</td></tr>
+      <tr><td>→ Act 2 换盾墙</td><td><span class="chip chg">改</span>双手锤 → 战镐 +1；<span class="chip add">增</span>塑像塔盾、铁锻胸甲（普通）、铆接护手、红玉戒指</td><td><span class="chip add">增</span>盾墙、冰冻印记、跃击、重盾冲锋；<span class="chip del">删</span>轰动猛击、七伤破、完美一击、寒霜爆</td><td><span class="chip del">删</span>屠戮之械 + 4 个双手小点（重合 79%）；<span class="chip add">增</span>第 1 次升华 3 节点</td></tr>
+      <tr><td>→ Act 3</td><td><span class="chip chg">改</span>盾：徽纹塔盾 +57 · 27%</td><td><span class="chip add">增</span>坚韧战吼、大地震击、持久鏖战；盾墙、灰烬之捷换范围扩大 II</td><td><span class="chip add">增</span>刺耳怒吼、冲击之力、震荡中心；钽质合金、奇塔弗铭文</td></tr>
+      <tr><td>→ Act 4</td><td><span class="chip chg">改</span>盾：熔铸塔盾 43%</td><td><span class="chip add">增</span>盾墙第 4 孔护甲破损 III、穿刺替火焰协调；<span class="chip del">删</span>冰冻印记</td><td><span class="chip add">增</span>巨兽、熔岩者的馈赠、不屈、紧急呼喊</td></tr>
+      <tr><td>→ 间章</td><td>不变</td><td><span class="chip chg">改</span>燃怒战吼 II、沉重挥舞、快速攻击 III、狂怒 III；<span class="chip add">增</span>精准 I、吞灵 II</td><td><span class="chip add">增</span>轻盈步伐、动量、威压裁决、权威、咆哮战吼、振奋呐喊</td></tr>
+      <tr><td>→ Maps（本页 ②）</td><td><span class="chip add">增</span>头盔惊险刺激、鞋、项链、右戒、腰带、咒符；<span class="chip chg">改</span>锤子渎灵、瓦尔塔盾、督军胸甲、巨型护手（② 先用 65 级底材）</td><td><span class="chip add">增</span>汉恩的城塞、冈姆的疯狂、势大力沉、装甲回收；<span class="chip del">删</span>护甲破损 III、跃击</td><td><span class="chip add">增</span>战斗迷神、钢化防御、激情冲动、辉光之钢、一起上吧；+火抗小点、司炉的炭火</td></tr>
+      <tr><td>→ ③（推算）</td><td><span class="chip chg">改</span>盾牌提前做 Giga 词缀；四件护甲换回原站底材</td><td><span class="chip add">增</span>范围集中（坚韧战吼）、效能 II ×2；可选沃拉娜的围城、瑞佛的凶猛</td><td><span class="chip add">增</span>敬奉奇塔弗、绝热防护；Giga 大点先点刚毅金属、卓绝防御、冷酷无情</td></tr>
+      <tr><td>→ Giga（本页 ④）</td><td><span class="chip chg">改</span>锤子重做；腰带 → 猎首</td><td><span class="chip add">增</span>乌尔尼多的拥抱、盛怒；<span class="chip del">删</span>穿刺、范围扩大 II（盾墙）、持久鏖战</td><td><span class="chip del">删</span>22 点；<span class="chip add">增</span>34 点（重合 76%）；钽质合金 → 供奉尤图拉</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Lexd 那套的定位不同：他走火之化身，主手在 5–15 档用传奇「心脏之指引之掌」、终局用「神圣之火」（都是圣地权杖），终局头盔「收缩指令」、咒符「为了乌托邦」，升华还点了烈焰的淬炼与皮革绑绳<b class="src x">X</b>。本页只在 ③ 用他的盾牌、胸甲符文与珠宝位置做对照，主线仍是 Lundburgerr。</p>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>术语对照表</h2>
+  <p class="small">“poe2db”指 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同名页面对位；“暂译”为本页译名，游戏内可能不同。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>中文</th><th>English</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><td>奇塔弗匠师</td><td>Smith of Kitava</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>匠人的杰作 · 液态金属 · 熔火符印 · 钽质合金 · 奇塔弗铭文</td><td>Smith's Masterwork · Flowing Metal · Molten Symbol · Tantalum Alloy · Kitavan Engraving</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>司炉的炭火 · 敬奉奇塔弗 · 绝热防护 · 供奉尤图拉 · 烈焰的淬炼 · 皮革绑绳</td><td>Coal Stoker · Dedication to Kitava · Heatproofing · Tribute to Utula · Forged in Flame · Leather Bindings</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>盾墙 · 坚韧战吼 · 炽焰战吼 · 震波图腾 · 大地震击</td><td>Shield Wall · Fortifying Cry · Infernal Cry · Shockwave Totem · Sunder</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>灰烬之捷 · 装甲回收 · 持久鏖战 · 战旗 · 盛怒</td><td>Herald of Ash · Scavenged Plating · Attrition · War Banner · Berserk</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>重盾冲锋 · 跃击 · 冰冻印记 · 凶蛮咆哮 · 巨狼猛扑 · 架盾</td><td>Shield Charge · Leap Slam · Freezing Mark · Ferocious Roar · Pounce · Raise Shield</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>轰动猛击 · 七伤破 · 锤打击 · 完美一击 · 寒霜爆</td><td>Rolling Slam · Boneshatter · Mace Strike · Perfect Strike · Frost Bomb</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>盾护冲击波</td><td>（坚韧战吼触发的冲击波）</td><td><span class="chip ok">poe2db</span> 简中技能说明</td></tr>
+      <tr><td>汉恩的城塞 · 冈姆的疯狂 · 乌尔尼多的拥抱 · 沃拉娜的围城 · 瑞佛的凶猛</td><td>Ahn's Citadel · Kaom's Madness · Uul-Netol's Embrace · Vorana's Siege · Rigwald's Ferocity</td><td><span class="chip ok">poe2db</span> 血统辅助</td></tr>
+      <tr><td>快速攻击 · 范围扩大 · 范围集中 · 护甲破损 III · 穿刺 · 火焰协调</td><td>Rapid Attacks · Magnified Area · Concentrated Area · Armour Break III · Impale · Fire Attunement</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>愤怒战吼 · 燃怒战吼 · 冷酷 · 冷却回复 II · 效能 II · 近战 I / II</td><td>Raging Cry · Enraged Warcry · Tireless · Cooldown Recovery II · Efficiency II · Close Combat I / II</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>沉重挥舞 · 势大力沉 · 野性残暴 III · 狂怒 III · 精准 I · 吞灵 II</td><td>Heavy Swing · Heft · Brutality III · Rage III · Precision I · Cannibalism II</td><td><span class="chip ok">poe2db</span>（沉重挥舞的效果页未汉化）</td></tr>
+      <tr><td>紧急图腾 · 坚韧图腾 · 增强图腾 · 魔力源泉 · 持续时间延长 II</td><td>Urgent Totems · Hardy Totems · Reinforced Totems · Font of Mana · Prolonged Duration II</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>冲击震波 · 大好时机 I · 崩溃边缘 I · 死亡印记 · 虹吸印记</td><td>Impact Shockwave · Window of Opportunity I · Brink I · Mark for Death · Mark of Siphoning</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>战镐 · 锻炉巨锤 · 镶钉巨棍</td><td>Warpick · Forge Maul · Studded Greatclub</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>塑像 / 徽纹 / 熔铸 / 皇家 / 黑钢 / 瓦尔 / 塔赫亚 塔盾</td><td>Effigial / Heraldric / Crucible / Royal / Blacksteel / Vaal / Tawhoan Tower Shield</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>铁锻胸甲 · 士兵胸甲 · 督军胸甲 · 符文华丽战铠</td><td>Iron Cuirass · Soldier Cuirass · Warlord Cuirass · Runeforged Ornate Plate</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>铆接护手 · 骑士护手 · 堂皇护手 · 巨型护手 · 堡垒胫甲 · 图腾胫甲 · 瓦尔胫甲</td><td>Riveted Mitts · Knightly Mitts · Grand Mitts · Massive Mitts · Bulwark Greaves · Totemic Greaves · Vaal Greaves</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>帝金项链 · 红玉戒指 · 生皮腰带</td><td>Gold Amulet · Ruby Ring · Rawhide Belt</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>惊险刺激（螺旋巨盔）· 猎首（重革腰带）· 努葛玛呼的亲选（红玉咒符）</td><td>Thrillsteel · Headhunter · Ngamahu's Chosen</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>次级 / 高级钢铁符文 · 高级身躯符文</td><td>Lesser / Greater Iron Rune · Greater Body Rune</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>低等 / 高等 / 完美工匠石 · 护甲片 · 宝石匠的棱镜 · 未切割的技能宝石</td><td>Lesser / Greater / Perfect Jeweller's Orb · Armourer's Scrap · Gemcutter's Prism · Uncut Skill Gem</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>遗存颚骨 · 领主预兆 · 右旋 / 左旋死灵预兆 · 深渊回响预兆 · 破溃宝珠 · 剥离石 · 崇高石</td><td>Preserved Jawbone · Omen of the Liege · Omen of Dextral / Sinistral Necromancy · Omen of Abyssal Echoes · Fracturing Orb · Orb of Annulment · Exalted Orb</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>完美磨蚀精华 · 强效增强精华 · 强效丰裕精华 · 强效绝缘精华</td><td>Perfect Essence of Abrasion · Greater Essence of Enhancement / Opulence / Insulation</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>加速（涂油）· 液化恐惧 / 嫉妒 / 憎恶</td><td>Acceleration · Liquid Fear / Envy / Disgust</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>巨灵之币 · 丝克玛试炼 · 混沌试炼</td><td>Djinn Barya · Trial of the Sekhemas · Trial of Chaos</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>掩埋的殿堂 · 莫丹矿场 · 飞沙沼泽 · 纳卡努 · 塞卡莉圣所</td><td>Buried Shrines · Mawdun Mine · Sandswept Marsh · Ngakanu · Sel Khari Sanctuary</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>埃尔扎拉，眼镜蛇领主 · 马诺基，天命者 · 薛斯，万魔一体 · 梅德维德，堕落先知</td><td>（首领）</td><td><span class="chip ok">poe2db</span> 掉落页</td></tr>
+      <tr><td>阿扎卡（第 3 幕，给 30 精魂的首领所在地）</td><td>Azak</td><td><span class="chip tmp">沿用本仓库古灵使徒斗士页</span></td></tr>
+      <tr><td>护甲破损 · 护甲完全破损 · 粉碎护甲 · 护甲撕裂</td><td>Armour Break · Fully Broken Armour · Break Armour · （大地震击施加的减益，英文名未核对）</td><td><span class="chip ok">poe2db</span> 词缀 / 技能原文</td></tr>
+      <tr><td>渎灵 · 显现 · 猛攻 · 防卫 · 强化 · 威力值 · 怒火 · 精魂 · 武器组</td><td>Desecrate · Unveil · Onslaught · Guard · Empowered · Power · Rage · Spirit · Weapon Set</td><td><span class="chip ok">poe2db</span>（渎灵 / 显现取自预兆与通货说明）</td></tr>
+      <tr><td>凶残 · 碾碎 · 倾力裁决 · 回荡冲击 · 熔岩者的馈赠 · 一起上吧 · 刚毅金属 · 卓绝防御</td><td>Brutal · Smash · Crushing Verdict · Reverberating Impact · The Molten One's Gift · Pile On · Sturdy Metal · Greatest Defence</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>瓦尔契约 · 欧罗什的决心</td><td>Vaal Pact · Olroth's Resolve</td><td><span class="chip ok">poe2db</span></td></tr>
+      <tr><td>无根之源 · 泉井之心 · 心脏之指引之掌 · 神圣之火 · 收缩指令 · 为了乌托邦 · 奔涌潮汐 · 龙爪撕裂</td><td>From Nothing · Heart of the Well · Guiding Palm of the Heart · Sacred Flame · Constricting Command · For Utopia · Surge of the Tide · Rend</td><td><span class="chip ok">poe2db</span> 页面标题</td></tr>
+      <tr><td>Giga Endgame · Maps · Forbidden Rites</td><td>（原站变体名 / 赛季名）</td><td><span class="chip tmp">保留英文</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>数据核验</h2>
+  <h3>已核实 <span class="chip ok">已核实</span></h3>
+  <ul>
+    <li>原站数据：Mobalytics 页面内嵌的整页状态（第 38 版、8 个变体），2026-09-30 抓取；评论区 27 条全部展开。紧凑摘录见同目录 <code>_source.json</code>。</li>
+    <li>升华：poe2db 奇塔弗匠师页的节点效果、节点编号与连线（匠人的杰作连着 12 个胸甲大点；司炉的炭火前面有一个 +8% 火抗小点）；试炼区域等级 22 / 38 / 60 / 80、总 8 点、塞卡莉圣所首领保底巨灵之币。</li>
+    <li>宝石：等阶与需求等级表（盾墙等阶 7 → 22 级 41 力；坚韧战吼 / 大地震击等阶 9 → 31 级；盛怒等阶 14 → 58 级）、技能说明（盾牌上每有 15 点护甲附加 5 - 7 物理伤害等）、辅助效果与等阶、5 颗血统的需求等级 65、掉落等级 52 与掉落首领、三种工匠石的孔数与掉落等级。</li>
+    <li>补丁说明：0.3.0 加入坚韧战吼、液态金属改版；0.4.0 匠人的杰作每个相连大点 +200 护甲；0.5.0 坚韧战吼一面墙只消耗一层、冲击波不能重复命中同一敌人，盾墙 6 - 8 → 5 - 7。</li>
+    <li>装备：全部底材的需求、护甲与隐式；全部词缀的简中原文、档次名与物品等级（按“文本模板 + 数值区间”在 <code>/us/</code> 与 <code>/cn/</code> 同页对位匹配）；精华、预兆、颚骨、破溃宝珠的效果；惊险刺激、猎首、努葛玛呼的亲选；涂油 <code>movement_speed9</code> = 加速。</li>
+    <li>交易统计 ID：原站查询用到的 21 个 explicit 统计与 3 个 pseudo 统计，全部在主会话准备的国服简中统计表里，文本与 poe2db 简中词缀一致（盾牌固定护甲、盾牌护甲 %、命中、攻速四个是“(区域)”本地版）。</li>
+    <li>天赋：节点编号经 poe2db 天赋树映射成中文名；大点效果取 poe2db；各档之间主树与武器组的重合度按原站 <code>selectedSlugs</code> 计算。</li>
+    <li>原站「宝石需求」= 全部辅助的 +5 属性按颜色相加：Maps 25 个辅助 = 125，Giga 28 个带属性的辅助 = 140，均吻合。</li>
+  </ul>
+  <h3>原站自相矛盾或与数据库不符 <span class="chip bad">矛盾</span></h3>
+  <ol>
+    <li>升华节点每档都比试炼点数多 1 个（3 / 5 / 7 / 9 对 2 / 4 / 6 / 8）；正文“第一次升华三选二”也暗示匠人的杰作不占点，但 poe2db 没标点数，无法裁定。</li>
+    <li>熔火符印：正文写“25% 火焰伤害视为物理”，poe2db 是“25% 受到的击中物理伤害视为火焰”。</li>
+    <li>四条词缀超出可出的最高档：左戒生命偷取 8% / 魔力偷取 7%（戒指最高 7.9 / 6.9，这两个数其实是手套的档位）；手套 +150 生命（最高 149）；盾牌 +278 护甲（最高 277）；锤子获得 21% 额外物理（完美磨蚀精华在单手武器上最高 20%）。</li>
+    <li>手套的攻速交易过滤用了武器本地攻速的统计 ID（210067635），在手套上搜不到。</li>
+    <li>变体叫 Maps，但瓦尔塔盾、瓦尔胫甲要 75 级，督军胸甲、巨型护手要 80 级，65 级进图时穿不上。</li>
+    <li>间章正文写装甲回收挂持续时间延长 II、可用装甲回收替跃击，宝石数据里没有装甲回收；Maps 才加入。</li>
+    <li>正文说瓦尔契约下即时生命药剂应该仍然有效（作者注明没测试），poe2db 的瓦尔契约是“除偷取之外无法回复生命”；他推荐的欧罗什的决心回复的是符文结界。</li>
+    <li>作者在评论里说会在正文强调盾牌护甲的重要性，截至第 38 版正文仍没写。</li>
+  </ol>
+  <h3>本页的推算与取舍 <span class="chip tmp">合</span></h3>
+  <ul>
+    <li>③ 整档是推算：盾牌提前做 Giga 词缀、四件护甲换回原站底材、第 4 次升华先点敬奉奇塔弗再点绝热防护、5 孔补普通辅助、可选沃拉娜 / 瑞佛。依据是 Maps 与 Giga 两档逐槽位的差异，以及评论区对盾牌护甲的反馈；Lexd 的 5–15 档只作对照。</li>
+    <li>② 的四件 65 级替代底材（皇家 / 黑钢塔盾、士兵胸甲、骑士 / 堂皇护手、堡垒 / 图腾胫甲）是按 poe2db 底材表挑的，原站没写。</li>
+    <li>盾牌护甲、盾墙附加伤害、匠人的杰作护甲、火抗合计都是按 poe2db 数值手算，没算品质、天赋的护甲 % 和装备外的来源，只用来比较阶段。</li>
+    <li>交易查询里超档的数值下调到可出的档位（278 → 249、150 → 120、8 / 7 → 7 / 6、21 → 15），并删掉了手套的攻速过滤；这些查询没有实际跑过。</li>
+    <li>“锤子做出粉碎护甲之前别拔护甲破损 III”是按作者 Giga 档的提醒类推的。</li>
+    <li>升华点不够时的放弃顺序（第 3 节）是本页建议。</li>
+  </ul>
+  <h3>原站缺失 <span class="chip na">原站未给</span></h3>
+  <ul>
+    <li>生命、护甲、抗性、精魂的面板数值；药剂（所有变体都没填）；珠宝（插槽点了但没填，评论区有人问没回）。</li>
+    <li>Act 2 到间章的头盔、鞋子、项链、腰带；每个变体对应的角色等级。</li>
+    <li>「How it Works」「Changelog」两段是空的；任务奖励 28 条全为空；没有 PoB、没有物品过滤器、没有寻路图天赋。</li>
+    <li>评论区没答的：为什么优先火抗（其他玩家答了）、什么锤子伤害高、买什么盾、珠宝。</li>
+    <li>战役精魂 100（30 / 30 / 40）与阿扎卡首领名沿用本仓库古灵使徒斗士页当时的 poe2db 核对，本轮没重查；沉重挥舞的 poe2db 简中页效果未汉化，本页用英文原文转述。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>数据截至 2026-09-30 · 原作者 lundburgerr（Mobalytics）· Lexd 的攻略只作 ③ 的交叉参照 · 中文以 poe2db.tw 简中口径为准 · 由 poe2-build-cn 技能的数据与流程合成。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(mode){
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode); else root.removeAttribute('data-theme');
+    if (btn) btn.textContent = labels[mode] || labels.system;
+  }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){
+    mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system';
+    apply(mode);
+    try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {}
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var pre = document.getElementById(b.getAttribute('data-for'));
+      if (!pre) return;
+      var text = pre.textContent;
+      function done(ok){ var t = b.textContent; b.textContent = ok ? '已复制' : '已选中，按 Ctrl+C'; setTimeout(function(){ b.textContent = t; }, 1600); }
+      function selectIt(){ var r = document.createRange(); r.selectNodeContents(pre); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done(false); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function(){ done(true); }, selectIt); else selectIt();
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>奇塔弗匠师 · 盾墙 · 构筑索引</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 战士「奇塔弗匠师」盾墙开荒构筑（Lundburgerr）的 8 个原站变体、与本页四阶段的对应、门槛时间线与逐部位差异总表。">
+<style>
+:root{
+  --ground:#F1F3F6; --surface:#FFFFFF; --surface-2:#E5EAF0; --ink:#141C2B; --ink-2:#34425A; --muted:#566377; --line:#CDD5DF;
+  --accent:#2C5A88; --accent-soft:#DCE6F1; --brass:#8A571A; --brass-soft:#F3E6D2;
+  --ember:#A6361A; --ember-soft:#F7E0D7; --ok:#2A6C47; --ok-soft:#DCEEE2;
+  --plum:#5B4E9A; --plum-soft:#E7E3F4;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E131B; --surface:#151C27; --surface-2:#1C2533; --ink:#E3E8EF; --ink-2:#C3CCD8; --muted:#95A1B2; --line:#283345;
+    --accent:#86B4E2; --accent-soft:#17293C; --brass:#DCAA68; --brass-soft:#2E2416;
+    --ember:#F2957A; --ember-soft:#3B2019; --ok:#6CC08E; --ok-soft:#14301F;
+    --plum:#BBB3F2; --plum-soft:#26233D;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E131B; --surface:#151C27; --surface-2:#1C2533; --ink:#E3E8EF; --ink-2:#C3CCD8; --muted:#95A1B2; --line:#283345;
+  --accent:#86B4E2; --accent-soft:#17293C; --brass:#DCAA68; --brass-soft:#2E2416;
+  --ember:#F2957A; --ember-soft:#3B2019; --ok:#6CC08E; --ok-soft:#14301F;
+  --plum:#BBB3F2; --plum-soft:#26233D;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px;overflow-x:hidden}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1200px;margin:0 auto}
+.hero{padding-block:36px 26px;border-bottom:1px solid var(--line);display:grid;gap:18px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.crumbs a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:72ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.facts div{background:var(--surface);padding:10px 14px}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code{font-family:var(--mono);font-size:.88em}
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;white-space:nowrap;background:var(--surface-2);font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en{display:block}
+tr.here td{background:var(--accent-soft)}
+.matrix td{min-width:120px}
+.stagecards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:14px 0}
+.stagecards a{display:grid;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.stagecards a:hover{box-shadow:0 0 0 2px var(--accent) inset}
+.stagecards a.derived{border-style:dashed}
+.stagecards .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.stagecards b{font-family:var(--serif);font-size:1.1rem}
+.stagecards span.d{font-size:13px;color:var(--ink-2);line-height:1.55}
+.timeline{list-style:none;padding:0;margin:14px 0;display:grid;gap:0;max-width:780px}
+.timeline li{display:grid;grid-template-columns:5.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);margin:0}
+.timeline li:last-child{border-bottom:0}
+.timeline .lv{font-family:var(--mono);font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;text-align:right}
+footer{padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="crumbs">
+    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span><span>0.5.5 奇塔弗匠师 · 盾墙</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 战士 Warrior</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M26 12l11 4v9c0 7-5 12-11 15-6-3-11-8-11-15v-9z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M26 16v20M19 24h14" stroke="var(--brass)" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <h1>奇塔弗匠师 · 盾墙<span class="en">Lundburgerr's 0.5 Shield Wall Smith Leaguestarter</span></h1>
+  </div>
+  <p class="lede">原作者 lundburgerr 在 Mobalytics 发布的战士第三升华开荒构筑。1–21 级用双手锤轰动猛击 + 七伤破，22 级换成单手锤 + 塔盾。之后的伤害全部来自盾牌护甲：盾墙和坚韧战吼的盾护冲击波都按它算，大地震击负责收掉护甲已破碎的目标。防御靠一件普通胸甲，升华点把它变成抗性与护甲来源，装备只需堆火抗，进图后剩下的词缀位都能堆稀有度。原站有 8 个变体，从第 1 幕写到 Giga Endgame；本目录把它们合成四个阶段，写在一页里。</p>
+  <dl class="facts">
+    <div><dt>补丁</dt><dd>0.5.5</dd></div>
+    <div><dt>作者</dt><dd>lundburgerr</dd></div>
+    <div><dt>变体</dt><dd>8 个 · 合成 4 阶段</dd></div>
+    <div><dt>原站版本</dt><dd>第 38 版 · 2026-09-22</dd></div>
+    <div><dt>本页抓取</dt><dd>2026-09-30</dd></div>
+  </dl>
+  <p class="small">原站：<a href="https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr" target="_blank" rel="noopener">Mobalytics</a> · 标签：Starter / Speed Leveling / Mirror Tier / Beginner / Verified · 2026-05-27 首发 · 881 收藏 · 27 条评论 · 没有 PoB、没有物品过滤器</p>
+</header>
+
+<main>
+
+<section id="synthesis">
+  <h2>合成四阶段</h2>
+  <p>四个阶段的边界按硬阻断划分：22 级盾墙、65 级血统辅助与完美工匠石、75 / 80 级底材、乌尔尼多的拥抱。每个阶段都写了“从上一阶段走到这一阶段”的操作步骤，也标出了原站的几处超档数值和升华点数对不上的问题。配置、逐件词缀、搜索正则与数据核验都在同一页。</p>
+  <div class="stagecards">
+    <a href="合成四阶段.html#st1"><span class="n">① 阶段</span><b>起步 → 间章</b><span class="d">1–约 56 级。双手锤开荒，22 级换盾墙与普通胸甲，31 级补坚韧战吼、大地震击，第 4 幕盾墙挂护甲破损 III。零预算。</span></a>
+    <a href="合成四阶段.html#st2"><span class="n">② 阶段</span><b>65 级进图</b><span class="d">约 56–74 级，T1–T5。第 3 次升华拿司炉的炭火，65 级上汉恩的城塞 + 冈姆的疯狂；锤子渎灵“粉碎护甲”；抗性只堆火，其余堆稀有度。</span></a>
+    <a href="合成四阶段.html#st3" class="derived"><span class="n">③ 阶段 · 推算</span><b>终局初期</b><span class="d">75–85 级，T10–T15。原站缺档。先把盾牌做到 Giga 词缀，四件护甲换回 75 / 80 级底材，第 4 次升华先点敬奉奇塔弗。</span></a>
+    <a href="合成四阶段.html#st4"><span class="n">④ 阶段</span><b>大后期</b><span class="d">原站 Giga Endgame。乌尔尼多的拥抱到手后重做锤子，腰带换猎首，盛怒替持久鏖战，天赋退 22 点。</span></a>
+  </div>
+  <p><a href="合成四阶段.html">打开合成四阶段.html</a></p>
+</section>
+
+<section id="variants">
+  <h2>原站变体与本页四阶段</h2>
+  <p class="small">阶段与差异由原站数据计算。「重合」是本档与上一档主树选点的交集占上一档的比例，低于 70% 标「需要洗点」——这套构筑没有一档低于 70%。宝石需求是原站数字，等于全部辅助宝石的「+5 属性」按颜色相加，不是面板需求。升华节点不含起点，每档都比试炼点数多 1 个，原因未能核实。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>原站变体</th><th>本页</th><th>与上一档的主要变化</th><th class="n">传奇</th><th>宝石需求（原站）</th><th>天赋 · 升华</th><th>卡在哪</th></tr></thead>
+    <tbody>
+      <tr><td><b>Act 1 - Rolling slam/Boneshatter</b><span class="en">default</span></td><td>① 前段</td><td>锻炉巨锤；轰动猛击（保持 1 级）+ 七伤破、锤打击、完美一击</td><td class="n">0</td><td class="n">力 20 · 敏 10 · 智 20</td><td class="n">主树 17 · 升华 0</td><td>盾墙等阶 7，22 级</td></tr>
+      <tr><td><b>Act 2 Before lvl 22</b><span class="en">{3}</span></td><td>① 前段</td><td>镶钉巨棍；加震波图腾（先切好备用）、愤怒战吼</td><td class="n">0</td><td class="n">力 25 · 敏 10 · 智 15</td><td class="n">主树 24（重合 100%）</td><td>同上</td></tr>
+      <tr class="here"><td><b>Act 2 - Shield Wall Swap</b><span class="en">{2}</span></td><td>① 22 级换装</td><td>换战镐 + 塑像塔盾 + 普通铁锻胸甲；盾墙、冰冻印记、重盾冲锋；第 1 次升华</td><td class="n">0</td><td class="n">力 30 · 敏 15 · 智 15</td><td class="n">主树 32（重合 79%）+ 武器组 4 / 4 · 升华 3</td><td>坚韧战吼 / 大地震击 31 级</td></tr>
+      <tr class="here"><td><b>Act 3</b><span class="en">{4}</span></td><td>① 第 3 幕</td><td>加坚韧战吼、大地震击、持久鏖战；徽纹塔盾；钽质合金 + 奇塔弗铭文（第 2 次升华可选）</td><td class="n">0</td><td class="n">力 45 · 敏 25 · 智 20</td><td class="n">主树 35 + 9 / 9 · 升华 5</td><td>高等工匠石</td></tr>
+      <tr class="here"><td><b>Act 4</b><span class="en">{5}</span></td><td>① 第 4 幕</td><td>盾墙第 4 孔护甲破损 III，删冰冻印记；熔铸塔盾</td><td class="n">0</td><td class="n">力 45 · 敏 30 · 智 15</td><td class="n">主树 50 + 13 / 13 · 升华 5</td><td>—</td></tr>
+      <tr class="here"><td><b>Interludes</b><span class="en">{6}</span></td><td>① 终点</td><td>第 5 档辅助：燃怒战吼 II、沉重挥舞、快速攻击 III、狂怒 III、精准 I、吞灵 II</td><td class="n">0</td><td class="n">力 65 · 敏 35 · 智 15</td><td class="n">主树 68 + 17 / 17 · 升华 5</td><td>第 3 次升华 60；血统 65</td></tr>
+      <tr class="here"><td><b>Maps</b><span class="en">{7}</span></td><td>② 原样（底材换 65 级）· ③ 的底材</td><td>汉恩的城塞 + 冈姆的疯狂；锤子渎灵粉碎护甲；惊险刺激、努葛玛呼的亲选；全身稀有度；司炉的炭火</td><td class="n">2</td><td class="n">力 80 · 敏 30 · 智 15</td><td class="n">主树 92 + 16 / 17 · 升华 7</td><td>瓦尔塔盾 / 瓦尔胫甲 75，督军胸甲 / 巨型护手 80</td></tr>
+      <tr><td class="small">（原站缺档）</td><td>③ <span class="chip tmp">推算</span></td><td>盾牌做 Giga 词缀；四件护甲回到原站底材；第 4 次升华：敬奉奇塔弗、绝热防护；5 孔补齐</td><td class="n">2</td><td class="n">—</td><td class="n">不洗点</td><td>第 4 次升华 80</td></tr>
+      <tr class="here"><td><b>Giga Endgame</b><span class="en">{8}</span></td><td>④ 原样</td><td>乌尔尼多的拥抱、沃拉娜的围城、瑞佛的凶猛、盛怒；锤子重做；猎首；盾牌 140% 护甲 + 8% 额外物理减伤</td><td class="n">3</td><td class="n">力 95 · 敏 30 · 智 15</td><td class="n">主树 98（重合 76%）+ 19 / 20 · 升华 9</td><td>乌尔尼多的拥抱（作者：很贵）</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">镜像级传奇：0 件。④ 最贵的两件是猎首和乌尔尼多的拥抱，原站没给价格；作者说乌尔尼多可以不买。</p>
+</section>
+
+<section id="gates">
+  <h2>门槛时间线</h2>
+  <ul class="timeline">
+    <li><span class="lv">1–21</span><span>双手锤：轰动猛击（1 级，只堆晕眩）+ 七伤破。第 2 幕切好震波图腾（莫丹矿场首领保底 6 级技能宝石），进第 2 幕就捡一件普通胸甲。</span></li>
+    <li><span class="lv">22</span><span>盾墙（等阶 7，41 力，要护甲盾牌）+ 丝克玛试炼第 1 次升华；掩埋的殿堂大概率保底低等工匠石。战吼放武器组 2，盾牌锁定两个武器组。</span></li>
+    <li><span class="lv">31–38</span><span>坚韧战吼、大地震击（等阶 9）；飞沙沼泽保底低等工匠石给坚韧战吼；阿扎卡首领 +30 精魂 → 持久鏖战；第 2 次升华（38）可选。</span></li>
+    <li><span class="lv">约 53</span><span>纳卡努保底高等工匠石 → 盾墙第 4 孔护甲破损 III，删冰冻印记。</span></li>
+    <li><span class="lv">55–60</span><span>间章塞卡莉圣所首领埃尔扎拉首杀保底巨灵之币 → 第 3 次升华（区域 60），一次补齐钽质合金、奇塔弗铭文、司炉的炭火。</span></li>
+    <li><span class="lv">65</span><span>汉恩的城塞 + 冈姆的疯狂（血统，需求 65）；完美工匠石开始掉落（盾墙第 5 孔）；锤子渎灵“粉碎护甲”（颚骨掉落 61，词缀物品等级 65）。</span></li>
+    <li><span class="lv">74–80</span><span>瓦尔塔盾、瓦尔胫甲（75）；盾牌 T1 词缀（74–77）；督军胸甲、巨型护手（80）；第 4 次升华（区域 80）。</span></li>
+    <li><span class="lv">终局</span><span>乌尔尼多的拥抱（薛斯掉落，需求 65）到手后再重做锤子；猎首；退 22 个天赋点。</span></li>
+  </ul>
+</section>
+
+<section id="matrix">
+  <h2>变体间差异总表</h2>
+  <p class="small">底材名取 poe2db 简中；「—」为原站该档没填。② 的 65 级替代底材与 ③ 列是本页推算，逐件词缀见合成页第 7 节。</p>
+  <div class="scroll"><table class="matrix">
+    <thead><tr><th>部位</th><th>Act 1</th><th>Act 2 &lt;22</th><th>Act 2 换装</th><th>Act 3</th><th>Act 4 · 间章</th><th>Maps（②）</th><th>③ 推算</th><th>Giga（④）</th></tr></thead>
+    <tbody>
+      <tr><th>主技能</th><td colspan="2">轰动猛击 + 七伤破</td><td colspan="6">盾墙（Act 3 起 + 坚韧战吼、大地震击）</td></tr>
+      <tr><th>主手</th><td>锻炉巨锤</td><td>镶钉巨棍</td><td colspan="3">战镐 +1 近战</td><td colspan="2">战镐 +3 · 粉碎护甲 · 额外物理</td><td>战镐 +3 · 对完全破损 +41% · 额外物理</td></tr>
+      <tr><th>副手</th><td colspan="2">—</td><td>塑像塔盾</td><td>徽纹塔盾</td><td>熔铸塔盾</td><td>瓦尔塔盾（② 皇家 / 黑钢塔盾）</td><td colspan="2">瓦尔塔盾 · 140% · 8% 额外物理减伤</td></tr>
+      <tr><th>头盔</th><td colspan="5">—</td><td colspan="3">惊险刺激</td></tr>
+      <tr><th>身体（普通）</th><td colspan="2">—</td><td colspan="3">铁锻胸甲</td><td>督军胸甲（② 士兵胸甲）</td><td colspan="2">督军胸甲</td></tr>
+      <tr><th>手套</th><td colspan="2">—</td><td colspan="3">铆接护手</td><td>巨型护手（② 骑士 / 堂皇护手）</td><td colspan="2">巨型护手</td></tr>
+      <tr><th>鞋子</th><td colspan="5">—</td><td>瓦尔胫甲（② 堡垒 / 图腾胫甲）</td><td colspan="2">瓦尔胫甲</td></tr>
+      <tr><th>项链</th><td colspan="5">—</td><td colspan="3">帝金项链 · 涂油 加速</td></tr>
+      <tr><th>戒指</th><td colspan="2">—</td><td colspan="3">红玉戒指 ×1</td><td colspan="3">红玉戒指 ×2</td></tr>
+      <tr><th>腰带</th><td colspan="5">—</td><td colspan="2">生皮腰带</td><td>猎首</td></tr>
+      <tr><th>咒符</th><td colspan="5">—</td><td colspan="3">努葛玛呼的亲选</td></tr>
+      <tr><th>升华</th><td colspan="2">—</td><td>杰作 · 液态金属 · 熔火符印</td><td colspan="2">+ 钽质合金 · 奇塔弗铭文</td><td>+ 火抗小点 · 司炉的炭火</td><td>+ 敬奉奇塔弗 · 绝热防护</td><td>钽质合金 → 供奉尤图拉</td></tr>
+      <tr><th>珠宝插槽</th><td colspan="2">0</td><td colspan="2">1（未填）</td><td>2（未填）</td><td colspan="2">3（未填）</td><td>4（未填）</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="notes">
+  <h2>生成记录</h2>
+  <ul class="small">
+    <li>本目录由 poe2-build-cn 技能生成；<code>_source.json</code> 是在浏览器里读出的紧凑摘录（变体装备、宝石、天赋点数与核心大点、正文、评论、poe2db 查询结果、Lexd 对照数据、交易统计 ID 的简中文本），不是整页状态。</li>
+    <li>中英对照一律取 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同页对位；交易统计 ID 已对照国服交易站的简中统计表。</li>
+    <li>Lexd 的「0.5.5 Shield Wall + Avatar of Fire Smith of Kitava Build」只在 ③ 推算时作交叉参照，没有单独生成页面。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><p>由 poe2-build-cn 技能生成 · 数据截至 2026-09-30 · 原作者 lundburgerr（Mobalytics）</p></footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>奇塔弗匠师 · 重殴 · 构筑索引</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 战士「奇塔弗匠师」火熊构筑（Skadoosh BALROG Fire Bear Fury of the King）的 7 个原站变体、与本页四阶段的对应、门槛时间线与入口。">
+<style>
+:root{
+  --ground:#F6F1EC; --surface:#FFFFFF; --surface-2:#EFE6DE; --ink:#23150F; --ink-2:#47322A; --muted:#6C5A51; --line:#DDCFC4;
+  --accent:#B0401A; --accent-soft:#F8E2D6; --brass:#84600F; --brass-soft:#F3E7CB;
+  --ember:#A3202F; --ember-soft:#F8DDE0; --ok:#2B6E45; --ok-soft:#DCEEE2;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#150E0C; --surface:#1E1512; --surface-2:#281C17; --ink:#F1E7DF; --ink-2:#D8C8BC; --muted:#A8958A; --line:#3B2B24;
+    --accent:#F38A52; --accent-soft:#3F2115; --brass:#E3B65E; --brass-soft:#34281A;
+    --ember:#F27D86; --ember-soft:#40191E; --ok:#73C28F; --ok-soft:#15301F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#150E0C; --surface:#1E1512; --surface-2:#281C17; --ink:#F1E7DF; --ink-2:#D8C8BC; --muted:#A8958A; --line:#3B2B24;
+  --accent:#F38A52; --accent-soft:#3F2115; --brass:#E3B65E; --brass-soft:#34281A;
+  --ember:#F27D86; --ember-soft:#40191E; --ok:#73C28F; --ok-soft:#15301F;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1200px;margin:0 auto}
+.hero{padding-block:36px 26px;border-bottom:1px solid var(--line);display:grid;gap:18px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.crumbs a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:72ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.facts div{background:var(--surface);padding:10px 14px}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code{font-family:var(--mono);font-size:.88em}
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;white-space:nowrap;background:var(--surface-2);font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en{display:block}
+tr.here td{background:var(--accent-soft)}
+.stages{list-style:none;margin:14px 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;max-width:none}
+.stages li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start}
+.stages .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.stages b{font-family:var(--serif);font-size:1.1rem;line-height:1.3}
+.stages .lv{font-size:13px;color:var(--ink-2)}
+.stages p{font-size:13.5px;margin:0;color:var(--ink-2)}
+.stages a{font-size:13px}
+.timeline{list-style:none;padding:0;margin:14px 0;display:grid;gap:0;max-width:780px}
+.timeline li{display:grid;grid-template-columns:5.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);margin:0}
+.timeline li:last-child{border-bottom:0}
+.timeline .lv{font-family:var(--mono);font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;text-align:right}
+footer{padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="crumbs">
+    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span><span>0.5.5 奇塔弗匠师 · 重殴火熊</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 战士 Warrior · 奇塔弗匠师 Smith of Kitava</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M14 34l6-10 4 5 3-9 4 7 3-5 4 12z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M13 38c3-1.4 6-1.4 9 0s6 1.4 9 0 6-1.4 8 0" fill="none" stroke="var(--ember)" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <h1>奇塔弗匠师 · 重殴火熊<span class="en">[0.5.5] BALROG - (1* button) Fire Bear Fury of the King Kitava</span></h1>
+  </div>
+  <p class="lede">Skadoosh 在 Mobalytics 发布的奇塔弗匠师构筑：巨熊形态的凶蛮咆哮里镶嵌先祖战吼，化身冈姆后每一步都是火山踏步；灾厄行者靠怒火与耐力球循环常驻；踏步引爆熔岩裂缝，再触发升华给的击中时火焰法术（活动炸弹）和元素异常状态时施放（彗星落）。终局用传奇魔符「君王之怒」让荣耀自动再生。原站 7 个变体，本目录把它们合成四个阶段放在一页里。</p>
+  <dl class="facts">
+    <div><dt>补丁</dt><dd>0.5.5</dd></div>
+    <div><dt>作者</dt><dd>Skadoosh</dd></div>
+    <div><dt>变体</dt><dd>7 个 · 合成 4 阶段</dd></div>
+    <div><dt>原站版本</dt><dd>第 448 版 · 2026-09-16</dd></div>
+    <div><dt>本页抓取</dt><dd>2026-09-30</dd></div>
+  </dl>
+  <p class="small">原站：<a href="https://mobalytics.gg/poe-2/builds/balrog-fire-bear-smith" target="_blank" rel="noopener">Mobalytics</a> · 标签：Starter / End Game / 0.5.5 FR · 官方认证 · 2025-12-05 首发 · 2,034 收藏 · 12 条评论 · PoB 为 94 级配置</p>
+</header>
+
+<main>
+
+<section id="synthesis">
+  <h2>合成四阶段</h2>
+  <p>把原站 Act 1–4、Endgame、Uber Endgame 合成 50 级之前 → 65 级初入异界 → 终局初期 → 大后期一条路线。每个阶段都有「从上一阶段走到这一阶段」的操作步骤：什么时候换技能换装、先买哪件、升华怎么点、要不要洗点、达到什么就进下一阶段。配置、逐件词缀与交易链接、四层搜索正则和数据核验都在那一页。</p>
+  <ol class="stages">
+    <li><span class="n">① 阶段</span><b>50 级之前</b><span class="lv">1–52 级 · 原站 Act 1 → Act 4+</span><p>普通巨熊：重殴攒怒火、狂怒猛击 / 横冲直撞，2 号武器组双手锤放锻造之锤；第 1 次升华拿锻炉的热浪。</p><a href="合成四阶段.html#st1">打开 ①</a></li>
+    <li><span class="n">② 阶段</span><b>65 级初入异界</b><span class="lv">52–74 级 · 本页推算</span><p>先祖战吼 52 级解锁后整树洗点进 Endgame 天赋；奔涌潮汐 + 元素异常状态时施放；首饰直接按 Endgame 做，鞋手胸甲锤用 45–65 级过渡底材。</p><a href="合成四阶段.html#st2">打开 ②</a></li>
+    <li><span class="n">③ 阶段</span><b>终局初期</b><span class="lv">75–85 级 · 原站 Endgame</span><p>70–77 级底材到位（庞然大锤要 163 力量），80 级第 4 次升华，项链涂激变浪潮。</p><a href="合成四阶段.html#st3">打开 ③</a></li>
+    <li><span class="n">④ 阶段</span><b>大后期</b><span class="lv">85 级后 · 原站 Uber Endgame</span><p>君王之怒自带熔岩冲击、荣耀自动再生；血统辅助、不朽之恨 → 瓦尔契约；7 件传奇。泰坦版作为分支说明。</p><a href="合成四阶段.html#st4">打开 ④</a></li>
+  </ol>
+  <p><a href="合成四阶段.html">打开合成四阶段.html</a></p>
+</section>
+
+<section id="variants">
+  <h2>原站变体与本页阶段的对应</h2>
+  <p class="small">变体顺序与原站选择器一致。「天赋重合」是本档主树与上一档的交集占上一档的比例，低于 70% 标「需要洗点」。宝石需求为原站数字，等于全部辅助宝石的「+5 属性」按颜色相加，不是面板需求。升华点数原站 Act 3 之后每档都多列 1 点（试炼只给 2 / 4 / 6 / 8）。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>原站变体</th><th>本页阶段</th><th>定位</th><th class="n">传奇</th><th>宝石需求（原站）</th><th>天赋</th><th>卡在哪</th></tr></thead>
+    <tbody>
+      <tr><td><b>Act 1</b><span class="en">id 2</span></td><td>① 前段</td><td>重殴 + 狂怒猛击 + 震波图腾；白色铁锻胸甲与锻铁戒指</td><td class="n">0</td><td>力 20 · 敏 10 · 智 0</td><td>主树 18</td><td>要一把魔符（商人或德鲁伊小号）</td></tr>
+      <tr><td><b>Act 2</b><span class="en">id 3</span></td><td>①</td><td>加凶蛮咆哮、击中时火焰法术（活动炸弹）；2 号组双手锤 + 火山裂缝</td><td class="n">0</td><td>力 35 · 敏 10 · 智 0</td><td>主树 28 · 武器组 6 / 6 · 重合 100%</td><td>第 1 次升华（区域 22）</td></tr>
+      <tr><td><b>Act 3</b><span class="en">id 4</span></td><td>①</td><td>锻造之锤、装甲回收；匠人的杰作</td><td class="n">0</td><td>力 40 · 敏 10 · 智 0</td><td>主树 41 · 10 / 10 · 重合 96%</td><td>第 2 次升华（38）</td></tr>
+      <tr><td><b>Act 4+</b><span class="en">id 5</span></td><td>① 末段</td><td>横冲直撞取代狂怒猛击；52 级灾厄行者</td><td class="n">0</td><td>力 35 · 敏 10 · 智 0</td><td>主树 59 · 17 / 17 · 重合 83%</td><td>先祖战吼 52 级</td></tr>
+      <tr class="here"><td><i>（原站无）</i></td><td><b>②</b></td><td>本页推算：Endgame 骨架 + 45–65 级底材</td><td class="n">2</td><td>同 Endgame</td><td><span class="chip bad">需要洗点</span> 与 Act 4+ 重合 34%</td><td>70–77 级底材</td></tr>
+      <tr class="here"><td><b>Endgame</b><span class="en">id 9</span></td><td>③</td><td>先祖战吼 + 灾厄行者 + 奔涌潮汐，全稀有装</td><td class="n">2</td><td>力 95 · 敏 10 · 智 20</td><td>主树 75 · 19 / 19</td><td>庞然大锤 77 级 163 力；第 4 次升华 80</td></tr>
+      <tr class="here"><td><b>Uber Endgame</b><span class="en">id 8</span></td><td>④</td><td>君王之怒 + 熔岩冲击；残血束腰、咒者斗篷、不朽之恨</td><td class="n">7</td><td>力 95 · 敏 25 · 智 60</td><td>主树 93 · 24 / 24 · 重合 99%</td><td>君王之怒（需求 72）</td></tr>
+      <tr><td><b>Uber Endgame (Titan)</b><span class="en">id 10</span></td><td>④ 分支</td><td>泰坦升华、暴击、巨铜之顶、忠诚之锤、预兆权杖；不再触发法术</td><td class="n">6</td><td>力 90 · 敏 20 · 智 40</td><td>主树 95 · 24 / 24 · 与 Uber 重合 74%</td><td>重跑最后一层试炼改升华</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="gates">
+  <h2>门槛时间线</h2>
+  <ul class="timeline">
+    <li><span class="lv">1–10</span><span>开局要一把魔符；烬皮魔符需求 10。</span></li>
+    <li><span class="lv">区域 22</span><span>第 2 幕第 1 次丝克玛试炼：火焰伤害小点 + 锻炉的热浪（击中时火焰法术）。凶蛮咆哮 22 级可用。</span></li>
+    <li><span class="lv">31–41</span><span>锻造之锤（31）；38 级第 2 次试炼：匠人的杰作——此后只能穿普通胸甲；横冲直撞、彗星落（41）。</span></li>
+    <li><span class="lv">52</span><span>灾厄行者、先祖战吼、先祖战士图腾（等阶 13）；奔涌潮汐、蹒跚魔符。第 4 幕哈特林船长奖励一颗 13 级技能宝石。切 Endgame 天赋要洗点。</span></li>
+    <li><span class="lv">54–58</span><span>间章利萨拉 +40 精魂（战役精魂合计 100）；58 级元素异常状态时施放（100 精魂）、能量球调节（等阶 14）。</span></li>
+    <li><span class="lv">60–65</span><span>第 3 次试炼（60）；血统辅助需求 65（掉落等级 52）；默克领主的仲夏符文、克林斯昂的守护符文 65 级起掉；30% 移速（猎豹的）65。</span></li>
+    <li><span class="lv">70–77</span><span>华丽战铠、咒者斗篷 70；君王之怒 72；瓦尔胫甲 / 瓦尔护手 75；庞然大锤 77（163 力量）。</span></li>
+    <li><span class="lv">80+</span><span>第 4 次试炼（80）；隐秘之冠、丝克玛便鞋、海妖之鳞手套 80；地狱的 35% 移速 82。</span></li>
+  </ul>
+</section>
+
+<section id="notes">
+  <h2>生成记录</h2>
+  <ul class="small">
+    <li>本目录由 poe2-build-cn 技能的流程生成；<code>_source.json</code> 是在浏览器里读出的紧凑摘录（7 个变体的装备、宝石、天赋选点与节点编号、正文与更新日志、各变体说明、评论、PoB 摘要、poe2db 对照与词缀档次），不是整页状态。</li>
+    <li>中英对照一律取 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同页对位；交易过滤条件的中文与国服交易站统计 ID 对照表核对过。交易链接按原站过滤条件重建，未实际运行。</li>
+    <li>原站没有「刚进图」档，② 为本页推算，推算部分在页面里逐条标注。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><p>由 poe2-build-cn 技能生成 · 数据截至 2026-09-30 · 原作者 Skadoosh（Mobalytics）</p></footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>
