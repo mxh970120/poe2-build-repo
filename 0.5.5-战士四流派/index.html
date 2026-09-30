@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>战士四流派对比</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 战士（Warrior）四套构筑逻辑互不相同的攻略总览：重殴火熊、盾墙、腐化战吼图腾、猛击泰坦，逐阶段对照硬阻断、传奇投入与洗点。">
+<style>
+:root{
+  --ground:#F1F4F3; --surface:#FFFFFF; --surface-2:#E6ECEA; --ink:#152032; --ink-2:#36435A; --muted:#5B687A; --line:#D0D9DA;
+  --accent:#0A7580; --accent-soft:#DCEEEF; --brass:#8A6012; --warn:#9A3412; --warn-soft:#FBE8DC;
+  --c-bear:#B0401A; --c-wall:#2C5A88; --c-totem:#1A6E45; --c-titan:#955810;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1420; --surface:#131C2B; --surface-2:#1A2536; --ink:#E2E8EF; --ink-2:#C1CBD8; --muted:#93A0B2; --line:#26334A;
+    --accent:#47C2CA; --accent-soft:#11323A; --brass:#DDB25A; --warn:#F4A67A; --warn-soft:#3A2016;
+    --c-bear:#F38A52; --c-wall:#86B4E2; --c-totem:#4CC38A; --c-titan:#E3A457;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1420; --surface:#131C2B; --surface-2:#1A2536; --ink:#E2E8EF; --ink-2:#C1CBD8; --muted:#93A0B2; --line:#26334A;
+  --accent:#47C2CA; --accent-soft:#11323A; --brass:#DDB25A; --warn:#F4A67A; --warn-soft:#3A2016;
+  --c-bear:#F38A52; --c-wall:#86B4E2; --c-totem:#4CC38A; --c-titan:#E3A457;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1120px;margin:0 auto}
+header{padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:12px}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.2;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+p{margin:0 0 12px;max-width:74ch;color:var(--ink-2)}
+.small{font-size:13px;color:var(--muted)}
+.bar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:30px 8px}
+h2{font-family:var(--serif);font-size:1.4rem;margin:0 0 12px;text-wrap:balance}
+h3{font-family:var(--serif);font-size:1.12rem;line-height:1.35;margin:0}
+.en{display:block;color:var(--muted);font-size:.86em;font-weight:400}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:16px 16px 14px;display:grid;gap:10px;align-content:start}
+.card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--c)}
+.card .src{font-size:12.5px;color:var(--muted);line-height:1.55}
+.card .chain{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.card .chain li{position:relative;padding-left:16px}
+.card .chain li::before{content:"→";position:absolute;left:0;color:var(--c)}
+.card .chain li:first-child::before{content:"●";font-size:9px;top:5px}
+.card .dmg{font-size:13px;color:var(--ink-2)}
+.card .dmg b{color:var(--ink)}
+.card .links{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:4px;border-top:1px dashed var(--line)}
+.bear{--c:var(--c-bear)} .wall{--c:var(--c-wall)} .totem{--c:var(--c-totem)} .titan{--c:var(--c-titan)}
+
+/* tables */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:12.5px;font-weight:600;color:var(--ink-2);background:var(--surface-2);white-space:nowrap;border-top:3px solid var(--c,transparent)}
+tbody th{font-weight:600;white-space:nowrap;color:var(--ink);background:var(--surface-2);font-size:13px}
+tbody th .en{font-size:12px}
+.gates{min-width:900px}
+.gates td{width:23%}
+.n{font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-size:12px;line-height:1.5;padding:0 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+.pill.warn{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+.pill.ok{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.est{border:1px dashed var(--muted);border-radius:4px;padding:0 4px;font-size:12px;color:var(--muted);white-space:nowrap}
+
+ul{margin:0;padding-left:1.3em;max-width:80ch;color:var(--ink-2)}
+li{margin:4px 0}
+.pick{display:grid;gap:10px;max-width:84ch}
+.pick div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c,var(--accent));border-radius:8px;padding:10px 14px;color:var(--ink-2)}
+.pick b{color:var(--ink)}
+footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+@media (max-width:480px){.cards{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="topbar"><a href="../index.html">← 构筑库首页</a><span>流亡黯道 2 · 0.5.5 · 战士</span><button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button></div>
+  <div class="eyebrow">PoE2 0.5.5 · 战士 Warrior · 四流派对比</div>
+  <h1>战士四流派对比<span class="en">Warrior · Fire Bear Smith / Shield Wall Smith / Corrupting Cry Totem Warbringer / Slam Titan</span></h1>
+  <p>Mobalytics 上 0.5.5 的战士构筑共 25 个。这里挑了 4 个构筑逻辑互不相同、变体能从第 1 幕一直覆盖到顶级投入的，各自合成一页四阶段攻略：① 50 级之前 → ② 65 级初入异界 → ③ 终局初期 → ④ 大后期。每页都写了从上一阶段走到下一阶段的步骤，以及每个阶段的装备、宝石、升华、天赋、搜索正则和数据核验。本页只做横向对比，细节进各自的页面看。</p>
+  <p class="small">四套阶段的等级边界各自由硬阻断决定，所以同一个「②」在不同构筑里的起止等级并不相同，以各页页首的阶段条为准。</p>
+</header>
+<main>
+
+<section>
+  <h2>四套构筑各靠什么转起来</h2>
+  <div class="cards">
+    <article class="card bear">
+      <div class="tag">奇塔弗匠师 · 变形 · 火焰</div>
+      <h3>重殴火熊<span class="en">BALROG — Fire Bear Fury of the King Kitava</span></h3>
+      <div class="src">Skadoosh · 2,034 收藏 · 官方认证 · 原站 2026-09-16 更新</div>
+      <ul class="chain">
+        <li>点燃与怒火攒荣耀</li>
+        <li>怒火换耐力球</li>
+        <li>凶蛮咆哮触发先祖战吼，吃掉耐力球</li>
+        <li>每走一段就是一次火山踏步，回血并引爆熔岩裂缝</li>
+        <li>裂缝触发活动炸弹与彗星落</li>
+      </ul>
+      <div class="dmg"><b>伤害：</b>火焰（点燃 + 触发的火焰法术）。作者称「0–1 个按键」，主要靠走路。</div>
+      <div class="links"><a href="../0.5.5-奇塔弗匠师-重殴/合成四阶段.html">合成四阶段</a><a href="../0.5.5-奇塔弗匠师-重殴/index.html">构筑索引</a></div>
+    </article>
+    <article class="card wall">
+      <div class="tag">奇塔弗匠师 · 盾牌 · 物理</div>
+      <h3>盾墙<span class="en">Lundburgerr's 0.5 Shield Wall Smith Leaguestarter</span></h3>
+      <div class="src">lundburgerr · 881 收藏 · 官方认证 · 标签 Beginner · 原站 2026-09-22 更新</div>
+      <ul class="chain">
+        <li>盾牌上的护甲</li>
+        <li>盾墙与坚韧战吼的盾护冲击波按盾牌护甲加伤害</li>
+        <li>把敌人护甲打到完全破损</li>
+        <li>大地震击施加护甲撕裂</li>
+      </ul>
+      <div class="dmg"><b>伤害：</b>物理，只有一个伤害来源（盾牌护甲），其余装备堆火抗、生命和稀有度。</div>
+      <div class="links"><a href="../0.5.5-奇塔弗匠师-盾墙/合成四阶段.html">合成四阶段</a><a href="../0.5.5-奇塔弗匠师-盾墙/index.html">构筑索引</a></div>
+    </article>
+    <article class="card totem">
+      <div class="tag">战争使者 · 战吼 · 图腾</div>
+      <h3>腐化战吼图腾<span class="en">Skadoosh's Corrupting Cry Totem Warbringer</span></h3>
+      <div class="src">Skadoosh · 1,271 收藏 · 官方认证 · 标签 HC / SSF · 原站 2026-09-30 更新</div>
+      <ul class="chain">
+        <li>堆「所有近战技能等级」</li>
+        <li>坚韧战吼挂帕夸特的契约，范围内每个敌人叠 5 层腐化之血</li>
+        <li>战争司号的呐喊让战吼没有冷却，可以一直按</li>
+        <li>先祖魂约放大量先祖战士图腾打首领</li>
+        <li>震地战吼引爆尖刺，施加暴击弱点</li>
+      </ul>
+      <div class="dmg"><b>伤害：</b>物理持续伤害（腐化之血，跟着坚韧战吼的宝石等级走）+ 图腾打击。两个武器组分工，技能绑定武器组后自动切换。</div>
+      <div class="links"><a href="../0.5.5-战争使者/合成四阶段.html">合成四阶段</a><a href="../0.5.5-战争使者/index.html">构筑索引</a></div>
+    </article>
+    <article class="card titan">
+      <div class="tag">泰坦 · 猛击 · 晕眩</div>
+      <h3>猛击余震<span class="en">Path of Evening — Slam Titan (Leveling &amp; Endgame)</span></h3>
+      <div class="src">Path of Evening · 754 收藏 · 原站 2026-09-02 更新</div>
+      <ul class="chain">
+        <li>猛击</li>
+        <li>余震几率堆满，一击打两次</li>
+        <li>重度晕眩，碎裂痛击打出护甲完全破损</li>
+        <li>先祖神威 + 战争铁拳 III</li>
+        <li>诸天之锤收尾</li>
+      </ul>
+      <div class="dmg"><b>伤害：</b>物理打击，奔踏清图，锻造之锤 + 大地震击 + 诸天之锤打首领。</div>
+      <div class="links"><a href="../0.5.5-泰坦/合成四阶段.html">合成四阶段</a><a href="../0.5.5-泰坦/index.html">构筑索引</a></div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>四个阶段分别卡在哪</h2>
+  <p>每格写这一阶段的硬阻断：要到了它才能进入这一阶段。需求等级是能用的等级，掉落等级是开始能收的等级，两者不同。标 <span class="est">推算</span> 的阶段原站没有对应变体，是各页按相邻两档逐槽位推出来的。</p>
+  <div class="scroll"><table class="gates">
+    <thead><tr><th>阶段</th><th class="bear" style="--c:var(--c-bear)">重殴火熊</th><th class="wall" style="--c:var(--c-wall)">盾墙</th><th class="totem" style="--c:var(--c-totem)">腐化战吼图腾</th><th class="titan" style="--c:var(--c-titan)">猛击泰坦</th></tr></thead>
+    <tbody>
+      <tr><th>①<span class="en">50 级之前</span></th>
+        <td>第 1 次升华（区域 22）锻炉的热浪；38 级匠人的杰作。零预算</td>
+        <td><b>22 级盾墙</b>（等阶 7 宝石，41 力，要护甲盾牌）+ 第 1 次升华；31 级坚韧战吼、大地震击。零预算</td>
+        <td>腐化战吼 I（等阶 3）+ 第 2 次升华战争司号的呐喊。两件便宜传奇可替换</td>
+        <td>41 级奔踏（等阶 11）；52 级诸天之锤（等阶 13）。零预算</td></tr>
+      <tr><th>②<span class="en">65 级初入异界</span></th>
+        <td><span class="est">推算</span> <b>52 级先祖战吼、灾厄行者</b>（等阶 13）→ 整树洗点；58 级元素异常状态时施放（占 100 精魂）</td>
+        <td>60 级第 3 次升华司炉的炭火；<b>65 级血统辅助</b>汉恩的城塞 + 冈姆的疯狂（掉落 52）；完美工匠石（掉落 65）</td>
+        <td><b>52 级先祖战士图腾</b>（等阶 13）+ 先祖魂约 → 洗点；两个武器组各一把圣地权杖凑精魂</td>
+        <td><span class="est">装备推算</span> 60 级第 3 次升华裂地之灵 + 雄伟英姿；祭血术；65 级底材</td></tr>
+      <tr><th>③<span class="en">终局初期</span></th>
+        <td>庞然大锤（需求 77、<b>163 力</b>）；瓦尔胫甲 / 护手（75）；80 级第 4 次升华</td>
+        <td><span class="est">推算</span> 75 / 80 级底材；盾牌 T1 词缀（物品等级 74–77）；80 级第 4 次升华</td>
+        <td><b>帕夸特的契约</b>（血统辅助，需求 65，封印宝库 T6+ 掉落）；80 级塔盾</td>
+        <td>80 级第 4 次升华先祖神威 + 全部战争铁拳 III；庞然大锤（77 级、<b>163 力</b>）</td></tr>
+      <tr><th>④<span class="en">大后期</span></th>
+        <td>君王之怒（传奇魔符，需求 72）；血统辅助（需求 65、掉落 52）</td>
+        <td>乌尔尼多的拥抱（血统，需求 65、掉落 52，作者说很贵）；猎首；退 22 个天赋点</td>
+        <td>第 4 次升华青玉传承；80 级底材；盛怒头盔。仍只 1 件传奇</td>
+        <td>4 个血统辅助（需求 65、掉落 52，终局首领掉落）</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>投入、洗点与属性</h2>
+  <div class="scroll"><table style="min-width:820px">
+    <thead><tr><th>项目</th><th style="--c:var(--c-bear)">重殴火熊</th><th style="--c:var(--c-wall)">盾墙</th><th style="--c:var(--c-totem)">腐化战吼图腾</th><th style="--c:var(--c-titan)">猛击泰坦</th></tr></thead>
+    <tbody>
+      <tr><th>传奇件数<span class="en">① / ② / ③ / ④</span></th>
+        <td class="n">0 / 2 / 2 / 7</td>
+        <td class="n">0 / 2 / 2 / 3</td>
+        <td class="n">2 / 0 / 1 / 1</td>
+        <td class="n">0 / 0 / 1 / 4</td></tr>
+      <tr><th>血统辅助</th>
+        <td>④ 2 颗</td>
+        <td>② 起 2 颗，④ 3 颗</td>
+        <td>③ 起帕夸特的契约</td>
+        <td>③ 1 颗，④ 4 颗</td></tr>
+      <tr><th>镜像级必需件</th><td>无</td><td>无</td><td>无</td><td>无</td></tr>
+      <tr><th>洗点</th>
+        <td><span class="pill warn">① → ② 整树洗点</span><span class="en">两档天赋只重合 34%</span></td>
+        <td><span class="pill ok">不需要洗点</span><span class="en">各档重合 ≥ 76%；④ 要退 22 点</span></td>
+        <td><span class="pill warn">① → ② 洗点</span><span class="en">重合 50%，之后 87%、95%</span></td>
+        <td><span class="pill ok">不需要洗点</span><span class="en">相邻档重合 ≥ 95.6%；升华第 2 次试炼退 2 点</span></td></tr>
+      <tr><th>属性硬线</th>
+        <td>③ 起 163 力（庞然大锤）；③④ 宝石要 137–157 智，原站 PoB 只有 147</td>
+        <td>22 级盾墙要 41 力；原站宝石需求 ① 力 65 · 敏 35 · 智 15 → ④ 力 95 · 敏 30 · 智 15</td>
+        <td>坚韧战吼 19 / 20 级要 147 / 157 力；两把圣地权杖各要 38 智</td>
+        <td>③ 起 163 力（庞然大锤）；原站宝石需求 ① 力 75 → ④ 力 145</td></tr>
+      <tr><th>原站标签</th>
+        <td>Starter · End Game · Verified</td>
+        <td>Starter · Speed Leveling · Beginner · Mirror Tier · Verified</td>
+        <td>Starter · End Game · HC · SSF · Verified</td>
+        <td>Starter</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small" style="margin-top:10px">传奇件数按原站该档装备逐件数，推算档按推算后的装备数；「原站宝石需求」是全部辅助宝石各自「+5 属性」相加的口径，不等于游戏面板的需求，真正卡人的是上面列出的宝石等级与武器需求。价格原站都没给。</p>
+</section>
+
+<section>
+  <h2>怎么挑</h2>
+  <div class="pick">
+    <div style="--c:var(--c-totem)"><b>单人自给（SSF）或专家模式（HC）：腐化战吼图腾。</b>作者自己标了 HC / SSF。四个阶段合计只有 3 件传奇，其中 ① 的两件能替换，③④ 那一件在 ③ 可以先用自做的稀有单手锤代替；伤害开关是宝石，腐化战吼来自未切割的辅助宝石，帕夸特的契约自己刷封印宝库能拿到。代价是 52 级要洗掉一半天赋。</div>
+    <div style="--c:var(--c-titan)"><b>不想洗点、也不想早早买传奇：猛击泰坦。</b>相邻各档天赋重合都在 95% 以上，①② 零传奇。代价是 ③ 起要 163 力量拿庞然大锤，④ 的 4 颗血统辅助要打终局首领。</div>
+    <div style="--c:var(--c-wall)"><b>跟着新手向开荒攻略走：盾墙。</b>原站标了 Beginner，天赋全程不用洗。但主技能盾墙 22 级才拿得到，前 22 级要先用轰动猛击 / 七伤破过渡；③ 原站缺档，是本页推算的。</div>
+    <div style="--c:var(--c-bear)"><b>想要一键、靠走路清图，预算也够：重殴火熊。</b>作者说「0–1 个按键」。门槛最多：52 级整树洗点，58 级开始占 100 精魂，③ 要 163 力，④ 要 7 件传奇外加 2 颗血统辅助，四套里 ④ 的投入最重。</div>
+  </div>
+</section>
+
+<section>
+  <h2>四套共有的几道门槛</h2>
+  <ul>
+    <li><b>52 级的等阶 13 技能宝石。</b>火熊的先祖战吼 / 灾厄行者、战争使者的先祖战士图腾、泰坦的诸天之锤，都是等阶 13，宝石 13 级要角色 52 级。火熊与泰坦两页都查到，第 4 幕哈特林船长的任务奖励里有一颗 13 级宝石。</li>
+    <li><b>65 级的血统辅助宝石。</b>四套在 ②–④ 都要血统辅助。它们的需求等级是 65，掉落等级是 52：52 级起打到就先收着，65 级才能插。</li>
+    <li><b>80 级第 4 次升华。</b>四套 ③ 或 ④ 的关键升华点都在第 4 次试炼（区域等级 80）之后才拿得到。</li>
+    <li><b>163 力量。</b>火熊和泰坦 ③ 起都换庞然大锤（需求 77 级、163 力），这之前要把力量从装备和天赋上凑够。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>数据说明</h2>
+  <ul class="small">
+    <li>原站数据：2026-09-30 在浏览器里读取四个 Mobalytics 构筑页的内嵌整页状态和评论区，每套的紧凑摘录存在各自目录的 <code>_source.json</code>。</li>
+    <li>中文：技能、升华、传奇、底材、词缀一律取 poe2db.tw 简中；交易查询里的 141 个统计 ID 另外与国服交易站（腾讯）的简中统计表逐条核对过。</li>
+    <li>本页的每一个数字都来自四个子页面；原站自相矛盾、查不到官方译名和原站缺失的地方，见各子页第 14 节「数据核验」。</li>
+  </ul>
+</section>
+</main>
+<footer>数据截至 2026-09-30 · 原作者 Skadoosh、lundburgerr、Path of Evening（Mobalytics）· 中文以 poe2db.tw 简中口径为准 · 由 poe2-build-cn 技能的数据与流程合成。</footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>

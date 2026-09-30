@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>战争使者 · 合成四阶段</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 战士「战争使者」腐化战吼图腾构筑（Skadoosh）：把原站 Leveling / Starter / Endgame / Uber Endgame 合成 52 级前 → 进图 → 终局初期 → 大后期四个阶段，逐步标出换装、洗点与 SSF 自做装备的方法，单页自洽。">
+<style>
+:root{
+  --ground:#F1F5F2; --surface:#FFFFFF; --surface-2:#E4ECE6; --ink:#14231C; --ink-2:#344A3F; --muted:#56695F; --line:#CFDCD3;
+  --accent:#1A6E45; --accent-soft:#DCEFE3; --brass:#7E5A10; --brass-soft:#F3E8CF;
+  --ember:#B0391D; --ember-soft:#F8E1D7; --ok:#22628A; --ok-soft:#DDEBF4;
+  --plum:#6B3F8E; --plum-soft:#EDE3F4;
+  --code-bg:#10201A; --code-ink:#D6EBDF;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1512; --surface:#121D19; --surface-2:#182622; --ink:#E1EDE6; --ink-2:#BFD1C6; --muted:#8FA59A; --line:#243730;
+    --accent:#4CC38A; --accent-soft:#113224; --brass:#D9B25E; --brass-soft:#2C2515;
+    --ember:#F0926A; --ember-soft:#3A2016; --ok:#6DB3E0; --ok-soft:#132A3A;
+    --plum:#C9A2EA; --plum-soft:#2C2138;
+    --code-bg:#08110E; --code-ink:#D2E8DC;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1512; --surface:#121D19; --surface-2:#182622; --ink:#E1EDE6; --ink-2:#BFD1C6; --muted:#8FA59A; --line:#243730;
+  --accent:#4CC38A; --accent-soft:#113224; --brass:#D9B25E; --brass-soft:#2C2515;
+  --ember:#F0926A; --ember-soft:#3A2016; --ok:#6DB3E0; --ok-soft:#132A3A;
+  --plum:#C9A2EA; --plum-soft:#2C2138;
+  --code-bg:#08110E; --code-ink:#D2E8DC;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);column-gap:44px}
+@media (min-width:1100px){.page{grid-template-columns:196px minmax(0,1fr)}}
+
+/* hero */
+.hero{grid-column:1/-1;padding-block:34px 24px;border-bottom:1px solid var(--line);display:grid;gap:16px}
+.topbar{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.topbar a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:74ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--ink-2);font-weight:600}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+
+/* stage strip */
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.stages li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative;display:grid;gap:4px;align-content:start}
+.stages li + li::before{content:"→";position:absolute;left:-12px;top:50%;transform:translate(-50%,-50%);color:var(--brass);font-size:15px;background:var(--ground);line-height:1;padding:2px 0}
+.stages .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.stages b{font-family:var(--serif);font-size:1.12rem;line-height:1.3}
+.stages .lv{font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
+.stages .gate{font-size:12.5px;color:var(--muted);line-height:1.55}
+.stages a{position:absolute;inset:0;border-radius:12px}
+.stages a:hover{box-shadow:0 0 0 2px var(--accent) inset}
+@media (max-width:820px){.stages{grid-template-columns:repeat(2,minmax(0,1fr))}.stages li:nth-child(3)::before{display:none}}
+@media (max-width:460px){.stages{grid-template-columns:minmax(0,1fr)}.stages li + li::before{display:none}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);align-items:center}
+
+/* toc */
+.toc{padding-block:22px 0;font-size:13px}
+.toc summary{cursor:pointer;color:var(--muted);letter-spacing:.06em;font-size:12px;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;gap:8px;padding:3px 8px;border-radius:6px;color:var(--ink-2);text-decoration:none}
+.toc a:hover{background:var(--surface-2)}
+.toc a span{font-family:var(--mono);color:var(--brass);min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+@media (min-width:1100px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}}
+@media (max-width:1099px){.toc{border-bottom:1px solid var(--line);padding-bottom:14px}.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+/* content */
+main{min-width:0;max-width:960px}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:0 8px;line-height:1.7;flex:none;position:relative;top:-3px}
+h3{font-size:1.04rem;margin:26px 0 8px;line-height:1.45;text-wrap:balance}
+h4{font-size:.95rem;margin:16px 0 6px}
+p{margin:0 0 12px;max-width:72ch}
+ul,ol{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.88em}
+kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface)}
+.num{font-variant-numeric:tabular-nums}
+
+/* chips */
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.must{background:var(--ember);color:var(--surface)}
+.chip.add{background:var(--ok-soft);color:var(--ok)}
+.chip.del{background:var(--ember-soft);color:var(--ember)}
+.chip.chg{background:var(--brass-soft);color:var(--brass)}
+.chip.kind{background:var(--surface-2);color:var(--ink-2)}
+.src{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;line-height:1.45;min-width:1.55em;text-align:center;padding:0 4px;border-radius:4px;vertical-align:1px;margin-left:3px}
+.src.o{background:var(--accent-soft);color:var(--accent)}
+.src.c{background:var(--plum-soft);color:var(--plum)}
+.src.s{background:var(--brass-soft);color:var(--brass)}
+.src.db{background:var(--ok-soft);color:var(--ok)}
+
+/* callouts */
+.callout{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;margin:14px 0}
+.callout p:last-child,.callout ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout .lab{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.callout.warn{background:var(--ember-soft);border-color:transparent}
+.callout.warn .lab{color:var(--ember)}
+.callout.key{background:var(--accent-soft);border-color:transparent}
+.callout.key .lab{color:var(--accent)}
+.callout.note .lab{color:var(--brass)}
+.callout.ssf{border-left:4px solid var(--accent)}
+.callout.ssf .lab{color:var(--accent)}
+
+/* evolution */
+.evo{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:16px 0;overflow:hidden;scroll-margin-top:12px}
+.evo-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.evo-head h3{margin:0;font-family:var(--serif);font-size:1.12rem}
+.evo-head span{font-size:12.5px;color:var(--muted)}
+.evo ol{margin:0;padding:10px 16px 12px 2.4em;max-width:none;display:grid;gap:7px}
+.evo li{margin:0;font-size:14px;line-height:1.65}
+.evo li .chip.kind{margin-right:4px}
+.evo .exit{margin:0;padding:10px 16px 12px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--ink-2)}
+.evo .exit b{color:var(--accent)}
+
+/* chain */
+.chain{list-style:none;padding:0;margin:14px 0 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;max-width:none}
+.chain li{margin:0}
+.chain .step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.55}
+.chain .step b{display:block;font-size:14.5px;margin-bottom:3px;color:var(--ink)}
+.chain .step.hot{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.chain .arr{flex:none;align-self:center;color:var(--brass);font-size:18px}
+@media (max-width:700px){.chain{flex-direction:column}.chain .step{flex:none}.chain .arr{transform:rotate(90deg);align-self:flex-start;margin-left:18px}}
+
+/* tables */
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;background:var(--surface-2);font-size:13px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en,th .en{display:block}
+.tight td{padding-block:6px}
+.stage-tbl td{min-width:170px}
+.stage-tbl td.dim{color:var(--muted)}
+.tick{font-family:var(--mono);color:var(--ok);font-weight:700}
+.x{font-family:var(--mono);color:var(--ember);font-weight:700}
+.w-min{white-space:nowrap}
+
+/* slot cards */
+.slots{display:grid;gap:14px;margin:14px 0}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.slot-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.slot-head h4{margin:0;font-size:1rem}
+.slot-head .req{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.slot-body{padding:4px 16px 12px}
+.slot-body table{font-size:13px}
+.slot-body th,.slot-body td{padding-inline:8px 10px}
+.slot-body .scroll{margin:8px 0 10px}
+.slot-notes{font-size:13.5px}
+.slot-notes p,.slot-body > p{margin-bottom:6px;font-size:13.5px}
+.tier{font-size:12px;color:var(--muted)}
+details.stage-gear{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:14px 0;padding:0}
+details.stage-gear > summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+details.stage-gear > summary::-webkit-details-marker{display:none}
+details.stage-gear > summary::before{content:"▸";color:var(--brass);font-family:var(--mono)}
+details.stage-gear[open] > summary::before{content:"▾"}
+details.stage-gear > summary span{font-weight:400;font-size:12.5px;color:var(--muted)}
+details.stage-gear > .inner{padding:0 16px 8px}
+
+/* regex */
+.rx{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0;background:var(--surface)}
+.rx-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.rx-head b{font-size:14.5px}
+.rx-head .range{font-size:12.5px;color:var(--muted)}
+.rx-head .copy{margin-left:auto}
+.copy{font:inherit;font-size:12px;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:2px 12px;cursor:pointer}
+.copy:hover{background:var(--accent-soft)}
+.rx pre{margin:0;padding:12px 14px;background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:13.5px;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.rx .rx-body{padding:4px 14px 10px}
+.rx .rx-body p{font-size:13.5px;margin:8px 0}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+.split > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.split h4{margin:0 0 6px}
+.split ul{margin:0;font-size:13.5px}
+
+footer{grid-column:1/-1;padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+footer p{max-width:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="topbar">
+    <a href="index.html">本构筑索引</a><span aria-hidden="true">/</span>
+    <span>流亡黯道 2 · 0.5.5 · 战争使者 · 合成四阶段</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 战士 Warrior · HC / SSF 友好</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M22 38V19l4-6 4 6v19z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M22 25h8M22 31h8" stroke="var(--accent)" stroke-width="1.2"/>
+      <path d="M15 20c-3 4-3 10 0 14M37 20c3 4 3 10 0 14M11 17c-5 6-5 14 0 20M41 17c5 6 5 14 0 20" fill="none" stroke="var(--brass)" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <h1>战争使者 · 合成四阶段<span class="en">Skadoosh's Corrupting Cry Totem Warbringer [0.5.5] — Leveling → Starter → Endgame → Uber Endgame</span></h1>
+  </div>
+  <p class="lede">清图靠一个辅助宝石：坚韧战吼挂上「帕夸特的契约」（腐化战吼的血统版），范围里每个敌人都会触发一次扭曲契约，叠 5 层腐化之血；升华「战争司号的呐喊」让战吼没有冷却，可以一直按。打首领靠「先祖魂约」大量召唤先祖战士图腾，再用震地战吼引爆尖刺、施加暴击弱点。③④ 只用 1 件传奇（施虐者的慈悲，SSF 可以先用稀有单手锤），① 的两件低级传奇也能替换，伤害主要来自宝石等级与天赋，所以作者标了 HC / SSF。本页把原站 Leveling、Starter、Endgame、Uber Endgame 四档串成 ① 52 级前 → ② 进图 → ③ 终局初期 → ④ 大后期，每一步写明改什么、在 SSF 下靠什么自己做装备。</p>
+  <ol class="stages" aria-label="四个阶段">
+    <li><span class="n">① 阶段</span><b>起步 → 52 级</b><span class="lv">1–51 级 · 第 1–4 幕</span><span class="gate">腐化战吼 I（等阶 3）+ 第 2 次升华「战争司号的呐喊」；零预算</span><a href="#st1" aria-label="跳到阶段 ① 演进"></a></li>
+    <li><span class="n">② 阶段</span><b>52 级 → 进图</b><span class="lv">52–约 70 级 · 间章 → T1–T5</span><span class="gate">先祖战士图腾（等阶 13 = 52 级）+ 先祖魂约 + 精魂；0 件传奇</span><a href="#st2" aria-label="跳到阶段 ② 演进"></a></li>
+    <li><span class="n">③ 阶段</span><b>终局初期</b><span class="lv">65–约 85 级 · T6–T15</span><span class="gate">帕夸特的契约（需求 65，封印宝库 T6+ 掉落）；80 级塔盾</span><a href="#st3" aria-label="跳到阶段 ③ 演进"></a></li>
+    <li><span class="n">④ 阶段</span><b>大后期</b><span class="lv">80–90+ 级 · 巅峰首领</span><span class="gate">第 4 次升华「青玉传承」；80 级底材；盛怒头盔；仍只 1 件传奇</span><a href="#st4" aria-label="跳到阶段 ④ 演进"></a></li>
+  </ol>
+  <div class="legend">
+    <span>来源标记：</span>
+    <span><b class="src o">原</b> 原站数据与正文</span>
+    <span><b class="src c">评</b> 作者评论区回复</span>
+    <span><b class="src s">合</b> 本页推算或取舍</span>
+    <span><b class="src db">库</b> poe2db 数据</span>
+  </div>
+  <div class="meta">
+    <span>原站：<a href="https://mobalytics.gg/poe-2/builds/corrupting-cry-warbringer-skadoosh" target="_blank" rel="noopener">[0.5.5] Skadoosh's Corrupting Cry Totem Warbringer</a>（第 932 版，<b>2026-09-30</b> 更新；2024-12-10 首发；0.5 全面重做于 2026-09-12）</span>
+    <span>作者 <b>Skadoosh</b> · 1,271 收藏 · 8 条评论 · 标签 End Game / Starter / HC / SSF</span>
+    <span>本页合成：<b>2026-09-30</b> · <a href="index.html">变体对应与索引</a></span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ol>
+      <li><a href="#s1"><span>1</span>底层逻辑</a></li>
+      <li><a href="#s2"><span>2</span>硬阻断与换装时机</a></li>
+      <li><a href="#s3"><span>3</span>升华节点</a></li>
+      <li><a href="#s4"><span>4</span>技能宝石配置</a></li>
+      <li><a href="#s5"><span>5</span>操作循环</a></li>
+      <li><a href="#s6"><span>6</span>属性达标值</a></li>
+      <li><a href="#s7"><span>7</span>装备与词缀</a></li>
+      <li><a href="#s8"><span>8</span>天赋树核心节点</a></li>
+      <li><a href="#s9"><span>9</span>珠宝</a></li>
+      <li><a href="#s10"><span>10</span>搜索正则</a></li>
+      <li><a href="#s11"><span>11</span>作者答疑与坑</a></li>
+      <li><a href="#s12"><span>12</span>原站变体与差异</a></li>
+      <li><a href="#s13"><span>13</span>术语对照表</a></li>
+      <li><a href="#s14"><span>14</span>数据核验</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <h2><span class="no">1</span>底层逻辑</h2>
+  <p>标题里的 <b>Corrupting Cry</b> 是一组辅助宝石，不是升华也不是技能：腐化战吼 I（等阶 3）、腐化战吼 II（等阶 5）和它的血统版「帕夸特的契约」（需求 65 级）同属「类别：腐化战吼」，一个技能只能插其中一个<b class="src db">库</b>。它辅助战吼：战吼范围里<b>每有一个敌人</b>就触发一次腐化战吼，对其施加腐化之血；契约版触发的是「扭曲契约」，一次叠 5 层。腐化之血的伤害<b>复制所镶嵌宝石的等级</b>（契约版 1 级每秒 7 点物理伤害、20 级每秒 339.1 点），所以伤害只看坚韧战吼的宝石等级，装备上唯一要堆的伤害词缀是「所有近战技能等级」<b class="src db">库</b><b class="src o">原</b>。</p>
+  <ol class="chain">
+    <li class="step"><b>堆近战技能等级</b>坚韧战吼越高级，腐化之血越痛；它还要求装备护甲盾牌</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step hot"><b>坚韧战吼 + 帕夸特的契约</b>范围内每个敌人触发扭曲契约：5 层腐化之血，持续 5 秒</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>战争司号的呐喊</b>忽略战吼冷却；战吼引爆灵柩，造成其生命 25% 的物理伤害 → 连锁清屏</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>先祖魂约 → 先祖战士图腾</b>图腾上限翻倍、放置不要耐力球、每个保留 75 精魂；灵魂战士用尖刺战吼插出尖刺</li>
+    <li class="arr" aria-hidden="true">→</li>
+    <li class="step"><b>震地战吼引爆尖刺</b>战吼让尖刺破碎；嚎叫兽灵让战吼施加 3 层暴击弱点 → 暴击</li>
+  </ol>
+  <ul>
+    <li><b>两套武器组分工</b>：武器组 1 = 圣地权杖 + 塔盾，放坚韧战吼、震地战吼、岩浆屏障；武器组 2 = 单手锤 + 圣地权杖，放先祖战士图腾（它要求锤）。技能绑定到对应武器组后，按技能会自动切换<b class="src o">原</b>。</li>
+    <li><b>两组都拿权杖</b>：图腾的精魂保留在两组都要够，否则切回武器组 1 时图腾会消失。作者原话：“你两组都需要和武器组 2 一样多的精魂——看我两组都有一把权杖”<b class="src c">评</b>。精魂 = 任务 100 + 权杖 + 项链 / 胸甲的精魂词缀，决定你能放几个图腾（第 6 节）。</li>
+    <li><b>生命即资源</b>：祭血术让技能消耗全部变成生命，帕夸特的契约每次还要消耗生命上限的 10%（近期最多 30%）。回复靠紧急呼喊（战吼时回复 2% 生命）、先祖的愈合（有图腾时每秒 1%）、生命再生、④ 头盔的「使用战吼时回复 5% 生命」<b class="src db">库</b><b class="src o">原</b>。</li>
+    <li><b>防御</b>：塔盾格挡 + 护甲（刚毅金属、钢化防御、护甲作用于元素伤害），木垒高筑让 20% 击中伤害先由图腾承受；④ 的青玉传承每秒叠一层青玉护身（每层 1% 额外物理减免，上限 10），青玉囚笼把层数换成防卫<b class="src db">库</b>。</li>
+    <li><b>0.5 的变化</b>：作者 2026-09-30 的回复说新版“有暴击和大量暴击加成……战吼施加暴击弱点非常强”，伤害同投入下可能高于旧的 10 图腾版，而且“顺手得多，不用先狂按战吼攒耐力球放图腾”；也说“构筑不再用威力值，正文需要大改”<b class="src c">评</b>。原站「How it Works」一节还停在 0.2–0.3 的写法，第 14 节列出了冲突。</li>
+  </ul>
+  <div class="callout key"><span class="lab">一句话</span><p>52 级前：坚韧战吼挂腐化战吼叠血，震波图腾补单体。52 级起：先祖魂约 + 两把权杖撑精魂，图腾打单体、战吼清图。65 级拿到帕夸特的契约后清图翻倍；之后就是把装备换成生命 + 抗性 + 护甲 + 精魂的稀有件，80 级再补青玉传承与 80 级底材。</p></div>
+  <div class="callout ssf"><span class="lab">为什么 SSF / HC 友好</span>
+    <ul>
+      <li>四档加起来只有 3 件传奇：① 的胜者桂冠（需求 5 级）、毁灭雄关（需求 12 级）都是可替换的便宜件；③④ 的施虐者的慈悲是谵妄巅峰首领「黑鸦欺诈者」（萎败细柳，区域等级 79）的限定掉落，SSF 在 ③ 用自做稀有单手锤代替<b class="src db">库</b><b class="src s">合</b>。</li>
+      <li>伤害的两个开关都是宝石：腐化战吼 I / II 来自未切割的辅助宝石（等阶 3 / 5），帕夸特的契约由封印宝库（T6+ 引路石）的两个首领或祭祀首领伯达克掉落——都能自己刷<b class="src db">库</b>。</li>
+      <li>② 的整套装备每件只有 1–2 条目标词缀（生命、精魂、移速、+近战等级），蜕变石 + 增幅石就能做；③④ 才需要 6 词缀稀有件。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2><span class="no">2</span>硬阻断与换装时机</h2>
+  <p>阶段边界由下表决定，不按等级平均切。<b>52 级之前图腾形态不成立</b>（先祖战士图腾是等阶 13 的技能宝石，13 级宝石要角色 52 级），这段用震波图腾补单体；<b>65 级 + 帕夸特的契约之前清图只有一半</b>（腐化战吼 II 每个敌人只叠 1 层）。升华试炼等级 38 / 60 / 80 取自本仓库瓦拉煞页已核实的 poe2db 升华职业页。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>名称</th><th>类型</th><th>需求</th><th>怎么拿到（掉落等级）</th><th>卡住什么</th><th>解开之后</th></tr></thead>
+    <tbody>
+      <tr><td><b>腐化战吼 I</b><span class="en">Corrupting Cry I</span></td><td>辅助宝石 · 等阶 3</td><td>—</td><td>未切割的辅助宝石（等阶 3）；作者写“第 3 幕”<b class="src db">库</b><b class="src o">原</b></td><td>坚韧战吼只是防御战吼</td><td>① 的 Leveling 形态开始；被辅助战吼范围总降 30%</td></tr>
+      <tr><td><b>战争司号的呐喊</b><span class="en">Warcaller's Bellow</span></td><td>升华 · 第 2 次试炼</td><td>约 38 级</td><td>升华试炼</td><td>战吼 8 秒冷却，腐化之血叠不起来</td><td>忽略战吼冷却，灵柩爆炸</td></tr>
+      <tr><td><b>先祖战士图腾</b><span class="en">Ancestral Warrior Totem</span></td><td>技能宝石 · 等阶 13</td><td><b>52 级</b> · 92 力（13 级）</td><td>未切割的技能宝石（等阶 13）<b class="src db">库</b></td><td>52 级前只能用震波图腾打单体</td><td>② 主单体；要求单手锤或双手锤</td></tr>
+      <tr><td><b>先祖魂约</b><span class="en">Ancestral Bond</span></td><td>关键石</td><td>—</td><td>天赋树</td><td>没有它每个图腾要 3 个耐力球</td><td>图腾上限翻倍、放置无需充能、每个图腾保留 75 精魂</td></tr>
+      <tr><td><b>精魂</b><span class="en">Spirit</span></td><td>资源门槛</td><td>每个图腾 75</td><td>任务 +30（第 1 幕迷雾之王）+30（第 3 幕伊格纳杜克）+40（间章利萨拉）；权杖 100；项链 / 胸甲精魂词缀</td><td>图腾数量</td><td>② 约 2–3 个 → ③④ 3 个（作者：利用切武器 bug 可到 5 个）</td></tr>
+      <tr><td><b>腐化战吼 II</b><span class="en">Corrupting Cry II</span></td><td>辅助宝石 · 等阶 5</td><td>—</td><td>未切割的辅助宝石（等阶 5）</td><td>I 级的 −30% 战吼范围</td><td>② 过渡：作者说拿到契约前用 II<b class="src o">原</b></td></tr>
+      <tr><td><b>帕夸特的契约</b><span class="en">Paquate's Pact</span></td><td>血统辅助宝石</td><td><b>65 级</b> · +5 力</td><td>掉落等级 <b>52</b>；封印宝库（区域等级 65，需等阶 6 以上引路石）的玛兹特里，血肉塑造者 / 伊察拉，鲜血神谕者；祭祀首领伯达克<b class="src db">库</b></td><td>每个敌人只叠 1 层腐化之血</td><td>每个敌人 5 层 → ③ 的起点</td></tr>
+      <tr><td><b>木垒高筑</b><span class="en">Wooden Wall</span></td><td>升华 · 第 3 次试炼</td><td>约 60 级</td><td>升华试炼</td><td>—</td><td>20% 击中伤害先由图腾承受</td></tr>
+      <tr><td><b>施虐者的慈悲</b><span class="en">Sadist's Mercy</span></td><td>传奇单手锤</td><td>67 级 · 134 力</td><td>黑鸦欺诈者（萎败细柳，区域等级 79）限定掉落<b class="src db">库</b></td><td>—（原站 ③④ 的武器组 2 主手）</td><td>物理伤害 +240–300%、暴击 +5–8%；SSF 先用稀有锤</td></tr>
+      <tr><td><b>80 级底材</b></td><td>装备</td><td>80 级 · 101–115 力</td><td>塔赫亚塔盾、帝国巨盔、巨型护手</td><td>—</td><td>塔盾在 ③ 已出现；头 / 手在 ④</td></tr>
+      <tr><td><b>青玉传承</b><span class="en">Jade Heritage</span></td><td>升华 · 第 4 次试炼</td><td>约 80 级</td><td>升华试炼</td><td>—</td><td>④：青玉护身 + 青玉囚笼</td></tr>
+      <tr><td><b>力量</b></td><td>属性门槛</td><td>坚韧战吼 19 / 20 级：147 / 157 力；先祖战士图腾 18 级：137 力</td><td>装备力量词缀、力量属性点、文身</td><td>宝石等级上不去 = 腐化之血伤害上不去</td><td>见第 6 节</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="evo" id="st1">
+    <div class="evo-head"><h3>① 起步 → 52 级</h3><span>1–33 级走作者的另一份升级攻略；拿到腐化战吼 I 与第 2 次升华后换成原站 Leveling 变体</span></div>
+    <ol>
+      <li><span class="chip kind">技能</span>1–10 级：锤打击、七伤破（冲击震波）、轰动猛击、架盾；炽焰战吼保持 3 级、永远不升（魔力消耗）<b class="src o">原</b>（Skadoosh's Warrior Leveling 1-33，标签仍是 0.4）</li>
+      <li><span class="chip kind">技能</span>11–30 级：加震波图腾（冗余 I、野性残暴 I）+ 震地（持续时间延长 I）；21 级起火山裂缝（崎岖之地 I）铺崎岖之地，把震波图腾放在上面引爆；岩浆屏障格挡后给耐力球<b class="src o">原</b></li>
+      <li><span class="chip kind">技能</span>31–41 级：锻造之锤替代火山裂缝，用前先炽焰战吼增益；震地加侵蚀地面。<b>用震地时别挂持久地面 II / III</b>，会让震波图腾引爆不了崎岖之地<b class="src o">原</b></li>
+      <li><span class="chip kind">任务</span>第 1 幕迷雾之王 +30 精魂、第 3 幕伊格纳杜克 +30 精魂一定要拿；蛇毒地窟选岩石之蛇毒饮剂（晕眩阈值 +25%）；第 2 幕奖章 +1 咒符栏<b class="src o">原</b></li>
+      <li><span class="chip kind">升华</span>第 1 次（第 2 幕丝克玛试炼）：图腾生命 → 呼求回应（+1 图腾上限，召唤图腾时触发先祖之灵）。原站 Leveling 的升华优先级是呼求回应在前<b class="src o">原</b></li>
+      <li><span class="chip kind">升华</span>第 2 次（约 38 级，第 3 幕）：战吼速度 → 战争司号的呐喊。作者：拿到腐化战吼 I 时也应该有这个升华<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>坚韧战吼（武器组 1，要护甲盾牌）+ 腐化战吼 I + 极速腐化 II + 野性残暴 II；岩浆屏障（武器组 1）+ 清晰 I + 活力 I。作者：“坚韧战吼挂腐化战吼 I 连单体都够用”<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span>武器组 2（双手锤）：震波图腾（野性残暴 I · 冗余 I）、锻造之锤（崎岖之地 I · 持久地面 II）、火山裂缝（分叉裂缝 I）；解锁锻造之锤后再用震波图腾<b class="src o">原</b></li>
+      <li><span class="chip kind">装备</span>武器组 1 强盗之锤 +2 近战（<b>必须</b>）+ 塔盾；武器组 2 教徒大锤（物理% · 附加物理 · 攻速 · +2 近战）；手套 +2 近战（<b>必须</b>）；鞋 15% 移速（<b>必须</b>）；头盔胜者桂冠（所有技能 +1）<b class="src o">原</b>。SSF 做法见第 7 节</li>
+      <li><span class="chip kind">天赋</span>主树 38 点 + 武器组各 13 点：主树凶残、自由的价码、血脉贲张、碾碎、凶残手段；武器组 1 紧急呼喊、刺耳怒吼、重重围困；武器组 2 守望之塔、先祖的巧谋、先祖的团结、倾力裁决。<b>武器组点数要先有等量的普通天赋点才能用</b><b class="src o">原</b></li>
+      <li><span class="chip kind">准备</span>50 级前攒好：一把单手锤（翠玉战棒 49 级）、两把圣地权杖（26 级）、日曜项链、带精魂的胸甲（女子爵的 +38–42，物品等级 33）、未切割的技能宝石（等阶 13）和洗点金币；作者还建议留下低等工匠石与一些辅助宝石给转型<b class="src o">原</b><b class="src s">合</b></li>
+    </ol>
+    <p class="exit">进入 ② 的条件：<b>角色 52 级</b>（先祖战士图腾 13 级）+ 手上有锤、两把权杖。</p>
+  </div>
+
+  <div class="evo" id="st2">
+    <div class="evo-head"><h3>② 52 级 → 65 级进图</h3><span>原站 Starter 变体；主树与 ① 重合 50%，<b>需要洗点</b></span></div>
+    <ol>
+      <li><span class="chip kind">洗点</span><span class="chip chg">改</span>主树 38 → 55 点，只保留 19 个 ① 的节点：点先祖魂约、祭血术、冷酷无情、刚毅金属、先祖的愈合、战吼如雷、凶残手段；武器组 1 紧急呼喊 · 刺耳怒吼 · 重重围困 · 刺耳呐喊；武器组 2 守望之塔 · 先祖的巧谋 · 祖灵相依 · 先祖的传达 · 先祖的团结（各 14 点）<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>先祖战士图腾（武器组 2）：镶嵌尖刺战吼 + 紧急图腾 III + 分叉裂缝 II<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>坚韧战吼：腐化战吼 I → <b>腐化战吼 II</b>（等阶 5），加回荡战嚎；野性残暴 II、极速腐化 II 保留。作者：拿到帕夸特的契约前用 II，坚韧战吼等级越高越好<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>震地战吼（武器组 1）+ 效能 II + 星界投射 + 愤怒战吼，<b>最多 11 级</b>；从远处用它打碎图腾插出的尖刺<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>先祖之灵（升华给的召唤生物）+ 肉盾 II + 瘫痪 + 护甲破损 III；岩浆屏障改挂活力 II<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip del">删</span>震波图腾、锻造之锤、火山裂缝<b class="src o">原</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>武器组 1：圣地权杖 + 塔盾（金工塔盾 61 级：格挡% + 6% 额外物理减免；61 级前沿用 ① 的塔盾）；武器组 2：翠玉战棒（物理% · 附加物理 · 攻速，插磐石符文）+ 圣地权杖<b class="src o">原</b><b class="src s">合</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>胸甲优雅战铠 生命 + <b>精魂（必须）</b>；项链日曜项链 <b>精魂（必须）</b>；头盔、两枚戒指、腰带各 +70 生命；手套 +2 近战；鞋 20% 移速<b class="src o">原</b></li>
+      <li><span class="chip kind">精魂</span>52 级时约 236（权杖 100 + 项链 38 + 胸甲 38 + 任务 60），减岩浆屏障 30 → 2 个图腾；间章利萨拉 +40 后 → 3 个。精魂不够就先关岩浆屏障（评论区玩家的自述）<b class="src s">合</b><b class="src c">评</b></li>
+      <li><span class="chip kind">任务</span>间章七柱选塔巴纳的恩惠（+5% 全元素抗，作者：不是永久选择）；第 4 幕文身：努葛玛呼的力量文身 / 塔萨里奥的冰霜文身 / 塔赫亚的闪电文身（作者：5 力 / 5% 冰抗 / 5% 电抗）<b class="src o">原</b></li>
+      <li><span class="chip kind">升华</span><span class="chip add">增</span>约 60 级第 3 次试炼：图腾生命 → 木垒高筑。原站 Starter 的升华栏是空的，本页按 Endgame 的 6 点补上<b class="src s">合</b></li>
+      <li><span class="chip kind">刷图</span>65 级起：鞋换 30% 移速（猎豹的，物品等级 65）；开始刷 <b>T6 以上的封印宝库</b>（首领玛兹特里、伊察拉）或祭祀首领伯达克，找帕夸特的契约<b class="src db">库</b><b class="src s">合</b></li>
+    </ol>
+    <p class="exit">进入 ③ 的条件：<b>帕夸特的契约到手且角色 65 级</b>；三抗 75%（作者 Starter 写：元素抗性合计至少 75%，混沌 0–35%）；两组精魂都能放 3 个图腾。</p>
+  </div>
+
+  <div class="evo" id="st3">
+    <div class="evo-head"><h3>③ 65 级 → 终局初期（T6–T15）</h3><span>原站 Endgame 变体；主树重合 87%，<b>不需要洗点</b></span></div>
+    <ol>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>坚韧战吼：腐化战吼 II → <b>帕夸特的契约</b>，加物理专精（原站 19 级）<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>先祖战士图腾加野性残暴 III（原站 16 级）；震地战吼加机动（11 级）；先祖之灵 18 级，去掉护甲破损 III<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>权杖换成词缀版后两组都挂闪电净化：武器组 1 活力 II · 吞灵 II · 温热血脉 · 精准 II；武器组 2 活力 I · 精准 I；另加装甲回收（13 级）、大地震击（武器组 2，原站未说明用途）<b class="src o">原</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>武器组 1 权杖：该装备精魂 +50%（精魂 150）+ 所有召唤生物技能等级 +2（先祖之灵是召唤生物）+ 友军冰霜伤害 / 暴击 / 攻速<b class="src o">原</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>武器组 2 主手：原站是施虐者的慈悲 + 高级钢铁符文。它是巅峰首领掉落，SSF 先用自做稀有单手锤（钉头锤 67 级底子：物理% + 附加物理 + 攻速）——作者旧版说明写“武器组 2 用你能拿到的最高 DPS 武器”<b class="src o">原</b><b class="src s">合</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>全身换 6 词缀稀有件：生命 + 抗性 + 护甲 / 护甲作用于元素 + 精魂；贵族巨盔、优雅战铠、精工护手（+2 近战）、堡垒胫甲（30% 移速）、日曜项链（+36 精魂）、嵌板腰带（+156 生命 +30 力量）。塔盾换塔赫亚塔盾（80 级，「属性需求降低 30%」后要 80 力），80 级前继续用金工塔盾<b class="src o">原</b><b class="src s">合</b></li>
+      <li><span class="chip kind">符文</span>头盔、塔盾插高级沙漠符文（火抗 +18%）；胸甲高级风暴 + 风暴符文；手套、鞋子高级风暴符文——用符文补抗性缺口<b class="src o">原</b><b class="src db">库</b></li>
+      <li><span class="chip kind">天赋</span><span class="chip add">增</span>主树 55 → 79 点：钢化防御、脱敏、不灭之躯、历战老兵、战斗狂热；武器组 1 咆哮战吼、<b>嚎叫兽灵</b>、守护者的决心；武器组 2 断离、羁绊精准、粗俗手段、先祖降临（武器组各 24 点）。<span class="chip del">删</span>先祖的巧谋<b class="src o">原</b></li>
+      <li><span class="chip kind">珠宝</span><span class="chip add">增</span>4 颗红玉：战吼速度 / 图腾伤害 / 战吼伤害 / 晕眩阈值等（第 9 节）<b class="src o">原</b></li>
+      <li><span class="chip kind">药剂</span>非凡生命药剂（生命回复提高 + 使用时移除魔力——祭血术下没有魔力，这条无副作用）；磐石咒符、抗毒咒符<b class="src o">原</b><b class="src s">合</b></li>
+    </ol>
+    <p class="exit">进入 ④ 的条件：<b>80 级第 4 次升华</b> + 攒到 80 级底材；力量够坚韧战吼 20 级（157）。原站 Endgame 仍是 6 个升华点，第 4 次试炼可以在 ③ 末尾打。</p>
+  </div>
+
+  <div class="evo" id="st4">
+    <div class="evo-head"><h3>③ 终局初期 → ④ 大后期</h3><span>原站 Uber Endgame 变体（作者标 90 级+）；主树重合 95%</span></div>
+    <ol>
+      <li><span class="chip kind">升华</span><span class="chip add">增</span>第 4 次试炼：护甲小点 → 青玉传承（获得技能青玉囚笼，每秒一层青玉护身）<b class="src o">原</b><b class="src db">库</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip add">增</span>青玉囚笼 + 快速施法 II + 持续时间延长 II；跃击（武器组 2）；装甲回收加持续时间延长 II；大地震击加持续时间延长 II · 快速攻击 III · 连打带跑 · 分叉裂缝 II<b class="src o">原</b></li>
+      <li><span class="chip kind">宝石</span><span class="chip chg">改</span>坚韧战吼 20 级；先祖战士图腾 18 级、加流血 IV；震地战吼加范围扩大 II；先祖之灵加致盲 II、护甲破损 I<b class="src o">原</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>头盔帝国巨盔（已腐化）：盛怒词缀「战吼的伤害提高 59%」「使用战吼时回复 5% 生命」，插沃拉娜的屠戮（可以重置盛怒词缀）+ 塔卡提的灵核<b class="src o">原</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>胸甲华丽战铠（+196 生命 +47 精魂），插佳华尼的灵核（生命上限 +5%）+ 提卡巴的灵核（被暴击伤害 −50%）；手套巨型护手（+2 近战 + 火焰与混沌抗性）；项链 +2 近战、涂<b>碎裂痛击</b><b class="src o">原</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>武器组 1 权杖（已腐化）精魂 +75%（精魂 175）+ 召唤生物生命 + 友军施法 / 攻速，插佳华尼的集结灵核（所有战吼宝石 +1）；武器组 2 权杖插佳华尼的震颤灵核（所有猛击宝石 +1，尖刺战吼是猛击）；塔盾插公牛雕像（格挡 +15%）<b class="src o">原</b><b class="src db">库</b></li>
+      <li><span class="chip kind">装备</span><span class="chip chg">改</span>戒指两枚紫晶戒指（生命 + 魔力 + 三抗 / 全抗，一枚带 +30 敏捷）；腰带 +161 生命 + 双抗 + 晕眩阈值；药剂换终极生命药剂；咒符融冰 / 根基 / 真银<b class="src o">原</b></li>
+      <li><span class="chip kind">天赋</span><span class="chip add">增</span>主树 79 → 91：先祖援手、完美机遇；武器组 2 压制打击、蛮族之力；守望之塔、先祖的团结改点在主树。<span class="chip del">删</span>脱敏<b class="src o">原</b></li>
+      <li><span class="chip kind">珠宝</span><span class="chip chg">改</span>5 颗：4 颗红玉改成护甲% / 粉碎护甲 / 图腾放置速度 / 晕眩阈值方向，另加 1 颗翡翠<b class="src o">原</b></li>
+    </ol>
+    <p class="exit">④ 没有下一档。原站没有给 DPS、生命、护甲目标值；作者只说这一版“便宜也能打全部内容”<b class="src c">评</b>。</p>
+  </div>
+
+  <div class="split">
+    <div>
+      <h4>①–② 该花的（或该刷的）</h4>
+      <ul>
+        <li>+近战技能等级（武器、手套、项链）<b class="src o">原</b></li>
+        <li>精魂：胸甲 / 项链的精魂词缀，决定图腾数<b class="src o">原</b></li>
+        <li>两把圣地权杖、一把单手锤（52 级前备好）<b class="src s">合</b></li>
+        <li>移动速度鞋<b class="src o">原</b></li>
+      </ul>
+    </div>
+    <div>
+      <h4>①–② 别花的</h4>
+      <ul>
+        <li>武器组 1 装备上的攻击伤害词缀：清图伤害只看坚韧战吼的宝石等级<b class="src db">库</b><b class="src s">合</b></li>
+        <li>高阶震地战吼：作者要求 11 级封顶<b class="src o">原</b></li>
+        <li>施虐者的慈悲：巅峰首领掉落，SSF 别等它<b class="src db">库</b></li>
+        <li>① 的双手锤：52 级后就用不上了<b class="src s">合</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2><span class="no">3</span>升华节点</h2>
+  <p>取点顺序按原站各档的升华优先级。节点名与效果取 poe2db <code>/cn/Warbringer</code>，与原站的节点编号逐个对上<b class="src db">库</b>。点数不含起点。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th><th class="n">④</th></tr></thead>
+    <tbody>
+      <tr><td>图腾生命<span class="en">Totem Life · n39365</span></td><td>图腾的生命提高 20%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>呼求回应</b><span class="en">Answered Call · n39411</span></td><td>获得技能：先祖之灵；+1 召唤图腾数量上限；当你召唤图腾时触发先祖之灵</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td>战吼速度<span class="en">Warcry Speed · n1994</span></td><td>战吼速度提高 20%</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>战争司号的呐喊</b><span class="en">Warcaller's Bellow · n47097</span></td><td>战吼引爆灵柩，造成其生命 25% 的物理伤害；忽略战吼的冷却时间</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td>图腾生命<span class="en">Totem Life · n48682</span></td><td>图腾的生命提高 20%</td><td class="n">—</td><td class="n tick">✓<b class="src s">合</b></td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td><b>木垒高筑</b><span class="en">Wooden Wall · n40915</span></td><td>有 20% 被击中的伤害优先由你的图腾承受</td><td class="n">—</td><td class="n tick">✓<b class="src s">合</b></td><td class="n tick">✓</td><td class="n tick">✓</td></tr>
+      <tr><td>护甲<span class="en">Armour · n18585</span></td><td>护甲提高 20%</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td></tr>
+      <tr><td><b>青玉传承</b><span class="en">Jade Heritage · n6127</span></td><td>获得技能：青玉囚笼；每秒获得一层青玉护身（每层 1% 额外物理伤害减免，上限 10 层）</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n tick">✓</td></tr>
+      <tr><td>点数</td><td>—</td><td class="n">4</td><td class="n">6</td><td class="n">6</td><td class="n">8</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>先祖之灵</b>（呼求回应给予）：每次召唤图腾时触发，召唤一个先祖之灵为你作战，图腾死亡它也消失；你每有 1 点力量它的伤害提高 1%，每 3 点敏捷攻速提高 1%，图腾生命词缀也作用于它<b class="src db">库</b>。所以 ③ 的权杖上「所有召唤生物技能等级 +2」「召唤生物生命」「友军伤害」都有用处。</li>
+    <li><b>青玉囚笼</b>：法术，消耗所有青玉护身层数，每层获得相当于生命上限 6% 的防卫，持续约 4 秒；有防卫时不能再叠青玉护身<b class="src db">库</b>。</li>
+    <li>原站 Starter 的升华栏为空；② 的 6 点是本页按 Endgame 补的。0.3 版本记录里作者提到：战争司号的呐喊与旧的「巨狼咆哮」合并后，第一次升华就能用腐化战吼<b class="src o">原</b>——但 0.5 的 Leveling 变体仍把它放在第 2 次。</li>
+    <li>没点的：灵龟护符（格挡上限 75%，但被格挡的击中你仍承受 20%）、蓝礼的锤炼、铁砧的重量、内爆冲击<b class="src db">库</b>。原站四档都没有取。</li>
+  </ul>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <h2><span class="no">4</span>技能宝石配置</h2>
+  <p>下表每一格是该阶段的完整辅助清单，括号里是原站写的宝石等级（原站只在 ③④ 写了等级）。<b>技能要在技能面板（默认 <kbd>G</kbd>）里绑定武器组</b>：图腾在武器组 2，战吼在武器组 1<b class="src o">原</b>。</p>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>技能</th><th>① 起步 → 52</th><th>② 52 → 进图</th><th>③ 终局初期</th><th>④ 大后期</th></tr></thead>
+    <tbody>
+      <tr><th>坚韧战吼<span class="en">Fortifying Cry · 武器组 1</span></th><td>腐化战吼 I · 极速腐化 II · 野性残暴 II</td><td><b>腐化战吼 II</b>（契约前）· 回荡战嚎 · 野性残暴 II · 极速腐化 II<b class="src o">原</b></td><td><b>帕夸特的契约</b> · 回荡战嚎 · 野性残暴 II · 极速腐化 II · 物理专精（19）</td><td>同 ③（20）</td></tr>
+      <tr><th>先祖战士图腾<span class="en">Ancestral Warrior Totem · 武器组 2</span></th><td class="dim">— 52 级解锁</td><td>尖刺战吼（镶嵌）· 紧急图腾 III · 分叉裂缝 II</td><td>尖刺战吼 · 紧急图腾 III · 分叉裂缝 II · 野性残暴 III（16）</td><td>+ 流血 IV（18）</td></tr>
+      <tr><th>震地战吼<span class="en">Seismic Cry · 武器组 1</span></th><td class="dim">—</td><td>效能 II · 星界投射 · 愤怒战吼（≤11 级）</td><td>+ 机动（11）</td><td>+ 范围扩大 II（11）</td></tr>
+      <tr><th>先祖之灵<span class="en">Ancestral Spirits · 升华给予</span></th><td class="dim">原站未列</td><td>肉盾 II · 瘫痪 · 护甲破损 III</td><td>肉盾 II · 瘫痪（18）</td><td>肉盾 II · 瘫痪 · 致盲 II · 护甲破损 I</td></tr>
+      <tr><th>岩浆屏障<span class="en">Magma Barrier · 保留 30 精魂</span></th><td>清晰 I · 活力 I</td><td>活力 II</td><td>无辅助（4）</td><td>无辅助（4）</td></tr>
+      <tr><th>闪电净化<span class="en">Purity of Lightning · 权杖给予</span></th><td class="dim">—</td><td class="dim">—（原站用火焰净化版权杖，没列光环）</td><td>武器组 1：活力 II · 吞灵 II · 温热血脉 · 精准 II（13）；武器组 2：活力 I · 精准 I（15）</td><td>同 ③（17 / 15）</td></tr>
+      <tr><th>装甲回收<span class="en">Scavenged Plating · 保留 30 精魂</span></th><td class="dim">—</td><td class="dim">—</td><td>无辅助（13）</td><td>持续时间延长 II（13）</td></tr>
+      <tr><th>大地震击<span class="en">Sunder · 武器组 2</span></th><td class="dim">—</td><td class="dim">—</td><td>无辅助（16）</td><td>持续时间延长 II · 快速攻击 III · 连打带跑 · 分叉裂缝 II（17）</td></tr>
+      <tr><th>青玉囚笼<span class="en">Encase in Jade · 升华给予</span></th><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>快速施法 II · 持续时间延长 II</td></tr>
+      <tr><th>跃击<span class="en">Leap Slam · 武器组 2</span></th><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>无辅助（16）</td></tr>
+      <tr><th>震波图腾<span class="en">Shockwave Totem · 武器组 2</span></th><td>野性残暴 I · 冗余 I</td><td><span class="chip del">删</span></td><td class="dim">—</td><td class="dim">—</td></tr>
+      <tr><th>锻造之锤 · 火山裂缝<span class="en">Forge Hammer · Volcanic Fissure</span></th><td>崎岖之地 I · 持久地面 II ／ 分叉裂缝 I</td><td><span class="chip del">删</span></td><td class="dim">—</td><td class="dim">—</td></tr>
+    </tbody>
+  </table></div>
+  <h3>宝石等阶、等级与需求（poe2db）</h3>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>宝石</th><th>等阶</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>坚韧战吼</td><td class="n">9</td><td>冷却 8 秒（消耗一个耐力球可跳过）；需求护甲盾牌；战吼范围 4 米</td></tr>
+      <tr><td>震地战吼</td><td class="n">11</td><td>击退并重度晕眩；冷却 8 秒；作者要它停在 11 级（耗血低）</td></tr>
+      <tr><td>先祖战士图腾</td><td class="n">13</td><td>需求单手锤或双手锤；图腾持续 8 秒；每经过镶嵌攻击时间的 150% 召唤一名灵体战士；上限 10 个；13 级起图腾才有元素抗性（20 级 +75%）</td></tr>
+      <tr><td>尖刺战吼</td><td class="n">7</td><td>猛击技能，尖刺上限 6 个、持续 6 秒；在尖刺附近发动的战吼会让它破碎</td></tr>
+      <tr><td>腐化战吼 I / II</td><td class="n">3 / 5</td><td>I 级被辅助战吼范围总降 30%，II 级没有这条</td></tr>
+      <tr><td>帕夸特的契约</td><td class="n">血统</td><td>需求 65 级、掉落等级 52；近期每使用一次消耗生命上限 10%（最多 30%）</td></tr>
+      <tr><td>回荡战嚎</td><td class="n">4</td><td>移动 10 米后可用；回响 2 次、每次范围总增 100%；伤害总降 40%</td></tr>
+      <tr><td>岩浆屏障 · 装甲回收</td><td class="n">4 / 4</td><td>各保留 30 精魂</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">宝石等级与角色等级：13 级 = 52 级（92 力）、16 级 = 66 级（116 力）、18 级 = 78 级（137 力）、19 级 = 84 级（147 力）、20 级 = 90 级（157 力）<b class="src db">库</b>。原站小贴士：尖刺战吼可以找 20% 品质的腐化 +1 版本再升到 20 级；持久鏖战可以在巅峰首领战里替换装甲回收，保持低等级减少敏捷需求<b class="src o">原</b>（这两条写于旧版通用宝石说明）。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2><span class="no">5</span>操作循环</h2>
+  <h3>①：52 级之前</h3>
+  <ol>
+    <li>清图：坚韧战吼（挂腐化战吼 I）边走边按——作者提示 WASD 操作下它可以移动中施放<b class="src o">原</b>。</li>
+    <li>单体：先用锻造之锤 / 火山裂缝 / 震地铺崎岖之地，再把震波图腾放在上面引爆；锻造之锤前先按炽焰战吼<b class="src o">原</b>。</li>
+  </ol>
+  <h3>②–④：图腾形态</h3>
+  <ol>
+    <li><b>技能绑定武器组</b> <span class="chip must">不做会崩</span> 先祖战士图腾只在武器组 2、战吼只在武器组 1；绑错了伤害会很低（原站问答）<b class="src o">原</b>。</li>
+    <li>刷图：武器组 1 连按坚韧战吼，战争司号的呐喊让它没有冷却；死掉的怪物被战吼引爆，连锁清屏<b class="src o">原</b>。</li>
+    <li>首领：按先祖战士图腾（自动切到武器组 2 放下，图腾留在场上），切回后在<b>远处</b>按震地战吼打碎尖刺——回血、施加暴击弱点<b class="src o">原</b>。</li>
+    <li>图腾数：作者说放图腾前一刻切武器可以不占精魂，能放 5 个；这是他自己说的 bug，随时可能被修<b class="src c">评</b>。</li>
+    <li>生命管理：契约每次消耗生命上限 10%（近期最多 30%）。首领前先满血；紧急呼喊（战吼回复 2%）让持续施放战吼也在回血<b class="src db">库</b><b class="src s">合</b>。</li>
+  </ol>
+  <p class="small">操作设置：用“点击移动”的话，别把震地战吼放在左键（和移动冲突，放不出来还会站桩），原站建议 WASD<b class="src o">原</b>。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <h2><span class="no">6</span>属性达标值</h2>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>项目</th><th>① 起步 → 52</th><th>② 52 → 进图</th><th>③ 终局初期</th><th>④ 大后期</th></tr></thead>
+    <tbody>
+      <tr><th>生命</th><td colspan="4">原站四档都没给生命目标。按原站装备统计「+# 生命上限」词缀合计：① 0 · ② 350 · ③ 811 · ④ 1,123（另有胸甲佳华尼的灵核 +5%）<b class="src s">合</b>；力量每点另给生命（作者：每点 2 生命）<b class="src o">原</b></td></tr>
+      <tr><th>元素抗性</th><td>合计 60–75%<b class="src o">原</b></td><td>合计至少 75%<b class="src o">原</b></td><td>封顶 75%（原站未写，本页取默认上限）</td><td>同左</td></tr>
+      <tr><th>混沌抗性</th><td>原站未给</td><td>0–35%<b class="src o">原</b></td><td>原站未给（旧版 Endgame 写 45–75%）</td><td>原站未给；交易条件手套 / 项链「总混沌抗性 ≥13」，头盔塔卡提的灵核 +13%</td></tr>
+      <tr><th>精魂（可用于图腾）</th><td>—</td><td>52 级约 206 → 间章后约 246（2 → 3 个图腾）<b class="src s">合</b></td><td>武器组 1：150 + 36 + 42 + 100 − 60 = 268；武器组 2：266 → 3 个<b class="src s">合</b></td><td>武器组 1：175 + 34 + 47 + 100 − 60 = 296；武器组 2：269 → 3 个（作者：bug 可到 5，好装备 6）<b class="src s">合</b><b class="src c">评</b></td></tr>
+      <tr><th>力量（宝石实际需求）</th><td>坚韧战吼 11 级 74</td><td>先祖战士图腾 13 级 92；金工塔盾 86、翠玉战棒 87</td><td>坚韧战吼 19 级 <b>147</b>；施虐者的慈悲 134；塔赫亚塔盾 80（已降 30%）</td><td>坚韧战吼 20 级 <b>157</b>；华丽战铠 121；帝国巨盔 115</td></tr>
+      <tr><th>智慧</th><td colspan="4">圣地权杖需求 38 智，两组都要。原站 ③④ 各点 6–7 个智慧属性点；③ 戒指另带 +7 智慧<b class="src o">原</b></td></tr>
+      <tr><th>原站「宝石需求」（辅助 +5 相加口径）</th><td class="num">力 35 · 敏 10 · 智 5</td><td class="num">力 50 · 敏 10 · 智 5</td><td class="num">力 60 · 敏 30 · 智 10</td><td class="num">力 90 · 敏 45 · 智 20</td></tr>
+      <tr><th>移动速度（鞋）</th><td>15%</td><td>20% → 65 级 30%</td><td>30%</td><td>30%</td></tr>
+      <tr><th>格挡</th><td colspan="4">原站未给数值。作者 0.3 更新记录写格挡上限 50%<b class="src o">原</b>（0.5 是否仍是 50% 本页未核实）；③④ 塔盾基础格挡 26%；岩浆屏障「格挡几率提高 25%」、守护者的决心「提高 12%」、④ 公牛雕像「提高 15%」<b class="src db">库</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout note"><span class="lab">两种“力量需求”怎么来的</span>
+    <p>原站显示的「宝石需求」恰好等于所有辅助宝石各自的「辅助宝石需求 +5 属性」相加：Starter 13 个辅助 = 65 = 50 + 10 + 5，Endgame 20 个辅助 = 100 = 60 + 30 + 10<b class="src s">合</b>。它不是游戏面板的需求。真正卡人的是宝石等级：坚韧战吼的伤害跟着宝石等级走，19 / 20 级分别要 147 / 157 力量<b class="src db">库</b>。精魂的“−60”是岩浆屏障与装甲回收各 30 的保留；闪电净化由权杖给予，poe2db 没有列保留值。</p>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <h2><span class="no">7</span>装备与词缀</h2>
+  <p>原站每件装备都给了词缀的内部 ID，本页逐条取 poe2db 的简中词缀原文、词缀名与物品等级门槛（括号内数字）<b class="src db">库</b>；表中数值是原站那件装备的实际数值。「交易 min」是原站交易查询的下限，统计 ID 已与主会话从国服交易站取的简中统计表逐条核对。交易链接指向国际服官方交易站（Forbidden Rites 赛季，需要登录）；国服请在国服交易站按表中中文词缀筛。<span class="chip must">必须</span> 是原站标的 mustHave。</p>
+  <p>原站作者的通用优先级（Starter 装备说明）：<b>元素抗性合计至少 75%、混沌 0–35% → 鞋子移速 → 能加力量的部位都加力量 → 生命 → 护甲</b>；武器组 1 主手看上面这些，武器组 2 用你能拿到的最高 DPS 单手锤<b class="src o">原</b>。① 的 Leveling 优先级则是 <b>+近战技能等级 → 移速 → 元素抗性 60–75% → 生命</b><b class="src o">原</b>。</p>
+  <h3>四阶段逐部位总览</h3>
+  <div class="scroll"><table class="stage-tbl"><thead><tr><th>部位</th><th>① Leveling</th><th>② Starter</th><th>③ Endgame</th><th>④ Uber Endgame</th></tr></thead><tbody>
+<tr><th>武器组 1 主手</th><td>强盗之锤：+近战等级</td><td>圣地权杖</td><td>圣地权杖：精魂%、友军加成、+召唤生物等级</td><td>圣地权杖：精魂%、友军加成、召唤生物生命</td></tr>
+<tr><th>武器组 1 副手</th><td>毁灭雄关（传奇）</td><td>金工塔盾：格挡%、额外物理减免</td><td>塔赫亚塔盾：生命、护甲、护甲%、额外物理减免、护甲作用元素、属性需求-30%</td><td>塔赫亚塔盾：生命、护甲、护甲%、额外物理减免、护甲作用元素、属性需求-30%</td></tr>
+<tr><th>武器组 2 主手</th><td>教徒大锤：攻击附加物理、物理%、+近战等级、攻速</td><td>翠玉战棒：附加物理、物理%、攻速</td><td>施虐者的慈悲（传奇）</td><td>施虐者的慈悲（传奇）</td></tr>
+<tr><th>武器组 2 副手</th><td class="dim">—</td><td>圣地权杖</td><td>圣地权杖：精魂%、友军加成、魔力再生、在场范围</td><td>圣地权杖：精魂%、友军加成、魔力再生、在场范围</td></tr>
+<tr><th>头盔</th><td>胜者桂冠（传奇）</td><td>军官巨盔：生命</td><td>贵族巨盔：生命、稀有度、护甲%、冰抗、暴击率</td><td>帝国巨盔：战吼伤害（盛怒）、生命、护甲%、护甲作用元素、战吼回血（盛怒）、冰抗</td></tr>
+<tr><th>胸甲</th><td class="dim">—</td><td>优雅战铠：生命、精魂</td><td>优雅战铠：生命、护甲、精魂、护甲作用元素、冰抗、生命再生</td><td>华丽战铠：生命、精魂、护甲+护甲%、护甲作用元素、冰抗、生命再生</td></tr>
+<tr><th>手套</th><td>增固护手：+近战等级</td><td>精工护手：+近战等级</td><td>精工护手：攻击附加火焰、生命、护甲%、冰抗、+近战等级、击中回血</td><td>巨型护手：生命、魔力、护甲%、火混抗、冰抗、+近战等级</td></tr>
+<tr><th>鞋子</th><td>青铜胫甲：移速</td><td>坚铁胫甲：移速</td><td>堡垒胫甲：生命、魔力、移速、冰抗、火抗、感电时间</td><td>堡垒胫甲：生命、魔力、移速、冰抗、火抗、感电时间</td></tr>
+<tr><th>项链</th><td>琥珀项链：+近战等级</td><td>日曜项链：精魂</td><td>日曜项链：生命、魔力、精魂、冰抗、火抗、生命再生</td><td>日曜项链：ES%、魔力、精魂、火混抗、火抗、+近战等级</td></tr>
+<tr><th>左戒</th><td class="dim">—</td><td>三相戒指：生命</td><td>红玉戒指：攻击附加火焰、生命、魔力、冰抗、电抗</td><td>紫晶戒指：攻击附加物理、生命、魔力、冰抗、敏捷、火抗</td></tr>
+<tr><th>右戒</th><td class="dim">—</td><td>三相戒指：生命</td><td>紫晶戒指：攻击附加冰霜、生命、魔力、火抗、智慧、生命再生</td><td>紫晶戒指：生命、魔力、命中、全抗、击杀回血、电抗</td></tr>
+<tr><th>腰带</th><td class="dim">—</td><td>嵌板腰带：生命</td><td>嵌板腰带：生命、咒符充能、火抗、力量</td><td>嵌板腰带：药剂回复、生命、魔力、火抗、电抗、晕眩阈值</td></tr>
+<tr><th>药剂</th><td class="dim">—</td><td class="dim">—</td><td>非凡生命药剂</td><td>终极生命药剂</td></tr>
+<tr><th>咒符 1</th><td class="dim">—</td><td class="dim">—</td><td>磐石咒符</td><td>融冰咒符</td></tr>
+<tr><th>咒符 2</th><td class="dim">—</td><td class="dim">—</td><td>抗毒咒符</td><td>根基咒符</td></tr>
+<tr><th>咒符 3</th><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>真银咒符</td></tr>
+</tbody></table></div>
+
+  <h3>SSF 下每个阶段靠什么自己做装备</h3>
+  <div class="split">
+    <div>
+      <h4>① 起步 → 52</h4>
+      <ul>
+        <li>白 / 魔法锤子用蜕变石 + 增幅石碰「决斗之」（所有近战技能等级 +2，物品等级 41，第 3 幕后段才会出）<b class="src db">库</b></li>
+        <li>鞋子：短跑的 15%（16）→ 种马的 20%（33）→ 瞪羚的 25%（46）</li>
+        <li>胜者桂冠、毁灭雄关不必强求：头盔任意生命 + 抗性，副手任意塔盾（坚韧战吼只要护甲盾牌）<b class="src s">合</b></li>
+        <li>留低等工匠石给之后的插槽，留辅助宝石给 52 级转型<b class="src o">原</b></li>
+      </ul>
+    </div>
+    <div>
+      <h4>② 52 → 进图</h4>
+      <ul>
+        <li>整套每件 1–2 条目标词缀：胸甲生命 + 精魂、项链精魂（日曜项链底子自带 10–15）、其余 +70 生命——魔法件就够，有富豪石再升稀有补抗性<b class="src o">原</b><b class="src s">合</b></li>
+        <li>两把圣地权杖白板即可：它们在这阶段只提供 100 精魂<b class="src s">合</b></li>
+        <li>翠玉战棒：物理% · 附加物理 · 攻速，插磐石符文<b class="src o">原</b></li>
+        <li>帕夸特的契约：65 级起刷 T6+ 封印宝库或祭祀首领伯达克<b class="src db">库</b></li>
+      </ul>
+    </div>
+    <div>
+      <h4>③ 终局初期</h4>
+      <ul>
+        <li>换 6 词缀稀有件：地图掉的高物品等级稀有底子 + 崇高石补词缀；先盯精魂（项链 / 胸甲 / 权杖「该装备精魂提高」伯爵的 46 · 公爵的 60），它决定图腾数<b class="src s">合</b></li>
+        <li>单手锤自做：钉头锤（67 级）底子，物理% + 附加物理 + 攻速；施虐者的慈悲等到能打谵妄巅峰首领再说<b class="src s">合</b></li>
+        <li>缺抗性就插高级风暴 / 沙漠符文，护甲件各 +18%<b class="src db">库</b></li>
+      </ul>
+    </div>
+    <div>
+      <h4>④ 大后期</h4>
+      <ul>
+        <li>头盔：插沃拉娜的屠戮后可以重置盛怒词缀，目标「沃拉娜的」战吼伤害 50–75% + 「狂战士之」使用战吼时回复 4–5% 生命（都是 75 级词缀）<b class="src db">库</b></li>
+        <li>手套 / 项链的「阿曼娜姆之」火焰与混沌抗性（65）是深渊领主名下的渎灵后缀<b class="src db">库</b></li>
+        <li>灵核：佳华尼的集结灵核（战吼宝石 +1）、佳华尼的震颤灵核（猛击宝石 +1）都是「仅限 1」<b class="src db">库</b></li>
+        <li>项链涂碎裂痛击：浓缩的液化恐惧 + 稀释的液化内疚 ×2<b class="src db">库</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <details class="stage-gear" id="gear1">
+    <summary>① Leveling 逐件 <span>原站 Leveling 变体 · 2 件传奇</span></summary>
+    <div class="inner">
+      <p class="small">原站项链写的是「所有近战技能等级 +3（必须）」，但 +3 这一档（激战之）物品等级 75，战役里不可能出；本页按 +2（决斗之，41）或 +1 处理<b class="src db">库</b><b class="src s">合</b>。</p>
+      <div class="slots">
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 主手 · 强盗之锤 <span class="en">Brigand Mace</span></h4><span class="req">需求 33 级 · 60 力 · 单手锤 28-38</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>所有近战技能等级 +2 <span class="chip must">必须</span></td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 副手 · 毁灭雄关 <span class="en">Doomgate</span> <span class="chip tmp">传奇</span></h4><span class="req">传奇 · 底材 加固塔盾 · 需求 12 级 · 19 力</span></div>
+<div class="slot-body">
+<p class="slot-notes">获得技能：架盾；格挡几率提高 (80—100)%；护甲提高 (100—150)%；混沌抗性 +(13—17)%；击中被格挡时，你承受伤害的 (25—40)%；格挡时终结敌人 <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Doomgate%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 主手 · 教徒大锤 <span class="en">Cultist Greathammer</span></h4><span class="req">需求 22 级 · 41 力 · 双手锤 36-49</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>攻击速度提高 8%</td><td>8% increased Attack Speed</td><td class="n">8</td><td class="tier">轻松之（11）</td></tr>
+<tr><td>攻击附加 2-5 物理伤害</td><td>Adds 2 to 5 Physical Damage to Attacks</td><td class="n">2</td><td class="tier">抛光的（16）</td></tr>
+<tr><td>物理伤害提高 50%</td><td>50% increased Physical Damage</td><td class="n">50</td><td class="tier">锯齿的（8）</td></tr>
+<tr><td>所有近战技能等级 +2</td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A50%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.twomace%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>头盔 · 胜者桂冠 <span class="en">Crown of the Victor</span> <span class="chip tmp">传奇</span></h4><span class="req">传奇 · 底材 铁锻王冠 · 需求 5 级 · 7 力 · 7 智</span></div>
+<div class="slot-body">
+<p class="slot-notes">物品稀有度提高 (10—15)%；所有技能等级 +1；每击败一名敌人获得 10 点生命；每击败一名敌人获得 10 点魔力 <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Crown%20of%20the%20Victor%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>手套 · 增固护手 <span class="en">Bolstered Mitts</span></h4><span class="req">需求 27 级 · 35 力 · 护甲 75</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>所有近战技能等级 +2 <span class="chip must">必须</span></td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>鞋子 · 青铜胫甲 <span class="en">Bronze Greaves</span></h4><span class="req">需求 16 级 · 23 力 · 护甲 74</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>移动速度提高 15% <span class="chip must">必须</span></td><td>15% increased Movement Speed</td><td class="n">15</td><td class="tier">短跑的（16）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>项链 · 琥珀项链 <span class="en">Amber Amulet</span></h4><span class="req">需求 8 级</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>所有近战技能等级 +3 <span class="chip must">必须</span></td><td>+3 to Level of all Melee Skills</td><td class="n">3</td><td class="tier">激战之（75）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+</div>
+    </div>
+  </details>
+  <details class="stage-gear" id="gear2" open>
+    <summary>② Starter 逐件 <span>原站 Starter 变体 · 0 件传奇</span></summary>
+    <div class="inner">
+      <p class="small">原站两把圣地权杖只给了底材（火焰净化版），没有词缀；金工塔盾 61 级才能装备，52–60 级沿用 ① 的塔盾<b class="src s">合</b>。</p>
+      <div class="slots">
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 主手 · 圣地权杖 · 火焰净化版 <span class="en">Shrine Sceptre</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100</span></div>
+<div class="slot-body">
+<p class="small">原站只给了底材，没有指定词缀。</p>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 副手 · 金工塔盾 <span class="en">Goldworked Tower Shield</span></h4><span class="req">需求 61 级 · 86 力 · 格挡 26% · 护甲 192</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>格挡几率提高 20%</td><td>20% increased Block chance</td><td class="n">20</td><td class="tier">不屈的（33）</td></tr>
+<tr><td>6% 额外物理伤害减免</td><td>6% additional Physical Damage Reduction</td><td class="n">6</td><td class="tier">哨兵之（53）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2481353198%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 主手 · 翠玉战棒 <span class="en">Jade Club</span></h4><span class="req">需求 49 级 · 87 力 · 单手锤 31-51</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>附加 10-18 物理伤害</td><td>Adds 10 to 18 Physical Damage</td><td class="n">10</td><td class="tier">熠熠的（46）</td></tr>
+<tr><td>物理伤害提高 65%</td><td>65% increased Physical Damage</td><td class="n">65</td><td class="tier">邪恶的（16）</td></tr>
+<tr><td>攻击速度提高 14%</td><td>14% increased Attack Speed</td><td class="n">14</td><td class="tier">声望之（60）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：磐石符文 <span class="en">Stone Rune</span>：造成的晕眩积蓄值提高 30% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1940865751%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1509134228%22%2C%22value%22%3A%7B%22min%22%3A65%7D%7D%2C%7B%22id%22%3A%22explicit.stat_210067635%22%2C%22value%22%3A%7B%22min%22%3A14%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.onemace%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 副手 · 圣地权杖 · 火焰净化版 <span class="en">Shrine Sceptre</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100</span></div>
+<div class="slot-body">
+<p class="small">原站只给了底材，没有指定词缀。</p>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>头盔 · 军官巨盔 <span class="en">Commander Greathelm</span></h4><span class="req">需求 45 级 · 64 力 · 护甲 233</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+70 生命上限</td><td>+70 to maximum Life</td><td class="n">70</td><td class="tier">健硕的（38）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>胸甲 · 优雅战铠 <span class="en">Elegant Plate</span></h4><span class="req">需求 54 级 · 86 力 · 护甲 418</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+70 生命上限</td><td>+70 to maximum Life</td><td class="n">70</td><td class="tier">健硕的（38）</td></tr>
+<tr><td>+38 精魂 <span class="chip must">必须</span></td><td>+38 to Spirit</td><td class="n">38</td><td class="tier">女子爵的（33）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A38%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>手套 · 精工护手 <span class="en">Detailed Mitts</span></h4><span class="req">需求 45 级 · 56 力 · 护甲 116</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>所有近战技能等级 +2</td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>鞋子 · 坚铁胫甲 <span class="en">Plated Greaves</span></h4><span class="req">需求 45 级 · 60 力 · 护甲 174</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>移动速度提高 20%</td><td>20% increased Movement Speed</td><td class="n">20</td><td class="tier">种马的（33）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>项链 · 日曜项链 <span class="en">Solar Amulet</span></h4><span class="req">需求 30 级 · 基底 +(10—15) 精魂</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+38 精魂 <span class="chip must">必须</span></td><td>+38 to Spirit</td><td class="n">38</td><td class="tier">女子爵的（33）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A38%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>左戒 · 三相戒指 <span class="en">Prismatic Ring</span></h4><span class="req">需求 35 级</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+70 生命上限</td><td>+70 to maximum Life</td><td class="n">70</td><td class="tier">健硕的（38）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>右戒 · 三相戒指 <span class="en">Prismatic Ring</span></h4><span class="req">需求 35 级</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+70 生命上限</td><td>+70 to maximum Life</td><td class="n">70</td><td class="tier">健硕的（38）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>腰带 · 嵌板腰带 <span class="en">Plate Belt</span></h4><span class="req">需求 25 级 · 基底 +(140—180) 护甲</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+70 生命上限</td><td>+70 to maximum Life</td><td class="n">70</td><td class="tier">健硕的（38）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+</div>
+    </div>
+  </details>
+  <details class="stage-gear" id="gear3" open>
+    <summary>③ Endgame 逐件 <span>原站 Endgame 变体 · 1 件传奇</span></summary>
+    <div class="inner">
+      <p class="small">原站购买顺序：头盔 → 武器组 1 权杖 → 施虐者的慈悲 → 塔盾 → 武器组 2 权杖 → 左戒 → 右戒 → 项链 → 胸甲 → 手套 → 腰带 → 鞋子<b class="src o">原</b>。</p>
+      <div class="slots">
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 主手 · 圣地权杖 · 闪电净化（原站 slug 指向「不净」版，见数据核验） <span class="en">Shrine Sceptre</span> <span class="chip bad">已腐化</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100；本件 等级 50 · 力 17 · 智 38｜品质 +20% · 精魂 150 · 物品等级 53</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>该装备精魂提高 50%</td><td>50% increased Spirit</td><td class="n">45</td><td class="tier">伯爵的（46）</td></tr>
+<tr><td>在场的友军附加 9-16 攻击冰霜伤害</td><td>Allies in your Presence deal 9 to 16 added Attack Cold Damage</td><td class="n">9</td><td class="tier">冰冻的（46）</td></tr>
+<tr><td>在场的友军的暴击几率提高 13%</td><td>Allies in your Presence have 13% increased Critical Hit Chance</td><td class="n">10</td><td class="tier">威胁之（11）</td></tr>
+<tr><td>在场的友军的攻击速度提高 7%</td><td>Allies in your Presence have 7% increased Attack Speed</td><td class="n">5</td><td class="tier">技巧之（5）</td></tr>
+<tr><td>所有召唤生物技能等级 +2</td><td>+2 to Level of all Minion Skills</td><td class="n">2</td><td class="tier">统御之（41）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2347036682%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2162097452%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1998951374%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1250712710%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3984865854%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 副手 · 塔赫亚塔盾 <span class="en">Tawhoan Tower Shield</span></h4><span class="req">需求 80 级 · 115 力 · 格挡 26% · 护甲 264；本件 等级 80 · 力 80｜品质 +1% · 格挡 26% · 护甲 641 · 物品等级 82</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>护甲提高 57%</td><td>57% increased Armour</td><td class="n">56</td><td class="tier">支持的（46）</td></tr>
+<tr><td>+172 生命上限</td><td>+172 to maximum Life</td><td class="n">150</td><td class="tier">丰饶的（65）</td></tr>
+<tr><td>属性需求降低 30%</td><td>30% reduced Attribute Requirements</td><td class="n">—</td><td class="tier">娴熟之（52）</td></tr>
+<tr><td>8% 额外物理伤害减免</td><td>8% additional Physical Damage Reduction</td><td class="n">8</td><td class="tier">保护者之（77）</td></tr>
+<tr><td>+48% 的护甲同样作用于元素伤害</td><td>+48% of Armour also applies to Elemental Damage</td><td class="n">44</td><td class="tier">热密之（81）</td></tr>
+<tr><td>+140 护甲</td><td>+140 to Armour</td><td class="n">108</td><td class="tier">电镀的（33）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：高级沙漠符文 <span class="en">Greater Desert Rune</span>：火焰抗性 +18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A108%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A56%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A44%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 主手 · 施虐者的慈悲 <span class="en">Sadist&#x27;s Mercy</span> <span class="chip tmp">传奇</span></h4><span class="req">传奇 · 底材 钉头锤 · 需求 67 级 · 134 力</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>物理伤害提高 287%（区间 240—300）</td><td>287% increased Physical Damage</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>暴击几率 +7.72%（区间 5—8）</td><td>+7.72% to Critical Hit Chance</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>攻击速度提高 15%（区间 14—22）</td><td>15% increased Attack Speed</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>使用该武器击中时施加 5 层煎熬疯狂（区间 2—5）</td><td>Hits with this Weapon inflict 5 Gruelling Madness</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>在场敌人拥有等同于其煎熬疯狂层数的额外威力值</td><td>Enemies in your Presence have additional Power equal to their Gruelling Madness</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：高级钢铁符文 <span class="en">Greater Iron Rune</span>：物理伤害提高 18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Sadist%27s%20Mercy%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 副手 · 圣地权杖 · 闪电净化版 <span class="en">Shrine Sceptre</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100；本件 等级 50 · 力 17 · 智 38｜品质 +8% · 精魂 148 · 物品等级 68</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>该装备精魂提高 48%</td><td>48% increased Spirit</td><td class="n">45</td><td class="tier">伯爵的（46）</td></tr>
+<tr><td>在场的友军附加 7-12 攻击冰霜伤害</td><td>Allies in your Presence deal 7 to 12 added Attack Cold Damage</td><td class="n">7</td><td class="tier">寒风的（33）</td></tr>
+<tr><td>在场的友军附加 1-1 攻击闪电伤害</td><td>Allies in your Presence deal 1 to 23 added Attack Lightning Damage</td><td class="n">1</td><td class="tier">劈哩啪啦的（33）</td></tr>
+<tr><td>魔力再生率提高 78%</td><td>78% increased Mana Regeneration Rate</td><td class="n">78</td><td class="tier">炉火之（30） + 涅盘之（79）</td></tr>
+<tr><td>在场范围提高 36%</td><td>36% increased Presence Area of Effect</td><td class="n">36</td><td class="tier">导向之（23）</td></tr>
+<tr><td>照亮范围提高 15%</td><td>15% increased Light Radius</td><td class="n">15</td><td class="tier">炉火之（30）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2347036682%22%2C%22value%22%3A%7B%22min%22%3A7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2854751904%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_789117908%22%2C%22value%22%3A%7B%22min%22%3A78%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1263695895%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3984865854%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_101878827%22%2C%22value%22%3A%7B%22min%22%3A36%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>头盔 · 贵族巨盔 <span class="en">Noble Greathelm</span></h4><span class="req">需求 59 级 · 83 力 · 护甲 297；本件 等级 59 · 力 83｜品质 +11% · 护甲 570 · 物品等级 65</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>护甲提高 73%</td><td>73% increased Armour</td><td class="n">61</td><td class="tier">支持的（46） + 巩固之（50）</td></tr>
+<tr><td>物品稀有度提高 18%</td><td>18% increased Rarity of Items found</td><td class="n">16</td><td class="tier">囤宝者的（47）</td></tr>
+<tr><td>暴击率提高 19%</td><td>19% increased Critical Hit Chance</td><td class="n">15</td><td class="tier">浩劫之（20）</td></tr>
+<tr><td>冰霜抗性 +23%</td><td>+23% to Cold Resistance</td><td class="n">—</td><td class="tier">雪人之（38）</td></tr>
+<tr><td>+103 生命上限</td><td>+103 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的（54）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 21</p>
+<p>插槽：高级沙漠符文 <span class="en">Greater Desert Rune</span>：火焰抗性 +18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_587431675%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A61%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>胸甲 · 优雅战铠 <span class="en">Elegant Plate</span></h4><span class="req">需求 54 级 · 86 力 · 护甲 418；本件 等级 54 · 力 86｜品质 +20% · 护甲 612 · 物品等级 56</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+92 护甲</td><td>+92 to Armour</td><td class="n">69</td><td class="tier">强化的（25）</td></tr>
+<tr><td>+42 精魂</td><td>+42 to Spirit</td><td class="n">38</td><td class="tier">女子爵的（33）</td></tr>
+<tr><td>冰霜抗性 +20%</td><td>+20% to Cold Resistance</td><td class="n">—</td><td class="tier">独角鲸之（26）</td></tr>
+<tr><td>生命每秒再生 16.2</td><td>16.2 Life Regeneration per second</td><td class="n">13</td><td class="tier">康复之（47）</td></tr>
+<tr><td>+113 生命上限</td><td>+113 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的（54）</td></tr>
+<tr><td>+27% 的护甲同样作用于元素伤害</td><td>+27% of Armour also applies to Elemental Damage</td><td class="n">26</td><td class="tier">衬里之（36）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 16</p>
+<p>插槽：高级风暴符文 <span class="en">Greater Storm Rune</span>：闪电抗性 +18%；风暴符文 <span class="en">Storm Rune</span>：闪电抗性 +14% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A69%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A38%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>手套 · 精工护手 <span class="en">Detailed Mitts</span></h4><span class="req">需求 45 级 · 56 力 · 护甲 116；本件 等级 45 · 力 56｜护甲 147 · 物品等级 53</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>攻击附加 6-13 基础火焰伤害</td><td>Adds 6 to 13 Fire damage to Attacks</td><td class="n">6</td><td class="tier">冒烟的（16）</td></tr>
+<tr><td>所有近战技能等级 +2</td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+<tr><td>冰霜抗性 +28%</td><td>+28% to Cold Resistance</td><td class="n">—</td><td class="tier">海象之（50）</td></tr>
+<tr><td>攻击每击中一名敌人获得 3 点生命</td><td>Gain 3 Life per Enemy Hit with Attacks</td><td class="n">3</td><td class="tier">恢复之（20）</td></tr>
+<tr><td>护甲提高 27%</td><td>27% increased Armour</td><td class="n">27</td><td class="tier">支持的（46）</td></tr>
+<tr><td>+29 生命上限</td><td>+29 to maximum Life</td><td class="n">20</td><td class="tier">健康的（6）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 26</p>
+<p>插槽：高级风暴符文 <span class="en">Greater Storm Rune</span>：闪电抗性 +18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2797971005%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A26%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A27%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>鞋子 · 堡垒胫甲 <span class="en">Bulwark Greaves</span></h4><span class="req">需求 65 级 · 86 力 · 护甲 244；本件 等级 65 · 力 86｜物品等级 70</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>移动速度提高 30%</td><td>30% increased Movement Speed</td><td class="n">30</td><td class="tier">猎豹的（65）</td></tr>
+<tr><td>+102 生命上限</td><td>+102 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的（54）</td></tr>
+<tr><td>+27 魔力上限</td><td>+27 to maximum Mana</td><td class="n">20</td><td class="tier">绿宝石的（1）</td></tr>
+<tr><td>火焰抗性 +7%</td><td>+7% to Fire Resistance</td><td class="n">—</td><td class="tier">幼龙之（1）</td></tr>
+<tr><td>冰霜抗性 +16%</td><td>+16% to Cold Resistance</td><td class="n">—</td><td class="tier">独角鲸之（26）</td></tr>
+<tr><td>你被感电的持续时间降低 45%</td><td>45% reduced Shock duration on you</td><td class="n">41</td><td class="tier">隔绝之（36）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 22</p>
+<p>插槽：高级风暴符文 <span class="en">Greater Storm Rune</span>：闪电抗性 +18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A22%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_99927264%22%2C%22value%22%3A%7B%22min%22%3A41%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>项链 · 日曜项链 <span class="en">Solar Amulet</span></h4><span class="req">需求 30 级 · 基底 +(10—15) 精魂；本件 等级 30｜物品等级 49</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+44 魔力上限</td><td>+44 to maximum Mana</td><td class="n">29</td><td class="tier">钴蓝的（6）</td></tr>
+<tr><td>+36 精魂</td><td>+36 to Spirit</td><td class="n">34</td><td class="tier">女男爵的（25）</td></tr>
+<tr><td>火焰抗性 +25%</td><td>+25% to Fire Resistance</td><td class="n">—</td><td class="tier">窑炉之（36）</td></tr>
+<tr><td>冰霜抗性 +25%</td><td>+25% to Cold Resistance</td><td class="n">—</td><td class="tier">雪人之（38）</td></tr>
+<tr><td>生命每秒再生 12.1</td><td>12.1 Life Regeneration per second</td><td class="n">9</td><td class="tier">食人之（35）</td></tr>
+<tr><td>+40 生命上限</td><td>+40 to maximum Life</td><td class="n">40</td><td class="tier">强健的（24）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 42</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A40%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A29%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A42%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A9%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>左戒 · 红玉戒指 <span class="en">Ruby Ring</span></h4><span class="req">需求 8 级；本件 等级 30｜物品等级 41</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+82 生命上限</td><td>+82 to maximum Life</td><td class="n">70</td><td class="tier">健硕的（38）</td></tr>
+<tr><td>+33 魔力上限</td><td>+33 to maximum Mana</td><td class="n">25</td><td class="tier">湛蓝的（16）</td></tr>
+<tr><td>冰霜抗性 +14%</td><td>+14% to Cold Resistance</td><td class="n">—</td><td class="tier">企鹅之（14）</td></tr>
+<tr><td>闪电抗性 +16%</td><td>+16% to Lightning Resistance</td><td class="n">—</td><td class="tier">暴风之（25）</td></tr>
+<tr><td>攻击附加 5-9 基础火焰伤害</td><td>Adds 5 to 9 Fire damage to Attacks</td><td class="n">3</td><td class="tier">闷烧的（8）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 27</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A27%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1573130764%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>右戒 · 紫晶戒指 <span class="en">Amethyst Ring</span></h4><span class="req">需求 20 级；本件 等级 20｜物品等级 24</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>攻击附加 3-5 基础冰霜伤害</td><td>Adds 3 to 5 Cold damage to Attacks</td><td class="n">3</td><td class="tier">冰缓的（8）</td></tr>
+<tr><td>+14 生命上限</td><td>+14 to maximum Life</td><td class="n">10</td><td class="tier">健壮的（1）</td></tr>
+<tr><td>+27 魔力上限</td><td>+27 to maximum Mana</td><td class="n">20</td><td class="tier">绿宝石的（1）</td></tr>
+<tr><td>+7 智慧</td><td>+7 to Intelligence</td><td class="n">5</td><td class="tier">瞳孔之（1）</td></tr>
+<tr><td>火焰抗性 +17%</td><td>+17% to Fire Resistance</td><td class="n">—</td><td class="tier">火龙之（24）</td></tr>
+<tr><td>生命每秒再生 3.3</td><td>3.3 Life Regeneration per second</td><td class="n">3</td><td class="tier">海星之（11）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 16</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A16%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4067062424%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>腰带 · 嵌板腰带 <span class="en">Plate Belt</span></h4><span class="req">需求 25 级 · 基底 +(140—180) 护甲；本件 等级 52｜物品等级 69</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+156 生命上限</td><td>+156 to maximum Life</td><td class="n">150</td><td class="tier">丰饶的（65）</td></tr>
+<tr><td>+30 力量</td><td>+30 to Strength</td><td class="n">28</td><td class="tier">海兽之（66）</td></tr>
+<tr><td>火焰抗性 +10%</td><td>+10% to Fire Resistance</td><td class="n">—</td><td class="tier">幼龙之（1）</td></tr>
+<tr><td>使用的咒符充能降低 11%</td><td>11% reduced Charm Charges used</td><td class="n">13</td><td class="tier">节俭之（18）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 6</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1570770415%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>药剂 · 非凡生命药剂 <span class="en">Transcendent Life Flask</span></h4><span class="req">需求 50 级；本件 等级 50｜品质 +5% · 物品等级 56</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>生命回复提高 83%</td><td>83% increased Life Recovered</td><td class="n">61</td><td class="tier">削妨的（13）</td></tr>
+<tr><td>生命回复提高 15%</td><td>Removes 15% of Life Recovered from Mana when used</td><td class="n">61</td><td class="tier">削妨的（13）</td></tr>
+<tr><td>每次使用消耗的充能次数降低 20%</td><td>20% reduced Charges per use</td><td class="n">—</td><td class="tier">调剂之（34）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1261982764%22%2C%22value%22%3A%7B%22min%22%3A61%7D%7D%2C%7B%22id%22%3A%22explicit.stat_648019518%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.life%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>咒符 1 · 磐石咒符 <span class="en">Stone Charm</span></h4><span class="req">需求 8 级；本件 等级 8｜物品等级 27</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>每秒获得 0.15 次充能</td><td>Gains 0.15 Charges per Second</td><td class="n">有</td><td class="tier">施肥之（8）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Stone%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1873752457%22%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>咒符 2 · 抗毒咒符 <span class="en">Antidote Charm</span></h4><span class="req">需求 24 级；本件 等级 24｜物品等级 37</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>每次使用消耗的充能次数降低 15%</td><td>15% reduced Charges per use</td><td class="n">—</td><td class="tier">学徒之（1）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Antidote%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+</div>
+    </div>
+  </details>
+  <details class="stage-gear" id="gear4">
+    <summary>④ Uber Endgame 逐件 <span>原站 Uber Endgame 变体 · 1 件传奇</span></summary>
+    <div class="inner">
+      <p class="small">项链交易条件里有「能量护盾上限提高 ≥45%」、右戒带命中值，这套构筑没有能量护盾来源，本页视为原站那件装备的附带词缀，不当作目标<b class="src s">合</b>。</p>
+      <div class="slots">
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 主手 · 圣地权杖 · 闪电净化（原站 slug 指向「不净」版，见数据核验） <span class="en">Shrine Sceptre</span> <span class="chip bad">已腐化</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100；本件 等级 60 · 力 17 · 智 38｜品质 +8% · 精魂 175 · 物品等级 78</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>该装备精魂提高 75%</td><td>75% increased Spirit</td><td class="n">66</td><td class="tier">参事的（11） + 公爵的（60）</td></tr>
+<tr><td>+24 魔力上限</td><td>+24 to maximum Mana</td><td class="n">21</td><td class="tier">参事的（11）</td></tr>
+<tr><td>在场的友军附加 3-4 攻击物理伤害</td><td>Allies in your Presence deal 3 to 4 added Attack Physical Damage</td><td class="n">2</td><td class="tier">磨光的（8）</td></tr>
+<tr><td>在场的友军的攻击速度提高 11%</td><td>Allies in your Presence have 11% increased Attack Speed</td><td class="n">11</td><td class="tier">成熟之（35）</td></tr>
+<tr><td>在场的友军的施法速度提高 20%</td><td>Allies in your Presence have 20% increased Cast Speed</td><td class="n">17</td><td class="tier">魔法之（56）</td></tr>
+<tr><td>召唤生物的生命上限提高 43%</td><td>Minions have 43% increased maximum Life</td><td class="n">41</td><td class="tier">理事之（64）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：佳华尼的集结灵核 <span class="en">Jiquani&#x27;s Soul Core of Rallying</span>：所有战吼技能宝石等级 +1（仅限 1） <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A21%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1574590649%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1998951374%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_289128254%22%2C%22value%22%3A%7B%22min%22%3A17%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3984865854%22%2C%22value%22%3A%7B%22min%22%3A66%7D%7D%2C%7B%22id%22%3A%22explicit.stat_770672621%22%2C%22value%22%3A%7B%22min%22%3A41%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 1 副手 · 塔赫亚塔盾 <span class="en">Tawhoan Tower Shield</span></h4><span class="req">需求 80 级 · 115 力 · 格挡 26% · 护甲 264；本件 等级 80 · 力 80｜品质 +20% · 格挡 29% · 护甲 761 · 物品等级 82</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>护甲提高 57%</td><td>57% increased Armour</td><td class="n">56</td><td class="tier">支持的（46）</td></tr>
+<tr><td>+172 生命上限</td><td>+172 to maximum Life</td><td class="n">150</td><td class="tier">丰饶的（65）</td></tr>
+<tr><td>属性需求降低 30%</td><td>30% reduced Attribute Requirements</td><td class="n">—</td><td class="tier">娴熟之（52）</td></tr>
+<tr><td>8% 额外物理伤害减免</td><td>8% additional Physical Damage Reduction</td><td class="n">8</td><td class="tier">保护者之（77）</td></tr>
+<tr><td>+48% 的护甲同样作用于元素伤害</td><td>+48% of Armour also applies to Elemental Damage</td><td class="n">44</td><td class="tier">热密之（81）</td></tr>
+<tr><td>+140 护甲</td><td>+140 to Armour</td><td class="n">108</td><td class="tier">电镀的（33）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：公牛雕像 <span class="en">Ox Idol</span>：格挡几率提高 15% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A108%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A56%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3771516363%22%2C%22value%22%3A%7B%22min%22%3A8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A44%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.shield%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 主手 · 施虐者的慈悲 <span class="en">Sadist&#x27;s Mercy</span> <span class="chip tmp">传奇</span></h4><span class="req">传奇 · 底材 钉头锤 · 需求 67 级 · 134 力</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>物理伤害提高 287%（区间 240—300）</td><td>287% increased Physical Damage</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>暴击几率 +7.72%（区间 5—8）</td><td>+7.72% to Critical Hit Chance</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>攻击速度提高 15%（区间 14—22）</td><td>15% increased Attack Speed</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>使用该武器击中时施加 5 层煎熬疯狂（区间 2—5）</td><td>Hits with this Weapon inflict 5 Gruelling Madness</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+<tr><td>在场敌人拥有等同于其煎熬疯狂层数的额外威力值</td><td>Enemies in your Presence have additional Power equal to their Gruelling Madness</td><td class="n">—</td><td class="tier">传奇固定词缀</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：高级钢铁符文 <span class="en">Greater Iron Rune</span>：物理伤害提高 18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22name%22%3A%22Sadist%27s%20Mercy%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>武器组 2 副手 · 圣地权杖 · 闪电净化（原站 slug 指向「不净」版，见数据核验） <span class="en">Shrine Sceptre</span></h4><span class="req">需求 26 级 · 17 力 · 38 智 · 精魂 100；本件 等级 50 · 力 17 · 智 38｜品质 +8% · 精魂 148 · 物品等级 68</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>该装备精魂提高 48%</td><td>48% increased Spirit</td><td class="n">45</td><td class="tier">伯爵的（46）</td></tr>
+<tr><td>在场的友军附加 7-12 攻击冰霜伤害</td><td>Allies in your Presence deal 7 to 12 added Attack Cold Damage</td><td class="n">7</td><td class="tier">寒风的（33）</td></tr>
+<tr><td>在场的友军附加 1-1 攻击闪电伤害</td><td>Allies in your Presence deal 1 to 23 added Attack Lightning Damage</td><td class="n">1</td><td class="tier">劈哩啪啦的（33）</td></tr>
+<tr><td>魔力再生率提高 78%</td><td>78% increased Mana Regeneration Rate</td><td class="n">78</td><td class="tier">炉火之（30） + 涅盘之（79）</td></tr>
+<tr><td>在场范围提高 36%</td><td>36% increased Presence Area of Effect</td><td class="n">36</td><td class="tier">导向之（23）</td></tr>
+<tr><td>照亮范围提高 15%</td><td>15% increased Light Radius</td><td class="n">15</td><td class="tier">炉火之（30）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>插槽：佳华尼的震颤灵核 <span class="en">Jiquani&#x27;s Soul Core of Quaking</span>：所有猛击技能宝石等级 +1（仅限 1） <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2347036682%22%2C%22value%22%3A%7B%22min%22%3A7%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2854751904%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_789117908%22%2C%22value%22%3A%7B%22min%22%3A78%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1263695895%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3984865854%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_101878827%22%2C%22value%22%3A%7B%22min%22%3A36%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>头盔 · 帝国巨盔 <span class="en">Imperial Greathelm</span> <span class="chip bad">已腐化</span></h4><span class="req">需求 80 级 · 115 力 · 护甲 374；本件 等级 80 · 力 115｜品质 +20% · 护甲 749 · 物品等级 80</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>护甲提高 67%</td><td>67% increased Armour</td><td class="n">56</td><td class="tier">支持的（46）</td></tr>
+<tr><td>+139 生命上限</td><td>+139 to maximum Life</td><td class="n">120</td><td class="tier">健将的（60）</td></tr>
+<tr><td>冰霜抗性 +36%</td><td>+36% to Cold Resistance</td><td class="n">—</td><td class="tier">寒冰之（71）</td></tr>
+<tr><td>+37% 的护甲同样作用于元素伤害</td><td>+37% of Armour also applies to Elemental Damage</td><td class="n">32</td><td class="tier">填充之（48）</td></tr>
+<tr><td>你使用战吼时回复 5% 生命</td><td>Recover 5% of maximum Life when you use a Warcry</td><td class="n">4</td><td class="tier">狂战士之（75）</td></tr>
+<tr><td>战吼的伤害提高 59%</td><td>59% increased Damage with Warcries</td><td class="n">50</td><td class="tier">沃拉娜的（75）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 36</p>
+<p>插槽：沃拉娜的屠戮 <span class="en">Vorana&#x27;s Carnage</span>：插槽绑定：可以重置盛怒词缀；羁绊：近战击中时获得 2 怒火（仅限 1）；塔卡提的灵核 <span class="en">Soul Core of Tacati</span>：混沌抗性 +13% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A36%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A56%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A32%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1594812856%22%2C%22value%22%3A%7B%22min%22%3A50%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1040141381%22%2C%22value%22%3A%7B%22min%22%3A4%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.helmet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>胸甲 · 华丽战铠 <span class="en">Ornate Plate</span></h4><span class="req">需求 70 级 · 121 力 · 护甲 496 · 生命每秒再生 (1.5—2.5)%；本件 等级 70 · 力 121｜品质 +20% · 护甲 997 · 物品等级 80</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+196 生命上限</td><td>+196 to maximum Life</td><td class="n">190</td><td class="tier">狂喜的（75）</td></tr>
+<tr><td>+47 精魂</td><td>+47 to Spirit</td><td class="n">47</td><td class="tier">女伯爵的（54）</td></tr>
+<tr><td>冰霜抗性 +31%</td><td>+31% to Cold Resistance</td><td class="n">—</td><td class="tier">北极熊之（60）</td></tr>
+<tr><td>+38% 的护甲同样作用于元素伤害</td><td>+38% of Armour also applies to Elemental Damage</td><td class="n">38</td><td class="tier">毛皮之（66）</td></tr>
+<tr><td>生命每秒再生 23.9</td><td>23.9 Life Regeneration per second</td><td class="n">23</td><td class="tier">回潮之（68）</td></tr>
+<tr><td>+89 护甲</td><td>+89 to Armour</td><td class="n">76</td><td class="tier">硬化的（78）</td></tr>
+<tr><td>护甲提高 42%</td><td>42% increased Armour</td><td class="n">39</td><td class="tier">硬化的（78）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 31</p>
+<p>插槽：佳华尼的灵核 <span class="en">Soul Core of Jiquani</span>：生命上限提高 5%（仅限 1）；提卡巴的灵核 <span class="en">Soul Core of Ticaba</span>：对你的击中的暴击伤害加成降低 50%（仅限 1） <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3484657501%22%2C%22value%22%3A%7B%22min%22%3A76%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A190%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A47%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3362812763%22%2C%22value%22%3A%7B%22min%22%3A38%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>手套 · 巨型护手 <span class="en">Massive Mitts</span></h4><span class="req">需求 80 级 · 101 力 · 护甲 187；本件 等级 80 · 力 101｜品质 +20% · 护甲 390 · 物品等级 80</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>护甲提高 74%</td><td>74% increased Armour</td><td class="n">68</td><td class="tier">加厚的（54）</td></tr>
+<tr><td>+140 生命上限</td><td>+140 to maximum Life</td><td class="n">120</td><td class="tier">健将的（60）</td></tr>
+<tr><td>+56 魔力上限</td><td>+56 to maximum Mana</td><td class="n">49</td><td class="tier">湛蓝的（16）</td></tr>
+<tr><td>所有近战技能等级 +2</td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+<tr><td>冰霜抗性 +30%</td><td>+30% to Cold Resistance</td><td class="n">—</td><td class="tier">海象之（50）</td></tr>
+<tr><td>+13% 火焰与混沌抗性</td><td>+13% to Fire and Chaos Resistances</td><td class="n">—</td><td class="tier">阿曼娜姆之（65）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 39、总混沌抗性 ≥ 13</p>
+<p>插槽：高级风暴符文 <span class="en">Greater Storm Rune</span>：闪电抗性 +18% <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A120%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A49%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A68%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_chaos_resistance%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>鞋子 · 堡垒胫甲 <span class="en">Bulwark Greaves</span></h4><span class="req">需求 65 级 · 86 力 · 护甲 244；本件 等级 65 · 力 86｜物品等级 70</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>移动速度提高 30%</td><td>30% increased Movement Speed</td><td class="n">30</td><td class="tier">猎豹的（65）</td></tr>
+<tr><td>+102 生命上限</td><td>+102 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的（54）</td></tr>
+<tr><td>+27 魔力上限</td><td>+27 to maximum Mana</td><td class="n">20</td><td class="tier">绿宝石的（1）</td></tr>
+<tr><td>火焰抗性 +7%</td><td>+7% to Fire Resistance</td><td class="n">—</td><td class="tier">幼龙之（1）</td></tr>
+<tr><td>冰霜抗性 +16%</td><td>+16% to Cold Resistance</td><td class="n">—</td><td class="tier">独角鲸之（26）</td></tr>
+<tr><td>你被感电的持续时间降低 45%</td><td>45% reduced Shock duration on you</td><td class="n">41</td><td class="tier">隔绝之（36）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 22</p>
+<p>插槽：高级身躯符文 <span class="en">Greater Body Rune</span>：+60 生命上限 <b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A22%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_99927264%22%2C%22value%22%3A%7B%22min%22%3A41%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>项链 · 日曜项链 <span class="en">Solar Amulet</span></h4><span class="req">需求 30 级 · 基底 +(10—15) 精魂；本件 等级 60｜物品等级 82</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>能量护盾上限提高 47%</td><td>47% increased maximum Energy Shield</td><td class="n">45</td><td class="tier">坚不可摧的（75）</td></tr>
+<tr><td>+47 魔力上限</td><td>+47 to maximum Mana</td><td class="n">29</td><td class="tier">钴蓝的（6）</td></tr>
+<tr><td>+34 精魂</td><td>+34 to Spirit</td><td class="n">34</td><td class="tier">女男爵的（25）</td></tr>
+<tr><td>所有近战技能等级 +2</td><td>+2 to Level of all Melee Skills</td><td class="n">2</td><td class="tier">决斗之（41）</td></tr>
+<tr><td>火焰抗性 +29%</td><td>+29% to Fire Resistance</td><td class="n">—</td><td class="tier">炉火之（48）</td></tr>
+<tr><td>+14% 火焰与混沌抗性</td><td>+14% to Fire and Chaos Resistances</td><td class="n">—</td><td class="tier">阿曼娜姆之（65）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 39、总混沌抗性 ≥ 13</p>
+<p>涂膏：碎裂痛击 <span class="en">Shattering Blow</span>（重度晕眩一名敌人会粉碎 50% 的护甲；浓缩的液化恐惧 + 稀释的液化内疚 ×2）<b class="src db">库</b></p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A29%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A39%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2482852589%22%2C%22value%22%3A%7B%22min%22%3A45%7D%7D%2C%7B%22id%22%3A%22explicit.stat_9187492%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3981240776%22%2C%22value%22%3A%7B%22min%22%3A34%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_chaos_resistance%22%2C%22value%22%3A%7B%22min%22%3A13%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.amulet%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>左戒 · 紫晶戒指 <span class="en">Amethyst Ring</span></h4><span class="req">需求 20 级；本件 等级 52｜物品等级 67</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>攻击附加 7-13 物理伤害</td><td>Adds 7 to 13 Physical Damage to Attacks</td><td class="n">5</td><td class="tier">熠熠的（46）</td></tr>
+<tr><td>+113 生命上限</td><td>+113 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的（54）</td></tr>
+<tr><td>+96 魔力上限</td><td>+96 to maximum Mana</td><td class="n">69</td><td class="tier">蓝玉的（25）</td></tr>
+<tr><td>冰霜抗性 +32%</td><td>+32% to Cold Resistance</td><td class="n">—</td><td class="tier">北极熊之（60）</td></tr>
+<tr><td>火焰抗性 +34%</td><td>+34% to Fire Resistance</td><td class="n">—</td><td class="tier">火山之（60）</td></tr>
+<tr><td>+30 敏捷</td><td>+30 to Dexterity</td><td class="n">28</td><td class="tier">美洲豹之（66）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 62</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A69%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3261801346%22%2C%22value%22%3A%7B%22min%22%3A28%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A62%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>右戒 · 紫晶戒指 <span class="en">Amethyst Ring</span></h4><span class="req">需求 20 级；本件 等级 54｜物品等级 81</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+102 命中值</td><td>+102 to Accuracy Rating</td><td class="n">85</td><td class="tier">从容的（26）</td></tr>
+<tr><td>+100 生命上限</td><td>+100 to maximum Life</td><td class="n">100</td><td class="tier">阳刚的（54）</td></tr>
+<tr><td>+90 魔力上限</td><td>+90 to maximum Mana</td><td class="n">69</td><td class="tier">蓝玉的（25）</td></tr>
+<tr><td>所有元素抗性 +15%</td><td>+15% to all Elemental Resistances</td><td class="n">—</td><td class="tier">彩虹之（68）</td></tr>
+<tr><td>闪电抗性 +31%</td><td>+31% to Lightning Resistance</td><td class="n">—</td><td class="tier">台风之（60）</td></tr>
+<tr><td>每击败一名敌人获得 21 点生命</td><td>Gain 21 Life per enemy killed</td><td class="n">19</td><td class="tier">征服之（33）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：全元素抗性 ≥ 15、总元素抗性 ≥ 31</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22pseudo.pseudo_total_all_elemental_resistances%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A100%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A69%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A31%7D%7D%2C%7B%22id%22%3A%22explicit.stat_691932474%22%2C%22value%22%3A%7B%22min%22%3A85%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3695891184%22%2C%22value%22%3A%7B%22min%22%3A19%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>腰带 · 嵌板腰带 <span class="en">Plate Belt</span></h4><span class="req">需求 25 级 · 基底 +(140—180) 护甲；本件 等级 52｜物品等级 79</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>+161 生命上限</td><td>+161 to maximum Life</td><td class="n">150</td><td class="tier">丰饶的（65）</td></tr>
+<tr><td>+110 魔力上限</td><td>+110 to maximum Mana</td><td class="n">105</td><td class="tier">靛蓝的（60）</td></tr>
+<tr><td>火焰抗性 +30%</td><td>+30% to Fire Resistance</td><td class="n">—</td><td class="tier">炉火之（48）</td></tr>
+<tr><td>闪电抗性 +35%</td><td>+35% to Lightning Resistance</td><td class="n">—</td><td class="tier">台风之（60）</td></tr>
+<tr><td>+151 晕眩阈值</td><td>+151 to Stun Threshold</td><td class="n">125</td><td class="tier">铂金皮之（45）</td></tr>
+<tr><td>药剂生命回复速度提高 13%</td><td>13% increased Flask Life Recovery rate</td><td class="n">11</td><td class="tier">恢复的（16）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p>交易条件另有：总元素抗性 ≥ 57</p>
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A105%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A57%7D%7D%2C%7B%22id%22%3A%22explicit.stat_915769802%22%2C%22value%22%3A%7B%22min%22%3A125%7D%7D%2C%7B%22id%22%3A%22explicit.stat_51994685%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>药剂 · 终极生命药剂 <span class="en">Ultimate Life Flask</span></h4><span class="req">需求 60 级；本件 等级 60｜品质 +4% · 物品等级 60</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>生命回复提高 77%</td><td>77% increased Life Recovered</td><td class="n">61</td><td class="tier">削妨的（13）</td></tr>
+<tr><td>生命回复提高 15%</td><td>Removes 15% of Life Recovered from Mana when used</td><td class="n">61</td><td class="tier">削妨的（13）</td></tr>
+<tr><td>充能次数提高 51%</td><td>51% increased Charges</td><td class="n">47</td><td class="tier">充裕之（47）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1366840608%22%2C%22value%22%3A%7B%22min%22%3A47%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1261982764%22%2C%22value%22%3A%7B%22min%22%3A61%7D%7D%2C%7B%22id%22%3A%22explicit.stat_648019518%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.life%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>咒符 1 · 融冰咒符 <span class="en">Thawing Charm</span></h4><span class="req">掉落等级 12；本件 等级 53｜物品等级 78</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>使用时回复 251 生命</td><td>Recover 251 Life when Used</td><td class="n">235</td><td class="tier">自然的（67）</td></tr>
+<tr><td>每次使用消耗的充能次数降低 27%</td><td>27% reduced Charges per use</td><td class="n">—</td><td class="tier">烹煮之（64）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Thawing%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2365392475%22%2C%22value%22%3A%7B%22min%22%3A235%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>咒符 2 · 根基咒符 <span class="en">Grounding Charm</span></h4><span class="req">需求 32 级；本件 等级 46｜物品等级 79</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>使用时回复 180 魔力</td><td>Recover 180 Mana when Used</td><td class="n">150</td><td class="tier">泛滥的（58）</td></tr>
+<tr><td>每次使用消耗的充能次数降低 26%</td><td>26% reduced Charges per use</td><td class="n">—</td><td class="tier">烹煮之（64）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Grounding%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1120862500%22%2C%22value%22%3A%7B%22min%22%3A150%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+<article class="slot">
+<div class="slot-head"><h4>咒符 3 · 真银咒符 <span class="en">Silver Charm</span></h4><span class="req">需求 10 级；本件 等级 49｜物品等级 76</span></div>
+<div class="slot-body">
+<div class="scroll"><table><thead><tr><th>词缀（简中，按原站数值）</th><th>English（原站）</th><th class="n">交易 min</th><th>档次（物品等级）</th></tr></thead><tbody>
+<tr><td>持续时间提高 31%</td><td>31% increased Duration</td><td class="n">—</td><td class="tier">临床师的（61）</td></tr>
+<tr><td>充能次数提高 56%</td><td>56% increased Charges</td><td class="n">55</td><td class="tier">充足之（62）</td></tr>
+</tbody></table></div>
+<div class="slot-notes">
+<p><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22type%22%3A%22Silver%20Charm%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_1366840608%22%2C%22value%22%3A%7B%22min%22%3A55%7D%7D%5D%7D%5D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">交易（原站查询）</a></p>
+</div>
+</div></article>
+</div>
+    </div>
+  </details>
+
+  <h3>插槽：符文、灵核、雕像与涂膏</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>物品</th><th>效果（poe2db，按所插部位）</th><th>①</th><th>②</th><th>③</th><th>④</th></tr></thead>
+    <tbody>
+      <tr><td>磐石符文<span class="en">Stone Rune</span></td><td>战斗武器：造成的晕眩积蓄值提高 30%</td><td>—</td><td>翠玉战棒</td><td>—</td><td>—</td></tr>
+      <tr><td>高级钢铁符文<span class="en">Greater Iron Rune</span></td><td>战斗武器：物理伤害提高 18%</td><td>—</td><td>—</td><td>施虐者的慈悲</td><td>施虐者的慈悲</td></tr>
+      <tr><td>高级风暴符文 · 风暴符文<span class="en">Greater Storm Rune · Storm Rune</span></td><td>护甲：闪电抗性 +18% / +14%</td><td>—</td><td>—</td><td>胸甲（各 1）、手套、鞋子</td><td>手套</td></tr>
+      <tr><td>高级沙漠符文<span class="en">Greater Desert Rune</span></td><td>护甲：火焰抗性 +18%</td><td>—</td><td>—</td><td>头盔、塔盾</td><td>—</td></tr>
+      <tr><td>高级身躯符文<span class="en">Greater Body Rune</span></td><td>护甲：+60 生命上限</td><td>—</td><td>—</td><td>—</td><td>鞋子</td></tr>
+      <tr><td>佳华尼的灵核 · 提卡巴的灵核<span class="en">Soul Core of Jiquani · Ticaba</span></td><td>护甲：生命上限提高 5% / 对你的击中的暴击伤害加成降低 50%（均仅限 1）</td><td>—</td><td>—</td><td>—</td><td>胸甲</td></tr>
+      <tr><td>沃拉娜的屠戮 · 塔卡提的灵核<span class="en">Vorana's Carnage · Soul Core of Tacati</span></td><td>头盔：可以重置盛怒词缀（羁绊：近战击中时获得 2 怒火）/ 混沌抗性 +13%</td><td>—</td><td>—</td><td>—</td><td>头盔</td></tr>
+      <tr><td>佳华尼的集结灵核<span class="en">Jiquani's Soul Core of Rallying</span></td><td>武器：所有战吼技能宝石等级 +1（仅限 1）</td><td>—</td><td>—</td><td>—</td><td>武器组 1 权杖</td></tr>
+      <tr><td>佳华尼的震颤灵核<span class="en">Jiquani's Soul Core of Quaking</span></td><td>武器：所有猛击技能宝石等级 +1（仅限 1）</td><td>—</td><td>—</td><td>—</td><td>武器组 2 权杖</td></tr>
+      <tr><td>公牛雕像<span class="en">Ox Idol</span></td><td>盾牌：格挡几率提高 15%</td><td>—</td><td>—</td><td>—</td><td>塔盾</td></tr>
+      <tr><td>涂膏：碎裂痛击<span class="en">Shattering Blow</span></td><td>重度晕眩一名敌人会粉碎 50% 的护甲；浓缩的液化恐惧 + 稀释的液化内疚 + 稀释的液化内疚</td><td>—</td><td>—</td><td>—</td><td>项链</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">本构筑没有额外符文槽（战争使者没有给插槽的升华点）。旧版 Endgame 说明里作者还推荐过高级健壮符文（所有装备 +12 力量）用来堆力量<b class="src o">原</b>，现行四档都没用。</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <h2><span class="no">8</span>天赋树核心节点</h2>
+  <p><b>完整点法对着原站点，本页只标核心。</b>表中「主」= 主天赋树，「组 1」「组 2」= 武器组专属点（红线 = 武器组 1、绿线 = 武器组 2）<b class="src o">原</b>。节点名与效果取 poe2db 天赋树，原站 177 个选中节点全部对上<b class="src db">库</b>。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>节点</th><th>效果（poe2db 原文）</th><th class="n">①</th><th class="n">②</th><th class="n">③</th><th class="n">④</th></tr></thead>
+    <tbody>
+      <tr><td><b>先祖魂约</b><span class="en">Ancestral Bond · 关键石</span></td><td>你的图腾上限翻倍；放置图腾无需充能；每个图腾保留 75 点精魂</td><td class="n">—</td><td class="n">主</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>祭血术</b><span class="en">Blood Magic · 关键石</span></td><td>你不具有魔力；技能的魔力消耗转化为生命消耗</td><td class="n">—</td><td class="n">主</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>紧急呼喊</b><span class="en">Urgent Call</span></td><td>施放战吼时回复 2% 生命和魔力；战吼速度提高 24%；战吼冷却回复速度提高 18%</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>刺耳怒吼</b><span class="en">Cacophony</span></td><td>战吼的伤害提高 40%；战吼技能的效果范围提高 25%</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>重重围困</b><span class="en">Lay Siege</span></td><td>每有 1% 攻击格挡率，伤害提高 1%</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>刺耳呐喊</b><span class="en">Guttural Roar</span></td><td>战吼速度提高 25%；战吼使敌人疲惫 1 秒；战吼技能的效果范围提高 25%</td><td class="n">—</td><td class="n">组 1</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>咆哮战吼</b><span class="en">Roaring Cries</span></td><td>战吼至少有 10 点威力值</td><td class="n">—</td><td class="n">—</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>嚎叫兽灵</b><span class="en">Howling Beast</span></td><td>战吼对敌人施加 3 暴击弱点</td><td class="n">—</td><td class="n">—</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>守护者的决心</b><span class="en">Defender's Resolve</span></td><td>格挡几率提高 12%；你的重度晕眩积蓄清空速度加快 50%</td><td class="n">—</td><td class="n">—</td><td class="n">组 1</td><td class="n">组 1</td></tr>
+      <tr><td><b>战吼如雷</b><span class="en">Deafening Cries</span></td><td>战吼冷却回复速度提高 25%；近期内你每次使用战吼都使伤害提高 8%</td><td class="n">—</td><td class="n">主</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>守望之塔</b><span class="en">Watchtowers</span></td><td>将图腾受到伤害的 5% 吸纳为生命；每个图腾在场时使其周围敌人承受的伤害提高 2%</td><td class="n">组 2</td><td class="n">组 2</td><td class="n">组 2</td><td class="n">主</td></tr>
+      <tr><td><b>先祖的团结</b><span class="en">Ancestral Unity</span></td><td>每有一个召唤的图腾，图腾使用的攻击的攻击速度提高 4%</td><td class="n">组 2</td><td class="n">组 2</td><td class="n">组 2</td><td class="n">主</td></tr>
+      <tr><td><b>先祖的巧谋</b><span class="en">Ancestral Artifice</span></td><td>近战攻击技能获得 +1 召唤图腾数量上限；图腾放置范围提高 20%</td><td class="n">组 2</td><td class="n">组 2</td><td class="n x">✗</td><td class="n">—</td></tr>
+      <tr><td><b>祖灵相依</b><span class="en">Spirit Bond</span></td><td>图腾的生命提高 30%；图腾的持续时间提高 30%</td><td class="n">—</td><td class="n">组 2</td><td class="n">组 2</td><td class="n">组 2</td></tr>
+      <tr><td><b>先祖的传达</b><span class="en">Ancestral Conduits</span></td><td>若你近期内有召唤图腾，攻击和施法速度提高 12%</td><td class="n">—</td><td class="n">组 2</td><td class="n">组 2</td><td class="n">组 2</td></tr>
+      <tr><td><b>先祖降临</b><span class="en">Ancestral Reach</span></td><td>你的图腾放置速度提高 25%；图腾放置范围提高 50%</td><td class="n">—</td><td class="n">—</td><td class="n">组 2</td><td class="n">组 2</td></tr>
+      <tr><td><b>断离 · 羁绊精准 · 粗俗手段</b><span class="en">Sundering · Bonded Precision · Vulgar Methods</span></td><td>攻击伤害的暴击伤害加成提高 25%、对晕眩敌人的暴击伤害加成 +25% / 在场友军与自身暴击率各提高 25% / 魔力上限降低 10%、+10 力量、暴击率提高 30%</td><td class="n">—</td><td class="n">—</td><td class="n">组 2</td><td class="n">组 2</td></tr>
+      <tr><td><b>压制打击 · 蛮族之力</b><span class="en">Overwhelming Strike · Barbaric Strength</span></td><td>攻击暴击率提高 15%、攻击伤害的暴击伤害加成提高 20%、暴击的晕眩累积总增 20% / 暴击伤害加成提高 45%、技能魔力消耗提高 10%、+10 力量</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">组 2</td></tr>
+      <tr><td><b>凶残手段</b><span class="en">Cruel Methods</span></td><td>粉碎的护甲提高 40%；物理伤害提高 25%</td><td class="n">主</td><td class="n">主</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>冷酷无情 · 刚毅金属</b><span class="en">Relentless · Sturdy Metal</span></td><td>护甲提高 15%、生命每秒再生 0.5%、+10 力量 / 装备身体护甲的护甲提高 80%</td><td class="n">—</td><td class="n">主</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>先祖的愈合</b><span class="en">Ancestral Mending</span></td><td>当你有图腾存在时，每秒回复 1% 生命；图腾每秒再生 3% 生命</td><td class="n">—</td><td class="n">主</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>钢化防御 · 历战老兵</b><span class="en">Tempered Defences · Battle-hardened</span></td><td>护甲提高 25%、+15% 的护甲同样作用于元素伤害 / 对你的击中的暴击伤害加成降低 20%、护甲和闪避值提高 20%、+5 力量和敏捷</td><td class="n">—</td><td class="n">—</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>不灭之躯 · 战斗狂热</b><span class="en">Hard to Kill · Battle Fever</span></td><td>药剂生命回复速度提高 40%、生命每秒再生 0.75% / 技能速度提高 5%、物理伤害提高 25%</td><td class="n">—</td><td class="n">—</td><td class="n">主</td><td class="n">主</td></tr>
+      <tr><td><b>脱敏</b><span class="en">Desensitisation</span></td><td>暴击伤害加成提高 25%；对你的击中的暴击伤害加成降低 25%</td><td class="n">—</td><td class="n">—</td><td class="n">主</td><td class="n x">✗</td></tr>
+      <tr><td><b>先祖援手 · 完美机遇</b><span class="en">Supportive Ancestors · Perfect Opportunity</span></td><td>有图腾时伤害提高 25%、每个图腾使图腾攻速提高 3% / 晕眩积蓄值提高 30%、对重度晕眩敌人的击中伤害幸运</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">主</td></tr>
+      <tr><td><b>凶残 · 自由的价码 · 血脉贲张 · 碾碎 · 倾力裁决</b><span class="en">Brutal · Price of Freedom · Blood Rush · Smash · Crushing Verdict</span></td><td>① 专用的近战 / 技能速度 / 魔力转生命消耗节点；倾力裁决点在武器组 2</td><td class="n">主</td><td class="n x">✗</td><td class="n">—</td><td class="n">—</td></tr>
+      <tr><td>主树 + 武器组点数</td><td>武器组点去重后计（原站列表把与主树重叠的节点也列在武器组里）</td><td class="n">38 + 13 / 13</td><td class="n">55 + 14 / 14</td><td class="n">79 + 24 / 24</td><td class="n">91 + 24 / 24</td></tr>
+      <tr><td>属性点</td><td>每点 +5 任意属性</td><td class="n">15 力</td><td class="n">原站未标</td><td class="n">力 33 · 敏 3 · 智 6</td><td class="n">力 31 · 敏 5 · 智 7</td></tr>
+      <tr><td>与上一档主树重合</td><td>交集 / 上一档点数</td><td class="n">—</td><td class="n"><span class="chip bad">50% 洗点</span></td><td class="n">87%</td><td class="n">95%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">原站 Starter 的核心大点优先级：先祖魂约 → 凶残手段 → 重重围困 → 先祖的愈合 → 紧急呼喊 → 先祖的团结 → 守望之塔 → 祭血术 → 祖灵相依 → 先祖的传达 → 刺耳怒吼 → 战吼如雷 → 刺耳呐喊 → 先祖的巧谋 → 冷酷无情 → 刚毅金属<b class="src o">原</b>。武器组专属点最多 24 / 24，而且要先有等量的普通天赋点才能分配（原站问答）<b class="src o">原</b>。</p>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <h2><span class="no">9</span>珠宝</h2>
+  <div class="scroll"><table class="stage-tbl">
+    <thead><tr><th>阶段</th><th>珠宝</th></tr></thead>
+    <tbody>
+      <tr><td>① ②</td><td>原站没有珠宝。作者 Starter 说明写的方向：红玉带战吼速度和任意伤害词缀<b class="src o">原</b></td></tr>
+      <tr><td>③</td><td>4 颗红玉，插在 node-26196 / 26725 / 55190 / 2491（节点编号为原站编号，poe2db 天赋树上对应 4 个珠宝插槽）<b class="src o">原</b><b class="src db">库</b></td></tr>
+      <tr><td>④</td><td>4 颗红玉换成护甲% / 粉碎护甲 / 图腾放置速度 / 晕眩阈值方向，另加 1 颗翡翠插在 node-7960<b class="src o">原</b></td></tr>
+    </tbody>
+  </table></div>
+  <h3>③ 的 4 颗红玉</h3>
+  <div class="scroll"><table><thead><tr><th>插槽</th><th>珠宝</th><th>前缀</th><th>后缀</th><th>交易</th></tr></thead><tbody>
+<tr><td class="mono">node-26196</td><td>红玉 <span class="en">Ruby</span></td><td>植物技能的伤害提高 (5—15)% ≥5<span class="en">蔓生</span><br>已装备盾牌获得的护甲，闪避与能量护盾提高 (18—32)% ≥18<span class="en">防护的</span></td><td>近战击中时获得 1 怒火 ≥1<span class="en">激怒之</span><br>战吼速度提高 (10—20)% ≥10<span class="en">铁肺之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2709367754%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2523933828%22%2C%22value%22%3A%7B%22min%22%3A18%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1316278494%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2518900926%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-26725</td><td>红玉 <span class="en">Ruby</span></td><td>你造成的流血强度提高 (5—15)% ≥5<span class="en">血涌的</span><br>图腾伤害提高 (10—18)% ≥10<span class="en">萨满的</span></td><td>被敌人击中时获得 (1—3) 点怒火 ≥1<span class="en">惩戒之</span><br>晕眩积蓄值提高 (10—20)% ≥10<span class="en">击晕之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_239367161%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3292710273%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3166958180%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3851254963%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-55190</td><td>红玉 <span class="en">Ruby</span></td><td>全局物理伤害提高 (5—15)% ≥5<span class="en">锐利的</span><br>战吼的伤害提高 (10—20)% ≥10<span class="en">嚎叫的</span></td><td>晕眩阈值提高 (6—16)% ≥6<span class="en">坚守之</span><br>+1% 火焰抗性上限 ≥1<span class="en">树火之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_680068163%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4095671657%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1310194496%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1594812856%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-2491</td><td>红玉 <span class="en">Ruby</span></td><td>格挡几率提高 (3—7)% ≥3<span class="en">庇护的</span><br>图腾伤害提高 (10—18)% ≥10<span class="en">萨满的</span></td><td>近战击中时获得 1 怒火 ≥1<span class="en">激怒之</span><br>战吼冷却回复速度提高 (5—15)% ≥5<span class="en">重整之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4147897060%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2709367754%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3851254963%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4159248054%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+</tbody></table></div>
+  <h3>④ 的 5 颗</h3>
+  <div class="scroll"><table><thead><tr><th>插槽</th><th>珠宝</th><th>前缀</th><th>后缀</th><th>交易</th></tr></thead><tbody>
+<tr><td class="mono">node-26725</td><td>红玉 <span class="en">Ruby</span></td><td>护甲提高 (10—14)% ≥10<span class="en">增强的</span><br>粉碎的护甲提高 (5—15)% ≥10<span class="en">碎离的</span></td><td>变形时，技能速度提高 (2—4)% ≥2<span class="en">荒野之</span><br>你的图腾放置速度提高 (10—20)% ≥10<span class="en">先祖之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2866361420%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1776411443%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3374165039%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%2C%7B%22id%22%3A%22explicit.stat_918325986%22%2C%22value%22%3A%7B%22min%22%3A2%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-2491</td><td>红玉 <span class="en">Ruby</span></td><td>护甲提高 (15—20)% ≥15<span class="en">分层的</span><br>格挡几率提高 (3—7)% ≥3<span class="en">庇护的</span></td><td>晕眩阈值提高 (6—16)% ≥6<span class="en">坚守之</span><br>战吼速度提高 (10—20)% ≥10<span class="en">铁肺之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_680068163%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2866361420%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4147897060%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1316278494%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-7960</td><td>翡翠 <span class="en">Emerald</span></td><td>闪避值提高 (15—20)% ≥15<span class="en">鬼魂的</span><br>命中值提高 (5—10)% ≥5<span class="en">精准的</span></td><td>击中时有 (5—10)% 的几率使目标恍惚<span class="en">恍神之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_2106365538%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_624954515%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-26196</td><td>红玉 <span class="en">Ruby</span></td><td>护甲提高 (15—20)% ≥15<span class="en">分层的</span><br>粉碎的护甲提高 (5—15)% ≥15<span class="en">碎离的</span></td><td>晕眩阈值提高 (6—16)% ≥6<span class="en">坚守之</span><br>你的图腾放置速度提高 (10—20)% ≥10<span class="en">先祖之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_680068163%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2866361420%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1776411443%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3374165039%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+<tr><td class="mono">node-55190</td><td>红玉 <span class="en">Ruby</span></td><td>全局物理伤害提高 (5—15)% ≥5<span class="en">锐利的</span><br>战吼的伤害提高 (10—20)% ≥10<span class="en">嚎叫的</span></td><td>晕眩阈值提高 (6—16)% ≥6<span class="en">坚守之</span><br>+1% 火焰抗性上限 ≥1<span class="en">树火之</span></td><td><a href="https://www.pathofexile.com/trade2/search/poe2/Forbidden%20Rites?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22securable%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_680068163%22%2C%22value%22%3A%7B%22min%22%3A6%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4095671657%22%2C%22value%22%3A%7B%22min%22%3A1%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1310194496%22%2C%22value%22%3A%7B%22min%22%3A5%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1594812856%22%2C%22value%22%3A%7B%22min%22%3A10%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22jewel%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D" target="_blank" rel="noopener">搜索</a></td></tr>
+</tbody></table></div>
+  <p class="small">④ 第一颗红玉的「变形时技能速度」对这套构筑没有作用（没有变形技能），原站交易条件也要求它 ≥2，本页视为作者手头那颗的附带词缀<b class="src s">合</b>。旧版 Endgame 说明：珠宝上有 10% 以上「粉碎的护甲提高」时，可以省掉凶残手段旁边的那个小点<b class="src o">原</b>。SSF：红玉 / 翡翠地图常见，前后缀各两条，用富豪石、崇高石补满即可<b class="src s">合</b>。</p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>搜索正则</h2>
+  <p>四条正则对应四个阶段，词元全部取 poe2db 简中原文；词缀名后括号是物品等级门槛，低于当前区域等级的档次才会出现。游戏内搜索框匹配已鉴定物品的完整文本，蓝装名称由“前缀名 + 底材 + 后缀名”拼成，所以词缀名和词缀文本都能命中；地上未鉴定的蓝装只有词缀名有效。英文的 <code>^</code> <code>$</code> 锚点在简中失效（加值写在行尾），一律不用。原站没有给正则，也没有物品过滤器。</p>
+  <div class="rx">
+    <div class="rx-head"><b>① 起步 → 52 级</b><span class="range">起：开局 · 止：52 级先祖战士图腾</span><button class="copy" type="button" data-for="rx1">复制</button></div>
+    <pre id="rx1">决斗之|短跑的|种马的|瞪羚的|健硕的|强健的|女子爵的|女男爵的|抗性 \+[12]\d%|塔盾|教徒大锤|强盗之锤|翠玉战棒|圣地权杖|日曜项链</pre>
+    <div class="rx-body"><p>决斗之 = 所有近战技能等级 +2（41）· 短跑的 15%（16）/ 种马的 20%（33）/ 瞪羚的 25%（46）移速 · 强健的 +40–59（24）/ 健硕的 +70–84（38）生命 · 女男爵的 +34–37（25）/ 女子爵的 +38–42（33）精魂——52 级要用 · <code>抗性 \+[12]\d%</code> 抓 10–29% 的单抗。底材：塔盾（坚韧战吼要护甲盾牌）、双手锤、单手锤、圣地权杖、日曜项链从各自等级起收。这一层<b>不收</b>生命 +100 以上的档次：阳刚的 54 级才出，是死词元。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>② 52 级 → 进图</b><span class="range">起：52 级换图腾 · 止：65 级帕夸特的契约</span><button class="copy" type="button" data-for="rx2">复制</button></div>
+    <pre id="rx2">日曜项链|圣地权杖|翠玉战棒|金工塔盾|优雅战铠|伯爵的|女子爵的|决斗之|瞪羚的|猎豹的|阳刚的|健将的|哨兵之|不屈的|抗性 \+[23]\d%</pre>
+    <div class="rx-body"><p>伯爵的 = 权杖「该装备精魂提高 45–50%」（46）；它是「女伯爵的」（+47–50 精魂，54）的子串，一个词元两个都抓 · 猎豹的 30% 移速（65）· 阳刚的 +100–119（54）/ 健将的 +120–149（60）生命 · 哨兵之 6% 额外物理减免（53）、不屈的格挡几率提高 20–24%（33）——塔盾两条 · 抗性 20–39%。<b>不买</b>：武器组 1 装备上的攻击伤害词缀（清图伤害只看坚韧战吼宝石等级）。帕夸特的契约是宝石，靠刷封印宝库，不在正则范围。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>③ 终局初期</b><span class="range">起：帕夸特的契约 · 止：80 级第 4 次升华与 80 级底材</span><button class="copy" type="button" data-for="rx3">复制</button></div>
+    <pre id="rx3">堡垒胫甲|贵族巨盔|塔赫亚塔盾|钉头锤|丰饶的|健将的|猎豹的|海兽之|公爵的|女伯爵的|毛皮之|保护者之|火山之|北极熊之|台风之|决斗之</pre>
+    <div class="rx-body"><p>丰饶的 +150–174 生命（65）· 海兽之 +28–30 力量（66）· 公爵的 权杖精魂 51–55%（60）· 毛皮之 +38–43% 的护甲同样作用于元素伤害（66）· 保护者之 8% 额外物理减免（77，塔盾）· 火山之 / 北极熊之 / 台风之 31–35% 三抗（60）· 钉头锤（67）是自做单手锤的底子，塔赫亚塔盾 80 级。<b>撞名</b>：「健将的」戒指上没有这一档（本仓库瓦拉煞页的 poe2db 核对）。</p></div>
+  </div>
+  <div class="rx">
+    <div class="rx-head"><b>④ 大后期</b><span class="range">起：80 级 · 盛怒头盔与 80 级底材</span><button class="copy" type="button" data-for="rx4">复制</button></div>
+    <pre id="rx4">帝国巨盔|巨型护手|华丽战铠|狂喜的|激战之|近战技能等级 \+[23]|沃拉娜的|狂战士之|硬化的|热密之|彩虹之|寒冰之|阿曼娜姆之|施虐者的慈悲</pre>
+    <div class="rx-body"><p>狂喜的 +190–199 生命（75）· 激战之 所有近战技能等级 +3（75）· <code>近战技能等级 \+[23]</code> 抓 +2 / +3 · 沃拉娜的 战吼伤害 50–75% 与狂战士之 使用战吼时回复 4–5% 生命（盛怒词缀，75）· 硬化的 +76–95 护甲并提高 39–42%（78）· 热密之 +44–50% 护甲作用于元素（81）· 彩虹之 全元素抗性 15–16%（68）· 寒冰之 冰抗 36–40%（71）· 阿曼娜姆之 火焰与混沌抗性（渎灵，65）。<b>撞名</b>：「寒冰之」也是法杖 / 长杖的冰霜法术等级词缀名；「阿曼娜姆之」是深渊领主名，同名渎灵词缀不止一条。</p></div>
+  </div>
+  <p class="small">四条长度 70–75 字符。「伯爵的 ⊂ 女伯爵的」「子爵的 ⊂ 女子爵的」这类子串关系是有意利用的。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>作者答疑与坑</h2>
+  <div class="callout warn"><span class="lab">作者明确说“必须 / 不要”的</span>
+    <ul>
+      <li>两组武器都要有同样多的精魂（两组各一把权杖），否则切回武器组 1 时图腾不够精魂<b class="src c">评</b>。</li>
+      <li>技能必须在技能面板里绑定武器组：图腾类在武器组 2（锤），战吼在武器组 1（盾）；否则“伤害很低”<b class="src o">原</b>。</li>
+      <li>震地战吼最多 11 级；坚韧战吼越高越好<b class="src o">原</b>。</li>
+      <li>用“点击移动”的话不能把震地战吼放左键<b class="src o">原</b>。</li>
+      <li>武器组专属天赋点要先有等量普通天赋点才能用<b class="src o">原</b>。</li>
+      <li>① 用震地铺崎岖之地时别挂持久地面 II / III，会让震波图腾的崎岖之地爆炸失效<b class="src o">原</b>。</li>
+      <li>炽焰战吼在升级期保持 3 级，永远不升（魔力消耗）<b class="src o">原</b>（升级攻略）。</li>
+    </ul>
+  </div>
+  <h3>机制说明（正文与问答）</h3>
+  <ul>
+    <li>腐化之血“不是流血”，不吃流血相关加成（旧版正文）<b class="src o">原</b>；0.5 的 poe2db 数据里它是按宝石等级计的固定每秒物理伤害<b class="src db">库</b>。</li>
+    <li>“为什么用震地战吼不用炽焰战吼挂腐化战吼”：消耗低、能晕眩、有伤害、击退，还能配碎裂痛击破甲（旧版正文，写于腐化战吼挂在震地战吼上的时代）<b class="src o">原</b>。现行四档腐化战吼 / 契约挂在坚韧战吼上。</li>
+    <li>旧版通用宝石说明（0.3–0.4）：巅峰首领战别一次放下全部先祖战士图腾，“会害死你”，先满血、分批放<b class="src o">原</b>。这条写于要消耗耐力球放图腾的版本，0.5 是否仍适用原站没说。</li>
+    <li>先祖战士图腾 0.4 起不再有 25% 攻速惩罚（约 +33% DPS）；0.3 起它使用你装备的武器，只堆 +近战等级不够（更新记录）<b class="src o">原</b>。</li>
+    <li>作者 2026-09-30：“新版有暴击和大量暴击加成……战吼施加暴击弱点非常强”“利用切武器 bug（图腾出现前一刻切换，它就不占精魂）可以有 5 个图腾，好装备很可能到 6 个”“更顺手，不用先狂按战吼放图腾……便宜也能打全部内容”<b class="src c">评</b>。</li>
+    <li>作者另有一个 0.5 的古灵使徒斗士版本（原站置顶链接 corrupting-cry-gemling，本仓库未收录）<b class="src o">原</b>。</li>
+  </ul>
+  <h3>评论区（8 条，全部展开；作者回复 3 条）</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>时间</th><th>提问</th><th>作者回复</th></tr></thead>
+    <tbody>
+      <tr><td class="w-min">09-27 → 09-30</td><td>DubGrumble：0.5.5 不能再叠 20 多个图腾，现在只有 4 个，伤害像以前的零头；是否改玩古灵使徒斗士版？</td><td>新版靠暴击，同投入伤害可能高于旧 10 图腾版；切武器 bug 可到 5 个、好装备 6 个；更顺手<b class="src c">评</b></td></tr>
+      <tr><td class="w-min">09-23 → 09-30</td><td>Nooner：为什么不用 Redblade 盾拿双倍威力值？</td><td>构筑不再用威力值；视频该撤了，正文需要大改<b class="src c">评</b></td></tr>
+      <tr><td class="w-min">09-20 → 09-21</td><td>SnackGod：练到 52 发现切武器时先祖战士图腾会消失</td><td>不会消失，但两组都要和武器组 2 一样多的精魂（两组都拿权杖）。提问者随后说关掉岩浆屏障后精魂就够了<b class="src c">评</b></td></tr>
+      <tr><td class="w-min">09-23</td><td>FuzzyThumper：每季都等你的构筑</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Redblade 的中文名本页未查。</p>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>原站变体与本页四阶段的对应</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>原站变体</th><th>本页</th><th>作者定位（原文大意）</th><th class="n">传奇</th><th>宝石需求（原站）</th><th>主树 + 武器组 · 升华</th><th>与上一档</th></tr></thead>
+    <tbody>
+      <tr><td><b>Leveling</b></td><td>① 后半</td><td>“必须先有腐化战吼 I（第 3 幕）”；拿到它和第 2 次升华后才跟这一档，之前看升级攻略</td><td class="n">2</td><td class="num">力 35 · 敏 10 · 智 5</td><td>38 + 13 / 13 · 4 点</td><td>—</td></tr>
+      <tr><td><b>Starter</b></td><td>②</td><td>“52 级能用先祖战士图腾时的起步版，点先祖魂约！”</td><td class="n">0</td><td class="num">力 50 · 敏 10 · 智 5</td><td>55 + 14 / 14 · <span class="chip bad">原站 0 点</span></td><td><span class="chip bad">重合 50% · 洗点</span></td></tr>
+      <tr><td><b>Endgame</b></td><td>③</td><td>“从 Starter 过渡，65 级以上”</td><td class="n">1</td><td class="num">力 60 · 敏 30 · 智 10</td><td>79 + 24 / 24 · 6 点</td><td>87%</td></tr>
+      <tr><td><b>Uber Endgame</b></td><td>④</td><td>原站没有文字说明</td><td class="n">1</td><td class="num">力 90 · 敏 45 · 智 20</td><td>91 + 24 / 24 · 8 点</td><td>95%</td></tr>
+      <tr><td>Endgame (Outdated)</td><td><span class="chip na">不收录</span></td><td colspan="5">旧版以<b>腐化战吼 II 挂震地战吼</b>，配炽焰战吼、震波图腾 + 锻造之锤 + 震地、战旗打单体，没有先祖魂约；主树与现行 Endgame 只重合 43%。0.5 重做后作者改成坚韧战吼 + 帕夸特的契约 + 先祖魂约图腾，这一档被整体替换<b class="src o">原</b><b class="src s">合</b></td></tr>
+      <tr><td>Uber Endgame (outdated)</td><td><span class="chip na">不收录</span></td><td colspan="5">旧版靠仇恨熔炉 + 愤怒战吼 + 两颗瓜铁雷兹的耐力灵核 + 咆哮战吼狂叠耐力球，连放最多 10 个先祖战士图腾，另有均衡之符、收缩指令和 3 个传奇咒符（6 件传奇）。0.4 仇恨熔炉被削成一次只给 1 个充能、有 3–6 秒冷却，作者在更新记录里写“它死了，Uber 变体暂时作废”；主树与现行 Uber 只重合 33%<b class="src o">原</b></td></tr>
+    </tbody>
+  </table></div>
+  <h3>逐槽位差异（增 / 删 / 改）</h3>
+  <p class="small">由原站四档数据逐件比对生成：底材变化标「改」，词缀类别的增减标「增」「删」；具体数值见第 7 节。</p>
+  <div class="scroll"><table><thead><tr><th>部位</th><th>① → ②</th><th>② → ③</th><th>③ → ④</th></tr></thead><tbody>
+<tr><th>武器组 1 主手</th><td><span class="chip chg">改</span>强盗之锤 → 圣地权杖 <span class="chip del">删</span>+近战等级</td><td><span class="chip chg">改</span>火焰净化版 → 「不净」版 slug <span class="chip add">增</span>精魂%、友军加成、+召唤生物等级</td><td><span class="chip add">增</span>召唤生物生命 <span class="chip del">删</span>+召唤生物等级</td></tr>
+<tr><th>武器组 1 副手</th><td><span class="chip chg">改</span>毁灭雄关 → 金工塔盾 <span class="chip add">增</span>格挡%、额外物理减免</td><td><span class="chip chg">改</span>金工塔盾 → 塔赫亚塔盾 <span class="chip add">增</span>生命、护甲、护甲%、护甲作用元素、属性需求-30% <span class="chip del">删</span>格挡%</td><td>相同</td></tr>
+<tr><th>武器组 2 主手</th><td><span class="chip chg">改</span>教徒大锤 → 翠玉战棒 <span class="chip add">增</span>附加物理 <span class="chip del">删</span>攻击附加物理、+近战等级</td><td><span class="chip chg">改</span>翠玉战棒 → 施虐者的慈悲 <span class="chip del">删</span>附加物理、物理%、攻速</td><td>相同</td></tr>
+<tr><th>武器组 2 副手</th><td><span class="chip add">增</span>圣地权杖</td><td><span class="chip chg">改</span>火焰净化版 → 闪电净化版 <span class="chip add">增</span>精魂%、友军加成、魔力再生、在场范围</td><td><span class="chip chg">改</span>闪电净化版 → 「不净」版 slug</td></tr>
+<tr><th>头盔</th><td><span class="chip chg">改</span>胜者桂冠 → 军官巨盔 <span class="chip add">增</span>生命</td><td><span class="chip chg">改</span>军官巨盔 → 贵族巨盔 <span class="chip add">增</span>稀有度、护甲%、冰抗、暴击率</td><td><span class="chip chg">改</span>贵族巨盔 → 帝国巨盔 <span class="chip add">增</span>战吼伤害（盛怒）、护甲作用元素、战吼回血（盛怒） <span class="chip del">删</span>稀有度、暴击率</td></tr>
+<tr><th>胸甲</th><td><span class="chip add">增</span>优雅战铠：生命、精魂</td><td><span class="chip add">增</span>护甲、护甲作用元素、冰抗、生命再生</td><td><span class="chip chg">改</span>优雅战铠 → 华丽战铠 <span class="chip add">增</span>护甲+护甲% <span class="chip del">删</span>护甲</td></tr>
+<tr><th>手套</th><td><span class="chip chg">改</span>增固护手 → 精工护手</td><td><span class="chip add">增</span>攻击附加火焰、生命、护甲%、冰抗、击中回血</td><td><span class="chip chg">改</span>精工护手 → 巨型护手 <span class="chip add">增</span>魔力、火混抗 <span class="chip del">删</span>攻击附加火焰、击中回血</td></tr>
+<tr><th>鞋子</th><td><span class="chip chg">改</span>青铜胫甲 → 坚铁胫甲</td><td><span class="chip chg">改</span>坚铁胫甲 → 堡垒胫甲 <span class="chip add">增</span>生命、魔力、冰抗、火抗、感电时间</td><td>相同</td></tr>
+<tr><th>项链</th><td><span class="chip chg">改</span>琥珀项链 → 日曜项链 <span class="chip add">增</span>精魂 <span class="chip del">删</span>+近战等级</td><td><span class="chip add">增</span>生命、魔力、冰抗、火抗、生命再生</td><td><span class="chip add">增</span>ES%、火混抗、+近战等级 <span class="chip del">删</span>生命、冰抗、生命再生</td></tr>
+<tr><th>左戒</th><td><span class="chip add">增</span>三相戒指：生命</td><td><span class="chip chg">改</span>三相戒指 → 红玉戒指 <span class="chip add">增</span>攻击附加火焰、魔力、冰抗、电抗</td><td><span class="chip chg">改</span>红玉戒指 → 紫晶戒指 <span class="chip add">增</span>攻击附加物理、敏捷、火抗 <span class="chip del">删</span>攻击附加火焰、电抗</td></tr>
+<tr><th>右戒</th><td><span class="chip add">增</span>三相戒指：生命</td><td><span class="chip chg">改</span>三相戒指 → 紫晶戒指 <span class="chip add">增</span>攻击附加冰霜、魔力、火抗、智慧、生命再生</td><td><span class="chip add">增</span>命中、全抗、击杀回血、电抗 <span class="chip del">删</span>攻击附加冰霜、火抗、智慧、生命再生</td></tr>
+<tr><th>腰带</th><td><span class="chip add">增</span>嵌板腰带：生命</td><td><span class="chip add">增</span>咒符充能、火抗、力量</td><td><span class="chip add">增</span>药剂回复、魔力、电抗、晕眩阈值 <span class="chip del">删</span>咒符充能、力量</td></tr>
+<tr><th>药剂</th><td class="dim">—</td><td><span class="chip add">增</span>非凡生命药剂</td><td><span class="chip chg">改</span>非凡生命药剂 → 终极生命药剂</td></tr>
+<tr><th>咒符 1</th><td class="dim">—</td><td><span class="chip add">增</span>磐石咒符</td><td><span class="chip chg">改</span>磐石咒符 → 融冰咒符</td></tr>
+<tr><th>咒符 2</th><td class="dim">—</td><td><span class="chip add">增</span>抗毒咒符</td><td><span class="chip chg">改</span>抗毒咒符 → 根基咒符</td></tr>
+<tr><th>咒符 3</th><td class="dim">—</td><td class="dim">—</td><td><span class="chip add">增</span>真银咒符</td></tr>
+</tbody></table></div>
+  <h3>宝石与天赋的差异</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>方面</th><th>① → ②</th><th>② → ③</th><th>③ → ④</th></tr></thead>
+    <tbody>
+      <tr><th>技能</th><td><span class="chip add">增</span>先祖战士图腾、震地战吼、先祖之灵 <span class="chip del">删</span>震波图腾、锻造之锤、火山裂缝</td><td><span class="chip add">增</span>闪电净化 ×2、装甲回收、大地震击</td><td><span class="chip add">增</span>青玉囚笼、跃击</td></tr>
+      <tr><th>坚韧战吼</th><td><span class="chip chg">改</span>腐化战吼 I → II <span class="chip add">增</span>回荡战嚎</td><td><span class="chip chg">改</span>II → 帕夸特的契约 <span class="chip add">增</span>物理专精</td><td><span class="chip chg">改</span>19 → 20 级</td></tr>
+      <tr><th>关键石</th><td><span class="chip add">增</span>先祖魂约、祭血术</td><td>相同</td><td>相同</td></tr>
+      <tr><th>大点</th><td><span class="chip add">增</span>冷酷无情、刚毅金属、先祖的愈合、战吼如雷、刺耳呐喊、祖灵相依、先祖的传达 <span class="chip del">删</span>凶残、自由的价码、血脉贲张、碾碎、倾力裁决</td><td><span class="chip add">增</span>钢化防御、脱敏、不灭之躯、历战老兵、战斗狂热、咆哮战吼、嚎叫兽灵、守护者的决心、断离、羁绊精准、粗俗手段、先祖降临 <span class="chip del">删</span>先祖的巧谋</td><td><span class="chip add">增</span>先祖援手、完美机遇、压制打击、蛮族之力 <span class="chip del">删</span>脱敏 <span class="chip chg">改</span>守望之塔、先祖的团结 移到主树</td></tr>
+      <tr><th>升华</th><td><span class="chip add">增</span>图腾生命、木垒高筑<b class="src s">合</b></td><td>相同</td><td><span class="chip add">增</span>护甲、青玉传承</td></tr>
+      <tr><th>珠宝</th><td>—</td><td><span class="chip add">增</span>4 颗红玉</td><td><span class="chip chg">改</span>红玉词缀 <span class="chip add">增</span>翡翠</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>术语对照表</h2>
+  <p class="small">「poe2db」指 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同名页面对位；「暂译」为本页译名。</p>
+  <div class="scroll"><table class="tight">
+    <thead><tr><th>中文</th><th>English</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><td>战争使者 · 战士 · 古灵使徒斗士</td><td>Warbringer · Warrior · Gemling Legionnaire</td><td>poe2db</td></tr>
+      <tr><td>战争司号的呐喊 · 呼求回应 · 木垒高筑 · 青玉传承</td><td>Warcaller's Bellow · Answered Call · Wooden Wall · Jade Heritage</td><td>poe2db</td></tr>
+      <tr><td>战吼速度 · 图腾生命 · 护甲（升华小点）</td><td>Warcry Speed · Totem Life · Armour</td><td>poe2db</td></tr>
+      <tr><td>灵龟护符 · 蓝礼的锤炼 · 铁砧的重量 · 内爆冲击</td><td>Turtle Charm · Renly's Training · Anvil's Weight · Imploding Impacts</td><td>poe2db</td></tr>
+      <tr><td>坚韧战吼 · 震地战吼 · 炽焰战吼</td><td>Fortifying Cry · Seismic Cry · Infernal Cry</td><td>poe2db</td></tr>
+      <tr><td>先祖战士图腾 · 尖刺战吼 · 震波图腾</td><td>Ancestral Warrior Totem · Earthshatter · Shockwave Totem</td><td>poe2db</td></tr>
+      <tr><td>先祖之灵 · 青玉囚笼 · 青玉护身</td><td>Ancestral Spirits · Encase in Jade · Jade（层数）</td><td>poe2db</td></tr>
+      <tr><td>岩浆屏障 · 装甲回收 · 大地震击 · 跃击</td><td>Magma Barrier · Scavenged Plating · Sunder · Leap Slam</td><td>poe2db</td></tr>
+      <tr><td>闪电净化 · 火焰净化 · 冰霜净化 · 不净</td><td>Purity of Lightning · Purity of Fire · Purity of Ice · Impurity</td><td>poe2db</td></tr>
+      <tr><td>锻造之锤 · 火山裂缝 · 震地 · 锤打击 · 七伤破 · 轰动猛击 · 架盾 · 灰烬之捷</td><td>Forge Hammer · Volcanic Fissure · Earthquake · Mace Strike · Boneshatter · Rolling Slam · Raise Shield · Herald of Ash</td><td>poe2db</td></tr>
+      <tr><td>持久鏖战 · 战旗 · 疯魔先驱</td><td>Attrition · War Banner · Harbinger of Madness</td><td>poe2db</td></tr>
+      <tr><td>腐化战吼 I / II · 帕夸特的契约 · 扭曲契约 · 腐化之血</td><td>Corrupting Cry I / II · Paquate's Pact · Twisted Pact · Corrupted Blood</td><td>poe2db</td></tr>
+      <tr><td>回荡战嚎 · 野性残暴 I / II / III · 极速腐化 II · 物理专精</td><td>Echoing Cry · Brutality I / II / III · Swift Affliction II · Physical Mastery</td><td>poe2db</td></tr>
+      <tr><td>紧急图腾 III · 分叉裂缝 I / II · 流血 IV · 坚韧图腾 II</td><td>Urgent Totems III · Branching Fissures I / II · Bleed IV · Hardy Totems II</td><td>poe2db</td></tr>
+      <tr><td>效能 II · 星界投射 · 愤怒战吼 · 机动 · 范围扩大 I / II</td><td>Efficiency II · Astral Projection · Raging Cry · Mobility · Magnified Area I / II</td><td>poe2db</td></tr>
+      <tr><td>肉盾 II · 瘫痪 · 致盲 II · 护甲破损 I / III</td><td>Meat Shield II · Maim · Blind II · Armour Break I / III</td><td>poe2db</td></tr>
+      <tr><td>活力 I / II · 吞灵 II · 温热血脉 · 精准 I / II · 清晰 I</td><td>Vitality I / II · Cannibalism II · Warm Blooded · Precision I / II · Clarity I</td><td>poe2db</td></tr>
+      <tr><td>快速施法 II · 持续时间延长 I / II · 快速攻击 II / III · 连打带跑</td><td>Rapid Casting II · Prolonged Duration I / II · Rapid Attacks II / III · Hit and Run</td><td>poe2db</td></tr>
+      <tr><td>冗余 I · 崎岖之地 I · 持久地面 I / II · 侵蚀地面 · 冲击震波 · 晕眩 I · 狂怒 I · 崩溃边缘 I · 战争铁拳 I · 怒火锤炼 I · 助力之风 III</td><td>Overabundance I · Jagged Ground I · Persistent Ground I / II · Encroaching Ground · Impact Shockwave · Stun I · Rage I · Brink I · Fist of War I · Rageforged I · Second Wind III</td><td>poe2db</td></tr>
+      <tr><td>先祖魂约 · 祭血术</td><td>Ancestral Bond · Blood Magic（关键石）</td><td>poe2db</td></tr>
+      <tr><td>紧急呼喊 · 刺耳怒吼 · 重重围困 · 刺耳呐喊 · 咆哮战吼 · 嚎叫兽灵 · 守护者的决心 · 战吼如雷</td><td>Urgent Call · Cacophony · Lay Siege · Guttural Roar · Roaring Cries · Howling Beast · Defender's Resolve · Deafening Cries</td><td>poe2db</td></tr>
+      <tr><td>守望之塔 · 先祖的团结 · 先祖的巧谋 · 祖灵相依 · 先祖的传达 · 先祖降临 · 先祖援手 · 先祖的愈合</td><td>Watchtowers · Ancestral Unity · Ancestral Artifice · Spirit Bond · Ancestral Conduits · Ancestral Reach · Supportive Ancestors · Ancestral Mending</td><td>poe2db</td></tr>
+      <tr><td>凶残手段 · 冷酷无情 · 刚毅金属 · 钢化防御 · 历战老兵 · 不灭之躯 · 战斗狂热 · 脱敏 · 完美机遇</td><td>Cruel Methods · Relentless · Sturdy Metal · Tempered Defences · Battle-hardened · Hard to Kill · Battle Fever · Desensitisation · Perfect Opportunity</td><td>poe2db</td></tr>
+      <tr><td>断离 · 羁绊精准 · 粗俗手段 · 压制打击 · 蛮族之力 · 凶残 · 自由的价码 · 血脉贲张 · 碾碎 · 倾力裁决 · 碎裂痛击</td><td>Sundering · Bonded Precision · Vulgar Methods · Overwhelming Strike · Barbaric Strength · Brutal · Price of Freedom · Blood Rush · Smash · Crushing Verdict · Shattering Blow</td><td>poe2db</td></tr>
+      <tr><td>胜者桂冠 · 毁灭雄关 · 施虐者的慈悲</td><td>Crown of the Victor · Doomgate · Sadist's Mercy</td><td>poe2db</td></tr>
+      <tr><td>仇恨熔炉 · 均衡之符 · 收缩指令 · 巨人灾星甲胄</td><td>Hateforge · Astramentis · Constricting Command · Titanrot Cataphract（旧版）</td><td>poe2db</td></tr>
+      <tr><td>圣地权杖 · 翠玉战棒 · 强盗之锤 · 钉头锤 · 教徒大锤</td><td>Shrine Sceptre · Jade Club · Brigand Mace · Flanged Mace · Cultist Greathammer</td><td>poe2db</td></tr>
+      <tr><td>金工塔盾 · 塔赫亚塔盾 · 军官巨盔 · 贵族巨盔 · 帝国巨盔</td><td>Goldworked Tower Shield · Tawhoan Tower Shield · Commander / Noble / Imperial Greathelm</td><td>poe2db</td></tr>
+      <tr><td>优雅战铠 · 华丽战铠 · 增固护手 · 精工护手 · 巨型护手</td><td>Elegant Plate · Ornate Plate · Bolstered / Detailed / Massive Mitts</td><td>poe2db</td></tr>
+      <tr><td>青铜胫甲 · 坚铁胫甲 · 堡垒胫甲</td><td>Bronze / Plated / Bulwark Greaves</td><td>poe2db</td></tr>
+      <tr><td>琥珀项链 · 日曜项链 · 三相戒指 · 红玉戒指 · 紫晶戒指 · 嵌板腰带</td><td>Amber Amulet · Solar Amulet · Prismatic Ring · Ruby Ring · Amethyst Ring · Plate Belt</td><td>poe2db</td></tr>
+      <tr><td>非凡 / 终极生命药剂 · 磐石 / 抗毒 / 融冰 / 根基 / 真银咒符</td><td>Transcendent / Ultimate Life Flask · Stone / Antidote / Thawing / Grounding / Silver Charm</td><td>poe2db</td></tr>
+      <tr><td>红玉 · 翡翠（珠宝）</td><td>Ruby · Emerald</td><td>poe2db</td></tr>
+      <tr><td>磐石符文 · 风暴符文 · 高级风暴 / 钢铁 / 沙漠 / 身躯 / 健壮符文</td><td>Stone Rune · Storm Rune · Greater Storm / Iron / Desert / Body / Robust Rune</td><td>poe2db（磐石符文的页面标题写作「岩石符文」，物品本身是「磐石符文」）</td></tr>
+      <tr><td>佳华尼的灵核 · 提卡巴的灵核 · 塔卡提的灵核 · 佳华尼的集结灵核 · 佳华尼的震颤灵核 · 瓜铁雷兹的耐力灵核</td><td>Soul Core of Jiquani / Ticaba / Tacati · Jiquani's Soul Core of Rallying / Quaking · Guatelitzi's Soul Core of Endurance</td><td>poe2db</td></tr>
+      <tr><td>公牛雕像 · 沃拉娜的屠戮 · 盛怒词缀</td><td>Ox Idol · Vorana's Carnage · （Berserker 类词缀，原站 slug BerserkInfluence…）</td><td>poe2db；「盛怒」取沃拉娜的屠戮的简中描述</td></tr>
+      <tr><td>浓缩的液化恐惧 · 稀释的液化内疚</td><td>Concentrated Liquid Fear · Diluted Liquid Guilt</td><td>poe2db</td></tr>
+      <tr><td>封印宝库 · 玛兹特里，血肉塑造者 · 伊察拉，鲜血神谕者 · 伯达克</td><td>Sealed Vault · Maztli, Flesh-Shaper · Ytzara, Blood Oracle · The Bodach</td><td>poe2db</td></tr>
+      <tr><td>黑鸦欺诈者 · 萎败细柳</td><td>The Raven Trickster · The Withered Willow</td><td>poe2db</td></tr>
+      <tr><td>迷雾之王 · 伊格纳杜克，沼泽老妪 · 利萨拉，歧途长矛</td><td>The King in the Mists · Ignagduk, the Bog Witch · Lythara, the Wayward Spear</td><td>poe2db</td></tr>
+      <tr><td>岩石之蛇毒饮剂 · 塔巴纳的恩惠 · 伟大之白</td><td>Venom Draught of Stone · Tabana's Pillar（柱的恩惠）· Great White One</td><td>poe2db</td></tr>
+      <tr><td>努葛玛呼的力量文身 · 塔萨里奥的冰霜文身 · 塔赫亚的闪电文身</td><td>Strength Tattoo of Ngamahu · Cold Tattoo of Tasalio · Lightning Tattoo of Tawhoa</td><td>poe2db</td></tr>
+      <tr><td>暴击弱点 · 精魂 · 血统 · 引路石 · 未切割的技能 / 辅助宝石</td><td>Critical Weakness · Spirit · Lineage · Waystone · Uncut Skill / Support Gem</td><td>poe2db</td></tr>
+      <tr><td>蜕变石 · 增幅石 · 富豪石 · 崇高石 · 低等工匠石</td><td>Orb of Transmutation · Orb of Augmentation · Regal Orb · Exalted Orb · Lesser Jeweller's Orb</td><td>poe2db（沿用本仓库其他页已核对的译名）</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>数据核验</h2>
+  <h3>已核实 <span class="chip ok">已核实</span></h3>
+  <ul>
+    <li>原站数据：Mobalytics 页面内嵌的整页状态（第 932 版，2026-09-30 03:51 UTC 更新，6 个变体），2026-09-30 抓取；变体名与数据按 id 对位（非按顺序猜）。评论 8 条全部展开。作者链接的升级攻略（Skadoosh's Warrior Leveling 1-33，4 个变体）在浏览器里逐个切换读取。</li>
+    <li>宝石：腐化战吼 I 等阶 3、II 等阶 5；帕夸特的契约需求 65、掉落等级 52、掉落来源；先祖战士图腾等阶 13（13 级 = 52 级 92 力）、需求锤、上限 10；坚韧战吼等阶 9、需求护甲盾牌；尖刺战吼等阶 7、尖刺上限 6；岩浆屏障、装甲回收各保留 30 精魂；宝石等级—角色等级—力量对照表：poe2db 宝石页。</li>
+    <li>升华：poe2db <code>/us/Warbringer</code> 天赋图里的节点编号与原站 9 个升华节点逐个对上，中文取 <code>/cn/Warbringer</code>。</li>
+    <li>天赋：原站 4 档共 177 个节点编号在 poe2db 天赋树上全部找到（名称、效果、是否大点）；武器组点数按去重统计。</li>
+    <li>词缀：原站 129 个词缀内部 ID 逐个取 poe2db <code>/cn/hover?s=Data\Mods\&lt;ID&gt;</code>，得到简中文本、词缀名与物品等级。</li>
+    <li>交易统计 ID：原站查询里的 72 个统计 ID 全部在主会话的国服统计表里，中文模板与 poe2db 词缀文本按“去掉数字后的文本”逐条比对一致。</li>
+    <li>插槽物品：原站 slug 与 poe2db 物品页的 Metadata 对上（RuneStun = 磐石符文、SoulCoreSpecial19 = 佳华尼的集结灵核、SoulCoreSpecial23 = 佳华尼的震颤灵核、TalismanOx = 公牛雕像、RuneWarpingBerserkerInfluence = 沃拉娜的屠戮等）；涂膏 anointment-stun17 = 碎裂痛击（poe2db ID stun17）。</li>
+    <li>地图与首领：封印宝库区域等级 65、需等阶 6 以上引路石；伯达克为祭祀首领；萎败细柳为谵妄巅峰首领地图（区域等级 79）。</li>
+    <li>原站「宝石需求」= 全部辅助宝石 +5 属性相加：Starter 13 个 → 65，Endgame 20 个 → 100，分项吻合。</li>
+  </ul>
+  <h3>原站内部的矛盾 <span class="chip bad">矛盾</span></h3>
+  <ol>
+    <li><b>「How it Works」正文停在 0.2–0.3</b>：写腐化之血“每秒造成力量 25% 的物理伤害，最多 10 层”，核心是震地 / 炽焰战吼 + 震波图腾；现行数据是按宝石等级计的固定伤害、契约一次 5 层，腐化战吼挂在坚韧战吼上。作者 09-30 自己也说正文要大改、视频该撤。</li>
+    <li><b>Leveling</b>：项链要求「+3 所有近战技能等级（必须）」，这一档物品等级 75，战役里不可能出；宝石说明写武器组 1 用炽焰战吼、震地，数据里没有这两个技能。</li>
+    <li><b>Starter</b>：升华栏为空（0 点）；说明写“52 级”，但金工塔盾要 61 级；装备 / 宝石数据已写帕夸特的契约（需求 65），说明又说契约前用腐化战吼 II。</li>
+    <li><b>Endgame</b> 标“65 级以上”，但塔赫亚塔盾 80 级、坚韧战吼 19 级（对应角色 84 级）；武器组 1 权杖的 slug 指向「不净」版圣地权杖（Uber 两把都是），宝石栏两组都是闪电净化。本页按闪电净化理解。</li>
+    <li>Uber：项链交易条件含「能量护盾上限提高 ≥45%」、一颗红玉含「变形时技能速度」，构筑里没有对应来源；Endgame 腰带「咒符充能降低 11%」而交易条件 min 13。</li>
+  </ol>
+  <h3>本页的推算与取舍 <span class="chip tmp">合</span></h3>
+  <ul>
+    <li>① 前半（1–33 级）用作者的另一份升级攻略，它的标签还是 0.4，未随 0.5 更新；后半用原站 Leveling。升华顺序按 Leveling 的优先级（呼求回应先于战争司号的呐喊）。</li>
+    <li>② 的 6 个升华点按 Endgame 补；② 在 61 级前沿用旧塔盾；③ 在 80 级前沿用金工塔盾。</li>
+    <li>精魂与图腾数：按原站装备的精魂数值、任务 100、岩浆屏障 + 装甲回收保留 60 计算，没算品质与天赋里可能的精魂；作者说的 5 个图腾依赖一个 bug。</li>
+    <li>SSF 替代：施虐者的慈悲 → 自做稀有钉头锤；胜者桂冠 / 毁灭雄关 → 任意生命抗性头盔 / 任意塔盾。原站没有给替代件的词缀目标，本页按作者的旧版说明“武器组 2 用能拿到的最高 DPS 武器”推出。</li>
+    <li>“武器组 1 的攻击伤害词缀不必买”是按 poe2db 的腐化之血说明（伤害复制宝石等级）推出；武器组 2 的图腾仍吃攻击伤害。</li>
+    <li>①–② 正则里的「瞪羚的 25% 移速（46）」与「健将的 戒指上没有这一档」取自本仓库瓦拉煞页的 poe2db 核对，本轮没有重查。升华试炼等级 38 / 60 / 80 同样沿用该页。</li>
+  </ul>
+  <h3>原站缺失 <span class="chip na">原站未给</span></h3>
+  <ul>
+    <li>生命、护甲、格挡、DPS 等面板目标值；PoB 代码字段为空；没有物品过滤器，没有搜索正则。</li>
+    <li>Endgame 与 Uber Endgame 的装备、宝石、天赋说明都是空的；Uber 变体没有定位说明。</li>
+    <li>① ② 没有珠宝；Starter 没有属性点标注。</li>
+    <li>大地震击在 ③④ 的用途原站没说。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>数据截至 2026-09-30 · 原作者 Skadoosh（Mobalytics）· 中文以 poe2db.tw 简中口径为准 · 由 poe2-build-cn 技能的数据与流程合成；抓取摘录见同目录 <code>_source.json</code>（紧凑摘录，不是整页状态）。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(mode){
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode); else root.removeAttribute('data-theme');
+    if (btn) btn.textContent = labels[mode] || labels.system;
+  }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){
+    mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system';
+    apply(mode);
+    try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {}
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var pre = document.getElementById(b.getAttribute('data-for'));
+      if (!pre) return;
+      var text = pre.textContent;
+      function done(ok){ var t = b.textContent; b.textContent = ok ? '已复制' : '已选中，按 Ctrl+C'; setTimeout(function(){ b.textContent = t; }, 1600); }
+      function selectIt(){ var r = document.createRange(); r.selectNodeContents(pre); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done(false); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function(){ done(true); }, selectIt); else selectIt();
+    });
+  });
+})();
+</script>
+</body>
+</html>

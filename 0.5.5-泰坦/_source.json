@@ -1,0 +1,680 @@
+{
+ "_note": "紧凑摘录（compact extract），不是 Mobalytics 整页状态。由浏览器内读取 window.__PRELOADED_STATE__ 后分段写入 scratchpad，再用 merge_source.py 合并；poe2db 查询结果为人工整理的对照笔记。抓取日期 2026-09-30。",
+ "source": {
+  "url": "https://mobalytics.gg/poe-2/builds/slam-warrior-leveling-build",
+  "title": "Slam Titan (Leveling & Endgame)",
+  "author": "Path of Evening",
+  "authorLinks": [
+   "https://www.twitch.tv/llaroldlive",
+   "https://www.youtube.com/@PathofEvening"
+  ],
+  "version": 75,
+  "createdAt": "2025-11-29T22:34:26Z",
+  "firstPublishedAt": "2025-12-03T08:12:26Z",
+  "updatedAt": "2026-09-02T06:58:49Z",
+  "favorites": 754,
+  "totalComments": 5,
+  "tags": [
+   "class:Warrior",
+   "ascendancy:Titan",
+   "build-type:Starter",
+   "build-type:Speed Leveling",
+   "build-type:End Game",
+   "patch:0.5.5 FR",
+   "vefified:Creator"
+  ],
+  "variants": [
+   "Act 1",
+   "Act 2",
+   "Act 3",
+   "Act 4+",
+   "Early Endgame",
+   "Endgame",
+   "Live"
+  ],
+  "variantIds": [
+   "24b026cd-0050-4b4b-95d5-e2df3caab597",
+   "2bd850f2-ad1a-48c2-bdfb-3fd60f9d59ac",
+   "fe2a2ec5-ec7c-4ccb-95f8-8194a04759a5",
+   "45039538-c908-4859-867c-04931bba4cdb",
+   "406e63a3-719e-4677-bd72-fb1b240b648c",
+   "9a872580-7925-477f-98e2-cb3565c5aa0f",
+   "fe618b5c-83b2-4434-92f0-b4ea1cb565a9"
+  ],
+  "variantDescriptions": {
+   "Live": "This is our live character's profile."
+  },
+  "extractedAt": "2026-09-30",
+  "abstract": "Build Overview rich text; How it Plays / How it Works / Changelog widgets empty (302/298 bytes)"
+ },
+ "text": {
+  "Build Overview": "Slam Warrior is one of the strongest leveling builds for league start in PoE 2. The build has amazing clear and single-target damage. It is also very tanky and can clear the campaign quickly with self-found gear.\n\n## Ascendancy\nTitan is one of the most powerful Ascendancies in the game, thanks to [Hulking Form|passive-ascendancywarrior1notable5], which massively increases the offensive and defensive bonuses you gain from the passive tree. \nFor the rest of your Ascendancy, [Earthbreaker|passive-ascendancywarrior1notable1] stacks with your other sources of Aftershock chance and can scale up to 100%, effectively doubling your damage. Once in maps, you can spec into [Ancestral Empowerment|passive-ascendancywarrior1notable2]. This bonus works with [Fist of War III|fistofwarsupportplayerthree], overriding the 14-second cooldown and granting enormous increases to damage and AoE.\n\n## Breaking Armour\nYou can break armour on enemies by heavy stunning them thanks to [Shattering Blow|passive-stun17]. This bonus scales with sources of Break Increased Armour and can apply Fully Broken Armour to all enemies (even bosses), granting 20% more damage against them. It also synergizes with [The Molten One's Gift|passive-armour-break16-] to grant increased fire damage against enemies with Fully Broken Armour.\n\n## How to Clear Zones (Act 1):\nCast [Rolling Slam|rollingslamplayer], then use [Boneshatter|boneshatterplayer] immediately after the first [Rolling Slam|rollingslamplayer] hit to quickly kill packs of enemies. Mastering this quick combo is key to smoothly clearing Act 1.\nYou can use [Pounce|wolfpounceplayer] to move through zones quickly, just be sure to grab a Talisman.\n\n## How to Clear Zones (Act 2):\nReplacing [Rolling Slam|rollingslamplayer] with [Leap Slam|leapslamplayer] makes pulling off the [Boneshatter|boneshatterplayer] combo even easier. \nAs a bonus, [Leap Slam|leapslamplayer] helps with mobility while also dealing damage!\nYou can continue using [Pounce|wolfpounceplayer] and Wolf Form to quickly run through areas.\n\n## How to Clear Zones (Act 3+):\nSwitching from [Leap Slam|leapslamplayer] to [Stampede|stampedeplayer] gives more consistent damage and is safer when moving quickly through campaign zones. You can still use the [Stampede|stampedeplayer]-[Boneshatter|boneshatterplayer] combo, but most enemies will be dead after you've hit them with [Stampede|stampedeplayer].\nYou should still keep [Leap Slam|leapslamplayer] socketed and use it to jump over terrain.\n\n## How to Kill Bosses (Acts 1 & 2):\nCast [Earthquake|earthquakeplayer] under bosses and refresh it each time it expires. You can hit them with [Rolling Slam|rollingslamplayer] or [Mace Strike|melee2hmaceplayer] until they are primed for a Heavy Stun, then use [Boneshatter|boneshatterplayer] and attack them with both hits of [Rolling Slam|rollingslamplayer] (the second hit does more damage to Heavy Stunned enemies).\nOnce you unlock [Leap Slam|leapslamplayer] in Act 2 and support it with [Crater|supportcraterplayer], you can use it against bosses to cover the area in fissures, then cast [Rolling Slam|rollingslamplayer] to trigger them for massive damage. \n\n## How to Kill Bosses (Act 3+):\nThrow [Forge Hammer|forgehammerplayer] at bosses, detonate it with [Infernal Cry|infernalcryplayer], and stomp around the area with [Stampede|stampedeplayer]. Once the boss is in Heavy Stun range, hit them with [Boneshatter|boneshatterplayer], then cast [Hammer of the Gods|hammerofthegodsplayer]. Boom.\nYou can add [Sunder|sunderplayer] to the [Hammer of the Gods|hammerofthegodsplayer] combo for even more burst damage.\n\n## Lineage Supports:\nYou don't need [Rakiata's Flow|supportrakiatasflowplayer] to make [Forge Hammer|forgehammerplayer] blast bosses, but it is a nice flex if you can afford it. If not, [Fire Penetration II|supportfirepenetrationplayertwo] will work until you can.\nSocketing [Zerphi's Infamy|supportzerphislegacyplayer] into [Hammer of the Gods|hammerofthegodsplayer] increases the Glory requirement to 50, but allows ALL life costs to generate Glory, letting you freely cast [Hammer of the Gods|hammerofthegodsplayer] without having to heavy stun bosses!\nThe gem [Atalui's Bloodletting|supportataluibloodlettingplayer] grants Extra Damage as Physical based on life costs. It can be useful as a support for [Stampede|stampedeplayer] if you don't feel that you need the life regeneration from [Holy Descent|supportholydescentplayer].\n\n## Act Bonuses:\n- Act 2: Charm Charges Gained\n- Act 3: Stun Threshold\n- Act 4: Life Flask\n- Act 4: +5 Resistances\n- Act 4 Shark Fin: 30% Inc Armour/Evasion/ES\n- Intermissions: 15% Global Defences\n\n## Amulet Anoint\n[Acceleration|passive-movement-speed9] is the best option available.\n\n## Loot Filter:\nhttps://www.filterblade.xyz/Profile?name=Llarold&game=Poe2\n",
+  "Strengths": [
+   "Amazing damage",
+   "Tanky",
+   "Excellent clear",
+   "No required uniques",
+   "SSF-friendly"
+  ],
+  "Weaknesses": [
+   "Doesn't move as quickly as bow builds",
+   "Need a good mace"
+  ],
+  "Act1 Equipment desc": "Do not worry about gear during the campaign. Get a 2-handed mace with as much physical damage as possible, then smash everything.",
+  "Act1 Skill Gems desc": "You can cast Boneshatter immediately after the first hit of Rolling Slam to quickly 1-2 combo packs of enemies.\nPerfect Strike nukes bosses in Act 1.",
+  "Act2 Skill Gems desc": "Leap Slam will make quick work of enemies and makes the Boneshatter combo even easier. Perfect Strike gets phased out during Act 2.",
+  "Act3 Skill Gems desc": "Stampede does what Leap Slam does, but better.\nForge Hammer & Hammer of the Gods deal a ton of damage to bosses.",
+  "Endgame Skill Gems desc": "Rakiata's Flow is optional. Fire Penetration works well on a much lower budget."
+ },
+ "variants": {
+  "Act 1": {
+   "name": "Act 1",
+   "id": "24b026cd-0050-4b4b-95d5-e2df3caab597",
+   "eq": {
+    "amulet": {
+     "n": "Stellar Amulet",
+     "cls": "amulet",
+     "slug": "amulet-fouramulet8",
+     "req": "Level 24",
+     "tq": {
+      "f": [
+       "and:"
+      ],
+      "cat": "accessory.amulet"
+     }
+    },
+    "belt": {
+     "n": "Heavy Belt",
+     "cls": "belt",
+     "slug": "armour-fourbelt9",
+     "mods": [
+      "+92 to maximum Life",
+      "+29 to Strength",
+      "+144 to Stun Threshold"
+     ],
+     "pre": [
+      "IncreasedLife7"
+     ],
+     "suf": [
+      "Strength7",
+      "StunThreshold7"
+     ],
+     "req": "Level 50",
+     "st": "Charm Slots 2",
+     "tq": {
+      "f": [
+       "and:explicit.stat_3299347043>=85;explicit.stat_4080418644>=28;explicit.stat_915769802>=125"
+      ],
+      "cat": "accessory.belt"
+     }
+    },
+    "body": {
+     "n": "Glorious Plate",
+     "cls": "body-armour",
+     "slug": "armour-fourbodystr13",
+     "mods": [
+      "+93 to Armour",
+      "74% increased Armour",
+      "+135 to maximum Life"
+     ],
+     "pre": [
+      "IncreasedLife9",
+      "IncreasedPhysicalDamageReductionRating4",
+      "LocalIncreasedPhysicalDamageReductionRatingPercent4"
+     ],
+     "suf": [
+      "StrIntMasterCraftedArmourRating"
+     ],
+     "req": "Level 65",
+     "st": "Armour 1230, Quality 20",
+     "tq": {
+      "f": [
+       "and:explicit.stat_3484657501>=69;explicit.stat_3299347043>=120;explicit.stat_1062208444>=61"
+      ],
+      "cat": "armour.chest"
+     }
+    },
+    "boots": {
+     "n": "Vaal Greaves",
+     "cls": "boots",
+     "slug": "armour-fourbootsstr5endgame",
+     "mods": [
+      "30% increased Movement Speed",
+      "74% increased Armour",
+      "+77 to maximum Life"
+     ],
+     "pre": [
+      "IncreasedLife6",
+      "LocalIncreasedPhysicalDamageReductionRatingPercent4",
+      "MovementVelocity5"
+     ],
+     "suf": [
+      "StrIntMasterCraftedArmourRating"
+     ],
+     "req": "Level 75",
+     "st": "Armour 560, Quality 20",
+     "tq": {
+      "f": [
+       "and:explicit.stat_3299347043>=70;explicit.stat_1062208444>=61;explicit.stat_2250533757>=30"
+      ],
+      "cat": "armour.boots"
+     }
+    },
+    "gloves": {
+     "n": "Vaal Mitts",
+     "cls": "gloves",
+     "slug": "armour-fourglovesstr5endgame",
+     "mods": [
+      "+76 to Armour",
+      "74% increased Armour",
+      "+77 to maximum Life"
+     ],
+     "pre": [
+      "IncreasedLife6",
+      "IncreasedPhysicalDamageReductionRating4",
+      "LocalIncreasedPhysicalDamageReductionRatingPercent4"
+     ],
+     "suf": [
+      "StrIntMasterCraftedArmourRating"
+     ],
+     "req": "Level 75",
+     "st": "Armour 532, Quality 20",
+     "tq": {
+      "f": [
+       "and:explicit.stat_3484657501>=69;explicit.stat_3299347043>=70;explicit.stat_1062208444>=61"
+      ],
+      "cat": "armour.gloves"
+     }
+    },
+    "helmet": {
+     "n": "Rusted Greathelm",
+     "cls": "helmet",
+     "slug": "armour-fourhelmetstr1",
+     "mods": [
+      "+12 to maximum Life"
+     ],
+     "pre": [
+      "IncreasedLife1"
+     ],
+     "st": "Armour 35, Quality 20",
+     "tq": {
+      "f": [
+       "and:explicit.stat_3299347043>=10"
+      ],
+      "cat": "armour.helmet"
+     }
+    },
+    "leftRing": {
+     "n": "Prismatic Ring",
+     "cls": "ring",
+     "slug": "ring-fourring9",
+     "mods": [
+      "+28% to Fire Resistance",
+      "+28% to Cold Resistance",
+      "+28% to Lightning Resistance"
+     ],
+     "suf": [
+      "ColdResist5",
+      "FireResist5",
+      "LightningResist5"
+     ],
+     "req": "Level 35",
+     "tq": {
+      "f": [
+       "and:pseudo.pseudo_total_elemental_resistance>=78"
+      ],
+      "cat": "accessory.ring"
+     }
+    },
+    "mainHand": {
+     "set1": {
+      "n": "Felled Greatclub",
+      "cls": "two-hand-mace",
+      "slug": "weapon-fourtwohandmace1",
+      "mods": [
+       "57% increased Physical Damage",
+       "Adds 8 to 15 Physical Damage"
+      ],
+      "pre": [
+       "LocalAddedPhysicalDamageTwoHand2",
+       "LocalIncreasedPhysicalDamagePercent2"
+      ],
+      "st": "Quality 20",
+      "tq": {
+       "f": [
+        "and:explicit.stat_1940865751>=5;explicit.stat_1509134228>=50"
+       ],
+       "cat": "weapon.twomace"
+      }
+     }
+    },
+    "offHand": {
+     "set1": {}
+    },
+    "rightRing": {
+     "n": "Prismatic Ring",
+     "cls": "ring",
+     "slug": "ring-fourring9",
+     "mods": [
+      "+28% to Fire Resistance",
+      "+28% to Cold Resistance",
+      "+28% to Lightning Resistance"
+     ],
+     "suf": [
+      "ColdResist5",
+      "FireResist5",
+      "LightningResist5"
+     ],
+     "req": "Level 35",
+     "tq": {
+      "f": [
+       "and:pseudo.pseudo_total_elemental_resistance>=78"
+      ],
+      "cat": "accessory.ring"
+     }
+    },
+    "priorityList": [
+     "helmet:Rusted Greathelm",
+     "mainHand:Felled Greatclub",
+     "leftRing:Prismatic Ring",
+     "rightRing:Prismatic Ring",
+     "amulet:Stellar Amulet",
+     "body:Glorious Plate",
+     "gloves:Vaal Mitts",
+     "belt:Heavy Belt",
+     "boots:Vaal Greaves"
+    ],
+    "chakras": null
+   },
+   "gems": [
+    {
+     "a": "Mace Strike L1",
+     "slug": "melee2hmaceplayer",
+     "sub": [
+      "supportaddedfiredamageplayer",
+      "supportrapidattacksplayer"
+     ]
+    },
+    {
+     "a": "Rolling Slam L1",
+     "slug": "rollingslamplayer",
+     "sub": [
+      "fistofwarsupportplayer",
+      "supportaddedfiredamageplayer"
+     ]
+    },
+    {
+     "a": "Boneshatter L1",
+     "slug": "boneshatterplayer",
+     "sub": [
+      "impactshockwavesupportplayer",
+      "supportmagnifiedareaplayer"
+     ]
+    },
+    {
+     "a": "Earthquake L1",
+     "slug": "earthquakeplayer",
+     "sub": []
+    },
+    {
+     "a": "Infernal Cry L1",
+     "slug": "infernalcryplayer",
+     "sub": [
+      "supporttirelessplayer"
+     ]
+    },
+    {
+     "a": "Herald of Ash L4",
+     "slug": "heraldofashplayer",
+     "sub": []
+    },
+    {
+     "a": "Pounce L3",
+     "slug": "wolfpounceplayer",
+     "sub": [
+      "supportmarkofsiphoningplayer"
+     ]
+    }
+   ],
+   "prio": [
+    "Fire Attunement",
+    "Rapid Attacks I",
+    "Fist of War I",
+    "Fire Attunement",
+    "Impact Shockwave",
+    "Magnified Area I",
+    "Tireless",
+    "Mark of Siphoning"
+   ],
+   "req": {
+    "dex": 5,
+    "str": 25,
+    "int": 10
+   },
+   "tree": {
+    "main": {
+     "pl": [
+      "Brutal",
+      "Sturdy Metal",
+      "Relentless",
+      "Smash",
+      "Burning Strikes"
+     ],
+     "n": 18
+    },
+    "s1": {
+     "n": 0
+    },
+    "s2": {
+     "n": 0
+    },
+    "asc": {
+     "pl": null,
+     "n": 0
+    },
+    "attr": [
+     {
+      "attribute": "str",
+      "nodeSlug": "node-27373"
+     }
+    ],
+    "jewels": null
+   },
+   "_note": "Act 1 equipment for body/boots/gloves/belt/rings is endgame-level (req 35-75) although the variant text says 'Do not worry about gear during the campaign' - looks like placeholder copied from later variant"
+  },
+  "Act 2": "# Act 2 req={\"dex\":5,\"str\":60,\"int\":15}\n(amulet/belt/body/boots/gloves/helmet/rings identical to Act 1 placeholder: Stellar Amulet no mods; Heavy Belt +92 life/+29 str/+144 stun thr; Glorious Plate L65; Vaal Greaves L75; Vaal Mitts L75; Rusted Greathelm +12 life; 2x Prismatic Ring tri-res 28)\nmainHand.set1: Studded Greatclub [weapon-fourtwohandmace4] Level 16 {Quality 20}\n   mods: 58% increased Physical Damage || Adds 8 to 15 Physical Damage\n   affix: LocalAddedPhysicalDamageTwoHand2,LocalIncreasedPhysicalDamagePercent2 /\n   tq: and:explicit.stat_1940865751>=5;explicit.stat_1509134228>=50 cat=weapon.twomace\noffHand.set1: -\npriority: (empty)\nchakras: null\ngems:\n  Mace Strike L1 (melee2hmaceplayer) <- supportrapidattacksplayer, supportaddedfiredamageplayer\n  Leap Slam L7 (leapslamplayer) <- supportaddedfiredamageplayer, supportcraterplayer, fistofwarsupportplayer\n  Rolling Slam L7 (rollingslamplayer) <- fistofwarsupportplayer, supportaddedfiredamageplayer\n  Boneshatter L1 (boneshatterplayer) <- impactshockwavesupportplayer, supportmagnifiedareaplayer\n  Infernal Cry L1 (infernalcryplayer) <- supportragingcryplayer, supporttirelessplayer\n  Herald of Ash L1 (heraldofashplayer) <- supportmagnifiedareaplayer\n  Forge Hammer L9 (forgehammerplayer) <- fistofwarsupportplayer, supportaddedfiredamageplayer, supportelementalarmamentplayertwo\n  Pounce L3 (wolfpounceplayer) <- supportmarkofsiphoningplayer\nprio: Rapid Attacks I, Fire Attunement, Fire Attunement, Crater, Fist of War I, Fist of War I, Fire Attunement, Impact Shockwave, Magnified Area I, Raging Cry, Tireless, Magnified Area I, Fist of War I, Fire Attunement, Elemental Armament II, Mark of Siphoning\nmain(39): Brutal, Sturdy Metal, Relentless, Reverberating Impact, Smash, Burning Strikes, Aftershocks, Crushing Verdict, Shockwaves, Singular Purpose\nset1(0) | set2(0)\nasc(3): Earthbreaker | sel: node-35453,node-42275,node-32534\nattr: {\"str\":5}\njewels: null\n",
+  "Act 3 + Act 4+": "# Act 3 req={\"dex\":15,\"str\":75,\"int\":15}\n(non-weapon gear identical to Act 1 placeholder)\nmainHand.set1: Temple Maul [weapon-fourtwohandmace6] Level 28 {Quality 20}\n   mods: 61% increased Physical Damage || Adds 8 to 15 Physical Damage\n   affix: LocalAddedPhysicalDamageTwoHand2,LocalIncreasedPhysicalDamagePercent2 /\n   tq: and:explicit.stat_1940865751>=5;explicit.stat_1509134228>=50 cat=weapon.twomace\npriority: (empty); chakras: null\ngems:\n  Mace Strike L20 (melee2hmaceplayer) <- supportrapidattacksplayer, supportaddedfiredamageplayer, supportclosecombatplayer\n  Leap Slam L7 (leapslamplayer) <- supportaddedfiredamageplayer, supportcraterplayer, fistofwarsupportplayertwo\n  Boneshatter L9 (boneshatterplayer) <- impactshockwavesupportplayer, supportmagnifiedareaplayer\n  Rolling Slam L7 (rollingslamplayer) <- fistofwarsupportplayer, supportaddedfiredamageplayer, supportaftershockchanceplayer\n  Forge Hammer L9 (forgehammerplayer) <- fistofwarsupportplayertwo, supportaddedfiredamageplayer, supportelementalarmamentplayertwo\n  Stampede L11 (stampedeplayer) <- fistofwarsupportplayertwo, supportrapidattacksplayer, supportaftershockchanceplayer\n  Infernal Cry L9 (infernalcryplayer) <- supportragingcryplayer, supporttirelessplayer\n  Herald of Ash L1 (heraldofashplayer) <- supportmagnifiedareaplayer\n  Overwhelming Presence L1 (overwhelmingpresenceplayer) <-\n  Pounce L3 (wolfpounceplayer) <- supportmarkofsiphoningplayer\nprio: Rapid Attacks I, Fire Attunement, Close Combat I, Fire Attunement, Crater, Fist of War II, Impact Shockwave, Magnified Area I, Fist of War I, Fire Attunement, Aftershock I, Fist of War II, Fire Attunement, Elemental Armament II, Fist of War II, Rapid Attacks I, Aftershock I, Raging Cry, Tireless, Magnified Area I, Mark of Siphoning\nmain(56): Brutal, Sturdy Metal, Relentless, Reverberating Impact, Smash, Burning Strikes, Aftershocks, Split the Earth, Skullcrusher, Crushing Verdict, Shockwaves, Singular Purpose, Polished Iron\nasc(5): Colossal Capacity, Hulking Form | sel: node-19424,node-60634,node-27418,node-30115,node-32534   (NOTE: Earthbreaker 35453/42275 from Act 2 is NOT in Act 3)\nattr: {\"str\":11}; jewels: null\n\n# Act 4+ req={\"dex\":20,\"str\":100,\"int\":25}\n(non-weapon gear identical to Act 1 placeholder)\nmainHand.set1: Snakewood Greathammer [weapon-fourtwohandmace2cruel] Level 45 {Quality 20}\n   mods: 93% increased Physical Damage || Adds 14 to 26 Physical Damage\n   affix: LocalAddedPhysicalDamage5,LocalIncreasedPhysicalDamagePercent4 /\n   tq: and:explicit.stat_1940865751>=10;explicit.stat_1509134228>=85 cat=weapon.twomace\npriority: (empty); chakras: null\ngems:\n  Mace Strike L20 (melee2hmaceplayer) <- supportrapidattacksplayertwo, supportrageplayertwo, supportclosecombatplayer, supportancestralcallplayer\n  Stampede L11 (stampedeplayer) <- fistofwarsupportplayertwo, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportcraterplayer, supportbranchingfissuresplayertwo\n  Boneshatter L1 (boneshatterplayer) <- impactshockwavesupportplayer, supportmagnifiedareaplayer\n  Forge Hammer L9 (forgehammerplayer) <- fistofwarsupportplayertwo, supportaddedfiredamageplayer, supportelementalarmamentplayertwo, supportfirepenetrationplayertwo, supportbranchingfissuresplayertwo\n  Leap Slam L7 (leapslamplayer) <- supportaddedfiredamageplayer, supportcraterplayer, fistofwarsupportplayertwo\n  Infernal Cry L11 (infernalcryplayer) <- supportragingcryplayer, supporttirelessplayer, supportcooldownrecoveryplayertwo, supportmagnifiedareaplayertwo\n  Hammer of the Gods L13 (hammerofthegodsplayer) <- supportmeleephysicaldamageplayer, supportaftershockchanceplayertwo, supportheftplayer\n  Herald of Ash L1 (heraldofashplayer) <- supportmagnifiedareaplayer, supportfiremasteryplayer\n  Overwhelming Presence L1 (overwhelmingpresenceplayer) <-\n  Pounce L3 (wolfpounceplayer) <- supportmarkofsiphoningplayer\n  Scavenged Plating L12 (scavengedplatingplayer) <-\nprio: Rapid Attacks II, Rage II, Close Combat I, Ancestral Call I, Fist of War II, Rapid Attacks II, Aftershock II, Crater, Branching Fissures II, Impact Shockwave, Magnified Area I, Fist of War II, Fire Attunement, Elemental Armament II, Fire Penetration II, Branching Fissures II, Fire Attunement, Crater, Fist of War II, Raging Cry, Tireless, Cooldown Recovery II, Magnified Area II, Heavy Swing, Aftershock II, Heft, Magnified Area I, Fire Mastery, Mark of Siphoning\nmain(88): Brutal, Sturdy Metal, Relentless, Reverberating Impact, Smash, Burning Strikes, Aftershocks, Split the Earth, Skullcrusher, Crushing Verdict, Shattering Blow, Flip the Script, Breakage, Prism Guard, Blood Magic, Impact Force, Impact Area, Behemoth, Shockwaves, Singular Purpose, Polished Iron\nasc(7): Earthbreaker, Colossal Capacity, Hulking Form | sel: node-35453,node-42275,node-32534,node-19424,node-60634,node-27418,node-30115\nattr: {\"str\":15}; jewels: null\n",
+  "Early Endgame": "# Early Endgame req={\"dex\":40,\"str\":115,\"int\":25}\namulet: Jade Amulet [amulet-fouramulet4] Level 8 {Item Level 81}\n   mods: 24% increased Armour || +86 to maximum Energy Shield || +168 to maximum Life || +3 to Level of all Melee Skills || +37% to Lightning Resistance\n   affix: IncreasedEnergyShield10,IncreasedLife10,IncreasedPhysicalDamageReductionRatingPercent3 / GlobalMeleeSkillGemLevel3,LightningResist7\n   anoint: {\"slug\":\"anointment-movement_speed9\"}\n   tq: and:explicit.stat_3299347043>=150;pseudo.pseudo_total_elemental_resistance>=36;explicit.stat_3489782002>=80;explicit.stat_2866361420>=21;explicit.stat_9187492>=3 cat=accessory.amulet\nbelt: Plate Belt [armour-fourbelt5] Level 24 {Charm Slots 2, Item Level 80}\n   mods: +169 to maximum Life || 28% increased Charm Effect Duration || +35% to Fire Resistance || +33% to Cold Resistance || +32% to Lightning Resistance || +219 to Armour\n   affix: BeltIncreasedCharmDuration5,IncreasedLife10,IncreasedPhysicalDamageReductionRating7 / ColdResist6,FireResist6,LightningResist6\n   tq: and:explicit.stat_1389754388>=28;explicit.stat_809229260>=187;explicit.stat_3299347043>=150;pseudo.pseudo_total_elemental_resistance>=93 cat=accessory.belt\nbody: Ornate Plate [armour-fourbodystr6endgame] Level 70 {Armour 2154, Item Level 82, Quality 20}\n   mods: +271 to Armour || 98% increased Armour || +161 to maximum Life || +31 to Strength || +30% to Lightning Resistance || +49% of Armour also applies to Elemental Damage\n   affix: IncreasedLife10,IncreasedPhysicalDamageReductionRating9,LocalIncreasedPhysicalDamageReductionRatingPercent7 / ArmourAppliesToElementalDamage6,LightningResist5,Strength8\n   runes: soulcore-runeenhancegreater,soulcore-runeenhancegreater\n   tq: and:explicit.stat_3484657501>=268;explicit.stat_3299347043>=150;explicit.stat_4080418644>=31;pseudo.pseudo_total_elemental_resistance>=26;explicit.stat_1062208444>=92;explicit.stat_3362812763>=44 cat=armour.chest\nboots: Bulwark Greaves [armour-fourbootsstr2endgame] Level 65 {Armour 539, Item Level 66, Quality 20}\n   mods: 30% increased Movement Speed || +132 to maximum Life || 14% increased Rarity of Items found || +30% to Cold Resistance || +42% of Armour also applies to Elemental Damage || 84% increased Armour\n   affix: IncreasedLife9,LocalIncreasedPhysicalDamageReductionRatingPercent6,MovementVelocity5 / ArmourAppliesToElementalDamage5,ColdResist5,ItemFoundRarityIncrease2\n   runes: soulcore-soulcorechaos\n   tq: and:explicit.stat_3299347043>=120;explicit.stat_3917489142>=11;pseudo.pseudo_total_elemental_resistance>=26;explicit.stat_1062208444>=80;explicit.stat_2250533757>=30;explicit.stat_3362812763>=38 cat=armour.boots\nflask1: Ultimate Life Flask [flask-fourflasklife9] Level 60 {Quality 20}\n   mods: Gains 0.20 Charges per Second || 60% increased Amount Recovered\n   affix: FlaskIncreasedRecoveryAmount4 / FlaskFillChargesPerMinute2\n   tq: and:explicit.stat_1873752457>=undefined;explicit.stat_700317374>=56 cat=flask.life\ncharm1: For Utopia (UNIQUE) [flask-fouruniquecharm6--for-utopia] Level 8 {Item Level 71}\n   tq: name=For Utopia cat=unique\ncharm2: Silver Charm [flask-fourcharm7] Level 10 {Item Level 65}\n   mods: Also grants 94 Guard || 20% reduced Charges per use\n   affix: CharmGuardWhileActive2 / FlaskChargesUsed3__\n   tq: type=Silver Charm and:explicit.stat_2676834156>=85\ncharm3: Thawing Charm [flask-fourcharm1] Level 12 {Item Level 34}\n   mods: 23% increased Duration || 35% increased Charges\n   affix: CharmIncreasedDuration2 / FlaskExtraCharges2__\n   tq: type=Thawing Charm and:explicit.stat_1366840608>=31\ngloves: Vaal Mitts [armour-fourglovesstr5endgame] Level 75 {Armour 299, Item Level 80, Quality 20}\n   mods: 39% increased Armour || Adds 7 to 9 Physical Damage to Attacks || +170 to maximum Life || 20% increased Rarity of Items found || +40% to Fire Resistance || +42% of Armour also applies to Elemental Damage\n   affix: AddedPhysicalDamage5,IncreasedLife10,IncreasedPhysicalDamageReductionRatingPercent6 / ArmourAppliesToElementalDamage5,FireResist7,ItemFoundRarityIncrease4\n   runes: soulcore-soulcorechaos\n   tq: and:explicit.stat_3299347043>=150;explicit.stat_3917489142>=19;pseudo.pseudo_total_elemental_resistance>=36;explicit.stat_1062208444>=39;explicit.stat_3032590688>=5;explicit.stat_3362812763>=38 cat=armour.gloves\nhelmet: Paragon Greathelm [armour-fourhelmetstr5endgame] Level 75 {Armour 1303, Item Level 80, Quality 20}\n   mods: +178 to Armour || 85% increased Armour || +131 to maximum Life || 13% increased Rarity of Items found || +35% to Fire Resistance || +39% of Armour also applies to Elemental Damage\n   affix: IncreasedLife9,IncreasedPhysicalDamageReductionRating6,LocalIncreasedPhysicalDamageReductionRatingPercent6 / ArmourAppliesToElementalDamage5,FireResist6,ItemFoundRarityIncrease2\n   runes: soulcore-runeenhancegreater\n   tq: and:explicit.stat_3484657501>=141;explicit.stat_3299347043>=120;explicit.stat_3917489142>=11;pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_1062208444>=80;explicit.stat_3362812763>=38 cat=armour.helmet\nleftRing: Amethyst Ring [ring-fourring6] Level 20 {Item Level 76}\n   mods: Adds 8 to 24 Physical Damage to Attacks || Adds 18 to 32 Fire damage to Attacks || +109 to maximum Life || +14% to all Elemental Resistances || +33% to Cold Resistance || Leech 8.85% of Physical Attack Damage as Life\n   affix: AddedFireDamage7,AddedPhysicalDamage8,IncreasedLife8 / AllResistances4,ColdResist6,LifeLeech4\n   tq: and:pseudo.pseudo_total_all_elemental_resistances>=12;explicit.stat_3299347043>=100;pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_3032590688>=10;explicit.stat_1573130764>=13;explicit.stat_2557965901>=8 cat=accessory.ring\nmainHand.set1: Massive Greathammer [weapon-fourtwohandmace7endgame] Level 77 {Item Level 82, Quality 20}\n   mods: 175% increased Physical Damage || Adds 31 to 56 Physical Damage || +5 to Level of all Attack Skills || 25% increased Stun Duration || 20% increased Attack Speed || 70% increased Physical Damage || +164 to Accuracy Rating\n   affix: LocalAddedPhysicalDamageTwoHand7,LocalIncreasedPhysicalDamagePercent5,LocalIncreasedPhysicalDamagePercentAndAccuracyRating7 / IncreasedAttackSpeed4,JewelAttackSpeed,StunDuration5\n   runes: soulcore-runeenhancegreater,soulcore-runeenhancegreater\n   tq: and:explicit.stat_1940865751>=23;explicit.stat_1509134228>=175;explicit.stat_691932474>=150;explicit.stat_210067635>=16;explicit.stat_748522257>=23 cat=weapon.twomace\noffHand.set1: -\nrightRing: Amethyst Ring [ring-fourring6] Level 20 {Item Level 78}\n   mods: Adds 18 to 22 Physical Damage to Attacks || Adds 25 to 40 Fire damage to Attacks || 16% increased Rarity of Items found || +21 to Intelligence || +18% to all Elemental Resistances || +107 to maximum Life\n   affix: AddedFireDamage9,AddedPhysicalDamage9,IncreasedLife8 / AllResistances6,Intelligence5,ItemFoundRarityIncrease3\n   tq: and:pseudo.pseudo_total_all_elemental_resistances>=17;explicit.stat_3299347043>=100;explicit.stat_3917489142>=15;explicit.stat_328541901>=21;explicit.stat_3032590688>=12;explicit.stat_1573130764>=25 cat=accessory.ring\npriority: (empty); chakras: null\ngems:\n  Stampede L20 (stampedeplayer) <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportmomentumplayer\n  Forge Hammer L20 (forgehammerplayer) <- fistofwarsupportplayerthree, supportaddedfiredamageplayer, supportelementalarmamentplayertwo, supportbranchingfissuresplayertwo\n  Hammer of the Gods L20 (hammerofthegodsplayer) <- fistofwarsupportplayerthree, supportmeleephysicaldamageplayer, supportheftplayer, supportaftershockchanceplayertwo\n  Sunder L20 (sunderplayer) <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportheftplayer\n  Infernal Cry L19 (infernalcryplayer) <- supportragingcryplayer, supporttirelessplayer, supportcooldownrecoveryplayertwo, supportmagnifiedareaplayer\n  Herald of Ash L19 (heraldofashplayer) <- prolongeddurationsupportplayertwo, supportmagnifiedareaplayer, supportfiremasteryplayer\n  Overwhelming Presence L19 (overwhelmingpresenceplayer) <- supportuhtredexodusplayer\n  Scavenged Plating L18 (scavengedplatingplayer) <- prolongeddurationsupportplayertwo, supportphysicalmasteryplayer, supportprecisionplayer\n  Leap Slam L19 (leapslamplayer) <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportmagnifiedareaplayer\n  Mace Strike L20 (melee2hmaceplayer) <- supportancestralcallplayertwo, supportrapidattacksplayertwo, supportrageplayerthree, supportaddedfiredamageplayer, supportclosecombatplayertwo\nprio: Fist of War III, Rapid Attacks II, Aftershock II, Momentum, Fist of War III, Fire Attunement, Elemental Armament II, Branching Fissures II, Fist of War III, Heavy Swing, Heft, Aftershock II, Fist of War III, Rapid Attacks II, Aftershock II, Heft, Raging Cry, Tireless, Cooldown Recovery II, Magnified Area I, Prolonged Duration II, Magnified Area I, Fire Mastery, Uhtred's Exodus, Prolonged Duration II, Physical Mastery, Precision I, Fist of War III, Rapid Attacks II, Aftershock II, Magnified Area I, Ancestral Call II, Rapid Attacks II, Rage III, Fire Attunement, Close Combat II\nmain(113): Brutal, Sturdy Metal, Relentless, Reverberating Impact, Smash, Burning Strikes, Aftershocks, Battle Trance, The Molten One's Gift, Tempered Defences, Guided Hand, Channelled Heritage, Heavy Armour, Split the Earth, Skullcrusher, Blood Magic, Prism Guard, Breakage, Shattering Blow, Flip the Script, Behemoth, Impact Force, Impact Area, Crushing Verdict, Shockwaves, Singular Purpose, Polished Iron\nasc(9): Earthbreaker, Ancestral Empowerment, Colossal Capacity, Hulking Form | sel: node-35453,node-42275,node-38014,node-3762,node-32534,node-19424,node-60634,node-27418,node-30115\nattr: {\"str\":20}; jewels: null\n",
+  "Endgame": "# Endgame req={\"dex\":40,\"str\":145,\"int\":25}\namulet: Jade Amulet [amulet-fouramulet4] Level 8 {Catalyst Carapace, CatalystQuality 20, Item Level 80}\n   mods: +121 to maximum Life || +3 to Level of all Melee Skills || +22 to all Attributes || +31% to Fire Resistance || 36% increased Global Defences || 54% increased Armour from Equipped Body Armour\n   affix: AbyssModAmuletAmanamuPrefixArmourFromEquippedBody,IncreasedLife9 / AllAttributes8,FireResist6,GlobalMeleeSkillGemLevel3\n   anoint: {\"slug\":\"anointment-movement_speed9\"}\n   tq: and:explicit.stat_2897413282>=21;explicit.stat_3299347043>=120;pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_9187492>=3;explicit.stat_1015576579>=35 cat=accessory.amulet\nbelt: Plate Belt [armour-fourbelt5] Level 24 {Charm Slots 2, Item Level 84}\n   mods: +166 to maximum Life || +33 to Strength || +38% to Cold Resistance || +20% to Chaos Resistance || 151 to 208 Physical Thorns damage\n   affix: AttackerTakesDamage7,IncreasedLife10 / ChaosResist5,ColdResist7,Strength8\n   tq: and:explicit.stat_3299347043>=150;explicit.stat_4080418644>=31;pseudo.pseudo_total_elemental_resistance>=36;explicit.stat_2923486259>=20;explicit.stat_2881298780>=101 cat=accessory.belt\nbody: Warlord Cuirass [armour-fourbodystr10endgame] Level 80 {Armour 2187, Item Level 81, Quality 20}\n   mods: +248 to Armour || 109% increased Armour || +191 to maximum Life || +33% to Cold Resistance || +47% of Armour also applies to Elemental Damage || +17% to Cold and Chaos Resistances\n   affix: IncreasedLife12,IncreasedPhysicalDamageReductionRating8_,LocalIncreasedPhysicalDamageReductionRatingPercent8_ / AbyssModArmourJewelleryKurgalSuffixColdChaosResistance,ArmourAppliesToElementalDamage6,ColdResist6\n   runes: soulcore-runeenhancegreater,soulcore-runeenhancegreater\n   tq: and:explicit.stat_3484657501>=226;explicit.stat_3299347043>=190;pseudo.pseudo_total_elemental_resistance>=44;explicit.stat_1062208444>=101;explicit.stat_3362812763>=44;pseudo.pseudo_total_chaos_resistance>=13 cat=armour.chest\nboots: Tasalian Greaves [armour-fourbootsstr6endgame] Level 80 {Armour 585, Item Level 82, Quality 20}\n   mods: 35% increased Movement Speed || 74% increased Armour || +132 to maximum Life || +33% to Fire Resistance || +33% to Cold Resistance || +36% of Armour also applies to Elemental Damage\n   affix: IncreasedLife9,LocalIncreasedPhysicalDamageReductionRatingPercent5,MovementVelocity6 / ArmourAppliesToElementalDamage4,ColdResist6,FireResist6\n   runes: soulcore-runespecial9\n   tq: and:explicit.stat_3299347043>=120;pseudo.pseudo_total_elemental_resistance>=62;explicit.stat_1062208444>=68;explicit.stat_2250533757>=35;explicit.stat_3362812763>=32 cat=armour.boots\nflask1: Ultimate Life Flask [flask-fourflasklife9] Level 60 {Quality 20}\n   mods: Gains 0.25 Charges per Second || 77% increased Amount Recovered\n   affix: FlaskIncreasedRecoveryAmount8 / FlaskFillChargesPerMinute3\n   tq: and:explicit.stat_1873752457>=undefined;explicit.stat_700317374>=76 cat=flask.life\ncharm1: For Utopia (UNIQUE) [flask-fouruniquecharm6--for-utopia] Level 8 {Item Level 71}\ncharm2: Thawing Charm [flask-fourcharm1] Level 12 {Item Level 33}\n   mods: Lasts 3.80 Seconds || Consumes 40 of 51 Charges on use || Currently has 51 Charges || Grants Immunity to Freeze || 25% increased Duration || 29% increased Charges\n   affix: CharmIncreasedDuration2 / FlaskExtraCharges1\n   tq: type=Thawing Charm and:explicit.stat_1366840608>=23\ncharm3: Sanguis Heroum (UNIQUE) [flask-fouruniquecharm2-sanguis-heroum] Level 18 {Item Level 81}\ngloves: Feathered Mitts [armour-fourglovesstr5cruel] Level 59 {Armour 247, Item Level 78, Quality 20}\n   mods: Adds 13 to 27 Physical Damage to Attacks || 38% increased Armour || +147 to maximum Life || +2 to Level of all Melee Skills || Gain 77 Life per enemy killed || +38% of Armour also applies to Elemental Damage\n   affix: AddedPhysicalDamage9,IncreasedLife9,IncreasedPhysicalDamageReductionRatingPercent5 / ArmourAppliesToElementalDamage5,GlobalMeleeSkillGemLevelTwoHandWeapon1,LifeGainedFromEnemyDeath8\n   runes: soulcore-talismanspecial1\n   tq: and:explicit.stat_3299347043>=120;explicit.stat_1062208444>=33;explicit.stat_3032590688>=12;explicit.stat_9187492>=2;explicit.stat_3695891184>=69;explicit.stat_3362812763>=38 cat=armour.gloves\nhelmet: Imperial Greathelm [armour-fourhelmetstr7endgame] Level 80 {Armour 1221, Item Level 80, Quality 20}\n   mods: 39% increased Armour || +172 to maximum Life || +38 to maximum Mana || +31 to Strength || +33% to Lightning Resistance || +38% of Armour also applies to Elemental Damage || 97% increased Armour\n   affix: IncreasedLife10,IncreasedManaTwoHandWeapon2_,LocalIncreasedPhysicalDamageReductionRatingPercent2 / ArmourAppliesToElementalDamage5,LightningResist6,Strength8\n   runes: soulcore-runeenhancegreater,soulcore-runeenhancegreater\n   tq: and:explicit.stat_3299347043>=150;explicit.stat_1050105434>=29;explicit.stat_4080418644>=31;pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_1062208444>=27;explicit.stat_3362812763>=38 cat=armour.helmet\nleftRing: Ruby Ring [ring-fourring3] Level 8 {Catalyst Reaver, CatalystQuality 20, Item Level 81}\n   mods: Adds 22 to 26 Physical Damage to Attacks || Adds 28 to 40 Fire damage to Attacks || +106 to maximum Life || +34% to Fire Resistance || Leech 9.48% of Physical Attack Damage as Life || +15% to Lightning and Chaos Resistances\n   affix: AddedFireDamage9,AddedPhysicalDamage9,IncreasedLife8 / AbyssModArmourJewelleryUlamanSuffixLightningChaosResistance,FireResist6,LifeLeech5\n   tq: and:explicit.stat_3299347043>=100;pseudo.pseudo_total_elemental_resistance>=44;explicit.stat_3032590688>=12;explicit.stat_1573130764>=25;explicit.stat_2557965901>=9;pseudo.pseudo_total_chaos_resistance>=13 cat=accessory.ring\nmainHand.set1: Massive Greathammer (same as Early Endgame: 175% phys, 31-56 phys, +5 attack skills, 25% stun dur, 20% AS, 70% phys+164 acc; 2x greater iron rune)\nrightRing: Topaz Ring [ring-fourring5] Level 16 {Catalyst Reaver, CatalystQuality 20, Item Level 82}\n   mods: Adds 13 to 31 Physical Damage to Attacks || Adds 31 to 49 Fire damage to Attacks || +91 to maximum Life || +31% to Cold Resistance || +41% to Lightning Resistance || +17% to Lightning and Chaos Resistances\n   affix: AddedFireDamage9,AddedPhysicalDamage9,IncreasedLife7 / AbyssModArmourJewelleryUlamanSuffixLightningChaosResistance,ColdResist6,LightningResist8\n   tq: and:explicit.stat_3299347043>=85;pseudo.pseudo_total_elemental_resistance>=85;explicit.stat_3032590688>=12;explicit.stat_1573130764>=25;pseudo.pseudo_total_chaos_resistance>=13 cat=accessory.ring\npriority: (empty); chakras: null\ngems:\n  Stampede L20 <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportmomentumplayer, supportholydescentplayer\n  Forge Hammer L20 <- fistofwarsupportplayerthree, supportaddedfiredamageplayer, supportelementalarmamentplayertwo, supportbranchingfissuresplayertwo, supportrakiatasflowplayer\n  Hammer of the Gods L20 <- fistofwarsupportplayerthree, supportmeleephysicaldamageplayer, supportaftershockchanceplayertwo, supportrageforgedplayertwo, supportzerphislegacyplayer\n  Sunder L20 <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportheftplayer, supportataluibloodlettingplayer\n  Infernal Cry L19 <- supportragingcryplayer, supporttirelessplayer, supportcooldownrecoveryplayertwo, supportmagnifiedareaplayertwo, supportfiremasteryplayer\n  Ancestral Cry L20 (ancestralcryplayer) <- prolongeddurationsupportplayertwo, supportelementalarmamentplayertwo, supportclosecombatplayertwo, supportaddedfiredamageplayer, supportimmolateplayer\n  Herald of Ash L19 <- prolongeddurationsupportplayertwo, supportmagnifiedareaplayertwo, supportfiremasteryplayer\n  Scavenged Plating L18 <- prolongeddurationsupportplayertwo, supportphysicalmasteryplayer, supportprecisionplayer\n  Overwhelming Presence L19 <- supportuhtredexodusplayer\n  Mace Strike L20 <- supportancestralcallplayertwo, supportrapidattacksplayertwo, supportrageplayerthree, supportaddedfiredamageplayer, supportexecuteplayertwo\nprio: Fist of War III, Rapid Attacks II, Aftershock II, Momentum, Holy Descent, Fist of War III, Fire Attunement, Elemental Armament II, Branching Fissures II, Rakiata's Flow, Fist of War III, Heavy Swing, Aftershock II, Rageforged II, Zerphi's Infamy, Fist of War III, Rapid Attacks II, Aftershock II, Heft, Atalui's Bloodletting, Raging Cry, Tireless, Cooldown Recovery II, Magnified Area II, Fire Mastery, Prolonged Duration II, Elemental Armament II, Close Combat II, Fire Attunement, Immolate, Prolonged Duration II, Magnified Area II, Fire Mastery, Prolonged Duration II, Physical Mastery, Precision I, Uhtred's Exodus, Ancestral Call II, Rapid Attacks II, Rage III, Fire Attunement, Execute II\nmain(119): Brutal, Sturdy Metal, Relentless, Smash, Burning Strikes, Aftershocks, Unyielding, Battle Trance, The Molten One's Gift, Tempered Defences, Guided Hand, Channelled Heritage, Heavy Armour, Made to Last, Split the Earth, Skullcrusher, Blood Magic, Prism Guard, Breakage, Shattering Blow, Flip the Script, Behemoth, Impact Force, Impact Area, Crushing Verdict, Shockwaves, Singular Purpose, Polished Iron, Blade Catcher\nasc(9): Earthbreaker, Ancestral Empowerment, Colossal Capacity, Hulking Form | sel: node-35453,node-42275,node-38014,node-3762,node-32534,node-19424,node-60634,node-27418,node-30115\nattr: {\"str\":21}\njewels:\n  1) jewel-jewelradiusstr (Ruby radius jewel) @node-2491 pre: JewelRadiusEmpoweredAttackDamage, JewelRadiusMaceDamage ; suf: JewelRadiusNotableEffectNew, JewelRadiusRageonHit ; tq: explicit.stat_4234573345>=15; explicit.stat_3395186672>=2; explicit.stat_1852184471>=1; explicit.stat_2969557004>=1 cat=jewel\n  2) UNIQUE From Nothing (jewel-fouruniquejewel6-from-nothing) @node-55190\n  3) UNIQUE Heart of the Well (jewel-fouruniquejewel12-heart-of-the-well) @node-26725\n",
+  "Live": "# Live req={\"dex\":35,\"str\":145,\"int\":15}  (variant description: \"This is our live character's profile.\")\namulet: Stellar Amulet [amulet-fouramulet8] {Quality (Defence Modifiers) +20%, Item Level 80}\n   mods: +136 to maximum Life || +3 to Level of all Melee Skills || +33 to Intelligence || +33% to Cold Resistance || 56% increased Armour\n   affix: IncreasedLife9,IncreasedPhysicalDamageReductionRatingPercent6,JewelArmour / ColdResist6,GlobalMeleeSkillGemLevel3,Intelligence8\n   anoint: {\"slug\":\"anointment-movement_speed9\"}\n   tq: and:explicit.stat_3299347043>=120;explicit.stat_328541901>=31;pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_2866361420>=49;explicit.stat_9187492>=3 cat=accessory.amulet\nbelt: Heavy Belt [armour-fourbelt9] {Item Level 80, Armour 311}\n   mods: +281 to Armour || +140 to maximum Life || +36% to Fire Resistance || 65 to 112 Physical Thorns damage || +15% to Fire and Chaos Resistances\n   affix: AttackerTakesDamage6,IncreasedLife9,IncreasedPhysicalDamageReductionRating9 / AbyssModArmourJewelleryAmanamuSuffixFireChaosResistance,FireResist7\n   tq: and:explicit.stat_809229260>=268;explicit.stat_3299347043>=120;pseudo.pseudo_total_elemental_resistance>=49;explicit.stat_2881298780>=64;pseudo.pseudo_total_chaos_resistance>=13 cat=accessory.belt\nbody: Stone Cuirass [armour-fourbodystr8cruel] {Quality +20%, Armour 2143, Item Level 81}\n   mods: +258 to Armour || 108% increased Armour || +214 to maximum Life || +30% to Fire Resistance || +46% of Armour also applies to Elemental Damage || 59% reduced Poison Duration on you\n   affix: IncreasedLife13,IncreasedPhysicalDamageReductionRating8_,IncreasedPhysicalDamageReductionRatingPercent7 / ArmourAppliesToElementalDamage6,FireResist5,ReducedPoisonDuration5\n   runes: soulcore-runeenhancegreater,soulcore-runeenhancegreater\n   tq: and:explicit.stat_3484657501>=226;explicit.stat_3299347043>=200;pseudo.pseudo_total_elemental_resistance>=26;explicit.stat_1062208444>=45;explicit.stat_3362812763>=44 cat=armour.chest\nboots: Bulwark Greaves [armour-fourbootsstr2endgame] {Quality +20%, Armour 412, Item Level 82}\n   mods: 35% increased Movement Speed || +99 to Armour || +141 to maximum Life || +28% to Cold Resistance || +23% to Lightning Resistance || +41% of Armour also applies to Elemental Damage\n   affix: IncreasedLife9,IncreasedPhysicalDamageReductionRating4,MovementVelocity6 / ArmourAppliesToElementalDamage5,ColdResist5,LightningResist4\n   runes: soulcore-runespecial9\n   tq: and:explicit.stat_3484657501>=69;explicit.stat_3299347043>=120;pseudo.pseudo_total_elemental_resistance>=47;explicit.stat_2250533757>=35;explicit.stat_3362812763>=38 cat=armour.boots\nflask1: Ultimate Life Flask {Recovers 1910 Life over 3 Seconds, Item Level 80}\n   mods: Gains 0.20 Charges per Second || 73% increased Amount Recovered\ncharm1: Thawing Charm {Item Level 36} mods: Recover 73 Mana when Used || 15% reduced Charges per use ; tq: type=Thawing Charm explicit.stat_1120862500>=55\ncharm2: Beira's Anguish (UNIQUE) [flask-fouruniquecharm4-beira's-anguish]\n   mods: 25% Chance to gain a Charges when you kill an enemy || Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life\ncharm3: For Utopia (UNIQUE) mods: Defend with 200% of Armour during effect\ngloves: Vaal Mitts [armour-fourglovesstr5endgame] {Quality +20%, Armour 215, Item Level 79}\n   mods: Adds 19 to 26 Physical Damage to Attacks || Adds 18 to 30 Fire damage to Attacks || +2 to Level of all Melee Skills || +32% to Fire Resistance || 9% increased Attack Speed\n   affix: AddedFireDamage7,AddedPhysicalDamage9 / FireResist6,GlobalMeleeSkillGemLevelTwoHandWeapon1,IncreasedAttackSpeed2\n   runes: soulcore-talismanspecial1\n   tq: and:pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_3032590688>=12;explicit.stat_1573130764>=13;explicit.stat_9187492>=2;explicit.stat_210067635>=8 cat=armour.gloves\nhelmet: Paragon Greathelm [armour-fourhelmetstr5endgame] {Quality +20%, Armour 1084, Item Level 82}\n   mods: 135% increased Armour || +166 to maximum Life || +34 to maximum Mana || +37% to Cold Resistance || +25% to Lightning Resistance || +41% of Armour also applies to Elemental Damage\n   affix: IncreasedLife10,LocalIncreasedArmourAndMana6,LocalIncreasedPhysicalDamageReductionRatingPercent8_ / ArmourAppliesToElementalDamage5,ColdResist7,LightningResist4\n   runes: soulcore-runeenhancegreater\n   tq: and:explicit.stat_3299347043>=150;explicit.stat_1050105434>=33;pseudo.pseudo_total_elemental_resistance>=57;explicit.stat_1062208444>=140;explicit.stat_3362812763>=38 cat=armour.helmet\nleftRing: Ruby Ring [ring-fourring3] {Quality (Attack Modifiers) +20%, Item Level 82}\n   mods: Adds 14 to 28 Physical Damage to Attacks || Adds 24 to 39 Fire damage to Attacks || +81 to maximum Life || +33% to Lightning Resistance || +21% to Chaos Resistance || Leech 9.32% of Physical Attack Damage as Life\n   affix: AddedFireDamage9,AddedPhysicalDamage9,IncreasedLife6 / ChaosResist5,LifeLeech5,LightningResist6\n   tq: and:explicit.stat_3299347043>=70;pseudo.pseudo_total_elemental_resistance>=31;explicit.stat_2923486259>=20;explicit.stat_3032590688>=12;explicit.stat_1573130764>=25;explicit.stat_2557965901>=9 cat=accessory.ring\nmainHand.set1: Massive Greathammer [weapon-fourtwohandmace7endgame] {Quality +30%, Phys 783-1147, Crit 5.00%, APS 1.20, Item Level 79}\n   mods: 61% increased Physical Damage || Adds 53 to 91 Physical Damage || +133 to Accuracy Rating || +4 to Level of all Melee Skills || +28 to Strength || 149% increased Physical Damage || 15% reduced Attack Speed\n   affix: AbyssModAllMacesKurgalPrefixIncreasedPhysicalDamageReducedAttackSpeed,LocalAddedPhysicalDamageTwoHand9,LocalIncreasedPhysicalDamagePercentAndAccuracyRating1 / GlobalMeleeSkillGemLevelWeapon5,Strength7\n   runes: soulcore-runeenhanceperfect,soulcore-runeenhanceperfect\n   tq: and:explicit.stat_4080418644>=28;explicit.stat_1940865751>=37;explicit.stat_1509134228>=125;explicit.stat_691932474>=16;explicit.stat_9187492>=4 cat=weapon.twomace\nrightRing: Amethyst Ring [ring-fourring6] {Quality (Attack Modifiers) +20%, Item Level 82}\n   mods: Adds 13 to 24 Physical Damage to Attacks || Adds 31 to 50 Fire damage to Attacks || +86 to maximum Life || +40% to Cold Resistance || +44% to Lightning Resistance || +17% to Fire and Chaos Resistances\n   affix: AddedFireDamage9,AddedPhysicalDamage8,IncreasedLife7 / AbyssModArmourJewelleryAmanamuSuffixFireChaosResistance,ColdResist7,LightningResist8\n   tq: and:explicit.stat_3299347043>=85;pseudo.pseudo_total_elemental_resistance>=90;explicit.stat_3032590688>=10;explicit.stat_1573130764>=25;pseudo.pseudo_total_chaos_resistance>=13 cat=accessory.ring\npriority: mainHand:Massive Greathammer ; helmet:Paragon Greathelm ; leftRing:Ruby Ring ; rightRing:Amethyst Ring ; amulet:Stellar Amulet ; body:Stone Cuirass ; gloves:Vaal Mitts ; belt:Heavy Belt ; boots:Bulwark Greaves  (no notes)\nchakras: null\ngems:\n  Mace Strike L20 (melee1hmaceplayer!) <- supportancestralcallplayertwo, supportrapidattacksplayertwo, supportrageplayerthree, supportexecuteplayertwo, supportaddedfiredamageplayer\n  Stampede L20 <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportmomentumplayer, supportholydescentplayer\n  Forge Hammer L20 <- fistofwarsupportplayerthree, supportaddedfiredamageplayer, supportelementalarmamentplayertwo, supportbranchingfissuresplayertwo, supportfirepenetrationplayertwo\n  Sunder L20 <- fistofwarsupportplayerthree, supportrapidattacksplayertwo, supportaftershockchanceplayertwo, supportheftplayer, supportataluibloodlettingplayer\n  Hammer of the Gods L20 <- fistofwarsupportplayerthree, supportmeleephysicaldamageplayer, supportaftershockchanceplayertwo, supportrageforgedplayertwo, supportzerphislegacyplayer\n  Ancestral Cry L19 <- prolongeddurationsupportplayertwo, supportelementalarmamentplayertwo, supportimmolateplayer, supportaddedfiredamageplayer, supportclosecombatplayertwo\n  Infernal Cry L19 <- supporttirelessplayer, supportragingcryplayer, supportcooldownrecoveryplayertwo, supportmagnifiedareaplayertwo\n  Herald of Ash L19 <- supportmagnifiedareaplayertwo, prolongeddurationsupportplayertwo, supportfiremasteryplayer\n  Scavenged Plating L19 <- prolongeddurationsupportplayertwo\n  Overwhelming Presence L19 <- supportprecisionplayer\nprio: Ancestral Call II, Rapid Attacks II, Rage III, Execute II, Fire Attunement, Fist of War III, Rapid Attacks II, Aftershock II, Heft, Atalui's Bloodletting, Precision I, Prolonged Duration II, Elemental Armament II, Immolate, Fire Attunement, Close Combat II, Fist of War III, Heavy Swing, Aftershock II, Rageforged II, Zerphi's Infamy, Prolonged Duration II, Fire Mastery, Fist of War III, Fire Attunement, Elemental Armament II, Branching Fissures II, Fire Penetration II, null, Rapid Attacks II, Aftershock II, Momentum, Holy Descent, Tireless, Raging Cry, Cooldown Recovery II, Magnified Area II, Prolonged Duration II, Magnified Area II\nmain(118): Brutal, Sturdy Metal, Relentless, Smash, Burning Strikes, Aftershocks, Battle Trance, The Molten One's Gift, Tempered Defences, Guided Hand, Channelled Heritage, Heavy Armour, Made to Last, Split the Earth, Skullcrusher, Blood Magic, Prism Guard, Breakage, Shattering Blow, Behemoth, Impact Force, Impact Area, Crushing Verdict, Shockwaves, Singular Purpose, Polished Iron, Blade Catcher, Unyielding\nasc(9): Earthbreaker, Ancestral Empowerment, Colossal Capacity, Hulking Form | sel: same 9 as Endgame\nattr: {\"str\":16,\"dex\":5}\njewels: From Nothing @node-26725 (UNIQUE); Ruby radius jewel @node-2491 pre JewelRadiusMeleeDamage / suf JewelRadiusLifeLeech, JewelRadiusStunThreshold (tq explicit.stat_3666476747>=2; explicit.stat_1337740333>=1; explicit.stat_484792219>=1); Heart of the Well @node-55190 (UNIQUE)\n"
+ },
+ "passiveTree": {
+  "note": "main tree selectedSlugs per variant; intersection ratio = |prev ∩ next| / |prev|",
+  "ratios": [
+   [
+    "Act 1",
+    "Act 2",
+    18,
+    39,
+    "1.000"
+   ],
+   [
+    "Act 2",
+    "Act 3",
+    39,
+    56,
+    "1.000"
+   ],
+   [
+    "Act 3",
+    "Act 4+",
+    56,
+    88,
+    "1.000"
+   ],
+   [
+    "Act 4+",
+    "Early Endgame",
+    88,
+    113,
+    "0.966",
+    [
+     "node-52298",
+     "node-4527",
+     "node-57405"
+    ]
+   ],
+   [
+    "Early Endgame",
+    "Endgame",
+    113,
+    119,
+    "0.965",
+    [
+     "node-53443",
+     "node-59767",
+     "node-46674",
+     "node-35921"
+    ]
+   ],
+   [
+    "Endgame",
+    "Live",
+    119,
+    118,
+    "0.992",
+    [
+     "node-4985"
+    ]
+   ]
+  ],
+  "eeVsLive": {
+   "ratio": "0.956",
+   "onlyEE": [
+    "node-53443",
+    "node-59767",
+    "node-4985",
+    "node-46674",
+    "node-35921"
+   ],
+   "onlyLive": [
+    "node-37258",
+    "node-26568",
+    "node-9163",
+    "node-44952",
+    "node-57405",
+    "node-21286",
+    "node-45992",
+    "node-17029",
+    "node-59367",
+    "node-10774"
+   ]
+  },
+  "act4VsEE_added": [
+   "node-27082",
+   "node-3446",
+   "node-62498",
+   "node-51561",
+   "node-2491",
+   "node-28304",
+   "node-52556",
+   "node-16347",
+   "node-52373",
+   "node-37276",
+   "node-20350",
+   "node-47006",
+   "node-43174",
+   "node-28542",
+   "node-7716",
+   "node-11786",
+   "node-29447",
+   "node-18157",
+   "node-4331",
+   "node-30780",
+   "node-5410",
+   "node-10362",
+   "node-10830",
+   "node-59589",
+   "node-27296",
+   "node-59785",
+   "node-46674",
+   "node-35921"
+  ],
+  "sel": {
+   "Act 1": "3936,46325,33556,55473,43164,5710,6529,32416,27726,7721,58528,45363,19011,64284,27373,51369,56061,6544",
+   "Act 2": "3936,46325,33556,55473,43164,5710,6529,32416,27726,7721,53443,59767,58528,45363,19011,64284,27373,51369,56061,6544,16725,54811,57703,19674,41493,50253,26725,63114,18073,36027,45090,18505,34210,64939,30123,6923,1087,26092,52392",
+   "Act 3": "(Act 2) + 21387,53719,59777,13937,14693,13980,12276,375,52829,2645,52298,4527,59945,4128,54283,26324,27950",
+   "Act 4+": "(Act 3) + 14511,54999,64900,17112,45327,10251,7204,53527,4985,23307,10100,25300,38066,10286,21453,59886,4442,62034,55931,62313,1200,55190,30141,51749,53785,10474,64443,53089,16626,64807,57405,5642",
+   "Early Endgame": "(Act 4+) - 52298,4527,57405 + act4VsEE_added",
+   "Endgame": "(EE) - 53443,59767,46674,35921 + 37258,26568,59367,10774,9163,44952,57405,21286,45992,17029",
+   "Live": "(Endgame) - 4985"
+  },
+  "asc": {
+   "Act 2": "35453,42275,32534 (Earthbreaker)",
+   "Act 3": "19424,60634,27418,30115,32534 (Colossal Capacity, Hulking Form; no Earthbreaker)",
+   "Act 4+": "35453,42275,32534,19424,60634,27418,30115",
+   "EE/Endgame/Live": "35453,42275,38014,3762,32534,19424,60634,27418,30115"
+  },
+  "attr": {
+   "Act 1": {
+    "str": 1
+   },
+   "Act 2": {
+    "str": 5
+   },
+   "Act 3": {
+    "str": 11
+   },
+   "Act 4+": {
+    "str": 15
+   },
+   "Early Endgame": {
+    "str": 20
+   },
+   "Endgame": {
+    "str": 21
+   },
+   "Live": {
+    "str": 16,
+    "dex": 5
+   }
+  }
+ },
+ "passiveTreeNodeNotes": "## node id -> poe2db /us/passive-skill-tree/ (circle data-bs-title/content)\nAct4+ -> EE removed: 52298 Attribute(+5 any), 4527 Attribute, 57405 Area Damage (10% increased Attack Area Damage)\nEE -> Endgame removed: 53443 Area Damage 10%, 59767 Reverberating Impact (notable), 46674 Attack Area 6%, 35921 Attack Area 6%\nEE -> Endgame added: 37258 Attribute, 26568 AS 2% + 4% reduced slow, 59367 8% reduced slow, 10774 Unyielding, 9163 Armour 18%, 44952 Made to Last, 57405 Area Damage, 21286 Armour 15%, 45992 Armour 15%, 17029 Blade Catcher\nEndgame -> Live removed: 4985 Flip the Script\nJewel sockets: 26725 (allocated from Act 2), 55190 (from Act 4+), 2491 (from EE) — jewels only listed in Endgame/Live\n27373 = Attribute (Act 1 str)\n",
+ "comments": {
+  "note": "ngf-comments query, hasMoreItems=false -> complete (5 counted + 1 empty/deleted). Author accountId 652de9f4 (Path of Evening).",
+  "comments": [
+   {
+    "at": "2026-09-29",
+    "acct": "2d93927a",
+    "text": "Thanks for posting the guide! It looks like your tree, even for the Endgame and beyond setups, has a lot of nodes focused on Heavy Stunning, but you've dropped Boneshatter from your skill list. Do you still use Boneshatter in Endgame+? If not, is there another way you're Heavy Stunning, or should those passive nodes be re-allocated? I'm working on a weird hybrid build that is slam-based, but I have to conserve every passive node I can to make it work. Appreciate you!",
+    "replies": []
+   },
+   {
+    "at": "2026-09-26",
+    "acct": "f5de4f73",
+    "text": "what's the combo? for clearing and for bossing?",
+    "replies": []
+   },
+   {
+    "at": "2026-09-26",
+    "acct": "",
+    "text": "(empty / deleted)"
+   },
+   {
+    "at": "2026-09-21",
+    "acct": "685a9e47",
+    "text": "Could you please add the weapon set points as well?",
+    "replies": []
+   },
+   {
+    "at": "2026-09-19",
+    "acct": "ae20867f",
+    "text": "Just out of curiousity, why wouldn't you run Giant's Blood on this build?",
+    "replies": [
+     {
+      "at": "2026-09-19",
+      "acct": "652de9f4 (AUTHOR)",
+      "text": "Stat requirements are pretty high"
+     }
+    ]
+   }
+  ]
+ },
+ "questRewardsAndLinks": {
+  "pob": "https://pobb.in/RxDVkrSs-9_W",
+  "lootFilter": "https://www.filterblade.xyz/Profile?name=Llarold&game=Poe2",
+  "quests": [
+   "Act 1 | Clearfell | Beira of the Rotten Pack => +10% to Cold Resistance",
+   "Act 1 | Hunting Grounds | The Crowbell => Grants Two Weapon Set Passive Skill Points",
+   "Act 1 | Freythorn | The King in the Mists => +30 to Spirit",
+   "Act 1 | Ogham Farmlands | Una's Hut => Grants Two Weapon Set Passive Skill Points",
+   "Act 1 | Ogham Manor | Candlemass, the Living Rite => +20 to maximum Life",
+   "Act 2 | Keth | Kabala, Constrictor Queen => Grants Two Weapon Set Passive Skill Points",
+   "Act 2 | Valley of the Titans | Medallion => 30% increased Charm Charges gained, +1 Charm Slot",
+   "Act 2 | Deshar | Final Letter => Grants Two Weapon Set Passive Skill Points",
+   "Act 2 | The Spires of Deshar | Sisters of Garukhan => +10% to Lightning Resistance",
+   "Act 3 | Jungle Ruins | Mighty Silverfist => Grants Two Weapon Set Passive Skill Points",
+   "Act 3 | The Venom Crypts | Venom Draught => 25% increased Stun Threshold",
+   "Act 3 | Jiquani's Machinarium | Blackjaw, the Remnant => +10% to Fire Resistance",
+   "Act 3 | The Azak Bog | Ignagduk, the Bog Witch => +30 to Spirit",
+   "Act 3 | The Molten Vault | The Molten Vault => Reforging Bench",
+   "Act 3 | Aggorat | Blood Sacrifice => Grants Two Weapon Set Passive Skill Points",
+   "Act 4 | Journey's End | Captain Hartlin => Two Weapon Set Passive Skill Points, Skill Gem(Lv 13), Delirium Drop",
+   "Act 4 | Whakapanu Island | Great White One => +30% increased Global Armour, Evasion and Energy Shield",
+   "Act 4 | Eye of Hinekora | Navali's Rest => 5% increased Maximum Mana",
+   "Act 4 | Halls of the Dead | Yama The White => Grants Two Weapon Set Passive Skill Points",
+   "Act 4 | Halls of the Dead | Tawhoa's Test => +5% to Lightning Resistance",
+   "Act 4 | Abandoned Prison | Goddess of Justice => 30% increased Life Recovery from Flasks",
+   "Interlude | Wolvenhold | Oswin, the Dread Warden => Grants Two Weapon Set Passive Skill Points",
+   "Interlude | The Khari Crossing | Akthi and Anundr => Two Weapon Set Passive Skill Points",
+   "Interlude | The Khari Crossing | Molten Shrine => 5% increased Maximum Life",
+   "Interlude | Qimah | Tabana's Pillar => 15% increased Armour, Evasion and Energy Shield",
+   "Interlude | Kriar Village | Lythara, the Wayward Spear => +40 to Spirit",
+   "Interlude | Howling Caves | The Abominable Yeti => Grants Two Weapon Set Passive Skill Points",
+   "Act 4 | Halls of the Dead | Tasalio's Test => +5% to Cold Resistance",
+   "Act 4 | Halls of the Dead | Ngamahu's Test => +5% to Fire Resistance",
+   "Act 4 | Halls of the Dead | Tribal Medicine => 30% increased Armour, Evasion and Energy Shield"
+  ],
+  "authorActBonuses": [
+   "Act 2: Charm Charges Gained",
+   "Act 3: Stun Threshold",
+   "Act 4: Life Flask",
+   "Act 4: +5 Resistances",
+   "Act 4 Shark Fin: 30% Inc Armour/Evasion/ES",
+   "Intermissions: 15% Global Defences"
+  ]
+ },
+ "pob": "## pobb.in/RxDVkrSs-9_W (read 2026-09-30 in browser)\nTitle: Level 98 Stampede Titan, PoE2 0.5, \"2 months ago\"\nLoadouts: Act 1 / Act 2 / Act 3 / Act 4+ / Early Endgame / Endgame (no Live). Gem list shown = Endgame variant (Mace Strike w/ Execute II, Uhtred's Exodus on Overwhelming Presence, ThornsPlayer).\nPanel: Life 3,087 (sup \"8%\"), Mana 0 (Blood Magic), eHP 34,489; Phys max hit 5,599; Fire 18,765; Cold 17,902; Lightning 18,765; Chaos 9,958; Res 75/75/75/69; Armour 45,587; Speed 2.07; Hit chance 98%.\nConfig: Power, Custom Mods = \"+100% to All Elemental Resistances\" and \"+300 to Strength\"  -> panel resistances and strength are NOT trustworthy (custom mods force res cap and cover strength shortfall).\n",
+ "tradeStatCn": {
+  "explicit.stat_3299347043": "# 生命上限",
+  "explicit.stat_4080418644": "# 力量",
+  "explicit.stat_915769802": "# 晕眩阈值",
+  "explicit.stat_3484657501": "# 护甲 (区域)",
+  "explicit.stat_1062208444": "护甲提高 #% (区域)",
+  "explicit.stat_2250533757": "移动速度提高 #%",
+  "explicit.stat_1940865751": "附加 # - # 物理伤害",
+  "explicit.stat_1509134228": "物理伤害提高 #%",
+  "pseudo.pseudo_total_elemental_resistance": "+#% 总元素抗性",
+  "explicit.stat_3489782002": "# 能量护盾上限",
+  "explicit.stat_2866361420": "护甲提高 #%",
+  "explicit.stat_9187492": "所有近战技能等级 #",
+  "explicit.stat_1389754388": "咒符效果的持续时间提高 #%",
+  "explicit.stat_809229260": "# 护甲",
+  "explicit.stat_3362812763": "#% 的护甲同样作用于元素伤害",
+  "explicit.stat_3917489142": "物品稀有度提高 #%",
+  "explicit.stat_3032590688": "攻击附加 # - # 物理伤害",
+  "pseudo.pseudo_total_all_elemental_resistances": "+#% 全元素抗性",
+  "explicit.stat_1573130764": "攻击附加 # - # 基础火焰伤害",
+  "explicit.stat_2557965901": "物理攻击伤害的 #% 转化为生命偷取",
+  "explicit.stat_328541901": "# 智慧",
+  "explicit.stat_691932474": "# 命中值 (区域)",
+  "explicit.stat_210067635": "攻击速度提高 #% (区域)",
+  "explicit.stat_748522257": "晕眩持续时间提高 #%",
+  "explicit.stat_1873752457": "每秒获得 # 次充能",
+  "explicit.stat_700317374": "回复量提高 #%",
+  "explicit.stat_2676834156": "同时获得 # 防卫",
+  "explicit.stat_1366840608": "充能次数提高 #%",
+  "explicit.stat_2897413282": "全属性 #",
+  "explicit.stat_1015576579": "装备身体护甲的护甲提高 #%",
+  "explicit.stat_2923486259": "混沌抗性 #%",
+  "explicit.stat_2881298780": "# - # 物理荆棘伤害",
+  "pseudo.pseudo_total_chaos_resistance": "+#% 总混沌抗性",
+  "explicit.stat_3695891184": "每击败一名敌人获得 # 点生命",
+  "explicit.stat_1050105434": "# 魔力上限",
+  "explicit.stat_1120862500": "使用时回复 # 魔力",
+  "explicit.stat_4234573345": "范围内的核心天赋效果提高 #%",
+  "explicit.stat_3395186672": "范围内的小型天赋同时提供 强化攻击造成的伤害提高 #%",
+  "explicit.stat_1852184471": "范围内的小型天赋同时提供 锤类的伤害提高 #%",
+  "explicit.stat_2969557004": "范围内的核心天赋同时提供 近战击中时获得 # 怒火",
+  "explicit.stat_3666476747": "范围内的小型天赋同时提供 生命偷取量提高 #%",
+  "explicit.stat_1337740333": "范围内的小型天赋同时提供 近战伤害提高 #%",
+  "explicit.stat_484792219": "范围内的小型天赋同时提供 晕眩阈值提高 #%"
+ },
+ "poe2db": {
+  "gems": "## poe2db /cn/ skill gems (2026-09-30)\nEN->CN: Mace Strike 锤打击; Rolling Slam 轰动猛击; Boneshatter 七伤破; Earthquake 震地; Infernal Cry 炽焰战吼; Herald of Ash 灰烬之捷; Pounce 巨狼猛扑; Leap Slam 跃击; Forge Hammer 锻造之锤; Stampede 奔踏; Overwhelming Presence 压迫气场; Hammer of the Gods 诸天之锤; Scavenged Plating 装甲回收; Sunder 大地震击; Ancestral Cry 先祖战吼; Perfect Strike 完美一击; Wolf Pack 狼群\nSupports: Fire Attunement 火焰协调; Rapid Attacks I/II 快速攻击 I/II; Fist of War I/II/III 战争铁拳 I/II/III; Impact Shockwave 冲击震波; Magnified Area I/II 范围扩大 I/II; Tireless 冷酷; Mark of Siphoning 虹吸印记; Crater 陨坑; Raging Cry 愤怒战吼; Elemental Armament II 元素军械 II; Close Combat I/II 近战 I/II; Aftershock I/II 余震 I/II; Rage II/III 狂怒 II/III; Ancestral Call I/II 先祖召唤 I/II; Branching Fissures II 分叉裂缝 II; Fire Penetration I/II 火焰穿透 I/II; Cooldown Recovery II 冷却回复 II; Heavy Swing 沉重挥舞; Heft 势大力沉; Fire Mastery 火焰专精; Momentum 动量; Prolonged Duration II 持续时间延长 II; Uhtred's Exodus 乌崔德的出走; Physical Mastery 物理专精; Precision I 精准 I; Holy Descent 神圣降临; Rakiata's Flow 拉其塔之流; Rageforged II 怒火锤炼 II; Zerphi's Infamy 泽佛伊的恶名; Atalui's Bloodletting 阿图鲁伊的放血术; Immolate 献祭; Execute II 处决 II\n\nGem tiers (等阶 = uncut gem level needed) & reqs (gem Lv1-20 => char lv 1-90, str 4-157):\n- 诸天之锤 HotG: 等阶 13; 攻击速度 50% 基础; 需要 20 点荣耀; 重度晕眩敌人时为此技能生成荣耀相当于怪物威力值的 100%; 冲击范围 2.4 米; 落锤持续 2.5 秒; 无法被闪避; 单手锤/双手锤. Level table: gem13=char52/str92, gem15=64/113, gem16=66/116, gem18=78/137, gem20=90/157.\n- 奔踏 Stampede: 等阶 11; 每一步留崎岖之地; 冲锋结束跳跃猛击并引爆附近崎岖之地; 使用速度受移动速度影响而非攻击速度; 崎岖之地持续 6 秒.\n- 锻造之锤 Forge Hammer: 等阶 9; 冷却 8 秒; 投掷烈焰之锤嵌入地面; 再用召回并重置冷却; 附近使用战吼使其粉碎释放多道熔岩裂缝 (5 个裂缝, 上限 10, 裂缝将 100% 物理转火); 锤体 30% 物理转火.\n- 大地震击 Sunder: 等阶 9; 攻击速度 40% 基础; 击中护甲完全破损目标施加护甲撕裂(受到物理伤害额外提高 20%, 6 秒或直到破损移除).\n- 轰动猛击 Rolling Slam: 等阶 1; 第二猛击对重度晕眩敌人伤害总增 50%.\n- 七伤破 Boneshatter: 等阶 1; 打击对可被晕眩的敌人造成重度晕眩时产生震波; 无法造成晕眩积蓄值 (NOTE: poe2db text \"打击会对可被晕眩的敌人造成重度晕眩\"= primed enemies).\n- 震地 Earthquake: 等阶 1; 崎岖之地一段时间后余震.\n- 跃击 Leap Slam: 等阶 7; 消耗敌人的护甲完全破损并使晕眩积蓄总增 500%.\n- 炽焰战吼 Infernal Cry: 等阶 3; 冷却 8 秒; 强化后续近战攻击 (获得相当于伤害 30-49% 的火焰伤害); 消耗耐力球跳过冷却.\n- 先祖战吼 Ancestral Cry: 等阶 13; 点燃敌人获得荣耀, 需要 100 点荣耀; 化身冈姆: 脚步触发火山踏步, 近战打击和猛击获得先祖加持, 打击触发熔火喷发; 战吼持续 8 秒; 先祖加持攻击 100% 物理转火.\n- 灰烬之捷 Herald of Ash: 精魂 等阶 4; 保留 30 精魂.\n- 压迫气场 Overwhelming Presence: 精魂 等阶 8; 保留 30 精魂; 在场敌人元素异常阈值降低 15-24%, 晕眩阈值降低 15-25%.\n- 装甲回收 Scavenged Plating: 精魂 等阶 4; 保留 30 精魂; 使敌人护甲完全破损后获得层数 (普通1/魔法2/稀有5/传奇10), 每层护甲总增 4%, 上限 10 层, 8 秒.\n- 锤打击 Mace Strike: default weapon skill (1H/2H variants).\nCaptain Hartlin (Act 4 Journey's End) quest reward includes Skill Gem (Lv 13) -> first tier-13 gem.\n\n## Supports (poe2db /cn/)\n- 战争铁拳 I (等阶1): 被辅助技能的攻击获得先祖加持，每 6 秒只能触发一次; 消耗加成 150%\n- 战争铁拳 II (等阶3): 每 4 秒只能触发一次; 150%\n- 战争铁拳 III (等阶5): 每 14 秒只能触发一次; 先祖加持对被辅助技能的效果翻倍; 消耗加成 200%\n- 余震 I (等阶2): 被辅助技能有 25% 的几率造成一次额外余震; 余震 II (等阶4): 35%\n- 势大力沉 Heft (等阶5): 被辅助技能造成的物理击中伤害上限总增 30%\n- 动量 Momentum (等阶2, +5 敏捷): 单次使用被辅助技能移动至少 2 米后，本次使用后续造成的伤害总增 40%\n- 神圣降临 Holy Descent (等阶5): 被辅助技能落地时产生奉献地面，持续 4 秒, 2.2 米\n- 分叉裂缝 II (等阶5): 裂缝产生 2 次分支; 分支裂缝伤害总降 30%, 范围总降 35%\n- 元素军械 II (等阶2): 被辅助技能造成的元素攻击伤害总增 25%\n- 沉重挥舞 Heavy Swing (等阶4): 近战物理伤害总增 35%, 攻击速度总降 10%\n- 陨坑 Crater (等阶2): 跃入空中的近战技能落地时产生 3 道裂缝 (80% 物理转火, 35% 伤害)\n- 冲击震波 Impact Shockwave (等阶1): 被辅助技能重度晕眩敌人时造成一次余震 (1.5 米)\n- 怒火锤炼 II Rageforged II (等阶5): 可以消耗 10 点怒火并使伤害总增 35%; 30% 几率不移除怒火\nLINEAGE (血统):\n- 拉其塔之流 Rakiata's Flow: 需求 等级 65, +5 敏捷; 被辅助技能击中时将敌方怪物的元素抗性值视作反转\n- 泽佛伊的恶名 Zerphi's Infamy (slug supportzerphislegacyplayer): 需求 等级 65, +5 力量; 辅助攻击与战吼; 使用被辅助技能需要 50 点荣耀; 获得的荣耀等于在其他技能上消耗的 5% 生命; 效果范围提高 50%; 伤害总增 50%\n- 阿图鲁伊的放血术 Atalui's Bloodletting: 需求 等级 65, +5 力量; 魔力消耗转化为生命消耗; 每消耗 20 点生命获得相当于伤害 2% 的额外物理伤害，最高 40%; 无法辅助保留精魂的技能\n- 乌崔德的出走 Uhtred's Exodus: 需求 等级 65, +5 力量; 若没有其他辅助宝石，被辅助技能宝石等级 +3\n",
+  "treeAndAscendancy": "## Titan ascendancy (poe2db /us/Titan + /cn/Titan; trial area levels 22/38/60/80 from /cn/Ascendancy_class)\nnode ids: start 32534; 35453 Slam AoE 猛击效果范围 (猛击技能的效果范围提高 8%); 42275 Earthbreaker 裂地之灵 (你对自己使用的猛击技能有 25% 的几率造成一次额外余震); 38014 Slam AoE; 3762 Ancestral Empowerment 先祖神威 (你使用的第二个猛击技能获得先祖加持 / EN: Every second Slam Skill you use yourself is Ancestrally Boosted); 19424 Strength 力量 (力量提高 4%); 60634 Colossal Capacity 巨人神力 (携带一个箱子，附加 20 个物品栏位); 27418 Strength; 30115 Hulking Form 雄伟英姿 (小型天赋效果提高 50%); others: Mountain Splitter 开山裂地 59540, Crushing Impacts 粉碎冲击 59372 (你的击中为粉碎打击; 对重度晕眩的敌人的伤害总增 25%), Mysterious Lineage 神秘血统 12000 (生命上限总增 15%), Stone Skin 磐石之肤 24807 (装备胸甲的护甲总增 50%), Stun Buildup 晕眩积蓄 13715/56842 (18%), Life Regeneration 生命回复 51690 (0.5%/s), Armour 护甲 29323 (20%).\nAuthor path: Act 2 (2 pts) Earthbreaker [35453,42275]; Act 3 (4 pts) Str-Colossal-Str-Hulking [19424,60634,27418,30115] (Earthbreaker refunded); Act 4+ (6 pts) both; EE+ (8 pts) + [38014,3762] Ancestral Empowerment.\n\n## Notables (poe2db /us/Notable ↔ /cn/Notable by href)\nBrutal 凶残: 晕眩积蓄值提高 10% | 近战伤害提高 16% | +10 力量\nSturdy Metal 刚毅金属: 装备身体护甲的护甲提高 80%\nRelentless 冷酷无情: 护甲提高 15% | 生命每秒再生 0.5% | +10 力量\nReverberating Impact 回荡冲击: 粉碎的护甲提高 25% | 攻击技能的效果区域提高 12%\nSmash 碾碎: 近战伤害提高 20% | 对重度晕眩的敌人的近战伤害提高 40%\nBurning Strikes 燃烧打击: 获得额外火焰伤害，其数值等同于物理伤害的 12%\nAftershocks 余震: 你对自己使用的猛击技能使余震的效果范围提高 30%\nCrushing Verdict 倾力裁决: 攻击速度降低 5% | 晕眩积蓄值提高 30% | 攻击伤害提高 50%\nShockwaves 震荡波: 若你近期内用双手近战武器使一名敌人晕眩，则效果区域提高 25%\nSingular Purpose 屠戮之械: 攻击速度降低 5% | 晕眩积蓄值提高 20% | 双手武器的攻击伤害提高 40%\nSplit the Earth 撕裂大地: 你对自己使用的锤类猛击技能有 10% 的几率造成一次额外余震 | 锤类打击 10% 溅射\nSkullcrusher 迎头痛击: 锤类武器对重度晕眩的敌人造成的伤害总增 20%\nPolished Iron 辉光之钢: 护甲提高 25% | 获得额外晕眩阈值，相当于已装备护甲物品上物品护甲的 30%\nShattering Blow 碎裂痛击: 重度晕眩一名敌人会粉碎 50% 的护甲\nFlip the Script 力挽狂澜: 重度晕眩稀有或传奇敌人时，回复 50% 生命\nBreakage 破甲: 粉碎的护甲提高 60% | 护甲值有 10% 的几率以 200% 进行防御\nPrism Guard 棱彩卫士: +30% 的护甲同样作用于元素伤害\nBlood Magic 祭血术 (keystone): 你不具有魔力 / 技能的魔力消耗转化为生命消耗\nImpact Force 冲击之力: 晕眩积蓄值提高 20% | 攻击范围伤害提高 25%\nImpact Area 震荡中心: 若你近期内晕眩过敌人，则效果区域提高 12% | 攻击技能的效果区域提高 12%\nBehemoth 巨兽: 生命上限提高 3% | 攻击技能的效果区域提高 8% | 猛击 5% 额外余震\nBattle Trance 战斗迷神: +8 怒火上限\nThe Molten One's Gift 熔岩者的馈赠: 火焰抗性 +10% | 护甲完全破损效果提高 15% | 你造成护甲完全破损时，还会提高击中时承受的火焰伤害\nTempered Defences 钢化防御: 护甲提高 25% | +15% 的护甲同样作用于元素伤害\nGuided Hand 引导之手: 在重度晕眩一个稀有或传奇敌人后的 4 秒内，你的下一次攻击获得先祖加持 | 先祖加持的攻击伤害提高 30%\nChannelled Heritage 引导传承: 先祖加持的攻击效果范围提高 30%\nHeavy Armour 全副武装: 获得的护甲等同于装备的鞋子、手套与头盔的力量需求总和的 150%\nUnyielding 不屈: 若你近期内被击中，则攻击速度提高 15% | 你受到的异常状态的减速强度降低 8%\nMade to Last 经久不衰: 护甲提高 30% | 阻挡的物理伤害的 5% 吸纳为生命\nBlade Catcher 空手入白刃: 对暴击以 200% 的护甲防御 | +15 力量\nGiant's Blood 巨人之血 (keystone, author rejected: \"Stat requirements are pretty high\"): 可以单手装备双手斧/锤/剑; 战斗武器的属性需求变为三倍; 力量赋予的固有生命减半\nAcceleration 加速 (anoint; 液化情感: 恐惧, 嫉妒, 憎恶 = Fear, Envy, Disgust): 移动速度提高 3% | 技能速度提高 10%\n\n## Keywords (poe2db /cn/Keywords, /us/Keywords)\n先祖加持 Ancestrally Boosted: 先祖加持的猛击造成的伤害总增 30%，效果范围总增 25%；先祖加持的打击能够以额外 2 个敌人为目标；触发技能无法获得先祖加持；先祖加持的攻击视为强化。\n余震 Aftershock: 相关技能在初始冲击后产生的爆发，造成范围伤害；除非另有说明，余震的伤害量和效果区域都与初始冲击相同；只有攻击伤害能够造成余震。\n护甲完全破损 Fully Broken Armour: 12 秒(对玩家 4 秒); 非玩家目标护甲完全破损后无法受益于护甲，受到的击中物理伤害提高 20%; 玩家对普通怪粉碎 3 倍护甲、对魔法怪 2 倍。\n粉碎打击 Crushing Blow: 会对可被晕眩(Primed for Stun)的敌人造成重度晕眩。\n崎岖之地 Jagged Ground: 使区域内敌人移动速度减速 20%。\n裂缝 Fissures (EN): Molten fissures created by some slams; slamming them with another slam propagates an aftershock along its length.\nTime-Lost Ruby 失落的红玉 = Metadata/Items/Jewels/JewelRadiusStr (mobalytics jewel-jewelradiusstr)\n",
+  "bases": "## Bases (poe2db /us/<class> vs /cn/<class>, joined by href)\nFelled Greatclub 伐采巨棍: phys 13-18, 1.1 APS (no req shown)\nStudded Greatclub 镶钉巨棍: 32-48, 1.1; Lv16, 31 Str\nTemple Maul 神殿巨锤: 35-72, 1.2; Lv28, 52 Str\nSnakewood Greathammer 蛇纹大锤: 62-115, 1.05; Lv45, 80 Str; implicit 造成的晕眩积蓄值提高 (20—40)%\nMassive Greathammer 庞然大锤: 119-161, 1.1; Lv77, 163 Str\nRusted Greathelm 锈蚀巨盔: Armour 29\nParagon Greathelm 典范巨盔: Armour 357; Lv75, 107 Str\nImperial Greathelm 帝国巨盔: Armour 374; Lv80, 115 Str\nGlorious Plate 荣耀战铠: Armour 496; Lv65, 121 Str\nOrnate Plate 华丽战铠: Armour 496; Lv70, 121 Str; implicit 生命每秒再生 (1.5—2.5)%\nWarlord Cuirass 督军胸甲: Armour 496; Lv80, 121 Str; implicit +(15—25)% 的护甲同样作用于元素伤害\nStone Cuirass 石制胸甲: Armour 474; Lv62, 98 Str\nVaal Mitts 瓦尔护手: Armour 179; Lv75, 94 Str\nFeathered Mitts 羽饰护手: Armour 149; Lv59, 73 Str\nVaal Greaves 瓦尔胫甲: Armour 268; Lv75, 101 Str\nBulwark Greaves 堡垒胫甲: Armour 244; Lv65, 86 Str\nTasalian Greaves 塔萨里奥胫甲: Armour 280; Lv80, 108 Str\nStellar Amulet 星辉项链: Lv25; +(5—7) 全属性\nJade Amulet 翠玉项链: Lv8; +(10—15) 敏捷\nPrismatic Ring 三相戒指: Lv35; 所有元素抗性 +(7—10)%\nAmethyst Ring 紫晶戒指: Lv20; 混沌抗性 +(7—13)%\nRuby Ring 红玉戒指: Lv8; 火焰抗性 +(20—30)%\nTopaz Ring 黄玉戒指: Lv16; 闪电抗性 +(20—30)%\nHeavy Belt 重革腰带: Lv50; (1—3) 咒符位; 晕眩阈值提高 (20—30)%\nPlate Belt 嵌板腰带: Lv25; (1—3) 咒符位; +(140—180) 护甲\nUltimate Life Flask 终极生命药剂: Lv60; 3 秒内回复 920 生命; 75 充能, 每次 10\nSilver Charm 真银咒符: Lv10; 你的速度不受减速效果影响; 受到减速时使用\nThawing Charm 融冰咒符: Lv12; 可以免疫冻结; 陷入冻结时自动使用\nNOTE: mobalytics req strings differ slightly: Stellar Amulet says Level 24 (poe2db 25), Plate Belt Level 24 (poe2db 25).\n\n## Str base ladders (poe2db /us/ list pages; CN only where fetched)\n2H maces: Pointed Maul 钉头巨锤 68-102 L45/80; Snakewood 蛇纹大锤 62-115 L45/80; Blacksmith Maul 锻造巨锤 75-102 L48/86 (Crushes); Totemic Greatclub 图腾巨棍 77-105 L50/89; Greatmace 狼牙巨锤 74-124 L52/92; Precise Greathammer 精准大锤 87-118 L54/96; Solemn Maul 肃穆巨锤 59-123 1.2aps L54/96; Heavy Greathammer 沉重大锤 94-127 L59/104; Giant Maul 伟岸巨锤 96-144 L65/114; Anvil Maul 铁砧巨锤 101-136 L67/134; Sacred Maul 神圣巨锤 76-158 1.2 L72/149; Ironwood Greathammer 铁木大锤 105-196 1.0 L77/163; Massive Greathammer 庞然大锤 119-161 1.1 L77/163; Tawhoan Greatclub 塔赫亚巨棍 L78/163; Aberrant Sledge 畸变巨锤 L70/163.\nHelmets (str): Commander 45/64; Fierce 51/73; Sentinel 52/74; Goliath 57/81; Noble 59/83; Guardian 65/91; Warmonger 65/91; Masked 70/99; Paragon 75/107; Imperial 80/115.\nBody (str): Chieftain 50/80; Colosseum 52/83; Champion 58/92; Heavy Plate 59/94; Stone Cuirass 62/98; Glorious 65/121; Soldier 65/121 (570 armour); Conqueror 68/121; Ornate 70/121; Abyssal 73/121; Utzaal 75/121; Warlord 80/121.\nGloves (str): Titan 52/64; Ancient 54/67; Feathered 59/73; Grand 65/80; Knightly 65/80; Ornate 70/87; Vaal 75/94; Massive 80/101.\nBoots (str): Monument 52/69; Elegant 54/72; Carved 59/78; Totemic 65/86; Bulwark 65/86; Ornate 70/93; Vaal 75/101; Tasalian 80/108.\nUnique mace refs: The Hammer of Faith 信仰之锤 (Giant Maul, L65/114); Tidebreaker 局势逆转者 (Pointed Maul L45/80, +2-3 melee).\n\n## CN names for derived ② bases\nWarmonger Greathelm 好战者巨盔 (65/91); Guardian Greathelm 守护者巨盔 (65/91); Noble Greathelm 贵族巨盔 (59/83); Masked Greathelm 蒙面巨盔 (70/99)\nKnightly Mitts 骑士护手 (65/80); Grand Mitts 堂皇护手 (65/80); Ornate Mitts 华丽护手 (70/87); Massive Mitts 巨型护手 (80/101)\nTotemic Greaves 图腾胫甲 (65/86); Carved Greaves 雕饰胫甲 (59/78); Ornate Greaves 华丽胫甲 (70/93)\nSoldier Cuirass 士兵胸甲 (65/121); Heavy Plate 重型战铠 (59/94); Conqueror Plate 霸王战铠 (68/121); Utzaal Cuirass 乌扎尔胸甲 (75/121); Abyssal Cuirass 深渊胸甲 (73/121)\n\n## Uniques (poe2db /cn/)\nFor Utopia 为了乌托邦 (磐石咒符 Stone Charm): 需求 等级 8; 免疫晕眩; 当你被晕眩时使用; 效果期间以 200% 的护甲防御\nSanguis Heroum 英雄血液 (止血咒符 Staunching Charm): 需求 18; 免疫流血; 你开始流血时自动使用; 每秒获得 (0.15—0.2) 次充能; 使用时产生奉献地面\nBeira's Anguish 贝拉的苦楚 (浸润咒符 Dousing Charm): 需求 32; 免疫点燃; 被点燃时自动使用; 击败敌人时有 (20—25)% 几率获得一个能量球(=充能); 使用时造成持续 4 秒的燃烧地面，地面点燃敌人时造成等同你生命上限 500% 的火焰伤害\nFrom Nothing 无根之源 (宝钻 Diamond, 珠宝仅限 1, 范围 小): 需求 20; 范围内的天赋可以在未连结至天赋树的情况下配置; limit dropped 「迷雾之王」\nHeart of the Well 泉井之心 (宝钻 Diamond, 仅限 1): 需求 20; 词缀为自定渎灵前缀×2 + 渎灵后缀×2 ([Custom Desecrated prefix/suffix]); 来源「深渊」\n\n## Runes (poe2db item page Metadata/Items/SoulCores/<id>)\nsoulcore-runeenhancegreater = Greater Iron Rune 高级钢铁符文 (RuneEnhanceGreater)\nsoulcore-runeenhanceperfect = Perfect Iron Rune 完美钢铁符文 (RuneEnhancePerfect)\nsoulcore-soulcorechaos = Soul Core of Tacati (SoulCoreChaos)\nsoulcore-runespecial9 = Farrul's Rune of the Chase (RuneSpecial9): Req 50, Limited 1; Boots: 5% increased Movement Speed; Bonded: Boots: 10% increased Cooldown Recovery Rate\nsoulcore-talismanspecial1 = NOT IDENTIFIED (not RuneSpecial*/RuneWarping*; not found on /us/Runes)\n(RuneSpecial8 = Farrul's Rune of Grace; RuneSpecial24 = The Greatwolf's Rune of Claws)\n\n## Rune effects (poe2db /cn/)\n高级钢铁符文 Greater Iron Rune: 需求 30; 战斗武器: 物理伤害提高 18%; 护甲: 护甲、闪避和能量护盾提高 18%; 羁绊: 战斗武器: 护甲完全破损效果提高 20%; 护甲: +20 生命上限, +20 魔力上限\n完美钢铁符文 Perfect Iron Rune: 需求 50; 战斗武器: 物理伤害提高 20%; 护甲: 护甲、闪避和能量护盾提高 20%; 羁绊同上\n塔卡提的灵核 Soul Core of Tacati: 战斗武器: 你造成的中毒强度提高 25%; 护甲: 混沌抗性 +13%; DropLevel 35\n法瑞尔的追逐符文 Farrul's Rune of the Chase: 需求 50, 仅限 1; 鞋子: 移动速度提高 5%; 羁绊: 鞋子: 冷却回复速度提高 10%; DropLevel 65\n",
+  "modMatching": "## poe2db mod matching (text template + value range, /us/ vs /cn/ ModsView index-aligned), 2026-09-30\nFormat: page | EN | tier EN CN | ilvl | gen(1 prefix/2 suffix) | CN text\n\nTwo_Hand_Maces: 175% phys = Merciless 无情的 lv82 物理伤害提高 (170—179)% | Adds 31-56 = Tempered 锻炼的 lv65 附加 (29—44) - (50—75) 物理伤害 | 70% phys +164 acc = Emperor's 帝王的 lv70 hybrid 物理伤害提高 (65—74)% + (150—174) 命中值 | 20% AS = of Fame 名声之 lv45 攻击速度提高 (20—22)% | 25% stun dur = of Staggering 蹒跚之 lv58 晕眩持续时间提高 (23—26)% | \"+5 to Level of all Attack Skills\" NO MATCH on 2H mace page (not a rollable mace mod; suffix slug list has odd 'JewelAttackSpeed') | Live: Adds 53-91 = Flaring 迸出的 lv75 (37—55)-(63—94); 149% phys + 15% reduced AS = Kurgal's 古加尔的 lv65 Desecrated 物理伤害提高 (110—154)% 攻击速度降低 15%; +4 melee = of Battle 激战之 lv55 所有近战技能等级 +4 (of War 征战之 lv81 = +5); +28 str = of the Leviathan 海兽之 lv66\n mace phys% ladder: Wicked 邪恶的16 65-84 | Vicious 狠毒的33 85-109 | Bloodthirsty 嗜血的46 110-134 | Cruel 残酷的60 135-154 | Tyrannical 强横的75 155-169 | Merciless 无情的82 170-179\n mace added phys: Honed 砥砺的33 | Gleaming 熠熠的46 (14—21)-(25—37) | Annealed 韧炼的54 (19—29)-(33—49) | Razor-sharp 锋利的60 (23—35)-(39—59) | Tempered 锻炼的65 | Flaring 迸出的75\n mace AS: of Renown 声望之30 14-16 | of Acclaim 喝采之37 17-19 | of Fame 名声之45 20-22 | of Infamy 恶名之60 23-25 | of Celebration 庆祝之77 26-28\n mace melee lv: of Dueling 决斗之18 +2 | of Conflict 纷争之36 +3 | of Battle 激战之55 +4 | of War 征战之81 +5\n\nAmulets: +3 melee = of Battle 激战之 lv75 (of Dueling 决斗之 lv41 +2); life = Athlete's 健将的 lv60 (120—149) [EE +168 exceeds → over-range]; +86 ES = Incandescent 炽焰的 lv80; 37% lightning = of the Lightning 电之 lv71 (36—40); 31% fire = of the Volcano 火山之 lv60; +22 all attr = of the Multiverse 多维之 lv75 (21—22); 33 int = of the Virtuoso 神技之 lv74; 33% cold = of the Polar Bear 北极熊之 lv60; 24% armour = Lobstered 甲壳的 lv33; 54% armour from body = Amanamu's 阿曼娜姆的 lv65 Desecrated 装备身体护甲的护甲提高 (35—50)% [54 over range, catalyst quality?]; \"36% increased Global Defences\" NO MATCH (Amanamu's desecrated is 全局护甲，闪避与能量护盾提高 (15—25)%); 56% armour (Live) NO MATCH (max Impregnable 坚不可摧的 lv75 45—50; Live has 'Quality (Defence Modifiers) +20%')\nBelts: life Fecund 丰饶的 lv65 (150—174); charm dur Revolutionary 改革的 lv75 (28—33)%; res 火山之/北极熊之/台风之 lv60 31-35, 岩浆之/寒冰之 lv71 36-40; +219 armour Encased 围绕的 lv54 (187—225), +281 Abating 柔缓的 lv70 (268—311); str of the Titan 泰坦之 lv74 31-33, of the Leviathan 海兽之 lv66 28-30; chaos of Exile 流亡之 lv68 (20—23)%; thorns Jagged 锯齿的 lv74 (101—151)-(152—220), Edged 刀锋的 lv63; +15% fire&chaos = of Amanamu 阿曼娜姆之 lv65 Desecrated +(13—17)% 火焰与混沌抗性; Heavy Belt Act1: +92 life Rotund 丰腴的 lv46, +29 str 海兽之 lv66, +144 stun thr of Platinum Skin 铂金皮之 lv45 +(125—163) 晕眩阈值\nBody_Armours_str: +271 armour Unmoving 不动的 lv75 (249—277); 98% armour Impregnable 坚不可摧的 lv65 (92—100); 109% Impenetrable 无法通过的 lv75 (101—110); life Fecund 丰饶的65 150-174 / Vigorous 蓬勃的70 175-189 / Rapturous 狂喜的75 190-199 / Prime 全盛的80 200-214; +31 str 泰坦之 lv74; armour→ele of Thermokryptance 热密之 lv81 +(44—50)%; +17% cold&chaos = of Kurgal 古加尔之 lv65 Desecrated +(13—17)% 冰霜与混沌抗性; 59% poison dur of the Antidote 解毒之 lv76 你受到的中毒持续时间降低 (56—60)%\nBoots_str: MS Gazelle's 瞪羚的46 25% | Cheetah's 猎豹的65 30% | Hellion's 地狱的82 35%; life Athlete's 健将的 lv60 (boots max); armour% Thickened 加厚的54 68-79 / Girded 围城的60 80-91; armour→ele of Padding 填充之 lv48 (32—37) / of Furring 毛皮之 lv66 (38—43); rarity of Raiding 扫荡之 lv24; res 海象之 lv50 26-30, 火山之/北极熊之 lv60 31-35, 积雨云之 lv37 21-25\nGloves_str: life max Athlete's 健将的 lv60 (120—149) [EE +170 over-range]; rarity max of Archaeology 考古之 lv40 (15—18) [EE 20% over-range]; added phys to attacks Flaring 迸出的 lv75 (12—19)-(22—32), Gleaming 熠熠的 lv46; +2 melee of Dueling 决斗之 lv41 (gloves max +2); life per kill of Legend 传说之 lv77 (69—84); armour→ele of Furring 毛皮之 lv66; fire to attacks Incinerating 焚烧的 lv60; AS of Ease 轻松之 lv22 (8—10); fire res of Magma 岩浆之 lv71 36-40\nHelmets_str: +178 armour Encased 围绕的 lv54 (160—190); armour% Girded 围城的 lv60 80-91 / Impregnable 坚不可摧的 lv65 92-100; life Athlete's 60 / Fecund 丰饶的 65 (helmet max 150-174); +31 str 泰坦之 lv74; armour→ele 毛皮之 lv66; rarity Collector's 收藏家的 lv29 (12—15); mana Teal 青蓝的 lv25; Live 135% armour = local armour% + armour&mana hybrid (LocalIncreasedArmourAndMana6 = Chieftain's 酋长的 lv60 护甲提高 (33—38)%+(27—32) 魔力上限)\nRings: life Virile 阳刚的 lv54 (100—119) (ring max? Rotund 丰腴的 46, Robust 健硕的 38); all res of Variegation 多彩之 lv54 (12—14), of the Rainbow 彩虹之 lv68 (15—16) [EE 18% over]; fire to attacks Incinerating 焚烧的60 / Blasting 爆破的65 (20—24)-(33—36) / Cremating 火化的75 (25—29)-(37—45); phys to attacks Tempered 锻炼的65 (10—15)-(18—26) / Flaring 迸出的75 (12—19)-(22—32); leech max of the Remora 鲫鱼之 lv38 (7—7.9)% [author 8.85–9.48 over; catalyst quality on Endgame rings]; lightning of Ephij 艾菲吉之 lv82 (41—45); chaos of Exile 流亡之 lv68 (20—23); +15/17% light&chaos = of Ulaman 乌拉曼之 lv65 Desecrated; fire&chaos = of Amanamu 阿曼娜姆之 lv65 Desecrated; rarity Hoarder's 囤宝者的 lv47 (16—19); int of the Philosopher 哲学家之 lv44\nLife_Flasks: 0.20 charges/s of the Verdant 苍翠之 lv26; 0.25 of the Sylvan 林荫之 lv45; recovery Abundant 充裕的34 56-60 / Potent 强力的67 71-75 / Saturated 饱和的83 76-80\nCharms: Guard Dawnlit 晨辉的 lv21 同时获得 (85—128) 防卫; reduced charges per use of the Practitioner 医者之 lv14 (18—20); duration Analyst's 分析家的 lv20 (21—25); charges of the Copious 丰富之 lv12 (31—38); mana on use Mistbound 缚雾的 lv26\n\n## Regex ladders (poe2db /cn/Boots_str, Rings etc.)\nfire: 幼龙之1 6-10 | 火蜥蜴之12 11-15 | 火龙之24 16-20 | 窑炉之36 21-25 | 炉火之48 26-30 | 火山之60 31-35 | 岩浆之71 36-40 | 提耶须之82 41-45\ncold: 海豹之1 | 企鹅之14 | 独角鲸之26 | 雪人之38 21-25 | 海象之50 26-30 | 北极熊之60 | 寒冰之71 | 哈斯特之82\nlight: 云朵之1 | 冰雹之13 | 暴风之25 | 积雨云之37 21-25 | 暴风雨之49 26-30 | 台风之60 | 电之71 | 艾菲吉之82\nchaos (rings): 失落之16 | 放逐之30 | 驱逐之44 | 出境之56 16-19 | 流亡之68 20-23 | 巴曼斯之81\nlife: 粗壮的33 60-69 | 健硕的38 70-84 | 丰腴的46 85-99 | 阳刚的54 100-119 | 健将的60 120-149 (boots/gloves/amulet/ring? cap) | 丰饶的65 150-174 (helmet/body/belt) | 蓬勃的70 | 狂喜的75 | 全盛的80 (body only)\nbody flat armour: 装甲化的46 | 围绕的54 | 包围的60 | 柔缓的65 | 不动的75 | 无懈的79\nhelm armour%: 甲壳的35 | 支持的46 | 加厚的54 | 围城的60 | 坚不可摧的65\nMS: 短跑的16 15% | 种马的33 20% | 瞪羚的46 25% | 猎豹的65 30% | 地狱的82 35%\n"
+ }
+}

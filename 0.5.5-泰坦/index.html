@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>泰坦 · 变体索引</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 战士「泰坦」猛击余震构筑（Path of Evening「Slam Titan」）的 7 个原站变体一览、与本页四阶段的对应、门槛时间线与逐部位差异总表。">
+<style>
+:root{
+  --ground:#F4F1EA; --surface:#FFFFFF; --surface-2:#ECE6DA; --ink:#1F1B16; --ink-2:#433B31; --muted:#675E52; --line:#D9D0C0;
+  --accent:#955810; --accent-soft:#F5E6CF; --brass:#46607C; --brass-soft:#E1E8EF;
+  --ember:#A8321E; --ember-soft:#F7E0D9; --ok:#2E6E45; --ok-soft:#DCEEE2;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#15130F; --surface:#1D1A15; --surface-2:#27231C; --ink:#EEE7DB; --ink-2:#D3C9B8; --muted:#A69B88; --line:#3A342B;
+    --accent:#E3A457; --accent-soft:#3A2A15; --brass:#9FB5CE; --brass-soft:#212A35;
+    --ember:#F08C74; --ember-soft:#3D1F18; --ok:#74C293; --ok-soft:#173022;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15130F; --surface:#1D1A15; --surface-2:#27231C; --ink:#EEE7DB; --ink-2:#D3C9B8; --muted:#A69B88; --line:#3A342B;
+  --accent:#E3A457; --accent-soft:#3A2A15; --brass:#9FB5CE; --brass-soft:#212A35;
+  --ember:#F08C74; --ember-soft:#3D1F18; --ok:#74C293; --ok-soft:#173022;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1200px;margin:0 auto}
+.hero{padding-block:36px 26px;border-bottom:1px solid var(--line);display:grid;gap:18px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.crumbs a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:72ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.facts div{background:var(--surface);padding:10px 14px}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code{font-family:var(--mono);font-size:.88em;overflow-wrap:anywhere}
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;white-space:nowrap;background:var(--surface-2);font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en{display:block}
+tr.here td{background:var(--accent-soft)}
+.matrix td{min-width:120px}
+@media (max-width:700px){.scroll > table{min-width:640px}}
+.stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0;padding:0;list-style:none}
+.stages li{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start}
+.stages .n{font-size:12px;color:var(--brass);letter-spacing:.06em}
+.stages b{font-family:var(--serif);font-size:1.08rem}
+.stages span.d{font-size:13px;color:var(--ink-2);line-height:1.6}
+.timeline{list-style:none;padding:0;margin:14px 0;display:grid;gap:0;max-width:780px}
+.timeline li{display:grid;grid-template-columns:5.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);margin:0}
+.timeline li:last-child{border-bottom:0}
+.timeline .lv{font-family:var(--mono);font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;text-align:right}
+.cta{display:inline-block;font-weight:600;border:1px solid var(--accent);border-radius:999px;padding:4px 16px;text-decoration:none}
+.cta:hover{background:var(--accent-soft)}
+footer{padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="crumbs">
+    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span><span>0.5.5 泰坦</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 战士 Warrior · 泰坦 Titan</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--accent)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <rect x="15" y="13" width="22" height="9" rx="2" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.6"/>
+      <path d="M26 22v12" stroke="var(--brass)" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M12 38l6-3 4 3 4-4 4 4 4-3 6 3" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h1>泰坦 · 猛击余震（奔踏 × 诸天之锤）<span class="en">0.5.5 Path of Evening “Slam Titan (Leveling &amp; Endgame)”</span></h1>
+  </div>
+  <p class="lede">原作者 Path of Evening 在 Mobalytics 发布的泰坦构筑：双手锤猛击，靠余震几率堆满让一次猛击打两次，重度晕眩粉碎护甲，首领用锻造之锤、大地震击与诸天之锤收尾。原站从第 1 幕写到作者的实时角色共 7 个变体，标注“不需要传奇”。本页列出全部变体、与合成页四个阶段的对应、门槛时间线与逐部位差异。</p>
+  <dl class="facts">
+    <div><dt>补丁</dt><dd>0.5.5</dd></div>
+    <div><dt>作者</dt><dd>Path of Evening</dd></div>
+    <div><dt>变体</dt><dd>7 个 · 合成 4 阶段</dd></div>
+    <div><dt>原站版本</dt><dd>第 75 版 · 2026-09-02</dd></div>
+    <div><dt>本页抓取</dt><dd>2026-09-30</dd></div>
+  </dl>
+  <p class="small">原站：<a href="https://mobalytics.gg/poe-2/builds/slam-warrior-leveling-build" target="_blank" rel="noopener">Mobalytics</a> · 标签：Starter / Speed Leveling / End Game / 创作者认证 · 2025-12-03 首发 · 754 收藏 · 5 条评论 · PoB <a href="https://pobb.in/RxDVkrSs-9_W" target="_blank" rel="noopener">pobb.in/RxDVkrSs-9_W</a> · 过滤器 <a href="https://www.filterblade.xyz/Profile?name=Llarold&amp;game=Poe2" target="_blank" rel="noopener">FilterBlade · Llarold</a></p>
+</header>
+
+<main>
+
+<section id="synthesis">
+  <h2>合成四阶段</h2>
+  <p>把 7 个变体合成一条从 1 级到大后期的路线，每个阶段都写了“从上一阶段走过来”的换技能、换装、升华与天赋步骤；配置、逐件词缀、交易链接、搜索正则与数据核验都在那一页。</p>
+  <ol class="stages">
+    <li><span class="n">第 1 阶段 · 原站 Act 1–3</span><b>起步 → 50 级</b><span class="d">轰动猛击 / 跃击 + 七伤破开荒，第 3 幕换奔踏；锤子只看物理伤害，防具不花钱。止于 52 级诸天之锤。</span></li>
+    <li><span class="n">第 2 阶段 · 原站 Act 4+</span><b>65 级进图</b><span class="d">诸天之锤、装甲回收、祭血术；第 3 次升华同时拿裂地之灵与雄伟英姿；装备本页按 65 级底推算。</span></li>
+    <li><span class="n">第 3 阶段 · 原站 Early Endgame</span><b>终局初期</b><span class="d">区域 80 第 4 次升华拿先祖神威，所有猛击换战争铁拳 III；庞然大锤（163 力量）+ 全身稀有护甲；删七伤破。</span></li>
+    <li><span class="n">第 4 阶段 · 原站 Endgame</span><b>大后期</b><span class="d">4 个血统辅助（拉其塔之流、泽佛伊的恶名、阿图鲁伊的放血术、乌崔德的出走）、80 级底材与渎灵词缀、无根之源 + 泉井之心。</span></li>
+  </ol>
+  <p><a class="cta" href="合成四阶段.html">打开合成四阶段.html</a></p>
+</section>
+
+<section id="variants">
+  <h2>变体一览</h2>
+  <p class="small">阶段与差异由原站数据计算。「天赋重合」是本档与上一档主树选点的交集占上一档的比例，低于 70% 标「需要洗点」——这套全程没有低于 95.6% 的。宝石需求为原站数字，等于全部辅助宝石的「+5 属性」按颜色相加，不是面板需求。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>变体</th><th>阶段定位</th><th>与上一档的主要变化</th><th>传奇 · 血统</th><th>宝石需求（原站）</th><th>天赋 / 升华</th><th>卡在哪</th><th>本页</th></tr></thead>
+    <tbody>
+      <tr class="here"><td><b>Act 1</b></td><td>第 1 幕：锤打击、轰动猛击 + 七伤破，震地打首领</td><td>—</td><td class="n">0 · 0</td><td class="n">力 25 · 敏 5 · 智 10</td><td class="n">主树 18 · 升华 0</td><td>防具与首饰栏是 65–75 级占位数据</td><td><a href="合成四阶段.html#st1">合成页 · ①</a></td></tr>
+      <tr class="here"><td><b>Act 2</b></td><td>第 2 幕：跃击 + 陨坑清图，锻造之锤</td><td>第 1 次升华：裂地之灵；镶钉巨棍</td><td class="n">0 · 0</td><td class="n">力 60 · 敏 5 · 智 15</td><td class="n">主树 39（重合 100%）· 升华 2</td><td>—</td><td><a href="合成四阶段.html#st1">合成页 · ①</a></td></tr>
+      <tr class="here"><td><b>Act 3</b></td><td>第 3 幕：奔踏接管清图</td><td>升华<b>洗掉裂地之灵</b>，换雄伟英姿路径；神殿巨锤；压迫气场</td><td class="n">0 · 0</td><td class="n">力 75 · 敏 15 · 智 15</td><td class="n">主树 56（100%）· 升华 4</td><td>奔踏等阶 11（41 级）</td><td><a href="合成四阶段.html#st1">合成页 · ①</a> <span class="chip ok">已合成</span></td></tr>
+      <tr class="here"><td><b>Act 4+</b></td><td>第 4 幕 → 间章 → 进图</td><td>诸天之锤、装甲回收；祭血术；补回裂地之灵；蛇纹大锤</td><td class="n">0 · 0</td><td class="n">力 100 · 敏 20 · 智 25</td><td class="n">主树 88（100%）· 升华 6</td><td>诸天之锤等阶 13（52 级）；第 3 次试炼区域 60</td><td><a href="合成四阶段.html#st2">合成页 · ②</a> <span class="chip ok">已合成</span></td></tr>
+      <tr class="here"><td><b>Early Endgame</b></td><td>地图中后段：全身稀有装</td><td>先祖神威 + 战争铁拳 III；大地震击；删七伤破、巨狼猛扑；庞然大锤</td><td class="n">1 · 1</td><td class="n">力 115 · 敏 40 · 智 25</td><td class="n">主树 113（96.6%）· 升华 8</td><td>第 4 次试炼区域 80；庞然大锤 77 级 / 163 力量</td><td><a href="合成四阶段.html#st3">合成页 · ③</a> <span class="chip ok">已合成</span></td></tr>
+      <tr class="here"><td><b>Endgame</b></td><td>高投入</td><td>拉其塔之流、泽佛伊的恶名、阿图鲁伊的放血术、神圣降临、先祖战吼；80 级底材 + 渎灵；3 颗珠宝</td><td class="n">4 · 4</td><td class="n">力 145 · 敏 40 · 智 25</td><td class="n">主树 119（96.5%）· 升华 8</td><td>血统辅助（需求 65，终局首领掉落）</td><td><a href="合成四阶段.html#st4">合成页 · ④</a> <span class="chip ok">已合成</span></td></tr>
+      <tr><td><b>Live</b></td><td>作者实时角色的快照</td><td>火焰穿透 II 代替拉其塔之流；贝拉的苦楚代替英雄血液；石制胸甲 62、堡垒胫甲 65；锤子带渎灵古加尔的</td><td class="n">4 · 2</td><td class="n">力 145 · 敏 35 · 智 15</td><td class="n">主树 118（99.2%）· 升华 8</td><td>—</td><td><span class="chip na">对照</span> 合成页第 7、9、12 节</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">原站 PoB 是一套 98 级角色，包含 Act 1 → Endgame 六套配置（没有 Live）；配置里开着“+100% 全元素抗性”“+300 力量”两条自定义词缀，面板数值不能当实测。</p>
+</section>
+
+<section id="gates">
+  <h2>门槛时间线</h2>
+  <ul class="timeline">
+    <li><span class="lv">1–21</span><span>轰动猛击 → 七伤破连招清图；首领脚下放震地；作者：战役不用管装备，只找物理伤害最高的双手锤；巨狼猛扑赶路要拿魔符。</span></li>
+    <li><span class="lv">22</span><span>第 1 次升华（第 2 幕丝克玛试炼）：裂地之灵。第 2 幕换跃击 + 陨坑，锻造之锤上线。</span></li>
+    <li><span class="lv">38</span><span>第 2 次升华：洗掉裂地之灵，点 力量 → 巨人神力 → 力量 → 雄伟英姿。</span></li>
+    <li><span class="lv">41</span><span>奔踏（等阶 11）宝石 11 级可用，接管清图；第 3 幕蛇毒地窟选晕眩阈值 +25%。</span></li>
+    <li><span class="lv">52</span><span>诸天之锤（等阶 13；第 4 幕哈特林船长的任务奖励含一颗 13 级技能宝石）；四个血统辅助的掉落等级也是 52，但都出自终局首领。</span></li>
+    <li><span class="lv">54–60</span><span>间章：利萨拉 +40 精魂（任务精魂凑满 100）；埃尔扎拉必掉第 3 次试炼用的巨灵之币；区域 60 第 3 次升华补回裂地之灵；祭血术。</span></li>
+    <li><span class="lv">65</span><span>进图：荣耀战铠、堡垒胫甲等 65 级底材；30% 移速「猎豹的」；血统辅助需求 65。</span></li>
+    <li><span class="lv">77</span><span>庞然大锤（163 力量）。</span></li>
+    <li><span class="lv">80</span><span>第 4 次升华（区域 80 试炼）：先祖神威，所有猛击换战争铁拳 III；80 级底材（督军胸甲、帝国巨盔、塔萨里奥胫甲）。</span></li>
+    <li><span class="lv">90</span><span>技能宝石 20 级（157 力量）。</span></li>
+    <li><span class="lv">终局</span><span>拉其塔之流（马诺基，天命者）、泽佛伊的恶名（阿兹里，红女王）、阿图鲁伊的放血术（伊察拉与玛兹特里）、乌崔德的出走（欧罗什，堕落之源）；无根之源、泉井之心、英雄血液。</span></li>
+  </ul>
+</section>
+
+<section id="matrix">
+  <h2>变体间差异总表</h2>
+  <p class="small">底材名取 poe2db 简中；「占位」指 Act 1–4+ 共用的那套 65–75 级防具与首饰数据；「—」为原站该档没填。逐件词缀见合成页第 7 节。</p>
+  <div class="scroll"><table class="matrix">
+    <thead><tr><th>部位</th><th>Act 1</th><th>Act 2</th><th>Act 3</th><th>Act 4+</th><th>Early Endgame</th><th>Endgame</th><th>Live</th></tr></thead>
+    <tbody>
+      <tr><th>清图技能</th><td>轰动猛击 + 七伤破</td><td>跃击 + 七伤破</td><td colspan="2">奔踏（+ 七伤破）</td><td colspan="3">奔踏</td></tr>
+      <tr><th>首领技能</th><td>震地 · 轰动猛击</td><td>锻造之锤 · 跃击 + 陨坑</td><td>锻造之锤</td><td>锻造之锤 · 诸天之锤</td><td colspan="3">锻造之锤 · 诸天之锤 · 大地震击（Endgame / Live 加先祖战吼）</td></tr>
+      <tr><th>主手</th><td>伐采巨棍</td><td>镶钉巨棍</td><td>神殿巨锤</td><td>蛇纹大锤</td><td colspan="2">庞然大锤（同一把）</td><td>庞然大锤（渎灵古加尔的）</td></tr>
+      <tr><th>头盔</th><td colspan="4">锈蚀巨盔（占位）</td><td>典范巨盔</td><td>帝国巨盔</td><td>典范巨盔</td></tr>
+      <tr><th>胸甲</th><td colspan="4">荣耀战铠（占位）</td><td>华丽战铠</td><td>督军胸甲</td><td>石制胸甲</td></tr>
+      <tr><th>手套</th><td colspan="4">瓦尔护手（占位）</td><td>瓦尔护手</td><td>羽饰护手</td><td>瓦尔护手</td></tr>
+      <tr><th>鞋子</th><td colspan="4">瓦尔胫甲（占位）</td><td>堡垒胫甲</td><td>塔萨里奥胫甲</td><td>堡垒胫甲</td></tr>
+      <tr><th>项链</th><td colspan="4">星辉项链（占位，无词缀）</td><td colspan="2">翠玉项链</td><td>星辉项链</td></tr>
+      <tr><th>戒指</th><td colspan="4">三相戒指 ×2（占位）</td><td>紫晶戒指 ×2</td><td>红玉 + 黄玉</td><td>红玉 + 紫晶</td></tr>
+      <tr><th>腰带</th><td colspan="4">重革腰带（占位）</td><td colspan="2">嵌板腰带</td><td>重革腰带</td></tr>
+      <tr><th>咒符</th><td colspan="4">—</td><td>为了乌托邦 · 真银 · 融冰</td><td>为了乌托邦 · 融冰 · 英雄血液</td><td>融冰 · 贝拉的苦楚 · 为了乌托邦</td></tr>
+      <tr><th>升华</th><td>—</td><td>裂地之灵</td><td>雄伟英姿路径（洗掉裂地之灵）</td><td>两者都有</td><td colspan="3">+ 先祖神威</td></tr>
+      <tr><th>关键石</th><td colspan="3">—</td><td colspan="4">祭血术</td></tr>
+      <tr><th>血统辅助</th><td colspan="4">—</td><td>乌崔德的出走</td><td>+ 拉其塔之流 · 泽佛伊的恶名 · 阿图鲁伊的放血术</td><td>泽佛伊的恶名 · 阿图鲁伊的放血术</td></tr>
+      <tr><th>珠宝</th><td colspan="5">0（插槽已点）</td><td colspan="2">失落的红玉 · 无根之源 · 泉井之心</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="notes">
+  <h2>生成记录</h2>
+  <ul class="small">
+    <li>本目录由 poe2-build-cn 技能生成；<code>_source.json</code> 存的是在浏览器里读出的紧凑摘录（7 个变体的装备、宝石、天赋选点、正文、任务奖励、评论区与 poe2db 查询笔记），不是整页状态。</li>
+    <li>中英对照取 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code> 同页对位；交易统计 ID 用国服交易站对照表逐条核对，43 个全部对上。</li>
+    <li>原站没有单独的 65 级进图档，合成页 ② 的装备是本页推算；Live 只作对照，没有单独生成页面。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><p>由 poe2-build-cn 技能生成 · 数据截至 2026-09-30 · 原作者 Path of Evening（Mobalytics）</p></footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>

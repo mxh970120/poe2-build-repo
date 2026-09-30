@@ -1,0 +1,1631 @@
+{
+ "_note": "紧凑摘录（compact extract）：不是 Mobalytics 整页状态。由浏览器内 JS 从 window.__PRELOADED_STATE__ 逐段读出、写入 scratchpad，再用本脚本合并；poe2db 对照为同源 fetch /cn/ 与 /us/ 页面的摘录。抓取日期 2026-09-30。",
+ "source": {
+  "url": "https://mobalytics.gg/poe-2/builds/balrog-fire-bear-smith",
+  "title": "[0.5.5] BALROG - (1* button) Fire Bear Fury of the King Kitava",
+  "author": "Skadoosh",
+  "version": 448,
+  "updatedAt": "2026-09-16T09:37:37Z",
+  "createdAt": "2025-12-05T18:54:34Z",
+  "favorites": 2034,
+  "tags": [
+   "Warrior",
+   "Smith of Kitava",
+   "Starter",
+   "End Game",
+   "0.5.5 FR",
+   "Verified"
+  ],
+  "variants_in_order": [
+   [
+    "10",
+    "Uber Endgame (Titan)"
+   ],
+   [
+    "8",
+    "Uber Endgame"
+   ],
+   [
+    "9",
+    "Endgame"
+   ],
+   [
+    "5",
+    "Act 4+"
+   ],
+   [
+    "4",
+    "Act 3"
+   ],
+   [
+    "3",
+    "Act 2"
+   ],
+   [
+    "2",
+    "Act 1"
+   ]
+  ],
+  "pob_level": 94
+ },
+ "text_overview_changelog_variants": "# meta\nurl: https://mobalytics.gg/poe-2/builds/balrog-fire-bear-smith\ntitle: [0.5.5] BALROG - (1* button) Fire Bear Fury of the King Kitava\nauthor: Skadoosh (twitch skadoosh_c, youtube @SkadooshPoE, discord D4Qh3fUbzH)\ncreatedAt 2025-12-05T18:54:34Z; firstPublished 2025-12-05T21:24:35Z; updatedAt 2026-09-16T09:37:37Z; version 448\nfavorites 2034; totalComments 12 (preloaded)\ntags: Warrior / Smith of Kitava / Starter / End Game / 0.5.5 FR / Verified\nlootFilter: null; pobCode length 12072\nvideo guide: https://youtu.be/FOAstHrY4KE ; T15 gameplay https://youtu.be/oZBZkt0GabE\nvariants (childrenVariants order = buildVariants order):\n id10 Uber Endgame (Titan) -> widgets 54-57\n id8 Uber Endgame -> 44-47\n id9 Endgame -> 48-51\n id5 Act 4+ -> 36-39\n id4 Act 3 -> 32-35\n id3 Act 2 -> 28-31\n id2 Act 1 -> 24-27\nquestRewards: Beira +10% cold; Crowbell 2 WS pts; King in Mists +30 spirit; Una 2 WS; Candlemass +20 life; Kabala 2WS; Medallion +1 charm slot/30% charm charges; Final Letter 2WS; Sisters of Garukhan +10% lightning; Silverfist 2WS; Venom Draught 25% stun threshold (reward1); Blackjaw +10% fire; Ignagduk +30 spirit; Molten Vault reforging bench; Blood Sacrifice 2WS; Captain Hartlin 2WS+lv13 gem+delirium; Navali 5% mana; Yama 2WS; Tawhoa lightning tattoo +5% lightning; Goddess of Justice 30% flask life recovery; Oswin 2WS; Akthi&Anundr 2WS; Molten Shrine 5% max life; Orbala's Pillar 3% MS; Lythara +40 spirit; Yeti 2WS; Tasalio cold tattoo +5% cold; Ngamahu fire tattoo +5% fire; Tribal Medicine Kaom's Lesson 30% inc Armour/Evasion/ES\n\n# Build Overview (widget 6)\nSome changes in 0.5, [Ancestral Cry] and [Walking Calamity] no longer trigger [Fire Spell on Hit] and [Cast on Elemental Ailment], but fissures from [Molten Crash] still do! Check changelog, added [Titan] crit variant\n\nCombine bear shapeshift with [Smith of Kitava]'s [Fire Spell on Hit] ([Living Bomb]) and [Cast on Elemental Ailment] (fire-infused [Comet]). Trigger these two and fissures with permanent* [Ancestral Cry] steps with the help of 100% increased glory gain. Sustain [Walking Calamity] and health via [Primal Hunger] rage/[Endurance] charge loop ( [Rageforged I] + [Jagged Ground I]), recovering 9% HP each time you take a step. Add in [Fury of the King] (Balrog talisman Unique) to truly fulfill the fantasy\n* Requires that 2 buffs are maintained for 0-1 button gameplay. Explanation in How It Works\n## Early Leveling (1 to 52)\n- Please check out the Act 1-4 variants in the guide\n- Venom (Quest reward): Stun threshold, Tattoo: 5% resistances, Tribal medicine: 30% Armour/EV/ES Pillar: 5% resistance (early)\n\n# How it Plays (widget 7) — FAQ\n- Weapon set passive points: need normal passive points available first; to apply max 24 weapon points each set you need 24 normal points available.\n- Track Ancestral Cry (Ferocious Roar) glory: put Ancestral Cry on skill bar... IN PATCH 0.5 YOU HAVE TO SOCKET ANOTHER SEPERATE [Ancestral Cry] AND PUT THAT ON THE BAR. STILL ONLY PRESS [Ferocious Roar]\n- Ancestral Cry deactivated when swap to human form (set 2): select for BOTH sets: uncheck set 1, select set 2, then check set 1.\n- Ancestral Cry not getting glory in abyssal depths: bug; unsocket from Ferocious Roar and socket again.\n- Dying to ignite: Before taking [Self Immolation], you need [One With Flame] or you will DIE! to your own ignite\n- Can't socket X into X: must first socket skill gem into meta skill before related supports. e.g. Ancestral Cry must be in Ferocious Roar before Prolonged Duration II.\n- Other questions: read guide fully; Discord.\n\n# How it Works (widget 8)\n(full text) This build focuses on maximising the potential of [Ancestral Cry]. It is a glory skill and requires 100 glory before it can be used. Glory ... [Ancestral Cry] requires that you ignite monsters to generate glory, higher rarity more glory. [Walking Calamity] gains glory whenever you gain rage over your maximum. It is mandatory to socket [Ancestral Cry] inside [Ferocious Roar] for it to work while in bear form, replacing Ferocious Roar's innate warcry effect, but buffing Ancestral Cry with increased AoE and damage.\n[Fury of the King] has a unique modifier that passively generates glory even outside of combat, and with the help of 100% increased glory gain from [Smith's Masterwork] ([Kitavan Imprint]) and [Invigorating Grandeur] will generate 10 glory every 2 seconds (for each skill). Glory skills cannot gain glory while active -> downtime.\nTo minimise downtime, Ancestral Cry and Walking Calamity have a duration increased with nodes such as [Tides of Change], or modifiers on [Ruby] jewels. Ancestral Cry +70% duration per [Endurance] charge. 7 endurance charges -> over 2 minutes.\nBear form: passive generating 1 Endurance charge for every 15 rage you spend. Socket [Rageforged I] in [Walking Calamity]: every meteor tries to consume 10 rage. Walking Calamity generates 5 rage per second -> passively generates endurance charges. [Primal Hunger] keystone: every time we consume rage, grants it back over 4 seconds -> feedback loop.\nSocket [Jagged Ground I] into [Ancestral Cry]: every step while Ancestral Cry active causes a small slam consuming an Endurance charge to create jagged ground. With passives [Guts] and [Flare], total 9% life recovered every time we consume an endurance charge, and tons of extra fire damage.\nStep slam isn't enough to kill; use Smith of Kitava's [Fire Spell on Hit] and [Cast on Elemental Ailment]. Walking on top of fissures from [Molten Crash] procs Fire Spell on Hit socketed with [Living Bomb] for damage and fire infusions. Consume infusions with [Comet] in Cast on Elemental Ailment to convert large portion of its cold damage to fire ([Avatar of Fire] converts the rest). Scale ignite with [Fulmination] solely for more consistent Cast on Elemental Ailment.\nBosses: Ancestral Cry steps are considered a slam -> trigger fissures. Fury of the King has innate skill [Molten Crash] that creates fissures. Weapon swap 2-handed mace in set 2 to use [Forge Hammer] for even more fissures. When fissures explode from walking over them with Ancestral Cry active, they also activate Fire Spell on Hit AND Cast on Elemental Ailment. Extra damage buffs from [Savage Fury], broken armour via [Ancestral Warrior Totem] ([The Molten One's Gift]) and [Infernal Cry].\n\n# Strengths / Weaknesses (widget 18)\nSTRENGTHS: Cataclysmic Fire EVERYWHERE; Not using [Rampage]; 0-1* button build; Kill stuff by walking; Insane recovery; 50%+ movespeed\nWEAKNESSES: Buff management; Visual clarity\n\n# Variant descriptions (widget 11)\n### Uber Endgame (Titan)\nThis variant is a [Titan] version of the Uber Endgame variant. You can respec your ascendancy by running the last trial difficulty you did again.\nTankier, and crit scaling with [Omen Sceptre] ([Lord of the Wilds]), UNSPEC [Resolute Technique]!\nNo longer proccing spells with [Fire Spell on Hit] and [Cast on Elemental Ailment]. Using [The Brass Dome] for insane amounts of armour, and armour scaling.\n### Uber Endgame\nThis variant is for when you acquire Balrog Form (reddit link) [Fury of the King], or if you have out-leveled the Endgame variant\nEverything else is EXTRA and isn't needed to start the variant\nCurrent character: https://poe.ninja/poe2/profile/ITheCon-2183/character/SkadooshBALROG\n### Endgame\nFor when you unlocked [Ancestral Cry] (ideally 58+ when you finish the campaign)\nYou will need a decent chunk of gold to respec from Act 4+ variant\n### Act 4+\nFollow the skill progression as you level up. The order shown is the order you can pick them up. This applies to the passive tree as well\nYou will need a significant amount of gold to respec the start of the passive tree to the Endgame variant\nTattoo (Quest reward): 5% reistances\n### Act 3\nFollow the skill progression ... Venom (Quest reward): Stun threshold\n### Act 2 / Act 1\nFollow the skill progression as you level up. The order shown is the order you can pick them up. This applies to the passive tree as well\n\n# Changelog (widget 15)\n- First created guide (05.12.2025)\n- Endgame variant up to date, first day 1 overview video https://youtu.be/_XUa01jdUPk (14.12.2025)\n- New Uber Endgame variant with infinite rage/[Endurance] via [Primal Hunger] (16.12.2025)\n- Added [Undying Hate (tecrod)] next to [Vaal Pact] in Uber Endgame, moved nodes from [Adrenaline Rush] and [Devastation] to [Blood of the Wolf] and [Relentless] (18.12.2025)\n- Added [Barkskin] to Set 1 (18.12.2025)\n- Replaced Undying Hate (tecrod) with [Undying Hate (amanamu)] (19.12.2025)\n- Added [Citaqualotl's Thesis] to socket in boots, massive potential defense boost (20.12.2025)\n- Removed [Barkskin] (can't give more armour than your armour items give) replaced with [Blasphemy] ([Enfeeble]), need total 60 spirit on gear. Added [Soul Core of Azcapa] in [Fury of the King] for extra 15 spirit, and spirit corrupt for [The Hollow Mask] (22.12.2025)\n- Added possible [Heart of the Well] jewel option (movement speed, max lightning res, skill speed etc.) (23.12.2025)\n- Replaced [Furious Slam] with [Fury of the Mountain] in Endgame variant (29.12.2025)\n- No longer need a perfect [Conjurer Mantle] with 30 spirit, total min spirit needed is 160 (30.12.2025)\n- Swapped [Execute II] for [Spell Cascade] in [Cast on Elemental Ailment] ([Comet]) BEWARE LOSS OF VISUAL CLARITY ON BOSSES! (04.01.2026)\n- New defensive setup with [Goregirdle] and rare Armour/ES helmet instead of [The Hollow Mask], swapping [Blasphemy] for [Barkskin] and [Charge Regulation] (04.01.2026)\n- Removed glory nodes near [Craving Slaughter], moved to get [Invigorating Grandeur], meaning [Walking Calamity] is now a full heal when used. [Relentless] is now a global point, and set 1 takes [Momentum] (06.01.2026)\n- Can replace [Living Bomb] ([Overabundance II] & [Fire Mastery]) with [Detonate Dead] ([Magnified Area II] & [Spell Cascade]) for much better clear in maps; lose decent chunk of single-target (15.01.2026)\n- Added How It Works section (17.05.2026)\n- Updates in patch 0.5 (22.05.2026): [Comet] damage reduced ~30%. BIG NERF: \"Fixed a bug where certain triggered skills could generate energy.\" -> [Ancestral Cry] steps can no longer trigger Fire Spell on Hit and Cast on Elemental Ailment. Doesn't kill the build but hampers it a lot. Would just go pure melee damage instead.\n- Swapped +3 spell levels to +3 melee levels on [Stellar Amulet] (23.05.2026)\n- Added [Rune of Renown] to gloves (30.05.2026)\n- [Walking Calamity] uses [Magnified Area II] instead of [Eternal Flame II] (30.05.2026)\n- (note on separate Ancestral Cry on bar, 0.5)\n- Added a 6 link to [Molten Crash], you can now use a Perfect jewellers (/flux?) on [Fury of the King] (01.06.2026)\n- FIX FOR CRASH! From the effect MTX from Forgemaster, don't use it for the time being! (02.06.2026)\n- Added WIP Titan Uber Endgame Variant. No Fire Spell on Hit or Cast on Elemental Ailment (08.06.2026)\n- Swapped [Concentrated Area] for [Eternal Flame II] in [Molten Crash]. More [Comet] procs (09.06.2026)\n- Changed tree on Titan variant with less ignite magnitude on set 2 (09.06.2026)\n- Removed [Avatar of Fire] from Titan variant (22.06.2026)\n- Added [Panther Idol] to [The Brass Dome] in Titan variant (06.07.2026)\n- Several changes to Titan variant to incorporate crit scaling and A LOT more damage (22.08.2026)\n- Replaced [Forge Hammer] with [Elemental Weakness], [Titan] uses [Chober Chaber] while [Smith of Kitava] uses [Shyaba] for utility (30.08.2026)\n",
+ "text_per_variant_widgets": "# Per-variant widget descriptions (Equipment / SkillGems / PassiveTree)\n# widget index -> variant: 24-27 Act1, 28-31 Act2, 32-35 Act3, 36-39 Act4+, 44-47 Uber Endgame, 48-51 Endgame, 54-57 Uber Titan\n# widgets 22, 40, 42 are SkillGems widgets NOT referenced by any variant childrenIds (orphan / legacy)\n\n## Act 1 (24 equip) weapon stat priority: %inc phys / adds phys; adds elemental; +melee levels; attack speed. Armour/jewelry: MS boots; ele res; max life; %armour/+armour body; adds X damage to attacks, +melee levels. \"Talisman in Set 1, buy from vendor or make a druid character to get one\"\n## Act 1 (25 gems) - Build rage with [Maul], use [Furious Slam] with 10+ rage. [Maul] to stand up for [Furious Slam]\n- Place 2x [Shockwave Totem] after doing above combo on Jagged Ground from [Furious Slam], and fissure from [Fury of the Mountain]\n- [Fury of the Mountain] replaces [Maul] for rage gen, so swap [Rage I] support to it!\n- [Fury of the Mountain] fissures DO NOT STACK! Only one is needed under a boss\n- [Savage Fury] for burst windows on bosses\n## Act 1 (26 tree) Attribute travel nodes: mix int & str; focus str over int if required.\n\n## Act 2 (28 equip) same priority + \"Set 2 requires a high damage two-handed mace\"\n## Act 2 (29 gems) Single-target rotation: [Infernal Cry] before using [Volcanic Fissure]/[Forge Hammer]; [Ferocious Roar] then [Fury of the Mountain] once; place 1 or 2 [Shockwave Totem]; spam [Furious Slam]; [Savage Fury] if available. Otherwise [Fury of the Mountain] + ([Maul] for initial rage) [Furious Slam] for clearing.\nSELECTING WEAPON SETS: configure in skill menu (G) — link Dual Specialisation guide.\n## Act 2 (30 tree) attribute mix; Pick [Heat of the Forge] for more damage on bosses, but requires that you get into to level up [Living Bomb]. Otherwise pick [Smith's Masterwork] and the defence ones such as [Leather Bindings], [Flowing Metal], [Molten Symbol]\n\n## Act 3 (32 equip) same priority list\n## Act 3 (33 gems) For clear, [Ferocious Roar] into [Furious Slam] inside a big bunched pack. Level up [Ferocious Roar] to guarantee armour break for [Armour Explosion]. Replace [Armour Explosion] with [Aftershock I] in [Furious Slam] for bosses. [Forge Hammer] replaces [Volcanic Fissure].\n## Act 3 (34 tree) attribute mix.\n\n## Act 4+ (36 equip) same priority list\n## Act 4+ (37 gems) [Rampage] replaces [Furious Slam] for all its uses. Use [Ferocious Roar] first to get rage and armour break for [Rampage].\n## Act 4+ (38 tree) attribute mix.\n\n## Endgame (48 equip) weapon: %inc phys/adds phys; adds fire; +melee; attack speed. Armour: MS boots; ele res; life; %armour; adds dmg to attacks / +melee.\n- Set 1 Socketed with [Guatelitzi's Soul Core of Endurance] and [Thane Myrk's Rune of Summer]\n- Ideally exceptional [Ornate Plate] with 3 sockets, or corrupted to 3 sockets\n- Anoint/Instil on amulet: [Tides of Change] (but maybe save currency for better amulet first)\n## Endgame (49 gems)\n- Very important that [Ancestral Cry] ([Ferocious Roar]) has [Jagged Ground I] socketed, and [Walking Calamity] has [Rageforged I] socketed\n- [Savage Fury] is ONLY active on set 2 ... still works like normal in set 1, but we don't pay its 30 spirit cost\n- [Ancestral Cry] requires Glory, from igniting enemies. Needs 100 glory before it can activate via [Ferocious Roar]. Set to both sets: first select set 2 THEN set 1\n- Get 6 [Endurance] charges and 100 glory before using [Ancestral Cry] ([Ferocious Roar])\n- Charge up [Walking Calamity] initially by using [Maul] to gain rage and getting hit with [Ngamahu's Chosen]. Should only be required once per map\n- Single target: [Infernal Cry] into [Forge Hammer], then trigger the Forge Hammer with [Ferocious Roar] (you don't need Ancestral Cry off CD/glory). Activate fissures by walking around with Ancestral Cry steps\n- [Fury of the Mountain] for killing rares as Ancestral Cry will trigger its fissures. Don't spam, fissures don't stack\n## Endgame (50 tree)\n- Travel points mainly str but enough int for high level [Living Bomb] (some dex for supports early)\n- PSA! Before taking [Self Immolation], you need [One With Flame] or you will DIE!\n- [Primal Hunger] and [Blood Magic] should be first focused if underleveled.\n\n## Uber Endgame (44 equip)\n- Armour/jewelry: MS boots; Resistance (75% F/C/L, 30-50% Chaos); max life; %/+ armour, %/+ max ES; Stats (mainly str, need int for high level Living Bomb/Comet); +melee\n- Set 1 [Fury of the King] with 5 Glory per 2 seconds. Perfect jewellers for 5 sockets in [Molten Crash] (+ Perfect Flux for level 20). [Guatelitzi's Soul Core of Endurance] and (blank)\n- [Conjurer Mantle] should have enough spirit on the implicit to get 160 spirit at minimum. To get total 4 sockets, exceptional base with 3 sockets then corrupt\n- [Goregirdle] can be corrupted with dexterity implicit to fit [Charge Regulation], otherwise +1 Endurance charge is good\n- [Undying Hate (amanamu)]: tribute number doesn't matter, must say \"...in tribute to amanamu\" -> converts [Vaal Pact] keystone to Sacrifice of Flesh. If not corrupted, desecrate once safely for up to +8 attribute\n- [Citaqualotl's Thesis] decent defence boost in boots, or [Farrul's Rune of the Chase] for speed\n- [Ruby] jewels: desecrated prefix 10% increased max ES. [Sapphire]: desecrated 4-7% fire penetration\n- Anoint/Instil on amulet: [Tides of Change] (or Jewel socket if GG amulet)\nAlternatives: [Headhunter] belt for mapping; [Mageblood] quicksilver > granite; [Defiance of Destiny] recovery option over damage amulet; [Guatelitzi's Thesis] and/or [Farrul's Rune of the Chase] in boots ULTRA FAST\n## Uber Endgame (45 gems)\n- Get 6 Endurance charges and 100 glory before Ancestral Cry (Ferocious Roar)\n- Place [Ancestral Warrior Totem] (need 3 Endurance) before a boss spawns to break armour\n- [Molten Crash] replaces [Fury of the Mountain] (don't even need [Forge Hammer][Infernal Cry])\n- [Savage Fury] ONLY active on set 2 ... don't pay 30 spirit\n- Ferocious Roar (Ancestral Cry) active on BOTH sets\n- Only add Level 14 [Charge Regulation] once you have 57 dex and 160 total spirit via implicit [Conjurer Mantle], or spirit amulet and [Soul Core of Azcapa] in [Fury of the King]\n- Replace [Living Bomb] ([Overabundance II] & [Concentrated Area]) with [Detonate Dead] ([Magnified Area II] & [Spell Cascade]) for clear, or replace [Comet] in Cast on Elemental Ailment (OR both but don't use Spell Cascade and [Fiery Death])\n- Corrupted +1 level Living Bomb and Comet: create low level, corrupt; then upgrade to 20 with another gem for 21; level it in normal skill bar, not in Fire Spell on Hit / CoEA\n- Quality priority: Ancestral Cry, Walking Calamity, then rest\n## Uber Endgame (46 tree)\n- Travel points mainly str, enough int for high level Living Bomb (some dex for supports)\n- PSA! Before [Self Immolation] need [One With Flame]\n- Only take [Vaal Pact] once you get [Undying Hate (amanamu)]\n\n## Uber Titan (54 equip)\n- Weapon: %phys/adds phys; damage gained as extra fire; +melee. Armour: MS; Res (74% F/C/L, 50-75% chaos); +melee; life; armour; % of armour applies to elemental damage\n- Set 1 Fury of the King 5 glory/2s, Perfect jewellers 5 sockets Molten Crash (+Perfect Flux lvl20). Guatelitzi's Soul Core of Endurance + Any ([Farrul's Rune of the Hunt] ok)\n- [Omen Sceptre] needs [Lord of the Wilds] (ideally level 20 [Malice])\n- Undying Hate (amanamu) note; \"throw it into the abyss well once safely to get up to +8 attribute\"\n- Citaqualotl's Thesis / Farrul's Rune of the Chase in boots\n- Anoint amulet Tides of Change\nAlternatives: [Mageblood] diamond > quicksilver > granite; Headhunter; [Trampletoe] runeforged 5% extra MS; Defiance of Destiny; Guatelitzi's Thesis/Farrul's Rune of the Chase\n## Uber Titan (55 gems)\n- 6 endurance + 100 glory; Ancestral Warrior Totem before boss; [Infernal Cry] and [Elemental Weakness] bosses; Molten Crash replaces Fury of the Mountain; Savage Fury only set 2, don't pay its 60 spirit (need spirit from [Chober Chaber]); Ferocious Roar both sets; Second Ancestral Cry (not in Ferocious Roar) purely to track glory; quality priority Ancestral Cry, Walking Calamity\n## Uber Titan (56 tree) YOU ARE A [Titan]; Ascendancy points: [Hulking Form], [Stone Skin], [Mysterious Lineage]. Str mainly, int for high level Elemental Weakness (18+). PSA Self Immolation/One With Flame. UNSPEC [Resolute Technique]! Only take Vaal Pact once you get Undying Hate (amanamu)\n\n## ORPHAN widget 22 (gems): Build rage with Maul, Furious Slam 10+ rage; Infernal Cry after 30 rage then double Furious Slam; 2x Shockwave Totem on Jagged Ground\n## ORPHAN widget 40 (gems): [Cast on Elemental Ailment] set 1 with [Eternal Rage] set 2 for meme gameplay, flashy Comet spamming boss dmg, beware mana cost; [Infernal Cry] twice at start of map (after moving to activate skill due to [Echoing Cry]) to generate rage with Eternal Rage and get glory for Walking Calamity; otherwise in Bear (Ancestral Cry active) use Maul and facetank to generate rage for Walking Calamity; mainly use [Fury of the Mountain] to quickly spend rage to gain Endurance for Ancestral Cry; get 5 Endurance before Ancestral Cry\n## ORPHAN widget 42 (gems): Mainly use [Maul] to spend rage for Endurance; get 5 Endurance before Ancestral Cry\n",
+ "equipment": {
+  "act1": {
+   "body": {
+    "n": "Iron Cuirass",
+    "s": "armour-fourbodystr3",
+    "c": "body-armour",
+    "ex": [],
+    "st": "Armour=115"
+   },
+   "leftRing": {
+    "n": "Iron Ring",
+    "s": "ring-fourring1",
+    "c": "ring",
+    "ex": []
+   },
+   "rightRing": {
+    "n": "Iron Ring",
+    "s": "ring-fourring1",
+    "c": "ring",
+    "ex": []
+   },
+   "mainHand": {
+    "set1": {
+     "n": "Cinderbark Talisman",
+     "s": "weapon-talisman3",
+     "c": "talisman",
+     "st": "Minimum Physical Damage=18; Maximum Physical Damage=36; Critical Hit Chance=8; Weapon Speed=14",
+     "bo": true
+    },
+    "set2": {
+     "ps": "Punch"
+    }
+   },
+   "priorityList": [
+    "body:Iron Cuirass",
+    "leftRing:Iron Ring",
+    "rightRing:Iron Ring",
+    "mainHand:Cinderbark Talisman"
+   ],
+   "chakras": null
+  },
+  "act2": {
+   "mainHand": {
+    "set1": {
+     "n": "Primal Talisman",
+     "s": "weapon-talisman6",
+     "c": "talisman",
+     "st": "Minimum Physical Damage=31; Maximum Physical Damage=46; Critical Hit Chance=9; Weapon Speed=14",
+     "bo": true
+    },
+    "set2": {
+     "n": "Temple Maul",
+     "s": "weapon-fourtwohandmace6",
+     "c": "two-hand-mace",
+     "st": "Minimum Physical Damage=35; Maximum Physical Damage=72; Critical Hit Chance=5; Weapon Speed=6",
+     "bo": true
+    }
+   },
+   "priorityList": [
+    "mainHand:Primal Talisman",
+    "mainHand:Temple Maul"
+   ],
+   "chakras": null
+  },
+  "act3": {
+   "mainHand": {
+    "set1": {
+     "n": "Rabid Talisman",
+     "s": "weapon-talisman7",
+     "c": "talisman",
+     "st": "Minimum Physical Damage=31; Maximum Physical Damage=58; Critical Hit Chance=8; Weapon Speed=14",
+     "bo": true
+    },
+    "set2": {
+     "n": "Leaden Greathammer",
+     "s": "weapon-fourtwohandmace7",
+     "c": "two-hand-mace",
+     "st": "Minimum Physical Damage=58; Maximum Physical Damage=78; Critical Hit Chance=5; Weapon Speed=6",
+     "bo": true
+    }
+   },
+   "priorityList": [
+    "mainHand:Rabid Talisman",
+    "mainHand:Leaden Greathammer"
+   ],
+   "chakras": null
+  },
+  "act4plus": {
+   "mainHand": {
+    "set1": {
+     "n": "Lumbering Talisman",
+     "s": "weapon-talisman10",
+     "c": "talisman",
+     "st": "Minimum Physical Damage=71; Maximum Physical Damage=107; Critical Hit Chance=5; Weapon Speed=14",
+     "bo": true
+    },
+    "set2": {
+     "n": "Pointed Maul",
+     "s": "weapon-fourtwohandmace9",
+     "c": "two-hand-mace",
+     "st": "Minimum Physical Damage=68; Maximum Physical Damage=102; Critical Hit Chance=6.5; Weapon Speed=6",
+     "bo": true
+    }
+   },
+   "priorityList": [
+    "mainHand:Lumbering Talisman"
+   ],
+   "chakras": null
+  },
+  "endgame": {
+   "amulet": {
+    "n": "Stellar Amulet",
+    "s": "amulet-fouramulet8",
+    "c": "amulet",
+    "ex": [
+     "+120 to maximum Life",
+     "+2 to Level of all Spell Skills"
+    ],
+    "pre": [
+     "IncreasedLife9"
+    ],
+    "suf": [
+     "GlobalSpellGemsLevel2"
+    ],
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=120",
+      "explicit.stat_124131830>=2"
+     ],
+     "cat": "accessory.amulet"
+    },
+    "anointment": {
+     "slug": "anointment-duration8"
+    }
+   },
+   "belt": {
+    "n": "Plate Belt",
+    "s": "armour-fourbelt5",
+    "c": "belt",
+    "ex": [
+     "+312 to Armour",
+     "+85 to maximum Life"
+    ],
+    "pre": [
+     "IncreasedLife7",
+     "IncreasedPhysicalDamageReductionRating10"
+    ],
+    "st": "Armour=351",
+    "tq": {
+     "f": [
+      "explicit.stat_809229260>=312",
+      "explicit.stat_3299347043>=85"
+     ],
+     "cat": "accessory.belt"
+    }
+   },
+   "body": {
+    "n": "Ornate Plate",
+    "s": "armour-fourbodystr6endgame",
+    "c": "body-armour",
+    "ex": [],
+    "st": "Armour=496",
+    "tq": {
+     "f": [],
+     "cat": "armour.chest"
+    },
+    "runes": [
+     "soulcore-runespecial10",
+     "soulcore-runelifegreater",
+     "soulcore-runelifegreater"
+    ]
+   },
+   "boots": {
+    "n": "Vaal Greaves",
+    "s": "armour-fourbootsstr5endgame",
+    "c": "boots",
+    "ex": [
+     "+10 to maximum Life",
+     "+31 to Strength",
+     "101% increased Armour",
+     "30% increased Movement Speed"
+    ],
+    "pre": [
+     "MovementVelocity5",
+     "IncreasedLife1",
+     "LocalIncreasedPhysicalDamageReductionRatingPercent8_"
+    ],
+    "suf": [
+     "Strength8"
+    ],
+    "st": "Armour=563",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=10",
+      "explicit.stat_4080418644>=31",
+      "explicit.stat_1062208444>=101",
+      "explicit.stat_2250533757>=30"
+     ],
+     "cat": "armour.boots"
+    }
+   },
+   "flask1": {
+    "n": "Transcendent Life Flask",
+    "s": "flask-fourflasklife8"
+   },
+   "flask2": {
+    "n": "Ultimate Mana Flask",
+    "s": "flask-fourflaskmana9"
+   },
+   "charm1": {
+    "n": "Stone Charm",
+    "s": "flask-fourcharm6"
+   },
+   "charm2": {
+    "n": "Thawing Charm",
+    "s": "flask-fourcharm1"
+   },
+   "charm3": {
+    "n": "Ngamahu's Chosen",
+    "s": "flask-fouruniquecharm8-ngamahu's-chosen",
+    "u": true
+   },
+   "gloves": {
+    "n": "Vaal Mitts",
+    "s": "armour-fourglovesstr5endgame",
+    "c": "gloves",
+    "ex": [
+     "+85 to maximum Life",
+     "Adds 13 to 27 Fire damage to Attacks",
+     "+1 to Level of all Melee Skills"
+    ],
+    "pre": [
+     "AddedFireDamage7",
+     "IncreasedLife7"
+    ],
+    "suf": [
+     "GlobalMeleeSkillGemLevel1"
+    ],
+    "st": "Armour=179",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=85",
+      "explicit.stat_1573130764>=13",
+      "explicit.stat_9187492>=1"
+     ],
+     "cat": "armour.gloves"
+    },
+    "runes": [
+     "soulcore-runeoftheancients18"
+    ]
+   },
+   "helmet": {
+    "n": "Commander Greathelm",
+    "s": "armour-fourhelmetstr7",
+    "c": "helmet",
+    "ex": [
+     "+85 to maximum Life",
+     "68% increased Armour"
+    ],
+    "pre": [
+     "IncreasedLife7",
+     "LocalIncreasedPhysicalDamageReductionRatingPercent5"
+    ],
+    "st": "Armour=417",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=85",
+      "explicit.stat_1062208444>=68"
+     ],
+     "cat": "armour.helmet"
+    }
+   },
+   "leftRing": {
+    "n": "Amethyst Ring",
+    "s": "ring-fourring6",
+    "c": "ring",
+    "ex": [
+     "+70 to maximum Life",
+     "Adds 11 to 21 Fire damage to Attacks"
+    ],
+    "pre": [
+     "IncreasedLife6",
+     "AddedFireDamage6"
+    ],
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=70",
+      "explicit.stat_1573130764>=11"
+     ],
+     "cat": "accessory.ring"
+    }
+   },
+   "rightRing": {
+    "same_as": "leftRing"
+   },
+   "mainHand": {
+    "set1": {
+     "n": "Surge of the Tide",
+     "s": "weapon-fouruniquetalisman10-surge-of-the-tide",
+     "u": true,
+     "c": "talisman",
+     "runes": [
+      "soulcore-soulcorespecial9",
+      "soulcore-runespecial21"
+     ],
+     "bo": true
+    },
+    "set2": {
+     "n": "Massive Greathammer",
+     "s": "weapon-fourtwohandmace7endgame",
+     "c": "two-hand-mace",
+     "ex": [
+      "Adds 19 to 33 Physical Damage",
+      "135% increased Physical Damage",
+      "+4 to Level of all Melee Skills",
+      "Gain 43% of Damage as Extra Fire Damage"
+     ],
+     "pre": [
+      "LocalIncreasedPhysicalDamagePercent6",
+      "LocalAddedPhysicalDamageTwoHand6",
+      "SpellDamageGainedAsFireTwoHand4"
+     ],
+     "suf": [
+      "GlobalMeleeSkillGemLevelWeapon5"
+     ],
+     "st": "Minimum Physical Damage=376; Maximum Physical Damage=533; Critical Hit Chance=5; Weapon Speed=6",
+     "tq": {
+      "f": [
+       "explicit.stat_1940865751>=19",
+       "explicit.stat_1509134228>=135",
+       "explicit.stat_9187492>=4",
+       "explicit.stat_3015669065>=43"
+      ],
+      "cat": "weapon.twomace"
+     },
+     "bo": true
+    }
+   },
+   "priorityList": [
+    "mainHand:Massive Greathammer",
+    "belt:Plate Belt",
+    "helmet:Commander Greathelm",
+    "rightRing:Amethyst Ring",
+    "boots:Vaal Greaves",
+    "body:Ornate Plate",
+    "amulet:Stellar Amulet",
+    "gloves:Vaal Mitts",
+    "mainHand:Surge of the Tide"
+   ],
+   "chakras": null
+  },
+  "uber": {
+   "amulet": {
+    "n": "Stellar Amulet",
+    "s": "amulet-fouramulet8",
+    "c": "amulet",
+    "ex": [
+     "+120 to maximum Life",
+     "19% increased Rarity of Items found",
+     "+3 to Level of all Spell Skills",
+     "+54 to Spirit",
+     "20% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "pre": [
+     "IncreasedLife9",
+     "EssenceGlobalDefences1",
+     "IncreasedSpirit7"
+    ],
+    "suf": [
+     "ItemFoundRarityIncrease4",
+     "GlobalSpellGemsLevel3"
+    ],
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=120",
+      "explicit.stat_3917489142>=19",
+      "explicit.stat_124131830>=3",
+      "explicit.stat_3981240776>=54",
+      "explicit.stat_1177404658>=20"
+     ],
+     "cat": "accessory.amulet"
+    },
+    "anointment": {
+     "slug": "anointment-duration8"
+    }
+   },
+   "belt": {
+    "n": "Goregirdle",
+    "s": "armour-fouruniquebelt10-goregirdle",
+    "u": true
+   },
+   "body": {
+    "n": "Conjurer Mantle",
+    "s": "armour-fourbodystrint4endgame",
+    "c": "body-armour",
+    "st": "Armour=273; Energy Shield=76",
+    "runes": [
+     "soulcore-runespecial10",
+     "soulcore-soulcoremaxlife"
+    ]
+   },
+   "boots": {
+    "n": "Sekhema Sandals",
+    "s": "armour-fourbootsint6endgame",
+    "c": "boots",
+    "ex": [
+     "+120 to maximum Life",
+     "101% increased Energy Shield",
+     "35% increased Movement Speed",
+     "60% increased effect of Socketed Augment Items"
+    ],
+    "pre": [
+     "MovementVelocity6",
+     "IncreasedLife9",
+     "LocalIncreasedEnergyShieldPercent8"
+    ],
+    "suf": [
+     "EssenceLocalRuneAndSoulCoreEffect1"
+    ],
+    "st": "Energy Shield=174",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=120",
+      "explicit.stat_4015621042>=101",
+      "explicit.stat_2250533757>=35",
+      "explicit.stat_2081918629>=60"
+     ],
+     "cat": "armour.boots"
+    },
+    "runes": [
+     "soulcore-soulcorespecial2",
+     "soulcore-thesisofsacrifice"
+    ]
+   },
+   "flask1": {
+    "n": "Transcendent Life Flask",
+    "s": "flask-fourflasklife8"
+   },
+   "flask2": {
+    "n": "Ultimate Mana Flask",
+    "s": "flask-fourflaskmana9"
+   },
+   "charm1": {
+    "n": "For Utopia",
+    "s": "flask-fouruniquecharm6--for-utopia",
+    "u": true
+   },
+   "charm2": {
+    "n": "Thawing Charm",
+    "s": "flask-fourcharm1"
+   },
+   "charm3": {
+    "n": "Ngamahu's Chosen",
+    "s": "flask-fouruniquecharm8-ngamahu's-chosen",
+    "u": true
+   },
+   "gloves": {
+    "n": "Sirenscale Gloves",
+    "s": "armour-fourglovesint6endgame",
+    "c": "gloves",
+    "ex": [
+     "+120 to maximum Life",
+     "+48 to maximum Energy Shield",
+     "92% increased Energy Shield",
+     "+2 to Level of all Melee Skills"
+    ],
+    "pre": [
+     "IncreasedLife9",
+     "LocalIncreasedEnergyShieldPercent7_",
+     "LocalIncreasedEnergyShield7"
+    ],
+    "suf": [
+     "GlobalMeleeSkillGemLevel2"
+    ],
+    "st": "Energy Shield=228",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=120",
+      "explicit.stat_4052037485>=48",
+      "explicit.stat_4015621042>=92",
+      "explicit.stat_9187492>=2"
+     ],
+     "cat": "armour.gloves"
+    },
+    "runes": [
+     "soulcore-soulcorespecial3",
+     "soulcore-runeoftheancients18"
+    ]
+   },
+   "helmet": {
+    "n": "Cryptic Crown",
+    "s": "armour-fourhelmetstrint6endgame",
+    "c": "helmet",
+    "ex": [
+     "+192 to maximum Life",
+     "19% increased Rarity of Items found",
+     "+31 to Intelligence",
+     "+24% to Chaos Resistance",
+     "140% increased Armour and Energy Shield"
+    ],
+    "pre": [
+     "LocalIncreasedArmourAndEnergyShieldAndLife6",
+     "IncreasedLife10",
+     "LocalIncreasedArmourAndEnergyShield8"
+    ],
+    "suf": [
+     "ChaosResist6",
+     "ItemFoundRarityIncrease4",
+     "Intelligence8"
+    ],
+    "st": "Armour=519; Energy Shield=144",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=192",
+      "explicit.stat_3917489142>=19",
+      "explicit.stat_328541901>=31",
+      "explicit.stat_2923486259>=24",
+      "explicit.stat_3321629045>=140"
+     ],
+     "cat": "armour.helmet"
+    },
+    "runes": [
+     "soulcore-soulcorespecial1"
+    ]
+   },
+   "leftRing": {
+    "n": "Amethyst Ring",
+    "s": "ring-fourring6",
+    "c": "ring",
+    "ex": [
+     "+168 to Accuracy Rating",
+     "+100 to maximum Life",
+     "27% increased Fire Damage"
+    ],
+    "pre": [
+     "IncreasedLife8",
+     "FireDamagePercent6",
+     "IncreasedAccuracy6"
+    ],
+    "tq": {
+     "f": [
+      "explicit.stat_803737631>=168",
+      "explicit.stat_3299347043>=100",
+      "explicit.stat_3962278098>=27"
+     ],
+     "cat": "accessory.ring"
+    }
+   },
+   "rightRing": {
+    "n": "Amethyst Ring",
+    "s": "ring-fourring6",
+    "c": "ring",
+    "ex": [
+     "+100 to maximum Life",
+     "8% increased Rarity of Items found",
+     "+31 to Dexterity",
+     "27% increased Fire Damage"
+    ],
+    "pre": [
+     "IncreasedLife8",
+     "ItemFoundRarityIncreasePrefix1",
+     "FireDamagePercent6"
+    ],
+    "suf": [
+     "Dexterity8"
+    ],
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=100",
+      "explicit.stat_3917489142>=8",
+      "explicit.stat_3261801346>=31",
+      "explicit.stat_3962278098>=27"
+     ],
+     "cat": "accessory.ring"
+    }
+   },
+   "mainHand": {
+    "set1": {
+     "n": "Fury of the King",
+     "s": "weapon-fouruniquetalisman14-fury-of-the-king",
+     "u": true,
+     "c": "talisman",
+     "runes": [
+      "soulcore-soulcorespecial9",
+      "soulcore-soulcorelight"
+     ],
+     "bo": true
+    },
+    "set2": {
+     "n": "Shyaba",
+     "s": "weapon-fouruniquetwohandmace6-shyaba",
+     "u": true,
+     "c": "two-hand-mace",
+     "runes": [
+      "soulcore-runedexteritylesser",
+      "soulcore-runedexteritygreater"
+     ],
+     "bo": true
+    }
+   },
+   "priorityList": [
+    "boots:Sekhema Sandals",
+    "helmet:Cryptic Crown",
+    "belt:Goregirdle",
+    "rightRing:Amethyst Ring",
+    "gloves:Sirenscale Gloves",
+    "mainHand:Shyaba",
+    "body:Conjurer Mantle",
+    "mainHand:Fury of the King",
+    "amulet:Stellar Amulet"
+   ],
+   "chakras": null
+  },
+  "titan": {
+   "amulet": {
+    "n": "Stellar Amulet",
+    "s": "amulet-fouramulet8",
+    "ex": [
+     "+120 to maximum Life",
+     "19% increased Rarity of Items found",
+     "7% increased maximum Life",
+     "+3 to Level of all Melee Skills",
+     "20% increased Global Armour, Evasion and Energy Shield"
+    ],
+    "pre": [
+     "IncreasedLife9",
+     "MaximumLifeIncrease3",
+     "EssenceGlobalDefences1"
+    ],
+    "suf": [
+     "ItemFoundRarityIncrease4",
+     "GlobalMeleeSkillGemLevel3"
+    ],
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=120",
+      "explicit.stat_3917489142>=19",
+      "explicit.stat_983749596>=7",
+      "explicit.stat_9187492>=3",
+      "explicit.stat_1177404658>=20"
+     ]
+    },
+    "anointment": {
+     "slug": "anointment-duration8"
+    }
+   },
+   "belt": {
+    "n": "Plate Belt",
+    "s": "armour-fourbelt5",
+    "ex": [
+     "+187 to Armour",
+     "+120 to maximum Life"
+    ],
+    "pre": [
+     "IncreasedPhysicalDamageReductionRating7",
+     "IncreasedLife9"
+    ],
+    "st": "Armour=225",
+    "tq": {
+     "f": [
+      "explicit.stat_809229260>=187",
+      "explicit.stat_3299347043>=120"
+     ]
+    }
+   },
+   "body": {
+    "n": "The Brass Dome",
+    "s": "armour-fouruniquebodystr12-the-brass-dome",
+    "u": true,
+    "runes": [
+     "soulcore-soulcoremaxlife",
+     "soulcore-idolpanther"
+    ]
+   },
+   "boots": {
+    "n": "Vaal Greaves",
+    "s": "armour-fourbootsstr5endgame",
+    "ex": [
+     "+175 to maximum Life",
+     "+24% to Chaos Resistance",
+     "92% increased Armour",
+     "35% increased Movement Speed"
+    ],
+    "pre": [
+     "MovementVelocity6",
+     "IncreasedLife11",
+     "LocalIncreasedPhysicalDamageReductionRatingPercent7"
+    ],
+    "suf": [
+     "ChaosResist6"
+    ],
+    "st": "Armour=536",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=175",
+      "explicit.stat_2923486259>=24",
+      "explicit.stat_1062208444>=92",
+      "explicit.stat_2250533757>=35"
+     ]
+    },
+    "runes": [
+     "soulcore-soulcorespecial2",
+     "soulcore-thesisofsacrifice"
+    ]
+   },
+   "flask1": {
+    "n": "Transcendent Life Flask"
+   },
+   "flask2": {
+    "n": "Ultimate Mana Flask"
+   },
+   "charm1": {
+    "n": "For Utopia",
+    "u": true
+   },
+   "charm2": {
+    "n": "Thawing Charm"
+   },
+   "charm3": {
+    "n": "Ngamahu's Chosen",
+    "u": true
+   },
+   "gloves": {
+    "n": "Runeforged Vaal Mitts",
+    "s": "armour-fourglovesstr5endgameverisium",
+    "ex": [
+     "+160 to Armour",
+     "+120 to maximum Life",
+     "92% increased Armour",
+     "+2 to Level of all Melee Skills",
+     "+44% of Armour also applies to Elemental Damage"
+    ],
+    "pre": [
+     "IncreasedLife9",
+     "LocalIncreasedPhysicalDamageReductionRatingPercent7",
+     "LocalIncreasedPhysicalDamageReductionRating7__"
+    ],
+    "suf": [
+     "GlobalMeleeSkillGemLevel2",
+     "ArmourAppliesToElementalDamage6"
+    ],
+    "st": "Armour=818",
+    "tq": {
+     "f": [
+      "explicit.stat_3484657501>=160",
+      "explicit.stat_3299347043>=120",
+      "explicit.stat_1062208444>=92",
+      "explicit.stat_9187492>=2",
+      "explicit.stat_3362812763>=44"
+     ]
+    },
+    "runes": [
+     "soulcore-soulcorespecial3",
+     "soulcore-runeoftheancients18"
+    ]
+   },
+   "helmet": {
+    "n": "Imperial Greathelm",
+    "s": "armour-fourhelmetstr7endgame",
+    "ex": [
+     "+150 to maximum Life",
+     "19% increased Rarity of Items found",
+     "+24% to Chaos Resistance",
+     "+44% of Armour also applies to Elemental Damage"
+    ],
+    "pre": [
+     "IncreasedLife10"
+    ],
+    "suf": [
+     "ChaosResist6",
+     "ItemFoundRarityIncrease4",
+     "ArmourAppliesToElementalDamage6"
+    ],
+    "st": "Armour=424",
+    "tq": {
+     "f": [
+      "explicit.stat_3299347043>=150",
+      "explicit.stat_3917489142>=19",
+      "explicit.stat_2923486259>=24",
+      "explicit.stat_3362812763>=44"
+     ]
+    },
+    "runes": [
+     "soulcore-soulcorespecial1"
+    ]
+   },
+   "leftRing": {
+    "n": "Amethyst Ring",
+    "ex": [
+     "+168 to Accuracy Rating",
+     "+100 to maximum Life",
+     "27% increased Fire Damage"
+    ]
+   },
+   "rightRing": {
+    "n": "Amethyst Ring",
+    "ex": [
+     "+100 to maximum Life",
+     "8% increased Rarity of Items found",
+     "+31 to Dexterity",
+     "27% increased Fire Damage"
+    ]
+   },
+   "mainHand": {
+    "set1": {
+     "n": "Fury of the King",
+     "u": true,
+     "runes": [
+      "soulcore-soulcorespecial9",
+      "soulcore-runespecial13"
+     ],
+     "bo": true
+    },
+    "set2": {
+     "n": "Chober Chaber",
+     "s": "weapon-fouruniquetwohandmace7-chober-chaber",
+     "u": true,
+     "runes": [
+      "soulcore-runeintelligenceperfect",
+      "soulcore-runeintelligenceperfect"
+     ],
+     "bo": true
+    }
+   },
+   "offHand": {
+    "set1": {
+     "n": "Omen Sceptre",
+     "s": "weapon-foursceptre4",
+     "ex": [
+      "Aura Skills have 15% increased Magnitudes",
+      "+38 to maximum Mana",
+      "+31 to Strength",
+      "87% increased Spirit",
+      "66% increased Presence Area of Effect"
+     ],
+     "pre": [
+      "LocalIncreasedSpiritPercent7",
+      "LocalIncreasedSpiritAndMana6"
+     ],
+     "suf": [
+      "Strength8",
+      "EssenceAuraEffect1",
+      "PresenceRadius4"
+     ],
+     "tq": {
+      "f": [
+       "explicit.stat_315791320>=15",
+       "explicit.stat_1050105434>=38",
+       "explicit.stat_4080418644>=31",
+       "explicit.stat_3984865854>=87",
+       "explicit.stat_101878827>=66"
+      ],
+      "cat": "weapon.sceptre"
+     },
+     "runes": [
+      "soulcore-talismanfox"
+     ]
+    }
+   },
+   "priorityList": [
+    "rightRing:Amethyst Ring",
+    "amulet:Stellar Amulet",
+    "belt:Plate Belt",
+    "helmet:Imperial Greathelm",
+    "gloves:Runeforged Vaal Mitts",
+    "body:The Brass Dome",
+    "offHand:Omen Sceptre",
+    "mainHand:Fury of the King",
+    "boots:Vaal Greaves",
+    "mainHand:Chober Chaber"
+   ],
+   "chakras": null
+  }
+ },
+ "skill_gems": {
+  "Titan": {
+   "req": {
+    "dex": 20,
+    "str": 90,
+    "int": 40
+   },
+   "gems": [
+    "Maul{set1}: Rage III, Rapid Attacks III, Helbrym's Hide, Blazing Critical, Inexorable Critical II",
+    "Molten Crash{all}: Fist of War III, Elemental Armament II, Momentum, Vorana's Siege, Garukhan's Resolve",
+    "Walking Calamity{all}: Prolonged Duration II, Rageforged I, Fiery Death, Elemental Armament II, Magnified Area II",
+    "Ferocious Roar{all}: Ancestral Cry(A), Prolonged Duration II, Jagged Ground I, Elemental Armament II, Close Combat II",
+    "Elemental Weakness{set2}: Heightened Curse, Prolonged Duration II, Focused Curse, Magnified Area II",
+    "Infernal Cry{set2}: Raging Cry, Echoing Cry, Tireless",
+    "Ancestral Warrior Totem{set2}: Armour Breaker(A), Urgent Totems III, Armour Demolisher II, Elemental Focus",
+    "Malice: Prolonged Duration II",
+    "Savage Fury{set2}: Prolonged Duration II",
+    "Charge Regulation{set1}: ",
+    "Ancestral Cry: "
+   ],
+   "prio": "Rage III > Raging Cry > Echoing Cry > Ancestral Cry > Prolonged Duration II > Jagged Ground I > Prolonged Duration II > Rageforged I > Fiery Death > Elemental Armament II > Fist of War III > Elemental Armament II > Momentum > Elemental Armament II > Tireless > Prolonged Duration II > Close Combat II > Armour Breaker > Urgent Totems III > Armour Demolisher II > Elemental Focus > Rapid Attacks III > Magnified Area II > Helbrym's Hide > Prolonged Duration II > Garukhan's Resolve > Heightened Curse > Prolonged Duration II > Focused Curse > Magnified Area II > Blazing Critical > Inexorable Critical II > Vorana's Siege"
+  },
+  "Uber": {
+   "req": {
+    "dex": 25,
+    "str": 95,
+    "int": 60
+   },
+   "gems": [
+    "Maul{set1}: Rage III, Rapid Attacks III, Helbrym's Hide",
+    "Molten Crash{all}: Fist of War III, Elemental Armament II, Momentum, Vorana's Siege, Close Combat II",
+    "Fire Spell on Hit: Living Bomb(A), Overabundance I, Controlled Destruction, Elemental Focus, Concentrated Area",
+    "Walking Calamity{all}: Prolonged Duration II, Rageforged I, Fiery Death, Elemental Armament II, Magnified Area II",
+    "Ferocious Roar{all}: Ancestral Cry(A), Prolonged Duration II, Jagged Ground I, Elemental Armament II, Close Combat II",
+    "Cast on Elemental Ailment{set1}: Comet(A), Efficiency II, Spell Cascade, Controlled Destruction, Elemental Focus",
+    "Elemental Weakness{set2}: Heightened Curse, Prolonged Duration II, Focused Curse, Magnified Area II",
+    "Savage Fury{set2}: Prolonged Duration II",
+    "Infernal Cry{set2}: Raging Cry, Echoing Cry, Tireless",
+    "Ancestral Warrior Totem{set2}: Armour Breaker(A), Urgent Totems III, Armour Demolisher II, Elemental Focus",
+    "Barkskin: Prolonged Duration II",
+    "Charge Regulation@14: "
+   ],
+   "prio": "Living Bomb > Overabundance I > Rage III > Raging Cry > Echoing Cry > Ancestral Cry > Prolonged Duration II > Jagged Ground I > Prolonged Duration II > Rageforged I > Fiery Death > Elemental Armament II > Fist of War III > Elemental Armament II > Momentum > Elemental Focus > Concentrated Area > Elemental Armament II > Comet > Efficiency II > Tireless > Prolonged Duration II > Close Combat II > Controlled Destruction > Armour Breaker > Urgent Totems III > Armour Demolisher II > Elemental Focus > Spell Cascade > Controlled Destruction > Elemental Focus > Prolonged Duration II > Rapid Attacks III > Magnified Area II > Close Combat II > Helbrym's Hide > Heightened Curse > Prolonged Duration II > Focused Curse > Magnified Area II > Vorana's Siege"
+  },
+  "Endgame": {
+   "req": {
+    "dex": 10,
+    "str": 95,
+    "int": 20
+   },
+   "gems": [
+    "Maul{set1}: Rapid Attacks II, Rage III",
+    "Fire Spell on Hit: Living Bomb(A), Overabundance I, Controlled Destruction, Elemental Focus",
+    "Fury of the Mountain: Fist of War III, Elemental Armament II, Branching Fissures II",
+    "Forge Hammer{set2}: Fist of War III, Elemental Armament II, Branching Fissures II, Rageforged II",
+    "Walking Calamity{all}: Prolonged Duration II, Rageforged I, Fiery Death, Elemental Armament II",
+    "Cast on Elemental Ailment{set1}: Comet(A), Efficiency II, Spell Cascade",
+    "Savage Fury{set2}: Prolonged Duration II",
+    "Ferocious Roar{all}: Ancestral Cry(A), Prolonged Duration II, Jagged Ground I, Elemental Armament II",
+    "Infernal Cry{set2}: Raging Cry, Echoing Cry, Tireless"
+   ],
+   "prio": "Living Bomb > Overabundance I > Elemental Armament II > Rapid Attacks II > Rage III > Raging Cry > Echoing Cry > Fist of War III > Branching Fissures II > Ancestral Cry > Prolonged Duration II > Prolonged Duration II > Fiery Death > Elemental Armament II > Fist of War III > Elemental Armament II > Elemental Focus > Rageforged II > Comet > Efficiency II > Jagged Ground I > Tireless > Prolonged Duration II > Elemental Armament II > Rageforged I > Branching Fissures II > Spell Cascade > Controlled Destruction"
+  },
+  "Act4+": {
+   "req": {
+    "dex": 10,
+    "str": 35,
+    "int": 0
+   },
+   "gems": [
+    "Maul{set1}: ",
+    "Rampage{set1}: Armour Explosion, Execute I, Momentum",
+    "Infernal Cry{set2}: ",
+    "Savage Fury{set1}: ",
+    "Forge Hammer{set2}: Fist of War I, Elemental Armament II",
+    "Ferocious Roar{set1}: Raging Cry, Echoing Cry",
+    "Fire Spell on Hit: Living Bomb(A), Overabundance I",
+    "Scavenged Plating: ",
+    "Walking Calamity: Prolonged Duration I"
+   ],
+   "prio": "Fist of War I > Raging Cry > Living Bomb > Overabundance I > Elemental Armament II > Armour Explosion > Execute I > Momentum > Prolonged Duration I > Echoing Cry"
+  },
+  "Act3": {
+   "req": {
+    "dex": 10,
+    "str": 40,
+    "int": 0
+   },
+   "gems": [
+    "Maul{set1}: ",
+    "Furious Slam{set1}: Execute I, Armour Explosion",
+    "Infernal Cry{set2}: ",
+    "Shockwave Totem{set1}: Urgent Totems I, Overabundance I",
+    "Savage Fury{set1}: ",
+    "Fury of the Mountain{set1}: Rage I",
+    "Forge Hammer{set2}: Fist of War I, Elemental Armament II",
+    "Ferocious Roar{set1}: Raging Cry",
+    "Fire Spell on Hit: Living Bomb(A), Overabundance I",
+    "Scavenged Plating: Prolonged Duration I"
+   ],
+   "prio": "Execute I > Rage I > Fist of War I > Raging Cry > Living Bomb > Overabundance I > Elemental Armament II > Armour Explosion > Urgent Totems I > Overabundance I > Prolonged Duration I"
+  },
+  "Act2": {
+   "req": {
+    "dex": 10,
+    "str": 35,
+    "int": 0
+   },
+   "gems": [
+    "Maul{set1}: ",
+    "Furious Slam{set1}: Execute I, Aftershock I",
+    "Infernal Cry{set2}: ",
+    "Shockwave Totem{set1}: Urgent Totems I, Overabundance I",
+    "Savage Fury{set1}: ",
+    "Fury of the Mountain{set1}: Rage I, Branching Fissures I",
+    "Volcanic Fissure{set2}: Fist of War I",
+    "Ferocious Roar{set1}: Raging Cry",
+    "Fire Spell on Hit: Living Bomb(A), Overabundance I"
+   ],
+   "prio": "Execute I > Rage I > Aftershock I > Fist of War I > Raging Cry > Living Bomb > Overabundance I > Urgent Totems I > Overabundance I > Branching Fissures I"
+  },
+  "Act1": {
+   "req": {
+    "dex": 10,
+    "str": 20,
+    "int": 0
+   },
+   "gems": [
+    "Maul: Rage I, Rapid Attacks I",
+    "Furious Slam: Execute I, Aftershock I",
+    "Infernal Cry: ",
+    "Shockwave Totem: Overabundance I",
+    "Savage Fury: ",
+    "Fury of the Mountain: Fist of War I"
+   ],
+   "prio": "Overabundance I > Rage I > Rapid Attacks I > Execute I > Fist of War I > Aftershock I"
+  }
+ },
+ "passive_tree": {
+  "Titan": {
+   "main": {
+    "n": 95,
+    "prio": [
+     "Fulmination#24630",
+     "One With Flame#44753",
+     "Molten Carapace#51868",
+     "Self Immolation#23630",
+     "Tempered Defences#18157",
+     "Endurance#5663",
+     "Molten Being#11392",
+     "Primal Hunger[K]#37484",
+     "Blazing Arms#25753",
+     "Blood Magic[K]#51749",
+     "Flare#43584",
+     "Roaring Cries#28613",
+     "Pile On#51129",
+     "Irreparable#22626",
+     "The Molten One's Gift#28542",
+     "Vaal Pact[K]#33369",
+     "Relentless#7721",
+     "Sturdy Metal#32416",
+     "Punctured Lung#13482",
+     "Lord of the Wilds[K]#61942",
+     "Protraction#54998",
+     "Sundering#2511",
+     "Vocal Empowerment#31373",
+     "Spirit of the Wolf#3348",
+     "Deadly Flourish#49618",
+     "Momentum#63579",
+     "Guts#46499",
+     "Overwhelming Strike#57388",
+     "Light on your Feet#55131",
+     "Watchtowers#5580",
+     "Cirel of Tarth's Light#21213",
+     "Primal Growth#32071",
+     "Invigorating Grandeur#50023"
+    ]
+   },
+   "set1": {
+    "n": 24
+   },
+   "set2": {
+    "n": 24
+   },
+   "asc": {
+    "sel": [],
+    "prio": [],
+    "note": "Titan ascendancy per text: Hulking Form, Stone Skin, Mysterious Lineage"
+   },
+   "jewels": [
+    {
+     "j": "jewel-fouruniquejewel11-undying-hate",
+     "node": "node-54127",
+     "u": true,
+     "pre": [
+      "suffix-undying-hate-1"
+     ],
+     "f": [
+      "name=Undying Hate"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-2491",
+     "pre": [
+      "JewelArmour",
+      "JewelFirePenetration"
+     ],
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_2866361420>=10",
+      "explicit.stat_2653955271>=5"
+     ]
+    },
+    {
+     "j": "jewel-jewelint",
+     "node": "node-55190",
+     "pre": [
+      "JewelAreaofEffect"
+     ],
+     "suf": [
+      "CriticalStrikeChance1",
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_587431675>=10",
+      "explicit.stat_280731498>=4"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-26196",
+     "pre": [
+      "JewelFirePenetration"
+     ],
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_2653955271>=5"
+     ]
+    },
+    {
+     "j": "jewel-jewelint",
+     "node": "node-26725",
+     "pre": [
+      "JewelAreaofEffect"
+     ],
+     "suf": [
+      "JewelCriticalDamage",
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_280731498>=4",
+      "explicit.stat_3556824919>=10"
+     ]
+    }
+   ]
+  },
+  "Uber": {
+   "main": {
+    "n": 103,
+    "prio": [
+     "Fulmination#24630",
+     "Protraction#54998",
+     "Avatar of Fire[K]#18684",
+     "One With Flame#44753",
+     "Molten Carapace#51868",
+     "Self Immolation#23630",
+     "Tempered Defences#18157",
+     "Endurance#5663",
+     "Molten Being#11392",
+     "Primal Hunger[K]#37484",
+     "Hide of the Bear#41935",
+     "Molten Claw#36100",
+     "Primal Growth#32071",
+     "Blazing Arms#25753",
+     "Blood Magic[K]#51749",
+     "Behemoth#5642",
+     "Flare#43584",
+     "Guts#46499",
+     "Resolute Technique[K]#44017",
+     "Roaring Cries#28613",
+     "Pile On#51129",
+     "Irreparable#22626",
+     "The Molten One's Gift#28542",
+     "Zealot's Oath[K]#52",
+     "Vaal Pact[K]#33369",
+     "Blood of the Wolf#49214",
+     "Invigorating Grandeur#50023",
+     "Relentless#7721",
+     "Light on your Feet#55131",
+     "Momentum#63579",
+     "Punctured Lung#13482",
+     "Watchtowers#5580",
+     "(asc nodes)",
+     "Ancestral Alacrity#2575"
+    ]
+   },
+   "set1": {
+    "n": 24
+   },
+   "set2": {
+    "n": 24
+   },
+   "asc": {
+    "sel": [
+     "5852",
+     "5386",
+     "22541",
+     "9988",
+     "13772",
+     "16276",
+     "8525",
+     "9997",
+     "64962",
+     "60913"
+    ],
+    "prio": [
+     "Heat of the Forge#22541",
+     "Smith's Masterwork#9988",
+     "Flowing Metal#13772",
+     "Kitavan Imprint#16276",
+     "Leather Bindings#8525",
+     "Molten Symbol#9997",
+     "Dedication to Kitava#64962",
+     "Kitavan Engraving#60913"
+    ]
+   },
+   "jewels": [
+    {
+     "j": "jewel-fouruniquejewel11-undying-hate",
+     "node": "node-54127",
+     "u": true,
+     "pre": [
+      "suffix-undying-hate-1"
+     ],
+     "f": [
+      "name=Undying Hate"
+     ]
+    },
+    {
+     "j": "jewel-jewelint",
+     "node": "node-2491",
+     "pre": [
+      "JewelEnergyShield",
+      "AbyssModJewelPrefixFireDamageAndPen"
+     ],
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_2482852589>=10",
+      "explicit.stat_3962278098>=4",
+      "explicit.stat_2653955271>=4"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-55190",
+     "pre": [
+      "prefix-heart-of-the-well-27",
+      "JewelFirePenetration"
+     ],
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_44972811>=6",
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_2653955271>=5"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-26196",
+     "pre": [
+      "JewelFirePenetration",
+      "AbyssModJewelPrefixAttackDamageEnergyShield"
+     ],
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5",
+      "explicit.stat_2482852589>=5",
+      "explicit.stat_2843214518>=4",
+      "explicit.stat_2653955271>=5"
+     ]
+    },
+    {
+     "j": "jewel-fouruniquejewel12-heart-of-the-well",
+     "node": "node-26725",
+     "u": true,
+     "pre": [
+      "prefix-heart-of-the-well-33"
+     ],
+     "suf": [
+      "prefix-heart-of-the-well-57"
+     ],
+     "f": [
+      "name=Heart of the Well"
+     ]
+    }
+   ]
+  },
+  "Endgame": {
+   "main": {
+    "n": 83,
+    "prio": [
+     "Avatar of Fire[K]#18684",
+     "Vocal Empowerment#31373",
+     "Lasting Trauma#18496",
+     "Immolation#53030",
+     "Melting Flames#43939",
+     "Protraction#54998",
+     "Tempered Defences#18157",
+     "Primal Hunger[K]#37484",
+     "Blood Magic[K]#51749",
+     "Endurance#5663",
+     "Guts#46499",
+     "Flare#43584",
+     "Roaring Cries#28613",
+     "Hide of the Bear#41935",
+     "Molten Claw#36100",
+     "Primal Growth#32071",
+     "Blazing Arms#25753",
+     "Momentum#63579",
+     "Light on your Feet#55131",
+     "Fulmination#24630"
+    ]
+   },
+   "set1": {
+    "n": 19
+   },
+   "set2": {
+    "n": 19
+   },
+   "asc": {
+    "sel": [
+     "5852",
+     "5386",
+     "22541",
+     "9988",
+     "13772",
+     "16276",
+     "8525",
+     "9997"
+    ],
+    "prio": [
+     "Heat of the Forge#22541",
+     "Smith's Masterwork#9988",
+     "Flowing Metal#13772",
+     "Kitavan Imprint#16276",
+     "Leather Bindings#8525",
+     "Molten Symbol#9997"
+    ]
+   },
+   "jewels": [
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-54127",
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-2491",
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-26725",
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5"
+     ]
+    },
+    {
+     "j": "jewel-jewelstr",
+     "node": "node-26196",
+     "suf": [
+      "JewelIncreasedDuration"
+     ],
+     "f": [
+      "explicit.stat_3377888098>=5"
+     ]
+    }
+   ]
+  },
+  "Act4+": {
+   "main": {
+    "n": 59,
+    "prio": [
+     "Brutal#5710",
+     "Smash#45363",
+     "Reverberating Impact#59767",
+     "Piercing Claw#17260",
+     "Swift Claw#32353",
+     "Sharpened Claw#61703",
+     "Impact Area#16626",
+     "Impact Force#64443",
+     "Roaring Cries#28613",
+     "Primal Rage#28892",
+     "Fulmination#24630",
+     "Vengeful Fury#54937",
+     "Sigil of Fire#63037",
+     "Burning Nature#8554",
+     "Guttural Roar#29762",
+     "Protraction#54998",
+     "Unimpeded#51394",
+     "Crushing Verdict#18505",
+     "Avatar of Fire[K]#18684",
+     "Tides of Change#42813",
+     "Vocal Empowerment#31373",
+     "Skullcrusher#2645",
+     "Lasting Trauma#18496",
+     "Resolute Technique[K]#44017",
+     "Sturdy Metal#32416"
+    ]
+   },
+   "set1": {
+    "n": 17
+   },
+   "set2": {
+    "n": 17
+   },
+   "asc": {
+    "sel": [
+     "5852",
+     "5386",
+     "22541",
+     "9988",
+     "8525",
+     "13772"
+    ],
+    "prio": [
+     "Heat of the Forge#22541",
+     "Smith's Masterwork#9988",
+     "Leather Bindings#8525",
+     "Flowing Metal#13772"
+    ]
+   },
+   "jewels": []
+  },
+  "Act3": {
+   "main": {
+    "n": 41,
+    "prio": [
+     "Brutal#5710",
+     "Smash#45363",
+     "Reverberating Impact#59767",
+     "Burning Strikes#6544",
+     "Piercing Claw#17260",
+     "Swift Claw#32353",
+     "Sharpened Claw#61703",
+     "Impact Area#16626",
+     "Impact Force#64443",
+     "Guttural Roar#29762",
+     "Sigil of Fire#63037",
+     "Vengeful Fury#54937",
+     "Roaring Cries#28613",
+     "Burning Nature#8554",
+     "Primal Rage#28892",
+     "Sturdy Metal#32416"
+    ]
+   },
+   "set1": {
+    "n": 10
+   },
+   "set2": {
+    "n": 10
+   },
+   "asc": {
+    "sel": [
+     "5852",
+     "5386",
+     "22541",
+     "9988",
+     "16276",
+     "8525"
+    ],
+    "prio": [
+     "Heat of the Forge#22541",
+     "Smith's Masterwork#9988",
+     "Kitavan Imprint#16276",
+     "Leather Bindings#8525"
+    ]
+   },
+   "jewels": []
+  },
+  "Act2": {
+   "main": {
+    "n": 28,
+    "prio": [
+     "Brutal#5710",
+     "Smash#45363",
+     "Reverberating Impact#59767",
+     "Burning Strikes#6544",
+     "Piercing Claw#17260",
+     "Swift Claw#32353",
+     "Sharpened Claw#61703",
+     "Impact Area#16626",
+     "Impact Force#64443",
+     "Guttural Roar#29762",
+     "Sigil of Fire#63037",
+     "Sturdy Metal#32416"
+    ]
+   },
+   "set1": {
+    "n": 6
+   },
+   "set2": {
+    "n": 6
+   },
+   "asc": {
+    "sel": [
+     "5852",
+     "5386",
+     "22541"
+    ],
+    "prio": [
+     "Heat of the Forge#22541"
+    ]
+   },
+   "jewels": []
+  },
+  "Act1": {
+   "main": {
+    "n": 18,
+    "prio": [
+     "Brutal#5710",
+     "Smash#45363",
+     "Reverberating Impact#59767",
+     "Burning Strikes#6544"
+    ]
+   },
+   "set1": {
+    "n": 0
+   },
+   "set2": {
+    "n": 0
+   },
+   "asc": {
+    "sel": [],
+    "prio": []
+   },
+   "jewels": []
+  },
+  "overlap": {
+   "Act1->Act2": "18/18 prev, 18/28 next",
+   "Act2->Act3": "27/28 prev, 27/41 next",
+   "Act3->Act4+": "34/41 prev, 34/59 next",
+   "Act4+->Endgame": "20/59 prev (34%, RESPEC), 20/83 next",
+   "Endgame->Uber": "82/83 prev, 82/103 next",
+   "Uber->Titan": "76/103",
+   "Endgame->Titan": "64/83"
+  }
+ },
+ "passive_tree_slugs": {
+  "uber": {
+   "m": "5852,5386,22541,9988,13772,16276,8525,9997,64962,60913,55190,1200,59785,27296,11275,17348,15522,24630,59777,53719,21387,63114,26725,52298,31805,44461,54998,18684,11433,44753,28982,32845,64819,47753,51868,19794,23630,41768,29611,32474,47931,27082,3446,62498,51561,2491,7716,11786,29447,18157,21390,7972,5663,17885,11392,28304,37258,31903,37612,13279,2864,38646,23570,41031,54232,35265,51299,48670,53589,16168,25374,54818,15182,54127,43461,25990,25753,30141,51749,39131,11741,26196,4527,59945,64807,46674,35921,5642,1865,15494,43584,54934,37484,44017,52,33369,7721,32564,37519,17045,55131,39207,33518",
+   "s1": "19563,6735,41935,43460,63085,36100,31295,9352,32071,38010,27638,54923,34626,38365,46499,61142,61393,56368,36250,49214,13352,59180,50023,63579",
+   "s2": "3949,39598,28613,42111,26437,51129,45227,22626,20350,47006,43174,28542,30136,13482,4948,58117,41186,42710,5580,23307,10100,56757,11292,2575"
+  },
+  "end": {
+   "m": "5852,5386,22541,9988,13772,16276,8525,9997,55190,1200,59785,27296,59777,53719,21387,63114,26725,52298,31805,44461,54998,18684,28982,41768,29611,32474,47931,27082,3446,62498,51561,2491,7716,11786,29447,18157,21390,7972,5663,28304,37258,31903,37612,13279,2864,32564,39207,33518,63579,37519,17045,55131,38646,23570,41031,54232,35265,51299,48670,53589,16168,25374,54818,15182,54127,43461,25990,25753,30141,51749,4527,1865,15494,43584,54934,37484,11275,17348,15522,24630,39131,11741,26196",
+   "s1": "19563,6735,41935,43460,63085,36100,31295,9352,32071,38010,27638,54923,46399,50820,65472,34626,38365,46499,61142",
+   "s2": "18073,3988,12418,50561,31373,49952,13856,18496,53329,64724,11525,53030,9324,30334,56214,43939,3949,39598,28613"
+  },
+  "a4": {
+   "m": "3936,46325,5710,58528,45363,53443,59767,64284,27373,53405,17468,22616,14654,58295,1170,41126,9918,16626,64443,47263,18448,30141,55190,1200,59785,27296,3949,39598,28613,6839,39581,20645,11275,17348,15522,24630,38707,24430,63037,3601,47191,8554,59777,53719,21387,63114,26725,52298,31805,44461,54998,18684,31419,35787,42813,4527,44017,6529,32416",
+   "s1": "6222,65189,17260,9037,32353,61703,60068,55925,37290,28892,53822,11656,9106,54937,29041,31388,51394",
+   "s2": "28564,40328,29762,18073,36027,45090,18505,3988,12418,50561,31373,17791,526,2645,49952,13856,18496"
+  },
+  "titan": {
+   "s1": "19802,64399,2511,61393,43941,48314,61896,8850,3348,39564,38663,49618,39207,33518,63579,35048,43650,21070,57388,53386,26176,37519,17045,55131",
+   "s2": "3949,39598,28613,42111,26437,51129,45227,22626,20350,47006,43174,28542,30136,13482,4948,62785,3988,12418,50561,31373,58117,41186,42710,5580"
+  }
+ },
+ "passive_tree_mapping_notes": "# Tree slug -> node mapping via poe2db /us/passive-skill-tree/ SVG (circle#n<hash>, data-bs-title) 2026-09-30\nWeapon set trees (notables only):\n- Act4+ set1: Piercing Claw, Swift Claw, Sharpened Claw, Primal Rage, Vengeful Fury, Unimpeded (17 pts)\n- Act4+ set2: Guttural Roar, Crushing Verdict, Vocal Empowerment, Skullcrusher, Lasting Trauma (17 pts)\n- Endgame set1 (bear/talisman): Hide of the Bear, Molten Claw, Primal Growth, Guts (19 pts)\n- Endgame set2 (mace): Vocal Empowerment, Lasting Trauma, Immolation, Melting Flames, Roaring Cries (19 pts)\n- Uber set1: Hide of the Bear, Molten Claw, Primal Growth, Guts, Blood of the Wolf, Invigorating Grandeur, Momentum (24 pts)\n- Uber set2: Roaring Cries, Pile On, Irreparable, The Molten One's Gift, Punctured Lung, Watchtowers, Ancestral Alacrity (24 pts)\nMain tree notables/keystones:\n- Act4+ main (59): Brutal, Smash, Reverberating Impact, Impact Area, Impact Force, Roaring Cries, Fulmination, Sigil of Fire, Burning Nature, Protraction, Avatar of Fire[K], Tides of Change, Resolute Technique[K], Sturdy Metal\n- Endgame main (83 slugs incl. 8 ascendancy slugs => 75 main points): Protraction, Avatar of Fire[K], Tempered Defences, Endurance, Momentum, Light on your Feet, Blazing Arms, Blood Magic[K], Flare, Primal Hunger[K], Fulmination; small: 38 Attribute, 4 Armour, 5 jewel sockets, 2 MS, etc.\n- Uber main adds (vs Endgame): Dedication to Kitava, Kitavan Engraving (asc), One With Flame, Molten Carapace, Self Immolation, Molten Being, Behemoth, Resolute Technique[K], Zealot's Oath[K], Vaal Pact[K], Relentless; removes Momentum (moved to set1). Uber main = 103 slugs incl 10 asc => 93 main points\nOverlap Act4+ -> Endgame main: 20/59 = 34% => RESPEC (author: significant gold). Endgame -> Uber: 82/83 = 99%.\n",
+ "pob_summary": "# PoB (data.pobCode, 12072 chars -> 46594 xml)\nBuild level=94 Warrior / Smith of Kitava. Closest to Uber Endgame but items differ (older snapshot):\nItems: Cryptic Crown rare (Armour 455 ES 157, lvlreq 80, Hayoxi's Soul Core of Heatproofing; 118% inc Armour&ES, +180 life, +26 int, +24% chaos, desecrated 14% rarity)\nFury of the King (Ashbark Talisman) ilvl80 q20 3 sockets: Guatelitzi's Soul Core of Endurance + 2x Soul Core of Azcapa; LevelReq 78; enchant +30 Spirit (Azcapa x2?) / 50% chance on gain endurance to gain additional; mods: 59% increased Flammability Magnitude; Grants Skill: Level 18 Molten Crash; Adds 569 to 709 Fire Damage; 20% reduced Attack Speed; +34 Str; Bear Skills Convert 80% of Physical Damage to Fire Damage; Skills which require Glory generate 5 Glory every 2 seconds; Enemies in your Presence have Exposure; Corrupted\nAmethyst Ring x2 rare; Exceptional Conjurer Mantle NORMAL ilvl80 q20 3 sockets (Craiceann's Rune of Warding + 2x Soul Core of Jiquani), LevelReq 70, implicit +30 Spirit +35 life, Corrupted\nBloodstone Amulet rare: Allocates Tides of Change; fractured 26% inc armour; desecrated 42% inc max ES; +172 life; +3 spell skills; +9 int; +31% cold res\nSekhema Sandals rare (Guatelitzi's Thesis + Farrul's Rune of the Chase), 30% MS, +121 life fractured, 60% increased effect of Socketed Items\nMassive Greathammer rare (2x Greater Robust Rune): 158% inc phys, adds 26-41 phys, 31% extra fire, +4 melee, leech mana\nSirenscale Gloves rare; Headhunter (Heavy Belt, corrupted +1 max endurance); Lavianga's Spirits; For Utopia (Stone Charm); Ngamahu's Chosen (Ruby Charm); Ultimate Life Flask; Thawing Charm\nUndying Hate (Timeless Jewel) \"...2080 souls in tribute to Amanamu\", desecrated Conquered Attribute passives +7 Int; Heart of the Well (Diamond) desecrated 2% MS / 12% extra fire / 14% skill effect duration / minion speed; 3 rare Ruby\nPlayerStats: Life 3197 (LifeInc 29%), ES 842, Armour 4056 (54% phys DR), Evasion 7, FireRes 75 (overcap 38), Cold 75 (+4), Lightning 75 (+3), Chaos 45; Str 172 (req 163), Dex 84 (req 57), Int 147 (req 157 -> SHORT by 10), Spirit 130 (unreserved -30), EnduranceChargesMax 6, EffectiveMovementSpeedMod 1.373, TotalEHP 19754, PhysMaxHit 7223, Life regen 111.9/s; DPS fields 0 (main skill = warcry group)\n",
+ "comments": "# Comments (totalComments 12 published+; preloaded query hasMoreItems=false; 1 nested reply expanded via DOM)\n- 2026-09-27 PrettyCrown: why do you need spell skills on amulet not melee?\n  - 2026-09-27 Mitternacht Biss (reader): I think it's just an outdated info as there's \"Swapped +3 spell levels to +3 melee levels on Stellar Amulet (23.05.2026)\" line in changelogs even before changing build to Titan version\n- 2026-09-26 BrightCrown: This build still working ?\n  - 2026-09-27 PrettyCrown: yes im lvl 86 and loving it so far\n- 2026-09-18 PrettyStorm: how can I stack charges for use totem into boss when I killed all mobs. Uberendgame  (no reply)\n- 2026-09-18 FierceBlade: how does titan acquire 150 int for chober? (no reply)\n- 2026-09-11 Benny: Running the Titan Uber Endgame variant, having a blast. No brain required, just gain the glory needed for calamity, gain your 6(+) endurance charges (take a hit preferably to ensure ferocious roar actually works) and repeat this on a cycle while you just walk all over the enemies and bosses without fear of dying (YOU CAN RUN ANY MAP MODS, IT DOESNT MATTER)\n  - 2026-09-14 SilentSun: Did you do Smith of Kitava too? I'm wondering how they compare. upgrade or sidegrade? (no reply)\n- 2026-09-11 CaptCutlass (score 3): Terrible guide... A2 skills still have Maul in there, so if it's not used anymore, take it out!! its a 7 button build at this point?! Single target set-up and no direction for clearing...\n  - 3 replies deleted\n  - 2026-09-11 Skadoosh (AUTHOR, score 3): Feel free to give feedback in my discord... Maul is used to gain rage and standup so that when you slam or roar you do it faster, but it's also a basic skill that is automatically added when you transform to bear, it cannot be removed. No endgame build is as advertised in the campaign either. The build for clear doesn't change much from act 1 to act 2, so thought it was assumed that you would continue to use the same clear skills... Do you have any other examples outside act 2?\n    - CaptCutlass: struggled so much in Act 2 ... couldn't keep slowly grinding\n- 2026-09-10 BoldCrown: great success using herald of ash while leveling this; will toss it out when switching to titan\n",
+ "poe2db_names_and_items": "# poe2db EN->CN (joined by href, /us/ vs /cn/ list pages Skill_Gems, Support_Gems, Lineage_Supports) 2026-09-30\nAftershock I=余震 I; Ancestral Cry=先祖战吼; Ancestral Warrior Totem=先祖战士图腾; Armour Breaker=摧甲重击; Armour Demolisher II=护甲破坏者 II; Armour Explosion=护甲爆破; Barkskin=树肤术; Blasphemy=诅咒光环; Blazing Critical=炽烈绝杀; Branching Fissures I/II=分叉裂缝 I/II; Cast on Elemental Ailment=元素异常状态时施放; Charge Regulation=能量球调节; Close Combat II=近战 II; Comet=彗星落; Concentrated Area=范围集中; Controlled Destruction=精准破坏; Detonate Dead=爆灵术; Echoing Cry=回荡战嚎; Efficiency II=效能 II; Elemental Armament II=元素军械 II; Elemental Focus=元素集中; Elemental Weakness=元素要害; Enfeeble=衰弱; Eternal Flame II=长明烈焰 II; Eternal Rage=永恒狂怒; Execute I/II=处决 I/II; Ferocious Roar=凶蛮咆哮; Fiery Death=炽灭; Fire Mastery=火焰专精; Fire Spell on Hit=击中时火焰法术; Fist of War I/III=战争铁拳 I/III; Focused Curse=聚焦诅咒; Forge Hammer=锻造之锤; Furious Slam=狂怒猛击; Fury of the Mountain=山岳之怒; Garukhan's Resolve=格鲁坎的决心; Heightened Curse=强效诅咒; Helbrym's Hide=赫尔布林的隐瞒; Herald of Ash=灰烬之捷; Inexorable Critical II=命定绝杀 II; Infernal Cry=炽焰战吼; Jagged Ground I=崎岖之地 I; Living Bomb=活动炸弹; Magnified Area II=范围扩大 II; Malice=怨毒; Manifest Weapon=显化武器; Maul=重殴; Molten Crash=熔岩冲击; Momentum=动量; Overabundance I/II=冗余 I/II; Prolonged Duration I/II=持续时间延长 I/II; Punch=拳击; Rage I/III=狂怒 I/III; Rageforged I/II=怒火锤炼 I/II; Raging Cry=愤怒战吼; Rampage=横冲直撞; Rapid Attacks I/II/III=快速攻击 I/II/III; Savage Fury=凶蛮怒火; Scavenged Plating=装甲回收; Shockwave Totem=震波图腾; Spell Cascade=多重范围施法; Temper Weapon=淬炼武器; Tireless=冷酷; Urgent Totems I/III=紧急图腾 I/III; Volcanic Fissure=火山裂缝; Vorana's Siege=沃拉娜的围城; Walking Calamity=灾厄行者\n\n# Smith of Kitava ascendancy (/cn/ vs /us/Smith_of_Kitava, same order)\nStart 5852 -> Fire Damage 5386 (火焰伤害 +20%) -> Heat of the Forge 22541 锻炉的热浪: 获得技能: 击中时火焰法术\nStart -> Smith's Masterwork 9988 匠人的杰作: 只能使用一件普通胸甲; 每个已配置相连接的核心天赋技能使护甲+200 -> body-armour bonus nodes (each 1 pt):\n Kitavan Imprint 16276 奇塔弗印记: 胸甲使荣耀再生提高 60%\n Kitavan Engraving 60913 奇塔弗铭文: 胸甲使生命上限提高 15%\n Leather Bindings 8525 皮革绑绳: 胸甲使你每秒再生生命上限的 3%\n Flowing Metal 13772 液态金属: 胸甲使 +50% 的护甲同样作用于元素伤害\n Molten Symbol 9997 熔火符印: 胸甲使受到的击中物理伤害的 25% 转化为火焰伤害\n Dedication to Kitava 64962 敬奉奇塔弗: 胸甲使 +100% 的护甲同样作用于混沌伤害\n Tantalum Alloy 钽质合金 (+75% fire res); Spiked Plates 尖刺衬板; Support Straps 支承绑带 (20% str); Tribute to Utula 供奉尤图拉 (30% spirit); Internal Layer 内嵌分层; Heatproofing 绝热防护 (unaffected by damaging ailments)\nOthers: Living Weapon 活体武器 (显化武器), Against the Anvil 迎砧击打 (淬炼武器), Coal Stoker 司炉的炭火, Forged in Flame 烈焰的淬炼\nAscendancy points: total 8; Trials of Sekhemas 1/2/3/4 -> 2/4/6/8 points at area level 22/38/60/80 (poe2db /cn/Ascendancy_class). Elzarah first kill guaranteed Djinn Barya for 3rd.\nORIGINAL DATA POINT COUNT: Act2 2 (ok); Act3 5, Act4+ 5 (>4); Endgame 7 (>6); Uber 9 (>8) -> each 1 over.\n\n# Gem tiers (poe2db /cn/<gem>): tier N => gem level N; char level for gem level: 1:1 2:3 3:6 4:10 5:14 6:18 7:22 8:26 9:31 10:36 11:41 12:46 13:52 14:58 15:64 16:66 17:72 18:78 19:84 20:90; str at lv20 = 157 (single-attr gem) / 86 (dual)\nAncestral Cry 先祖战吼 tier13 (52) warcry, needs 100 glory from igniting enemies (glory = 100% of monster power); consumes all endurance charges, +50% duration each; base duration 8s; step triggers 火山踏步 (Volcanic Step) every 1.2 m; 熔火喷发; req 力量 only; needs any melee weapon or unarmed\nWalking Calamity 灾厄行者 tier13 (52) str/int, needs 魔符 (talisman); gains glory when rage over max\nAncestral Warrior Totem 先祖战士图腾 tier13 (52) needs 1H/2H mace, consumes 3 endurance\nCast on Elemental Ailment 元素异常状态时施放 tier14 (58) int, reserves 100 spirit\nCharge Regulation 能量球调节 tier14 (58) dex/int, 30 spirit\nComet 彗星落 tier11 (41); Rampage 横冲直撞 tier11 (41); Forge Hammer 锻造之锤 tier9 (31) needs mace; Barkskin 树肤术 tier8 30 spirit; Volcanic Fissure 火山裂缝 tier7 (22) needs mace; Ferocious Roar 凶蛮咆哮 tier7 (22) needs talisman; Elemental Weakness 元素要害 tier7; Detonate Dead tier7; Fury of the Mountain 山岳之怒 tier5 (14); Savage Fury 凶蛮怒火 tier4 30 spirit; Scavenged Plating 装甲回收 tier4 30 spirit; Infernal Cry 炽焰战吼 tier3; Living Bomb 活动炸弹 tier3; Shockwave Totem 震波图腾 tier3; Furious Slam 狂怒猛击 tier1; Maul 重殴 (bear basic, needs talisman); Molten Crash 熔岩冲击 (granted by Fury of the King); Fire Spell on Hit 击中时火焰法术 (granted by Heat of the Forge)\n\n# Uniques (poe2db /cn/<slug>)\nFury of the King 君王之怒 = 灰烬树皮魔符 Ashbark Talisman; 需求 等级 72, 94 力量, 67 智慧; 获得技能: 等级 17 熔岩冲击; 易燃强度提高 (50—80)%; 附加 (503—589)-(647—713) 火焰伤害; 攻击速度降低 (15—20)%; +(30—40) 力量; 巨熊形态技能将 80% 的物理伤害转化为火焰伤害; 需要荣耀的技能每 2 秒再生 (2—5) 点荣耀; 当你在场时，敌人受到曝露效果. (PoB copy: LevelReq 78, Molten Crash lvl 18 — corrupted/quality)\nSurge of the Tide 奔涌潮汐 = 蹒跚魔符 Lumbering Talisman; 需求 等级 52, 60 力量, 43 智慧; 物理伤害提高 (250—300)%; 护甲提高 (30—50)%; 攻击速度降低 (10—15)%; +(20—30) 力量; 变形时，你每次使用的第二个猛击技能会获得先祖加持; 变形时，你每次使用的第二个打击技能会获得先祖加持\nShyaba 席亚巴 = 神殿巨锤 Temple Maul; 需求 等级 28, 37 力量, 50 敏捷(+50 敏捷需求 -15 力量需求); 物理伤害提高 (80—120)%; 攻击速度提高 50%; 照亮范围; 必定命中\nChober Chaber 忠诚之锤 = 灌铅大锤 Leaden Greathammer; 需求 等级 33, 60 力量, +100 智慧需求; +(80—100) 魔力; +50 精魂; 所有召唤生物技能等级 +1; ...\nGoregirdle 残血束腰 = 嵌板腰带(?) ; 需求 等级 24; (1—3) 咒符位; +(140—180) 护甲; +(20—30) 力量; 生命每秒再生 (10—20); 以 200% 的护甲防御; 物理伤害上限减免为 50%\nThe Brass Dome 巨铜之顶 = 冠军胸甲; 需求 等级 58, 92 力量; 护甲提高 (500—600)%; (-5—-1)% 元素抗性上限; +(200—300) 晕眩阈值; 不会受到暴击所造成的额外暴击伤害\nNgamahu's Chosen 努葛玛呼的亲选 = 红玉咒符 Ruby Charm; 需求 等级 5; 火焰抗性 +25%; 当你受到击中火焰伤害时使用; 使用时获得达到上限的怒火\nFor Utopia 为了乌托邦 = 磐石咒符 Stone Charm; 需求 等级 8; 当你被晕眩时使用; 效果期间以 200% 的护甲防御\nUndying Hate 不朽之恨 = 永恒珠宝 Timeless Jewel; 需求 等级 20; 范围 极大; 赞颂以阿曼娜姆之名亵渎的 N 个灵魂; 可被渎灵 4 次\nHeart of the Well 泉井之心 = 宝钻 Diamond; 需求 等级 20; custom desecrated mods\nHeadhunter 猎首 (重革腰带) req 50; Mageblood 法师之血 (万用腰带) req 55; Defiance of Destiny 命运之抗争 (翠玉项链) req 56; Trampletoe 踏趾靴 (镶边胫甲) req 27; The Hollow Mask 空洞面罩 req 5; Lavianga's Spirits 拉维安加之灵 req 49\n\n# Passive nodes EN -> CN : effect (poe2db /cn/Notable, /cn/Keystone; notable lines include 液化情感 recipe)\nAdrenaline Rush 激情冲动 | Ancestral Alacrity 先祖的敏锐: 图腾放置速度 +30%, 近期召唤图腾攻施速 +8% | Avatar of Fire 火之化身[K]: 75% 的伤害转化为火焰伤害; 除火焰伤害外不造成其他伤害 | Behemoth 巨兽: 生命 +3%, 攻击 AoE +8%, 猛击 5% 额外余震 | Blazing Arms 怒火武装: 火焰伤害 +16%, 易燃强度 +30%, 攻击伤害 +16% | Blood Magic 祭血术[K]: 你不具有魔力; 技能的魔力消耗转化为生命消耗 | Blood of the Wolf 巨狼之血: 变形时生命偷取总量 +15%, 生命再生速度 +15%, 冰抗上限 +1% | Brutal 凶残: 晕眩积蓄 +10%, 近战伤害 +16%, +10 力量 | Burning Nature 性如烈火: 火焰伤害 +25%, 点燃持续 +15% | Burning Strikes 燃烧打击: 获得额外火焰伤害 = 物理伤害 12% | Cirel of Tarth's Light 塔斯之光的西雷尔 | Craving Slaughter 杀戮之渴: 过去 20 秒内每使用一次需要荣耀的技能，怒火上限 +15 | Crushing Verdict 倾力裁决: 攻速 -5%, 晕眩积蓄 +30%, 攻击伤害 +50% | Deadly Flourish 致命剑花 | Devastation 摧枯拉朽 | Endurance 耐力: 耐力球上限 +2 | Flare 闪焰(憎恶, 憎恶, 绝望): 近期每消耗过一个耐力球，获得等同于 2% 伤害的额外火焰伤害 | Fulmination 轰鸣烈焰(痛苦, 痛苦, 贪婪): 易燃强度 +80%, 对点燃敌人击中伤害 +40% | Guts 刚胆(痛苦, 愤怒, 愤怒): 每消耗一个耐力球回复 3% 生命; 耐力球上限 +1 | Guttural Roar 刺耳呐喊: 战吼速度 +25%, 疲惫, 战吼范围 +25% | Hide of the Bear 巨熊之皮: 变形时护甲 +40%, 火抗上限 +1%, 晕眩阈值 +25% | Immolation 焚化: 点燃强度 +25%, +10 力量 | Impact Area 震荡中心 | Impact Force 冲击之力 | Invigorating Grandeur 欢欣威严(内疚, 恐惧, 恐惧): 每消耗一点荣耀，回复 1% 的生命上限 | Irreparable 无可修复: 护甲破损持续时间 +100% | Lasting Trauma 持久创伤 | Light on your Feet 轻盈步伐: 移速 +3%, 免疫缓速/瘫痪 | Lord of the Wilds 荒野之主[K]: 持魔符时，你可以装备一把非传奇权杖; 精魂总降 50%; 非召唤生物技能的保留效能总降 50% | Melting Flames 熔化烈焰 | Molten Being 熔岩化身: 5% 额外火焰, 承受物理 5% 视为火焰 | Molten Carapace 熔岩甲壳: 被点燃时护甲 +50%、火抗上限 +2%、火焰伤害 +50% | Molten Claw 熔岩利爪: 变形时额外 8% 火焰伤害 | Momentum 动量: 无视护甲带来的移速降低 | One With Flame 火焰一体: 你受到的点燃效果降低 50% | Overwhelming Strike 压制打击 | Piercing Claw 洞穿利爪: 变形时穿透 15% 元素抗 | Pile On 一起上吧: 护甲完全破损效果 +30% | Primal Growth 原始生长 | Primal Hunger 原始饥渴[K]: 怒火上限总增 100%; 近期每消耗 4 点怒火，则每秒再生 1 点怒火; 无怒火效果 | Primal Rage 原始怒火 | Protraction 延继: 技能效果持续时间 +20% | Punctured Lung 肺部穿刺 | Relentless 冷酷无情: 护甲 +15%, 生命每秒再生 0.5%, +10 力量 | Resolute Technique 坚毅之心[K]: 命中值翻倍; 无法造成暴击 | Reverberating Impact 回荡冲击 | Roaring Cries 咆哮战吼: 战吼至少有 10 点威力值 | Self Immolation 自我献祭(痛苦, 绝望, 恐惧): 你造成的点燃会被反射回自身; 你受到的点燃效果降低 40% | Sharpened Claw 锐利之爪 | Sigil of Fire 火焰法印 | Skullcrusher 迎头痛击 | Smash 碾碎 | Spirit of the Wolf 头狼之灵 | Sturdy Metal 刚毅金属: 装备身体护甲的护甲提高 80% | Sundering 断离 | Swift Claw 迅捷之爪 | Tempered Defences 钢化防御: 护甲 +25%, +15% 护甲作用于元素 | The Molten One's Gift 熔岩者的馈赠: 火抗 +10%, 完全破损效果 +15%, 造成完全破损时还提高其承受的火焰伤害 | Tides of Change 激变浪潮(偏执, 痛苦, 恐惧): 技能效果持续时间 +25% | Unimpeded 畅通无阻 | Vaal Pact 瓦尔契约[K]: 生命偷取量总增 50%... 除偷取之外无法回复生命 | Vengeful Fury 复仇之怒 | Vocal Empowerment 言出力随: 战吼额外被强化 1 次攻击 | Watchtowers 守望之塔 | Zealot's Oath 狂热者誓言[K]: 再生的溢出生命回复会作用于能量护盾; 能量护盾无法充能\n\n# Lineage supports (poe2db /cn/)\nHelbrym's Hide 赫尔布林的隐瞒: 血统, 变形; 需求 等级 65; DropLevel 52; Dropped by Global; +5 力量; 消耗加成 130%; 被辅助技能使你变形时，获得 2 秒的赫尔布林的沉着\nVorana's Siege 沃拉娜的围城: 血统, 效果区域; 需求 等级 65; DropLevel 52; Dropped by 梅德维德，堕落先知; 效果范围 +35%, 对孤立目标击中伤害 +20%\nGarukhan's Resolve 格鲁坎的决心: 血统, 攻击; 需求 等级 65; DropLevel 52; Dropped by 扎米尔，刀锋之主 (Sacred Reservoir anomaly boss); +5 敏捷; 被辅助技能将拥有最大暴击率，但会分叉暴击率; 暴击率上限 50%\n# Titan ascendancy (/cn/Titan): Hulking Form 雄伟英姿: 小型天赋效果提高 50%; Stone Skin 磐石之肤: 装备胸甲的护甲总增 50%; Mysterious Lineage 神秘血统: 生命上限总增 15%\n# Undying Hate Amanamu -> Vaal Pact becomes Sacrifice of Flesh 血肉牺牲: 受到击中的生命损失的 20% 被阻挡，并在 4 秒内逐渐丧失该阻挡值 150% 的生命\n\n# Bases (poe2db /us/ vs /cn/ class list pages; req level / attrs)\nTalismans: Cinderbark 烬皮魔符 (10, 15str 11int; 易燃强度 implicit); Primal 原初魔符 (28, block implicit); Rabid 狂犬魔符 (34, +7-10 rage); Lumbering 蹒跚魔符 (52, 60/43); Ashbark 灰烬树皮魔符 (72, 94str 67int)\n2H maces: Temple Maul 神殿巨锤 (28, 52str); Leaden Greathammer 灌铅大锤 (33, 60str); Pointed Maul 钉头巨锤 (45, 80str); Massive Greathammer 庞然大锤 (77, 163str)\nBody: Iron Cuirass 铁锻胸甲 (11); Ornate Plate 华丽战铠 (70, 121str, implicit 生命每秒再生 1.5-2.5%); Conjurer Mantle 咒者斗篷 (70, 67/67, implicit +(20-30) 精魂); Champion Cuirass 冠军胸甲 (58, 92str; Brass Dome base)\nBoots: Vaal Greaves 瓦尔胫甲 (75, 101str); Sekhema Sandals 丝克玛便鞋 (80, 108int)\nGloves: Vaal Mitts 瓦尔护手 (75, 94str); Runeforged Vaal Mitts 符文瓦尔护手 (75, 94str, 符文结界 28); Sirenscale Gloves 海妖之鳞手套 (80, 101int)\nHelmets: Commander Greathelm 军官巨盔 (45, 64str); Imperial Greathelm 帝国巨盔 (80, 115str); Cryptic Crown 隐秘之冠 (80, 63/63)\nRings: Iron Ring 锻铁戒指; Amethyst Ring 紫晶戒指 (20, chaos res implicit) | Amulets: Stellar Amulet 星辉项链 (25, +5-7 all attr); Bloodstone Amulet 血岩项链 (18) | Belts: Plate Belt 嵌板腰带 (25, +140-180 armour; also Goregirdle base); Heavy Belt 重革腰带 (50); Utility Belt 万用腰带 (55)\nOmen Sceptre 预兆权杖 (16, 精魂 100, 获得技能: 怨毒) | Flasks: Transcendent Life Flask 非凡生命药剂 (50); Ultimate Mana Flask 终极魔力药剂 (60) | Charms: Stone 磐石咒符 (8); Thawing 融冰咒符 (12); Ruby 红玉咒符 (5)\n\n# Runes / soul cores (poe2db /cn/<item>, Metadata/Items/SoulCores/<id> == mobalytics slug)\nsoulcorespecial9 = 瓜铁雷兹的耐力灵核 Guatelitzi's Soul Core of Endurance (req 50): 战斗武器: 获得耐力球时有 50% 的几率额外获得一个耐力球\nrunespecial21 = 默克领主的仲夏符文 Thane Myrk's Rune of Summer (req 50, drop 65): 战斗武器: 攻击点燃目标时附加 23 - 34 基础火焰伤害; 羁绊: +2% 火焰抗性上限\nrunespecial10 = 克林斯昂的守护符文 Craiceann's Rune of Warding (req 50, drop 65): 护甲: 你受到的诅咒效果降低 50%; 羁绊：护甲: 诅咒强度提高 8%\nrunelifegreater = 高级身躯符文 Greater Body Rune (req 30): 护甲: +60 生命上限; 羁绊 护甲: +20 生命 +20 魔力\nruneoftheancients18 = 声望符文 Rune of Renown (req 15): 手套: 荣耀产生速度提高 50%; 羁绊：手套: 战旗技能的光环强度提高 20%\nsoulcoremaxlife = 佳华尼的灵核 Soul Core of Jiquani: 护甲: 生命上限提高 5% (战斗武器: 击败敌人恢复 5% 生命)\nsoulcorelight = 阿兹卡帕的灵核 Soul Core of Azcapa (drop 35): 战斗武器: +15 精魂\nsoulcorespecial1 = 海幽夏的耐热灵核 Hayoxi's Soul Core of Heatproofing (req 50): 头盔: +40% 的护甲同样作用于冰霜伤害\nsoulcorespecial2 = 扎拉迪的绝缘灵核 Zalatl's Soul Core of Insulation (req 50): 鞋子: +40% 的护甲同样作用于闪电伤害\nsoulcorespecial3 = 托钵塔特的抑制灵核 Topotante's Soul Core of Dampening (req 50): 手套: +40% 的护甲同样作用于火焰伤害\nthesisofsacrifice = 奇塔夸雷特的圣典 Citaqualotl's Thesis (req 60, 远古增幅器限 1): 鞋子: 闪避翻滚时，献祭生命上限的 10% 以获得同等防卫\nGuatelitzi's Thesis = ThesisOfBlood 瓜铁雷兹的圣典 (req 60): 鞋子: 奔跑时每秒损失生命上限的 5%, 奔跑时移动速度提高 25%\nrunespecial13 = 法瑞尔的狩猎符文 Farrul's Rune of the Hunt (req 50): 战斗武器: 对稀有或传奇敌人的攻击伤害提高 50%; 羁绊: 所有攻击技能等级 +1\nFarrul's Rune of the Chase = RuneSpecial9 法瑞尔的追逐符文 (req 50): 鞋子: 移动速度提高 5%\nidolpanther = 黑豹雕像 Panther Idol (req 50): 护甲: +10% 的护甲同样作用于混沌伤害\ntalismanfox = 狐狸雕像 Fox Idol: 权杖: 在场范围提高 50%\nrunedexteritylesser = 次级行家符文 Lesser Adept Rune (+6 敏捷); runedexteritygreater = 高级行家符文 Greater Adept Rune (req 30, +12 敏捷); runeintelligenceperfect = 完美坚毅符文 Perfect Resolve Rune (req 50, +15 智慧)\nanointment-duration8 = Tides of Change 激变浪潮 (偏执 + 痛苦 + 恐惧) per author text\n\n# Skill mechanics (poe2db /cn/<gem>)\nFire Spell on Hit: list/ascendancy name 击中时火焰法术; the skill block on its page is labelled 近战击中时火焰法术 (two CN labels on poe2db). 近战攻击击中敌人时敌人每点威力值获得 3 能量（按异常阈值比例）; 被辅助技能没有消耗; 镶嵌的技能伤害提高 (10—200)%; 每 0.1 秒基础施法时间 10 能量上限; 来自 锻炉的热浪\nCast on Elemental Ailment 元素异常状态时施放: tier 14; 冻结 10 能量/威力值, 点燃 1 能量/威力值, 感电 1; 达到上限触发所有镶嵌法术; ImplicitMana 100 (spirit 100)\nMolten Crash 熔岩冲击: 需求 魔符; 变形为燃烧的凶兽，腾跃轰击两次并生成熔岩裂缝; 消耗 10 点怒火落地时产生 1 道额外裂缝; 裂缝产生 2 次分支，持续 8 秒，上限 8 个; 100% 物理转火\nWalking Calamity 灾厄行者: 需求 魔符; 在怒火达到上限时继续获取怒火可积攒荣耀; 需要 50 点荣耀; 每 0.15 秒触发一颗陨星，每 15 颗后一颗大型陨星; 增益持续 10 秒; 增益每秒再生 5 点怒火; 30% 伤害转化为火焰; 脱离巨熊形态中止\nFerocious Roar 凶蛮咆哮: 需求 魔符; 变形为巨熊发出挑衅咆哮; 若将人类形态的战吼技能镶嵌于此技能槽中，则会触发该战吼并扩大伤害及范围 (镶嵌技能效果范围 +50%, 伤害 +30—87%); 消耗一个耐力球可以跳过此技能的冷却时间; cooldown 8 s\nAncestral Cry 先祖战吼: 点燃敌人时生成荣耀(=怪物威力值 100%); 需要 100 点荣耀; 持续 8 秒; 消耗所有耐力球，每个 +50% 持续时间; 每移动 1.2 米触发一次火山脚步 (火山踏步); 先祖加持攻击 100% 物理转火\nCharge Regulation 能量球调节: 有耐力球时护甲/闪避/ES 总增 (15—20)%; 暴击球 暴击几率总增; 狂怒球 技能速度; 每 10 秒消耗每种能量球各一个; 30 spirit\nSavage Fury 凶蛮怒火: 攻击击中获得狂怒（上限 20）; 释放进入兽性狂乱：猛攻伤害总增 (20—29)%、每秒损失 3% 生命、强制保持动物形态; 30 spirit\nJagged Ground I 崎岖之地 I: 辅助猛击; 使用时消耗 1 个耐力球创造崎岖之地 (4 秒); 无法辅助会消耗耐力球的技能\nRageforged I 怒火锤炼 I: 被辅助技能可消耗 10 点怒火，伤害总增 35%\n\n# Str-only bases req 45-70 (for stage-2 substitutes; poe2db /cn/ /us/ Body_Armours, Boots, Gloves)\nBody: 45 Juggernaut Plate 巨灵之铠 (72 str, 355 ar); 50 Chieftain Cuirass 酋长胸甲 (80, 390); 52 Colosseum Plate 决斗之铠 (83, 404); 54 Elegant Plate 优雅战铠 (86, 418); 58 Champion Cuirass 冠军胸甲 (92, 446); 59 Heavy Plate 重型战铠 (94, 453); 62 Stone Cuirass 石制胸甲 (98, 474); 65 Glorious Plate 荣耀战铠 (121, 496); 65 Soldier Cuirass 士兵胸甲 (121, 570); 68 Conqueror Plate 霸王战铠 (121, 496); 70 Ornate Plate 华丽战铠 (121, 496)\nBoots: 45 Plated/Reefsteel Greaves 坚铁胫甲/卷钢胫甲 (60); 52 Monument Greaves 典范胫甲 (69); 54 Elegant Greaves 雅致胫甲 (72); 59 Carved Greaves 雕饰胫甲 (78); 65 Totemic Greaves 图腾胫甲 / Bulwark Greaves 堡垒胫甲 (86, 244); 70 Ornate Greaves 华丽胫甲 (93, 256)\nGloves: 45 Detailed/Plated Mitts 精工护手/坚铁护手 (56); 52 Titan Mitts 泰坦护手 (64); 54 Ancient Mitts 远古护手 (67); 59 Feathered Mitts 羽饰护手 (73); 65 Grand Mitts 堂皇护手 / Knightly Mitts 骑士护手 (80, 162); 70 Ornate Mitts 华丽护手 (87, 171)\nOther: Perfect Jeweller's Orb 完美工匠石 (5 support sockets, drop 65); Perfect Flux 完美溶剂 (upgrade skill on item to lv 20, drop 75); Kaom's Lesson 岗姆的训诫 (30% 全局护甲、闪避和能量护盾)\n# Trade stat CN (shared/stat_cn.json) vs poe2db: all match except 3377888098 trade \"技能效果持续时间延长 #%\" vs poe2db jewel 冗长之 \"技能效果持续时间提高 (5—10)%\"\n",
+ "trade_stat_cn_used": "3299347043=# 生命上限\n124131830=所有法术技能等级 #\n809229260=# 护甲\n4080418644=# 力量\n1062208444=护甲提高 #% (区域)\n2250533757=移动速度提高 #%\n1573130764=攻击附加 # - # 基础火焰伤害\n9187492=所有近战技能等级 #\n1940865751=附加 # - # 物理伤害\n1509134228=物理伤害提高 #%\n3015669065=获得相当于伤害 #% 的额外火焰伤害\n3917489142=物品稀有度提高 #%\n3981240776=# 精魂\n1177404658=全局护甲，闪避与能量护盾提高 #%\n4015621042=能量护盾提高 #%\n2081918629=镶嵌的增幅器物品效果提高 #%\n4052037485=# 能量护盾上限 (区域)\n328541901=# 智慧\n2923486259=混沌抗性 #%\n3321629045=护甲与能量护盾提高 #%\n803737631=# 命中值\n3962278098=火焰伤害提高 #%\n3261801346=# 敏捷\n983749596=生命上限提高 #%\n3484657501=# 护甲 (区域)\n3362812763=#% 的护甲同样作用于元素伤害\n315791320=光环技能的强度提高 #%\n1050105434=# 魔力上限\n3984865854=该装备精魂提高 #%\n101878827=在场范围提高 #%\n3377888098=技能效果持续时间延长 #%\n2866361420=护甲提高 #%\n2653955271=伤害穿透 #% 火焰抗性\n587431675=暴击率提高 #%\n280731498=效果区域提高 #%\n3556824919=暴击伤害加成提高 #%\n2482852589=能量护盾上限提高 #%\n44972811=生命再生率提高 #%\n2843214518=攻击伤害提高 #%\n",
+ "poe2db_mod_tiers": "# poe2db mod tiers (/us/ and /cn/ class mod pages, ModsView normal[], index-aligned, famOk=true) lv = item level req; P prefix / S suffix\n## Two_Hand_Maces & Talismans (same tiers for adds phys / %phys / melee / attack speed)\nAdds phys: 1 闪烁的 Glinting; 8 磨光的 Burnished; 16 抛光的 Polished; 33 砥砺的 Honed (11-17)-(20-30); 46 熠熠的 Gleaming (14-21)-(25-37); 54 韧炼的 Annealed (19-29)-(33-49); 60 锋利的 Razor-sharp (23-35)-(39-59); 65 锻炼的 Tempered (29-44)-(50-75); 75 迸出的 Flaring (37-55)-(63-94)  [text: 附加 # - # 物理伤害]\n%phys: 1 重量的 Heavy 40-49; 8 锯齿的 Serrated 50-64; 16 邪恶的 Wicked 65-84; 33 狠毒的 Vicious 85-109; 46 嗜血的 Bloodthirsty 110-134; 60 残酷的 Cruel 135-154; 75 强横的 Tyrannical 155-169; 82 无情的 Merciless 170-179 [物理伤害提高 #%]\n+melee: 18 决斗之 of Dueling +2; 36 纷争之 of Conflict +3; 55 激战之 of Battle +4; 81 征战之 of War +5 [所有近战技能等级 +#]\nattack speed: 1 技巧之 5-7; 11 轻松之 8-10; 22 成熟之 11-13; 30 声望之 14-16; 37 喝采之 17-19; 45 名声之 20-22; 60 恶名之 23-25; 77 庆祝之 26-28 [攻击速度提高 #%]\nTalisman adds fire: 1 加热的 Heated; 8 闷烧的 Smouldering (6-9)-(10-16); 16 冒烟的 Smoking (11-17)-(19-28); 33 燃烧的 Burning (19-27)-(30-42); 46 烈火的 Flaming (30-37)-(45-56); 54 酷热的 Scorching; 60 焚烧的 Incinerating; 65 爆破的 Blasting; 75 火化的 Cremating; 81 焦化的 Carbonising [附加 # - # 火焰伤害]\n## Rings (also resist tiers shared across armour/jewellery)\nDex: 1 猫鼬之 ... 55 花豹之 25-27; 66 美洲豹之 28-30; 74 幻影之 of the Phantom 31-33\nFire res: 1 幼龙之; 12 火蜥蜴之; 24 火龙之 16-20; 36 窑炉之 Kiln 21-25; 48 炉火之 Furnace 26-30; 60 火山之 Volcano 31-35; 71 岩浆之 Magma 36-40; 82 提耶须之 41-45\nCold res: 1 海豹之; 14 企鹅之; 26 独角鲸之 16-20; 38 雪人之 Yeti 21-25; 50 海象之 Walrus 26-30; 60 北极熊之 Polar Bear 31-35; 71 寒冰之 Ice 36-40; 82 哈斯特之 41-45\nLightning res: 1 云朵之; 13 冰雹之; 25 暴风之 16-20; 37 积雨云之 Thunderhead 21-25; 49 暴风雨之 Tempest 26-30; 60 台风之 Maelstrom 31-35; 71 电之 Lightning 36-40; 82 艾菲吉之 41-45\nAll res (ring): 12 水晶之 3-5; 26 棱镜之 6-8; 40 万花筒之 9-11; 54 多彩之 12-14; 68 彩虹之 15-16\nChaos res: 16 失落之 4-7; 30 放逐之 8-11; 44 驱逐之 12-15; 56 出境之 16-19; 68 流亡之 20-23; 81 巴曼斯之 of Bameth 24-27\nLife (ring): 1 健壮的 Hale 10-19; 6 健康的 20-29; 16 红润的 30-39; 24 强健的 Stalwart 40-59; 33 粗壮的 Stout 60-69; 38 健硕的 Robust 70-84; 46 丰腴的 Rotund 85-99; 54 阳刚的 Virile 100-119\nAdds fire to attacks (ring): 1 加热的; 8 闷烧的 (3-5)-(6-9); 16 冒烟的 (6-8)-(10-13); 33 燃烧的 (9-11)-(14-17); 46 烈火的 Flaming (12-13)-(18-20); 54 酷热的 Scorching (11-16)-(21-26); 60 焚烧的 (13-19)-(27-32); 65 爆破的 (20-24)-(33-36); 75 火化的 (25-29)-(37-45) [攻击附加 # - # 基础火焰伤害]\nRing str (also amulet/belt): 1 野蛮之; 11 摔角手之; 22 熊之 13-16; 33 狮子之 17-20; 44 大猩猩之 21-24; 55 巨人之 25-27; 66 海兽之 28-30; 74 泰坦之 31-33; belt 81 众神之 34-36 [+# 力量]\nRing int: 1 瞳孔之; 11 学徒之; 22 奇才之; 33 预言之; 44 哲学家之; 55 圣人之; 66 大学者之; 74 神技之 31-33 [+# 智慧]\nRing accuracy: 36 如一的 124-167; 48 稳健的 168-236; 58 狩猎者的 237-346; 67 游侠的 347-450 [+# 命中值]\nRarity: S 3 掠夺之 6-10; 24 扫荡之 11-14; 40 考古之 15-18 | P 10 喜鹊的 8-11; 29 收藏家的 12-15; 47 囤宝者的 16-19 [物品稀有度提高 #%]\nRing fire dmg%: 8 焚灭的; 16 酷热的 8-12; 33 酷暑的 13-17; 46 炙烤的 18-22; 65 火山的 23-26; 75 熔岩的 27-30 [火焰伤害提高 #%]  (!! 酷热的 also = adds-fire-to-attacks 54 tier name)\n## Amulets\nLife: ... 46 丰腴的 85-99; 54 阳刚的 100-119; 60 健将的 Athlete's 120-149 [+# 生命上限]; %life: 33 希望的 3-4; 60 乐观的 5-6; 75 自信的 7-8 [生命上限提高 #%]\n+spell: 10 法师之 +1; 41 附魔师之 +2; 75 魔巫之 +3 [所有法术技能等级 +#]; +melee: 5 战意之 +1; 41 决斗之 +2; 75 激战之 +3 [所有近战技能等级 +#]\nall attr: 1 云端之 ... 55 银河之 17-18; 66 宇宙之 19-20; 75 多维之 21-22; 82 无限之 23-24\nSpirit: 16 女士的 30-33; 25 女男爵的 34-37; 33 女子爵的 38-42; 46 女侯爵的 43-46; 54 女伯爵的 47-50 [+# 精魂]  (Uber amulet +54 spirit = IncreasedSpirit7 — above normal list, see check)\nChaos res (amu/belt/ring): 16 失落之 ... 68 流亡之 20-23; 81 巴曼斯之 24-27 [混沌抗性 +#%]\n## Belts\nLife: ... 46 丰腴的 85-99; 54 阳刚的 100-119; 60 健将的 120-149; 65 丰饶的 150-174\n+Armour: 25 强化的 69-107; 33 电镀的 108-140; 46 装甲化的 141-186; 54 围绕的 187-225; 65 包围的 226-267; 70 柔缓的 268-311; 80 不动的 312-351 [+# 护甲]\n## Boots_str / Gloves_str / Helmets_str (armour-based; same life tiers as amulet: 54 阳刚的 100-119; 60 健将的 120-149)\nLocal +Armour (boots/gloves): 25 强化的 78-98; 33 电镀的 99-127; 46 装甲化的 128-159; 54 围绕的 160-190 [+# 护甲]\nLocal %Armour: 2 增强的 15-26; 16 分层的 27-42; 35 甲壳的 43-55; 46 支持的 56-67; 54 加厚的 68-79; 60 围城的 80-91; 65 坚不可摧的 92-100 [护甲提高 #%]\nHybrid armour%+life (gloves): 8 牡蛎的; 16 龙虾的; 33 海胆的; 46 菊石的 27-32%+26-32; 60 章鱼的 33-38%+33-41; 78 鳄鱼的 39-42%+42-49\nMS (boots str & int): 1 跑步的 10%; 16 短跑的 15%; 33 种马的 20%; 46 瞪羚的 25%; 65 猎豹的 30%; 82 地狱的 35% [移动速度提高 #%]\nGloves adds fire to attacks: same as ring (46 烈火的, 54 酷热的, 60 焚烧的, 65 爆破的, 75 火化的); Gloves +melee: 5 战意之 +1; 41 决斗之 +2\nArmour applies to ele (gloves): 1 覆盖之 14-19; 16 包裹之 20-25; 36 衬里之 26-31; 48 填充之 32-37; 66 毛皮之 38-43 [+#% 的护甲同样作用于元素伤害]\n## Boots_int / Gloves_int (ES)\n%ES: 2 保护的; 16 意志坚强的; 33 坚决的; 46 无惧的 56-67; 54 无畏的 68-79; 60 无法征服的 80-91; 65 坚不可摧的 92-100 [能量护盾提高 #%]\n+ES (gloves): 46 脉冲的 42-47; 54 炽烈的 48-60 [+# 能量护盾上限]\nHybrid ES%+life (gloves int): 46 主教的; 60 总督的; 78 教宗的\n## Helmets\nHelmets_str %Armour same tiers as boots (65 坚不可摧的 92-100); armour→ele suffix max 66 毛皮之 38-43; desecrated 65 古加尔之: +(23-31)% 护甲作用于混沌\nHelmets_str_int: life up to 65 丰饶的 150-174; 护甲与能量护盾提高: 2 嵌入的; 16 扎根的; 33 灌输的 43-55; 46 灌注的 56-67; 54 重灌的 68-79; 60 窜改的 80-91; 65 鼓舞的 92-100; hybrid AR/ES%+life: 46 肠卜师的; 60 幻视者的 33-38%+33-41; 78 先知的 39-42%+42-49\nAmulet desecrated 65 阿曼娜姆的: 全局护甲，闪避与能量护盾提高 (15-25)%\n## Essences (poe2db /cn/Essence)\n完美烈焰精华: 双手近战武器或战弩: 获得相当于伤害 (25—33)% 的额外火焰伤害 (1H: 15-20%)\n完美强化精华: 项链: 全局护甲，闪避与能量护盾提高 (20—30)%\n身躯精华: 腰带/护甲/头盔/盾: +(85—99) 生命; 项链/鞋/手套/戒指: +(70—84) 生命\n## ORIGINAL VALUES EXCEEDING poe2db NORMAL TIERS (flag in 数据核验)\n- Endgame mace \"Gain 43% of Damage as Extra Fire\" (slug SpellDamageGainedAsFireTwoHand4): not on 2H mace normal pool; perfect essence max 33% (PoB mace has 31%)\n- Uber/Titan amulet \"+54 to Spirit\" (IncreasedSpirit7): normal max 女伯爵的 47-50\n- Endgame boots Vaal Greaves \"101% increased Armour\" (…Percent8_): normal max 坚不可摧的 92-100\n- Uber boots Sekhema \"101% increased Energy Shield\" (LocalIncreasedEnergyShieldPercent8): max 92-100\n- Titan boots \"+175 to maximum Life\" (IncreasedLife11): boots max 健将的 120-149\n- Titan helm/gloves \"+44% of Armour also applies to Elemental\" (ArmourAppliesToElementalDamage6): max 毛皮之 38-43\n- Uber helmet Cryptic Crown \"+192 to maximum Life\" (IncreasedLife10) + hybrid LocalIncreasedArmourAndEnergyShieldAndLife6 — helmet str_int life max 丰饶的 150-174; 192 may be sum of life + hybrid life (先知的 42-49) -> plausible combined\n- Uber gloves Sirenscale \"+120 life, +48 ES, 92% ES\" fine (54 炽烈的 48-60; 65 坚不可摧的 92-100)\n## Jewels (poe2db /cn/Ruby, /cn/Sapphire)  Ruby = 红玉 (jewel-jewelstr); Sapphire = 蓝玉 (jewel-jewelint)\nRuby: S 冗长之 of Lengthening: 技能效果持续时间提高 (5—10)%; P 焚灭的 Searing: 伤害穿透 (5—10)% 火焰抗性; P 装甲的 Armoured: 护甲提高 (10—20)%; P 爆破的 Blasting: 效果区域 (4—6)%; P 烈火的 Flaming: 火焰伤害 (5—15)%; P 战意的: 攻击伤害 (5—15)%\nSapphire: S 冗长之 duration (5—10)%; P 闪光的 Shimmering: 能量护盾上限提高 (10—20)%; P 爆破的 AoE; S 歼灭之 暴击率 (5—15)%; S 强力之 暴击伤害加成 (10—20)%\nDesecrated (both) 暗光 Lightless: 火焰伤害提高 (4—8)% + 伤害穿透 (4—7)% 火焰抗性 (= AbyssModJewelPrefixFireDamageAndPen); 能量护盾上限提高 (5—10)% + 攻击伤害提高 (4—8)% (= AbyssModJewelPrefixAttackDamageEnergyShield)\n"
+}

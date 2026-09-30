@@ -1,0 +1,2046 @@
+{
+ "_note": "紧凑摘录（compact extract），不是整页 __PRELOADED_STATE__。2026-09-30 在浏览器内从 Mobalytics 页面状态与 poe2db.tw 读取后分段写入 scratchpad，再用本脚本合并。装备词缀只保留英文描述、词缀 slug 与交易查询里的统计 ID/最小值；天赋只保留点数、核心大点与升华节点。",
+ "source": {
+  "url": "https://mobalytics.gg/poe-2/builds/warrior-league-start-lundburgerr",
+  "title": "Lundburgerr's 0.5 Shield Wall Smith Leaguestarter",
+  "author": "lundburgerr",
+  "version": 38,
+  "created": "2026-05-24",
+  "firstPublished": "2026-05-27",
+  "updated": "2026-09-22T09:44:26Z",
+  "favorites": 881,
+  "comments": 27,
+  "tags": [
+   "Warrior",
+   "Smith of Kitava",
+   "Starter",
+   "Speed Leveling",
+   "0.5.5 FR",
+   "Mirror Tier",
+   "Beginner",
+   "Verified"
+  ],
+  "pobCode": null,
+  "lootFilter": null,
+  "questRewards": "28 quests listed, all rewards null (author did not fill)",
+  "atlasTree": "null in all variants"
+ },
+ "author_text_md": "# Lundburgerr's 0.5 Shield Wall Smith Leaguestarter — author text (extracted 2026-09-30)\nmeta: slug warrior-league-start-lundburgerr; id aa65f704-db60-4488-ac72-c9725e9f96e8; version 38; created 2026-05-24; firstPublished 2026-05-27; updated 2026-09-22T09:44:26Z; favorites 881; comments 27; pobCode none; lootFilter null\ntags: Warrior / Smith of Kitava / Starter / Speed Leveling / 0.5.5 FR / Mirror Tier / Beginner / Verified\nvariants (order, id): default-variant \"Act 1 - Rolling slam/Boneshatter\"; 3 \"Act 2 Before lvl 22 - Rolling slam/Boneshatter\"; 2 \"Act 2 - Shield Wall Swap\"; 4 \"Act 3\"; 5 \"Act 4\"; 6 \"Interludes\"; 7 \"Maps\"; 8 \"Giga Endgame\"\nRich text widgets \"How it Works\" and \"Changelog\" are empty.\n\n## Build Overview\nContrary to popular belief, Shield Wall didn't actually get nerfed that much this league and is still going to be one of the strongest league starts, and arguably the best league start because of how extremely simple it is to gear in maps. In 0.2, 0.3 and 0.4, there have been a Smith of Kitava at the very top of the XP ladder the first few days (In 0.2 it was me :)).\nThe base damage nerfed on shield wall and fortifying cry was simply to compensate for the base armour buff on Shields. We will however do around 30% less damage at worst case against single target in endgame due to the Fortifying Cry changes which prevents it from shotgunning.\nBut Shield Wall was already exceptionally strong in 0.4 and the strongest build during the first weekend of the league. It was obliterating bosses already so a 30% nerf for single target might be warranted.\n**PASSIVE TREE CHANGES IN 0.5**\nFor the be most part, just use the same tree as listed here for the 0.4 tree. If you want to try something new, grab vaal pact and the leech nodes that gives attack speed while leeching, these could be very strong. Note that instant life flasks should still work with Vaal pact (not tested), so an Olroth flask is very good if you go vaal pact.\n**REGEX:**\nto.att|speed|melee|leech|tower|Leech\n\n## How it Plays\n**When clearing:** Drop Shield Wall and either use a warcry or Shield Charge. Once you get to endgame, the more you can use Shield Charge, the faster your map clear is.\n**Against bosses**:\n1. Freezing mark (can be skipped after you get armour break from other sources)\n2. Place Totem\n3. Infernal Cry + Fortifying Cry (When you get it)\n4. Spam Shield Wall\n5. Sunder after armour is broken (When you get Sunder)\n6. Repeat\n\n## Strengths\n- Easy to cap resistances in campaign and end game due to Smith of Kitava Ascendency\n- Very tanky in campaign after you ascend the first time\n- Screen wide clear with the endgame setup\n- Can immediately start stacking rarity on gear when you reach maps because of how easy it is to max your resistances\n- Can do all content and bosses very early on league start\n## Weaknesses\n- Main skills not accessible until lvl 22\n- Damage and clear does not scale as hard when you get giga juiced gear compared to other builds. Might want to consider a second build to swap into once you farmed initial currency. Typically after one week depending on how much you play\n\n=== VARIANT default-variant | Act 1 - Rolling slam/Boneshatter\n[SkillGems] Keep your ⟦Rolling Slam⟧ at lvl 1! If you're forced to upgrade your ⟦Rolling Slam⟧, make sure to keep the lvl 1 copy and don't upgrade it. If you need more stun buildup to prime enemies for stun for ⟦Boneshatter⟧, you can always cut ⟦Brink I⟧ in act 1 in next league.\nSupport gem priority\n1. ⟦Impact Shockwave⟧ (⟦Boneshatter⟧)\n2. ⟦Concentrated Area⟧ (⟦Mace Strike⟧)\n3. ⟦Fire Attunement⟧ (⟦Mace Strike⟧)\n4. ⟦Magnified Area I⟧ (⟦Boneshatter⟧)\n5. ⟦Tireless⟧ (⟦Infernal Cry⟧)\n6. ⟦Window of Opportunity I⟧ (⟦Perfect Strike⟧)\n7. ⟦Magnified Area I⟧ (⟦Herald of Ash⟧)\n8. ⟦Rapid Attacks I⟧ (⟦Rolling Slam⟧)\nOptional. ⟦Brink I⟧ (⟦Rolling Slam⟧)\nIf you have too high damage or stun build up, ⟦Rolling Slam⟧ might stun the enemies immediately which you don't want. You just want to have enough stun buildup so that you can proc the shockwave on ⟦Boneshatter⟧. Enemies will have a white glowing orb on them when they have just the right amount of Stun buildup.\nWhen you get ⟦Perfect Strike⟧ move ⟦Concentrated Area⟧ from ⟦Mace Strike⟧ to ⟦Perfect Strike⟧. If you have issues timing and hitting with your ⟦Perfect Strike⟧ on bosses, you can slot in either ⟦Fire Attunement⟧ or ⟦Rapid Attacks I⟧ (Or both) instead of ⟦Window of Opportunity I⟧ or ⟦Concentrated Area⟧.\n\n=== VARIANT 3 | Act 2 Before lvl 22 - Rolling slam/Boneshatter\n[SkillGems] **T2 support gems should be cut in this order:**\n1. ⟦Raging Cry⟧ (⟦Infernal Cry⟧)\n2. ⟦Urgent Totems I⟧ (⟦Shockwave Totem⟧)\n3. ⟦Mark for Death⟧ (⟦Freezing Mark⟧)\n4. ⟦Mark of Siphoning⟧ (⟦Freezing Mark⟧)\n5. ⟦Raging Cry⟧ (⟦Fortifying Cry⟧, used in Act 3)\nOptional. ⟦Hardy Totems I⟧ (⟦Shockwave Totem⟧)\n**Optional:** If you are running a talisman on your swap, you may cut ⟦Ferocious Roar⟧ if you want. After you get ⟦Fortifying Cry⟧ you can slot ⟦Infernal Cry⟧ into ⟦Ferocious Roar⟧. You can also use ⟦Pounce⟧ instead of ⟦Freezing Mark⟧.\n⟦Shockwave Totem⟧ will not be used until you get ⟦Shield Wall⟧, but it is a good idea to use a lvl 6 Skill gem to cut ⟦Shockwave Totem⟧. You get one guaranteed from the boss in Mawdun Mines.\n\n=== VARIANT 2 | Act 2 - Shield Wall Swap\n[Equipment] (EQ_NOTE — identical text repeated in Act 3, Act 4, Interludes)\nOn one handed maces you are looking for + to melee skills, it's normal to not get one because they are little bit rare.\nOn Gloves you are looking for flat damage, attack speed, +melee levels and leech. Typically you will only have gloves with 1 or 2 good mods.\nOn rings you want resistances, flat damage and leech.\nMake sure you pick up any normal rarity body armour (ideally strength absed of course) as soon as you enter Act 2. We wanna make sure we have this after we ascend.\nMake sure to use armourer scraps on your shield, you get most of them back if you salvage the shield when you find an upgrade. Every 5% quality will give you one armourer scrap from salvage.\n[SkillGems] There is probably a guaranteed lesser jewelers orb from the league mechanic in Buried Shrines, use that on Shield Wall.\n**T2 support gems should be cut in this order:** (same list 1-5 + optional Hardy Totems I as Act 2 Before lvl 22)\n**Optional:** If you are running a talisman on your swap, you may cut ⟦Ferocious Roar⟧ if you want. After you get ⟦Fortifying Cry⟧ you can slot ⟦Infernal Cry⟧ into ⟦Ferocious Roar⟧\n⟦Leap Slam⟧ is only used as a movement ability, you don't really need it.\n**IMPORTANT:** (WARCRY_NOTE — repeated in every later variant) Make sure that that the warcries are on weapon set 2 (assuming you allocated the warcry nodes on weapon set 2) and everything else is on weapon set 1.\n[PassiveTree] The three strongest ascendency noteables early on is:\n* Molten Symbol (25% of fire damage taken as physical)\n* Flowing Metal (50% of Armour applies to elemental damage)\n* Tantalum Alloy (75% fire resistance)\nYou can basically grab any combination of 2 of these, you will be very tanky.\n\n=== VARIANT 4 | Act 3\n[Equipment] EQ_NOTE\n[SkillGems] Guaranteed lesser jewelers orb in Sandswept marsh, At the end of the zone there is a small area with 2 rare monsters and a chest. Kill the rares and loot the chest for the lesser jewelers orb, save it for Fortifying cry.\nYou will first cut ⟦Fortifying Cry⟧ then ⟦Sunder⟧ from your first two lvl 9+ skill gems.\nYour skill slots will be full, so you can slot out ⟦Leap Slam⟧ temporarily until we can remove ⟦Freezing Mark⟧ in Act 4.\n**T3 support gems should be cut in this order:**\nIf you don't already have extra of these supports, cut them for ⟦Fortifying Cry⟧: 1. ⟦Raging Cry⟧ 2. ⟦Fire Attunement⟧\nThen cut these:\n1. ⟦Close Combat I⟧ (For ⟦Fortifying Cry⟧)\n2. ⟦Magnified Area II⟧ (⟦Shield Wall⟧)\n3. ⟦Magnified Area II⟧ (⟦Herald of Ash⟧)\n4. ⟦Prolonged Duration II⟧ (⟦Sunder⟧)\n5. ⟦Rapid Attacks I⟧ (⟦Sunder⟧)\n6. ⟦Font of Mana⟧ (⟦Shockwave Totem⟧), ⟦Prolonged Duration II⟧ if you already have mana leech on gear.\nIf you drop extra lesser jewelers orbs, put it on ⟦Shockwave Totem⟧ and then ⟦Infernal Cry⟧ first.\n**Spirit gems:** After killing the boss in Azak you will get 30 extra spirit. You can either cut ⟦Attrition⟧ or ⟦War Banner⟧, your choice. War Banner is typically more damage on bosses but it means you have to actively put down a banner.\nWARCRY_NOTE\n[PassiveTree] Ascending in Act 3 is optional, it will significantly improve your defenses. But Shield wall warrior is strong enough to skip this and just get the second and third ascend at the same time when doing a lvl 60 Barya. You are guaranteed to drop a lvl 60 Barya in Interlude 2 from the boss in Sel Khari Sanctuary.\n\n=== VARIANT 5 | Act 4\n[Equipment] EQ_NOTE\n[SkillGems] Guaranteed Greater jewelers orb from the league mechanic in Ngakanu, use this on ⟦Shield Wall⟧\nT4 support gems should be cut in this order:\n1. ⟦Enraged Warcry I⟧ (⟦Fortifying Cry⟧, remove ⟦Close Combat I⟧)\n2. ⟦Armour Break III⟧ (⟦Shield Wall⟧, after you get Greater jewelers orb, now you don't need ⟦Freezing Mark⟧ anymore)\n3. ⟦Impale⟧ (⟦Shield Wall⟧, instead of ⟦Fire Attunement⟧ or whatever you have there)\n3. ⟦Rapid Attacks II⟧ (⟦Shield Wall⟧)\n4. ⟦Urgent Totems III⟧ (⟦Shockwave Totem⟧)\n5. ⟦Hardy Totems II⟧ (⟦Shockwave Totem⟧)\nOptional: ⟦Rapid Attacks II⟧ (⟦Sunder⟧); ⟦Rapid Attacks II⟧ (⟦Leap Slam⟧); ⟦Cooldown Recovery II⟧ (For ⟦Infernal Cry⟧ if you get an extra lesser jewelers)\nWARCRY_NOTE\n\n=== VARIANT 6 | Interludes\n[Equipment] EQ_NOTE\n[SkillGems] T5 support gems should be cut in this order:\n1. ⟦Enraged Warcry II⟧ (Replace ⟦Enraged Warcry I⟧ in ⟦Fortifying Cry⟧)\n2. ⟦Heavy Swing⟧ (Replace ⟦Fire Attunement⟧ or equivalent on ⟦Fortifying Cry⟧)\n3. ⟦Precision I⟧ (In ⟦Herald of Ash⟧, after you got the extra spirit from Interlude 3)\n4. ⟦Rapid Attacks III⟧ (Replace rapid attacks on ⟦Sunder⟧)\n5. ⟦Prolonged Duration II⟧ (On ⟦Scavenged Plating⟧)\n6. ⟦Rage III⟧ (On ⟦Sunder⟧)\n6. ⟦Rapid Attacks III⟧ (Replace rapid attacks on ⟦Leap Slam⟧)\n7. ⟦Rage III⟧ (On ⟦Leap Slam⟧)\n8. ⟦Reinforced Totems II⟧ (⟦Shockwave Totem⟧, replace ⟦Font of Mana⟧ if you already have mana leech)\n9. ⟦Cannibalism II⟧ (On any spirit gem)\nOptional: Use ⟦Close Combat II⟧ on ⟦Shield Wall⟧ for bosses. You can remove Leap slam if you want and slot in ⟦Scavenged Plating⟧ instead of using ⟦Cannibalism II⟧.\nWARCRY_NOTE\n\n=== VARIANT 7 | Maps\n[Equipment]\nCrafting the mace\n1. Grab any Mace with +2 or more to melee skill levels that has an open suffix.\n2. Toggle Omen of the Liege + Omen of Dextral Necromancy, desecrate the weapon with a jawbone.\n3. Unveil and hope for break armour modifier, use an abyssal echo if you want.\n4. Exalt slam the mace until all modifiers are filled up.\n5. Perfect Essence of Abrasion the Mace to get, gain phys as extra.\nCrafting the Shield\n1. Find a good base with highest tier of flat Armour and ideally with a good suffix, like fire resistance.\n2. Slam Greater Essence of Enhancement\n3. Toggle Omen of Sinistral Necromancy and Desecrate\n4. Unveil inc% armour hopefully\n5. Finish the shield by just slamming exalts\nLeech: You want to make sure you can leech both Life and Mana, you can get this from rings or gloves. You can do without, but you might end up having to press your mana flask contantly when you get some extra levels to melee skills.\nCrafting Gloves/Boots/Rings/Amulet\n1. Find a good magic base with two good modifiers. - For boots you want at least 30% movement speed\n2. Use either greater essence of opulence (if there's no rarity on the gear yet) or Greater essence of insulation.\n[SkillGems] ⟦Ahn's Citadel⟧ + ⟦Kaom's Madness⟧ combo: These two lineage support gems significantly improves our clear when paired together and they are usually pretty cheap to trade for. Remove ⟦Magnified Area II⟧ if you have yet to find a Perfect Jewelers orb.\nOptional: You can use ⟦Brutality III⟧ on ⟦Fortifying Cry⟧ instead of ⟦Heft⟧ if you have very little elemental/chaos damage.\nIf you get extra spirit on your gear you can slot in ⟦Berserk⟧ (and probably remove ⟦Attrition⟧/ ⟦War Banner⟧)\nOptional: Use ⟦Close Combat II⟧ on ⟦Shield Wall⟧ for bosses.\nAtlas rushing: At league start it's probably good to get Atlas points quickly before you invest too much time killing mobs in the maps. You can use ⟦Shield Charge⟧ to traverse maps quickly, it's faster than sprint and safer.\nWARCRY_NOTE\n\n=== VARIANT 8 | Giga Endgame\n[Equipment]\nCrafting the end game mace\nNOTE: You do this craft AFTER you first get Uul-Netols Embrace, otherwise you can't break armour anymore.\n1. Grab any Mace with +4 to melee skill levels and an open prefix\n2. Toggle Omen of the Liege + Omen of Sinistral Necromancy, desecrate the weapon with a jawbone.\n3. Use fracturing Orb (if it's cheap) and hope to hit +4 to melee, if you don't it's fine.\n4. Unveil for increased damage against fully broken armour (I think it's guaranteed)\n5. If you hit the fracturing orb, Exalt slam until you have 5 modifiers. If you missed the fracturing orb or if it's too expensive, exalt slam all modifiers.\n5. Perfect Essence of Abrasion the Mace to get gain phys as extra. Hope to not remove the +melee skills or the desecrate\n6. If you hit the desecrate, you can try to annul a prefix to desecrate again.\nAll other slots: To get the upgrades for the remaining gear, the crafting will be more complicated than before. So unfortunately we will just have to wait and see what new methods arise.\n[SkillGems] ⟦Uul-Netol's Embrace⟧ is usually a very expensive lineage support, but if you get you no longer need armour break on your weapon.\nOptional: You can use ⟦Brutality III⟧ on ⟦Fortifying Cry⟧ instead of ⟦Heft⟧ if you have very little elemental/chaos damage.\nUse ⟦Close Combat II⟧ on ⟦Shield Wall⟧ for bosses.\nAround the time when you reach maps, you can use ⟦Shield Charge⟧ to traverse with instead of sprinting as it is just faster.\nYou can slot in ⟦Berserk⟧ (and probably remove ⟦Attrition⟧/ ⟦War Banner⟧), ideally if you have some jewels that give you extra rage gain.\nMake sure you have ⟦Shield Charge⟧ on weapon set 1 only for that extra attack speed with ⟦Rigwald's Ferocity⟧\nWARCRY_NOTE\n",
+ "variants": [
+  {
+   "id": "default-variant",
+   "title": "Act 1 - Rolling slam/Boneshatter",
+   "eq": {
+    "mainHand": {
+     "i": {
+      "n": "Forge Maul",
+      "s": "weapon-fourtwohandmace3",
+      "c": "two-hand-mace",
+      "d": [
+       "40% increased Physical Damage"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamagePercent1"
+      ],
+      "tq": {
+       "cat": "weapon.twomace",
+       "f": [
+        "e1509134228>=40"
+       ]
+      }
+     }
+    }
+   },
+   "prio": [
+    "mainHand:Forge Maul"
+   ],
+   "req": {
+    "dex": 10,
+    "str": 20,
+    "int": 20
+   },
+   "gems": [
+    {
+     "n": "Boneshatter",
+     "sub": [
+      "Impact Shockwave",
+      "Magnified Area I"
+     ]
+    },
+    {
+     "n": "Mace Strike",
+     "sub": [
+      "Concentrated Area",
+      "Fire Attunement"
+     ]
+    },
+    {
+     "n": "Rolling Slam",
+     "lv": 1,
+     "sub": [
+      "Rapid Attacks I",
+      "Brink I"
+     ]
+    },
+    {
+     "n": "Frost Bomb",
+     "sub": []
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless"
+     ]
+    },
+    {
+     "n": "Perfect Strike",
+     "sub": [
+      "Window of Opportunity I",
+      "Concentrated Area"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area I"
+     ]
+    }
+   ],
+   "pt": {
+    "main": 17,
+    "set1": 0,
+    "set2": 0,
+    "prio": [
+     "Brutal",
+     "Smash"
+    ],
+    "asc": [],
+    "attr": {
+     "str": 1,
+     "dex": 1,
+     "int": 1
+    }
+   }
+  },
+  {
+   "id": "3",
+   "title": "Act 2 Before lvl 22 - Rolling slam/Boneshatter",
+   "eq": {
+    "mainHand": {
+     "i": {
+      "n": "Studded Greatclub",
+      "s": "weapon-fourtwohandmace4",
+      "c": "two-hand-mace",
+      "d": [
+       "50% increased Physical Damage"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamagePercent2"
+      ],
+      "tq": {
+       "cat": "weapon.twomace",
+       "f": [
+        "e1509134228>=50"
+       ]
+      }
+     }
+    }
+   },
+   "prio": [
+    "mainHand:Studded Greatclub"
+   ],
+   "req": {
+    "dex": 10,
+    "str": 25,
+    "int": 15
+   },
+   "gems": [
+    {
+     "n": "Rolling Slam",
+     "sub": [
+      "Brink I",
+      "Rapid Attacks I"
+     ]
+    },
+    {
+     "n": "Boneshatter",
+     "sub": [
+      "Impact Shockwave",
+      "Magnified Area I"
+     ]
+    },
+    {
+     "n": "Frost Bomb",
+     "sub": []
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry"
+     ]
+    },
+    {
+     "n": "Perfect Strike",
+     "sub": [
+      "Window of Opportunity I",
+      "Concentrated Area"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area I"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems I"
+     ]
+    }
+   ],
+   "pt": {
+    "main": 24,
+    "set1": 0,
+    "set2": 0,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Singular Purpose",
+     "Burning Strikes",
+     "Beef"
+    ],
+    "asc": [],
+    "attr": {
+     "str": 1,
+     "dex": 3,
+     "int": 1
+    }
+   }
+  },
+  {
+   "id": "2",
+   "title": "Act 2 - Shield Wall Swap",
+   "eq": {
+    "mainHand": {
+     "i": {
+      "n": "Warpick",
+      "s": "weapon-fouronehandmace5",
+      "c": "one-hand-mace",
+      "d": [
+       "+1 to Level of all Melee Skills"
+      ],
+      "suf": [
+       "GlobalMeleeSkillGemLevelWeapon1"
+      ],
+      "tq": {
+       "cat": "weapon.onemace",
+       "f": [
+        "e9187492>=1"
+       ]
+      }
+     }
+    },
+    "offHand": {
+     "i": {
+      "n": "Effigial Tower Shield",
+      "s": "armour-fourshieldstr5",
+      "c": "shield",
+      "d": [
+       "+28 to Armour"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamageReductionRating2"
+      ],
+      "tq": {
+       "cat": "armour.shield",
+       "f": [
+        "e3484657501>=28"
+       ]
+      }
+     },
+     "r": [
+      "soulcore-runeenhancelesser"
+     ]
+    },
+    "body": {
+     "i": {
+      "n": "Iron Cuirass",
+      "s": "armour-fourbodystr3",
+      "c": "body-armour",
+      "d": []
+     }
+    },
+    "gloves": {
+     "i": {
+      "n": "Riveted Mitts",
+      "s": "armour-fourglovesstr2",
+      "c": "gloves",
+      "d": [
+       "Adds 1 to 4 Lightning damage to Attacks",
+       "+1 to Level of all Melee Skills",
+       "5% increased Attack Speed"
+      ],
+      "pre": [
+       "AddedLightningDamage1"
+      ],
+      "suf": [
+       "GlobalMeleeSkillGemLevel1",
+       "IncreasedAttackSpeed1"
+      ],
+      "tq": {
+       "cat": "armour.gloves",
+       "f": [
+        "e1754445556>=1",
+        "e9187492>=1",
+        "e210067635>=5"
+       ]
+      }
+     }
+    },
+    "leftRing": {
+     "i": {
+      "n": "Ruby Ring",
+      "s": "ring-fourring3",
+      "c": "ring",
+      "d": [
+       "Adds 1 to 10 Lightning damage to Attacks"
+      ],
+      "pre": [
+       "AddedLightningDamage2"
+      ],
+      "tq": {
+       "cat": "accessory.ring",
+       "f": [
+        "e1754445556>=1"
+       ]
+      }
+     }
+    }
+   },
+   "prio": [
+    "offHand:Effigial Tower Shield",
+    "body:Iron Cuirass",
+    "mainHand:Warpick",
+    "leftRing:Ruby Ring",
+    "gloves:Riveted Mitts"
+   ],
+   "req": {
+    "dex": 15,
+    "str": 30,
+    "int": 15
+   },
+   "gems": [
+    {
+     "n": "Shield Wall",
+     "sub": [
+      "Rapid Attacks I",
+      "Magnified Area I",
+      "Fire Attunement"
+     ]
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry"
+     ]
+    },
+    {
+     "n": "Freezing Mark",
+     "sub": [
+      "Mark for Death",
+      "Mark of Siphoning"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems I",
+      "Hardy Totems I"
+     ]
+    },
+    {
+     "n": "Leap Slam",
+     "sub": [
+      "Rapid Attacks I"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area I"
+     ]
+    },
+    {
+     "n": "Shield Charge",
+     "sub": [
+      "Rapid Attacks I"
+     ]
+    }
+   ],
+   "pt": {
+    "main": 32,
+    "set1": 4,
+    "set2": 4,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Burning Strikes",
+     "Crushing Verdict",
+     "Admonisher",
+     "Blood Rush",
+     "Reverberating Impact",
+     "Vocal Empowerment",
+     "Beef"
+    ],
+    "asc": [
+     "Smith's Masterwork",
+     "Flowing Metal",
+     "Molten Symbol"
+    ],
+    "ascSel": [
+     "node-5852",
+     "node-9988",
+     "node-13772",
+     "node-9997"
+    ],
+    "attr": {
+     "str": 0,
+     "dex": 4,
+     "int": 4
+    }
+   }
+  },
+  {
+   "id": "4",
+   "title": "Act 3",
+   "eq": {
+    "mainHand": "= Act 2 Swap (Warpick +1 melee)",
+    "offHand": {
+     "i": {
+      "n": "Heraldric Tower Shield",
+      "s": "armour-fourshieldstr7",
+      "c": "shield",
+      "d": [
+       "+57 to Armour",
+       "27% increased Armour"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamageReductionRating3",
+       "LocalIncreasedPhysicalDamageReductionRatingPercent2"
+      ],
+      "tq": {
+       "cat": "armour.shield",
+       "f": [
+        "e3484657501>=57",
+        "e1062208444>=27"
+       ]
+      }
+     },
+     "r": [
+      "soulcore-runeenhancelesser"
+     ]
+    },
+    "body": "= Iron Cuirass (normal)",
+    "gloves": "= Riveted Mitts",
+    "leftRing": "= Ruby Ring"
+   },
+   "prio": [
+    "offHand:Heraldric Tower Shield",
+    "body:Iron Cuirass",
+    "mainHand:Warpick",
+    "leftRing:Ruby Ring",
+    "gloves:Riveted Mitts"
+   ],
+   "req": {
+    "dex": 25,
+    "str": 45,
+    "int": 20
+   },
+   "gems": [
+    {
+     "n": "Fortifying Cry",
+     "sub": [
+      "Raging Cry",
+      "Fire Attunement",
+      "Close Combat I"
+     ]
+    },
+    {
+     "n": "Shield Wall",
+     "sub": [
+      "Rapid Attacks I",
+      "Magnified Area II",
+      "Fire Attunement"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area II"
+     ]
+    },
+    {
+     "n": "Sunder",
+     "sub": [
+      "Prolonged Duration II",
+      "Rapid Attacks I"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems I",
+      "Hardy Totems I",
+      "Font of Mana"
+     ]
+    },
+    {
+     "n": "Attrition",
+     "sub": []
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry"
+     ]
+    },
+    {
+     "n": "Freezing Mark",
+     "sub": [
+      "Mark for Death",
+      "Mark of Siphoning"
+     ]
+    },
+    {
+     "n": "Shield Charge",
+     "sub": [
+      "Rapid Attacks I"
+     ]
+    },
+    {
+     "n": "Leap Slam",
+     "sub": [
+      "Rapid Attacks I"
+     ]
+    }
+   ],
+   "pt": {
+    "main": 35,
+    "set1": 9,
+    "set2": 9,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Blood Rush",
+     "Burning Strikes",
+     "Crushing Verdict",
+     "Admonisher",
+     "Reverberating Impact",
+     "Vocal Empowerment",
+     "Cacophony",
+     "Impact Force",
+     "Impact Area",
+     "Beef"
+    ],
+    "asc": [
+     "Smith's Masterwork",
+     "Flowing Metal",
+     "Molten Symbol",
+     "Tantalum Alloy",
+     "Kitavan Engraving"
+    ],
+    "ascSel": [
+     "node-5852",
+     "node-9988",
+     "node-13772",
+     "node-9997",
+     "node-61039",
+     "node-60913"
+    ],
+    "attr": {
+     "str": 3,
+     "dex": 4,
+     "int": 4
+    }
+   }
+  },
+  {
+   "id": "5",
+   "title": "Act 4",
+   "eq": {
+    "mainHand": "= Warpick +1 melee",
+    "offHand": {
+     "i": {
+      "n": "Crucible Tower Shield",
+      "s": "armour-fourshieldstr9",
+      "c": "shield",
+      "d": [
+       "+57 to Armour",
+       "43% increased Armour"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamageReductionRating3",
+       "LocalIncreasedPhysicalDamageReductionRatingPercent3"
+      ],
+      "tq": {
+       "cat": "armour.shield",
+       "f": [
+        "e3484657501>=57",
+        "e1062208444>=43"
+       ]
+      }
+     },
+     "r": [
+      "soulcore-runeenhancelesser"
+     ]
+    },
+    "body": "= Iron Cuirass",
+    "gloves": "= Riveted Mitts",
+    "leftRing": "= Ruby Ring"
+   },
+   "prio": [
+    "body:Iron Cuirass",
+    "mainHand:Warpick",
+    "leftRing:Ruby Ring",
+    "gloves:Riveted Mitts",
+    "offHand:Crucible Tower Shield"
+   ],
+   "req": {
+    "dex": 30,
+    "str": 45,
+    "int": 15
+   },
+   "gems": [
+    {
+     "n": "Fortifying Cry",
+     "sub": [
+      "Raging Cry",
+      "Fire Attunement",
+      "Enraged Warcry I"
+     ]
+    },
+    {
+     "n": "Shield Wall",
+     "sub": [
+      "Rapid Attacks II",
+      "Magnified Area II",
+      "Armour Break III",
+      "Impale"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area II"
+     ]
+    },
+    {
+     "n": "Sunder",
+     "sub": [
+      "Prolonged Duration II",
+      "Rapid Attacks I"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems III",
+      "Hardy Totems II",
+      "Font of Mana"
+     ]
+    },
+    {
+     "n": "Attrition",
+     "sub": []
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry",
+      "Cooldown Recovery II"
+     ]
+    },
+    {
+     "n": "Shield Charge",
+     "sub": [
+      "Rapid Attacks I"
+     ]
+    },
+    {
+     "n": "Leap Slam",
+     "sub": [
+      "Rapid Attacks I"
+     ]
+    }
+   ],
+   "pt": {
+    "main": 50,
+    "set1": 13,
+    "set2": 13,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Blood Rush",
+     "Burning Strikes",
+     "Crushing Verdict",
+     "Beef",
+     "Admonisher",
+     "Reverberating Impact",
+     "Vocal Empowerment",
+     "Cacophony",
+     "Impact Force",
+     "Impact Area",
+     "Behemoth",
+     "The Molten One's Gift",
+     "Unyielding",
+     "Urgent Call"
+    ],
+    "asc": [
+     "Smith's Masterwork",
+     "Flowing Metal",
+     "Molten Symbol",
+     "Tantalum Alloy",
+     "Kitavan Engraving"
+    ],
+    "ascSel": [
+     "node-5852",
+     "node-9988",
+     "node-13772",
+     "node-9997",
+     "node-61039",
+     "node-60913"
+    ],
+    "attr": {
+     "str": 10,
+     "dex": 4,
+     "int": 4
+    }
+   }
+  },
+  {
+   "id": "6",
+   "title": "Interludes",
+   "eq": {
+    "mainHand": "= Warpick +1 melee",
+    "offHand": "= Crucible Tower Shield +57 armour, 43% inc armour, Lesser Iron Rune",
+    "body": "= Iron Cuirass",
+    "gloves": "= Riveted Mitts",
+    "leftRing": "= Ruby Ring"
+   },
+   "prio": [
+    "body:Iron Cuirass",
+    "mainHand:Warpick",
+    "leftRing:Ruby Ring",
+    "gloves:Riveted Mitts",
+    "offHand:Crucible Tower Shield"
+   ],
+   "req": {
+    "dex": 35,
+    "str": 65,
+    "int": 15
+   },
+   "gems": [
+    {
+     "n": "Fortifying Cry",
+     "sub": [
+      "Raging Cry",
+      "Heavy Swing",
+      "Enraged Warcry II"
+     ]
+    },
+    {
+     "n": "Shield Wall",
+     "sub": [
+      "Rapid Attacks II",
+      "Magnified Area II",
+      "Armour Break III",
+      "Impale"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area II",
+      "Precision I"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems III",
+      "Hardy Totems II",
+      "Font of Mana"
+     ]
+    },
+    {
+     "n": "Sunder",
+     "sub": [
+      "Prolonged Duration II",
+      "Rapid Attacks III",
+      "Rage III"
+     ]
+    },
+    {
+     "n": "Attrition",
+     "sub": [
+      "Cannibalism II"
+     ]
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry",
+      "Cooldown Recovery II"
+     ]
+    },
+    {
+     "n": "Leap Slam",
+     "sub": [
+      "Rapid Attacks III",
+      "Rage III"
+     ]
+    },
+    {
+     "n": "Shield Charge",
+     "sub": [
+      "Rapid Attacks III",
+      "Rage III"
+     ]
+    }
+   ],
+   "pgOrder": [
+    "Raging Cry>Fortifying Cry",
+    "Heavy Swing>Fortifying Cry",
+    "Enraged Warcry II>Fortifying Cry",
+    "Rapid Attacks II>Shield Wall",
+    "Magnified Area II>Shield Wall",
+    "Armour Break III>Shield Wall",
+    "Magnified Area II>Herald of Ash",
+    "Prolonged Duration II>Sunder",
+    "Rapid Attacks III>Sunder",
+    "Rage III>Sunder",
+    "Tireless>Infernal Cry",
+    "Raging Cry>Infernal Cry",
+    "Rapid Attacks III>Leap Slam",
+    "Rage III>Leap Slam",
+    "Cooldown Recovery II>Infernal Cry",
+    "Precision I>Herald of Ash",
+    "Urgent Totems III>Shockwave Totem",
+    "Hardy Totems II>Shockwave Totem",
+    "Font of Mana>Shockwave Totem",
+    "Rapid Attacks III>Shield Charge",
+    "Rage III>Shield Charge",
+    "Cannibalism II>Attrition",
+    "Impale>Shield Wall"
+   ],
+   "pt": {
+    "main": 68,
+    "set1": 17,
+    "set2": 17,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Blood Rush",
+     "Burning Strikes",
+     "Crushing Verdict",
+     "Beef",
+     "Reverberating Impact",
+     "Vocal Empowerment",
+     "Cacophony",
+     "Impact Force",
+     "Impact Area",
+     "Behemoth",
+     "The Molten One's Gift",
+     "Unyielding",
+     "Urgent Call",
+     "Light on your Feet",
+     "Momentum",
+     "Crushing Judgement",
+     "Authority",
+     "Roaring Cries",
+     "Bolstering Yell",
+     "Admonisher"
+    ],
+    "asc": [
+     "Smith's Masterwork",
+     "Flowing Metal",
+     "Molten Symbol",
+     "Tantalum Alloy",
+     "Kitavan Engraving"
+    ],
+    "ascSel": [
+     "node-5852",
+     "node-9988",
+     "node-13772",
+     "node-9997",
+     "node-61039",
+     "node-60913"
+    ],
+    "attr": {
+     "str": 17,
+     "dex": 4,
+     "int": 4
+    }
+   }
+  },
+  {
+   "id": "7",
+   "title": "Maps",
+   "eq": {
+    "mainHand": {
+     "i": {
+      "n": "Warpick",
+      "s": "weapon-fouronehandmace5",
+      "c": "one-hand-mace",
+      "d": [
+       "+11 to Accuracy Rating",
+       "+28 to Strength",
+       "Adds 1 to 4 Lightning Damage",
+       "!+3 to Level of all Melee Skills",
+       "!Break Armour equal to 2% of Physical Damage dealt",
+       "!Gain 21% of Damage as Extra Physical Damage"
+      ],
+      "pre": [
+       "!AbyssModWandUlamanPrefixDamageAsExtraPhysical",
+       "IncreasedAccuracy1",
+       "LocalAddedLightningDamage1"
+      ],
+      "suf": [
+       "!GlobalMeleeSkillGemLevelWeapon4",
+       "!AbyssMod1HMaceAmanamuSuffixBreakPercentArmourPhysicalDamage",
+       "Strength7"
+      ],
+      "tq": {
+       "cat": "weapon.onemace",
+       "f": [
+        "e691932474>=11",
+        "e4080418644>=28",
+        "e3336890334>=1",
+        "e9187492>=3",
+        "e1103616075>=2",
+        "e4019237939>=21"
+       ]
+      }
+     }
+    },
+    "offHand": {
+     "i": {
+      "n": "Vaal Tower Shield",
+      "s": "armour-fourshieldstr8endgame",
+      "c": "shield",
+      "d": [
+       "+278 to Armour",
+       "+26% to Fire Resistance",
+       "68% increased Armour"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamageReductionRating11",
+       "LocalIncreasedPhysicalDamageReductionRatingPercent5"
+      ],
+      "suf": [
+       "FireResist5"
+      ],
+      "tq": {
+       "cat": "armour.shield",
+       "f": [
+        "e3484657501>=278",
+        "p.total_elemental_resistance>=26",
+        "e1062208444>=68"
+       ]
+      }
+     },
+     "r": [
+      "soulcore-runeenhancegreater"
+     ]
+    },
+    "helmet": {
+     "i": {
+      "n": "Thrillsteel",
+      "s": "armour-fouruniquehelmetstr4-thrillsteel",
+      "u": true,
+      "c": "helmet",
+      "d": [],
+      "tq": {
+       "name": "Thrillsteel"
+      }
+     }
+    },
+    "body": {
+     "i": {
+      "n": "Warlord Cuirass",
+      "s": "armour-fourbodystr10endgame",
+      "c": "body-armour",
+      "d": [],
+      "tq": {
+       "cat": "armour.chest",
+       "f": []
+      }
+     }
+    },
+    "gloves": {
+     "i": {
+      "n": "Massive Mitts",
+      "s": "armour-fourglovesstr6endgame",
+      "c": "gloves",
+      "d": [
+       "+150 to maximum Life",
+       "15% increased Rarity of Items found",
+       "5% increased Attack Speed"
+      ],
+      "pre": [
+       "IncreasedLife10"
+      ],
+      "suf": [
+       "IncreasedAttackSpeed1",
+       "ItemFoundRarityIncrease3"
+      ],
+      "tq": {
+       "cat": "armour.gloves",
+       "f": [
+        "e3299347043>=150",
+        "e3917489142>=15",
+        "e210067635>=5"
+       ]
+      }
+     }
+    },
+    "boots": {
+     "i": {
+      "n": "Vaal Greaves",
+      "s": "armour-fourbootsstr5endgame",
+      "c": "boots",
+      "d": [
+       "15% increased Rarity of Items found",
+       "+31% to Fire Resistance",
+       "!30% increased Movement Speed"
+      ],
+      "pre": [
+       "!MovementVelocity5"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease3",
+       "FireResist6"
+      ],
+      "tq": {
+       "cat": "armour.boots",
+       "f": [
+        "e3917489142>=15",
+        "p.total_elemental_resistance>=31",
+        "e2250533757>=30"
+       ]
+      }
+     }
+    },
+    "amulet": {
+     "an": "anointment-movement_speed9",
+     "i": {
+      "n": "Gold Amulet",
+      "s": "amulet-fouramulet10",
+      "c": "amulet",
+      "d": [
+       "15% increased Rarity of Items found",
+       "+31% to Fire Resistance",
+       "+2 to Level of all Melee Skills"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease3",
+       "GlobalMeleeSkillGemLevel2",
+       "FireResist6"
+      ],
+      "tq": {
+       "cat": "accessory.amulet",
+       "f": [
+        "e3917489142>=15",
+        "p.total_elemental_resistance>=31",
+        "e9187492>=2"
+       ]
+      }
+     }
+    },
+    "leftRing": {
+     "i": {
+      "n": "Ruby Ring",
+      "s": "ring-fourring3",
+      "c": "ring",
+      "d": [
+       "15% increased Rarity of Items found",
+       "!Leech 8% of Physical Attack Damage as Life",
+       "!Leech 7% of Physical Attack Damage as Mana"
+      ],
+      "suf": [
+       "ItemFoundRarityIncrease3",
+       "!ManaLeech4",
+       "!LifeLeech4"
+      ],
+      "tq": {
+       "cat": "accessory.ring",
+       "f": [
+        "e3917489142>=15",
+        "e2557965901>=8",
+        "e707457662>=7"
+       ]
+      }
+     }
+    },
+    "rightRing": {
+     "i": {
+      "n": "Ruby Ring",
+      "s": "ring-fourring3",
+      "c": "ring",
+      "d": [
+       "Adds 1 to 33 Lightning damage to Attacks",
+       "15% increased Rarity of Items found",
+       "+31% to Fire Resistance"
+      ],
+      "pre": [
+       "AddedLightningDamage6"
+      ],
+      "suf": [
+       "FireResist6",
+       "ItemFoundRarityIncrease3"
+      ],
+      "tq": {
+       "cat": "accessory.ring",
+       "f": [
+        "e1754445556>=1",
+        "e3917489142>=15",
+        "p.total_elemental_resistance>=31"
+       ]
+      }
+     }
+    },
+    "belt": {
+     "i": {
+      "n": "Rawhide Belt",
+      "s": "armour-fourbelt1",
+      "c": "belt",
+      "d": [
+       "+120 to maximum Life",
+       "+31% to Fire Resistance",
+       "+16% to Chaos Resistance"
+      ],
+      "pre": [
+       "IncreasedLife9"
+      ],
+      "suf": [
+       "FireResist6",
+       "ChaosResist4"
+      ],
+      "tq": {
+       "cat": "accessory.belt",
+       "f": [
+        "e3299347043>=120",
+        "p.total_elemental_resistance>=31",
+        "e2923486259>=16"
+       ]
+      }
+     }
+    },
+    "charm1": {
+     "i": {
+      "n": "Ngamahu's Chosen",
+      "s": "flask-fouruniquecharm8-ngamahu's-chosen",
+      "u": true,
+      "c": "utilityflask",
+      "tq": {
+       "name": "Ngamahu's Chosen"
+      }
+     }
+    }
+   },
+   "prio": [
+    "body:Warlord Cuirass",
+    "helmet:Thrillsteel",
+    "gloves:Massive Mitts",
+    "boots:Vaal Greaves",
+    "offHand:Vaal Tower Shield",
+    "mainHand:Warpick",
+    "belt:Rawhide Belt",
+    "leftRing:Ruby Ring",
+    "amulet:Gold Amulet"
+   ],
+   "req": {
+    "dex": 30,
+    "str": 80,
+    "int": 15
+   },
+   "gems": [
+    {
+     "n": "Fortifying Cry",
+     "sub": [
+      "Raging Cry",
+      "Heavy Swing",
+      "Enraged Warcry II",
+      "Heft"
+     ]
+    },
+    {
+     "n": "Shield Wall",
+     "sub": [
+      "Rapid Attacks II",
+      "Magnified Area II",
+      "Ahn's Citadel",
+      "Kaom's Madness",
+      "Impale"
+     ]
+    },
+    {
+     "n": "Scavenged Plating",
+     "sub": [
+      "Prolonged Duration II"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area II",
+      "Precision I"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems III",
+      "Hardy Totems II",
+      "Reinforced Totems II",
+      "Prolonged Duration II"
+     ]
+    },
+    {
+     "n": "Sunder",
+     "sub": [
+      "Prolonged Duration II",
+      "Rapid Attacks III",
+      "Rage III"
+     ]
+    },
+    {
+     "n": "Attrition",
+     "sub": []
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry",
+      "Cooldown Recovery II"
+     ]
+    },
+    {
+     "n": "Shield Charge",
+     "sub": [
+      "Rapid Attacks III",
+      "Rage III",
+      "Efficiency II"
+     ]
+    }
+   ],
+   "pgOrder": [
+    "Raging Cry>Fortifying Cry",
+    "Heavy Swing>Fortifying Cry",
+    "Enraged Warcry II>Fortifying Cry",
+    "Heft>Fortifying Cry",
+    "Rapid Attacks II>Shield Wall",
+    "Magnified Area II>Shield Wall",
+    "Prolonged Duration II>Scavenged Plating",
+    "Magnified Area II>Herald of Ash",
+    "Precision I>Herald of Ash",
+    "Prolonged Duration II>Sunder",
+    "Rapid Attacks III>Sunder",
+    "Rage III>Sunder",
+    "Tireless>Infernal Cry",
+    "Raging Cry>Infernal Cry",
+    "Cooldown Recovery II>Infernal Cry",
+    "Rapid Attacks III>Shield Charge",
+    "Rage III>Shield Charge",
+    "Efficiency II>Shield Charge",
+    "Kaom's Madness>Shield Wall",
+    "Ahn's Citadel>Shield Wall",
+    "Urgent Totems III>Shockwave Totem",
+    "Hardy Totems II>Shockwave Totem",
+    "Prolonged Duration II>Shockwave Totem",
+    "Reinforced Totems II>Shockwave Totem",
+    "Impale>Shield Wall"
+   ],
+   "pt": {
+    "main": 92,
+    "set1": 16,
+    "set2": 17,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Blood Rush",
+     "Burning Strikes",
+     "Beef",
+     "Reverberating Impact",
+     "Vocal Empowerment",
+     "Cacophony",
+     "Impact Force",
+     "Impact Area",
+     "Behemoth",
+     "The Molten One's Gift",
+     "Unyielding",
+     "Urgent Call",
+     "Light on your Feet",
+     "Momentum",
+     "Crushing Judgement",
+     "Authority",
+     "Roaring Cries",
+     "Bolstering Yell",
+     "Admonisher",
+     "Battle Trance",
+     "Tempered Defences",
+     "Adrenaline Rush",
+     "Polished Iron",
+     "Crushing Verdict",
+     "Pile On"
+    ],
+    "asc": [
+     "Smith's Masterwork",
+     "Flowing Metal",
+     "Molten Symbol",
+     "Tantalum Alloy",
+     "Kitavan Engraving",
+     "Coal Stoker"
+    ],
+    "ascSel": [
+     "node-5852",
+     "node-9988",
+     "node-13772",
+     "node-9997",
+     "node-61039",
+     "node-60913",
+     "node-14960",
+     "node-57959"
+    ],
+    "attr": {
+     "str": 17,
+     "dex": 4,
+     "int": 4
+    },
+    "jewels": []
+   }
+  },
+  {
+   "id": "8",
+   "title": "Giga Endgame",
+   "eq": {
+    "mainHand": {
+     "i": {
+      "n": "Warpick",
+      "s": "weapon-fouronehandmace5",
+      "c": "one-hand-mace",
+      "d": [
+       "+11 to Accuracy Rating",
+       "+28 to Strength",
+       "!+3 to Level of all Melee Skills",
+       "Gain 4 Life per enemy killed",
+       "!41% increased Damage against Enemies with Fully Broken Armour",
+       "!Gain 21% of Damage as Extra Physical Damage"
+      ],
+      "pre": [
+       "!AbyssModWandUlamanPrefixDamageAsExtraPhysical",
+       "IncreasedAccuracy1",
+       "!AbyssMod1HMaceAmanamuPrefixDamageAgainstFullyArmourBrokenEnemies"
+      ],
+      "suf": [
+       "!GlobalMeleeSkillGemLevelWeapon4",
+       "Strength7",
+       "LifeGainedFromEnemyDeath1"
+      ],
+      "tq": {
+       "cat": "weapon.onemace",
+       "f": [
+        "e691932474>=11",
+        "e4080418644>=28",
+        "e9187492>=3",
+        "e3695891184>=4",
+        "e2301718443>=41",
+        "e4019237939>=21"
+       ]
+      }
+     }
+    },
+    "offHand": {
+     "i": {
+      "n": "Vaal Tower Shield",
+      "s": "armour-fourshieldstr8endgame",
+      "c": "shield",
+      "d": [
+       "+278 to Armour",
+       "+26% to Fire Resistance",
+       "140% increased Armour",
+       "+95 to Stun Threshold",
+       "8% additional Physical Damage Reduction"
+      ],
+      "pre": [
+       "LocalIncreasedPhysicalDamageReductionRating11",
+       "LocalIncreasedPhysicalDamageReductionRatingPercent8_",
+       "LocalArmourAndStunThreshold6"
+      ],
+      "suf": [
+       "FireResist5",
+       "AdditionalPhysicalDamageReduction5_"
+      ],
+      "tq": {
+       "cat": "armour.shield",
+       "f": [
+        "e3484657501>=278",
+        "p.total_elemental_resistance>=26",
+        "e1062208444>=140",
+        "e915769802>=95",
+        "e3771516363>=8"
+       ]
+      }
+     },
+     "r": [
+      "soulcore-runeenhancegreater"
+     ]
+    },
+    "helmet": "= Thrillsteel (unique)",
+    "body": "= Warlord Cuirass (normal, no mods)",
+    "gloves": "= Massive Mitts (+150 life, 15% rarity, 5% AS)",
+    "boots": "= Vaal Greaves (15% rarity, +31% fire res, !30% MS)",
+    "amulet": "= Gold Amulet (15% rarity, +31% fire res, +2 melee) anoint movement_speed9",
+    "leftRing": {
+     "note": "= Maps left ring but mustHave flags removed",
+     "d": [
+      "15% increased Rarity of Items found",
+      "Leech 8% of Physical Attack Damage as Life",
+      "Leech 7% of Physical Attack Damage as Mana"
+     ]
+    },
+    "rightRing": "= Maps right ring (Adds 1-33 lightning to attacks, 15% rarity, +31% fire res)",
+    "belt": {
+     "i": {
+      "n": "Headhunter",
+      "s": "armour-fouruniquebelt18---headhunter",
+      "u": true,
+      "c": "belt",
+      "tq": {
+       "name": "Headhunter"
+      }
+     }
+    },
+    "charm1": "= Ngamahu's Chosen (unique charm)"
+   },
+   "prio": [
+    "body:Warlord Cuirass",
+    "helmet:Thrillsteel",
+    "gloves:Massive Mitts",
+    "boots:Vaal Greaves",
+    "mainHand:Warpick",
+    "belt:Headhunter",
+    "leftRing:Ruby Ring",
+    "offHand:Vaal Tower Shield",
+    "amulet:Gold Amulet"
+   ],
+   "req": {
+    "dex": 30,
+    "str": 95,
+    "int": 15
+   },
+   "gems": [
+    {
+     "n": "Fortifying Cry",
+     "sub": [
+      "Raging Cry",
+      "Heavy Swing",
+      "Enraged Warcry II",
+      "Heft",
+      "Concentrated Area"
+     ]
+    },
+    {
+     "n": "Shield Wall",
+     "sub": [
+      "Rapid Attacks II",
+      "Vorana's Siege",
+      "Ahn's Citadel",
+      "Kaom's Madness",
+      "Uul-Netol's Embrace"
+     ]
+    },
+    {
+     "n": "Scavenged Plating",
+     "sub": [
+      "Prolonged Duration II"
+     ]
+    },
+    {
+     "n": "Herald of Ash",
+     "sub": [
+      "Magnified Area II",
+      "Precision I"
+     ]
+    },
+    {
+     "n": "Shockwave Totem",
+     "sub": [
+      "Urgent Totems III",
+      "Hardy Totems II",
+      "Prolonged Duration II",
+      "Reinforced Totems II",
+      "Efficiency II"
+     ]
+    },
+    {
+     "n": "Sunder",
+     "sub": [
+      "Prolonged Duration II",
+      "Rapid Attacks III",
+      "Rage III"
+     ]
+    },
+    {
+     "n": "Infernal Cry",
+     "sub": [
+      "Tireless",
+      "Raging Cry",
+      "Cooldown Recovery II",
+      "Efficiency II"
+     ]
+    },
+    {
+     "n": "Shield Charge",
+     "sub": [
+      "Rapid Attacks III",
+      "Rage III",
+      "Efficiency II",
+      "Rigwald's Ferocity"
+     ]
+    },
+    {
+     "n": "Berserk",
+     "sub": []
+    }
+   ],
+   "pgOrder": [
+    "Raging Cry>Fortifying Cry",
+    "Heavy Swing>Fortifying Cry",
+    "Enraged Warcry II>Fortifying Cry",
+    "Heft>Fortifying Cry",
+    "Concentrated Area>Fortifying Cry",
+    "Rapid Attacks II>Shield Wall",
+    "Ahn's Citadel>Shield Wall",
+    "Kaom's Madness>Shield Wall",
+    "Uul-Netol's Embrace>Shield Wall",
+    "Prolonged Duration II>Scavenged Plating",
+    "Magnified Area II>Herald of Ash",
+    "Precision I>Herald of Ash",
+    "Urgent Totems III>Shockwave Totem",
+    "Hardy Totems II>Shockwave Totem",
+    "Prolonged Duration II>Shockwave Totem",
+    "Reinforced Totems II>Shockwave Totem",
+    "Efficiency II>Shockwave Totem",
+    "Prolonged Duration II>Sunder",
+    "Rapid Attacks III>Sunder",
+    "Rage III>Sunder",
+    "Tireless>Infernal Cry",
+    "Raging Cry>Infernal Cry",
+    "Cooldown Recovery II>Infernal Cry",
+    "Efficiency II>Infernal Cry",
+    "Rapid Attacks III>Shield Charge",
+    "Rage III>Shield Charge",
+    "Efficiency II>Shield Charge",
+    "Rigwald's Ferocity>Shield Charge",
+    "Vorana's Siege>Shield Wall"
+   ],
+   "pt": {
+    "main": 98,
+    "set1": 19,
+    "set2": 20,
+    "prio": [
+     "Brutal",
+     "Smash",
+     "Blood Rush",
+     "Beef",
+     "Crushing Verdict",
+     "Bolstering Yell",
+     "Pile On",
+     "Tempered Defences",
+     "Polished Iron",
+     "Sturdy Metal",
+     "Relentless",
+     "Greatest Defence",
+     "Battle Trance",
+     "The Molten One's Gift",
+     "Crushing Judgement",
+     "Authority",
+     "Momentum",
+     "Light on your Feet",
+     "Gem Enthusiast",
+     "Unyielding",
+     "Reverberating Impact",
+     "Goring",
+     "Sand in the Eyes",
+     "Giantslayer",
+     "Roaring Cries",
+     "Inherited Strength",
+     "Admonisher",
+     "Cacophony",
+     "Vocal Empowerment",
+     "Urgent Call"
+    ],
+    "asc": [
+     "Coal Stoker",
+     "Smith's Masterwork",
+     "Dedication to Kitava",
+     "Kitavan Engraving",
+     "Heatproofing",
+     "Flowing Metal",
+     "Molten Symbol",
+     "Tribute to Utula"
+    ],
+    "ascSel": [
+     "node-5852",
+     "node-14960",
+     "node-57959",
+     "node-9988",
+     "node-64962",
+     "node-60913",
+     "node-25438",
+     "node-13772",
+     "node-9997",
+     "node-22908"
+    ],
+    "attr": "9 attribute nodes all 'any' (node-27373,28175,64471,8493,54099,2847,55802,58814,37258)",
+    "jewels": []
+   }
+  }
+ ],
+ "tree_overlap": {
+  "_overlap_mainTree": [
+   {
+    "from": "default-variant",
+    "to": "3",
+    "prev": 17,
+    "size": 24,
+    "inter": 17,
+    "pct": 100
+   },
+   {
+    "from": "3",
+    "to": "2",
+    "prev": 24,
+    "size": 32,
+    "inter": 19,
+    "pct": 79,
+    "removed": 5,
+    "added": 13
+   },
+   {
+    "from": "2",
+    "to": "4",
+    "prev": 32,
+    "size": 35,
+    "inter": 32,
+    "pct": 100
+   },
+   {
+    "from": "4",
+    "to": "5",
+    "prev": 35,
+    "size": 50,
+    "inter": 35,
+    "pct": 100
+   },
+   {
+    "from": "5",
+    "to": "6",
+    "prev": 50,
+    "size": 68,
+    "inter": 50,
+    "pct": 100
+   },
+   {
+    "from": "6",
+    "to": "7",
+    "prev": 68,
+    "size": 92,
+    "inter": 68,
+    "pct": 100
+   },
+   {
+    "from": "7",
+    "to": "8",
+    "prev": 92,
+    "size": 98,
+    "inter": 70,
+    "pct": 76,
+    "removed": 22,
+    "added": 28
+   }
+  ],
+  "_weaponSetTrees": {
+   "default-variant": "0/0",
+   "3": "0/0",
+   "2": "4/4",
+   "4": "9/9",
+   "5": "13/13",
+   "6": "17/17",
+   "7": "16/17",
+   "8": "19/20"
+  },
+  "_atlasTree": "null in all variants"
+ },
+ "tree_diff_notes_md": "# Passive tree overlap (Mobalytics selectedSlugs) — main-only and union(main+set1+set2)\nmain-only: Act1->Act2pre 100% (17/17); Act2pre->Act2 Swap 79% (19/24; removed 5 two-hand nodes); Act2->Act3 100%; Act3->Act4 100%; Act4->Interludes 100%; Interludes->Maps 100%; Maps->Giga 76% (70/92; removed 22, added 28)\nunion: Act2pre->Act2 79% (19/24); Maps->Giga 82% (103/125; removed 22, added 34); all others 100%\n=> by 70% rule none flagged \"需要洗点\", but Act2 swap refunds 5 nodes (双手武器伤害 x4 + 屠戮之械 Singular Purpose) and Giga refunds 22 nodes.\nAct2 swap removed: 34210/64939/30123/26092 双手武器伤害 (+10% two-hand attack dmg), 52392 屠戮之械.\nMaps->Giga removed (22): 燃烧打击 Burning Strikes + 2x 对燃烧的敌人的伤害; 巨兽 Behemoth + 攻击范围伤害和范围 + 范围伤害; 激情冲动 Adrenaline Rush + 2x 移动速度; 冲击之力 Impact Force + 震荡中心 Impact Area + 3x 攻击范围 (these 5 were weapon-set-1 nodes in Maps); 8x 属性 (+5 any attribute).\nMaps->Giga added (34): 刚毅金属 Sturdy Metal + 2x 护甲 15%; 冷酷无情 Relentless; 卓绝防御 Greatest Defence + 2x 盾牌伤害 + 格挡; 淤血创痕 Goring + 2x 生命偷取; 障目飞沙 Sand in the Eyes + 2x 攻击速度 3% + 致盲几率; 巨人克星 Giantslayer + 2x 对稀有/传奇攻击伤害 16% + 在场稀有攻速 4%; 继承力量 Inherited Strength + 强化攻击伤害 16%; 宝石爱好者 Gem Enthusiast; 对护甲破损敌人伤害 20%; +8 力量 x2; +3 全属性; 7x 属性; 珠宝插槽 55190.\nJewel sockets allocated: 26725 (from Act2 swap), 2491, 54127 (by Maps), +55190 (Giga) — author lists NO jewels in any variant.\nWeapon set notables (Maps): set1 = 冲击之力, 震荡中心, 不屈, 威压裁决, 权威, 一起上吧; set2 (warcries) = 言出力随, 刺耳怒吼, 紧急呼喊, 咆哮战吼, 训诫. Giga set1 adds 生命偷取/障目飞沙 line etc.\nAttribute nodes: Act1 1/1/1; Act2pre str1 dex3 int1; Act2 swap dex4 int4 str0; Act3 3/4/4; Act4 10/4/4; Interludes & Maps str17 dex4 int4; Giga 9 nodes all \"any\".\n",
+ "comments_md": "# Comments (27 total, all expanded 2026-09-30; \"Nd ago\" relative to 2026-09-30). Author = lundburgerr (account 64aed197)\n1. Ash (3d, 09-27): Much safer than Infernalist. Q: what jewels for maps/giga endgame? — NO AUTHOR REPLY.\n2. Inversion472 (11d, 09-19): at what point switch off this build? now T15.\n   - lundburgerr (8d, 09-22): \"I wrote the guide covering everything as far as I personally would take it. So keep going until the giga endgame version. You can skip getting Uul netols though and keep armour break somewhere else as Uul Netols is very expensive right now\"\n   - Inversion472: thanks.\n3. John (15d, 09-15): what is leap slam used for (not in how it plays)?\n   - lundburgerr (8d): \"Sorry for that, it's just used as a movement ability. You don't need to use it\"\n   (a deleted comment same day)\n4. DeadlyMask (16d, 09-14, 3 up): reached endgame; why prioritise Fire Resistance over other res? which mace for good damage? — no author reply.\n   - DrBeatz (12d): with 6 (or even 4) ascendancy points take \"Coal Stoker\": uses max fire res to add 50% of fire res to other (non-chaos) resistances, frees other slots.\n5. PraiseThaSun88 (18d, 09-13): at T8+ bosses/rares take long; primary bossing gem?\n   - PraiseThaSun88 (17d, 3 up): \"I TAKE IT BACK... it scaled on the shield's armor rating. I had an old ass shield. It cost 1 chaos to get a really good shield and i am smashing now.\"\n   - lundburgerr (16d): \"I should probably emphasize that somewhere, I'm sure you're not the only one confused by that.\"\n   - DeadlyMask (16d): what shield do you buy? — no reply\n6. DrBeatz (18d, 09-13): having a blast; incorporated more wolf (rend/pounce/Surge of the Tide).\n   - lundburgerr: thanks.\n7. Pendaison (20d, 09-10): 5 min to kill a boss in T11, not S tier endgame?\n   - lundburgerr (20d): \"It is an S tier league starter build that you can push pretty far. But yes you should be able to find gear, without trading even, to melt T15 bosses. So you're missing something\"\n   - DrBeatz (11d): probably neglected shield armour; crucial for Shield Wall damage scaling; get shield with as much armour as possible.\n8. Gaafah (21d, 09-09): Sunder EXCLUSIVELY after armour broken?\n   - lundburgerr (20d): \"yes it's only for sundered armour\"\n9. FierceShadow (22d, 09-08): Fortifying Cry requires a shield equipped on weapon set 2 — put random shield?\n   - lundburgerr (20d, 2 up): \"You can have the same shield on both weapon sets, right click the \"I\" above the equipped weapon or shield in your inventory and it should lock it to both weapon sets.\"\n10. GrimFlame (24d, 09-06): lvl 24, fun; this isn't an endgame build but early-endgame farmer?\n   - lundburgerr (24d): \"Exactly, it's designed to be an early league starter. You can even play this in SSF for the most part. You can push it pretty far, but the build definitely gets out scaled by other builds at some point.\"\n   - [deleted]\n   - GrimFlame (23d): rotation for clearing maps / tanky elites? So far totem + shield wall and moving on. (on act 4 of the guide)\n   - lundburgerr (22d): \"Not that big of a difference between tanky rares and bosses. The rotations differ a little bit depending on what skills are available to you. For clear it's easier to just use Shield Wall + Warcry (either infernal cry or fortifying cry) or Shield Wall + Shield Charge.\" / \"Ideally most mobs should die in one it\"\n",
+ "lexd_crossref": {
+  "_note": "Lexd '0.5.5 Shield Wall + Avatar of Fire Smith of Kitava Build' (slug avatar-of-fire-smith-of-kitava-lexd), version 201, updated 2026-09-17, 724 favorites, tags Warrior/Smith of Kitava/Starter/End Game/0.5.5 FR/HC/SSF/Creator. 11 variants: Act 1, Act 2, Act 3, Act 4, Interludes, Mapping Start (Tiers 1-5, SSF Friendly), Mapping Endgame (5-10, SSF Friendly), Mapping Endgame (10 - 15), Nebuloch + Constricting Command Lategame, Nebuloch + Constricting Command Optimized, Thrillsteel Version. CROSS-REFERENCE ONLY for stage 3. Fire/Avatar of Fire build, differs from Lundburgerr (physical/armour-break).",
+  "MappingStart_T1-5": {
+   "eq": {
+    "mainHand": "Marching Mace :: Adds 1-59 Lightning ; +54 acc ; 84% inc Elemental Damage with Attacks ; 6% IAS ; +3 melee ; +13 str",
+    "offHand": "Goldworked Tower Shield :: +172 armour ; 72% inc armour ; +89 life ; +6 str ; 4% additional PDR ; +26% fire res || rune soulcore-runeenhance",
+    "helmet": "Noble Greathelm :: 120% inc armour ; +52 life ; +21 int ; +43% fire ; +27% chaos || soulcore-runelifegreater",
+    "body": "Elegant Plate (no mods) || 2x soulcore-runelifegreater",
+    "gloves": "Feathered Mitts :: +107 armour ; 7-12 fire to attacks ; 12-19 cold to attacks ; 15% IAS ; +30% light ; 46 life per kill || soulcore-runelightninggreater",
+    "boots": "Bulwark Greaves :: 25% MS ; 52% inc armour ; +57 life ; 35% reduced attr req ; +24% chaos ; +259 stun threshold",
+    "amulet": "Amber Amulet :: ... +2 melee ; +32% fire ; 7% inc max life",
+    "leftRing": "Ruby Ring :: phys to attacks, fire dmg, 18% rarity, 9% cast speed, +28% fire",
+    "rightRing": "Ruby Ring :: phys to attacks, fire dmg, +41 mana, +22% fire, +16% cold, 7.6% life leech",
+    "belt": "Plate Belt :: mana, flask recovery, +24 str, +23% fire, +24% chaos",
+    "flasks": "Ultimate Life Flask ; Gargantuan Mana Flask",
+    "charms": "Thawing ; Stone ; Silver"
+   },
+   "req": {
+    "dex": 10,
+    "str": 55,
+    "int": 5
+   },
+   "gems": [
+    "Shield Wall(14): Fire Attunement, Fire Penetration II, Rapid Attacks II, Elemental Armament II",
+    "Fortifying Cry(14): Raging Cry, Fire Attunement, Enraged Warcry II",
+    "Resonating Shield(12): Rage III, Rapid Attacks I, Armour Demolisher II",
+    "Infernal Cry(10): Tireless",
+    "Herald of Ash(13): Magnified Area I",
+    "Scavenged Plating(12): Prolonged Duration I, Vitality I",
+    "Berserk(14)",
+    "Leap Slam(10)"
+   ],
+   "pt": {
+    "main": 77,
+    "s1": 18,
+    "s2": 17,
+    "asc": "Coal Stoker, Smith's Masterwork, Kitavan Engraving, Heatproofing, Leather Bindings, Dedication to Kitava",
+    "ascN_incl_start": 7,
+    "jewels": "1 str jewel node-26725"
+   }
+  },
+  "MappingEndgame_5-10": {
+   "eq": {
+    "mainHand": "Guiding Palm of the Heart [U] || soulcore-talismanrabbit",
+    "offHand": "Tawhoan Tower Shield :: +242 armour ; 95% inc armour ; +123 life ; 6% additional PDR ; +3% max fire ; +2% max light || soulcore-runeenhancegreater",
+    "helmet": "Noble Greathelm :: +60 life ; +41% fire ; +24% chaos",
+    "body": "Runeforged Ornate Plate (no mods) || 3x soulcore-runelifegreater",
+    "gloves": "= Feathered Mitts || soulcore-talismanspecial1",
+    "boots": "Vaal Greaves :: 30% MS ; 78% inc armour ; +41% fire ; +27% light ; +24% chaos ; +15 life || soulcore-runespecial9",
+    "amulet": "Jade Amulet :: +36% fire ; 7% inc life ; +2 melee",
+    "rings": "Ruby Ring (fire dmg, chaos res, cold res, +str) ; Breach Ring (fire dmg, accuracy, +40% fire)",
+    "belt": "= Plate Belt",
+    "flasks": "Ultimate Life ; Ultimate Mana",
+    "charms": "Thawing ; Silver ; Stone"
+   },
+   "req": {
+    "dex": 15,
+    "str": 110,
+    "int": 20
+   },
+   "gems": [
+    "Shield Wall(18): Ahn's Citadel, Kaom's Madness, Supercritical, Fire Attunement, Fire Penetration II",
+    "Raise Shield: Elemental Armament II, Scouring Flame, Ignite III",
+    "Resonating Shield(18): Rage III, Armour Demolisher II, Armour Break III, Mobility",
+    "Fortifying Cry(18): Fire Attunement, Raging Cry, Enraged Warcry II",
+    "Infernal Cry(18): Tireless, Raging Cry, Enraged Warcry II",
+    "Purity of Fire(16): Herbalism II, Strong Hearted",
+    "Herald of Ash(15): Magnified Area II, Prolonged Duration II",
+    "Magma Barrier(14): Charge Profusion II, Eternal Flame II, Fire Attunement",
+    "Berserk(17)",
+    "Scavenged Plating(12): Vitality II, Cannibalism II, Prolonged Duration I",
+    "Shield Charge(18): Rage III, Rapid Attacks III"
+   ],
+   "pt": {
+    "main": 85,
+    "s1": 30,
+    "s2": 30,
+    "asc": "Coal Stoker, Forged in Flame, Smith's Masterwork, Heatproofing, Molten Symbol, Leather Bindings, Dedication to Kitava",
+    "ascN_incl_start": 9,
+    "jewels": "4 str jewels (FireDamagePercent + JewelBlock prefixes; MaximumFireResist1 suffix on all)"
+   }
+  },
+  "MappingEndgame_10-15": {
+   "diff_vs_5-10": "helmet -> Constricting Command [U] (+88 life, +12 all attr, 10 life regen, surround -4) with soulcore-soulcorespecial11; amulet adds +3 melee, 19% recoup, anoint DeliriumAnoint_ThaumaturgicGenerator; charm3 -> For Utopia [U] (Defend with 200% of Armour during effect). Gems identical to 5-10. Tree 85/30/30, asc same, 4 jewels same."
+  },
+  "NebulochLategame": {
+   "summary": "Sacred Flame [U] mace, Tawhoan Tower Shield +5% max fire, Constricting Command, Runeforged Ornate Plate, Rawhide Belt +151 life/+246 armour, jewels Heart of the Well + From Nothing; req str 135 dex 35 int 40; tree 93/29/30"
+  },
+  "ThrillsteelVersion": {
+   "summary": "as Nebuloch but helmet Thrillsteel [U] with 3 soul cores (soulcorespecial11, soulcorespecial6, talismanbear)"
+  }
+ },
+ "lexd_text_md": "# Lexd Mapping Start (T1-5) author text — key points (only mapping variant with text; 5-10 and 10-15 have no text)\n- Trade league: buy cheap +% Fire Resistance gear to cap resists quickly; grab % Chaos Resist on cheaper items (belts, boots, helmet).\n- \"First priority is to upgrade your Shield; this is your main damage-dealer ... for early maps ... somewhere between 800 and 900 armour is fine\".\n- Mace: +all melee skills and % increased elemental damage with attacks (Lexd is fire). +4 melee max roll; +3 fine for now.\n- Ruby Rings for fire res; gloves +2 melee pricey, prioritise attack speed early for faster Shield Wall.\n- Charms: Thawing (freeze), Stone (stun), Silver (slow); no need for damaging-ailment charms \"since we are immune to their damage anyway\" (Lexd tree).\n- Fortifying Cry with Raging Cry + Enraged Warcry II to bypass cooldown with Rage and detonate Shield Walls more often.\n",
+ "poe2db": {
+  "ascendancy_and_patch_md": "# poe2db: Smith of Kitava ascendancy (/cn/Smith_of_Kitava, /us/Smith_of_Kitava) — 2026-09-30\nTree: start 5852 -> Strength(20895,+5% str)->Living Weapon(47184, 活体武器, grants Manifest Weapon 显化武器); Melee Damage(47236,+20%)->Against the Anvil(60298, 迎砧击打, Temper Weapon 淬炼武器); Fire Damage(5386,+20%)->Heat of the Forge(22541, 锻炉的热浪, Fire Spell on Hit 击中时火焰法术); Fire Resistance(14960,+8% 火焰抗性)->Coal Stoker(57959)->Fire Resistance(63401,+8%)->Forged in Flame(48537); Smith's Masterwork(9988) hub -> 12 body-armour notables.\nEach body-armour notable carries \"base physical damage reduction rating no display [200]\" (= +200 armour per connected notable from Masterwork, 0.4.0 change).\nCN/EN/effect:\n- 匠人的杰作 Smith's Masterwork: 只能使用一件普通胸甲 / 每个已配置相连接的核心天赋技能使护甲+200 (Can only use a Normal Body Armour; +200 to Armour for each Connected Notable Passive Skill Allocated)\n- 液态金属 Flowing Metal: 胸甲使 +50% 的护甲同样作用于元素伤害\n- 熔火符印 Molten Symbol: 胸甲使受到的击中物理伤害的 25% 转化为火焰伤害 (Body Armour grants 25% of Physical Damage from Hits taken as Fire Damage)  <-- AUTHOR TEXT SAYS \"25% of fire damage taken as physical\" (reversed)\n- 钽质合金 Tantalum Alloy: 胸甲使火焰抗性 +75%\n- 奇塔弗铭文 Kitavan Engraving: 胸甲使生命上限提高 15%\n- 司炉的炭火 Coal Stoker: 火焰抗性修正的 50% 也作用于冰霜和闪电抗性\n- 烈焰的淬炼 Forged in Flame: 火焰抗性上限修正也作用于冰霜和闪电抗性上限\n- 敬奉奇塔弗 Dedication to Kitava: 胸甲使 +100% 的护甲同样作用于混沌伤害\n- 绝热防护 Heatproofing: 胸甲使你不受伤害性异常状态影响\n- 供奉尤图拉 Tribute to Utula: 胸甲使精魂提高 30%\n- 皮革绑绳 Leather Bindings: 胸甲使你每秒再生生命上限的 3%\n- 支承绑带 Support Straps: 胸甲使力量提高 20%; 尖刺衬板 Spiked Plates: 荆棘伤害 +100%; 奇塔弗印记 Kitavan Imprint: 荣耀获取 +60%; 内嵌分层 Internal Layer: 对你的击中暴击伤害加成降低 100%\nPoint count: Lundburgerr ascSel (excl start 5852): Act2=3 nodes, Act3/Act4/Interludes=5, Maps=7 (incl small Fire Res 14960 + Coal Stoker), Giga=9. Lexd endgame=9 non-start nodes too. Each is 1 more than trial points (2/4/6/8). poe2db shows no node cost -> cannot verify whether Masterwork is free. Flag in 数据核验.\n\n# Patch notes (poe2db /us/Version_0.x.0)\n- 0.3.0: Fortifying Cry added (\"Perform a Warcry that grants Guard and causes subsequent Shield Attacks to release an Empowered shockwave when dealing damage. Cooldown can be bypassed by expending an Endurance Charge\"). Flowing Metal changed to +50% armour applies to elemental. Shield Wall wall ~40% longer, base explosion radius 4 m. Shockwave Totem uses your equipped weapons; \"supports no longer apply to Shockwave Totem\"?? (0.3 note: \"Shockwave Totem cannot itself create Jagged Ground, and supports no longer apply to Shockwave Totem\" – context unclear).\n- 0.4.0: Each Notable connected to Smith's Masterwork now grants +200 Armour. Padded Plates/Lead Lining/Heavy Bracing removed; Kitavan Imprint added. Heat of the Forge / Temper Weapon / Manifest Weapon buffs.\n- 0.5.0: Fortifying Cry now only consumes one stack when you detonate a shield wall to create a shockwave around each shield wall segment; shockwaves from a single Shield Wall cannot hit the same enemy multiple times (= author's \"prevents shotgunning\", ~30% less single target). Shield Wall now deals 5 to 7 Added Physical Damage per 15 Armour on Shield (previously 6 to 8).\n",
+  "gem_names_en_cn": {
+   "Shield Wall": "盾墙",
+   "Fortifying Cry": "坚韧战吼",
+   "Infernal Cry": "炽焰战吼",
+   "Shockwave Totem": "震波图腾",
+   "Sunder": "大地震击",
+   "Herald of Ash": "灰烬之捷",
+   "Boneshatter": "七伤破",
+   "Mace Strike": "锤打击",
+   "Rolling Slam": "轰动猛击",
+   "Frost Bomb": "寒霜爆",
+   "Perfect Strike": "完美一击",
+   "Freezing Mark": "冰冻印记",
+   "Leap Slam": "跃击",
+   "Shield Charge": "重盾冲锋",
+   "Attrition": "持久鏖战",
+   "War Banner": "战旗",
+   "Scavenged Plating": "装甲回收",
+   "Berserk": "盛怒",
+   "Ferocious Roar": "凶蛮咆哮",
+   "Pounce": "巨狼猛扑",
+   "Resonating Shield": "共振护盾",
+   "Raise Shield": "架盾",
+   "Impact Shockwave": "冲击震波",
+   "Concentrated Area": "范围集中",
+   "Fire Attunement": "火焰协调",
+   "Magnified Area I": "范围扩大 I",
+   "Magnified Area II": "范围扩大 II",
+   "Tireless": "冷酷",
+   "Window of Opportunity I": "大好时机 I",
+   "Rapid Attacks I": "快速攻击 I",
+   "Rapid Attacks II": "快速攻击 II",
+   "Rapid Attacks III": "快速攻击 III",
+   "Brink I": "崩溃边缘 I",
+   "Raging Cry": "愤怒战吼",
+   "Urgent Totems I": "紧急图腾 I",
+   "Urgent Totems III": "紧急图腾 III",
+   "Mark for Death": "死亡印记",
+   "Mark of Siphoning": "虹吸印记",
+   "Hardy Totems I": "坚韧图腾 I",
+   "Hardy Totems II": "坚韧图腾 II",
+   "Close Combat I": "近战 I",
+   "Close Combat II": "近战 II",
+   "Prolonged Duration II": "持续时间延长 II",
+   "Font of Mana": "魔力源泉",
+   "Enraged Warcry I": "燃怒战吼 I",
+   "Enraged Warcry II": "燃怒战吼 II",
+   "Armour Break III": "护甲破损 III",
+   "Impale": "穿刺",
+   "Cooldown Recovery II": "冷却回复 II",
+   "Heavy Swing": "沉重挥舞",
+   "Precision I": "精准 I",
+   "Rage III": "狂怒 III",
+   "Reinforced Totems II": "增强图腾 II",
+   "Cannibalism II": "吞灵 II",
+   "Heft": "势大力沉",
+   "Efficiency II": "效能 II",
+   "Brutality III": "野性残暴 III",
+   "Ahn's Citadel": "汉恩的城塞",
+   "Kaom's Madness": "冈姆的疯狂",
+   "Uul-Netol's Embrace": "乌尔尼多的拥抱",
+   "Vorana's Siege": "沃拉娜的围城",
+   "Rigwald's Ferocity": "瑞佛的凶猛",
+   "Supercritical": "特化暴击",
+   "Armour Demolisher II": "护甲破坏者 II",
+   "Fire Penetration II": "火焰穿透 II",
+   "Elemental Armament II": "元素军械 II",
+   "Vitality I": "活力 I",
+   "Purity of Fire": "火焰净化",
+   "Magma Barrier": "岩浆屏障"
+  },
+  "gems_gates_supports_md": "# poe2db gem tiers & level requirements (/us/<slug> level table; row = gem level / required char level / str / mana)\n- Shield Wall 盾墙: tier 7; gem lv7 -> req char lv 22, 41 str; lv20 -> 90/157 str. Requires 护甲盾牌 (Armour Shield). \"盾牌上每有 15 点护甲，附加 5 - 7 物理伤害\"; \"被你的技能摧毁时伤害总增 100%\"; \"若在 0.5 秒内被除你以外的其他东西摧毁，伤害总降 80%\"; 盾墙激活上限 2 个; 火墙持续 6 秒; 爆炸长度 4 米; 基础副手物理伤害 lv1 4-6 … lv20 103-155. Quality: 被你的技能摧毁时伤害总增 (0—40)%, 获得相当于物理伤害 (0—20)% 的火焰伤害. Desc: 将盾牌砸向地面，竖起一道土墙。敌人可以攻击你的墙体段落，你的猛击、战吼和重盾冲锋会瞬间破坏它们。墙体块在破碎时会爆炸，对前方和周围的敌人造成伤害。 From 未切割的技能宝石 等阶 7.\n- Fortifying Cry 坚韧战吼: T9 -> lv31, 57 str\n- Sunder 大地震击: T9 -> lv31, 57 str\n- Berserk 盛怒: T14 -> lv58, 103 str\n- Freezing Mark 冰冻印记: T7 -> lv22 (int/dex)\n- Leap Slam 跃击: T7 -> lv22, 41 str\n- Scavenged Plating 装甲回收: T4 -> lv10\n- Herald of Ash 灰烬之捷: T4 -> lv10\n- Attrition 持久鏖战 / War Banner 战旗: T4 -> lv10\n- Shockwave Totem 震波图腾: T3 -> lv6; Infernal Cry 炽焰战吼 T3 -> lv6; Shield Charge 重盾冲锋 T3 -> lv6\n- Boneshatter 七伤破 / Rolling Slam 轰动猛击: T1\n- All gems lv20 -> char lv 90, 157 primary attr.\n\n# Lineage supports (req level 65 unless noted, DropLevel 52)\n- 汉恩的城塞 Ahn's Citadel: 血统类别 上古堡垒; req lv65; +5 int; 被辅助技能的墙改为沿裂缝创造 (wall maximum length +65% hidden); Dropped by: Global (no drop level shown)\n- 冈姆的疯狂 Kaom's Madness: req 65, drop 52, 马诺基，天命者; 被辅助技能额外产生 3 道裂隙; 伤害总降 20%; 技能速度总降 20%; 效果范围总降 30%\n- 乌尔尼多的拥抱 Uul-Netol's Embrace: req 65, drop 52, 薛斯，万魔一体; 消耗加成 120%; 被辅助技能额外获得 40% 物理伤害，并转化为混沌伤害; 被辅助技能粉碎护甲，相当于造成混沌伤害的 20%\n- 沃拉娜的围城 Vorana's Siege: req 65 (table shows 10?), drop 52, 梅德维德，堕落先知; 效果范围提高 35%; 对孤立目标造成的击中伤害提高 20%\n- 瑞佛的凶猛 Rigwald's Ferocity: req 65, drop 52, 艾芙琳，凋零玫瑰 / 瓦洛克，灰烬领主; 武器组 I：攻击速度提高 30%、伤害总降 15%；武器组 II：攻击速度降低 10%、伤害总增 30%\n\n# Jeweller's orbs (support sockets)\n- 低等工匠石 Lesser Jeweller's Orb: 使技能宝石拥有 3 个辅助宝石插槽; DropLevel 25\n- 高等工匠石 Greater Jeweller's Orb: 4 个; DropLevel 45\n- 完美工匠石 Perfect Jeweller's Orb: 5 个; DropLevel 65\n\n# Support tiers (cn Support_Gems list, number = tier) & effects (poe2db /cn/<slug>)\n护甲破损 III (4): 粉碎护甲，相当于造成物理伤害的 20%；使敌人护甲完全破损时 20% 几率获得耐力球\n吞灵 II (4): 被辅助技能激活时，击败敌人回复 3% 的生命\n近战 I (3) / 近战 II (5): 对 1 米内敌人攻击伤害总增 30%，逐渐降低，3.5 米及以外无加成 (II)\n冷却回复 II (4): 冷却回复速度提高 30%\n燃怒战吼 I (4) / II (5): 战吼消耗 15 怒火来忽略冷却时间，而非消耗一个耐力球 (II)\n魔力源泉 (2): 图腾产生半径 4 米的魔力源泉，友军获得魔力偷取（图腾物理伤害的 12%）\n坚韧图腾 II (4): 图腾生命上限总增 50%\n沉重挥舞 (4): CN page untranslated — EN \"Supported Skills deal 35% more Melee Physical Damage; 10% less Attack Speed\"\n势大力沉 (5): 物理击中伤害上限总增 30%\n穿刺 (4): 击中时穿刺敌人；无法提取穿刺\n精准 I (1): 激活时命中值提高 30%\n狂怒 III (5): 近战击中产生 5 怒火；未达怒火上限时攻击速度提高 15%\n愤怒战吼 (2): 范围内每 5 点威力值产生 4 点怒火\n增强图腾 II (5): 图腾元素抗性上限 +10%，所有元素抗性 +40%\n冷酷 (1): 25% 几率不计算被强化的攻击（不消耗强化次数）\n紧急图腾 III (4): 图腾攻击/施法速度提高 20%，图腾放置速度提高 100%\n快速攻击 II (4) / III (5); 范围扩大 II (3); 持续时间延长 II (3); 火焰协调 (1); 范围集中 (1); 冲击震波 (1); 野性残暴 III (5); 死亡印记 (2); 虹吸印记 (1); 效能 II (4)\n\n# Active skill mechanics (poe2db /cn)\n- 坚韧战吼 Fortifying Cry: T9; 冷却 8 秒; 需求 护甲盾牌; 发出战吼获得防卫，并使后续的盾牌攻击造成伤害时触发盾护冲击波。消耗一个耐力球可以跳过冷却。战吼范围 4 米; 防卫持续 4 秒; 范围内敌人每有 5 点威力值可触发一次盾护冲击波，最多计算 50 点威力值; 每 5 点威力值获得 (2—92) 点防卫（最多计 20 点威力值）。盾护冲击波: 攻击伤害 (50—204)%; 盾牌上每有 15 点护甲附加 5 - 7 物理伤害; 被坚韧战吼触发并视作被其强化; 震波范围 2 米; 对战吼伤害的调整也会影响此技能。\n- 炽焰战吼 Infernal Cry: T3; 冷却 8 秒; 强化后续近战攻击；范围内敌人每 10 点威力值强化一次攻击（最多 50）；被强化攻击获得相当于伤害 (30—49)% 的火焰伤害；瓦解敌人 8 秒，被击败时触发燃尽（火焰爆炸 1.6 米）。\n- 大地震击 Sunder: T9; 需求 单手锤/双手锤; 击中护甲完全破损目标时施加护甲撕裂，受到的物理伤害额外提高 20%，持续 6 秒或直到护甲完全破损被移除。\n- 震波图腾 Shockwave Totem: T3; 需求 任何战斗武器; 图腾持续 12 秒; 图腾上限 1 个; 猛击攻击速度 50% 基础; 攻击伤害 (25—66)%。\n- 灰烬之捷 Herald of Ash: T4; 保留 30 精魂; 溢出伤害 ≥ 敌人生命上限 20% 时爆炸点燃周围敌人。\n- 装甲回收 Scavenged Plating: T4; 保留 30 精魂; 使敌人护甲完全破损后获得层数（普通 1、魔法 2、稀有 5、传奇 10），每层护甲值总增 4%，上限 10 层，持续 8 秒，另给荆棘。\n- 持久鏖战 Attrition: T4; 保留 30 精魂; 对在场的稀有/传奇敌人每 2 秒击中伤害总增 1%，最多 (40—59)%；在场总计 (31—40) 秒后可终结。\n- 盛怒 Berserk: T14; 保留 30 精魂; 怒火效果提高 (40—59)%，未失去怒火时每点怒火每秒失去 0.1% 生命。\n- 重盾冲锋 Shield Charge: T3; 需求 护甲盾牌; 盾牌上每有 15 点护甲附加 3 - 5（碰撞 6 - 8）物理伤害；奔跑速度受移动速度词缀影响。\n",
+  "notables_en_cn_effect": {
+   "_src": "poe2db /cn/Notable + /us/Notable joined by href; effects from /cn/Notable implicitMod",
+   "Brutal": [
+    "凶残",
+    "晕眩积蓄值提高 10%；近战伤害提高 16%；+10 力量"
+   ],
+   "Smash": [
+    "碾碎",
+    "近战伤害提高 20%；对重度晕眩的敌人的近战伤害提高 40%"
+   ],
+   "Singular Purpose": [
+    "屠戮之械",
+    "攻击速度降低 5%；晕眩积蓄值提高 20%；双手武器的攻击伤害提高 40%"
+   ],
+   "Burning Strikes": [
+    "燃烧打击",
+    "获得额外火焰伤害，其数值等同于物理伤害的 12%"
+   ],
+   "Beef": [
+    "壮汉",
+    "+25 力量"
+   ],
+   "Crushing Verdict": [
+    "倾力裁决",
+    "攻击速度降低 5%；晕眩积蓄值提高 30%；攻击伤害提高 50%"
+   ],
+   "Admonisher": [
+    "训诫",
+    "战吼速度提高 25%；战吼冷却回复速度提高 25%"
+   ],
+   "Blood Rush": [
+    "血脉贲张",
+    "技能速度提高 6%；技能的魔力消耗的 6% 转化为生命消耗"
+   ],
+   "Reverberating Impact": [
+    "回荡冲击",
+    "粉碎的护甲提高 25%；攻击技能的效果区域提高 12%"
+   ],
+   "Vocal Empowerment": [
+    "言出力随",
+    "战吼额外被强化 1 次攻击"
+   ],
+   "Cacophony": [
+    "刺耳怒吼",
+    "战吼的伤害提高 40%；战吼技能的效果范围提高 25%"
+   ],
+   "Impact Force": [
+    "冲击之力",
+    "晕眩积蓄值提高 20%；攻击范围伤害提高 25%"
+   ],
+   "Impact Area": [
+    "震荡中心",
+    "若你近期内晕眩过敌人，则效果区域提高 12%；攻击技能的效果区域提高 12%"
+   ],
+   "Behemoth": [
+    "巨兽",
+    "生命上限提高 3%；攻击技能的效果区域提高 8%；你对自己使用的猛击技能有 5% 的几率造成一次额外余震"
+   ],
+   "The Molten One's Gift": [
+    "熔岩者的馈赠",
+    "火焰抗性 +10%；护甲完全破损效果提高 15%；你造成护甲完全破损时，还会提高击中时承受的火焰伤害"
+   ],
+   "Unyielding": [
+    "不屈",
+    "若你近期内被击中，则攻击速度提高 15%；你受到的异常状态的减速强度降低 8%"
+   ],
+   "Urgent Call": [
+    "紧急呼喊",
+    "施放战吼时回复 2% 生命和魔力；战吼速度提高 24%；战吼冷却回复速度提高 18%"
+   ],
+   "Light on your Feet": [
+    "轻盈步伐",
+    "移动速度提高 3%；免疫缓速；免疫瘫痪"
+   ],
+   "Momentum": [
+    "动量",
+    "无视护甲所带来的移动速度降低效果；你受到的异常状态的减速强度降低 5%"
+   ],
+   "Crushing Judgement": [
+    "威压裁决",
+    "护甲破损持续时间提高 25%；攻击范围伤害提高 25%"
+   ],
+   "Authority": [
+    "权威",
+    "攻击技能的效果区域提高 15%；冷却回复速度提高 10%"
+   ],
+   "Roaring Cries": [
+    "咆哮战吼",
+    "战吼至少有 10 点威力值"
+   ],
+   "Bolstering Yell": [
+    "振奋呐喊",
+    "强化攻击造成的伤害提高 30%；战吼技能的效果范围提高 30%"
+   ],
+   "Battle Trance": [
+    "战斗迷神",
+    "+8 怒火上限"
+   ],
+   "Tempered Defences": [
+    "钢化防御",
+    "护甲提高 25%；+15% 的护甲同样作用于元素伤害"
+   ],
+   "Adrenaline Rush": [
+    "激情冲动",
+    "若你近期内有击败敌人，则移动速度提高 4%；若你近期内有击败敌人，则攻击速度提高 8%"
+   ],
+   "Polished Iron": [
+    "辉光之钢",
+    "护甲提高 25%；获得额外晕眩阈值，相当于已装备护甲物品上物品护甲的 30%"
+   ],
+   "Pile On": [
+    "一起上吧",
+    "护甲完全破损效果提高 30%"
+   ],
+   "Sturdy Metal": [
+    "刚毅金属",
+    "装备身体护甲的护甲提高 80%"
+   ],
+   "Relentless": [
+    "冷酷无情",
+    "护甲提高 15%；生命每秒再生 0.5%；+10 力量"
+   ],
+   "Greatest Defence": [
+    "卓绝防御",
+    "装备盾牌每有 75 点物品护甲值与物品闪避，攻击伤害提高 4%"
+   ],
+   "Gem Enthusiast": [
+    "宝石爱好者",
+    "镶嵌至少 10 个红色辅助宝石：生命上限提高 5%；蓝色 10 个：魔力上限 5%；绿色 10 个：移动速度 5%"
+   ],
+   "Goring": [
+    "淤血创痕",
+    "生命上限提高 3%；生命偷取量提高 20%"
+   ],
+   "Sand in the Eyes": [
+    "障目飞沙",
+    "攻击速度提高 10%；攻击击中有 15% 的几率致盲敌人"
+   ],
+   "Giantslayer": [
+    "巨人克星",
+    "击中稀有和传奇敌人的伤害提高 25%；对稀有或传奇敌人的命中值提高 20%；造成异常状态的几率提高 20%"
+   ],
+   "Inherited Strength": [
+    "继承力量",
+    "战吼有 15% 的几率额外强化 3 次攻击"
+   ],
+   "Vaal Pact": [
+    "瓦尔契约",
+    "keystone (effect not fetched)"
+   ],
+   "Avatar of Fire": [
+    "火之化身",
+    "keystone (Lexd)"
+   ]
+  },
+  "items_md": "# poe2db items (CN name | stats | req | DropLevel)\n- Forge Maul 锻炉巨锤: 双手锤 26-35, APS 1.05; req 11, 23 str; drop 11; 击中时碾压敌人\n- Studded Greatclub 镶钉巨棍: 双手锤 32-48, APS 1.1; req 16, 31 str; drop 16\n- Warpick 战镐: 单手锤 18-24, crit 7%, APS 1.45; req 22, 41 str; +(5—10)% 暴击伤害加成; drop 22\n- Effigial Tower Shield 塑像塔盾: 格挡 26%, 护甲 76; req 21, 32 str; drop 21 (grants 架盾 Raise Shield)\n- Heraldric Tower Shield 徽纹塔盾: 护甲 111; req 33, 48 str; drop 33\n- Crucible Tower Shield 熔铸塔盾: 护甲 145; req 45, 64 str; drop 45\n- Vaal Tower Shield 瓦尔塔盾: 护甲 244; req 75, 107 str; drop 75 (runeforge variants: 符文瓦尔塔盾 护甲 221 符文结界 35, 维金 x435)\n- Tawhoan Tower Shield 塔赫亚塔盾 (Lexd): 护甲 264; req 80, 115 str; drop 80\n- Iron Cuirass 铁锻胸甲: 护甲 115; req 11, 21 str; drop 11\n- Warlord Cuirass 督军胸甲: 护甲 496; req 80, 121 str; implicit +(15—25)% 的护甲同样作用于元素伤害; drop 80\n- Ornate Plate 华丽战铠 (Lexd-related): 护甲 496; req 70, 121 str; 生命每秒再生 (1.5—2.5)%; drop 70. Runeforged Ornate Plate 符文华丽战铠: 护甲 327, 符文结界 236, req 70.\n- Riveted Mitts 铆接护手: 护甲 38; req 11, 16 str; drop 11\n- Massive Mitts 巨型护手: 护甲 187; req 80, 101 str; drop 80\n- Vaal Greaves 瓦尔胫甲: 护甲 268; req 75, 101 str; drop 75\n- Gold Amulet 帝金项链: req 35; 物品稀有度提高 (12—20)%; drop 35\n- Ruby Ring 红玉戒指: req 8; 火焰抗性 +(20—30)%; drop 8\n- Rawhide Belt 生皮腰带: drop 1\n- Lesser Iron Rune 次级钢铁符文: drop 5 (values not fetched)\n- Greater Iron Rune 高级钢铁符文: req 30; 护甲: 护甲、闪避和能量护盾提高 18%; 羁绊 护甲: +20 生命上限, +20 魔力上限; 战斗武器: 物理伤害提高 18%; drop 52\n# Uniques\n- Thrillsteel 惊险刺激 (螺旋巨盔 Spired Greathelm): 护甲 149; req 27, 40 str; 猛攻 (Onslaught). Runeforge: 符文师匠螺旋巨盔 (护甲 115, 符文结界 85, req 40, 58 str; 维金 x1110 + 沃拉娜的镰刀徽记)\n- Headhunter 猎首 (重革腰带 Heavy Belt): req 50 (Req.level 63 effective 50 per poe2db attr); 具有 (1—3) 个咒符位; 晕眩阈值提高 (20—30)%; +(40—60) 生命上限; +(20—40) 力量; +(20—40) 敏捷; 当你击败稀有怪物时，获得它的词缀，持续 60 秒\n- Ngamahu's Chosen 努葛玛呼的亲选 (红玉咒符 Ruby Charm): 持续 4 秒, 40 充能/每次 20; 火焰抗性 +25%; req 5; 当你受到击中火焰伤害时使用; 充能次数提高 (30—40)%; 使用时获得达到上限的怒火\n\n# Areas / trials (poe2db /cn)\n- 丝克玛试炼 Trial of the Sekhemas: 第 2 幕, 区域 22 (芭芭拉的巨灵之币). Trials: 区域 22 → 2 点; 巨灵之币 38 → 4; 60 → 6; 80 → 8. 总共 8 点升华点数. 混沌试炼 alternative (龙蜥最后通牒雕刻; 10 层 + 怯懦/致命/胜利之运 → 区域 80).\n- 第三次: 初次击杀「塞卡莉圣所」(Sel Khari Sanctuary, 间章 Act6 区域 55) 首领「埃尔扎拉，眼镜蛇领主」保证掉落巨灵之币（第 3 次）。poe2db wiki: 可以直接跳过前两次打第三次，取得 6 点。\n- 掩埋的殿堂 Buried Shrines: 区域 23 (第 2 幕), 首领 阿扎瑞安，忘却之子\n- 莫丹矿场 Mawdun Mine: 区域 18 (第 2 幕? actually Act 1/2 boundary), 首领 鲁贾，恐惧工程师\n- 飞沙沼泽 Sandswept Marsh: 区域 33 (第 3 幕), 首领 根生污泥\n- 纳卡努 Ngakanu: 区域 53 (第 4 幕)\n- Azak boss (+30 spirit): 伊格纳杜克，沼泽老妪 in 阿扎卡泥沼 (from benchmark page, not re-verified)\n\n# Str base ladders (poe2db /cn list pages) — for stage ② substitutions (推算)\nTower shields (护甲 / 需求等级 / 力量): 熔铸塔盾 Crucible 145/45/64; 先祖 160/50; 方阵 166/52; 堡垒 171/54; 无畏塔盾 Defiant 183/58/82; 贵族 186/59; 金工塔盾 Goldworked 192/61/86; 皇家塔盾 Royal 203/65/91; 黑钢塔盾 Blacksteel 203/65/91; 要塞塔盾 Fortress 223/70/99; 冰川要塞 Glacial Fortress 223/70; 瓦尔塔盾 Vaal 244/75/107; 塔赫亚塔盾 Tawhoan 264/80/115.\nBody (str, normal usable by Smith): 冠军胸甲 446/58; 石制胸甲 474/62; 荣耀战铠 Glorious Plate 496/65/121; 士兵胸甲 Soldier Cuirass 570/65/121 (FourBodyStr3Endgame = endgame Iron Cuirass, no implicit); 霸王战铠 Conqueror Plate 496/68 (+30-40% stun threshold); 华丽战铠 496/70 (life regen); 深渊胸甲 Abyssal 496/73; 乌扎尔胸甲 Utzaal 496/75 (stun thr); 督军胸甲 Warlord 496/80 (+15-25% armour applies to elemental).\nGloves: 骑士护手 Knightly / 堂皇护手 Grand 162/65/80; 华丽护手 Ornate 171/70; 瓦尔护手 Vaal 179/75; 巨型护手 Massive 187/80/101.\nBoots: 堡垒胫甲 Bulwark / 图腾胫甲 Totemic 244/65/86; 华丽胫甲 Ornate 256/70; 瓦尔胫甲 Vaal 268/75/101; 塔萨里奥胫甲 Tasalian 280/80/108.\nUnique shields seen: 降伏 瓦尔塔盾 (Vaal Tower Shield unique, lv75: 格挡 +40-60%, 护甲 +150-200%, +150-200 stun thr, 格挡回复 4% 生命); 五芒屏障 黑钢塔盾 (lv65: 护甲 +100-150%, 火抗 +30-40%, 混沌抗 +23-29% ...); 夜临 冰川要塞; 斯瓦林 熔铸塔盾 — NOT used by author.\nRunes: 次级钢铁符文 Lesser Iron Rune (drop 5): 护甲: 护甲、闪避和能量护盾提高 14%; 羁绊 护甲 +20 life +20 mana. 高级钢铁符文 (req 30, drop 52): 18%.\nKeystone 瓦尔契约 Vaal Pact: 生命偷取量总增 50%; 偷取生命速度降低 67%; 除偷取之外无法回复生命; 未保留的生命全满时不移除生命偷取效果.\nUnique flask 欧罗什的决心 Olroth's Resolve (终极生命药剂, req 60): 3 秒回复 920 生命; 每次使用消耗充能提高 (100—150)%; 效果期间每秒回复符文结界上限的 (2.5—5)%; 效果结束获得相当于当前符文结界的防卫 10 秒.\n- 高级身躯符文 Greater Body Rune (soulcore-runelifegreater, req 30): 护甲: +60 生命上限; 羁绊 护甲: +20 生命 +20 魔力 (Lexd puts 3 in 符文华丽战铠)\n",
+  "mods_currency_md": "# Mod matching (poe2db /us/<Class> vs /cn/<Class>, same index) — CN name(EN) item-level :: CN text\n## One_Hand_Maces\n- +1 melee: 决斗之(of Dueling) lv18 :: 所有近战技能等级 +1\n- +3 melee: 激战之(of Battle) lv55 :: 所有近战技能等级 +3\n- +4 melee: 征战之(of War) lv81 :: 所有近战技能等级 +4\n- Break Armour 2%: 阿曼娜姆之(of Amanamu) lv65 渎灵 suffix :: 粉碎护甲，相当于造成物理伤害的 (2—4)%\n- 41% vs fully broken: 阿曼娜姆的(Amanamu's) lv65 渎灵 prefix :: 对护甲完全破损的敌人造成的伤害提高 (41—59)%\n- +28 str: 海兽之(of the Leviathan) lv66 :: +(28—30) 力量\n- +11 acc: 精确的(Precise) lv8 :: +(11—32) 命中值\n- Adds 1-4 lightning: 低鸣的(Humming) lv1 :: 附加 1 - (4—6) 闪电伤害\n- 4 life per kill: 成功之(of Success) lv1 :: 每击败一名敌人获得 (4—6) 点生命\n- Gain 21% of Damage as Extra Physical: NOT in normal pool (Perfect Essence of Abrasion; Mobalytics slug AbyssModWandUlamanPrefixDamageAsExtraPhysical)\n## Two_Hand_Maces\n- 40% inc phys: 重量的(Heavy) lv1 :: 物理伤害提高 (40—49)%;  50%: 锯齿的(Serrated) lv8 :: 物理伤害提高 (50—64)%\n## Shields_str\n- +28 armour: 镶嵌的(Studded) lv8 (28—56); +57: 螺纹的(Ribbed) lv16 (57—77); flat top tiers: 包围的(Enveloped) lv60 191—221, 柔缓的(Abating) lv65 222—248, 不动的(Unmoving) lv75 249—277. +278 NO MATCH (1 over T1 max 277)\n- inc armour: 分层的(Layered) lv16 27—42; 甲壳的(Lobstered) lv35 43—55; 支持的(Buttressed) lv46 56—67; 加厚的(Thickened) lv54 68—79; 围城的(Girded) lv60 80—91; 坚不可摧的(Impregnable) lv65 92—100; 无法通过的(Impenetrable) lv75 101—110\n- hybrid armour%+stun threshold: 大象的(Elephant's) lv63 33—38 +64—94; 长毛象的(Mammoth's) lv74 39—42 +95—136  => Giga \"140% increased Armour +95 stun threshold\" = 无法通过的 (101—110) + 长毛象的 (39—42, +95—136)\n- +26% fire: 炉火之(of the Furnace) lv48 :: 火焰抗性 +(26—30)%\n- 8% additional PDR: 保护者之(of the Conservator) lv77 :: 8% 额外物理伤害减免\n- stun threshold suffix 钢皮之(of Steel Skin) lv29 +(73—97) (NOT what Giga has; Giga's +95 comes from hybrid prefix)\n## Gloves_str\n- +1 melee: 战意之(of Combat) lv5 :: 所有近战技能等级 +1\n- 5% IAS: 技巧之(of Skill) lv1 :: 攻击速度提高 (5—7)%\n- 15% rarity: 考古之(of Archaeology) lv40 :: 物品稀有度提高 (15—18)%\n- Adds 1-4 lightning to attacks: 低鸣的(Humming) lv1 :: 攻击附加 1 - (4—6) 基础闪电伤害\n- +150 life: NO MATCH. Gloves life tiers: 阳刚的(Virile) lv54 100—119; 健将的(Athlete's) lv60 120—149 (T1). 150 is 1 over T1 max.\n## Boots_str\n- 30% MS: 猎豹的(Cheetah's) lv65 :: 移动速度提高 30%\n- 15% rarity: 考古之 lv40; +31% fire: 火山之(of the Volcano) lv60 :: 火焰抗性 +(31—35)%\n## Amulets\n- +2 melee: 决斗之(of Dueling) lv41 :: 所有近战技能等级 +2\n- +31% fire: 火山之 lv60; 15% rarity: 考古之 lv40 (suffix) or 收藏家的(Collector's) lv29 prefix 12—15\n## Rings\n- +31% fire 火山之 lv60; 15% rarity 考古之 lv40 / 收藏家的 lv29\n- Adds 1-10 lightning to attacks: 嗡嗡的(Buzzing) lv8 :: 攻击附加 1 - (10—15) 基础闪电伤害\n- Adds 1-33 lightning to attacks: 电弧的(Arcing) lv54 :: 攻击附加 (1—2) - (33—40) 基础闪电伤害\n- Leech 8% life: NO MATCH; top tier 鲫鱼之(of the Remora) lv38 :: 物理攻击伤害的 (7—7.9)% 转化为生命偷取\n- Leech 7% mana: NO MATCH; top tier 干旱之(of the Arid) lv38 :: 物理攻击伤害的 (6—6.9)% 转化为魔力偷取\n- desecrated: 阿曼娜姆之 生命偷取量提高 (12—20)% / 古加尔之 魔力偷取量提高 (12—20)% (lv65)\n## Belts\n- +120 life: 健将的(Athlete's) lv60 :: +(120—149) 生命上限\n- +31% fire: 火山之 lv60; +16% chaos: 出境之(of Expulsion) lv56 :: 混沌抗性 +(16—19)%\n## Anoint\n- anointment-movement_speed9 = 加速 Acceleration (液化情感：恐惧 + 嫉妒 + 憎恶 / Fear, Envy, Disgust): 移动速度提高 3%，技能速度提高 10%\n\n# Currency / essences / omens (poe2db /cn)\n- 完美磨蚀精华 Perfect Essence of Abrasion: 移除一条随机词缀并为稀有物品添加必定词缀；单手近战武器: 获得相当于伤害 (15—20)% 的额外物理伤害（前缀, 需求 57）；双手: (25—33)%. => author's \"Gain 21%\" on one-hand mace exceeds 20% max\n- 强效增强精华 Greater Essence of Enhancement: 魔法→稀有，必定 护甲: 护甲，闪避与能量护盾提高 (68—79)%（前缀, 43）\n- 强效丰裕精华 Greater Essence of Opulence: 魔法→稀有，必定 物品稀有度提高 (15—18)%（后缀, 32; 鞋手头饰品）\n- 强效绝缘精华 Greater Essence of Insulation: 魔法→稀有，必定 火焰抗性 +(31—35)%（后缀, 48; 护甲/腰带/饰品）\n- 领主预兆 Omen of the Liege: 武器或珠宝下一次渎灵保证获得一个随机阿曼娜姆词缀\n- 右旋死灵预兆 Omen of Dextral Necromancy: 下一次渎灵只添加后缀; 左旋死灵预兆 Omen of Sinistral Necromancy: 只添加前缀\n- 深渊回响预兆 Omen of Abyssal Echoes: 下次显现渎灵词缀时可重掷一次\n- 遗存颚骨 Preserved Jawbone: 渎灵一个稀有武器或箭袋; DropLevel 61\n- 破溃宝珠 Fracturing Orb: 分裂一件具有至少 4 个词缀的稀有物品的一个随机词缀，使其锁定\n- 剥离石 Orb of Annulment; 崇高石 Exalted Orb; 护甲片 Armourer's Scrap; 宝石匠的棱镜 Gemcutter's Prism; 混沌石; 点金石; 富豪石\n- 未切割的技能宝石 Uncut Skill Gem (seen on gem page \"来自 未切割的技能宝石 等阶 7\")\n\n# Tier ladders (name + item level) for regex\nBoots MS: 跑步的1 10% · 短跑的16 15% · 种马的33 20% · 瞪羚的46 25% · 猎豹的65 30% · 地狱的82 35%\n+melee: mace 决斗之18 +1 · 纷争之36 +2 · 激战之55 +3 · 征战之81 +4; gloves 战意之5 +1 · 决斗之41 +2; amulet 战意之5 +1 · 决斗之41 +2 · 激战之75 +3\nAttack speed (gloves): 技巧之1 5-7 · 轻松之22 8-10 · 成熟之37 11-13 · 声望之60 14-16\nLeech gloves: life 蝗虫之21 6-6.9 · 鲫鱼之38 7-7.9 · 七鳃鳗之54 8-8.9 · 吸血鬼之65 9-9.9; mana 干渴之21 5-5.9 · 干旱之38 6-6.9 · 枯旱之54 7-7.9 · 绝望之65 8-8.9\nLeech rings: life 蝗虫之21 / 鲫鱼之38 (max 7.9); mana 干渴之21 / 干旱之38 (max 6.9)  => author's ring \"8% life + 7% mana\" only exists on GLOVES (七鳃鳗之 / 枯旱之, lv54)\nFlat lightning to attacks (gloves/rings): 低鸣的1 · 嗡嗡的8 · 捕捉的16 · 劈哩啪啦的33 · 火花的46 · 电弧的54 · 感电的60 · 放电的65 · 电殛的75\nFlat phys to attacks (gloves/rings): 闪烁的1 · 磨光的8 · 抛光的16 · 砥砺的33 · 熠熠的46 · 韧炼的54 · 锋利的60 · 锻炼的65 · 迸出的75\nRarity: suffix 掠夺之3 · 扫荡之24 · 考古之40 (15-18); prefix (ring/amulet) 喜鹊的10 · 收藏家的29 · 囤宝者的47 (16-19)\nLife (belt/boots/gloves): … 阳刚的54 100-119 · 健将的60 120-149 · belt only 丰饶的65 150-174\nChaos res (belt): 驱逐之44 12-15 · 出境之56 16-19 · 流亡之68 20-23 · 巴曼斯之81 24-27\nShield flat armour: 镶嵌的8 · 螺纹的16 · 强化的25 · 电镀的33 · 装甲化的46 · 围绕的54 · 包围的60 · 柔缓的65 · 不动的75 (249-277)\nShield % armour: 增强的2 · 分层的16 · 甲壳的35 · 支持的46 · 加厚的54 · 围城的60 · 坚不可摧的65 · 无法通过的75 (101-110)\nMace % phys: 重量的1 · 锯齿的8 · 邪恶的16 · 狠毒的33 · 嗜血的46 · 残酷的60 · 强横的75 · 无情的82\nFire res suffix: 炉火之48 26-30 · 火山之60 31-35 (others from benchmark: 岩浆之71 36-40)\n"
+ },
+ "trade_stat_cn_subset": {
+  "explicit.stat_691932474": "# 命中值 (区域)",
+  "explicit.stat_4080418644": "# 力量",
+  "explicit.stat_3336890334": "附加 # - # 闪电伤害",
+  "explicit.stat_9187492": "所有近战技能等级 #",
+  "explicit.stat_1103616075": "粉碎护甲，相当于造成物理伤害的 #%",
+  "explicit.stat_4019237939": "获得相当于伤害 #% 的额外物理伤害",
+  "explicit.stat_3695891184": "每击败一名敌人获得 # 点生命",
+  "explicit.stat_2301718443": "对护甲完全破损的敌人造成的伤害提高 #%",
+  "explicit.stat_3484657501": "# 护甲 (区域)",
+  "explicit.stat_1062208444": "护甲提高 #% (区域)",
+  "explicit.stat_915769802": "# 晕眩阈值",
+  "explicit.stat_3771516363": "#% 额外物理伤害减免",
+  "explicit.stat_3299347043": "# 生命上限",
+  "explicit.stat_3917489142": "物品稀有度提高 #%",
+  "explicit.stat_210067635": "攻击速度提高 #% (区域)",
+  "explicit.stat_2250533757": "移动速度提高 #%",
+  "explicit.stat_2557965901": "物理攻击伤害的 #% 转化为生命偷取",
+  "explicit.stat_707457662": "物理攻击伤害的 #% 转化为魔力偷取",
+  "explicit.stat_1754445556": "攻击附加 # - # 基础闪电伤害",
+  "explicit.stat_2923486259": "混沌抗性 #%",
+  "explicit.stat_1509134228": "物理伤害提高 #%",
+  "pseudo.pseudo_total_elemental_resistance": "+#% 总元素抗性",
+  "pseudo.pseudo_total_chaos_resistance": "+#% 总混沌抗性",
+  "pseudo.pseudo_total_all_elemental_resistances": "+#% 全元素抗性"
+ }
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>战争使者 · 变体索引</title>
+<meta name="description" content="流亡黯道 2 · 0.5.5 · 战士「战争使者」腐化战吼图腾构筑（Skadoosh）：原站 6 个变体与本页四阶段的对应、各阶段一句话定位、门槛时间线与逐部位总览。">
+<style>
+:root{
+  --ground:#F1F5F2; --surface:#FFFFFF; --surface-2:#E4ECE6; --ink:#14231C; --ink-2:#344A3F; --muted:#56695F; --line:#CFDCD3;
+  --accent:#1A6E45; --accent-soft:#DCEFE3; --brass:#7E5A10; --brass-soft:#F3E8CF;
+  --ember:#B0391D; --ember-soft:#F8E1D7; --ok:#22628A; --ok-soft:#DDEBF4;
+  --serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Microsoft YaHei Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1512; --surface:#121D19; --surface-2:#182622; --ink:#E1EDE6; --ink-2:#BFD1C6; --muted:#8FA59A; --line:#243730;
+    --accent:#4CC38A; --accent-soft:#113224; --brass:#D9B25E; --brass-soft:#2C2515;
+    --ember:#F0926A; --ember-soft:#3A2016; --ok:#6DB3E0; --ok-soft:#132A3A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1512; --surface:#121D19; --surface-2:#182622; --ink:#E1EDE6; --ink-2:#BFD1C6; --muted:#8FA59A; --line:#243730;
+  --accent:#4CC38A; --accent-soft:#113224; --brass:#D9B25E; --brass-soft:#2C2515;
+  --ember:#F0926A; --ember-soft:#3A2016; --ok:#6DB3E0; --ok-soft:#132A3A;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.75 var(--sans);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.page{max-width:1200px;margin:0 auto}
+.hero{padding-block:36px 26px;border-bottom:1px solid var(--line);display:grid;gap:18px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.crumbs a{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass);text-transform:uppercase}
+.title-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coin{width:52px;height:52px;flex:none}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.15;margin:0;text-wrap:balance}
+h1 .en{display:block;font-family:var(--sans);font-weight:400;font-size:.42em;letter-spacing:.02em;color:var(--muted);margin-top:6px}
+.lede{font-size:1.02rem;color:var(--ink-2);max-width:72ch;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.facts div{background:var(--surface);padding:10px 14px}
+.facts dt{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+.theme-btn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:3px 12px;cursor:pointer}
+section{padding-block:34px 10px;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.5rem;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 12px;max-width:72ch}
+ul{margin:0 0 12px;padding-left:1.4em;max-width:76ch}
+li{margin:3px 0}
+.en{color:var(--muted);font-size:.86em;font-weight:400}
+.small{font-size:13px;color:var(--muted)}
+code{font-family:var(--mono);font-size:.88em}
+.chip{display:inline-block;font-size:11.5px;line-height:1.5;padding:0 7px;border-radius:999px;white-space:nowrap;vertical-align:1px;font-weight:600}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.na{background:var(--surface-2);color:var(--muted)}
+.chip.bad{background:var(--ember-soft);color:var(--ember)}
+.chip.tmp{background:var(--brass-soft);color:var(--brass)}
+.scroll{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;background:var(--surface-2);white-space:nowrap}
+tbody th{font-weight:600;white-space:nowrap;background:var(--surface-2);font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .en{display:block}
+tr.here td{background:var(--accent-soft)}
+.stage-tbl td{min-width:150px}
+.stage-tbl td.dim{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.cards a{display:grid;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);text-decoration:none}
+.cards a:hover{box-shadow:0 0 0 2px var(--accent) inset}
+.cards .n{font-family:var(--mono);font-size:12px;color:var(--brass);letter-spacing:.06em}
+.cards b{font-family:var(--serif);font-size:1.1rem}
+.cards span.d{font-size:13px;color:var(--ink-2)}
+.timeline{list-style:none;padding:0;margin:14px 0;display:grid;gap:0;max-width:780px}
+.timeline li{display:grid;grid-template-columns:5.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);margin:0}
+.timeline li:last-child{border-bottom:0}
+.timeline .lv{font-family:var(--mono);font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;text-align:right}
+footer{padding-block:28px 0;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="crumbs">
+    <a href="../index.html">全部构筑</a><span aria-hidden="true">/</span><span>0.5.5 战争使者</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换浅色/深色">主题：跟随系统</button>
+  </div>
+  <div class="eyebrow">PoE2 0.5.5 · Forbidden Rites 赛季 · 战士 Warrior · HC / SSF 友好</div>
+  <div class="title-row">
+    <svg class="coin" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" fill="var(--brass-soft)" stroke="var(--brass)" stroke-width="1.5"/>
+      <circle cx="26" cy="26" r="18.5" fill="none" stroke="var(--brass)" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+      <path d="M22 38V19l4-6 4 6v19z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M22 25h8M22 31h8" stroke="var(--accent)" stroke-width="1.2"/>
+      <path d="M15 20c-3 4-3 10 0 14M37 20c3 4 3 10 0 14M11 17c-5 6-5 14 0 20M41 17c5 6 5 14 0 20" fill="none" stroke="var(--brass)" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <h1>战争使者 · 腐化战吼图腾<span class="en">[0.5.5] Skadoosh's Corrupting Cry Totem Warbringer</span></h1>
+  </div>
+  <p class="lede">原作者 Skadoosh 在 Mobalytics 发布的战士升华「战争使者」构筑。坚韧战吼挂腐化战吼（65 级后换血统版「帕夸特的契约」）对范围内每个敌人叠腐化之血清图，升华「战争司号的呐喊」无视战吼冷却；52 级起用关键石「先祖魂约」放先祖战士图腾打单体，震地战吼引爆尖刺并施加暴击弱点。作者标了 HC / SSF：① 的两件低级传奇可以替换，③④ 只有施虐者的慈悲一件传奇（SSF 可先用稀有单手锤）。</p>
+  <dl class="facts">
+    <div><dt>补丁</dt><dd>0.5.5</dd></div>
+    <div><dt>作者</dt><dd>Skadoosh</dd></div>
+    <div><dt>变体</dt><dd>6 个 · 合成 4 阶段</dd></div>
+    <div><dt>原站版本</dt><dd>第 932 版 · 2026-09-30</dd></div>
+    <div><dt>本页抓取</dt><dd>2026-09-30</dd></div>
+  </dl>
+  <p class="small">原站：<a href="https://mobalytics.gg/poe-2/builds/corrupting-cry-warbringer-skadoosh" target="_blank" rel="noopener">Mobalytics</a> · 标签：End Game / Starter / HC / SSF · 2024-12-10 首发 · 0.5 全面重做 2026-09-12 · 1,271 收藏 · 8 条评论 · 作者另有<a href="https://mobalytics.gg/poe-2/profile/skadoosh/builds/skadoosh-s-warrior-leveling-1-41" target="_blank" rel="noopener">升级攻略（1–33 级）</a></p>
+</header>
+
+<main>
+
+<section id="synthesis">
+  <h2>合成四阶段</h2>
+  <p>把原站现行的 Leveling、Starter、Endgame、Uber Endgame 四档串成一条路线，每一步标出改什么、为什么、出自哪里，并单独写了 SSF 下每阶段怎么自己做装备。配置、逐件词缀（简中原文 + 物品等级 + 交易下限）、搜索正则与数据核验都在那一页。</p>
+  <div class="cards">
+    <a href="合成四阶段.html#st1"><span class="n">① 阶段 · 1–51 级</span><b>起步 → 52 级</b><span class="d">坚韧战吼 + 腐化战吼 I 清图，震波图腾打单体；零预算</span></a>
+    <a href="合成四阶段.html#st2"><span class="n">② 阶段 · 52–约 70 级</span><b>52 级 → 进图</b><span class="d">洗点换先祖魂约 + 先祖战士图腾，两把权杖撑精魂；0 件传奇</span></a>
+    <a href="合成四阶段.html#st3"><span class="n">③ 阶段 · T6–T15</span><b>终局初期</b><span class="d">帕夸特的契约到手，清图翻倍；换 6 词缀稀有件</span></a>
+    <a href="合成四阶段.html#st4"><span class="n">④ 阶段 · 80–90+</span><b>大后期</b><span class="d">青玉传承、盛怒头盔、80 级底材与灵核</span></a>
+  </div>
+  <p><a href="合成四阶段.html">打开合成四阶段.html</a></p>
+</section>
+
+<section id="variants">
+  <h2>原站变体与本页阶段</h2>
+  <p class="small">「天赋重合」= 本档与上一档主树选点的交集占上一档的比例，低于 70% 标「需要洗点」。宝石需求为原站数字，等于全部辅助宝石的「+5 属性」相加，不是面板需求。</p>
+  <div class="scroll"><table>
+    <thead><tr><th>原站变体</th><th>本页</th><th>阶段定位</th><th>与上一档的主要变化</th><th class="n">传奇</th><th>宝石需求（原站）</th><th>天赋 / 升华</th><th>卡在哪</th></tr></thead>
+    <tbody>
+      <tr class="here"><td><b>Leveling</b></td><td><a href="合成四阶段.html#st1">①</a></td><td>拿到腐化战吼 I 与第 2 次升华后（第 3 幕起）</td><td>—（1–33 级见作者升级攻略）</td><td class="n">2</td><td class="n">力 35 · 敏 10 · 智 5</td><td>主树 38 + 武器组 13 / 13 · 升华 4</td><td>腐化战吼 I（等阶 3）· 战争司号的呐喊</td></tr>
+      <tr class="here"><td><b>Starter</b></td><td><a href="合成四阶段.html#st2">②</a></td><td>52 级起，T1–T5</td><td>先祖魂约 + 先祖战士图腾；两把圣地权杖；删震波图腾 / 锻造之锤 / 火山裂缝</td><td class="n">0</td><td class="n">力 50 · 敏 10 · 智 5</td><td>主树 55（重合 50%，<b>需要洗点</b>）· 升华 <span class="chip bad">原站 0 点</span></td><td>先祖战士图腾 52 级 · 精魂</td></tr>
+      <tr class="here"><td><b>Endgame</b></td><td><a href="合成四阶段.html#st3">③</a></td><td>作者：65 级以上</td><td>帕夸特的契约；全身 6 词缀稀有件；闪电净化 ×2；4 颗红玉；施虐者的慈悲</td><td class="n">1</td><td class="n">力 60 · 敏 30 · 智 10</td><td>主树 79（重合 87%）+ 24 / 24 · 升华 6</td><td>帕夸特的契约（需求 65，掉落 52）</td></tr>
+      <tr class="here"><td><b>Uber Endgame</b></td><td><a href="合成四阶段.html#st4">④</a></td><td>原站无说明（最高档）</td><td>青玉传承 + 青玉囚笼；80 级头 / 手；盛怒头盔；灵核；5 颗珠宝</td><td class="n">1</td><td class="n">力 90 · 敏 45 · 智 20</td><td>主树 91（重合 95%）+ 24 / 24 · 升华 8</td><td>第 4 次升华 · 80 级底材 · 157 力</td></tr>
+      <tr><td>Endgame (Outdated)</td><td><span class="chip na">不收录</span></td><td colspan="6">旧版：腐化战吼 II 挂震地战吼，配炽焰战吼、震波图腾 + 锻造之锤 + 震地、战旗；没有先祖魂约。主树与现行 Endgame 只重合 43%，0.5 重做后被整体替换。</td></tr>
+      <tr><td>Uber Endgame (outdated)</td><td><span class="chip na">不收录</span></td><td colspan="6">旧版：仇恨熔炉 + 耐力球连放最多 10 个先祖战士图腾，6 件传奇。0.4 仇恨熔炉被削，作者写“它死了，Uber 变体暂时作废”；主树与现行 Uber 只重合 33%。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="gates">
+  <h2>门槛时间线</h2>
+  <ul class="timeline">
+    <li><span class="lv">1–33</span><span>作者升级攻略：锤打击 / 七伤破 / 轰动猛击 → 震波图腾 + 震地 + 火山裂缝 → 锻造之锤；第 1 幕迷雾之王、第 3 幕伊格纳杜克各 +30 精魂。</span></li>
+    <li><span class="lv">~22</span><span>第 1 次升华（第 2 幕）：图腾生命 → 呼求回应（+1 图腾上限、先祖之灵）。</span></li>
+    <li><span class="lv">~38</span><span>第 2 次升华：战争司号的呐喊（无视战吼冷却）；配腐化战吼 I 开始 Leveling 形态。</span></li>
+    <li><span class="lv">52</span><span>先祖战士图腾（等阶 13）可用；洗点点先祖魂约、祭血术；两组武器都拿圣地权杖。</span></li>
+    <li><span class="lv">54–56</span><span>间章：利萨拉 +40 精魂（任务精魂凑满 100）；七柱选塔巴纳的恩惠。</span></li>
+    <li><span class="lv">~60</span><span>第 3 次升华：木垒高筑（原站 Starter 未填，本页按 Endgame 补）；61 级金工塔盾。</span></li>
+    <li><span class="lv">65</span><span>帕夸特的契约可装备（掉落等级 52）：刷 T6+ 封印宝库或祭祀首领伯达克；猎豹的 30% 移速开始出现。</span></li>
+    <li><span class="lv">67–80</span><span>钉头锤 / 施虐者的慈悲 67 级；塔赫亚塔盾 80 级；坚韧战吼 19 级要 147 力。</span></li>
+    <li><span class="lv">~80</span><span>第 4 次升华：青玉传承；帝国巨盔、巨型护手 80 级；盛怒词缀 75 级。</span></li>
+    <li><span class="lv">90</span><span>坚韧战吼 20 级（157 力）；施虐者的慈悲来自谵妄巅峰首领黑鸦欺诈者。</span></li>
+  </ul>
+</section>
+
+<section id="matrix">
+  <h2>四阶段逐部位总览</h2>
+  <p class="small">底材名取 poe2db 简中，冒号后是该件的词缀类别；逐件数值、档次与交易链接见合成页第 7 节。</p>
+  <div class="scroll"><table class="stage-tbl"><thead><tr><th>部位</th><th>① Leveling</th><th>② Starter</th><th>③ Endgame</th><th>④ Uber Endgame</th></tr></thead><tbody>
+<tr><th>武器组 1 主手</th><td>强盗之锤：+近战等级</td><td>圣地权杖</td><td>圣地权杖：精魂%、友军加成、+召唤生物等级</td><td>圣地权杖：精魂%、友军加成、召唤生物生命</td></tr>
+<tr><th>武器组 1 副手</th><td>毁灭雄关（传奇）</td><td>金工塔盾：格挡%、额外物理减免</td><td>塔赫亚塔盾：生命、护甲、护甲%、额外物理减免、护甲作用元素、属性需求-30%</td><td>塔赫亚塔盾：生命、护甲、护甲%、额外物理减免、护甲作用元素、属性需求-30%</td></tr>
+<tr><th>武器组 2 主手</th><td>教徒大锤：攻击附加物理、物理%、+近战等级、攻速</td><td>翠玉战棒：附加物理、物理%、攻速</td><td>施虐者的慈悲（传奇）</td><td>施虐者的慈悲（传奇）</td></tr>
+<tr><th>武器组 2 副手</th><td class="dim">—</td><td>圣地权杖</td><td>圣地权杖：精魂%、友军加成、魔力再生、在场范围</td><td>圣地权杖：精魂%、友军加成、魔力再生、在场范围</td></tr>
+<tr><th>头盔</th><td>胜者桂冠（传奇）</td><td>军官巨盔：生命</td><td>贵族巨盔：生命、稀有度、护甲%、冰抗、暴击率</td><td>帝国巨盔：战吼伤害（盛怒）、生命、护甲%、护甲作用元素、战吼回血（盛怒）、冰抗</td></tr>
+<tr><th>胸甲</th><td class="dim">—</td><td>优雅战铠：生命、精魂</td><td>优雅战铠：生命、护甲、精魂、护甲作用元素、冰抗、生命再生</td><td>华丽战铠：生命、精魂、护甲+护甲%、护甲作用元素、冰抗、生命再生</td></tr>
+<tr><th>手套</th><td>增固护手：+近战等级</td><td>精工护手：+近战等级</td><td>精工护手：攻击附加火焰、生命、护甲%、冰抗、+近战等级、击中回血</td><td>巨型护手：生命、魔力、护甲%、火混抗、冰抗、+近战等级</td></tr>
+<tr><th>鞋子</th><td>青铜胫甲：移速</td><td>坚铁胫甲：移速</td><td>堡垒胫甲：生命、魔力、移速、冰抗、火抗、感电时间</td><td>堡垒胫甲：生命、魔力、移速、冰抗、火抗、感电时间</td></tr>
+<tr><th>项链</th><td>琥珀项链：+近战等级</td><td>日曜项链：精魂</td><td>日曜项链：生命、魔力、精魂、冰抗、火抗、生命再生</td><td>日曜项链：ES%、魔力、精魂、火混抗、火抗、+近战等级</td></tr>
+<tr><th>左戒</th><td class="dim">—</td><td>三相戒指：生命</td><td>红玉戒指：攻击附加火焰、生命、魔力、冰抗、电抗</td><td>紫晶戒指：攻击附加物理、生命、魔力、冰抗、敏捷、火抗</td></tr>
+<tr><th>右戒</th><td class="dim">—</td><td>三相戒指：生命</td><td>紫晶戒指：攻击附加冰霜、生命、魔力、火抗、智慧、生命再生</td><td>紫晶戒指：生命、魔力、命中、全抗、击杀回血、电抗</td></tr>
+<tr><th>腰带</th><td class="dim">—</td><td>嵌板腰带：生命</td><td>嵌板腰带：生命、咒符充能、火抗、力量</td><td>嵌板腰带：药剂回复、生命、魔力、火抗、电抗、晕眩阈值</td></tr>
+<tr><th>药剂</th><td class="dim">—</td><td class="dim">—</td><td>非凡生命药剂</td><td>终极生命药剂</td></tr>
+<tr><th>咒符 1</th><td class="dim">—</td><td class="dim">—</td><td>磐石咒符</td><td>融冰咒符</td></tr>
+<tr><th>咒符 2</th><td class="dim">—</td><td class="dim">—</td><td>抗毒咒符</td><td>根基咒符</td></tr>
+<tr><th>咒符 3</th><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>真银咒符</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="notes">
+  <h2>生成记录</h2>
+  <ul class="small">
+    <li>本目录由 poe2-build-cn 技能的流程生成；<code>_source.json</code> 存的是在浏览器里读出的紧凑摘录（四档现行变体的装备、宝石、天赋选点、两档旧变体摘要、正文与评论、任务奖励、升级攻略要点、poe2db 查询结果），不是整页状态。</li>
+    <li>中英对照一律取 poe2db.tw 的 <code>/cn/</code> 与 <code>/us/</code>；词缀按原站的内部词缀 ID 逐条取 poe2db；交易统计 ID 与主会话的国服统计表逐条核对一致。</li>
+    <li>两档 Outdated 变体没有单独生成，原因写在合成页第 12 节。</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><p>由 poe2-build-cn 技能生成 · 数据截至 2026-09-30 · 原作者 Skadoosh（Mobalytics）</p></footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var labels = {system:'主题：跟随系统', light:'主题：浅色', dark:'主题：深色'};
+  function apply(m){ if (m === 'light' || m === 'dark') root.setAttribute('data-theme', m); else root.removeAttribute('data-theme'); if (btn) btn.textContent = labels[m] || labels.system; }
+  var mode = 'system';
+  try { mode = localStorage.getItem('poe2cn-theme') || 'system'; } catch (e) {}
+  apply(mode);
+  if (btn) btn.addEventListener('click', function(){ mode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'; apply(mode); try { localStorage.setItem('poe2cn-theme', mode); } catch (e) {} });
+})();
+</script>
+</body>
+</html>
